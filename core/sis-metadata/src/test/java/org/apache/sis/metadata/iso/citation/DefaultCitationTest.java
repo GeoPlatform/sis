@@ -193,7 +193,7 @@ public final strictfp class DefaultCitationTest extends XMLTestCase {
                 new DefaultResponsibility(Role.FUNDER,     null, new DefaultIndividual("Robin Hood",  null, contact))
         ));
         c.getDates().add(new DefaultCitationDate(TestUtilities.date("2015-10-17 00:00:00"), DateType.ADOPTED));
-        assertMarshalEqualsFile(XML_FILE, c, Namespaces.ISO_19139, "xlmns:*", "xsi:schemaLocation");
+        assertMarshalEqualsFile(XML_FILE, c, "xlmns:*", "xsi:schemaLocation");
     }
 
     /**
@@ -206,7 +206,7 @@ public final strictfp class DefaultCitationTest extends XMLTestCase {
      */
     @Test
     public void testUnmarshalling() throws JAXBException {
-        final DefaultCitation c = unmarshalFile(DefaultCitation.class, XML_FILE, Namespaces.ISO_19139);
+        final DefaultCitation c = unmarshalFile(DefaultCitation.class, XML_FILE);
         assertTitleEquals("title", "Fight against poverty", c);
 
         final CitationDate date = getSingleton(c.getDates());

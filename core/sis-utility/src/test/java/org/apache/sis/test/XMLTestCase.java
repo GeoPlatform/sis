@@ -16,28 +16,33 @@
  */
 package org.apache.sis.test;
 
-import java.net.URL;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.TimeZone;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
+import static org.apache.sis.test.Assert.assertXmlEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.opengis.test.Assert.assertInstanceOf;
+
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
+
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.JAXBException;
+
 import org.apache.sis.internal.jaxb.Context;
 import org.apache.sis.util.ArgumentChecks;
-import org.apache.sis.util.Version;
 import org.apache.sis.xml.MarshallerPool;
+import org.apache.sis.xml.Namespaces;
 import org.apache.sis.xml.XML;
 import org.junit.After;
-
-import static org.apache.sis.test.Assert.*;
 
 
 /**
@@ -53,8 +58,9 @@ import static org.apache.sis.test.Assert.*;
  * after each test for clearing the SIS internal {@link ThreadLocal} which was holding that context.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.7
+ * @version 0.8
  * @module
  *
  * @see XMLComparator
@@ -191,10 +197,10 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *
      * @see #unmarshalFile(Class, String)
      */
-    protected final void assertMarshalEqualsFile(final String filename, final Object object, final Version metadataVersion,
+    protected final void assertMarshalEqualsFile(final String filename, final Object object,
             final String... ignoredAttributes) throws JAXBException
     {
-        assertXmlEquals(getResource(filename), marshal(object, metadataVersion), ignoredAttributes);
+        assertXmlEquals(getResource(filename), marshal(object), ignoredAttributes);
     }
 
     /**
@@ -213,10 +219,10 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *
      * @since 0.7
      */
-    protected final void assertMarshalEqualsFile(final String filename, final Object object, final Version metadataVersion,
+    protected final void assertMarshalEqualsFile(final String filename, final Object object,
             final double tolerance, final String[] ignoredNodes, final String[] ignoredAttributes) throws JAXBException
     {
-        assertXmlEquals(getResource(filename), marshal(object, metadataVersion), tolerance, ignoredNodes, ignoredAttributes);
+        assertXmlEquals(getResource(filename), marshal(object), tolerance, ignoredNodes, ignoredAttributes);
     }
 
     /**
@@ -228,10 +234,9 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *
      * @see #unmarshal(Class, String)
      */
-    protected final String marshal(final Object object, final Version metadataVersion) throws JAXBException {
+    protected final String marshal(final Object object) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
         final Marshaller marshaller = pool.acquireMarshaller();
-        marshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         final String xml = marshal(marshaller, object);
         pool.recycle(marshaller);
         return xml;
@@ -254,6 +259,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
             buffer = new StringWriter();
         }
         buffer.getBuffer().setLength(0);
+        marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
         marshaller.marshal(object, buffer);
         return buffer.toString();
     }
@@ -271,10 +277,10 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *
      * @see #assertMarshalEqualsFile(String, Object, String...)
      */
-    protected final <T> T unmarshalFile(final Class<T> type, final String filename, final Version metadataVersion) throws JAXBException {
+    protected final <T> T unmarshalFile(final Class<T> type, final String filename) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
-        unmarshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
+        unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
         final Object object = unmarshaller.unmarshal(getResource(filename));
         pool.recycle(unmarshaller);
         assertInstanceOf(filename, type, object);
@@ -292,10 +298,9 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *
      * @see #marshal(Object)
      */
-    protected final <T> T unmarshal(final Class<T> type, final String xml, final Version metadataVersion) throws JAXBException {
+    protected final <T> T unmarshal(final Class<T> type, final String xml) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
-        unmarshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         final Object object = unmarshal(unmarshaller, xml);
         pool.recycle(unmarshaller);
         assertInstanceOf("unmarshal", type, object);
@@ -315,6 +320,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
     protected final Object unmarshal(final Unmarshaller unmarshaller, final String xml) throws JAXBException {
         ArgumentChecks.ensureNonNull("unmarshaller", unmarshaller);
         ArgumentChecks.ensureNonNull("xml", xml);
+        unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
         return unmarshaller.unmarshal(new StringReader(xml));
     }
 

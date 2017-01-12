@@ -16,20 +16,26 @@
  */
 package org.apache.sis.metadata.iso.identification;
 
+import static org.apache.sis.test.Assert.assertXmlEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
 import javax.xml.bind.JAXBException;
-import org.opengis.metadata.identification.RepresentativeFraction;
-import org.apache.sis.xml.XML;
-import org.apache.sis.xml.Namespaces;
+
 import org.apache.sis.internal.jaxb.Context;
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.internal.jaxb.Schemas;
-import org.apache.sis.test.LoggingWatcher;
 import org.apache.sis.test.DependsOn;
+import org.apache.sis.test.LoggingWatcher;
 import org.apache.sis.test.TestCase;
+import org.apache.sis.xml.Namespaces;
+import org.apache.sis.xml.XML;
 import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
-
-import static org.apache.sis.test.Assert.*;
+import org.opengis.metadata.identification.RepresentativeFraction;
 
 
 /**
@@ -152,9 +158,9 @@ public final strictfp class DefaultResolutionTest extends TestCase {
          */
         assertXmlEquals(
                 "<gmd:MD_Resolution xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                                  " xmlns:gco=\"" + Namespaces.GCO + "\">\n" +
+                                  " xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
                 "  <gmd:distance>\n" +
-                "    <gco:Distance uom=\"" + Schemas.METADATA_ROOT_LEGACY + Schemas.UOM_PATH + "#xpointer(//*[@gml:id='m'])\">1000.0</gco:Distance>\n" +
+                "    <gco:Distance uom=\"" + Schemas.METADATA_ROOT + Schemas.UOM_PATH + "#xpointer(//*[@gml:id='m'])\">1000.0</gco:Distance>\n" +
                 "  </gmd:distance>\n" +
                 "</gmd:MD_Resolution>", xml, "xmlns:*");
         /*

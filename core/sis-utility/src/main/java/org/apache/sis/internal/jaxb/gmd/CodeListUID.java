@@ -40,10 +40,11 @@ import org.apache.sis.internal.jaxb.Schemas;
  * This object is wrapped by {@link CodeListAdapter} or, in the special case of {@link Locale} type,
  * by {@link LanguageCode} or {@link Country}.
  *
- * @author  Cédric Briançon (Geomatys)
+ * @author  Cédric Briançon 	(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.7
+ * @version 0.8
  * @module
  *
  * @see CodeListAdapter
@@ -67,13 +68,13 @@ public final class CodeListUID {
 	 */
 	private static String schema(final Context context, final String identifier) {
 		if(MetadataInfo.is2014()) {
-			return Context.schema(context, "mdb", Schemas.METADATA_ROOT)
-					.append(Schemas.CODELISTS_PATH) // Future SIS version may switch between localized/unlocalized file.
+			return Context.schema(context, "mdb", Schemas.METADATA_ROOT_NEW)
+					.append(Schemas.CODELISTS_PATH_NEW) // Future SIS version may switch between localized/unlocalized file.
 					.append('#').append(identifier).toString();
 		}
 		else { // MetadataInfo.is2003()
-			return Context.schema(context, "gmd", Schemas.METADATA_ROOT_LEGACY)
-					.append(Schemas.CODELISTS_PATH_LEGACY) // Future SIS version may switch between localized/unlocalized file.
+			return Context.schema(context, "gmd", Schemas.METADATA_ROOT)
+					.append(Schemas.CODELISTS_PATH) // Future SIS version may switch between localized/unlocalized file.
 					.append('#').append(identifier).toString();
 		}
 	}

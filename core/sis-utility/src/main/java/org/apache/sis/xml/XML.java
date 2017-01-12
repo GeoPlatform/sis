@@ -359,7 +359,6 @@ public final class XML extends Static {
      * case the field may be reset to {@code null} if OSGi modules are loaded or unloaded, so static
      * class initialization would be a little bit too rigid.</div>
      */
-    @SuppressWarnings("DoubleCheckedLocking")
     private static MarshallerPool getPool() throws JAXBException {
         MarshallerPool pool = POOL;
         if (pool == null) {
@@ -385,6 +384,26 @@ public final class XML extends Static {
         final StringWriter output = new StringWriter();
         final MarshallerPool pool = getPool();
         final Marshaller marshaller = pool.acquireMarshaller();
+        marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+        marshaller.marshal(object, output);
+        pool.recycle(marshaller);
+        return output.toString();
+    }
+    
+    /**
+     * Marshall the given object into a string.
+     *
+     * @param  object The root of content tree to be marshalled.
+     * @param  metadataVersion The metadata version to work with.
+     * @return The XML representation of the given object.
+     * @throws JAXBException if an error occurred during the marshalling.
+     */
+    public static String marshal(final Object object, Version metadataVersion) throws JAXBException {
+        ensureNonNull("object", object);
+        final StringWriter output = new StringWriter();
+        final MarshallerPool pool = getPool();
+        final Marshaller marshaller = pool.acquireMarshaller();
+        marshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         marshaller.marshal(object, output);
         pool.recycle(marshaller);
         return output.toString();
@@ -402,6 +421,25 @@ public final class XML extends Static {
         ensureNonNull("output", output);
         final MarshallerPool pool = getPool();
         final Marshaller marshaller = pool.acquireMarshaller();
+        marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+        marshaller.marshal(object, output);
+        pool.recycle(marshaller);
+    }
+    
+    /**
+     * Marshall the given object into a stream.
+     *
+     * @param  object The root of content tree to be marshalled.
+     * @param  output The stream where to write.
+     * @param  metadataVersion The metadata version to work with.
+     * @throws JAXBException if an error occurred during the marshalling.
+     */
+    public static void marshal(final Object object, final OutputStream output, Version metadataVersion) throws JAXBException {
+        ensureNonNull("object", object);
+        ensureNonNull("output", output);
+        final MarshallerPool pool = getPool();
+        final Marshaller marshaller = pool.acquireMarshaller();
+        marshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         marshaller.marshal(object, output);
         pool.recycle(marshaller);
     }
@@ -418,6 +456,25 @@ public final class XML extends Static {
         ensureNonNull("output", output);
         final MarshallerPool pool = getPool();
         final Marshaller marshaller = pool.acquireMarshaller();
+        marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+        marshaller.marshal(object, output);
+        pool.recycle(marshaller);
+    }
+    
+    /**
+     * Marshall the given object into a file.
+     *
+     * @param  object The root of content tree to be marshalled.
+     * @param  output The file to be written.
+     * @param  metadataVersion The metadata version to work with. 
+     * @throws JAXBException if an error occurred during the marshalling.
+     */
+    public static void marshal(final Object object, final File output, Version metadataVersion) throws JAXBException {
+        ensureNonNull("object", object);
+        ensureNonNull("output", output);
+        final MarshallerPool pool = getPool();
+        final Marshaller marshaller = pool.acquireMarshaller();
+        marshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         marshaller.marshal(object, output);
         pool.recycle(marshaller);
     }
@@ -435,6 +492,28 @@ public final class XML extends Static {
         try (OutputStream out = Files.newOutputStream(output, StandardOpenOption.CREATE, StandardOpenOption.WRITE)) {
             final MarshallerPool pool = getPool();
             final Marshaller marshaller = pool.acquireMarshaller();
+            marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+            marshaller.marshal(object, out);
+            pool.recycle(marshaller);
+        } catch (IOException e) {
+            throw new JAXBException(Errors.format(Errors.Keys.CanNotOpen_1, output), e);
+        }
+    }
+    /**
+     * Marshall the given object into a path.
+     *
+     * @param  object The root of content tree to be marshalled.
+     * @param  output The file to be written.
+     * @param  metadataVersion The metadata version to work with. 
+     * @throws JAXBException if an error occurred during the marshalling.
+     */
+    public static void marshal(final Object object, final Path output, Version metadataVersion) throws JAXBException {
+        ensureNonNull("object", object);
+        ensureNonNull("output", output);
+        try (OutputStream out = Files.newOutputStream(output, StandardOpenOption.CREATE, StandardOpenOption.WRITE)) {
+            final MarshallerPool pool = getPool();
+            final Marshaller marshaller = pool.acquireMarshaller();
+            marshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
             marshaller.marshal(object, out);
             pool.recycle(marshaller);
         } catch (IOException e) {
@@ -473,7 +552,7 @@ public final class XML extends Static {
     }
 
     /**
-     * Unmarshall an object from the given string.
+     * Unmarshal an object from the given string.
      * Note that the given argument is the XML document itself,
      * <strong>not</strong> a URL to a XML document.
      *
@@ -486,13 +565,35 @@ public final class XML extends Static {
         final StringReader in = new StringReader(xml);
         final MarshallerPool pool = getPool();
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+        final Object object = unmarshaller.unmarshal(in);
+        pool.recycle(unmarshaller);
+        return object;
+    }
+    
+    /**
+     * Unmarshal an object from the given string.
+     * Note that the given argument is the XML document itself,
+     * <strong>not</strong> a URL to a XML document.
+     *
+     * @param  xml The XML representation of an object.
+     * @param  metadataVersion The metadata version to work with. 
+     * @return The object unmarshalled from the given input.
+     * @throws JAXBException if an error occurred during the unmarshalling.
+     */
+    public static Object unmarshal(final String xml, Version metadataVersion) throws JAXBException {
+        ensureNonNull("input", xml);
+        final StringReader in = new StringReader(xml);
+        final MarshallerPool pool = getPool();
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         final Object object = unmarshaller.unmarshal(in);
         pool.recycle(unmarshaller);
         return object;
     }
 
     /**
-     * Unmarshall an object from the given stream.
+     * Unmarshal an object from the given stream.
      *
      * @param  input The stream from which to read a XML representation.
      * @return The object unmarshalled from the given input.
@@ -502,13 +603,32 @@ public final class XML extends Static {
         ensureNonNull("input", input);
         final MarshallerPool pool = getPool();
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+        final Object object = unmarshaller.unmarshal(input);
+        pool.recycle(unmarshaller);
+        return object;
+    }
+    
+    /**
+     * Unmarshal an object from the given stream.
+     *
+     * @param  input The stream from which to read a XML representation.
+     * @param  metadataVersion The metadata version to work with. 
+     * @return The object unmarshalled from the given input.
+     * @throws JAXBException if an error occurred during the unmarshalling.
+     */
+    public static Object unmarshal(final InputStream input, Version metadataVersion) throws JAXBException {
+        ensureNonNull("input", input);
+        final MarshallerPool pool = getPool();
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         final Object object = unmarshaller.unmarshal(input);
         pool.recycle(unmarshaller);
         return object;
     }
 
     /**
-     * Unmarshall an object from the given URL.
+     * Unmarshal an object from the given URL.
      *
      * @param  input The URL from which to read a XML representation.
      * @return The object unmarshalled from the given input.
@@ -518,13 +638,32 @@ public final class XML extends Static {
         ensureNonNull("input", input);
         final MarshallerPool pool = getPool();
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+        final Object object = unmarshaller.unmarshal(input);
+        pool.recycle(unmarshaller);
+        return object;
+    }
+    
+    /**
+     * Unmarshal an object from the given URL.
+     *
+     * @param  input The URL from which to read a XML representation.
+     * @param  metadataVersion The metadata version to work with. 
+     * @return The object unmarshalled from the given input.
+     * @throws JAXBException if an error occurred during the unmarshalling.
+     */
+    public static Object unmarshal(final URL input, Version metadataVersion) throws JAXBException {
+        ensureNonNull("input", input);
+        final MarshallerPool pool = getPool();
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         final Object object = unmarshaller.unmarshal(input);
         pool.recycle(unmarshaller);
         return object;
     }
 
     /**
-     * Unmarshall an object from the given file.
+     * Unmarshal an object from the given file.
      *
      * @param  input The file from which to read a XML representation.
      * @return The object unmarshalled from the given input.
@@ -534,13 +673,32 @@ public final class XML extends Static {
         ensureNonNull("input", input);
         final MarshallerPool pool = getPool();
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+        final Object object = unmarshaller.unmarshal(input);
+        pool.recycle(unmarshaller);
+        return object;
+    }
+    
+    /**
+     * Unmarshal an object from the given file.
+     *
+     * @param  input The file from which to read a XML representation.
+     * @param  metadataVersion The metadata version to work with. 
+     * @return The object unmarshalled from the given input.
+     * @throws JAXBException if an error occurred during the unmarshalling.
+     */
+    public static Object unmarshal(final File input, Version metadataVersion) throws JAXBException {
+        ensureNonNull("input", input);
+        final MarshallerPool pool = getPool();
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         final Object object = unmarshaller.unmarshal(input);
         pool.recycle(unmarshaller);
         return object;
     }
 
     /**
-     * Unmarshall an object from the given path.
+     * Unmarshal an object from the given path.
      *
      * @param  input The path from which to read a XML representation.
      * @return The object unmarshalled from the given input.
@@ -552,6 +710,30 @@ public final class XML extends Static {
         try (InputStream in = Files.newInputStream(input, StandardOpenOption.READ)) {
             final MarshallerPool pool = getPool();
             final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+            unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+            object = unmarshaller.unmarshal(in);
+            pool.recycle(unmarshaller);
+        } catch (IOException e) {
+            throw new JAXBException(Errors.format(Errors.Keys.CanNotRead_1, input), e);
+        }
+        return object;
+    }
+    
+    /**
+     * Unmarshal an object from the given path.
+     *
+     * @param  input The path from which to read a XML representation.
+     * @param  metadataVersion The metadata version to work with.
+     * @return The object unmarshalled from the given input.
+     * @throws JAXBException if an error occurred during the unmarshalling.
+     */
+    public static Object unmarshal(final Path input, Version metadataVersion) throws JAXBException {
+        ensureNonNull("input", input);
+        final Object object;
+        try (InputStream in = Files.newInputStream(input, StandardOpenOption.READ)) {
+            final MarshallerPool pool = getPool();
+            final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+            unmarshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
             object = unmarshaller.unmarshal(in);
             pool.recycle(unmarshaller);
         } catch (IOException e) {
@@ -561,7 +743,7 @@ public final class XML extends Static {
     }
 
     /**
-     * Unmarshall an object from the given stream, DOM or other sources.
+     * Unmarshal an object from the given stream, DOM or other sources.
      * This is the most flexible unmarshalling method provided in this {@code XML} class.
      * The source is specified by the {@code input} argument implementation, for example
      * {@link javax.xml.transform.stream.StreamSource} for reading from a file or input stream.

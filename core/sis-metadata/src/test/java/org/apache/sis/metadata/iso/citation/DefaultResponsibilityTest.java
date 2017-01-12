@@ -48,7 +48,7 @@ public final strictfp class DefaultResponsibilityTest extends XMLTestCase {
         final DefaultResponsibility  r = new DefaultResponsibility(Role.AUTHOR, null, party);
         final DefaultCitation citation = new DefaultCitation();
         citation.setCitedResponsibleParties(singleton(r));
-        final String xml = marshal(citation, Namespaces.ISO_19139);
+        final String xml = marshal(citation);
         assertXmlEquals("<gmd:CI_Citation xmlns:gco=\"" + LegacyNamespaces.GCO + '"' +
                                         " xmlns:gmd=\"" + Namespaces.GMD + "\">\n" +
                 "  <gmd:citedResponsibleParty>\n" +

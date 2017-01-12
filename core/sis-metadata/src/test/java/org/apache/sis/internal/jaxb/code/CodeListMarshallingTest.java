@@ -16,25 +16,28 @@
  */
 package org.apache.sis.internal.jaxb.code;
 
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.Collections;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.JAXBException;
-import org.opengis.metadata.citation.Role;
-import org.opengis.metadata.citation.DateType;
-import org.opengis.metadata.citation.CitationDate;
-import org.opengis.metadata.citation.Responsibility;
-import org.opengis.metadata.citation.PresentationForm;
-import org.apache.sis.metadata.iso.citation.DefaultCitation;
-import org.apache.sis.internal.jaxb.Schemas;
-import org.apache.sis.xml.XML;
-import org.apache.sis.xml.Namespaces;
-import org.apache.sis.xml.MarshallerPool;
-import org.apache.sis.test.XMLTestCase;
-import org.junit.Test;
+import static org.apache.sis.test.Assert.assertXmlEquals;
+import static org.junit.Assert.assertEquals;
 
-import static org.apache.sis.test.Assert.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Locale;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import org.apache.sis.internal.jaxb.Schemas;
+import org.apache.sis.metadata.iso.citation.DefaultCitation;
+import org.apache.sis.test.XMLTestCase;
+import org.apache.sis.xml.MarshallerPool;
+import org.apache.sis.xml.Namespaces;
+import org.apache.sis.xml.XML;
+import org.junit.Test;
+import org.opengis.metadata.citation.CitationDate;
+import org.opengis.metadata.citation.DateType;
+import org.opengis.metadata.citation.PresentationForm;
+import org.opengis.metadata.citation.Responsibility;
+import org.opengis.metadata.citation.Role;
 
 
 /**

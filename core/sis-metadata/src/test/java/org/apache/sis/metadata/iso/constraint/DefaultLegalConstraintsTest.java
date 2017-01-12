@@ -84,6 +84,7 @@ public final strictfp class DefaultLegalConstraintsTest extends XMLTestCase impl
     private DefaultLegalConstraints unmarshal(final String xml) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
         unmarshaller.setProperty(XML.WARNING_LISTENER, this);
         final Object c = unmarshal(unmarshaller, xml);
         pool.recycle(unmarshaller);
