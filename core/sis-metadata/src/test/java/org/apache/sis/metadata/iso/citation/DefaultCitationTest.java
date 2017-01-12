@@ -16,13 +16,11 @@
  */
 package org.apache.sis.metadata.iso.citation;
 
-import static org.apache.sis.test.MetadataAssert.assertTitleEquals;
 import static org.apache.sis.test.TestUtilities.getSingleton;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.Iterator;
 
@@ -33,7 +31,6 @@ import org.apache.sis.test.XMLTestCase;
 import org.apache.sis.util.iso.SimpleInternationalString;
 import org.apache.sis.xml.IdentifierSpace;
 import org.apache.sis.xml.Namespaces;
-import org.apache.sis.xml.XML;
 import org.junit.Test;
 import org.opengis.metadata.citation.CitationDate;
 import org.opengis.metadata.citation.Contact;
@@ -59,12 +56,10 @@ public final strictfp class DefaultCitationTest extends XMLTestCase {
     private static final String XML_FILE = "Citation.xml";
 
     /**
-     * Tests XML marshalling using the format derived form ISO 19115:2003 model.
+     * Tests XML marshalling.
      * This method also tests usage of {@code gml:id} and {@code xlink:href}.
      *
      * @throws JAXBException if an error occurred during marshalling.
-     *
-     * @since 0.7
      */
     @Test
     public void testMarshalling() throws JAXBException {
@@ -77,21 +72,20 @@ public final strictfp class DefaultCitationTest extends XMLTestCase {
                 new DefaultResponsibility(Role.FUNDER,     null, new DefaultIndividual("Robin Hood",  null, contact))
         ));
         c.getDates().add(new DefaultCitationDate(TestUtilities.date("2015-10-17 00:00:00"), DateType.ADOPTED));
+        // Check that XML file built by the marshaller is the same as the example file.
         assertMarshalEqualsFile(XML_FILE, c, Namespaces.ISO_19115_3, "xlmns:*", "xsi:schemaLocation");
     }
 
     /**
-     * Tests XML unmarshalling using the format derived form ISO 19115:2003 model.
+     * Tests XML unmarshalling.
      * This method also tests usage of {@code gml:id} and {@code xlink:href}.
      *
      * @throws JAXBException if an error occurred during unmarshalling.
-     *
-     * @since 0.7
      */
     @Test
     public void testUnmarshalling() throws JAXBException {
         final DefaultCitation c = unmarshalFile(DefaultCitation.class, XML_FILE, Namespaces.ISO_19115_3);
-        assertTitleEquals("title", "Fight against poverty", c);
+        assertEquals("title", c.getTitle().toString(), "Fight against poverty");
 
         final CitationDate date = getSingleton(c.getDates());
         assertEquals("date", date.getDate(), TestUtilities.date("2015-10-17 00:00:00"));
@@ -101,7 +95,7 @@ public final strictfp class DefaultCitationTest extends XMLTestCase {
         final Contact contact = assertResponsibilityEquals(Role.ORIGINATOR, "Maid Marian", it.next());
         assertEquals("Contact instruction", "Send carrier pigeon.", contact.getContactInstructions().toString());
 
-        // Thanks to xlink:href, the Contact shall be the same instance than above.
+        // Thanks to xlink:href, the Contact shall be the same instance as above.
         assertSame("contact", contact, assertResponsibilityEquals(Role.FUNDER, "Robin Hood", it.next()));
         assertFalse(it.hasNext());
     }
