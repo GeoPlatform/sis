@@ -16,28 +16,34 @@
  */
 package org.apache.sis.internal.jaxb.gmd;
 
-import java.util.Map;
+import static org.apache.sis.internal.util.StandardDateFormat.UTC;
+import static org.apache.sis.test.Assert.assertXmlEquals;
+import static org.apache.sis.test.TestUtilities.getSingleton;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import java.util.HashMap;
 import java.util.Locale;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+import java.util.Map;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import org.opengis.metadata.Metadata;
-import org.apache.sis.xml.XML;
-import org.apache.sis.xml.Namespaces;
-import org.apache.sis.xml.MarshallerPool;
-import org.apache.sis.internal.jaxb.Schemas;
-import org.apache.sis.test.XMLTestCase;
-import org.apache.sis.test.DependsOnMethod;
-import org.apache.sis.test.mock.MetadataMock;
-import org.junit.BeforeClass;
-import org.junit.AfterClass;
-import org.junit.Test;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
-import static org.apache.sis.test.Assert.*;
-import static org.apache.sis.test.TestUtilities.getSingleton;
-import static org.apache.sis.internal.util.StandardDateFormat.UTC;
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
+import org.apache.sis.internal.jaxb.Schemas;
+import org.apache.sis.test.DependsOnMethod;
+import org.apache.sis.test.XMLTestCase;
+import org.apache.sis.test.mock.MetadataMock;
+import org.apache.sis.xml.MarshallerPool;
+import org.apache.sis.xml.Namespaces;
+import org.apache.sis.xml.XML;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.opengis.metadata.Metadata;
 
 
 /**
@@ -113,7 +119,7 @@ public final strictfp class LanguageCodeTest extends XMLTestCase {
     private static String getMetadataXML(final String languageCode) {
         return "<gmd:MD_Metadata" +
                " xmlns:gmd=\"" + Namespaces.GMD + '"' +
-               " xmlns:gco=\"" + Namespaces.GCO + "\">\n" +
+               " xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
                "  <gmd:language>\n" +
                "    " + languageCode + '\n' +
                "  </gmd:language>\n" +
