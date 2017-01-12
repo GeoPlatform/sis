@@ -39,6 +39,7 @@ import javax.xml.bind.Unmarshaller;
 
 import org.apache.sis.internal.jaxb.Context;
 import org.apache.sis.util.ArgumentChecks;
+import org.apache.sis.util.Version;
 import org.apache.sis.xml.MarshallerPool;
 import org.apache.sis.xml.Namespaces;
 import org.apache.sis.xml.XML;
@@ -202,6 +203,24 @@ public abstract strictfp class XMLTestCase extends TestCase {
     {
         assertXmlEquals(getResource(filename), marshal(object), ignoredAttributes);
     }
+    
+    /**
+     * Marshals the given object and ensure that the result is equals to the content of the given file.
+     *
+     * @param  filename The name of the XML file in the package of the final subclass of {@code this}.
+     * @param  object The object to marshal.
+     * @param  metadataVersion The metadata version being worked with.
+     * @param  ignoredAttributes The fully-qualified names of attributes to ignore
+     *         (typically {@code "xmlns:*"} and {@code "xsi:schemaLocation"}).
+     * @throws JAXBException If an error occurred during marshalling.
+     *
+     * @see #unmarshalFile(Class, String)
+     */
+    protected final void assertMarshalEqualsFile(final String filename, final Object object, Version metadataVersion,
+            final String... ignoredAttributes) throws JAXBException
+    {
+        assertXmlEquals(getResource(filename), marshal(object, metadataVersion), ignoredAttributes);
+    }
 
     /**
      * Marshals the given object and ensure that the result is equals to the content of the given file,
@@ -224,6 +243,29 @@ public abstract strictfp class XMLTestCase extends TestCase {
     {
         assertXmlEquals(getResource(filename), marshal(object), tolerance, ignoredNodes, ignoredAttributes);
     }
+    
+    /**
+     * Marshals the given object and ensure that the result is equals to the content of the given file,
+     * within a tolerance threshold for numerical values.
+     *
+     * @param  filename The name of the XML file in the package of the final subclass of {@code this}.
+     * @param  object The object to marshal.
+     * @param  metadataVersion The metadata version being worked with.
+     * @param  tolerance The tolerance threshold for comparison of numerical values.
+     * @param  ignoredNodes The fully-qualified names of the nodes to ignore, or {@code null} if none.
+     * @param  ignoredAttributes The fully-qualified names of attributes to ignore
+     *         (typically {@code "xmlns:*"} and {@code "xsi:schemaLocation"}).
+     * @throws JAXBException If an error occurred during marshalling.
+     *
+     * @see #unmarshalFile(Class, String)
+     *
+     * @since 0.7
+     */
+    protected final void assertMarshalEqualsFile(final String filename, final Object object, Version metadataVersion,
+            final double tolerance, final String[] ignoredNodes, final String[] ignoredAttributes) throws JAXBException
+    {
+        assertXmlEquals(getResource(filename), marshal(object, metadataVersion), tolerance, ignoredNodes, ignoredAttributes);
+    }
 
     /**
      * Marshals the given object using the {@linkplain #getMarshallerPool() test marshaller pool}.
@@ -237,7 +279,25 @@ public abstract strictfp class XMLTestCase extends TestCase {
     protected final String marshal(final Object object) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
         final Marshaller marshaller = pool.acquireMarshaller();
-        final String xml = marshal(marshaller, object);
+        final String xml = marshal(marshaller, object, Namespaces.ISO_19139);
+        pool.recycle(marshaller);
+        return xml;
+    }
+    
+    /**
+     * Marshals the given object using the {@linkplain #getMarshallerPool() test marshaller pool}.
+     *
+     * @param  object The object to marshal.
+     * @param  metadataVersion The metadata version being worked with.
+     * @return The marshalled object.
+     * @throws JAXBException If an error occurred while marshalling the object.
+     *
+     * @see #unmarshal(Class, String)
+     */
+    protected final String marshal(final Object object, Version metadataVersion) throws JAXBException {
+        final MarshallerPool pool = getMarshallerPool();
+        final Marshaller marshaller = pool.acquireMarshaller();
+        final String xml = marshal(marshaller, object, metadataVersion);
         pool.recycle(marshaller);
         return xml;
     }
@@ -260,6 +320,29 @@ public abstract strictfp class XMLTestCase extends TestCase {
         }
         buffer.getBuffer().setLength(0);
         marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+        marshaller.marshal(object, buffer);
+        return buffer.toString();
+    }
+    
+    /**
+     * Marshals the given object using the given marshaler.
+     *
+     * @param  marshaller The marshaller to use.
+     * @param  object The object to marshal.
+     * @param  metadataVersion The metadata version being worked with.
+     * @return The marshalled object.
+     * @throws JAXBException If an error occurred while marshalling the object.
+     *
+     * @see #unmarshal(Unmarshaller, String)
+     */
+    protected final String marshal(final Marshaller marshaller, final Object object, Version metadataVersion) throws JAXBException {
+        ArgumentChecks.ensureNonNull("marshaller", marshaller);
+        ArgumentChecks.ensureNonNull("object", object);
+        if (buffer == null) {
+            buffer = new StringWriter();
+        }
+        buffer.getBuffer().setLength(0);
+        marshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         marshaller.marshal(object, buffer);
         return buffer.toString();
     }
@@ -286,6 +369,30 @@ public abstract strictfp class XMLTestCase extends TestCase {
         assertInstanceOf(filename, type, object);
         return type.cast(object);
     }
+    
+    /**
+     * Unmarshals the content of the given test file using the {@linkplain #getMarshallerPool() test marshaller pool}.
+     * The resource is obtained by a call to {@code getClass().getResource(filename)}, which implies that the file
+     * shall be in the same package than the subclass of {@code this}.
+     *
+     * @param  <T>  Compile-time type of {@code type} argument.
+     * @param  type The expected type of the unmarshalled object.
+     * @param  filename The name of the XML file in the package of the final subclass of {@code this}.
+     * @param  metadataVersion The metadata version being worked with.
+     * @return The object unmarshalled from the given file.
+     * @throws JAXBException If an error occurred during unmarshalling.
+     *
+     * @see #assertMarshalEqualsFile(String, Object, String...)
+     */
+    protected final <T> T unmarshalFile(final Class<T> type, final String filename, Version metadataVersion) throws JAXBException {
+        final MarshallerPool pool = getMarshallerPool();
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
+        final Object object = unmarshaller.unmarshal(getResource(filename));
+        pool.recycle(unmarshaller);
+        assertInstanceOf(filename, type, object);
+        return type.cast(object);
+    }
 
     /**
      * Unmarshals the given object using the {@linkplain #getMarshallerPool() test marshaller pool}.
@@ -301,7 +408,28 @@ public abstract strictfp class XMLTestCase extends TestCase {
     protected final <T> T unmarshal(final Class<T> type, final String xml) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
-        final Object object = unmarshal(unmarshaller, xml);
+        final Object object = unmarshal(unmarshaller, xml, Namespaces.ISO_19139);
+        pool.recycle(unmarshaller);
+        assertInstanceOf("unmarshal", type, object);
+        return type.cast(object);
+    }
+    
+    /**
+     * Unmarshals the given object using the {@linkplain #getMarshallerPool() test marshaller pool}.
+     *
+     * @param  <T>  Compile-time type of {@code type} argument.
+     * @param  type The expected type of the unmarshalled object.
+     * @param  xml  The XML representation of the object to unmarshal.
+     * @param  metadataVersion The metadata version being worked with.
+     * @return The unmarshalled object.
+     * @throws JAXBException If an error occurred while unmarshalling the XML.
+     *
+     * @see #marshal(Object)
+     */
+    protected final <T> T unmarshal(final Class<T> type, final String xml, Version metadataVersion) throws JAXBException {
+        final MarshallerPool pool = getMarshallerPool();
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        final Object object = unmarshal(unmarshaller, xml, metadataVersion);
         pool.recycle(unmarshaller);
         assertInstanceOf("unmarshal", type, object);
         return type.cast(object);
@@ -321,6 +449,24 @@ public abstract strictfp class XMLTestCase extends TestCase {
         ArgumentChecks.ensureNonNull("unmarshaller", unmarshaller);
         ArgumentChecks.ensureNonNull("xml", xml);
         unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+        return unmarshaller.unmarshal(new StringReader(xml));
+    }
+    
+    /**
+     * Unmarshals the given XML using the given unmarshaller.
+     *
+     * @param  unmarshaller The unmarshaller to use.
+     * @param  xml The XML representation of the object to unmarshal.
+     * @param  metadataVersion The metadata version being worked with.
+     * @return The unmarshalled object.
+     * @throws JAXBException If an error occurred while unmarshalling the XML.
+     *
+     * @see #marshal(Marshaller, Object)
+     */
+    protected final Object unmarshal(final Unmarshaller unmarshaller, final String xml, Version metadataVersion) throws JAXBException {
+        ArgumentChecks.ensureNonNull("unmarshaller", unmarshaller);
+        ArgumentChecks.ensureNonNull("xml", xml);
+        unmarshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         return unmarshaller.unmarshal(new StringReader(xml));
     }
 

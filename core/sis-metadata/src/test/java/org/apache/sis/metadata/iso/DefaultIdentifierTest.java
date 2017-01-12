@@ -36,7 +36,7 @@ import static org.apache.sis.test.MetadataAssert.*;
  * @version 0.4
  * @module
  */
-@DependsOn(org.apache.sis.metadata.iso.citation.DefaultCitationTest.class)
+@DependsOn(org.apache.sis.metadata.iso.citation.DefaultCitationTestLegacy.class)
 public final strictfp class DefaultIdentifierTest extends XMLTestCase {
     /**
      * The expected XML representation for this test.

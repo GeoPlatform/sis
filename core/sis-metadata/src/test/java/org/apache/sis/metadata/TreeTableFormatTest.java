@@ -25,7 +25,7 @@ import org.apache.sis.util.iso.SimpleInternationalString;
 import org.apache.sis.metadata.iso.content.DefaultBand;
 import org.apache.sis.metadata.iso.content.DefaultImageDescription;
 import org.apache.sis.metadata.iso.citation.DefaultCitation;
-import org.apache.sis.metadata.iso.citation.DefaultCitationTest;
+import org.apache.sis.metadata.iso.citation.DefaultCitationTestLegacy;
 import org.apache.sis.metadata.iso.citation.DefaultResponsibility;
 import org.apache.sis.metadata.iso.content.DefaultAttributeGroup;
 import org.apache.sis.metadata.iso.identification.DefaultDataIdentification;
@@ -79,7 +79,7 @@ public final strictfp class TreeTableFormatTest extends TestCase {
      */
     @Test
     public void testCitation() {
-        final DefaultCitation citation = DefaultCitationTest.create();
+        final DefaultCitation citation = DefaultCitationTestLegacy.create();
         final String text = format.format(citation.asTreeTable());
         assertMultilinesEquals(
             "Citation\n" +
