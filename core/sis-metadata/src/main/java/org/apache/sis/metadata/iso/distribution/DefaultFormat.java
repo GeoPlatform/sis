@@ -461,7 +461,6 @@ public class DefaultFormat extends ISOMetadata implements Format {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "medium")
     public Collection<Medium> getMedia() {
         return media = nonNullCollection(media, Medium.class);
     }

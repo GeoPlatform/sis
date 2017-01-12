@@ -349,6 +349,7 @@ couplingType|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/srv/
 credit|MD_DataIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 credit|MD_Identification|http://standards.iso.org/iso/19115/-3/mri/1.0
 credit|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
+currency|MD_StandardOrderProcess|http://standards.iso.org/iso/19115/-3/mrd/1.0
 dataQualityInfo|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 dataQualityInfo|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 dataSetURI|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
@@ -406,6 +407,7 @@ description|LE_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 description|LI_ProcessStep|http://standards.iso.org/iso/19115/-3/mrl/1.0
 description|LI_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 description|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
+description|MD_Distribution|http://standards.iso.org/iso/19115/-3/mrd/1.0
 description|MD_Identifier|http://standards.iso.org/iso/19115/-3/mcc/1.0
 description|MD_RangeDimension|http://standards.iso.org/iso/19115/-3/mrc/1.0
 description|MD_SampleDimension|http://standards.iso.org/iso/19115/-3/mrc/1.0
@@ -591,6 +593,7 @@ identificationInfo|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 identifiedIssues|MD_Usage|http://standards.iso.org/iso/19115/-3/mri/1.0
 identifier|CI_Citation|http://standards.iso.org/iso/19115/-3/cit/1.0
 identifier|LE_Processing|http://www.isotc211.org/2005/gmi
+identifier|MD_Medium|http://standards.iso.org/iso/19115/-3/mrd/1.0
 identifier|MI_Event|http://standards.iso.org/iso/19115/-3/mac/1.0
 identifier|MI_Instrument|http://standards.iso.org/iso/19115/-3/mac/1.0
 identifier|MI_Objective|http://standards.iso.org/iso/19115/-3/mac/1.0
@@ -801,6 +804,8 @@ operation|MI_Plan|http://standards.iso.org/iso/19115/-3/mac/1.0
 operation|SV_CoupledResource|http://standards.iso.org/iso/19115/-3/srv/2.0
 operation|SV_OperationChainMetadata|http://standards.iso.org/iso/19115/-3/srv/2.0
 optionality|SV_Parameter|http://standards.iso.org/iso/19115/-3/srv/2.0
+orderOptionType|MD_StandardOrderProcess|http://standards.iso.org/iso/19115/-3/mrd/1.0
+orderOptions|MD_StandardOrderProcess|http://standards.iso.org/iso/19115/-3/mrd/1.0
 orderingInstructions|MD_StandardOrderProcess|http://standards.iso.org/iso/19115/-3/mrd/1.0
 organisationName|CI_ResponsibleParty|http://standards.iso.org/iso/19115/-3/cit/1.0
 orientationParameterAvailability|MD_Georeferenceable|http://standards.iso.org/iso/19115/-3/msr/1.0

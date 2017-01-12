@@ -16,24 +16,28 @@
  */
 package org.apache.sis.metadata.iso.distribution;
 
+import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
+
 import java.util.AbstractSet;
 import java.util.Collection;
 import java.util.Iterator;
+
 import javax.measure.Unit;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.InternationalString;
-import org.opengis.metadata.Identifier;
-import org.opengis.metadata.distribution.Medium;
-import org.opengis.metadata.distribution.MediumName;
-import org.opengis.metadata.distribution.MediumFormat;
-import org.apache.sis.measure.ValueRange;
-import org.apache.sis.metadata.iso.ISOMetadata;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.jaxb.NonMarshalledAuthority;
 import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
-
-import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.measure.ValueRange;
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.opengis.metadata.Identifier;
+import org.opengis.metadata.distribution.Medium;
+import org.opengis.metadata.distribution.MediumFormat;
+import org.opengis.metadata.distribution.MediumName;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -49,15 +53,18 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_Medium_Type", propOrder = {
+	"xmlIdentifier"	,		// ISO 19115-3
     "name",
-    "densities",
+    "xmlDensity",			// ISO 19115-3
+    "xmlDensities",			// ISO 19139
     "densityUnits",
     "volumes",
     "mediumFormats",
@@ -211,6 +218,24 @@ public class DefaultMedium extends ISOMetadata implements Medium {
             density = newValue;
         }
     }
+    
+    /**
+	 * Gets the density. Used by JAXB. (used in ISO 19115-3 format)
+	 * @see {@link #getDensity}
+	 */
+	@XmlElement(name = "density")
+	private Double getXmlDensity() {
+		return MetadataInfo.is2003() ? null : getDensity();
+	}
+
+	/**
+	 * Sets the density. Used by JAXB. (used in ISO 19115-3 format)
+	 * @see {@link #setDensity}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlDensity(final Double newValue) {
+		setDensity(newValue);
+	}
 
     /**
      * @deprecated As of ISO 19115:2014, replaced by {@link #getDensity()}.
@@ -219,7 +244,6 @@ public class DefaultMedium extends ISOMetadata implements Medium {
      */
     @Override
     @Deprecated
-    @XmlElement(name = "density")
     public Collection<Double> getDensities() {
         return new AbstractSet<Double>() {
             /** Returns 0 if empty, or 1 if a density has been specified. */
@@ -254,6 +278,18 @@ public class DefaultMedium extends ISOMetadata implements Medium {
     public void setDensities(final Collection<? extends Double> newValues) {
         setDensity(LegacyPropertyAdapter.getSingleton(newValues, Double.class, null, DefaultMedium.class, "setDensities"));
     }
+    
+    /**
+	 * Gets the density. Used by JAXB. (used in ISO 19139 format)
+	 * @see {@link #getDensities}
+	 */
+	@XmlElement(name = "density")
+	private Collection<Double> getXmlDensities() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getDensities();
+		}
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(Double.class) : getDensities();
+	}
 
     /**
      * Returns the units of measure for the recording density.
@@ -350,7 +386,6 @@ public class DefaultMedium extends ISOMetadata implements Medium {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "identifier")
     public Identifier getIdentifier() {
         return NonMarshalledAuthority.getMarshallable(identifiers);
     }
@@ -367,4 +402,22 @@ public class DefaultMedium extends ISOMetadata implements Medium {
         identifiers = nonNullCollection(identifiers, Identifier.class);
         NonMarshalledAuthority.setMarshallable(identifiers, newValue);
     }
+    
+    /**
+	 * Gets the density. Used by JAXB. (used in ISO 19115-3 format)
+	 * @see {@link #getIdentifier}
+	 */
+	@XmlElement(name = "identifier")
+	private Identifier getXmlIdentifier() {
+		return MetadataInfo.is2003() ? null : getIdentifier();
+	}
+
+	/**
+	 * Sets the density. Used by JAXB. (used in ISO 19115-3 format)
+	 * @see {@link #setIdentifier}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlIdentifier(final Identifier newValue) {
+		setIdentifier(newValue);
+	}
 }

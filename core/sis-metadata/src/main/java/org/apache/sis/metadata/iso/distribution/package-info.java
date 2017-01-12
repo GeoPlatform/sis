@@ -85,6 +85,7 @@
     @XmlJavaTypeAdapter(MD_DigitalTransferOptions.class),
     @XmlJavaTypeAdapter(MD_Distributor.class),
     @XmlJavaTypeAdapter(MD_Format.class),
+    @XmlJavaTypeAdapter(MD_Identifier.class),
     @XmlJavaTypeAdapter(MD_Medium.class),
     @XmlJavaTypeAdapter(MD_MediumFormatCode.class),
     @XmlJavaTypeAdapter(MD_MediumNameCode.class),
@@ -98,6 +99,8 @@
     @XmlJavaTypeAdapter(UnitAdapter.class),
     @XmlJavaTypeAdapter(InternationalStringAdapter.class),
     @XmlJavaTypeAdapter(GO_LocalName.class),
+    @XmlJavaTypeAdapter(GO_Record.class),
+    @XmlJavaTypeAdapter(GO_RecordType.class),
     @XmlJavaTypeAdapter(GO_DateTime.class),
     @XmlJavaTypeAdapter(GO_Integer.class), @XmlJavaTypeAdapter(type=int.class,    value=GO_Integer.class),
     @XmlJavaTypeAdapter(GO_Real.class),    @XmlJavaTypeAdapter(type=double.class, value=GO_Real.class)
@@ -119,6 +122,8 @@ import org.apache.sis.internal.jaxb.gco.GO_DateTime;
 import org.apache.sis.internal.jaxb.gco.GO_Integer;
 import org.apache.sis.internal.jaxb.gco.GO_LocalName;
 import org.apache.sis.internal.jaxb.gco.GO_Real;
+import org.apache.sis.internal.jaxb.gco.GO_Record;
+import org.apache.sis.internal.jaxb.gco.GO_RecordType;
 import org.apache.sis.internal.jaxb.gco.InternationalStringAdapter;
 import org.apache.sis.internal.jaxb.gco.UnitAdapter;
 import org.apache.sis.internal.jaxb.gts.TM_PeriodDuration;
@@ -128,6 +133,7 @@ import org.apache.sis.internal.jaxb.metadata.CI_Responsibility;
 import org.apache.sis.internal.jaxb.metadata.MD_DigitalTransferOptions;
 import org.apache.sis.internal.jaxb.metadata.MD_Distributor;
 import org.apache.sis.internal.jaxb.metadata.MD_Format;
+import org.apache.sis.internal.jaxb.metadata.MD_Identifier;
 import org.apache.sis.internal.jaxb.metadata.MD_Medium;
 import org.apache.sis.internal.jaxb.metadata.MD_StandardOrderProcess;
 import org.apache.sis.xml.Namespaces;

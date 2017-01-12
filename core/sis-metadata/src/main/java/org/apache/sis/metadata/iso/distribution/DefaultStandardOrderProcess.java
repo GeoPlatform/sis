@@ -16,19 +16,22 @@
  */
 package org.apache.sis.metadata.iso.distribution;
 
+import static org.apache.sis.internal.metadata.MetadataUtilities.toDate;
+import static org.apache.sis.internal.metadata.MetadataUtilities.toMilliseconds;
+
 import java.util.Currency;
 import java.util.Date;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.opengis.metadata.distribution.StandardOrderProcess;
+import org.opengis.util.InternationalString;
 import org.opengis.util.Record;
 import org.opengis.util.RecordType;
-import org.opengis.util.InternationalString;
-import org.opengis.metadata.distribution.StandardOrderProcess;
-import org.apache.sis.metadata.iso.ISOMetadata;
-
-import static org.apache.sis.internal.metadata.MetadataUtilities.toDate;
-import static org.apache.sis.internal.metadata.MetadataUtilities.toMilliseconds;
 
 
 /**
@@ -45,17 +48,21 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.toMilliseconds;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_StandardOrderProcess_Type", propOrder = {
     "fees",
+    "xmlCurrency",			// ISO 19115-3
     "plannedAvailableDateTime",
     "orderingInstructions",
-    "turnaround"
+    "turnaround",
+    "xmlOrderOptionType",	// ISO 19115-3
+    "xmlOrderOptions"		// ISO 19115-3
 })
 @XmlRootElement(name = "MD_StandardOrderProcess")
 public class DefaultStandardOrderProcess extends ISOMetadata implements StandardOrderProcess {
@@ -216,6 +223,24 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
         checkWritePermission();
         currency = newValue;
     }
+    
+    /**
+	 * Gets the currency. Used by JAXB. (used in ISO 19115-3 format)
+	 * @see {@link #getCurrency}
+	 */
+	@XmlElement(name = "currency")
+	private Currency getXmlCurrency() {
+		return MetadataInfo.is2003() ? null : getCurrency();
+	}
+
+	/**
+	 * Sets the currency. Used by JAXB. (used in ISO 19115-3 format)
+	 * @see {@link #setCurrency}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlCurrency(final Currency newValue) {
+		setCurrency(newValue);
+	}
 
     /**
      * Returns the date and time when the dataset will be available.
@@ -290,7 +315,6 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
      * @see org.apache.sis.util.iso.DefaultRecord#getRecordType()
      */
     @Override
-/// @XmlElement(name = "orderOptionType")
     public RecordType getOrderOptionType() {
         return orderOptionType;
     }
@@ -306,6 +330,24 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
         checkWritePermission();
         orderOptionType = newValue;
     }
+    
+    /**
+	 * Gets the currency. Used by JAXB. (used in ISO 19115-3 format)
+	 * @see {@link #getOrderOptionType}
+	 */
+	@XmlElement(name = "orderOptionType")
+	private RecordType getXmlOrderOptionType() {
+		return MetadataInfo.is2003() ? null : getOrderOptionType();
+	}
+
+	/**
+	 * Sets the currency. Used by JAXB. (used in ISO 19115-3 format)
+	 * @see {@link #setOrderOptionType}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlOrderOptionType(final RecordType newValue) {
+		setOrderOptionType(newValue);
+	}
 
     /**
      * Returns the request/purchase choices.
@@ -319,7 +361,6 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
      *       orders, otherwise this method would need to be a factory rather than a getter.
      */
     @Override
-/// @XmlElement(name = "orderOptions")
     public Record getOrderOptions() {
         return orderOptions;
     }
@@ -335,4 +376,22 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
         checkWritePermission();
         orderOptions = newValue;
     }
+    
+    /**
+	 * Gets the currency. Used by JAXB. (used in ISO 19115-3 format)
+	 * @see {@link #getOrderOptions}
+	 */
+	@XmlElement(name = "orderOptions")
+	private Record getXmlOrderOptions() {
+		return MetadataInfo.is2003() ? null : getOrderOptions();
+	}
+
+	/**
+	 * Sets the currency. Used by JAXB. (used in ISO 19115-3 format)
+	 * @see {@link #setOrderOptions}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlOrderOptions(final Record newValue) {
+		setOrderOptions(newValue);
+	}
 }

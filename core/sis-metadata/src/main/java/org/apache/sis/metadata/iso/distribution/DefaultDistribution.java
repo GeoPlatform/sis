@@ -18,13 +18,17 @@ package org.apache.sis.metadata.iso.distribution;
 
 import java.util.Collection;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.opengis.util.InternationalString;
+import org.opengis.metadata.Identifier;
 import org.opengis.metadata.distribution.DigitalTransferOptions;
 import org.opengis.metadata.distribution.Distribution;
 import org.opengis.metadata.distribution.Distributor;
 import org.opengis.metadata.distribution.Format;
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.jaxb.metadata.MD_Identifier;
 import org.apache.sis.metadata.iso.ISOMetadata;
 
 
@@ -41,13 +45,15 @@ import org.apache.sis.metadata.iso.ISOMetadata;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_Distribution_Type", propOrder = {
+	"xmlDescription",		// ISO 19115-3
     "distributionFormats",
     "distributors",
     "transferOptions"
@@ -153,6 +159,24 @@ public class DefaultDistribution extends ISOMetadata implements Distribution {
         checkWritePermission();
         description = newValue;
     }
+    
+    /**
+	 * Gets the description. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #getDescription}
+	 */
+	@XmlElement(name = "description")
+	private InternationalString getXmlDescription() {
+		return MetadataInfo.is2003() ? null : getDescription();
+	}
+
+	/**
+	 * Sets the description. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #setDescription}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlDescription(final InternationalString newValue) {
+		setDescription(newValue);
+	}
 
     /**
      * Provides a description of the format of the data to be distributed.
