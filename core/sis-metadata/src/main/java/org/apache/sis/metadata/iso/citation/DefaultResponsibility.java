@@ -17,15 +17,20 @@
 package org.apache.sis.metadata.iso.citation;
 
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.apache.sis.xml.Namespaces;
 import org.opengis.metadata.citation.Party;
 import org.opengis.metadata.citation.Responsibility;
 import org.opengis.metadata.citation.Role;
 import org.opengis.metadata.extent.Extent;
-import org.apache.sis.metadata.iso.ISOMetadata;
 
 
 /**
@@ -40,18 +45,20 @@ import org.apache.sis.metadata.iso.ISOMetadata;
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
  *
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author	Cullen Rombach		(Image Matters)
  * @since   0.5
- * @version 0.5
+ * @version 0.8
  * @module
  */
+@SuppressWarnings("deprecation")
 @XmlType(name = "CI_Responsibility_Type", propOrder = {
-/// "role",
-/// "extents",
-/// "parties"
+	"xmlRole",
+	"xmlExtents",
+	"xmlParties"
 })
-@XmlRootElement(name = "CI_Responsibility")
+@XmlRootElement(name = "CI_Responsibility", namespace = Namespaces.CIT)
 @XmlSeeAlso({
     DefaultResponsibleParty.class
 })
@@ -144,7 +151,6 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
      * @return Function performed by the responsible party.
      */
     @Override
-/// @XmlElement(name = "role", required = true)
     public Role getRole() {
         return role;
     }
@@ -158,6 +164,24 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
         checkWritePermission();
         role = newValue;
     }
+    
+    /**
+     * Gets the role for this responsibility (used in ISO 19115-3 format).
+     * @see {@link #getRole}
+     */
+    @XmlElement(name = "role", required = true)
+    private Role getXmlRole() {
+    	return MetadataInfo.is2003() ? null : getRole();
+    }
+    
+    /**
+     * Sets the role for this responsibility (used in ISO 19115-3 format).
+     * @see {@link #setRole}
+     */
+    @SuppressWarnings("unused")
+	private void setXmlRole(final Role newValue) {
+    	setRole(newValue);
+    }
 
     /**
      * Returns the spatial or temporal extents of the role.
@@ -165,7 +189,6 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
      * @return The spatial or temporal extents of the role.
      */
     @Override
-/// @XmlElement(name = "extent")
     public Collection<Extent> getExtents() {
         return extents = nonNullCollection(extents, Extent.class);
     }
@@ -178,6 +201,24 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
     public void setExtents(final Collection<? extends Extent> newValues) {
         extents = writeCollection(newValues, extents, Extent.class);
     }
+    
+    /**
+     * Gets the extents for this responsibility (used in ISO 19115-3 format).
+     * @see {@link #getExtents}
+     */
+    @XmlElement(name = "extent")
+    private Collection<Extent> getXmlExtents() {
+    	return MetadataInfo.is2003() ? new CheckedArrayList<>(Extent.class) : getExtents();
+    }
+    
+    /**
+     * Sets the extents for this responsibility (used in ISO 19115-3 format).
+     * @see {@link #setExtents}
+     */
+    @SuppressWarnings("unused")
+	private void setXmlExtents(final Collection<? extends Extent> newValues) {
+    	setExtents(newValues);
+    }
 
     /**
      * Returns information about the parties.
@@ -185,7 +226,6 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
      * @return Information about the parties.
      */
     @Override
-/// @XmlElement(name = "party", required = true)
     public Collection<Party> getParties() {
         return parties = nonNullCollection(parties, Party.class);
     }
@@ -197,5 +237,23 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
      */
     public void setParties(final Collection<? extends Party> newValues) {
         parties = writeCollection(newValues, parties, Party.class);
+    }
+    
+    /**
+     * Gets the parties for this responsibility (used in ISO 19115-3 format).
+     * @see {@link #getParties}
+     */
+    @XmlElement(name = "party")
+    private Collection<Party> getXmlParties() {
+    	return MetadataInfo.is2003() ? new CheckedArrayList<>(Party.class) : getParties();
+    }
+    
+    /**
+     * Sets the parties for this responsibility (used in ISO 19115-3 format).
+     * @see {@link #setParties}
+     */
+    @SuppressWarnings("unused")
+	private void setXmlParties(final Collection<? extends Party> newValues) {
+    	setParties(newValues);
     }
 }

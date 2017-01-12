@@ -47,10 +47,11 @@ import org.apache.sis.metadata.iso.citation.DefaultCitation;
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
  *
- * @author  Guilhem Legal (Geomatys)
+ * @author  Guilhem Legal 		(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  *
  * @deprecated As of ISO 19115:2014, replaced by {@link DefaultAssociatedResource}.
@@ -59,8 +60,8 @@ import org.apache.sis.metadata.iso.citation.DefaultCitation;
 @XmlType(name = "MD_AggregateInformation_Type", propOrder = {
     "aggregateDataSetName",
     "aggregateDataSetIdentifier",
-    "associationType",
-    "initiativeType"
+    //"associationType", 		// Will be written by parent class.
+    //"initiativeType"			// Will be written by parent class.
 })
 @XmlRootElement(name = "MD_AggregateInformation")
 public class DefaultAggregateInformation extends DefaultAssociatedResource implements AggregateInformation {
@@ -211,7 +212,7 @@ public class DefaultAggregateInformation extends DefaultAssociatedResource imple
      * @return Association type of the aggregate dataset.
      */
     @Override
-    @XmlElement(name = "associationType", required = true)
+/// @XmlElement(name = "associationType", required = true)
     public AssociationType getAssociationType() {
         return super.getAssociationType();
     }
@@ -232,7 +233,7 @@ public class DefaultAggregateInformation extends DefaultAssociatedResource imple
      * @return Type of initiative under which the aggregate dataset was produced, or {@code null}.
      */
     @Override
-    @XmlElement(name = "initiativeType")
+/// @XmlElement(name = "initiativeType")
     public InitiativeType getInitiativeType() {
         return super.getInitiativeType();
     }

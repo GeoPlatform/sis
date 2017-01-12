@@ -67,17 +67,18 @@
  * modify directly the underlying metadata object.</p>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author	Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlSchema(location=Schemas.METADATA_XSD, elementFormDefault=XmlNsForm.QUALIFIED, namespace=Namespaces.GMD, xmlns = {
-    @XmlNs(prefix = "gmx", namespaceURI = Namespaces.GMX),
-    @XmlNs(prefix = "gmd", namespaceURI = Namespaces.GMD),
+@XmlSchema(location=Schemas.METADATA_XSD_DISTRIBUTION, elementFormDefault=XmlNsForm.QUALIFIED, namespace=Namespaces.MRD, xmlns = {
+    @XmlNs(prefix = "mcc", namespaceURI = Namespaces.MCC),
+    @XmlNs(prefix = "mrd", namespaceURI = Namespaces.MRD),
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
-    @XmlNs(prefix = "xsi", namespaceURI = Namespaces.XSI)
+    @XmlNs(prefix = "gmw", namespaceURI = Namespaces.GMW)
 })
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlJavaTypeAdapters({
@@ -87,6 +88,7 @@
     @XmlJavaTypeAdapter(MD_Medium.class),
     @XmlJavaTypeAdapter(MD_MediumFormatCode.class),
     @XmlJavaTypeAdapter(MD_MediumNameCode.class),
+    @XmlJavaTypeAdapter(CI_Citation.class),
     @XmlJavaTypeAdapter(CI_OnlineResource.class),
     @XmlJavaTypeAdapter(CI_Responsibility.class),
     @XmlJavaTypeAdapter(MD_StandardOrderProcess.class),

@@ -17,11 +17,19 @@
 package org.apache.sis.metadata.iso.quality;
 
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlTransient;
-import org.opengis.metadata.extent.Extent;
-import org.opengis.metadata.quality.Scope;
-import org.opengis.metadata.maintenance.ScopeCode;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.xml.Namespaces;
+import org.opengis.metadata.extent.Extent;
+import org.opengis.metadata.maintenance.ScopeCode;
+import org.opengis.metadata.maintenance.ScopeDescription;
+import org.opengis.metadata.quality.Scope;
 
 
 /**
@@ -37,99 +45,153 @@ import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  *
  * @deprecated As of ISO 19115:2014, {@code DQ_Scope} has been replaced by {@code MD_Scope}.
  *             The later is defined in the {@link org.apache.sis.metadata.iso.maintenance} package.
  */
 @Deprecated
-@XmlTransient
+@XmlType(name = "DQ_Scope_Type", namespace = Namespaces.DQC, propOrder = {
+		"xmlLevel",
+		"xmlExtent",
+		"xmlLevelDescription"
+})
+@XmlRootElement(name = "DQ_Scope", namespace = Namespaces.DQC)
 public class DefaultScope extends org.apache.sis.metadata.iso.maintenance.DefaultScope implements Scope {
-    /**
-     * Serial number for inter-operability with different versions.
-     */
-    private static final long serialVersionUID = 7517784393752337009L;
+	/**
+	 * Serial number for inter-operability with different versions.
+	 */
+	private static final long serialVersionUID = 7517784393752337009L;
 
-    /**
-     * Constructs an initially empty scope.
-     */
-    public DefaultScope() {
-    }
+	/**
+	 * Constructs an initially empty scope.
+	 */
+	public DefaultScope() {
+	}
 
-    /**
-     * Creates a scope initialized to the given level.
-     *
-     * @param level The hierarchical level of the data specified by the scope.
-     */
-    public DefaultScope(final ScopeCode level) {
-        super(level);
-    }
+	/**
+	 * Creates a scope initialized to the given level.
+	 *
+	 * @param level The hierarchical level of the data specified by the scope.
+	 */
+	public DefaultScope(final ScopeCode level) {
+		super(level);
+	}
 
-    /**
-     * Constructs a new instance initialized with the values from the specified metadata object.
-     * This is a <cite>shallow</cite> copy constructor, since the other metadata contained in the
-     * given object are not recursively copied.
-     *
-     * @param object The metadata to copy values from, or {@code null} if none.
-     *
-     * @see #castOrCopy(Scope)
-     */
-    public DefaultScope(final Scope object) {
-        super(object);
-    }
+	/**
+	 * Constructs a new instance initialized with the values from the specified metadata object.
+	 * This is a <cite>shallow</cite> copy constructor, since the other metadata contained in the
+	 * given object are not recursively copied.
+	 *
+	 * @param object The metadata to copy values from, or {@code null} if none.
+	 *
+	 * @see #castOrCopy(Scope)
+	 */
+	public DefaultScope(final Scope object) {
+		super(object);
+	}
 
-    /**
-     * Returns a SIS metadata implementation with the values of the given arbitrary implementation.
-     * This method performs the first applicable action in the following choices:
-     *
-     * <ul>
-     *   <li>If the given object is {@code null}, then this method returns {@code null}.</li>
-     *   <li>Otherwise if the given object is already an instance of
-     *       {@code DefaultScope}, then it is returned unchanged.</li>
-     *   <li>Otherwise a new {@code DefaultScope} instance is created using the
-     *       {@linkplain #DefaultScope(Scope) copy constructor}
-     *       and returned. Note that this is a <cite>shallow</cite> copy operation, since the other
-     *       metadata contained in the given object are not recursively copied.</li>
-     * </ul>
-     *
-     * @param  object The object to get as a SIS implementation, or {@code null} if none.
-     * @return A SIS implementation containing the values of the given object (may be the
-     *         given object itself), or {@code null} if the argument was null.
-     */
-    public static DefaultScope castOrCopy(final Scope object) {
-        if (object == null || object instanceof DefaultScope) {
-            return (DefaultScope) object;
-        }
-        return new DefaultScope(object);
-    }
+	/**
+	 * Returns a SIS metadata implementation with the values of the given arbitrary implementation.
+	 * This method performs the first applicable action in the following choices:
+	 *
+	 * <ul>
+	 *   <li>If the given object is {@code null}, then this method returns {@code null}.</li>
+	 *   <li>Otherwise if the given object is already an instance of
+	 *       {@code DefaultScope}, then it is returned unchanged.</li>
+	 *   <li>Otherwise a new {@code DefaultScope} instance is created using the
+	 *       {@linkplain #DefaultScope(Scope) copy constructor}
+	 *       and returned. Note that this is a <cite>shallow</cite> copy operation, since the other
+	 *       metadata contained in the given object are not recursively copied.</li>
+	 * </ul>
+	 *
+	 * @param  object The object to get as a SIS implementation, or {@code null} if none.
+	 * @return A SIS implementation containing the values of the given object (may be the
+	 *         given object itself), or {@code null} if the argument was null.
+	 */
+	public static DefaultScope castOrCopy(final Scope object) {
+		if (object == null || object instanceof DefaultScope) {
+			return (DefaultScope) object;
+		}
+		return new DefaultScope(object);
+	}
 
-    /**
-     * Information about the spatial, vertical and temporal extent of the data specified by the scope.
-     * This method fetches the value from the {@linkplain #getExtents() extents} collection.
-     *
-     * @return Information about the extent of the data, or {@code null}.
-     *
-     * @deprecated As of ISO 19115:2014, replaced by {@link #getExtents()}.
-     */
-    @Override
-    @Deprecated
-    public Extent getExtent() {
-        return LegacyPropertyAdapter.getSingleton(getExtents(), Extent.class, null, DefaultScope.class, "getExtent");
-    }
+	/**
+	 * Information about the spatial, vertical and temporal extent of the data specified by the scope.
+	 * This method fetches the value from the {@linkplain #getExtents() extents} collection.
+	 *
+	 * @return Information about the extent of the data, or {@code null}.
+	 *
+	 * @deprecated As of ISO 19115:2014, replaced by {@link #getExtents()}.
+	 */
+	@Override
+	@Deprecated
+	public Extent getExtent() {
+		return LegacyPropertyAdapter.getSingleton(getExtents(), Extent.class, null, DefaultScope.class, "getExtent");
+	}
 
+	/**
+	 * Sets information about the spatial, vertical and temporal extent of the data specified by the scope.
+	 * This method stores the value in the {@linkplain #setExtents(Collection) extents} collection.
+	 *
+	 * @param newValue The new extent.
+	 *
+	 * @deprecated As of ISO 19115:2014, replaced by {@link #setExtents(Collection)}.
+	 */
+	@Deprecated
+	public void setExtent(final Extent newValue) {
+		setExtents(LegacyPropertyAdapter.asCollection(newValue));
+	}
+
+	/**
+	 * Gets extent (used in ISO 19139 format).
+	 * @see {@link #getExtent}
+	 */
+	@XmlElement(name = "extent")
+	private Extent getXmlExtent() {
+		return MetadataInfo.is2014() ? null : getExtent();
+	}
+
+	/**
+	 * Sets the extent(used in ISO 19139 format).
+	 * @see {@link #setExtent}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlExtent(final Extent newValue) {
+		setExtent(newValue);
+	}
+    
     /**
-     * Sets information about the spatial, vertical and temporal extent of the data specified by the scope.
-     * This method stores the value in the {@linkplain #setExtents(Collection) extents} collection.
-     *
-     * @param newValue The new extent.
-     *
-     * @deprecated As of ISO 19115:2014, replaced by {@link #setExtents(Collection)}.
-     */
-    @Deprecated
-    public void setExtent(final Extent newValue) {
-        setExtents(LegacyPropertyAdapter.asCollection(newValue));
-    }
+   	 * Gets the level descriptions for this scope (used in ISO 19139 format).
+   	 * @see {@link #getLevelDescription}
+   	 */
+   	@XmlElement(name = "levelDescription")
+   	private Collection<ScopeDescription> getXmlLevelDescription() {
+   		if(MetadataInfo.isUnmarshalling()) {
+   			return getLevelDescription();
+   		}
+   		return MetadataInfo.is2014() ? new CheckedArrayList<>(ScopeDescription.class) : getLevelDescription();
+   	}
+   	
+   	/**
+	 * Gets level (used in ISO 19139 format).
+	 * @see {@link #getLevel}
+	 */
+	@XmlElement(name = "level", required = true)
+	private ScopeCode getXmlLevel() {
+		return MetadataInfo.is2014() ? null : getLevel();
+	}
+
+	/**
+	 * Sets level (used in ISO 19139 format).
+	 * @see {@link #setLevel}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlLevel(final ScopeCode newValue) {
+		setLevel(newValue);
+	}
 }

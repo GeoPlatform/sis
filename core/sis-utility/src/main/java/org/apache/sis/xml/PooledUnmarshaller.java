@@ -16,30 +16,31 @@
  */
 package org.apache.sis.xml;
 
-import java.net.URL;
-import java.io.File;
-import java.io.Reader;
-import java.io.InputStream;
-import java.io.FileInputStream;
 import java.io.BufferedInputStream;
-import java.io.IOException;
-import javax.xml.bind.Unmarshaller;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.Reader;
+import java.net.URL;
+
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.PropertyException;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.UnmarshallerHandler;
 import javax.xml.bind.ValidationEventHandler;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.attachment.AttachmentUnmarshaller;
 import javax.xml.stream.XMLEventReader;
-import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.Source;
 import javax.xml.validation.Schema;
-import org.w3c.dom.Node;
-import org.xml.sax.InputSource;
+
 import org.apache.sis.internal.jaxb.Context;
 import org.apache.sis.internal.system.XMLInputFactory;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
 
 
 /**
@@ -122,7 +123,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
             throws XMLStreamException, JAXBException
     {
         input = new FilteredStreamReader(input, version);
-        final Context context = begin();
+        final Context context = begin(false);
         final Object object;
         try {
             object = unmarshaller.unmarshal(input);
@@ -141,7 +142,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
             throws XMLStreamException, JAXBException
     {
         input = new FilteredStreamReader(input, version);
-        final Context context = begin();
+        final Context context = begin(false);
         final JAXBElement<T> object;
         try {
             object = unmarshaller.unmarshal(input, declaredType);
@@ -163,7 +164,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
         } catch (XMLStreamException e) {
             throw new JAXBException(e);
         } else {
-            final Context context = begin();
+            final Context context = begin(false);
             try {
                 return unmarshaller.unmarshal(input);
             } finally {
@@ -179,13 +180,16 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
     public Object unmarshal(final URL input) throws JAXBException {
         final FilterVersion version = getFilterVersion();
         if (version != null) try {
-            try (final InputStream s = input.openStream()) {
+            final InputStream s = input.openStream();
+            try {
                 return unmarshal(XMLInputFactory.createXMLStreamReader(s), version);
+            } finally {
+                s.close();
             }
-        } catch (IOException | XMLStreamException e) {
+        } catch (Exception e) { // (IOException | XMLStreamException) on the JDK7 branch.
             throw new JAXBException(e);
         } else {
-            final Context context = begin();
+            final Context context = begin(false);
             try {
                 return unmarshaller.unmarshal(input);
             } finally {
@@ -201,13 +205,16 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
     public Object unmarshal(final File input) throws JAXBException {
         final FilterVersion version = getFilterVersion();
         if (version != null) try {
-            try (final InputStream s = new BufferedInputStream(new FileInputStream(input))) {
+            final InputStream s = new BufferedInputStream(new FileInputStream(input));
+            try {
                 return unmarshal(XMLInputFactory.createXMLStreamReader(s), version);
+            } finally {
+                s.close();
             }
-        } catch (IOException | XMLStreamException e) {
+        } catch (Exception e) { // (IOException | XMLStreamException) on the JDK7 branch.
             throw new JAXBException(e);
         } else {
-            final Context context = begin();
+            final Context context = begin(false);
             try {
                 return unmarshaller.unmarshal(input);
             } finally {
@@ -227,7 +234,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
         } catch (XMLStreamException e) {
             throw new JAXBException(e);
         } else {
-            final Context context = begin();
+            final Context context = begin(false);
             try {
                 return unmarshaller.unmarshal(input);
             } finally {
@@ -247,7 +254,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
         } catch (XMLStreamException e) {
             throw new JAXBException(e);
         } else {
-            final Context context = begin();
+            final Context context = begin(false);
             try {
                 return unmarshaller.unmarshal(input);
             } finally {
@@ -267,7 +274,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
         } catch (XMLStreamException e) {
             throw new JAXBException(e);
         } else {
-            final Context context = begin();
+            final Context context = begin(false);
             try {
                 return unmarshaller.unmarshal(input);
             } finally {
@@ -287,7 +294,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
         } catch (XMLStreamException e) {
             throw new JAXBException(e);
         } else {
-            final Context context = begin();
+            final Context context = begin(false);
             try {
                 return unmarshaller.unmarshal(input, declaredType);
             } finally {
@@ -307,7 +314,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
         } catch (XMLStreamException e) {
             throw new JAXBException(e);
         } else {
-            final Context context = begin();
+            final Context context = begin(false);
             try {
                 return unmarshaller.unmarshal(input);
             } finally {
@@ -327,7 +334,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
         } catch (XMLStreamException e) {
             throw new JAXBException(e);
         } else {
-            final Context context = begin();
+            final Context context = begin(false);
             try {
                 return unmarshaller.unmarshal(input, declaredType);
             } finally {
@@ -345,7 +352,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
         if (version != null) {
             input = new FilteredStreamReader(input, version);
         }
-        final Context context = begin();
+        final Context context = begin(false);
         try {
             return unmarshaller.unmarshal(input);
         } finally {
@@ -362,7 +369,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
         if (version != null) {
             input = new FilteredStreamReader(input, version);
         }
-        final Context context = begin();
+        final Context context = begin(false);
         try {
             return unmarshaller.unmarshal(input, declaredType);
         } finally {
@@ -381,7 +388,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
         } catch (XMLStreamException e) {
             throw new JAXBException(e);
         } else {
-            final Context context = begin();
+            final Context context = begin(false);
             try {
                 return unmarshaller.unmarshal(input);
             } finally {
@@ -401,7 +408,7 @@ final class PooledUnmarshaller extends Pooled implements Unmarshaller {
         } catch (XMLStreamException e) {
             throw new JAXBException(e);
         } else {
-            final Context context = begin();
+            final Context context = begin(false);
             try {
                 return unmarshaller.unmarshal(input, declaredType);
             } finally {

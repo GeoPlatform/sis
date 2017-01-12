@@ -22,9 +22,10 @@ import org.apache.sis.util.Version;
 /**
  * Legacy XML namespaces, and {@link Version} constants for identifying when those namespaces were used.
  *
- * @author  Guilhem Legal (Geomatys)
+ * @author  Guilhem Legal  (Geomatys)
+ * @author  Cullen Rombach (Image Matters)
  * @since   0.4
- * @version 0.4
+ * @version 0.8
  * @module
  *
  * @see org.apache.sis.xml.Namespaces
@@ -69,6 +70,54 @@ public final class LegacyNamespaces {
      * {@code setProperty(String, Object)} method.
      */
     public static final String APPLY_NAMESPACE_REPLACEMENTS = "org.apache.sis.xml.applyNamespaceReplacements";
+	
+	/* --------------------------------------------- */
+	/* Versions for ISO metadata (19139 and 19115-3) */
+	/* --------------------------------------------- */
+	
+	/**
+     * Version code for ISO 19139 metadata
+     */
+    public static final Version ISO_19139 = new Version("2003");
+    
+    /* --------------------------------- */
+	/* Old namespaces used in ISO 19139. */
+	/* --------------------------------- */
+    
+    /**
+	 * The <code>{@value}</code> URL, used in ISO 19139.
+	 * The usual prefix for this namespace is {@code "gts"}.
+	 *
+	 * @category ISO
+	 */
+	public static final String GTS = "http://www.isotc211.org/2005/gts";
+    
+    /**
+	 * The <code>{@value}</code> URL, used in ISO 19139.
+	 * The usual prefix for this namespace is {@code "srv"}.
+	 * Replaced by Namespaces.SRV
+	 *
+	 * @category ISO
+	 */
+	public static final String SRV = "http://www.isotc211.org/2005/srv";
+	
+	/**
+	 * The <code>{@value}</code> URL, used in ISO 19139.
+	 * The usual prefix for this namespace is {@code "gco"}.
+	 * Replaced by Namespaces.GCO
+	 *
+	 * @category ISO
+	 */
+	public static final String GCO = "http://www.isotc211.org/2005/gco";
+	
+	/**
+	 * The <code>{@value}</code> URL, used in ISO 19139.
+	 * The usual prefix for this namespace is {@code "gmx"}.
+	 *
+	 * @category ISO
+	 */
+	public static final String GMX = "http://www.isotc211.org/2005/gmx";
+	
 
     /**
      * Do not allow instantiation of this class.

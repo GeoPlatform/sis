@@ -16,17 +16,22 @@
  */
 package org.apache.sis.internal.jaxb.code;
 
-import java.util.Locale;
 import java.nio.charset.Charset;
+import java.util.Locale;
+
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.apache.sis.internal.jaxb.Context;
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.jaxb.gmd.Country;
 import org.apache.sis.internal.jaxb.gmd.LanguageCode;
+import org.apache.sis.internal.jaxb.gmd.PT_FreeText;
+import org.apache.sis.xml.Namespaces;
 
 
 /**
@@ -56,14 +61,16 @@ import org.apache.sis.internal.jaxb.gmd.LanguageCode;
  * For an alternative (simpler) format, see {@link org.apache.sis.internal.jaxb.gmd.LocaleAdapter}.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.4
+ * @version 0.8
  * @module
  *
  * @see LanguageCode
  * @see Country
  * @see org.apache.sis.internal.jaxb.gmd.LocaleAdapter
  */
+@XmlType(namespace = Namespaces.LAN)
 public final class PT_Locale extends XmlAdapter<PT_Locale, Locale> {
     /**
      * The attributes wrapped in a {@code "PT_Locale"} element.
@@ -74,18 +81,18 @@ public final class PT_Locale extends XmlAdapter<PT_Locale, Locale> {
     /**
      * Wraps the {@code "locale"} attributes in a {@code "PT_Locale"} element.
      */
-    @XmlType(name = "PT_Locale", propOrder = { "languageCode", "country", "characterEncoding" })
+    @XmlType(name = "PT_Locale", propOrder = {"languageCode", "language", "country", "characterEncoding" })
     private static final class Wrapper {
+    	
         /**
          * The language code, or {@code null} if none.
          */
-        @XmlElement(required = true)
         LanguageCode languageCode;
 
         /**
          * The country code, or {@code null} if none.
          */
-        @XmlElement
+        @XmlElement(namespace = Namespaces.LAN)
         Country country;
 
         /**
@@ -102,9 +109,45 @@ public final class PT_Locale extends XmlAdapter<PT_Locale, Locale> {
          *
          * @todo Current SIS implementation does not yet support {@code PT_LocaleContainer}.
          */
-        @XmlElement(required = true)
+        @XmlElement(required = true, namespace = Namespaces.LAN)
         @XmlJavaTypeAdapter(MD_CharacterSetCode.class)
         Charset characterEncoding;
+        
+        /**
+         * Gets the language code for this PT_Locale. Used in ISO 19139.
+         * @return a LanguageCode object
+         */
+        @XmlElement(name = "languageCode", namespace = Namespaces.LAN)
+        private LanguageCode getLanguageCode() {
+        	return MetadataInfo.is2014() ? null : languageCode;
+        }
+        
+        /**
+         * Sets the language code for this PT_Locale. Used in ISO 19139.
+         * @return a LanguageCode object
+         */
+        @SuppressWarnings("unused")
+		private void setLanguageCode(LanguageCode newValue) {
+        	languageCode = newValue;
+        }
+        
+        /**
+         * Gets the language code for this PT_Locale. Used in ISO 19115-3.
+         * @return a LanguageCode object
+         */
+        @XmlElement(name = "language", namespace = Namespaces.LAN)
+        private LanguageCode getLanguage() {
+        	return MetadataInfo.is2003() ? null : languageCode;
+        }
+        
+        /**
+         * Sets the language code for this PT_Locale. Used in ISO 19139.
+         * @return a LanguageCode object
+         */
+        @SuppressWarnings("unused")
+		private void setLanguage(LanguageCode newValue) {
+        	languageCode = newValue;
+        }
 
         /**
          * Empty constructor for JAXB only.

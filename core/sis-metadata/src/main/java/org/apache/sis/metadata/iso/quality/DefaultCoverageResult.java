@@ -229,7 +229,7 @@ public class DefaultCoverageResult extends AbstractResult implements CoverageRes
      * @return Data file containing the result coverage data, or {@code null}.
      */
     @Override
-    @XmlElement(name = "resultFile", namespace = Namespaces.GMX, required = true)
+    @XmlElement(name = "resultFile", namespace = Namespaces.GCX, required = true)
     public DataFile getResultFile() {
         return resultFile;
     }

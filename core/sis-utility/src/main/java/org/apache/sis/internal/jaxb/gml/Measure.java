@@ -165,8 +165,9 @@ public final class Measure {
         if (unit == null || unit.equals(Units.UNITY)) {
             return "";
         }
-        final StringBuilder buffer = Context.schema(Context.current(), "gmd", Schemas.METADATA_ROOT)
-                                            .append(Schemas.UOM_PATH).append("#xpointer(//*[@gml:id='");
+        // Changed to METADATA_ROOT_OLD while updating to ISO 19115-3
+        final StringBuilder buffer = Context.schema(Context.current(), "gmd", Schemas.METADATA_ROOT_OLD)
+                                            .append(Schemas.UOM_PATH).append("#xpointer(//*[@gml:id='");								
         try {
             UCUM.format(unit, buffer);
         } catch (IOException e) {

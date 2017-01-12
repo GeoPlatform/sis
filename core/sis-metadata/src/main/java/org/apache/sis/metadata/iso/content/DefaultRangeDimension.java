@@ -17,16 +17,20 @@
 package org.apache.sis.metadata.iso.content;
 
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlSeeAlso;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.MemberName;
-import org.opengis.util.InternationalString;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.metadata.iso.ISOMetadata;
 import org.opengis.metadata.Identifier;
 import org.opengis.metadata.content.RangeDimension;
 import org.opengis.metadata.content.SampleDimension;
-import org.apache.sis.metadata.iso.ISOMetadata;
+import org.opengis.util.InternationalString;
+import org.opengis.util.MemberName;
 
 
 /**
@@ -42,17 +46,19 @@ import org.apache.sis.metadata.iso.ISOMetadata;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_RangeDimension_Type", propOrder = {
     "sequenceIdentifier",
-    "descriptor",
-/// "names"
+    "xmlDescription",		// ISO 19115-3
+    "xmlDescriptor",		// ISO 19139
+	"xmlNames"				// ISO 19115-3
 })
 @XmlRootElement(name = "MD_RangeDimension")
 @XmlSeeAlso(DefaultBand.class)
@@ -162,7 +168,6 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "description")
     public InternationalString getDescription() {
         return description;
     }
@@ -178,6 +183,24 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
         checkWritePermission();
         description = newValue;
     }
+    
+    /**
+	 * Gets the description for this range dimension (used in ISO 19115-3 format).
+	 * @see {@link #getDescription}
+	 */
+	@XmlElement(name = "description")
+	private InternationalString getXmlDescription() {
+		return MetadataInfo.is2003() ? null : getDescription();
+	}
+
+	/**
+	 * Sets the description for this range dimension (used in ISO 19115-3 format).
+	 * @see {@link #setDescription}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlDescription(final InternationalString newValue) {
+		setDescription(newValue);
+	}
 
     /**
      * Returns the description of the range of a cell measurement value.
@@ -189,7 +212,6 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
      */
     @Override
     @Deprecated
-    @XmlElement(name = "descriptor")
     public InternationalString getDescriptor() {
         return getDescription();
     }
@@ -206,6 +228,24 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
     public void setDescriptor(final InternationalString newValue) {
         setDescription(newValue);
     }
+    
+    /**
+	 * Gets the descriptor for this range dimension (used in ISO 19139 format).
+	 * @see {@link #getDescriptor}
+	 */
+	@XmlElement(name = "descriptor")
+	private InternationalString getXmlDescriptor() {
+		return MetadataInfo.is2014() ? null : getDescriptor();
+	}
+
+	/**
+	 * Sets the descriptor for this range dimension (used in ISO 19139 format).
+	 * @see {@link #setDescription}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlDescriptor(final InternationalString newValue) {
+		setDescriptor(newValue);
+	}
 
     /**
      * Returns the identifiers for each attribute included in the resource.
@@ -216,7 +256,6 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "name")
     public Collection<Identifier> getNames() {
         return names = nonNullCollection(names, Identifier.class);
     }
@@ -231,4 +270,16 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
     public void setNames(final Collection<? extends Identifier> newValues) {
         names = writeCollection(newValues, names, Identifier.class);
     }
+    
+    /**
+	 * Gets the names for this range dimension (used in ISO 19115-3 format).
+	 * @see {@link #getNames}
+	 */
+	@XmlElement(name = "name")
+	private Collection<Identifier> getXmlNames() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getNames();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Identifier.class) : getNames();
+	}
 }

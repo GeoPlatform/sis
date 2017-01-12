@@ -16,22 +16,26 @@
  */
 package org.apache.sis.metadata.iso;
 
+import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
+
 import java.util.AbstractSet;
 import java.util.Collection;
 import java.util.Iterator;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.annotation.Obligation;
-import org.opengis.metadata.Datatype;
-import org.opengis.metadata.citation.Responsibility;
-import org.opengis.metadata.ExtendedElementInformation;
-import org.opengis.util.InternationalString;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
 import org.apache.sis.measure.ValueRange;
 import org.apache.sis.util.iso.Types;
-import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
-
-import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
+import org.apache.sis.xml.Namespaces;
+import org.opengis.annotation.Obligation;
+import org.opengis.metadata.Datatype;
+import org.opengis.metadata.ExtendedElementInformation;
+import org.opengis.metadata.citation.Responsibility;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -48,13 +52,14 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlType(name = "MD_ExtendedElementInformation_Type", propOrder = {
+@XmlType(name = "MD_ExtendedElementInformation_Type", namespace = Namespaces.MEX, propOrder = {
     "name",
     "shortName",
     "domainCode",
@@ -69,7 +74,7 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
     "rationales",
     "sources"
 })
-@XmlRootElement(name = "MD_ExtendedElementInformation")
+@XmlRootElement(name = "MD_ExtendedElementInformation", namespace = Namespaces.MEX)
 public class DefaultExtendedElementInformation extends ISOMetadata
         implements ExtendedElementInformation
 {
@@ -285,7 +290,7 @@ public class DefaultExtendedElementInformation extends ISOMetadata
     @Deprecated
     @XmlElement(name = "shortName")
     public String getShortName()  {
-        return shortName;
+    	return MetadataInfo.is2014() ? null : shortName;
     }
 
     /**
@@ -314,7 +319,7 @@ public class DefaultExtendedElementInformation extends ISOMetadata
     @Deprecated
     @XmlElement(name = "domainCode")
     public Integer getDomainCode() {
-        return domainCode;
+        return MetadataInfo.is2014() ? null : domainCode;
     }
 
     /**

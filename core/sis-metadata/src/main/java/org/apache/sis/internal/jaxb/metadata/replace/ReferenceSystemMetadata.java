@@ -16,15 +16,20 @@
  */
 package org.apache.sis.internal.jaxb.metadata.replace;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.metadata.Identifier;
-import org.opengis.referencing.ReferenceSystem;
-import org.apache.sis.internal.simple.SimpleIdentifiedObject;
-import org.apache.sis.util.ComparisonMode;
-
 // Branch-dependent imports
 import java.util.Objects;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.jaxb.metadata.MD_Identifier;
+import org.apache.sis.internal.jaxb.metadata.RS_Identifier;
+import org.apache.sis.internal.simple.SimpleIdentifiedObject;
+import org.apache.sis.util.ComparisonMode;
+import org.opengis.metadata.Identifier;
+import org.opengis.referencing.ReferenceSystem;
 
 
 /**
@@ -37,8 +42,9 @@ import java.util.Objects;
  * a container for XML parsing or formatting. For real referencing service, consider using
  * {@link org.apache.sis.referencing.AbstractReferenceSystem} subclasses instead.</p>
  *
- * @author  Guilhem Legal (Geomatys)
+ * @author  Guilhem Legal 		(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
  * @version 0.5
  * @module
@@ -83,7 +89,7 @@ public class ReferenceSystemMetadata extends SimpleIdentifiedObject implements R
      * @return The identifier given at construction time.
      */
     @Override
-    @XmlElement(name = "referenceSystemIdentifier")
+/// @XmlElement(name = "referenceSystemIdentifier")
     public final Identifier getName() {
         return super.getName();
     }
@@ -96,6 +102,44 @@ public class ReferenceSystemMetadata extends SimpleIdentifiedObject implements R
     public final void setName(final Identifier name) {
         this.name = name;
     }
+    
+    /**
+	 * Gets the name for this reference system metadata (used in ISO 19115-3 format).
+	 * @see {@link #getName}
+	 */
+    @XmlElement(name = "referenceSystemIdentifier")
+    @XmlJavaTypeAdapter(MD_Identifier.class)
+	private Identifier getXmlName() {
+		return MetadataInfo.is2003() ? null : getName();
+	}
+
+	/**
+	 * Sets the name for this reference system metadata (used in ISO 19115-3 format).
+	 * @see {@link #setName}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlName(final Identifier newValue) {
+		setName(newValue);
+	}
+	
+	/**
+	 * Gets the name for this reference system metadata (used in ISO 19139 format).
+	 * @see {@link #getName}
+	 */
+    @XmlElement(name = "referenceSystemIdentifier")
+    @XmlJavaTypeAdapter(RS_Identifier.class)
+	private Identifier getXmlNameOld() {
+		return MetadataInfo.is2014() ? null : getName();
+	}
+
+	/**
+	 * Sets the name for this reference system metadata (used in ISO 19139 format).
+	 * @see {@link #setName}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlNameOld(final Identifier newValue) {
+		setName(newValue);
+	}
 
     /**
      * Compares this object with the given one for equality.

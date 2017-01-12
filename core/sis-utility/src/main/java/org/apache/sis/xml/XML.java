@@ -55,20 +55,22 @@ import java.nio.file.StandardOpenOption;
  *
  * <table class="sis">
  *   <caption>Supported (un)marshaller properties</caption>
- *   <tr><th>Key</th>                         <th>Value type</th>                <th>Purpose</th></tr>
- *   <tr><td>{@link #LOCALE}</td>             <td>{@link Locale}</td>            <td>for specifying the locale to use for international strings and code lists.</td></tr>
- *   <tr><td>{@link #TIMEZONE}</td>           <td>{@link TimeZone}</td>          <td>for specifying the timezone to use for dates and times.</td></tr>
- *   <tr><td>{@link #SCHEMAS}</td>            <td>{@link Map}</td>               <td>for specifying the root URL of metadata schemas to use.</td></tr>
- *   <tr><td>{@link #DEFAULT_NAMESPACE}</td>  <td>{@link String}</td>            <td>for specifying the default namespace of the XML document to write.</td></tr>
- *   <tr><td>{@link #GML_VERSION}</td>        <td>{@link Version}</td>           <td>for specifying the GML version to the document be (un)marshalled.</td></tr>
- *   <tr><td>{@link #RESOLVER}</td>           <td>{@link ReferenceResolver}</td> <td>for replacing {@code xlink} or {@code uuidref} attributes by the actual object to use.</td></tr>
- *   <tr><td>{@link #CONVERTER}</td>          <td>{@link ValueConverter}</td>    <td>for controlling the conversion of URL, UUID, Units or similar objects.</td></tr>
- *   <tr><td>{@link #STRING_SUBSTITUTES}</td> <td>{@code String[]}</td>          <td>for specifying which code lists to replace by simpler {@code <gco:CharacterString>} elements.</td></tr>
- *   <tr><td>{@link #WARNING_LISTENER}</td>   <td>{@link WarningListener}</td>   <td>for being notified about non-fatal warnings.</td></tr>
+ *   <tr><th>Key</th>                         		<th>Value type</th>                <th>Purpose</th></tr>
+ *   <tr><td>{@link #LOCALE}</td>             		<td>{@link Locale}</td>            <td>for specifying the locale to use for international strings and code lists.</td></tr>
+ *   <tr><td>{@link #TIMEZONE}</td>           		<td>{@link TimeZone}</td>          <td>for specifying the timezone to use for dates and times.</td></tr>
+ *   <tr><td>{@link #SCHEMAS}</td>            		<td>{@link Map}</td>               <td>for specifying the root URL of metadata schemas to use.</td></tr>
+ *   <tr><td>{@link #DEFAULT_NAMESPACE}</td>  		<td>{@link String}</td>            <td>for specifying the default namespace of the XML document to write.</td></tr>
+ *   <tr><td>{@link #GML_VERSION}</td>        		<td>{@link Version}</td>           <td>for specifying the GML version to the document be (un)marshalled.</td></tr>
+ *   <tr><td>{@link #METADATA_VERSION}</td>        	<td>{@link Version}</td>           <td>for specifying the metadata version to the document be (un)marshalled.</td></tr>
+ *   <tr><td>{@link #RESOLVER}</td>           		<td>{@link ReferenceResolver}</td> <td>for replacing {@code xlink} or {@code uuidref} attributes by the actual object to use.</td></tr>
+ *   <tr><td>{@link #CONVERTER}</td>          		<td>{@link ValueConverter}</td>    <td>for controlling the conversion of URL, UUID, Units or similar objects.</td></tr>
+ *   <tr><td>{@link #STRING_SUBSTITUTES}</td> 		<td>{@code String[]}</td>          <td>for specifying which code lists to replace by simpler {@code <gco:CharacterString>} elements.</td></tr>
+ *   <tr><td>{@link #WARNING_LISTENER}</td>   		<td>{@link WarningListener}</td>   <td>for being notified about non-fatal warnings.</td></tr>
  * </table>
  *
- * @author  Cédric Briançon (Geomatys)
+ * @author  Cédric Briançon 	(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
  * @version 0.8
  * @module
@@ -176,6 +178,22 @@ public final class XML extends Static {
      * for information about the status of GML 3.1.1 support.
      */
     public static final String GML_VERSION = "org.apache.sis.gml.version";
+    
+    /**
+     * Specifies the metadata version of the document to be marshalled or unmarshalled.
+     * The metadata version may affect the set of XML elements to be marshalled and their namespaces.
+     *
+     * <div class="note"><b>Compatibility note:</b>
+     * Newer versions typically have more elements, but not always.
+     *
+     * The value can be {@link String} or {@link Version} objects.
+     * If no version is specified, then the most recent metadata version is assumed (ISO 19115-3).
+     *
+     * <div class="section">Supported metadata versions</div>
+     * Apache SIS currently supports ISO 19115-3 by default (with the value "2014". SIS can read and write ISO 19139
+     * if this property is set to "2003".
+     */
+    public static final String METADATA_VERSION = "org.apache.sis.metadata.version";
 
     /**
      * Allows client code to replace {@code xlink} or {@code uuidref} attributes by the actual objects to use.

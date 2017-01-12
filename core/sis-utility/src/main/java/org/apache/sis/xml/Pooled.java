@@ -20,7 +20,6 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.ConcurrentModificationException;
-import java.util.IllformedLocaleException;
 import java.util.Locale;
 import java.util.TimeZone;
 import javax.xml.validation.Schema;
@@ -48,8 +47,9 @@ import org.apache.sis.internal.jaxb.LegacyNamespaces;
  * "endorsed JAR" names if needed.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.3
+ * @version 0.8
  * @module
  */
 abstract class Pooled {
@@ -142,6 +142,14 @@ abstract class Pooled {
      * @see Context#getVersion(String)
      */
     private Version versionGML;
+    
+    /**
+     * The metadata version to be marshalled or unmarshalled, or {@code null} if unspecified.
+     * If null, then ISO 19139 is assumed.
+     *
+     * @see Context#getVersion(String)
+     */
+    private Version versionMetadata;
 
     /**
      * The reference resolver to use during unmarshalling.
@@ -176,7 +184,7 @@ abstract class Pooled {
      */
     Pooled(final boolean internal) {
         this.internal = internal;
-        initialProperties = new LinkedHashMap<>();
+        initialProperties = new LinkedHashMap<Object,Object>();
     }
 
     /**
@@ -186,7 +194,7 @@ abstract class Pooled {
      * @param template The {@link PooledTemplate} from which to get the initial values.
      */
     Pooled(final Pooled template) {
-        initialProperties = new LinkedHashMap<>();
+        initialProperties = new LinkedHashMap<Object,Object>();
         internal = template.internal;
     }
 
@@ -224,6 +232,7 @@ abstract class Pooled {
         schemas          = template.schemas;
         xmlnsReplaceCode = template.xmlnsReplaceCode;
         versionGML       = template.versionGML;
+        versionMetadata  = template.versionMetadata;
         resolver         = template.resolver;
         converter        = template.converter;
         warningListener  = template.warningListener;
@@ -264,12 +273,18 @@ abstract class Pooled {
                         return FilterVersion.GML31;
                     }
                 }
+                if (versionMetadata != null) {
+                    if (versionMetadata.compareTo(Namespaces.ISO_19115_3) < 0) {
+                        return FilterVersion.ISO19139;
+                    }
+                }
                 break;
             }
             case 1: {
                 // Force namespace replacements at unmarshalling time (illegal for marshalling).
                 if ((bitMasks & Context.MARSHALLING) == 0) {
                     return FilterVersion.ALL;
+                    // TODO: Right now, this doesn't include ISO 19115-3 marshalling due to design restrictions.
                 }
                 break;
             }
@@ -325,20 +340,20 @@ abstract class Pooled {
      */
     public final void setProperty(String name, final Object value) throws PropertyException {
         try {
-            switch (name) {
-                case XML.LOCALE: {
+            /* switch (name) */ {
+                if (name.equals(XML.LOCALE)) {
                     locale = (value instanceof CharSequence) ? Locales.parse(value.toString()) : (Locale) value;
                     return;
                 }
-                case XML.TIMEZONE: {
+                if (name.equals(XML.TIMEZONE)) {
                     timezone = (value instanceof CharSequence) ? TimeZone.getTimeZone(value.toString()) : (TimeZone) value;
                     return;
                 }
-                case XML.SCHEMAS: {
+                if (name.equals(XML.SCHEMAS)) {
                     final Map<?,?> map = (Map<?,?>) value;
                     Map<String,String> copy = null;
                     if (map != null) {
-                        copy = new HashMap<>(4);
+                        copy = new HashMap<String,String>(4);
                         for (final String key : SCHEMA_KEYS) {
                             final Object schema = map.get(key);
                             if (schema != null) {
@@ -354,19 +369,23 @@ abstract class Pooled {
                     schemas = copy;
                     return;
                 }
-                case XML.GML_VERSION: {
+                if (name.equals(XML.GML_VERSION)) {
                     versionGML = (value instanceof CharSequence) ? new Version(value.toString()) : (Version) value;
                     return;
                 }
-                case XML.RESOLVER: {
+                if (name.equals(XML.METADATA_VERSION)) {
+                    versionMetadata = (value instanceof CharSequence) ? new Version(value.toString()) : (Version) value;
+                    return;
+                }
+                if (name.equals(XML.RESOLVER)) {
                     resolver = (ReferenceResolver) value;
                     return;
                 }
-                case XML.CONVERTER: {
+                if (name.equals(XML.CONVERTER)) {
                     converter = (ValueConverter) value;
                     return;
                 }
-                case XML.STRING_SUBSTITUTES: {
+                if (name.equals(XML.STRING_SUBSTITUTES)) {
                     bitMasks &= ~(Context.SUBSTITUTE_LANGUAGE |
                                   Context.SUBSTITUTE_COUNTRY  |
                                   Context.SUBSTITUTE_FILENAME |
@@ -386,11 +405,11 @@ abstract class Pooled {
                     }
                     return;
                 }
-                case XML.WARNING_LISTENER: {
+                if (name.equals(XML.WARNING_LISTENER)) {
                     warningListener = (WarningListener<?>) value;
                     return;
                 }
-                case LegacyNamespaces.APPLY_NAMESPACE_REPLACEMENTS: {
+                if (name.equals(LegacyNamespaces.APPLY_NAMESPACE_REPLACEMENTS)) {
                     xmlnsReplaceCode = 0;
                     if (value != null) {
                         xmlnsReplaceCode = ((Boolean) value) ? (byte) 1 : (byte) 2;
@@ -398,7 +417,7 @@ abstract class Pooled {
                     return;
                 }
             }
-        } catch (ClassCastException | IllformedLocaleException e) {
+        } catch (RuntimeException e) { // (ClassCastException | IllformedLocaleException) on the JDK7 branch.
             throw new PropertyException(Errors.format(
                     Errors.Keys.IllegalPropertyValueClass_2, name, value.getClass()), e);
         }
@@ -420,15 +439,16 @@ abstract class Pooled {
      * A method which is common to both {@code Marshaller} and {@code Unmarshaller}.
      */
     public final Object getProperty(final String name) throws PropertyException {
-        switch (name) {
-            case XML.LOCALE:           return locale;
-            case XML.TIMEZONE:         return timezone;
-            case XML.SCHEMAS:          return schemas;
-            case XML.GML_VERSION:      return versionGML;
-            case XML.RESOLVER:         return resolver;
-            case XML.CONVERTER:        return converter;
-            case XML.WARNING_LISTENER: return warningListener;
-            case XML.STRING_SUBSTITUTES: {
+        /*switch (name)*/ {
+            if (name.equals(XML.LOCALE))           return locale;
+            if (name.equals(XML.TIMEZONE))         return timezone;
+            if (name.equals(XML.SCHEMAS))          return schemas;
+            if (name.equals(XML.GML_VERSION))      return versionGML;
+            if (name.equals(XML.METADATA_VERSION)) return versionMetadata;
+            if (name.equals(XML.RESOLVER))         return resolver;
+            if (name.equals(XML.CONVERTER))        return converter;
+            if (name.equals(XML.WARNING_LISTENER)) return warningListener;
+            if (name.equals(XML.STRING_SUBSTITUTES)) {
                 int n = 0;
                 final String[] substitutes = new String[4];
                 if ((bitMasks & Context.SUBSTITUTE_LANGUAGE) != 0) substitutes[n++] = "language";
@@ -437,16 +457,14 @@ abstract class Pooled {
                 if ((bitMasks & Context.SUBSTITUTE_MIMETYPE) != 0) substitutes[n++] = "mimetype";
                 return (n != 0) ? ArraysExt.resize(substitutes, n) : null;
             }
-            case LegacyNamespaces.APPLY_NAMESPACE_REPLACEMENTS: {
+            if (name.equals(LegacyNamespaces.APPLY_NAMESPACE_REPLACEMENTS)) {
                 switch (xmlnsReplaceCode) {
                     case 1:  return Boolean.TRUE;
                     case 2:  return Boolean.FALSE;
                     default: return null;
                 }
             }
-            default: {
-                return getStandardProperty(convertPropertyKey(name));
-            }
+            return getStandardProperty(convertPropertyKey(name));
         }
     }
 
@@ -537,8 +555,9 @@ abstract class Pooled {
      * }
      *
      * @see Context#finish()
+     * @param marshalling Should be true if marshalling, false if unmarshalling
      */
-    final Context begin() {
-        return new Context(bitMasks, locale, timezone, schemas, versionGML, resolver, converter, warningListener);
+    final Context begin(Boolean marshalling) {
+        return new Context(bitMasks, locale, timezone, schemas, versionGML, versionMetadata, resolver, converter, warningListener, marshalling);
     }
 }

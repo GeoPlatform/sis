@@ -18,13 +18,15 @@ package org.apache.sis.internal.jaxb.gmx;
 
 import java.net.URI;
 import java.util.Locale;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
-import org.opengis.util.InternationalString;
-import org.apache.sis.xml.XLink;
-
 // Branch-dependent imports
 import java.util.Objects;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
+
+import org.apache.sis.xml.XLink;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -36,13 +38,15 @@ import java.util.Objects;
  * {@link InternationalString} interface, so it can be used with the above-cited Java
  * properties.
  *
- * @author  Guilhem Legal (Geomatys)
+ * @author  Guilhem Legal 		(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.3
+ * @version 0.8
  * @module
  */
 @XmlType(name = "Anchor_Type")
+@XmlRootElement(name = "Anchor")
 public final class Anchor extends XLink implements InternationalString {
     /**
      * Defined as a matter of principle (this class is not expected to be serialized).

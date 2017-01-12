@@ -18,10 +18,15 @@ package org.apache.sis.metadata.iso.content;
 
 import java.util.Collection;
 import java.util.Collections;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlSeeAlso;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.apache.sis.internal.util.CheckedArrayList;
 import org.opengis.metadata.Identifier;
 import org.opengis.metadata.content.AttributeGroup;
 import org.opengis.metadata.content.CoverageContentType;
@@ -30,8 +35,6 @@ import org.opengis.metadata.content.ImageDescription;
 import org.opengis.metadata.content.RangeDimension;
 import org.opengis.metadata.content.RangeElementDescription;
 import org.opengis.util.RecordType;
-import org.apache.sis.xml.Namespaces;
-import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
 
 
 /**
@@ -47,16 +50,19 @@ import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_CoverageDescription_Type", propOrder = {
     "attributeDescription",
-    "contentType",
-    "dimensions",
+    "xmlProcessingLevelCode", 		// ISO 19115-3
+    "xmlAttributeGroups",			// ISO 19115-3
+    "xmlContentType",				// ISO 19139
+    "xmlDimensions",				// ISO 19139
     "rangeElementDescriptions"
 })
 @XmlRootElement(name = "MD_CoverageDescription")
@@ -175,7 +181,6 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "processingLevelCode")
     public Identifier getProcessingLevelCode() {
         return processingLevelCode;
     }
@@ -191,6 +196,24 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
         checkWritePermission();
         processingLevelCode = newValue;
     }
+    
+    /**
+	 * Gets the processing level code for this coverage description (used in ISO 19115-3 format).
+	 * @see {@link #getProcessingLevelCode}
+	 */
+	@XmlElement(name = "processingLevelCode")
+	private Identifier getXmlProcessingLevelCode() {
+		return MetadataInfo.is2003() ? null : getProcessingLevelCode();
+	}
+
+	/**
+	 * Sets the processing level code for this coverage description (used in ISO 19115-3 format).
+	 * @see {@link #setProcessingLevelCode}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlProcessingLevelCode(final Identifier newValue) {
+		setProcessingLevelCode(newValue);
+	}
 
     /**
      * Returns information on attribute groups of the resource.
@@ -200,7 +223,6 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "attributeGroup")
     public Collection<AttributeGroup> getAttributeGroups() {
         return attributeGroups = nonNullCollection(attributeGroups, AttributeGroup.class);
     }
@@ -215,6 +237,18 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
     public void setAttributeGroups(final Collection<? extends AttributeGroup> newValues) {
         attributeGroups = writeCollection(newValues, attributeGroups, AttributeGroup.class);
     }
+    
+    /**
+	 * Gets the attribute groups for this coverage description (used in ISO 19115-3 format).
+	 * @see {@link #getAttributeGroups}
+	 */
+	@XmlElement(name = "attributeGroup")
+	private Collection<AttributeGroup> getXmlAttributeGroups() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getAttributeGroups();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(AttributeGroup.class) : getAttributeGroups();
+	}
 
     /**
      * Returns the type of information represented by the cell value.
@@ -226,7 +260,6 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
      */
     @Override
     @Deprecated
-    @XmlElement(name = "contentType", required = true)
     public CoverageContentType getContentType() {
         CoverageContentType type = null;
         final Collection<AttributeGroup> groups = getAttributeGroups();
@@ -279,6 +312,24 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
         }
         setAttributeGroups(groups);
     }
+    
+    /**
+	 * Gets the content type for this coverage description (used in ISO 19139 format).
+	 * @see {@link #getContentType}
+	 */
+	@XmlElement(name = "contentType")
+	private CoverageContentType getXmlContentType() {
+		return MetadataInfo.is2014() ? null : getContentType();
+	}
+
+	/**
+	 * Sets the content type for this coverage description (used in ISO 19139 format).
+	 * @see {@link #setContentType}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlContentType(final CoverageContentType newValue) {
+		setContentType(newValue);
+	}
 
     /**
      * Returns the information on the dimensions of the cell measurement value.
@@ -290,7 +341,6 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
      */
     @Override
     @Deprecated
-    @XmlElement(name = "dimension")
     public final Collection<RangeDimension> getDimensions() {
         return new LegacyPropertyAdapter<RangeDimension,AttributeGroup>(getAttributeGroups()) {
             /** Stores a legacy value into the new kind of value. */
@@ -325,11 +375,24 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
      *
      * @deprecated As of ISO 19115:2014, moved to {@link DefaultAttributeGroup#setAttributes(Collection)}.
      */
-    @Deprecated
+    @SuppressWarnings("unchecked")
+	@Deprecated
     public void setDimensions(final Collection<? extends RangeDimension> newValues) {
         checkWritePermission();
         ((LegacyPropertyAdapter<RangeDimension,?>) getDimensions()).setValues(newValues);
     }
+    
+    /**
+	 * Gets the dimensions for this coverage description (used in ISO 19139 format).
+	 * @see {@link #getDimensions}
+	 */
+	@XmlElement(name = "dimension")
+	private Collection<RangeDimension> getXmlDimensions() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getDimensions();
+		}
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(RangeDimension.class) : getDimensions();
+	}
 
     /**
      * Provides the description of the specific range elements of a coverage.
@@ -337,7 +400,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
      * @return description of the specific range elements of a coverage.
      */
     @Override
-    @XmlElement(name = "rangeElementDescription", namespace = Namespaces.GMI)
+    @XmlElement(name = "rangeElementDescription"/*, namespace = Namespaces.GMI*/) // Namespace for marshalling ISO 19139 should be updated.
     public Collection<RangeElementDescription> getRangeElementDescriptions() {
         return rangeElementDescriptions = nonNullCollection(rangeElementDescriptions, RangeElementDescription.class);
     }

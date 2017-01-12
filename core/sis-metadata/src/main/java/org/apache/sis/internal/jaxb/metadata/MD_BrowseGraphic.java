@@ -17,9 +17,12 @@
 package org.apache.sis.internal.jaxb.metadata;
 
 import javax.xml.bind.annotation.XmlElementRef;
-import org.opengis.metadata.identification.BrowseGraphic;
-import org.apache.sis.metadata.iso.identification.DefaultBrowseGraphic;
+import javax.xml.bind.annotation.XmlType;
+
 import org.apache.sis.internal.jaxb.gco.PropertyType;
+import org.apache.sis.metadata.iso.identification.DefaultBrowseGraphic;
+import org.apache.sis.xml.Namespaces;
+import org.opengis.metadata.identification.BrowseGraphic;
 
 
 /**

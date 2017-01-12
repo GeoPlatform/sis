@@ -17,21 +17,29 @@
 package org.apache.sis.metadata.iso.constraint;
 
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlSeeAlso;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.InternationalString;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.jaxb.metadata.DQ_Scope;
+import org.apache.sis.internal.jaxb.metadata.MD_Scope;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.apache.sis.metadata.iso.maintenance.DefaultScope;
+import org.apache.sis.util.iso.Types;
 import org.opengis.metadata.citation.Citation;
 import org.opengis.metadata.citation.Responsibility;
-import org.opengis.metadata.constraint.Releasability;
-import org.opengis.metadata.identification.BrowseGraphic;
 import org.opengis.metadata.constraint.Constraints;
 import org.opengis.metadata.constraint.LegalConstraints;
+import org.opengis.metadata.constraint.Releasability;
 import org.opengis.metadata.constraint.SecurityConstraints;
+import org.opengis.metadata.identification.BrowseGraphic;
 import org.opengis.metadata.maintenance.Scope;
-import org.apache.sis.metadata.iso.ISOMetadata;
-import org.apache.sis.util.iso.Types;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -47,279 +55,377 @@ import org.apache.sis.util.iso.Types;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlType(name = "MD_Constraints_Type" /*, propOrder = {
-    "useLimitation",
-    "constraintApplicationScope",
-    "graphic",
-    "reference",
-    "releasability",
-    "responsibleParty"
-} */)
+@XmlType(name = "MD_Constraints_Type" , propOrder = {
+		"useLimitations",
+		"xmlConstraintApplicationScope", 		// ISO 19115-3
+		"xmlConstraintApplicationScopeLegacy",	// ISO 19139
+		"xmlGraphics",							// ISO 19115-3 only
+		"xmlReferences",						// ISO 19115-3 only
+		"xmlReleasability",						// ISO 19115-3 only
+		"xmlResponsibleParties"					// ISO 19115-3 only
+} )
 @XmlRootElement(name = "MD_Constraints")
 @XmlSeeAlso({
-    DefaultLegalConstraints.class,
-    DefaultSecurityConstraints.class
+	DefaultLegalConstraints.class,
+	DefaultSecurityConstraints.class
 })
 public class DefaultConstraints extends ISOMetadata implements Constraints {
-    /**
-     * Serial number for inter-operability with different versions.
-     */
-    private static final long serialVersionUID = -5622398793237824161L;
+	/**
+	 * Serial number for inter-operability with different versions.
+	 */
+	private static final long serialVersionUID = -5622398793237824161L;
 
-    /**
-     * Limitation affecting the fitness for use of the resource.
-     * Example: <cite>"not to be used for navigation"</cite>.
-     */
-    private Collection<InternationalString> useLimitations;
+	/**
+	 * Limitation affecting the fitness for use of the resource.
+	 * Example: <cite>"not to be used for navigation"</cite>.
+	 */
+	private Collection<InternationalString> useLimitations;
 
-    /**
-     * Spatial and / or temporal extent and or level of the application of the constraints restrictions.
-     */
-    private Scope constraintApplicationScope;
+	/**
+	 * Spatial and / or temporal extent and or level of the application of the constraints restrictions.
+	 */
+	private Scope constraintApplicationScope;
 
-    /**
-     * Graphic / symbol indicating the constraint.
-     */
-    private Collection<BrowseGraphic> graphics;
+	/**
+	 * Graphic / symbol indicating the constraint.
+	 */
+	private Collection<BrowseGraphic> graphics;
 
-    /**
-     * Citation for the limitation of constraint.
-     */
-    private Collection<Citation> references;
+	/**
+	 * Citation for the limitation of constraint.
+	 */
+	private Collection<Citation> references;
 
-    /**
-     * Information concerning the parties to whom the resource can or cannot be released.
-     */
-    private Releasability releasability;
+	/**
+	 * Information concerning the parties to whom the resource can or cannot be released.
+	 */
+	private Releasability releasability;
 
-    /**
-     * Party responsible for the resource constraints.
-     */
-    private Collection<Responsibility> responsibleParties;
+	/**
+	 * Party responsible for the resource constraints.
+	 */
+	private Collection<Responsibility> responsibleParties;
 
-    /**
-     * Constructs an initially empty constraints.
-     */
-    public DefaultConstraints() {
-    }
+	/**
+	 * Constructs an initially empty constraints.
+	 */
+	public DefaultConstraints() {
+	}
 
-    /**
-     * Constructs a new constraints with the given {@linkplain #getUseLimitations() use limitation}.
-     *
-     * @param useLimitation The use limitation, or {@code null} if none.
-     */
-    public DefaultConstraints(final CharSequence useLimitation) {
-        useLimitations = singleton(Types.toInternationalString(useLimitation), InternationalString.class);
-    }
+	/**
+	 * Constructs a new constraints with the given {@linkplain #getUseLimitations() use limitation}.
+	 *
+	 * @param useLimitation The use limitation, or {@code null} if none.
+	 */
+	public DefaultConstraints(final CharSequence useLimitation) {
+		useLimitations = singleton(Types.toInternationalString(useLimitation), InternationalString.class);
+	}
 
-    /**
-     * Constructs a new instance initialized with the values from the specified metadata object.
-     * This is a <cite>shallow</cite> copy constructor, since the other metadata contained in the
-     * given object are not recursively copied.
-     *
-     * @param object the metadata to copy values from, or {@code null} if none.
-     *
-     * @see #castOrCopy(Constraints)
-     */
-    public DefaultConstraints(final Constraints object) {
-        super(object);
-        if (object != null) {
-            useLimitations             = copyCollection(object.getUseLimitations(), InternationalString.class);
-            constraintApplicationScope = object.getConstraintApplicationScope();
-            graphics                   = copyCollection(object.getGraphics(), BrowseGraphic.class);
-            references                 = copyCollection(object.getReferences(), Citation.class);
-            releasability              = object.getReleasability();
-            responsibleParties         = copyCollection(object.getResponsibleParties(), Responsibility.class);
-        }
-    }
+	/**
+	 * Constructs a new instance initialized with the values from the specified metadata object.
+	 * This is a <cite>shallow</cite> copy constructor, since the other metadata contained in the
+	 * given object are not recursively copied.
+	 *
+	 * @param object the metadata to copy values from, or {@code null} if none.
+	 *
+	 * @see #castOrCopy(Constraints)
+	 */
+	public DefaultConstraints(final Constraints object) {
+		super(object);
+		if (object != null) {
+			useLimitations             = copyCollection(object.getUseLimitations(), InternationalString.class);
+			constraintApplicationScope = object.getConstraintApplicationScope();
+			graphics                   = copyCollection(object.getGraphics(), BrowseGraphic.class);
+			references                 = copyCollection(object.getReferences(), Citation.class);
+			releasability              = object.getReleasability();
+			responsibleParties         = copyCollection(object.getResponsibleParties(), Responsibility.class);
+		}
+	}
 
-    /**
-     * Returns a SIS metadata implementation with the values of the given arbitrary implementation.
-     * This method performs the first applicable action in the following choices:
-     *
-     * <ul>
-     *   <li>If the given object is {@code null}, then this method returns {@code null}.</li>
-     *   <li>Otherwise if the given object is an instance of {@link LegalConstraints} or
-     *       {@link SecurityConstraints}, then this method delegates to the {@code castOrCopy(…)}
-     *       method of the corresponding SIS subclass. Note that if the given object implements
-     *       more than one of the above-cited interfaces, then the {@code castOrCopy(…)} method
-     *       to be used is unspecified.</li>
-     *   <li>Otherwise if the given object is already an instance of
-     *       {@code DefaultConstraints}, then it is returned unchanged.</li>
-     *   <li>Otherwise a new {@code DefaultConstraints} instance is created using the
-     *       {@linkplain #DefaultConstraints(Constraints) copy constructor}
-     *       and returned. Note that this is a <cite>shallow</cite> copy operation, since the other
-     *       metadata contained in the given object are not recursively copied.</li>
-     * </ul>
-     *
-     * @param  object  the object to get as a SIS implementation, or {@code null} if none.
-     * @return a SIS implementation containing the values of the given object (may be the
-     *         given object itself), or {@code null} if the argument was null.
-     */
-    public static DefaultConstraints castOrCopy(final Constraints object) {
-        if (object instanceof LegalConstraints) {
-            return DefaultLegalConstraints.castOrCopy((LegalConstraints) object);
-        }
-        if (object instanceof SecurityConstraints) {
-            return DefaultSecurityConstraints.castOrCopy((SecurityConstraints) object);
-        }
-        // Intentionally tested after the sub-interfaces.
-        if (object == null || object instanceof DefaultConstraints) {
-            return (DefaultConstraints) object;
-        }
-        return new DefaultConstraints(object);
-    }
+	/**
+	 * Returns a SIS metadata implementation with the values of the given arbitrary implementation.
+	 * This method performs the first applicable action in the following choices:
+	 *
+	 * <ul>
+	 *   <li>If the given object is {@code null}, then this method returns {@code null}.</li>
+	 *   <li>Otherwise if the given object is an instance of {@link LegalConstraints} or
+	 *       {@link SecurityConstraints}, then this method delegates to the {@code castOrCopy(…)}
+	 *       method of the corresponding SIS subclass. Note that if the given object implements
+	 *       more than one of the above-cited interfaces, then the {@code castOrCopy(…)} method
+	 *       to be used is unspecified.</li>
+	 *   <li>Otherwise if the given object is already an instance of
+	 *       {@code DefaultConstraints}, then it is returned unchanged.</li>
+	 *   <li>Otherwise a new {@code DefaultConstraints} instance is created using the
+	 *       {@linkplain #DefaultConstraints(Constraints) copy constructor}
+	 *       and returned. Note that this is a <cite>shallow</cite> copy operation, since the other
+	 *       metadata contained in the given object are not recursively copied.</li>
+	 * </ul>
+	 *
+	 * @param  object  the object to get as a SIS implementation, or {@code null} if none.
+	 * @return a SIS implementation containing the values of the given object (may be the
+	 *         given object itself), or {@code null} if the argument was null.
+	 */
+	public static DefaultConstraints castOrCopy(final Constraints object) {
+		if (object instanceof LegalConstraints) {
+			return DefaultLegalConstraints.castOrCopy((LegalConstraints) object);
+		}
+		if (object instanceof SecurityConstraints) {
+			return DefaultSecurityConstraints.castOrCopy((SecurityConstraints) object);
+		}
+		// Intentionally tested after the sub-interfaces.
+		if (object == null || object instanceof DefaultConstraints) {
+			return (DefaultConstraints) object;
+		}
+		return new DefaultConstraints(object);
+	}
 
-    /**
-     * Returns the limitation affecting the fitness for use of the resource.
-     * Example: <cite>"not to be used for navigation"</cite>.
-     *
-     * @return limitation affecting the fitness for use of the resource.
-     */
-    @Override
-    @XmlElement(name = "useLimitation")
-    public Collection<InternationalString> getUseLimitations() {
-        return useLimitations = nonNullCollection(useLimitations, InternationalString.class);
-    }
+	/**
+	 * Returns the limitation affecting the fitness for use of the resource.
+	 * Example: <cite>"not to be used for navigation"</cite>.
+	 *
+	 * @return limitation affecting the fitness for use of the resource.
+	 */
+	@Override
+	@XmlElement(name = "useLimitation")
+	public Collection<InternationalString> getUseLimitations() {
+		return useLimitations = nonNullCollection(useLimitations, InternationalString.class);
+	}
 
-    /**
-     * Sets the limitation affecting the fitness for use of the resource.
-     * Example: <cite>"not to be used for navigation"</cite>.
-     *
-     * @param  newValues  the new use limitations.
-     */
-    public void setUseLimitations(final Collection<? extends InternationalString> newValues) {
-        useLimitations = writeCollection(newValues, useLimitations, InternationalString.class);
-    }
+	/**
+	 * Sets the limitation affecting the fitness for use of the resource.
+	 * Example: <cite>"not to be used for navigation"</cite>.
+	 *
+	 * @param  newValues  the new use limitations.
+	 */
+	public void setUseLimitations(final Collection<? extends InternationalString> newValues) {
+		useLimitations = writeCollection(newValues, useLimitations, InternationalString.class);
+	}
 
-    /**
-     * Returns the spatial and / or temporal extents and or levels of the application
-     * of the constraints restrictions.
-     *
-     * @return spatial and / or temporal extents.
-     *
-     * @since 0.5
-     */
-    @Override
-/// @XmlElement(name = "constraintApplicationScope")
-    public Scope getConstraintApplicationScope() {
-        return constraintApplicationScope;
-    }
+	/**
+	 * Returns the spatial and / or temporal extents and or levels of the application
+	 * of the constraints restrictions.
+	 *
+	 * @return spatial and / or temporal extents.
+	 *
+	 * @since 0.5
+	 */
+	@Override
+	public Scope getConstraintApplicationScope() {
+		return constraintApplicationScope;
+	}
 
-    /**
-     * Sets the spatial and / or temporal extents and or levels of the application of the constraints restrictions.
-     *
-     * @param  newValue  the new spatial and / or temporal extents.
-     *
-     * @since 0.5
-     */
-    public void setConstraintApplicationScope(final Scope newValue) {
-        checkWritePermission();
-        constraintApplicationScope = newValue;
-    }
+	/**
+	 * Sets the spatial and / or temporal extents and or levels of the application of the constraints restrictions.
+	 *
+	 * @param  newValue  the new spatial and / or temporal extents.
+	 *
+	 * @since 0.5
+	 */
+	public void setConstraintApplicationScope(final Scope newValue) {
+		checkWritePermission();
+		constraintApplicationScope = newValue;
+	}
 
-    /**
-     * Returns the graphics / symbols indicating the constraint.
-     *
-     * @return the graphics / symbols indicating the constraint.
-     *
-     * @since 0.5
-     */
-    @Override
-/// @XmlElement(name = "graphic")
-    public Collection<BrowseGraphic> getGraphics() {
-        return graphics = nonNullCollection(graphics, BrowseGraphic.class);
-    }
+	/**
+	 * Gets the constraint application scope (used in ISO 19115-3 format).
+	 * @see {@link #getConstraintApplicationScope}
+	 */
+	@XmlElement(name = "constraintApplicationScope")
+	@XmlJavaTypeAdapter(MD_Scope.class)
+	private Scope getXmlConstraintApplicationScope() {
+		return MetadataInfo.is2003() ? null : getConstraintApplicationScope();
+	}
 
-    /**
-     * Sets the new graphics / symbols indicating the constraint.
-     *
-     * @param  newValues  the new graphics / symbols indicating the constraint.
-     *
-     * @since 0.5
-     */
-    public void setGraphics(final Collection<? extends BrowseGraphic> newValues) {
-        graphics = writeCollection(newValues, graphics, BrowseGraphic.class);
-    }
+	/**
+	 * Sets constraint application scope (used in ISO 19115-3 format).
+	 * @see {@link #setConstraintApplicationScope}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlConstraintApplicationScope(final Scope newValue) {
+		setConstraintApplicationScope(newValue);
+	}
 
-    /**
-     * Returns citations for the limitation of constraint.
-     * Example: "copyright statement, license agreement, etc."
-     *
-     * @return citations for the limitation of constraint.
-     *
-     * @since 0.5
-     */
-    @Override
-/// @XmlElement(name = "reference")
-    public Collection<Citation> getReferences() {
-        return references = nonNullCollection(references, Citation.class);
-    }
+	/**
+	 * Gets the constraint application scope (used in ISO 19139 format).
+	 * @see {@link #getConstraintApplicationScope}
+	 */
+	@SuppressWarnings("deprecation")
+	@XmlElement(name = "constraintApplicationScope")
+	@XmlJavaTypeAdapter(DQ_Scope.class)
+	private org.apache.sis.metadata.iso.quality.DefaultScope getXmlConstraintApplicationScopeLegacy() {
+		org.apache.sis.metadata.iso.quality.DefaultScope scope = null;
+		DefaultScope scopeNew = (DefaultScope) getConstraintApplicationScope();
+		if(scopeNew != null) {
+			scope = new org.apache.sis.metadata.iso.quality.DefaultScope();
+			scope.setExtents(scopeNew.getExtents());
+			scope.setLevel(scopeNew.getLevel());
+			scope.setLevelDescription(scopeNew.getLevelDescription());
+		}
+		return MetadataInfo.is2014() ? null : scope;
+	}
 
-    /**
-     * Sets the citations for the limitation of constraint.
-     *
-     * @param  newValues  the new citation for the limitation of constraint.
-     *
-     * @since 0.5
-     */
-    public void setReferences(Collection<? extends Citation> newValues) {
-        references = writeCollection(newValues, references, Citation.class);
-    }
+	/**
+	 * Sets constraint application scope (used in ISO 19139 format).
+	 * @see {@link #setConstraintApplicationScope}
+	 */
+	@SuppressWarnings({ "unused", "deprecation" })
+	private void setXmlConstraintApplicationScopeLegacy(final org.opengis.metadata.quality.Scope newValue) {
+		setConstraintApplicationScope(newValue);
+	}
 
-    /**
-     * Returns information concerning the parties to whom the resource can or cannot be released.
-     *
-     * @return information concerning the parties to whom the resource can or cannot be released, or {@code null} if none.
-     *
-     * @since 0.5
-     */
-    @Override
-/// @XmlElement(name = "releasability")
-    public Releasability getReleasability() {
-        return releasability;
-    }
+	/**
+	 * Returns the graphics / symbols indicating the constraint.
+	 *
+	 * @return the graphics / symbols indicating the constraint.
+	 *
+	 * @since 0.5
+	 */
+	@Override
+	public Collection<BrowseGraphic> getGraphics() {
+		return graphics = nonNullCollection(graphics, BrowseGraphic.class);
+	}
 
-    /**
-     * Sets the information concerning the parties to whom the resource.
-     *
-     * @param  newValue  the new information concerning the parties to whom the resource can or cannot be released.
-     *
-     * @since 0.5
-     */
-    public void setReleasability(final Releasability newValue) {
-        checkWritePermission();
-        releasability = newValue;
-    }
+	/**
+	 * Sets the new graphics / symbols indicating the constraint.
+	 *
+	 * @param  newValues  the new graphics / symbols indicating the constraint.
+	 *
+	 * @since 0.5
+	 */
+	public void setGraphics(final Collection<? extends BrowseGraphic> newValues) {
+		graphics = writeCollection(newValues, graphics, BrowseGraphic.class);
+	}
 
-    /**
-     * Returns the parties responsible for the resource constraints.
-     *
-     * @return parties responsible for the resource constraints.
-     *
-     * @since 0.5
-     */
-    @Override
-/// @XmlElement(name = "responsibleParty")
-    public Collection<Responsibility> getResponsibleParties() {
-        return responsibleParties = nonNullCollection(responsibleParties, Responsibility.class);
-    }
+	/**
+	 * Gets the graphics (used in ISO 19115-3 format).
+	 * @see {@link #getGraphics}
+	 */
+	@XmlElement(name = "graphic")
+	private Collection<BrowseGraphic> getXmlGraphics() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getGraphics();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(BrowseGraphic.class) : getGraphics();
+	}
 
-    /**
-     * Sets the parties responsible for the resource constraints.
-     *
-     * @param  newValues  the new parties responsible for the resource constraints.
-     *
-     * @since 0.5
-     */
-    public void setResponsibleParties(final Collection<? extends Responsibility> newValues) {
-        responsibleParties = writeCollection(newValues, responsibleParties, Responsibility.class);
-    }
+	/**
+	 * Returns citations for the limitation of constraint.
+	 * Example: "copyright statement, license agreement, etc."
+	 *
+	 * @return citations for the limitation of constraint.
+	 *
+	 * @since 0.5
+	 */
+	@Override
+	public Collection<Citation> getReferences() {
+		return references = nonNullCollection(references, Citation.class);
+	}
+
+	/**
+	 * Sets the citations for the limitation of constraint.
+	 *
+	 * @param  newValues  the new citation for the limitation of constraint.
+	 *
+	 * @since 0.5
+	 */
+	public void setReferences(Collection<? extends Citation> newValues) {
+		references = writeCollection(newValues, references, Citation.class);
+	}
+
+	/**
+	 * Gets the references (used in ISO 19115-3 format).
+	 * @see {@link #getReferences}
+	 */
+	@XmlElement(name = "reference")
+	private Collection<Citation> getXmlReferences() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getReferences();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getReferences();
+	}
+
+	/**
+	 * Returns information concerning the parties to whom the resource can or cannot be released.
+	 *
+	 * @return information concerning the parties to whom the resource can or cannot be released, or {@code null} if none.
+	 *
+	 * @since 0.5
+	 */
+	@Override
+	public Releasability getReleasability() {
+		return releasability;
+	}
+
+	/**
+	 * Sets the information concerning the parties to whom the resource.
+	 *
+	 * @param  newValue  the new information concerning the parties to whom the resource can or cannot be released.
+	 *
+	 * @since 0.5
+	 */
+	public void setReleasability(final Releasability newValue) {
+		checkWritePermission();
+		releasability = newValue;
+	}
+
+	/**
+	 * Gets the releasability of this constraint (used in ISO 19115-3 format).
+	 * @see {@link #getReleasability}
+	 */
+	@XmlElement(name = "releasability")
+	private Releasability getXmlReleasability() {
+		return MetadataInfo.is2003() ? null : getReleasability();
+	}
+
+	/**
+	 * Sets the releasability of this constraint (used in ISO 19115-3 format).
+	 * @see {@link #setReleasability}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlReleasability(final Releasability newValue) {
+		setReleasability(newValue);
+	}
+
+	/**
+	 * Returns the parties responsible for the resource constraints.
+	 *
+	 * @return parties responsible for the resource constraints.
+	 *
+	 * @since 0.5
+	 */
+	@Override
+	public Collection<Responsibility> getResponsibleParties() {
+		return responsibleParties = nonNullCollection(responsibleParties, Responsibility.class);
+	}
+
+	/**
+	 * Sets the parties responsible for the resource constraints.
+	 *
+	 * @param  newValues  the new parties responsible for the resource constraints.
+	 *
+	 * @since 0.5
+	 */
+	public void setResponsibleParties(final Collection<? extends Responsibility> newValues) {
+		responsibleParties = writeCollection(newValues, responsibleParties, Responsibility.class);
+	}
+
+	/**
+	 * Gets the parties responsible for this constraint (used in ISO 19115-3 format).
+	 * @see {@link #getResponsibleParties}
+	 */
+	@XmlElement(name = "responsibleParty")
+	private Collection<Responsibility> getXmlResponsibleParties() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getResponsibleParties();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Responsibility.class) : getResponsibleParties();
+	}
 }

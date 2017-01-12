@@ -252,7 +252,7 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
      */
     @Override
     @Deprecated
-    @XmlElement(name = "organisationName")
+    @XmlElement(name = "organisationName", required = true)
     public InternationalString getOrganisationName() {
         return getName(getParties(), Organisation.class, false);
     }

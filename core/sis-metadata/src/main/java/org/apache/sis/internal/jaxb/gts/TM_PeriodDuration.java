@@ -90,6 +90,7 @@ public final class TM_PeriodDuration extends PropertyType<TM_PeriodDuration, Per
     @XmlElement(name = "TM_PeriodDuration")
     public Duration getElement() {
         final PeriodDuration metadata = this.metadata;
+        
         if (metadata != null) try {
             /*
              * Get the DatatypeFactory first because if not available, then we don't need to parse
@@ -177,7 +178,7 @@ public final class TM_PeriodDuration extends PropertyType<TM_PeriodDuration, Per
      * @param methodName The method name.
      * @param e The exception.
      */
-    private static void warningOccured(final String methodName, final Exception e) {
+	private static void warningOccured(final String methodName, final Exception e) {
         if (TemporalUtilities.REPORT_MISSING_MODULE || !e.getMessage().contains("sis-temporal")) {
             Context.warningOccured(Context.current(), TM_PeriodDuration.class, methodName, e, true);
         }

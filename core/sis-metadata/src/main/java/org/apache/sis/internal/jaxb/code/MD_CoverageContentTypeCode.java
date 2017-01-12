@@ -17,9 +17,11 @@
 package org.apache.sis.internal.jaxb.code;
 
 import javax.xml.bind.annotation.XmlElement;
-import org.opengis.metadata.content.CoverageContentType;
+
 import org.apache.sis.internal.jaxb.gmd.CodeListAdapter;
 import org.apache.sis.internal.jaxb.gmd.CodeListUID;
+import org.apache.sis.xml.Namespaces;
+import org.opengis.metadata.content.CoverageContentType;
 
 
 /**
@@ -28,8 +30,9 @@ import org.apache.sis.internal.jaxb.gmd.CodeListUID;
  * handling of {@code CodeList} in ISO-19139.
  *
  * @author  Cédric Briançon (Geomatys)
+ * @author  Cullen Rombach	(Image Matters)
  * @since   0.3
- * @version 0.3
+ * @version 0.8
  * @module
  */
 public final class MD_CoverageContentTypeCode
@@ -74,7 +77,7 @@ public final class MD_CoverageContentTypeCode
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MD_CoverageContentTypeCode")
+    @XmlElement(name = "MD_CoverageContentTypeCode", namespace = Namespaces.MRC)
     public CodeListUID getElement() {
         return identifier;
     }

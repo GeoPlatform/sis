@@ -93,72 +93,116 @@
  * modify directly the underlying metadata object.</p>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author	Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlSchema(location=Schemas.METADATA_XSD, elementFormDefault=XmlNsForm.QUALIFIED, namespace=Namespaces.GMD, xmlns = {
-    @XmlNs(prefix = "gmd", namespaceURI = Namespaces.GMD),
-    @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
-    @XmlNs(prefix = "srv", namespaceURI = Namespaces.SRV),
-    @XmlNs(prefix = "xsi", namespaceURI = Namespaces.XSI)
+@XmlSchema(location=Schemas.METADATA_XSD_IDENTIFICATION, elementFormDefault=XmlNsForm.QUALIFIED, namespace=Namespaces.MRI, xmlns = {
+		@XmlNs(prefix = "lan", namespaceURI = Namespaces.LAN),
+		@XmlNs(prefix = "mcc", namespaceURI = Namespaces.MCC),
+		@XmlNs(prefix = "mri", namespaceURI = Namespaces.MRI),
+		@XmlNs(prefix = "cit", namespaceURI = Namespaces.CIT),
+		@XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
+		@XmlNs(prefix = "gmw", namespaceURI = Namespaces.GMW),
+		@XmlNs(prefix = "srv", namespaceURI = Namespaces.SRV)
 })
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlJavaTypeAdapters({
-    @XmlJavaTypeAdapter(CI_Citation.class),
-    @XmlJavaTypeAdapter(CI_OnlineResource.class),
-    @XmlJavaTypeAdapter(CI_Responsibility.class),
-    @XmlJavaTypeAdapter(DCPList.class),
-    @XmlJavaTypeAdapter(DS_AssociationTypeCode.class),
-    @XmlJavaTypeAdapter(DS_InitiativeTypeCode.class),
-    @XmlJavaTypeAdapter(EX_Extent.class),
-    @XmlJavaTypeAdapter(MD_AggregateInformation.class),
-    @XmlJavaTypeAdapter(MD_BrowseGraphic.class),
-    @XmlJavaTypeAdapter(MD_CharacterSetCode.class),
-    @XmlJavaTypeAdapter(MD_Constraints.class),
-    @XmlJavaTypeAdapter(MD_DataIdentification.class),
-    @XmlJavaTypeAdapter(MD_Format.class),
-    @XmlJavaTypeAdapter(MD_Identifier.class),
-    @XmlJavaTypeAdapter(MD_Keywords.class),
-    @XmlJavaTypeAdapter(MD_KeywordTypeCode.class),
-    @XmlJavaTypeAdapter(MD_MaintenanceInformation.class),
-    @XmlJavaTypeAdapter(MD_ProgressCode.class),
-    @XmlJavaTypeAdapter(MD_RepresentativeFraction.class),
-    @XmlJavaTypeAdapter(MD_Resolution.class),
-    @XmlJavaTypeAdapter(MD_SpatialRepresentationTypeCode.class),
-    @XmlJavaTypeAdapter(MD_StandardOrderProcess.class),
-    @XmlJavaTypeAdapter(MD_TopicCategoryCode.class),
-    @XmlJavaTypeAdapter(MD_Usage.class),
-    @XmlJavaTypeAdapter(SV_CoupledResource.class),
-    @XmlJavaTypeAdapter(SV_CouplingType.class),
-    @XmlJavaTypeAdapter(SV_OperationMetadata.class),
-    @XmlJavaTypeAdapter(SV_OperationChainMetadata.class),
-    @XmlJavaTypeAdapter(SV_Parameter.class),
-    @XmlJavaTypeAdapter(SV_ParameterDirection.class),
+	@XmlJavaTypeAdapter(MD_AssociatedResource.class),
+	@XmlJavaTypeAdapter(CI_Citation.class),
+	@XmlJavaTypeAdapter(CI_OnlineResource.class),
+	@XmlJavaTypeAdapter(CI_Responsibility.class),
+	@XmlJavaTypeAdapter(DCPList.class),
+	@XmlJavaTypeAdapter(DS_AssociationTypeCode.class),
+	@XmlJavaTypeAdapter(DS_InitiativeTypeCode.class),
+	@XmlJavaTypeAdapter(EX_Extent.class),
+	@XmlJavaTypeAdapter(MD_AggregateInformation.class),
+	@XmlJavaTypeAdapter(MD_BrowseGraphic.class),
+	@XmlJavaTypeAdapter(MD_CharacterSetCode.class),
+	@XmlJavaTypeAdapter(MD_Constraints.class),
+	@XmlJavaTypeAdapter(MD_DataIdentification.class),
+	@XmlJavaTypeAdapter(MD_Format.class),
+	@XmlJavaTypeAdapter(MD_Identifier.class),
+	@XmlJavaTypeAdapter(MD_Keywords.class),
+	@XmlJavaTypeAdapter(MD_KeywordClass.class),
+	@XmlJavaTypeAdapter(MD_KeywordTypeCode.class),
+	@XmlJavaTypeAdapter(MD_MaintenanceInformation.class),
+	@XmlJavaTypeAdapter(MD_ProgressCode.class),
+	@XmlJavaTypeAdapter(MD_RepresentativeFraction.class),
+	@XmlJavaTypeAdapter(MD_Resolution.class),
+	@XmlJavaTypeAdapter(MD_SpatialRepresentationTypeCode.class),
+	@XmlJavaTypeAdapter(MD_StandardOrderProcess.class),
+	@XmlJavaTypeAdapter(MD_TopicCategoryCode.class),
+	@XmlJavaTypeAdapter(MD_Usage.class),
+	@XmlJavaTypeAdapter(SV_CoupledResource.class),
+	@XmlJavaTypeAdapter(SV_CouplingType.class),
+	@XmlJavaTypeAdapter(SV_OperationMetadata.class),
+	@XmlJavaTypeAdapter(SV_OperationChainMetadata.class),
+	@XmlJavaTypeAdapter(SV_Parameter.class),
+	@XmlJavaTypeAdapter(SV_ParameterDirection.class),
+	@XmlJavaTypeAdapter(TM_PeriodDuration.class),
 
-    // Java types, primitive types and basic OGC types handling
-    @XmlJavaTypeAdapter(URIAdapter.class),
-    @XmlJavaTypeAdapter(LocaleAdapter.class),
-    @XmlJavaTypeAdapter(StringAdapter.class),
-    @XmlJavaTypeAdapter(InternationalStringAdapter.class),
-    @XmlJavaTypeAdapter(GO_DateTime.class),
-    @XmlJavaTypeAdapter(GO_GenericName.class),
-    @XmlJavaTypeAdapter(GO_Boolean.class), @XmlJavaTypeAdapter(type=boolean.class, value=GO_Boolean.class)
+	// Java types, primitive types and basic OGC types handling
+	@XmlJavaTypeAdapter(URIAdapter.class),
+	@XmlJavaTypeAdapter(LocaleAdapter.class),
+	@XmlJavaTypeAdapter(StringAdapter.class),
+	@XmlJavaTypeAdapter(InternationalStringAdapter.class),
+	@XmlJavaTypeAdapter(GO_DateTime.class),
+	@XmlJavaTypeAdapter(GO_GenericName.class),
+	@XmlJavaTypeAdapter(GO_Boolean.class), @XmlJavaTypeAdapter(type=boolean.class, value=GO_Boolean.class)
 })
 package org.apache.sis.metadata.iso.identification;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlNs;
 import javax.xml.bind.annotation.XmlNsForm;
 import javax.xml.bind.annotation.XmlSchema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;
-import org.apache.sis.xml.Namespaces;
+
 import org.apache.sis.internal.jaxb.Schemas;
-import org.apache.sis.internal.jaxb.gco.*;
-import org.apache.sis.internal.jaxb.gmd.*;
-import org.apache.sis.internal.jaxb.code.*;
-import org.apache.sis.internal.jaxb.metadata.*;
+import org.apache.sis.internal.jaxb.code.DCPList;
+import org.apache.sis.internal.jaxb.code.DS_AssociationTypeCode;
+import org.apache.sis.internal.jaxb.code.DS_InitiativeTypeCode;
+import org.apache.sis.internal.jaxb.code.MD_CharacterSetCode;
+import org.apache.sis.internal.jaxb.code.MD_KeywordTypeCode;
+import org.apache.sis.internal.jaxb.code.MD_ProgressCode;
+import org.apache.sis.internal.jaxb.code.MD_SpatialRepresentationTypeCode;
+import org.apache.sis.internal.jaxb.code.MD_TopicCategoryCode;
+import org.apache.sis.internal.jaxb.code.SV_CouplingType;
+import org.apache.sis.internal.jaxb.code.SV_ParameterDirection;
+import org.apache.sis.internal.jaxb.gco.GO_Boolean;
+import org.apache.sis.internal.jaxb.gco.GO_DateTime;
+import org.apache.sis.internal.jaxb.gco.GO_GenericName;
+import org.apache.sis.internal.jaxb.gco.InternationalStringAdapter;
+import org.apache.sis.internal.jaxb.gco.StringAdapter;
+import org.apache.sis.internal.jaxb.gco.URIAdapter;
+import org.apache.sis.internal.jaxb.gmd.LocaleAdapter;
+import org.apache.sis.internal.jaxb.gts.TM_PeriodDuration;
+import org.apache.sis.internal.jaxb.metadata.CI_Citation;
+import org.apache.sis.internal.jaxb.metadata.CI_OnlineResource;
+import org.apache.sis.internal.jaxb.metadata.CI_Responsibility;
+import org.apache.sis.internal.jaxb.metadata.EX_Extent;
+import org.apache.sis.internal.jaxb.metadata.MD_AggregateInformation;
+import org.apache.sis.internal.jaxb.metadata.MD_AssociatedResource;
+import org.apache.sis.internal.jaxb.metadata.MD_BrowseGraphic;
+import org.apache.sis.internal.jaxb.metadata.MD_Constraints;
+import org.apache.sis.internal.jaxb.metadata.MD_DataIdentification;
+import org.apache.sis.internal.jaxb.metadata.MD_Format;
+import org.apache.sis.internal.jaxb.metadata.MD_Identifier;
+import org.apache.sis.internal.jaxb.metadata.MD_KeywordClass;
+import org.apache.sis.internal.jaxb.metadata.MD_Keywords;
+import org.apache.sis.internal.jaxb.metadata.MD_MaintenanceInformation;
+import org.apache.sis.internal.jaxb.metadata.MD_RepresentativeFraction;
+import org.apache.sis.internal.jaxb.metadata.MD_Resolution;
+import org.apache.sis.internal.jaxb.metadata.MD_StandardOrderProcess;
+import org.apache.sis.internal.jaxb.metadata.MD_Usage;
+import org.apache.sis.internal.jaxb.metadata.SV_CoupledResource;
+import org.apache.sis.internal.jaxb.metadata.SV_OperationChainMetadata;
+import org.apache.sis.internal.jaxb.metadata.SV_OperationMetadata;
+import org.apache.sis.internal.jaxb.metadata.SV_Parameter;
+import org.apache.sis.xml.Namespaces;

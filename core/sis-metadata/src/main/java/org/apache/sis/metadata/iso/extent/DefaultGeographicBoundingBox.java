@@ -248,7 +248,6 @@ public class DefaultGeographicBoundingBox extends AbstractGeographicExtent imple
      * @return the given value as a primitive type.
      * @throws InvalidMetadataException if the given value is nil.
      */
-    @SuppressWarnings("NumberEquality")
     static boolean getInclusion(final Boolean value) throws InvalidMetadataException {
         if (value == null) {
             return true;

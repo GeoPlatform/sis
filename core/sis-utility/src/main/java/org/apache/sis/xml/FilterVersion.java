@@ -16,10 +16,8 @@
  */
 package org.apache.sis.xml;
 
+import java.util.HashMap;
 import java.util.Map;
-import org.apache.sis.internal.jaxb.LegacyNamespaces;
-
-import static java.util.Collections.singletonMap;
 
 
 /**
@@ -27,22 +25,28 @@ import static java.util.Collections.singletonMap;
  *
  * See {@link FilteredNamespaces} for more information.
  *
- * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.4
- * @version 0.4
+ * @version 0.8
  * @module
  */
 enum FilterVersion {
-    /**
-     * GML using the legacy {@code "http://www.opengis.net/gml"} namespace.
-     */
-    GML31(Namespaces.GML, LegacyNamespaces.GML);
+	
+	/**
+	 * Filter used to change GML version to 3.1
+	 */
+	GML31(NamespaceFilter.GML31),
+	
+	/**
+	 * Filter used to convert an ISO 19115-3 document to ISO 19139
+	 */
+	ISO19139(NamespaceFilter.ISO19139),
 
     /**
      * Apply all known namespace replacements. This can be used only at unmarshalling time,
      * for replacing all namespaces by the namespaces declared in Apache SIS JAXB annotations.
      */
-    static FilterVersion ALL = GML31;
+	ALL(NamespaceFilter.ALL);
 
     /**
      * The URI replacements to apply when going from the "real" data producer (JAXB marshaller)
@@ -64,8 +68,16 @@ enum FilterVersion {
     /**
      * Creates a new enum for replacing only one namespace.
      */
-    private FilterVersion(final String impl, final String view) {
-        this.toView = singletonMap(impl, view);
-        this.toImpl = singletonMap(view, impl);
+    private FilterVersion(NamespaceFilter[] filters) {
+    	this.toView = new HashMap<String,String>();
+    	this.toImpl = new HashMap<String,String>();
+    	// Loop through NamespaceFilters
+    	for(NamespaceFilter filter : filters) {
+    		// Add each key/value pair to this object's toView and toImpl maps.
+    		for(String key : filter.toView.keySet()) {
+    			this.toView.put(key, filter.toView.get(key));
+    			this.toImpl.put(filter.toView.get(key), key);
+    		}
+    	}
     }
 }

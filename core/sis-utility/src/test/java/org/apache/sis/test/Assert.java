@@ -307,7 +307,7 @@ public strictfp class Assert extends org.opengis.test.Assert {
      *   <tr><td>xsi</td>    <td>{@value org.apache.sis.xml.Namespaces#XSI}</td></tr>
      *   <tr><td>gml</td>    <td>{@value org.apache.sis.xml.Namespaces#GML}</td></tr>
      *   <tr><td>gmd</td>    <td>{@value org.apache.sis.xml.Namespaces#GMD}</td></tr>
-     *   <tr><td>gmx</td>    <td>{@value org.apache.sis.xml.Namespaces#GMX}</td></tr>
+     *   <tr><td>gmx</td>    <td>{@value org.apache.sis.xml.Namespaces#GCX}</td></tr>
      *   <tr><td>gmi</td>    <td>{@value org.apache.sis.xml.Namespaces#GMI}</td></tr>
      *   <tr><td>gco</td>    <td>{@value org.apache.sis.xml.Namespaces#GCO}</td></tr>
      * </table>

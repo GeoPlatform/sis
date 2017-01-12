@@ -18,21 +18,24 @@ package org.apache.sis.metadata.iso.distribution;
 
 import java.util.Collection;
 import java.util.Collections;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.InternationalString;
-import org.opengis.metadata.citation.Citation;
-import org.opengis.metadata.distribution.Format;
-import org.opengis.metadata.distribution.Medium;
-import org.opengis.metadata.distribution.Distributor;
-import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
-import org.apache.sis.metadata.iso.citation.DefaultCitation;
-import org.apache.sis.metadata.iso.ISOMetadata;
-import org.apache.sis.util.iso.Types;
-
 // Branch-dependent imports
 import java.util.function.BiConsumer;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.apache.sis.metadata.iso.citation.DefaultCitation;
+import org.apache.sis.util.iso.Types;
+import org.opengis.metadata.citation.Citation;
+import org.opengis.metadata.distribution.Distributor;
+import org.opengis.metadata.distribution.Format;
+import org.opengis.metadata.distribution.Medium;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -69,18 +72,21 @@ import java.util.function.BiConsumer;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
  * @version 0.8
  * @module
  */
 @XmlType(name = "MD_Format_Type", propOrder = {
-    "name",
-    "version",
+	"xmlFormatSpecificationCitation",	// ISO 19115-3
+    "xmlName",							// ISO 19139
+    "xmlVersion",						// ISO 19139
     "amendmentNumber",
-    "specification",
+    "xmlSpecification",					// ISO 19139	
     "fileDecompressionTechnique",
+    "xmlMedia",							// ISO 19115-3
     "formatDistributors"
 })
 @XmlRootElement(name = "MD_Format")
@@ -196,7 +202,6 @@ public class DefaultFormat extends ISOMetadata implements Format {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "formatSpecificationCitation", required = true)
     public Citation getFormatSpecificationCitation() {
         return formatSpecificationCitation;
     }
@@ -233,6 +238,24 @@ public class DefaultFormat extends ISOMetadata implements Format {
             setFormatSpecificationCitation(citation);
         }
     }
+    
+    /**
+	 * Gets the format specification citation (used in ISO 19115-3 format).
+	 * @see {@link #getFormatSpecificationCitation}
+	 */
+	@XmlElement(name = "formatSpecificationCitation", required = true)
+	private Citation getXmlFormatSpecificationCitation() {
+		return MetadataInfo.is2003() ? null : getFormatSpecificationCitation();
+	}
+	
+	/**
+	 * Sets the format specification citation (used in ISO 19115-3 format).
+	 * @see {@link #setFormatSpecificationCitation}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlFormatSpecificationCitation(final Citation newValue) {
+		setFormatSpecificationCitation(newValue);
+	}
 
     /**
      * Returns the name of a subset, profile, or product specification of the format.
@@ -244,7 +267,6 @@ public class DefaultFormat extends ISOMetadata implements Format {
      */
     @Override
     @Deprecated
-    @XmlElement(name = "specification")
     public InternationalString getSpecification() {
         final Citation citation = getFormatSpecificationCitation();
         return (citation != null) ? citation.getTitle(): null;
@@ -264,6 +286,24 @@ public class DefaultFormat extends ISOMetadata implements Format {
         checkWritePermission();
         setFormatSpecificationCitation((citation, value) -> citation.setTitle(value), newValue);
     }
+    
+    /**
+	 * Gets the specification (used in ISO 19139 format).
+	 * @see {@link #getFormatSpecificationCitation}
+	 */
+	@XmlElement(name = "specification")
+	private InternationalString getXmlSpecification() {
+		return MetadataInfo.is2014() ? null : getSpecification();
+	}
+	
+	/**
+	 * Sets the specification (used in ISO 19139 format).
+	 * @see {@link #setFormatSpecificationCitation}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlSpecification(final InternationalString newValue) {
+		setSpecification(newValue);
+	}
 
     /**
      * Returns the name of the data transfer format(s).
@@ -276,7 +316,6 @@ public class DefaultFormat extends ISOMetadata implements Format {
      */
     @Override
     @Deprecated
-    @XmlElement(name = "name", required = true)
     public InternationalString getName() {
         final Citation citation = getFormatSpecificationCitation();
         if (citation != null) {
@@ -301,6 +340,24 @@ public class DefaultFormat extends ISOMetadata implements Format {
         setFormatSpecificationCitation((citation, value) ->
                 citation.setAlternateTitles(LegacyPropertyAdapter.asCollection(value)), newValue);
     }
+    
+    /**
+	 * Gets the name (used in ISO 19139 format).
+	 * @see {@link #getName}
+	 */
+	@XmlElement(name = "name", required = true)
+	private InternationalString getXmlName() {
+		return MetadataInfo.is2014() ? null : getName();
+	}
+	
+	/**
+	 * Sets the name (used in ISO 19139 format).
+	 * @see {@link #setName}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlName(final InternationalString newValue) {
+		setName(newValue);
+	}
 
     /**
      * Returns the version of the format (date, number, etc.).
@@ -313,7 +370,6 @@ public class DefaultFormat extends ISOMetadata implements Format {
      */
     @Override
     @Deprecated
-    @XmlElement(name = "version", required = true)
     public InternationalString getVersion() {
         final Citation citation = getFormatSpecificationCitation();
         return (citation != null) ? citation.getEdition(): null;
@@ -333,6 +389,24 @@ public class DefaultFormat extends ISOMetadata implements Format {
         checkWritePermission();
         setFormatSpecificationCitation((citation, value) -> citation.setEdition(value), newValue);
     }
+    
+    /**
+	 * Gets the version (used in ISO 19139 format).
+	 * @see {@link #getVersion}
+	 */
+	@XmlElement(name = "version", required = true)
+	private InternationalString getXmlVersion() {
+		return MetadataInfo.is2014() ? null : getVersion();
+	}
+	
+	/**
+	 * Sets the version (used in ISO 19139 format).
+	 * @see {@link #setVersion}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlVersion(final InternationalString newValue) {
+		setVersion(newValue);
+	}
 
     /**
      * Returns the amendment number of the format version.
@@ -402,6 +476,18 @@ public class DefaultFormat extends ISOMetadata implements Format {
     public void setMedia(final Collection<? extends Medium> newValues) {
         media = writeCollection(newValues, media, Medium.class);
     }
+    
+    /**
+	 * Gets the media (used in ISO 19115-3 format).
+	 * @see {@link #getMedia}
+	 */
+	@XmlElement(name = "medium")
+	private Collection<Medium> getXmlMedia() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getMedia();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Medium.class) : getMedia();
+	}
 
     /**
      * Provides information about the distributor's format.

@@ -16,18 +16,22 @@
  */
 package org.apache.sis.metadata.iso.identification;
 
-import java.util.List;
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.InternationalString;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.util.CheckedArrayList;
 import org.apache.sis.metadata.iso.ISOMetadata;
+import org.apache.sis.xml.Namespaces;
 import org.opengis.metadata.citation.OnlineResource;
 import org.opengis.metadata.identification.DistributedComputingPlatform;
 import org.opengis.metadata.identification.OperationMetadata;
 import org.opengis.parameter.ParameterDescriptor;
-import org.apache.sis.xml.Namespaces;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -42,15 +46,17 @@ import org.apache.sis.xml.Namespaces;
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
  *
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @version 0.5
- * @since   0.5
+ * @since   0.8
  * @module
  */
 @XmlType(name = "SV_OperationMetadata_Type", namespace = Namespaces.SRV, propOrder = {
     "operationName",
-    "distributedComputingPlatforms",
+    "xmlDistributedComputingPlatforms",			// ISO 19115-3
+    "xmlDistributedComputingPlatformsLegacy", 	// ISO 19139
     "operationDescription",
     "invocationName",
     "parameters",
@@ -130,7 +136,7 @@ public class DefaultOperationMetadata extends ISOMetadata implements OperationMe
      *
      * @see #castOrCopy(OperationMetadata)
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public DefaultOperationMetadata(final OperationMetadata object) {
         super(object);
         if (object != null) {
@@ -196,7 +202,7 @@ public class DefaultOperationMetadata extends ISOMetadata implements OperationMe
      * @return Distributed computing platforms on which the operation has been implemented.
      */
     @Override
-    @XmlElement(name = "DCP", namespace = Namespaces.SRV, required = true)
+/// @XmlElement(name = "DCP", namespace = Namespaces.SRV, required = true)
     public Collection<DistributedComputingPlatform> getDistributedComputingPlatforms() {
         return distributedComputingPlatforms = nonNullCollection(distributedComputingPlatforms, DistributedComputingPlatform.class);
     }
@@ -209,6 +215,30 @@ public class DefaultOperationMetadata extends ISOMetadata implements OperationMe
     public void setDistributedComputingPlatforms(final Collection<? extends DistributedComputingPlatform> newValues) {
         distributedComputingPlatforms = writeCollection(newValues, distributedComputingPlatforms, DistributedComputingPlatform.class);
     }
+    
+    /**
+	 * Gets DCPs for this operation (used in ISO 19115-3 format).
+	 * @see {@link #getDistributedComputingPlatforms}
+	 */
+    @XmlElement(name = "distributedComputingPlatform", namespace = Namespaces.SRV)
+	private Collection<DistributedComputingPlatform> getXmlDistributedComputingPlatforms() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getDistributedComputingPlatforms();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(DistributedComputingPlatform.class) : getDistributedComputingPlatforms();
+	}
+    
+    /**
+	 * Gets DCPs for this operation (used in ISO 19139 format).
+	 * @see {@link #getDistributedComputingPlatforms}
+	 */
+    @XmlElement(name = "DCP", namespace = Namespaces.SRV)
+	private Collection<DistributedComputingPlatform> getXmlDistributedComputingPlatformsLegacy() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getDistributedComputingPlatforms();
+		}
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(DistributedComputingPlatform.class) : getDistributedComputingPlatforms();
+	}
 
     /**
      * Returns free text description of the intent of the operation and the results of the operation.
@@ -279,7 +309,7 @@ public class DefaultOperationMetadata extends ISOMetadata implements OperationMe
      * @return The parameters that are required for this interface, or an empty collection if none.
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @XmlElement(name = "parameters", namespace = Namespaces.SRV)
     public Collection<ParameterDescriptor<?>> getParameters() {
         return parameters = nonNullCollection(parameters, (Class) ParameterDescriptor.class);
@@ -290,7 +320,7 @@ public class DefaultOperationMetadata extends ISOMetadata implements OperationMe
      *
      * @param newValues The new set of parameters that are required for this interface.
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public void setParameters(final Collection<? extends ParameterDescriptor<?>> newValues) {
         parameters = writeCollection(newValues, parameters, (Class) ParameterDescriptor.class);
     }

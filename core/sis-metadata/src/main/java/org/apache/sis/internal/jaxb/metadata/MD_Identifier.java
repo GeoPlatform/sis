@@ -18,11 +18,13 @@ package org.apache.sis.internal.jaxb.metadata;
 
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlElementRefs;
-import org.opengis.metadata.Identifier;
-import org.opengis.referencing.ReferenceIdentifier;
+
+import org.apache.sis.internal.jaxb.gco.PropertyType;
 import org.apache.sis.metadata.iso.DefaultIdentifier;
 import org.apache.sis.metadata.iso.ImmutableIdentifier;
-import org.apache.sis.internal.jaxb.gco.PropertyType;
+import org.apache.sis.xml.Namespaces;
+import org.opengis.metadata.Identifier;
+import org.opengis.referencing.ReferenceIdentifier;
 
 
 /**

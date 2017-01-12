@@ -50,7 +50,7 @@ public final strictfp class CharSequenceSubstitutionTest extends XMLTestCase {
     @DependsOnMethod("testAnchor")
     public void testAnchorForString() throws JAXBException {
         final String expected =
-                "<gmd:RS_Identifier xmlns:gmx=\""   + Namespaces.GMX   + '"' +
+                "<gmd:RS_Identifier xmlns:gmx=\""   + Namespaces.GCX   + '"' +
                                   " xmlns:gmd=\""   + Namespaces.GMD   + '"' +
                                   " xmlns:gco=\""   + Namespaces.GCO   + '"' +
                                   " xmlns:xlink=\"" + Namespaces.XLINK + "\">\n" +
@@ -76,7 +76,7 @@ public final strictfp class CharSequenceSubstitutionTest extends XMLTestCase {
     @Test
     public void testAnchor() throws JAXBException {
         final String expected =
-                "<gmd:CI_Address xmlns:gmx=\""   + Namespaces.GMX   + '"' +
+                "<gmd:CI_Address xmlns:gmx=\""   + Namespaces.GCX   + '"' +
                                " xmlns:gmd=\""   + Namespaces.GMD   + '"' +
                                " xmlns:gco=\""   + Namespaces.GCO   + '"' +
                                " xmlns:xlink=\"" + Namespaces.XLINK + "\">\n" +

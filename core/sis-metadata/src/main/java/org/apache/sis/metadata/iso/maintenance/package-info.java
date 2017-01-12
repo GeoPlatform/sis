@@ -60,23 +60,27 @@
  * structures, for which only one property can be non-empty in the same object.</p>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author	Cullen Rombach 		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlSchema(location=Schemas.METADATA_XSD, elementFormDefault=XmlNsForm.QUALIFIED, namespace=Namespaces.GMD, xmlns = {
-    @XmlNs(prefix = "gmd", namespaceURI = Namespaces.GMD),
+@XmlSchema(location=Schemas.METADATA_XSD_MAINTENANCE, elementFormDefault=XmlNsForm.QUALIFIED, namespace=Namespaces.MMI, xmlns = {
+    @XmlNs(prefix = "mcc", namespaceURI = Namespaces.MCC),
+    @XmlNs(prefix = "mmi", namespaceURI = Namespaces.MMI),
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
-    @XmlNs(prefix = "xsi", namespaceURI = Namespaces.XSI)
+    @XmlNs(prefix = "gmw", namespaceURI = Namespaces.GMW)
 })
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlJavaTypeAdapters({
     @XmlJavaTypeAdapter(EX_Extent.class),
+    @XmlJavaTypeAdapter(CI_Date.class),
     @XmlJavaTypeAdapter(CI_Responsibility.class),
     @XmlJavaTypeAdapter(MD_MaintenanceFrequencyCode.class),
     @XmlJavaTypeAdapter(MD_MaintenanceInformation.class),
+    @XmlJavaTypeAdapter(MD_Scope.class),
     @XmlJavaTypeAdapter(MD_ScopeCode.class),
     @XmlJavaTypeAdapter(MD_ScopeDescription.class),
     @XmlJavaTypeAdapter(TM_PeriodDuration.class),
@@ -88,17 +92,25 @@
 })
 package org.apache.sis.metadata.iso.maintenance;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlNs;
 import javax.xml.bind.annotation.XmlNsForm;
 import javax.xml.bind.annotation.XmlSchema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;
 
-import org.apache.sis.xml.Namespaces;
 import org.apache.sis.internal.jaxb.Schemas;
-import org.apache.sis.internal.jaxb.gco.*;
-import org.apache.sis.internal.jaxb.code.*;
+import org.apache.sis.internal.jaxb.code.MD_MaintenanceFrequencyCode;
+import org.apache.sis.internal.jaxb.code.MD_ScopeCode;
+import org.apache.sis.internal.jaxb.gco.GO_DateTime;
+import org.apache.sis.internal.jaxb.gco.InternationalStringAdapter;
+import org.apache.sis.internal.jaxb.gco.StringAdapter;
 import org.apache.sis.internal.jaxb.gts.TM_PeriodDuration;
-import org.apache.sis.internal.jaxb.metadata.*;
+import org.apache.sis.internal.jaxb.metadata.CI_Date;
+import org.apache.sis.internal.jaxb.metadata.CI_Responsibility;
+import org.apache.sis.internal.jaxb.metadata.EX_Extent;
+import org.apache.sis.internal.jaxb.metadata.MD_MaintenanceInformation;
+import org.apache.sis.internal.jaxb.metadata.MD_Scope;
+import org.apache.sis.internal.jaxb.metadata.MD_ScopeDescription;
+import org.apache.sis.xml.Namespaces;

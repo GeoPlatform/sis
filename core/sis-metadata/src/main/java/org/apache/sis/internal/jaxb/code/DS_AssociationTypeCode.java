@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlElement;
 import org.opengis.metadata.identification.AssociationType;
 import org.apache.sis.internal.jaxb.gmd.CodeListAdapter;
 import org.apache.sis.internal.jaxb.gmd.CodeListUID;
+import org.apache.sis.xml.Namespaces;
 
 
 /**
@@ -27,9 +28,10 @@ import org.apache.sis.internal.jaxb.gmd.CodeListUID;
  * complying with ISO-19139 standard. See package documentation to have more information
  * about the handling of CodeList in ISO-19139.
  *
- * @author  Guilhem Legal (Geomatys)
+ * @author  Guilhem Legal 	(Geomatys)
+ * @author  Cullen Rombach	(Image Matters)
  * @since   0.3
- * @version 0.3
+ * @version 0.8
  * @module
  */
 public final class DS_AssociationTypeCode extends CodeListAdapter<DS_AssociationTypeCode, AssociationType> {
@@ -72,7 +74,7 @@ public final class DS_AssociationTypeCode extends CodeListAdapter<DS_Association
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "DS_AssociationTypeCode")
+    @XmlElement(name = "DS_AssociationTypeCode", namespace = Namespaces.MRI)
     public CodeListUID getElement() {
         return identifier;
     }

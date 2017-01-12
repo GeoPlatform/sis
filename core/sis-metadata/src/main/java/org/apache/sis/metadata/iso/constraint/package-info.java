@@ -60,34 +60,49 @@
  * all collections returned by getter methods are <cite>live</cite>: adding new elements in the collection
  * modify directly the underlying metadata object.</p>
  *
- * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Martin Desruisseaux	(IRD, Geomatys)
+ * @author  Touraïvane			(IRD)
+ * @author  Cédric Briançon		(Geomatys)
+ * @author	Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlSchema(location=Schemas.METADATA_XSD, elementFormDefault=XmlNsForm.QUALIFIED, namespace=Namespaces.GMD, xmlns = {
-    @XmlNs(prefix = "gmd", namespaceURI = Namespaces.GMD),
-    @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
-    @XmlNs(prefix = "xsi", namespaceURI = Namespaces.XSI)
+@XmlSchema(location=Schemas.METADATA_XSD_CONSTRAINT, elementFormDefault=XmlNsForm.QUALIFIED, namespace=Namespaces.MCO, xmlns = {
+    @XmlNs(prefix = "mco", namespaceURI = Namespaces.MCO),
+    @XmlNs(prefix = "mcc", namespaceURI = Namespaces.MCC),
+    @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO)
 })
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlJavaTypeAdapters({
+	@XmlJavaTypeAdapter(CI_Citation.class),
+	@XmlJavaTypeAdapter(CI_Responsibility.class),
+	@XmlJavaTypeAdapter(MD_BrowseGraphic.class),
     @XmlJavaTypeAdapter(MD_ClassificationCode.class),
+    @XmlJavaTypeAdapter(MD_Releasability.class),
     @XmlJavaTypeAdapter(MD_RestrictionCode.class),
+    @XmlJavaTypeAdapter(MD_Scope.class),
+    @XmlJavaTypeAdapter(DQ_Scope.class),
     @XmlJavaTypeAdapter(InternationalStringAdapter.class)
 })
 package org.apache.sis.metadata.iso.constraint;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlNs;
 import javax.xml.bind.annotation.XmlNsForm;
 import javax.xml.bind.annotation.XmlSchema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;
-import org.apache.sis.xml.Namespaces;
+
 import org.apache.sis.internal.jaxb.Schemas;
-import org.apache.sis.internal.jaxb.gco.*;
-import org.apache.sis.internal.jaxb.code.*;
+import org.apache.sis.internal.jaxb.code.MD_ClassificationCode;
+import org.apache.sis.internal.jaxb.code.MD_RestrictionCode;
+import org.apache.sis.internal.jaxb.gco.InternationalStringAdapter;
+import org.apache.sis.internal.jaxb.metadata.CI_Citation;
+import org.apache.sis.internal.jaxb.metadata.CI_Responsibility;
+import org.apache.sis.internal.jaxb.metadata.DQ_Scope;
+import org.apache.sis.internal.jaxb.metadata.MD_BrowseGraphic;
+import org.apache.sis.internal.jaxb.metadata.MD_Releasability;
+import org.apache.sis.internal.jaxb.metadata.MD_Scope;
+import org.apache.sis.xml.Namespaces;

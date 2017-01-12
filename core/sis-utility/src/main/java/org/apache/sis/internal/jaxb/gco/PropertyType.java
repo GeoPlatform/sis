@@ -16,24 +16,27 @@
  */
 package org.apache.sis.internal.jaxb.gco;
 
-import java.util.UUID;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.UUID;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
-import org.apache.sis.xml.XLink;
-import org.apache.sis.xml.NilObject;
-import org.apache.sis.xml.NilReason;
-import org.apache.sis.xml.Namespaces;
-import org.apache.sis.xml.IdentifierMap;
-import org.apache.sis.xml.IdentifierSpace;
-import org.apache.sis.xml.IdentifiedObject;
-import org.apache.sis.xml.ReferenceResolver;
+
 import org.apache.sis.internal.jaxb.Context;
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.jaxb.PrimitiveTypeProperties;
 import org.apache.sis.util.iso.SimpleInternationalString;
 import org.apache.sis.util.resources.Errors;
+import org.apache.sis.xml.IdentifiedObject;
+import org.apache.sis.xml.IdentifierMap;
+import org.apache.sis.xml.IdentifierSpace;
+import org.apache.sis.xml.Namespaces;
+import org.apache.sis.xml.NilObject;
+import org.apache.sis.xml.NilReason;
+import org.apache.sis.xml.ReferenceResolver;
+import org.apache.sis.xml.XLink;
 
 
 /**
@@ -105,10 +108,11 @@ import org.apache.sis.util.resources.Errors;
  * @param <ValueType> The adapter subclass.
  * @param <BoundType> The interface being adapted.
  *
- * @author  Cédric Briançon (Geomatys)
+ * @author  Cédric Briançon 	(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.7
+ * @version 0.8
  * @module
  *
  * @see XmlAdapter
@@ -117,11 +121,9 @@ public abstract class PropertyType<ValueType extends PropertyType<ValueType,Boun
         extends XmlAdapter<ValueType,BoundType>
 {
     /**
-     * {@code true} if marshalling an XML based on ISO 19115:2003 model. A value of {@code false}
-     * (ISO 19115:2014 model) is not yet supported, so we currently use this variable only as a way
-     * to identify the code to revisit when we will want to support the new model.
+     * {@code true} if marshalling an XML based on ISO 19115:2003 model.
      */
-    public static final boolean LEGACY_XML = true;
+    public static final boolean LEGACY_XML = MetadataInfo.is2003();
 
     /**
      * The wrapped GeoAPI metadata instance, or {@code null} if the metadata shall not be marshalled.

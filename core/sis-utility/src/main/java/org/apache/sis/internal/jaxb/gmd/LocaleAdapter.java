@@ -17,7 +17,9 @@
 package org.apache.sis.internal.jaxb.gmd;
 
 import java.util.Locale;
+
 import javax.xml.bind.annotation.adapters.XmlAdapter;
+
 import org.apache.sis.internal.jaxb.Context;
 
 

@@ -16,13 +16,15 @@
  */
 package org.apache.sis.metadata.iso;
 
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.util.Citations;
+import org.apache.sis.xml.Namespaces;
 import org.opengis.metadata.Identifier;
 import org.opengis.metadata.citation.Citation;
 import org.opengis.util.InternationalString;
-import org.apache.sis.internal.util.Citations;
 
 
 /**
@@ -74,10 +76,11 @@ import org.apache.sis.internal.util.Citations;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author	Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.7
+ * @version 0.8
  * @module
  *
  * @see ImmutableIdentifier
@@ -85,9 +88,12 @@ import org.apache.sis.internal.util.Citations;
  */
 @XmlType(name = "MD_Identifier_Type", propOrder = {
     "authority",
-    "code"
+    "code",
+    "codeSpace",
+    "version",
+    "description"
 })
-@XmlRootElement(name = "MD_Identifier")
+@XmlRootElement(name = "MD_Identifier", namespace = Namespaces.MCC)
 public class DefaultIdentifier extends ISOMetadata implements Identifier {
     /**
      * Serial number for inter-operability with different versions.
@@ -228,7 +234,7 @@ public class DefaultIdentifier extends ISOMetadata implements Identifier {
      * @return Person or party responsible for maintenance of the namespace, or {@code null} if not available.
      */
     @Override
-    @XmlElement(name = "authority")
+    @XmlElement(name = "authority", namespace = Namespaces.MCC)
     public Citation getAuthority() {
         return authority;
     }
@@ -255,7 +261,7 @@ public class DefaultIdentifier extends ISOMetadata implements Identifier {
      * @return Value identifying an instance in the namespace.
      */
     @Override
-    @XmlElement(name = "code", required = true)
+    @XmlElement(name = "code", required = true, namespace = Namespaces.MCC)
     public String getCode() {
         return code;
     }
@@ -282,6 +288,7 @@ public class DefaultIdentifier extends ISOMetadata implements Identifier {
      * @since 0.5
      */
     @Override
+    @XmlElement(name = "codeSpace", namespace = Namespaces.MCC)
     public String getCodeSpace() {
         return codeSpace;
     }
@@ -308,6 +315,7 @@ public class DefaultIdentifier extends ISOMetadata implements Identifier {
      * @return The version identifier for the namespace, or {@code null} if none.
      */
     @Override
+    @XmlElement(name = "version", namespace = Namespaces.MCC)
     public String getVersion() {
         return version;
     }
@@ -332,6 +340,7 @@ public class DefaultIdentifier extends ISOMetadata implements Identifier {
      * @since 0.5
      */
     @Override
+    @XmlElement(name = "description", namespace = Namespaces.MCC)
     public InternationalString getDescription() {
         return description;
     }

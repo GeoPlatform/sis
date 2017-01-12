@@ -33,6 +33,8 @@ import org.apache.sis.util.logging.WarningListener;
 import org.apache.sis.util.resources.Errors;
 import org.apache.sis.util.resources.Messages;
 import org.apache.sis.util.resources.IndexedResourceBundle;
+import org.apache.sis.internal.jaxb.MetadataInfo.Standard;
+import org.apache.sis.internal.jaxb.MetadataInfo.Process;
 import org.apache.sis.internal.jaxb.gco.PropertyType;
 import org.apache.sis.internal.system.Semaphores;
 import org.apache.sis.internal.system.Loggers;
@@ -50,8 +52,9 @@ import org.apache.sis.xml.ReferenceResolver;
  * if no (un)marshalling is in progress.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.7
+ * @version 0.8
  * @module
  */
 public final class Context extends MarshalContext {
@@ -133,6 +136,12 @@ public final class Context extends MarshalContext {
      * If null, than the latest version is assumed.
      */
     private final Version versionGML;
+    
+    /**
+     * The metadata version to be marshalled or unmarshalled, or {@code null} if unspecified.
+     * If null, than the latest version is assumed.
+     */
+    private final Version versionMetadata;
 
     /**
      * The reference resolver currently in use, or {@code null} for {@link ReferenceResolver#DEFAULT}.
@@ -203,22 +212,23 @@ public final class Context extends MarshalContext {
      * @param  timezone         the timezone, or {@code null} if unspecified.
      * @param  schemas          the schemas root URL, or {@code null} if none.
      * @param  versionGML       the GML version, or {@code null}.
+     * @param versionMetadata 
      * @param  resolver         the resolver in use.
      * @param  converter        the converter in use.
      * @param  warningListener  the object to inform about warnings.
      */
-    @SuppressWarnings("ThisEscapedInObjectConstruction")
     public Context(final int                bitMasks,
                    final Locale             locale,   final TimeZone       timezone,
                    final Map<String,String> schemas,  final Version        versionGML,
-                   final ReferenceResolver  resolver, final ValueConverter converter,
-                   final WarningListener<?> warningListener)
+                   Version versionMetadata, final ReferenceResolver  resolver, final ValueConverter converter,
+                   final WarningListener<?> warningListener, final boolean marshalling)
     {
         this.bitMasks          = bitMasks;
         this.locales           = new LinkedList<>();
         this.timezone          = timezone;
         this.schemas           = schemas;               // No clone, because this class is internal.
         this.versionGML        = versionGML;
+        this.versionMetadata   = versionMetadata;
         this.resolver          = resolver;
         this.converter         = converter;
         this.warningListener   = warningListener;
@@ -234,6 +244,24 @@ public final class Context extends MarshalContext {
         }
         previous = CURRENT.get();
         CURRENT.set(this);
+        
+        // Set metadata standard for use with ISO metadata
+        if(versionMetadata != null) {
+        	if(versionMetadata.equals(LegacyNamespaces.ISO_19139)) {
+        		MetadataInfo.setStandard(Standard.ISO_2003);
+        	}
+        	else {
+        		MetadataInfo.setStandard(Standard.ISO_2014);
+        	}
+        }
+        
+        // Set indicator of marshalling or unmarshalling
+        if(marshalling) {
+        	MetadataInfo.setProcess(Process.MARSHAL);
+        }
+        else {
+        	MetadataInfo.setProcess(Process.UNMARSHAL);
+        }
     }
 
     /**
@@ -266,6 +294,9 @@ public final class Context extends MarshalContext {
     public final Version getVersion(final String prefix) {
         if (prefix.equals("gml")) {
             return versionGML;
+        }
+        if (prefix.equals("gmd") || prefix.equals("gmi") || prefix.equals("mdb")) {
+            return versionMetadata;
         }
         // Future SIS versions may add more cases here.
         return null;
@@ -364,6 +395,30 @@ public final class Context extends MarshalContext {
             final Version versionGML = context.versionGML;
             if (versionGML != null) {
                 return versionGML.compareTo(version) >= 0;
+            }
+        }
+        return true;
+    }
+    
+    /**
+     * Returns {@code true} if the Metadata version is equals or newer than the specified version.
+     * If no Metadata version were specified, then this method returns {@code true}, i.e. newest
+     * version is assumed.
+     *
+     * <div class="note"><b>API note:</b>
+     * This method is static for the convenience of performing the check for null context.</div>
+     *
+     * @param  context  the current context, or {@code null} if none.
+     * @param  version  the version to compare to.
+     * @return {@code true} if the Metadata version is equals or newer than the specified version.
+     *
+     * @see #getVersion(String)
+     */
+    public static boolean isMetadataVersion(final Context context, final Version version) {
+        if (context != null) {
+            final Version versionMetadata = context.versionMetadata;
+            if (versionMetadata != null) {
+                return versionMetadata.compareTo(version) >= 0;
             }
         }
         return true;

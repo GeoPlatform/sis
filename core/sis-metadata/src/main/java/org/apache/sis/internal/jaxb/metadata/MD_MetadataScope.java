@@ -17,9 +17,10 @@
 package org.apache.sis.internal.jaxb.metadata;
 
 import javax.xml.bind.annotation.XmlElementRef;
-import org.opengis.metadata.MetadataScope;
-import org.apache.sis.metadata.iso.DefaultMetadataScope;
+
 import org.apache.sis.internal.jaxb.gco.PropertyType;
+import org.apache.sis.metadata.iso.DefaultMetadataScope;
+import org.opengis.metadata.MetadataScope;
 
 
 /**

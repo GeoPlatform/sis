@@ -17,27 +17,29 @@
 package org.apache.sis.internal.jaxb.gco;
 
 import javax.xml.XMLConstants;
-import javax.xml.namespace.QName;
 import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
-import org.w3c.dom.Element;
-import org.opengis.util.CodeList;
-import org.opengis.util.ControlledVocabulary;
-import org.apache.sis.xml.Namespaces;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.namespace.QName;
+
 import org.apache.sis.internal.jaxb.Context;
+import org.apache.sis.internal.jaxb.gmd.CodeListUID;
 import org.apache.sis.internal.jaxb.gmx.Anchor;
 import org.apache.sis.internal.jaxb.gmx.FileName;
 import org.apache.sis.internal.jaxb.gmx.MimeFileType;
-import org.apache.sis.internal.jaxb.gmd.CodeListUID;
 import org.apache.sis.util.CharSequences;
 import org.apache.sis.util.Workaround;
 import org.apache.sis.util.iso.Types;
 import org.apache.sis.util.resources.Errors;
 import org.apache.sis.util.resources.Messages;
+import org.apache.sis.xml.Namespaces;
+import org.opengis.util.CodeList;
+import org.opengis.util.ControlledVocabulary;
+import org.w3c.dom.Element;
 
 
 /**
@@ -67,6 +69,7 @@ import org.apache.sis.util.resources.Messages;
     org.apache.sis.internal.jaxb.gmd.LanguageCode.class,
     org.apache.sis.internal.jaxb.gmd.Country.class
 })
+@XmlRootElement(name = "CharacterString")
 public class GO_CharacterString {
     /*
      * Numerical values below are ordered: if two or more values are defined (thoerically not legal,
@@ -193,9 +196,9 @@ public class GO_CharacterString {
      */
     @XmlElements({
         @XmlElement(type = String.class,       name = "CharacterString"),
-        @XmlElement(type = Anchor.class,       name = "Anchor",       namespace = Namespaces.GMX),
-        @XmlElement(type = FileName.class,     name = "FileName",     namespace = Namespaces.GMX),
-        @XmlElement(type = MimeFileType.class, name = "MimeFileType", namespace = Namespaces.GMX)
+        @XmlElement(type = Anchor.class,       name = "Anchor",       namespace = Namespaces.GCX),
+        @XmlElement(type = FileName.class,     name = "FileName",     namespace = Namespaces.GCX),
+        @XmlElement(type = MimeFileType.class, name = "MimeFileType", namespace = Namespaces.GCX)
     })
     private Object getValue() {
         switch (type) {
@@ -271,7 +274,7 @@ public class GO_CharacterString {
      * or {@code <gmx:MimeFileType>}. This method presumes that the element name is the CodeList standard name.
      * If not, the element will be ignored.
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "unused" })
     private void setCodeList(final Object value) {
         final Element e = (Element) value;
         if (e.getNodeType() == Element.ELEMENT_NODE) {

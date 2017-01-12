@@ -17,11 +17,14 @@
 package org.apache.sis.internal.jaxb.gmd;
 
 import java.util.Locale;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.apache.sis.internal.jaxb.Context;
-import org.apache.sis.internal.jaxb.gco.GO_CharacterString;
 import org.apache.sis.internal.jaxb.gco.CharSequenceAdapter;
+import org.apache.sis.internal.jaxb.gco.GO_CharacterString;
+import org.apache.sis.xml.Namespaces;
 
 
 /**
@@ -39,13 +42,14 @@ import org.apache.sis.internal.jaxb.gco.CharSequenceAdapter;
  *
  * Note that {@code <gco:CharacterString>} can be substituted to the language code.
  *
- * @author  Cédric Briançon (Geomatys)
+ * @author  Cédric Briançon 	(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.4
+ * @version 0.8
  * @module
  */
-@XmlType(name = "LanguageCode_PropertyType")
+@XmlType(name = "LanguageCode_PropertyType", namespace = Namespaces.LAN)
 public final class LanguageCode extends GO_CharacterString {
     /**
      * The language using a {@link org.opengis.util.CodeList}-like format.

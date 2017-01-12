@@ -17,12 +17,15 @@
 package org.apache.sis.metadata.iso;
 
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.metadata.citation.OnlineResource;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.xml.Namespaces;
 import org.opengis.metadata.ExtendedElementInformation;
 import org.opengis.metadata.MetadataExtensionInformation;
+import org.opengis.metadata.citation.OnlineResource;
 
 
 /**
@@ -38,17 +41,18 @@ import org.opengis.metadata.MetadataExtensionInformation;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.3
+ * @version 0.8
  * @module
  */
-@XmlType(name = "MD_MetadataExtensionInformation_Type", propOrder = {
+@XmlType(name = "MD_MetadataExtensionInformation_Type", namespace = Namespaces.MEX, propOrder = {
     "extensionOnLineResource",
     "extendedElementInformation"
 })
-@XmlRootElement(name = "MD_MetadataExtensionInformation")
+@XmlRootElement(name = "MD_MetadataExtensionInformation", namespace = Namespaces.MEX)
 public class DefaultMetadataExtensionInformation extends ISOMetadata
         implements MetadataExtensionInformation
 {

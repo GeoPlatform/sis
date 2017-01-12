@@ -18,16 +18,21 @@ package org.apache.sis.metadata.iso.identification;
 
 import java.net.URI;
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.opengis.util.InternationalString;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.jaxb.gmx.MimeFileTypeAdapter;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.apache.sis.xml.Namespaces;
 import org.opengis.metadata.citation.OnlineResource;
 import org.opengis.metadata.constraint.Constraints;
 import org.opengis.metadata.identification.BrowseGraphic;
-import org.apache.sis.metadata.iso.ISOMetadata;
-import org.apache.sis.internal.jaxb.gmx.MimeFileTypeAdapter;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -43,226 +48,290 @@ import org.apache.sis.internal.jaxb.gmx.MimeFileTypeAdapter;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlType(name = "MD_BrowseGraphic_Type", propOrder = {
-    "fileName",
-    "fileDescription",
-    "fileType"
+@XmlType(name = "MD_BrowseGraphic_Type", namespace = Namespaces.MCC, propOrder = {
+		"xmlFileName",			// ISO 19115-3
+		"xmlFileNameLegacy",	// ISO 19139
+		"fileDescription",
+		"fileType",
+		"xmlLinkages",			// ISO 19115-3 only
+		"xmlImageConstraints"	// ISO 19115-3 only
 })
-@XmlRootElement(name = "MD_BrowseGraphic")
+@XmlRootElement(name = "MD_BrowseGraphic", namespace = Namespaces.MCC)
 public class DefaultBrowseGraphic extends ISOMetadata implements BrowseGraphic {
-    /**
-     * Serial number for compatibility with different versions.
-     */
-    private static final long serialVersionUID = 1769063690091153678L;
+	/**
+	 * Serial number for compatibility with different versions.
+	 */
+	private static final long serialVersionUID = 1769063690091153678L;
 
-    /**
-     * Name of the file that contains a graphic that provides an illustration of the dataset.
-     */
-    private URI fileName;
+	/**
+	 * Name of the file that contains a graphic that provides an illustration of the dataset.
+	 */
+	private URI fileName;
 
-    /**
-     * Text description of the illustration.
-     */
-    private InternationalString fileDescription;
+	/**
+	 * Text description of the illustration.
+	 */
+	private InternationalString fileDescription;
 
-    /**
-     * Format in which the illustration is encoded.
-     * Examples: CGM, EPS, GIF, JPEG, PBM, PS, TIFF, XWD.
-     */
-    private String fileType;
+	/**
+	 * Format in which the illustration is encoded.
+	 * Examples: CGM, EPS, GIF, JPEG, PBM, PS, TIFF, XWD.
+	 */
+	private String fileType;
 
-    /**
-     * Restrictions on access and/or of browse graphic.
-     */
-    private Collection<Constraints> imageConstraints;
+	/**
+	 * Restrictions on access and/or of browse graphic.
+	 */
+	private Collection<Constraints> imageConstraints;
 
-    /**
-     * Links to browse graphic.
-     */
-    private Collection<OnlineResource> linkages;
+	/**
+	 * Links to browse graphic.
+	 */
+	private Collection<OnlineResource> linkages;
 
-    /**
-     * Constructs an initially empty browse graphic.
-     */
-    public DefaultBrowseGraphic() {
-    }
+	/**
+	 * Constructs an initially empty browse graphic.
+	 */
+	public DefaultBrowseGraphic() {
+	}
 
-    /**
-     * Creates a browse graphics initialized to the specified URI.
-     *
-     * @param fileName The name of the file that contains a graphic.
-     */
-    public DefaultBrowseGraphic(final URI fileName) {
-        this.fileName = fileName;
-    }
+	/**
+	 * Creates a browse graphics initialized to the specified URI.
+	 *
+	 * @param fileName The name of the file that contains a graphic.
+	 */
+	public DefaultBrowseGraphic(final URI fileName) {
+		this.fileName = fileName;
+	}
 
-    /**
-     * Constructs a new instance initialized with the values from the specified metadata object.
-     * This is a <cite>shallow</cite> copy constructor, since the other metadata contained in the
-     * given object are not recursively copied.
-     *
-     * @param object The metadata to copy values from, or {@code null} if none.
-     *
-     * @see #castOrCopy(BrowseGraphic)
-     */
-    public DefaultBrowseGraphic(final BrowseGraphic object) {
-        super(object);
-        if (object != null) {
-            fileName         = object.getFileName();
-            fileDescription  = object.getFileDescription();
-            fileType         = object.getFileType();
-            imageConstraints = object.getImageConstraints();
-            linkages         = object.getLinkages();
-        }
-    }
+	/**
+	 * Constructs a new instance initialized with the values from the specified metadata object.
+	 * This is a <cite>shallow</cite> copy constructor, since the other metadata contained in the
+	 * given object are not recursively copied.
+	 *
+	 * @param object The metadata to copy values from, or {@code null} if none.
+	 *
+	 * @see #castOrCopy(BrowseGraphic)
+	 */
+	public DefaultBrowseGraphic(final BrowseGraphic object) {
+		super(object);
+		if (object != null) {
+			fileName         = object.getFileName();
+			fileDescription  = object.getFileDescription();
+			fileType         = object.getFileType();
+			imageConstraints = object.getImageConstraints();
+			linkages         = object.getLinkages();
+		}
+	}
 
-    /**
-     * Returns a SIS metadata implementation with the values of the given arbitrary implementation.
-     * This method performs the first applicable action in the following choices:
-     *
-     * <ul>
-     *   <li>If the given object is {@code null}, then this method returns {@code null}.</li>
-     *   <li>Otherwise if the given object is already an instance of
-     *       {@code DefaultBrowseGraphic}, then it is returned unchanged.</li>
-     *   <li>Otherwise a new {@code DefaultBrowseGraphic} instance is created using the
-     *       {@linkplain #DefaultBrowseGraphic(BrowseGraphic) copy constructor}
-     *       and returned. Note that this is a <cite>shallow</cite> copy operation, since the other
-     *       metadata contained in the given object are not recursively copied.</li>
-     * </ul>
-     *
-     * @param  object The object to get as a SIS implementation, or {@code null} if none.
-     * @return A SIS implementation containing the values of the given object (may be the
-     *         given object itself), or {@code null} if the argument was null.
-     */
-    public static DefaultBrowseGraphic castOrCopy(final BrowseGraphic object) {
-        if (object == null || object instanceof DefaultBrowseGraphic) {
-            return (DefaultBrowseGraphic) object;
-        }
-        return new DefaultBrowseGraphic(object);
-    }
+	/**
+	 * Returns a SIS metadata implementation with the values of the given arbitrary implementation.
+	 * This method performs the first applicable action in the following choices:
+	 *
+	 * <ul>
+	 *   <li>If the given object is {@code null}, then this method returns {@code null}.</li>
+	 *   <li>Otherwise if the given object is already an instance of
+	 *       {@code DefaultBrowseGraphic}, then it is returned unchanged.</li>
+	 *   <li>Otherwise a new {@code DefaultBrowseGraphic} instance is created using the
+	 *       {@linkplain #DefaultBrowseGraphic(BrowseGraphic) copy constructor}
+	 *       and returned. Note that this is a <cite>shallow</cite> copy operation, since the other
+	 *       metadata contained in the given object are not recursively copied.</li>
+	 * </ul>
+	 *
+	 * @param  object The object to get as a SIS implementation, or {@code null} if none.
+	 * @return A SIS implementation containing the values of the given object (may be the
+	 *         given object itself), or {@code null} if the argument was null.
+	 */
+	public static DefaultBrowseGraphic castOrCopy(final BrowseGraphic object) {
+		if (object == null || object instanceof DefaultBrowseGraphic) {
+			return (DefaultBrowseGraphic) object;
+		}
+		return new DefaultBrowseGraphic(object);
+	}
 
-    /**
-     * Returns the name of the file that contains a graphic that provides an illustration of the dataset.
-     *
-     * @return File that contains a graphic that provides an illustration of the dataset, or {@code null}.
-     */
-    @Override
-    @XmlElement(name = "fileName", required = true)
-    public URI getFileName() {
-        return fileName;
-    }
+	/**
+	 * Returns the name of the file that contains a graphic that provides an illustration of the dataset.
+	 *
+	 * @return File that contains a graphic that provides an illustration of the dataset, or {@code null}.
+	 */
+	@Override
+	public URI getFileName() {
+		return fileName;
+	}
 
-    /**
-     * Sets the name of the file that contains a graphic that provides an illustration of the dataset.
-     *
-     * @param newValue The new filename.
-     */
-    public void setFileName(final URI newValue) {
-        checkWritePermission();
-        fileName = newValue;
-    }
+	/**
+	 * Sets the name of the file that contains a graphic that provides an illustration of the dataset.
+	 *
+	 * @param newValue The new filename.
+	 */
+	public void setFileName(final URI newValue) {
+		checkWritePermission();
+		fileName = newValue;
+	}
 
-    /**
-     * Returns the text description of the illustration.
-     *
-     * @return Text description of the illustration, or {@code null}.
-     */
-    @Override
-    @XmlElement(name = "fileDescription")
-    public InternationalString getFileDescription() {
-        return fileDescription;
-    }
+	/**
+	 * Gets the file name for this file. Used in ISO 19115-3.
+	 * @see {@link #getFileName}
+	 */
+	@XmlElement(name = "fileName", required = true)
+	private String getXmlFileName() {
+		if(getFileName() != null && MetadataInfo.is2014()) {
+			return getFileName().toString();
+		}
+		return null;
+	}
 
-    /**
-     * Sets the text description of the illustration.
-     *
-     * @param newValue The new file description.
-     */
-    public void setFileDescription(final InternationalString newValue)  {
-        checkWritePermission();
-        fileDescription = newValue;
-    }
+	/**
+	 * Sets the file name for this file. Used in ISO 19115-3.
+	 * @see {@link #setFileName}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlFileName(final String newValue) {
+		setFileName(URI.create(newValue));
+	}
 
-    /**
-     * Format in which the illustration is encoded.
-     *
-     * <div class="note"><b>Example:</b>
-     * CGM, EPS, GIF, JPEG, PBM, PS, TIFF, XWD.
-     * </div>
-     *
-     * @return Format in which the illustration is encoded, or {@code null}.
-     */
-    @Override
-    @XmlElement(name = "fileType")
-    @XmlJavaTypeAdapter(MimeFileTypeAdapter.class)
-    public String getFileType() {
-        return fileType;
-    }
+	/**
+	 * Gets the file name for this file. Used in ISO 19139.
+	 * @see {@link #getFileName}
+	 */
+	@XmlElement(name = "fileName", required = true)
+	private URI getXmlFileNameLegacy() {
+		return MetadataInfo.is2014() ? null : getFileName();
+	}
 
-    /**
-     * Sets the format in which the illustration is encoded.
-     * Raster formats are encouraged to use one of the names returned by
-     * {@link javax.imageio.ImageIO#getReaderFormatNames()}.
-     *
-     * @param newValue The new file type.
-     */
-    public void setFileType(final String newValue)  {
-        checkWritePermission();
-        fileType = newValue;
-    }
+	/**
+	 * Sets the file name for this file. Used in ISO 19139.
+	 * @see {@link #setFileName}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlFileNameLegacy(final URI newValue) {
+		setFileName(newValue);
+	}
 
-    /**
-     * Returns the restrictions on access and / or use of browse graphic.
-     *
-     * @return Restrictions on access and / or use of browse graphic.
-     *
-     * @since 0.5
-     */
-    @Override
-/// @XmlElement(name = "imageConstraints")
-    public Collection<Constraints> getImageConstraints() {
-        return imageConstraints = nonNullCollection(imageConstraints, Constraints.class);
-    }
+	/**
+	 * Returns the text description of the illustration.
+	 *
+	 * @return Text description of the illustration, or {@code null}.
+	 */
+	@Override
+	@XmlElement(name = "fileDescription")
+	public InternationalString getFileDescription() {
+		return fileDescription;
+	}
 
-    /**
-     * Sets the restrictions on access and / or use of browse graphic.
-     *
-     * @param newValues The new restrictions on access and / or use of browse graphic.
-     *
-     * @since 0.5
-     */
-    public void setImageConstraints(final Collection<? extends Constraints> newValues) {
-        imageConstraints = writeCollection(newValues, imageConstraints, Constraints.class);
-    }
+	/**
+	 * Sets the text description of the illustration.
+	 *
+	 * @param newValue The new file description.
+	 */
+	public void setFileDescription(final InternationalString newValue)  {
+		checkWritePermission();
+		fileDescription = newValue;
+	}
 
-    /**
-     * Return the links to browse graphic.
-     *
-     * @return The links to browse graphic.
-     *
-     * @since 0.5
-     */
-    @Override
-/// @XmlElement(name = "linkage")
-    public Collection<OnlineResource> getLinkages() {
-        return linkages = nonNullCollection(linkages, OnlineResource.class);
-    }
+	/**
+	 * Format in which the illustration is encoded.
+	 *
+	 * <div class="note"><b>Example:</b>
+	 * CGM, EPS, GIF, JPEG, PBM, PS, TIFF, XWD.
+	 * </div>
+	 *
+	 * @return Format in which the illustration is encoded, or {@code null}.
+	 */
+	@Override
+	@XmlElement(name = "fileType")
+	@XmlJavaTypeAdapter(MimeFileTypeAdapter.class)
+	public String getFileType() {
+		return fileType;
+	}
 
-    /**
-     * Sets the links to browse graphic.
-     *
-     * @param newValues The new links to browse graphic.
-     *
-     * @since 0.5
-     */
-    public void setLinkages(final Collection<? extends OnlineResource> newValues) {
-        linkages = writeCollection(newValues, linkages, OnlineResource.class);
-    }
+	/**
+	 * Sets the format in which the illustration is encoded.
+	 * Raster formats are encouraged to use one of the names returned by
+	 * {@link javax.imageio.ImageIO#getReaderFormatNames()}.
+	 *
+	 * @param newValue The new file type.
+	 */
+	public void setFileType(final String newValue)  {
+		checkWritePermission();
+		fileType = newValue;
+	}
+
+	/**
+	 * Returns the restrictions on access and / or use of browse graphic.
+	 *
+	 * @return Restrictions on access and / or use of browse graphic.
+	 *
+	 * @since 0.5
+	 */
+	@Override
+	public Collection<Constraints> getImageConstraints() {
+		return imageConstraints = nonNullCollection(imageConstraints, Constraints.class);
+	}
+
+	/**
+	 * Sets the restrictions on access and / or use of browse graphic.
+	 *
+	 * @param newValues The new restrictions on access and / or use of browse graphic.
+	 *
+	 * @since 0.5
+	 */
+	public void setImageConstraints(final Collection<? extends Constraints> newValues) {
+		imageConstraints = writeCollection(newValues, imageConstraints, Constraints.class);
+	}
+
+	/**
+	 * Gets the image constraints for this browse graphic (used in ISO 19115-3 format).
+	 * @see {@link #getImageConstraints}
+	 */
+	@XmlElement(name = "imageConstraints")
+	private Collection<Constraints> getXmlImageConstraints() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getImageConstraints();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Constraints.class) : getImageConstraints();
+	}
+
+	/**
+	 * Return the links to browse graphic.
+	 *
+	 * @return The links to browse graphic.
+	 *
+	 * @since 0.5
+	 */
+	@Override
+	public Collection<OnlineResource> getLinkages() {
+		return linkages = nonNullCollection(linkages, OnlineResource.class);
+	}
+
+	/**
+	 * Sets the links to browse graphic.
+	 *
+	 * @param newValues The new links to browse graphic.
+	 *
+	 * @since 0.5
+	 */
+	public void setLinkages(final Collection<? extends OnlineResource> newValues) {
+		linkages = writeCollection(newValues, linkages, OnlineResource.class);
+	}
+
+	/**
+	 * Gets the linkages for this browse graphic (used in ISO 19115-3 format).
+	 * @see {@link #getImageConstraints}
+	 */
+	@XmlElement(name = "linkage")
+	private Collection<OnlineResource> getXmlLinkages() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getLinkages();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(OnlineResource.class) : getLinkages();
+	}
 }

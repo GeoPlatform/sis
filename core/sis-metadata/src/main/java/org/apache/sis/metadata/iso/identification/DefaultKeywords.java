@@ -17,16 +17,19 @@
 package org.apache.sis.metadata.iso.identification;
 
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.InternationalString;
-import org.opengis.metadata.citation.Citation;
-import org.opengis.metadata.identification.Keywords;
-import org.opengis.metadata.identification.KeywordType;
-import org.opengis.metadata.identification.KeywordClass;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.metadata.iso.ISOMetadata;
 import org.apache.sis.util.iso.Types;
+import org.opengis.metadata.citation.Citation;
+import org.opengis.metadata.identification.KeywordClass;
+import org.opengis.metadata.identification.KeywordType;
+import org.opengis.metadata.identification.Keywords;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -42,16 +45,18 @@ import org.apache.sis.util.iso.Types;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon		(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_Keywords_Type", propOrder = {
     "keywords",
     "type",
-    "thesaurusName"
+    "thesaurusName",
+    "xmlKeywordClass"	// ISO 19115-3 only
 })
 @XmlRootElement(name = "MD_Keywords")
 public class DefaultKeywords extends ISOMetadata implements Keywords {
@@ -236,4 +241,22 @@ public class DefaultKeywords extends ISOMetadata implements Keywords {
         checkWritePermission();
         keywordClass = newValue;
     }
+    
+    /**
+	 * Gets the keyword class (used in ISO 19115-3 format).
+	 * @see {@link #getKeywordClass}
+	 */
+	@XmlElement(name = "keywordClass")
+	private KeywordClass getXmlKeywordClass() {
+		return MetadataInfo.is2003() ? null : getKeywordClass();
+	}
+
+	/**
+	 * Sets the keyword class (used in ISO 19115-3 format).
+	 * @see {@link #setKeywordClass}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlKeywordClass(final KeywordClass newValue) {
+		setKeywordClass(newValue);
+	}
 }

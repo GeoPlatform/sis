@@ -17,8 +17,11 @@
 package org.apache.sis.internal.jaxb.code;
 
 import javax.xml.bind.annotation.XmlElement;
-import org.opengis.metadata.spatial.PixelOrientation;
+import javax.xml.bind.annotation.XmlType;
+
 import org.apache.sis.internal.jaxb.gmd.EnumAdapter;
+import org.apache.sis.xml.Namespaces;
+import org.opengis.metadata.spatial.PixelOrientation;
 
 
 /**
@@ -27,10 +30,12 @@ import org.apache.sis.internal.jaxb.gmd.EnumAdapter;
  * the handling of {@code CodeList} in ISO-19139.
  *
  * @author  Cédric Briançon (Geomatys)
+ * @author  Cullen Rombach	(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
+@XmlType(namespace = Namespaces.MSR)
 public final class MD_PixelOrientationCode extends EnumAdapter<MD_PixelOrientationCode, PixelOrientation> {
     /**
      * The enumeration value.

@@ -16,11 +16,11 @@
  */
 package org.apache.sis.internal.jaxb.gco;
 
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
+
 import org.apache.sis.internal.jaxb.gml.Measure;
-import org.apache.sis.measure.Units;
 
 
 /**
@@ -37,7 +37,7 @@ import org.apache.sis.measure.Units;
  * @module
  */
 @XmlType(name = "Measure_PropertyType")
-public final class GO_Measure extends XmlAdapter<GO_Measure, Double> {
+public final class GO_Measure extends XmlAdapter<GO_Measure, Measure> {
     /**
      * A proxy representation of the {@code <gco:Measure>} element.
      */
@@ -55,27 +55,24 @@ public final class GO_Measure extends XmlAdapter<GO_Measure, Double> {
      *
      * @param value The value.
      *
-     * @todo The unit of measurement is fixed to metres for now because we do not have this information
-     *       in current metadata interface. This will need to be revisited in a future SIS version if we
-     *       replace the Double type by some quantity type.
      */
-    private GO_Measure(final Double value) {
-        measure = new Measure(value, Units.METRE);
+    private GO_Measure(final Measure value) {
+        measure = value;
         measure.asXPointer = true;
     }
 
     /**
-     * Allows JAXB to generate a Double object using the value found in the adapter.
+     * Allows JAXB to generate a Measure object using the value found in the adapter.
      *
      * @param value The value wrapped in an adapter.
-     * @return The double value extracted from the adapter.
+     * @return The Measure object extracted from the adapter.
      */
     @Override
-    public Double unmarshal(final GO_Measure value) {
+    public Measure unmarshal(final GO_Measure value) {
         if (value != null) {
             final Measure measure = value.measure;
             if (measure != null) {
-                return measure.value;
+                return measure;
             }
         }
         return null;
@@ -85,12 +82,11 @@ public final class GO_Measure extends XmlAdapter<GO_Measure, Double> {
      * Allows JAXB to change the result of the marshalling process, according to the
      * ISO-19139 standard and its requirements about {@code measures}.
      *
-     * @param value The double value we want to integrate into a {@code <gco:Measure>} element.
-     * @return An adaptation of the double value, that is to say a double value surrounded
-     *         by {@code <gco:Measure>} element, with an {@code uom} attribute.
+     * @param value The Measure value we want to integrate into a {@code <gco:Measure>} element.
+     * @return A {@code <gco:Measure>} element, with an {@code uom} attribute.
      */
     @Override
-    public GO_Measure marshal(final Double value) {
+    public GO_Measure marshal(final Measure value) {
         return (value != null) ? new GO_Measure(value) : null;
     }
 }

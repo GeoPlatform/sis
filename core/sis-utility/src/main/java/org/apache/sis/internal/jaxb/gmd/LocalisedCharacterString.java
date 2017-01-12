@@ -17,13 +17,14 @@
 package org.apache.sis.internal.jaxb.gmd;
 
 import java.util.Locale;
-import javax.xml.bind.annotation.XmlValue;
-import javax.xml.bind.annotation.XmlAttribute;
-import org.apache.sis.internal.jaxb.Context;
-import org.apache.sis.util.Debug;
-
 // Branch-dependent imports
 import java.util.Objects;
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlValue;
+
+import org.apache.sis.internal.jaxb.Context;
+import org.apache.sis.util.Debug;
 
 
 /**

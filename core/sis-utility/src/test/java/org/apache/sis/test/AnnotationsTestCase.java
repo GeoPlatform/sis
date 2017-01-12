@@ -16,29 +16,36 @@
  */
 package org.apache.sis.test;
 
-import java.util.Set;
-import java.util.HashSet;
+import static org.apache.sis.test.TestUtilities.getSingleton;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import javax.xml.bind.annotation.XmlNs;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlSchema;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlElementRefs;
+import javax.xml.bind.annotation.XmlNs;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.CodeList;
-import org.opengis.util.ControlledVocabulary;
-import org.opengis.annotation.UML;
-import org.opengis.annotation.Obligation;
-import org.opengis.annotation.Specification;
+import javax.xml.bind.annotation.XmlSchema;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.util.ArraysExt;
 import org.apache.sis.xml.Namespaces;
 import org.junit.After;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
-import static org.apache.sis.test.TestUtilities.getSingleton;
+import org.opengis.annotation.Obligation;
+import org.opengis.annotation.Specification;
+import org.opengis.annotation.UML;
+import org.opengis.util.CodeList;
+import org.opengis.util.ControlledVocabulary;
 
 
 /**
@@ -229,7 +236,7 @@ public abstract strictfp class AnnotationsTestCase extends TestCase {
         switch (specification) {
             case ISO_19115:   return Namespaces.GMD;
             case ISO_19115_2: return Namespaces.GMI;
-            case ISO_19139:   return Namespaces.GMX;
+            case ISO_19139:   return LegacyNamespaces.GMX;
             case ISO_19108:   return Namespaces.GMD;
             default: throw new IllegalArgumentException(specification.toString());
         }

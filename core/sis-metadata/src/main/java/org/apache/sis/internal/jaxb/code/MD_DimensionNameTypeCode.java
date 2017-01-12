@@ -17,9 +17,12 @@
 package org.apache.sis.internal.jaxb.code;
 
 import javax.xml.bind.annotation.XmlElement;
-import org.opengis.metadata.spatial.DimensionNameType;
+import javax.xml.bind.annotation.XmlType;
+
 import org.apache.sis.internal.jaxb.gmd.CodeListAdapter;
 import org.apache.sis.internal.jaxb.gmd.CodeListUID;
+import org.apache.sis.xml.Namespaces;
+import org.opengis.metadata.spatial.DimensionNameType;
 
 
 /**
@@ -28,10 +31,12 @@ import org.apache.sis.internal.jaxb.gmd.CodeListUID;
  * handling of {@code CodeList} in ISO-19139.
  *
  * @author  Cédric Briançon (Geomatys)
+ * @author  Cullen Rombach	(Image Matters)
  * @since   0.3
- * @version 0.3
+ * @version 0.8
  * @module
  */
+@XmlType(namespace = Namespaces.MSR)
 public final class MD_DimensionNameTypeCode
         extends CodeListAdapter<MD_DimensionNameTypeCode, DimensionNameType>
 {

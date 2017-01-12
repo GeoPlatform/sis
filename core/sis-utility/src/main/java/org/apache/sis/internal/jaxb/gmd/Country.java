@@ -21,9 +21,11 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlElement;
 import org.apache.sis.util.CharSequences;
 import org.apache.sis.internal.jaxb.Context;
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.jaxb.gco.GO_CharacterString;
 import org.apache.sis.internal.jaxb.gco.CharSequenceAdapter;
 import org.apache.sis.util.resources.Errors;
+import org.apache.sis.xml.Namespaces;
 
 
 /**
@@ -41,18 +43,18 @@ import org.apache.sis.util.resources.Errors;
  *
  * Note that {@code <gco:CharacterString>} can be substituted to the country code.
  *
- * @author  Cédric Briançon (Geomatys)
+ * @author  Cédric Briançon 	(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.4
+ * @version 0.8
  * @module
  */
-@XmlType(name = "Country_PropertyType")
+@XmlType(name = "Country_PropertyType", namespace = Namespaces.LAN)
 public final class Country extends GO_CharacterString {
     /**
      * The country using a {@link org.opengis.util.CodeList}-like format.
      */
-    @XmlElement(name = "Country")
     private CodeListUID identifier;
 
     /**
@@ -80,6 +82,38 @@ public final class Country extends GO_CharacterString {
      */
     private Country(final Context context, final String codeListValue, final String codeSpace, final String value) {
         identifier = new CodeListUID(context, "Country", codeListValue, codeSpace, value);
+    }
+    
+    /**
+     * Gets the value of the Country codelist. Used in ISO 19139.
+     */
+    @XmlElement(name = "Country")
+    private CodeListUID getXmlCountry() {
+    	return MetadataInfo.is2014() ? null : identifier;
+    }
+    
+    /**
+     * Sets the value of the Country codelist. Used in ISO 19139.
+     */
+    @SuppressWarnings("unused")
+	private void setXmlCountry(CodeListUID newValue) {
+    	identifier = newValue;
+    }
+    
+    /**
+     * Gets the value of the Country codelist. Used in ISO 19139.
+     */
+    @XmlElement(name = "CountryCode")
+    private CodeListUID getXmlCountryCode() {
+    	return MetadataInfo.is2003() ? null : identifier;
+    }
+    
+    /**
+     * Sets the value of the Country codelist. Used in ISO 19139.
+     */
+    @SuppressWarnings("unused")
+	private void setXmlCountryCode(CodeListUID newValue) {
+    	identifier = newValue;
     }
 
     /**

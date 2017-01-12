@@ -17,10 +17,12 @@
 package org.apache.sis.internal.jaxb.metadata;
 
 import javax.xml.bind.annotation.XmlElementRef;
-import org.opengis.metadata.citation.Responsibility;
-import org.apache.sis.metadata.iso.citation.DefaultResponsibility;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.jaxb.gco.PropertyType;
+import org.apache.sis.metadata.iso.citation.DefaultResponsibility;
 import org.apache.sis.metadata.iso.citation.DefaultResponsibleParty;
+import org.opengis.metadata.citation.Responsibility;
 
 
 /**
@@ -32,6 +34,7 @@ import org.apache.sis.metadata.iso.citation.DefaultResponsibleParty;
  * @version 0.5
  * @module
  */
+@SuppressWarnings("deprecation")
 public final class CI_Responsibility extends PropertyType<CI_Responsibility, Responsibility> {
     /**
      * Empty constructor for JAXB only.
@@ -78,9 +81,8 @@ public final class CI_Responsibility extends PropertyType<CI_Responsibility, Res
      * @return The metadata to be marshalled.
      */
     @XmlElementRef
-    @SuppressWarnings("deprecation")
     public DefaultResponsibility getElement() {
-        if (LEGACY_XML) {
+        if (MetadataInfo.is2003()) {
             return DefaultResponsibleParty.castOrCopy(metadata);
         } else {
             return DefaultResponsibility.castOrCopy(metadata);

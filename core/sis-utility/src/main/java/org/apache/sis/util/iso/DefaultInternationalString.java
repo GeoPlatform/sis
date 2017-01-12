@@ -19,26 +19,26 @@ package org.apache.sis.util.iso;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
-import java.util.Set;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Locale;
+import java.util.Map;
+// Branch-dependent imports
+import java.util.Objects;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
-import org.opengis.util.InternationalString;
-import org.apache.sis.util.Locales;
+
+import org.apache.sis.internal.system.Modules;
 import org.apache.sis.util.ArgumentChecks;
+import org.apache.sis.util.Locales;
+import org.apache.sis.util.collection.Containers;
 import org.apache.sis.util.logging.Logging;
 import org.apache.sis.util.resources.Errors;
 import org.apache.sis.util.resources.Messages;
-import org.apache.sis.util.collection.Containers;
-import org.apache.sis.internal.system.Modules;
-
-// Branch-dependent imports
-import java.util.Objects;
+import org.opengis.util.InternationalString;
 
 
 /**

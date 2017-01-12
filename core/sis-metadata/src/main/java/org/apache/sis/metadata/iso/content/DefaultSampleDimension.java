@@ -16,20 +16,22 @@
  */
 package org.apache.sis.metadata.iso.content;
 
+import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
+
 import javax.measure.Unit;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.measure.ValueRange;
 import org.opengis.metadata.content.Band;
-import org.opengis.metadata.content.SampleDimension;
 import org.opengis.metadata.content.CoverageContentType;
+import org.opengis.metadata.content.SampleDimension;
 import org.opengis.metadata.content.TransferFunctionType;
 import org.opengis.util.Record;
 import org.opengis.util.RecordType;
-import org.apache.sis.measure.ValueRange;
-
-import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
 
 
 /**
@@ -44,24 +46,25 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
  *
- * @author  Remi Marechal (geomatys)
+ * @author  Remi Marechal 		(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @version 0.5
- * @since   0.5
+ * @since   0.8
  * @module
  */
 @XmlType(name = "MD_SampleDimension_Type", propOrder = {
     "maxValue",
     "minValue",
     "units",
-/// "scaleFactor",
-/// "offset",
-/// "meanValue",
-/// "numberOfValues",
-/// "standardDeviation",
-/// "otherPropertyType",
-/// "otherProperty",
-/// "bitsPerValue"
+	"xmlScaleFactor", 		// ISO 19115-3
+	"xmlOffset",			// ISO 19115-3
+	"xmlMeanValue",			// ISO 19115-3
+	"xmlNumberOfValues",	// ISO 19115-3
+	"xmlStandardDeviation",	// ISO 19115-3
+	"xmlOtherPropertyType",	// ISO 19115-3
+	"xmlOtherProperty",		// ISO 19115-3
+	"xmlBitsPerValue"		// ISO 19115-3
 })
 @XmlRootElement(name = "MD_SampleDimension")
 @XmlSeeAlso({DefaultBand.class, DefaultRangeDimension.class})
@@ -259,7 +262,6 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
      * @return The mean value of data values in each dimension included in the resource, or {@code null} if none.
      */
     @Override
-/// @XmlElement(name = "meanValue")
     public Double getMeanValue() {
         return meanValue;
     }
@@ -273,6 +275,24 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
         checkWritePermission();
         meanValue = newValue;
     }
+    
+    /**
+	 * Gets the mean value. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #getMeanValue}
+	 */
+	@XmlElement(name = "meanValue")
+	private Double getXmlMeanValue() {
+		return MetadataInfo.is2003() ? null : getMeanValue();
+	}
+
+	/**
+	 * Sets the mean value. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #setMeanValue}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlMeanValue(final Double newValue) {
+		setMeanValue(newValue);
+	}
 
     /**
      * Returns the number of values used in a thematic classification resource.
@@ -281,7 +301,6 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
      */
     @Override
     @ValueRange(minimum = 0)
-/// @XmlElement(name = "numberOfValues")
     public Integer getNumberOfValues() {
         return numberOfValues;
     }
@@ -298,6 +317,25 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
             numberOfValues = newValue;
         }
     }
+    
+    /**
+	 * Gets the number of values. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #getNumberOfValues}
+	 */
+    @ValueRange(minimum = 0)
+	@XmlElement(name = "numberOfValues")
+	private Integer getXmlNumberOfValues() {
+		return MetadataInfo.is2003() ? null : getNumberOfValues();
+	}
+
+	/**
+	 * Sets the number of values. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #setNumberOfValues}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlNumberOfValues(final Integer newValue) {
+		setNumberOfValues(newValue);
+	}
 
     /**
      * Returns the standard deviation of data values in each dimension included in the resource.
@@ -305,7 +343,6 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
      * @return Standard deviation of data values in each dimension included in the resource, or {@code null} if none.
      */
     @Override
-/// @XmlElement(name = "standardDeviation")
     public Double getStandardDeviation() {
         return standardDeviation;
     }
@@ -319,6 +356,24 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
         checkWritePermission();
         standardDeviation = newValue;
     }
+    
+    /**
+	 * Gets the standard deviation. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #getStandardDeviation}
+	 */
+	@XmlElement(name = "standardDeviation")
+	private Double getXmlStandardDeviation() {
+		return MetadataInfo.is2003() ? null : getStandardDeviation();
+	}
+
+	/**
+	 * Sets the standard deviation. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #setStandardDeviation}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlStandardDeviation(final Double newValue) {
+		setStandardDeviation(newValue);
+	}
 
     /**
      * Returns the units of data in the dimension.
@@ -347,7 +402,6 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
      * @return Scale factor which has been applied to the cell value, or {@code null} if none.
      */
     @Override
-/// @XmlElement(name = "scaleFactor")
     public Double getScaleFactor() {
         return scaleFactor;
     }
@@ -361,6 +415,24 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
         checkWritePermission();
         scaleFactor = newValue;
     }
+    
+    /**
+	 * Gets the scale factor. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #getScaleFactor}
+	 */
+	@XmlElement(name = "scaleFactor")
+	private Double getXmlScaleFactor() {
+		return MetadataInfo.is2003() ? null : getScaleFactor();
+	}
+
+	/**
+	 * Sets the scale factor. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #setScaleFactor}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlScaleFactor(final Double newValue) {
+		setScaleFactor(newValue);
+	}
 
     /**
      * Returns the physical value corresponding to a cell value of zero.
@@ -368,7 +440,6 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
      * @return The physical value corresponding to a cell value of zero, or {@code null} if none.
      */
     @Override
-/// @XmlElement(name = "offset")
     public Double getOffset() {
         return offset;
     }
@@ -382,6 +453,24 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
         checkWritePermission();
         offset = newValue;
     }
+    
+    /**
+	 * Gets the offset. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #getOffset}
+	 */
+	@XmlElement(name = "offset")
+	private Double getXmlOffset() {
+		return MetadataInfo.is2003() ? null : getOffset();
+	}
+
+	/**
+	 * Sets the offset. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #setOffset}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlOffset(final Double newValue) {
+		setOffset(newValue);
+	}
 
     /**
      * Returns type of transfer function to be used when scaling a physical value for a given element.
@@ -412,7 +501,6 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
      */
     @Override
     @ValueRange(minimum = 1)
-/// @XmlElement(name = "bitsPerValues")
     public Integer getBitsPerValue() {
         return bitsPerValue;
     }
@@ -430,6 +518,24 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
             bitsPerValue = newValue;
         }
     }
+    
+    /**
+	 * Gets the bits per value. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #getBitsPerValue}
+	 */
+	@XmlElement(name = "bitsPerValue")
+	private Integer getXmlBitsPerValue() {
+		return MetadataInfo.is2003() ? null : getBitsPerValue();
+	}
+
+	/**
+	 * Sets the bits per value. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #setBitsPerValue}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlBitsPerValue(final Integer newValue) {
+		setBitsPerValue(newValue);
+	}
 
     /**
      * Returns the smallest distance between which separate points can be distinguished,
@@ -463,7 +569,6 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
      * @return Type of other attribute description, or {@code null} if none.
      */
     @Override
-/// @XmlElement(name = "otherPropertyType")
     public RecordType getOtherPropertyType() {
         return otherPropertyType;
     }
@@ -477,6 +582,24 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
         checkWritePermission();
         otherPropertyType = newValue;
     }
+    
+    /**
+	 * Gets the other property type. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #getOtherPropertyType}
+	 */
+	@XmlElement(name = "otherPropertyType")
+	private RecordType getXmlOtherPropertyType() {
+		return MetadataInfo.is2003() ? null : getOtherPropertyType();
+	}
+
+	/**
+	 * Sets the other property type. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #setOtherPropertyType}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlOtherPropertyType(final RecordType newValue) {
+		setOtherPropertyType(newValue);
+	}
 
     /**
      * Returns instance of other/attributeType that defines attributes not explicitly
@@ -485,7 +608,6 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
      * @return instance of other/attributeType that defines attributes, or {@code null} if none.
      */
     @Override
-/// @XmlElement(name = "otherProperty")
     public Record getOtherProperty() {
         return otherProperty;
     }
@@ -500,4 +622,22 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
         checkWritePermission();
         otherProperty = newValue;
     }
+    
+    /**
+	 * Gets the other property. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #getOtherProperty}
+	 */
+	@XmlElement(name = "otherProperty")
+	private Record getXmlOtherProperty() {
+		return MetadataInfo.is2003() ? null : getOtherProperty();
+	}
+
+	/**
+	 * Sets the other property. Used by JAXB. (used in ISO 19115-3 format).
+	 * @see {@link #setOtherProperty}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlOtherProperty(final Record newValue) {
+		setOtherProperty(newValue);
+	}
 }

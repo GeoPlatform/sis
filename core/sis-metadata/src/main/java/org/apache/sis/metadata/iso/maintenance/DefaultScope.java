@@ -17,14 +17,18 @@
 package org.apache.sis.metadata.iso.maintenance;
 
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.metadata.iso.ISOMetadata;
 import org.opengis.metadata.extent.Extent;
 import org.opengis.metadata.maintenance.Scope;
 import org.opengis.metadata.maintenance.ScopeCode;
 import org.opengis.metadata.maintenance.ScopeDescription;
-import org.apache.sis.metadata.iso.ISOMetadata;
 
 
 /**
@@ -40,17 +44,18 @@ import org.apache.sis.metadata.iso.ISOMetadata;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlType(name = "DQ_Scope_Type", propOrder = {
-   "level",
-   "extents",
-   "levelDescription"
+@XmlType(name = "MD_Scope_Type", propOrder = {
+   "xmlLevel",
+   "xmlExtents",
+   "xmlLevelDescription"
 })
-@XmlRootElement(name = "DQ_Scope")
+@XmlRootElement(name = "MD_Scope")
 public class DefaultScope extends ISOMetadata implements Scope {
     /**
      * Serial number for inter-operability with different versions.
@@ -136,7 +141,6 @@ public class DefaultScope extends ISOMetadata implements Scope {
      * @return Hierarchical level of the data, or {@code null}.
      */
     @Override
-    @XmlElement(name = "level", required = true)
     public ScopeCode getLevel() {
         return level;
     }
@@ -150,6 +154,24 @@ public class DefaultScope extends ISOMetadata implements Scope {
         checkWritePermission();
         level = newValue;
     }
+    
+    /**
+	 * Gets level (used in ISO 19115-3 format).
+	 * @see {@link #getLevel}
+	 */
+	@XmlElement(name = "level", required = true)
+	private ScopeCode getXmlLevel() {
+		return MetadataInfo.is2003() ? null : getLevel();
+	}
+
+	/**
+	 * Sets level (used in ISO 19115-3 format).
+	 * @see {@link #setLevel}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlLevel(final ScopeCode newValue) {
+		setLevel(newValue);
+	}
 
     /**
      * Returns information about the spatial, vertical and temporal extents of the resource specified by the scope.
@@ -159,7 +181,6 @@ public class DefaultScope extends ISOMetadata implements Scope {
      * @since 0.5
      */
     @Override
-    @XmlElement(name = "extent")
     public Collection<Extent> getExtents() {
         return extents = nonNullCollection(extents, Extent.class);
     }
@@ -174,6 +195,18 @@ public class DefaultScope extends ISOMetadata implements Scope {
     public void setExtents(final Collection<? extends Extent> newValues) {
         extents = writeCollection(newValues, extents, Extent.class);
     }
+    
+    /**
+   	 * Gets the extents for this scope (used in ISO 19115-3 format).
+   	 * @see {@link #getExtents}
+   	 */
+   	@XmlElement(name = "extent")
+   	private Collection<Extent> getXmlExtents() {
+   		if(MetadataInfo.isUnmarshalling()) {
+   			return getExtents();
+   		}
+   		return MetadataInfo.is2003() ? new CheckedArrayList<>(Extent.class) : getExtents();
+   	}
 
     /**
      * Returns detailed descriptions about the level of the data specified by the scope.
@@ -181,7 +214,6 @@ public class DefaultScope extends ISOMetadata implements Scope {
      * @return Detailed description about the level of the data.
      */
     @Override
-    @XmlElement(name = "levelDescription")
     public Collection<ScopeDescription> getLevelDescription() {
         return levelDescription = nonNullCollection(levelDescription, ScopeDescription.class);
     }
@@ -194,4 +226,16 @@ public class DefaultScope extends ISOMetadata implements Scope {
     public void setLevelDescription(final Collection<? extends ScopeDescription> newValues) {
         levelDescription = writeCollection(newValues, levelDescription, ScopeDescription.class);
     }
+    
+    /**
+   	 * Gets the level descriptions for this scope (used in ISO 19115-3 format).
+   	 * @see {@link #getLevelDescription}
+   	 */
+   	@XmlElement(name = "levelDescription")
+   	private Collection<ScopeDescription> getXmlLevelDescription() {
+   		if(MetadataInfo.isUnmarshalling()) {
+   			return getLevelDescription();
+   		}
+   		return MetadataInfo.is2003() ? new CheckedArrayList<>(ScopeDescription.class) : getLevelDescription();
+   	}
 }

@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlElement;
 import org.opengis.metadata.maintenance.MaintenanceFrequency;
 import org.apache.sis.internal.jaxb.gmd.CodeListAdapter;
 import org.apache.sis.internal.jaxb.gmd.CodeListUID;
+import org.apache.sis.xml.Namespaces;
 
 
 /**
@@ -74,7 +75,7 @@ public final class MD_MaintenanceFrequencyCode
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MD_MaintenanceFrequencyCode")
+    @XmlElement(name = "MD_MaintenanceFrequencyCode", namespace = Namespaces.MMI)
     public CodeListUID getElement() {
         return identifier;
     }

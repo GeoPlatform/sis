@@ -84,17 +84,18 @@
  * all collections returned by getter methods are <cite>live</cite>: adding new elements in the collection
  * modify directly the underlying metadata object.</p>
  *
- * @author  Cédric Briançon (Geomatys)
+ * @author  Cédric Briançon 	(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlSchema(location=Schemas.METADATA_XSD, elementFormDefault=XmlNsForm.QUALIFIED, namespace=Namespaces.GMI, xmlns = {
-    @XmlNs(prefix = "gmi", namespaceURI = Namespaces.GMI),
-    @XmlNs(prefix = "gmd", namespaceURI = Namespaces.GMD),
+@XmlSchema(location=Schemas.METADATA_XSD_ACQUISITION, elementFormDefault=XmlNsForm.QUALIFIED, namespace=Namespaces.MAC, xmlns = {
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
-    @XmlNs(prefix = "xsi", namespaceURI = Namespaces.XSI)
+    @XmlNs(prefix = "gmw", namespaceURI = Namespaces.GMW),
+    @XmlNs(prefix = "mac", namespaceURI = Namespaces.MAC),
+    @XmlNs(prefix = "mcc", namespaceURI = Namespaces.MCC)
 })
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlJavaTypeAdapters({

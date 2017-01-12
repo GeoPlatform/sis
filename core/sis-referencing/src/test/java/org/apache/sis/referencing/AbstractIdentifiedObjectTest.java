@@ -211,7 +211,7 @@ public final strictfp class AbstractIdentifiedObjectTest extends TestCase {
         final AbstractIdentifiedObject o2 = new AbstractIdentifiedObject(properties);
         final AbstractIdentifiedObject o3 = new AbstractIdentifiedObject(properties);
         final AbstractIdentifiedObject o4 = new AbstractIdentifiedObject(properties);
-        final Context context = new Context(0, null, null, null, null, null, null, null);
+        final Context context = new Context(0, null, null, null, null, null, null, null, null, true);
         try {
             final String c1, c2, c3, c4;
             assertEquals("o1", "epsg-7019", c1 = o1.getID());

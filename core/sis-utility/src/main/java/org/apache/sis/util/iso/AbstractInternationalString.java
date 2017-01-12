@@ -16,14 +16,18 @@
  */
 package org.apache.sis.util.iso;
 
-import java.util.Locale;
-import java.util.Formatter;
 import java.util.Formattable;
 import java.util.FormattableFlags;
-import org.opengis.util.ControlledVocabulary;
-import org.opengis.util.InternationalString;
+import java.util.Formatter;
+import java.util.Locale;
+
+import javax.xml.bind.annotation.XmlType;
+
 import org.apache.sis.internal.util.Utilities;
 import org.apache.sis.util.CharSequences;
+import org.apache.sis.xml.Namespaces;
+import org.opengis.util.ControlledVocabulary;
+import org.opengis.util.InternationalString;
 
 
 /**

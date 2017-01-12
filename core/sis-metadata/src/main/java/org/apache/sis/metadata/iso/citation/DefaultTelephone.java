@@ -19,13 +19,19 @@ package org.apache.sis.metadata.iso.citation;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.metadata.citation.Telephone;
-import org.opengis.metadata.citation.TelephoneType;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.jaxb.code.CI_TelephoneTypeCode;
+import org.apache.sis.internal.util.CheckedArrayList;
 import org.apache.sis.internal.util.CollectionsExt;
 import org.apache.sis.metadata.iso.ISOMetadata;
+import org.opengis.metadata.citation.Telephone;
+import org.opengis.metadata.citation.TelephoneType;
 
 
 /**
@@ -54,17 +60,20 @@ import org.apache.sis.metadata.iso.ISOMetadata;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Cédric Briançon (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.5
- * @version 0.5
+ * @version 0.8
  * @module
  *
  * @see DefaultContact#getPhones()
  */
 @XmlType(name = "CI_Telephone_Type", propOrder = {
-    "voices",
-    "facsimiles"
+	"xmlNumber",		// ISO 19115-3
+	"xmlNumberType",	// ISO 19115-3
+    "xmlVoices",		// ISO 19139
+    "xmlFacsimiles"		// ISO 19139
 })
 @XmlRootElement(name = "CI_Telephone")
 public class DefaultTelephone extends ISOMetadata implements Telephone {
@@ -152,7 +161,6 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "number", required = true)
     public String getNumber() {
         return number;
     }
@@ -168,6 +176,24 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
         checkWritePermission();
         number = newValue;
     }
+    
+    /**
+	 * Gets the number for this telephone (used in ISO 19115-3 format).
+	 * @see {@link #getNumber}
+	 */
+	@XmlElement(name = "number", required = true)
+	private String getXmlNumber() {
+		return MetadataInfo.is2003() ? null : getNumber();
+	}
+
+	/**
+	 * Sets the number for this telephone (used in ISO 19115-3 format).
+	 * @see {@link #setNumber}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlNumber(final String newValue) {
+		setNumber(newValue);
+	}
 
     /**
      * Returns the type of telephone number, or {@code null} if none.
@@ -177,7 +203,6 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "numberType")
     public TelephoneType getNumberType() {
         return numberType;
     }
@@ -193,6 +218,25 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
         checkWritePermission();
         numberType = newValue;
     }
+    
+    /**
+	 * Gets the number type for this telephone (used in ISO 19115-3 format).
+	 * @see {@link #getNumberType}
+	 */
+	@XmlElement(name = "numberType")
+	@XmlJavaTypeAdapter(CI_TelephoneTypeCode.class)
+	private TelephoneType getXmlNumberType() {
+		return MetadataInfo.is2003() ? null : getNumberType();
+	}
+
+	/**
+	 * Sets the number type for this telephone (used in ISO 19115-3 format).
+	 * @see {@link #setNumberType}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlNumberType(final TelephoneType newValue) {
+		setNumberType(newValue);
+	}
 
     /**
      * For implementation of {@link #getVoices()} and {@link #getFacsimiles()} deprecated methods.
@@ -261,7 +305,6 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
      */
     @Override
     @Deprecated
-    @XmlElement(name = "voice")
     public final Collection<String> getVoices() {
         return new LegacyTelephones(getOwner(), TelephoneType.VOICE);
     }
@@ -280,6 +323,15 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
     public void setVoices(final Collection<? extends String> newValues) {
         ((LegacyTelephones) getVoices()).setValues(newValues);
     }
+    
+    /**
+	 * Gets the voice numbers for this telephone (used in ISO 19139 format).
+	 * @see {@link #getVoices}
+	 */
+	@XmlElement(name = "voice")
+	private Collection<String> getXmlVoices() {
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(String.class) : getVoices();
+	}
 
     /**
      * Returns the telephone numbers of a facsimile machine for the responsible organization or individual.
@@ -293,7 +345,6 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
      */
     @Override
     @Deprecated
-    @XmlElement(name = "facsimile")
     public final Collection<String> getFacsimiles() {
         return new LegacyTelephones(getOwner(), TelephoneType.FACSIMILE);
     }
@@ -312,4 +363,13 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
     public void setFacsimiles(final Collection<? extends String> newValues) {
         ((LegacyTelephones) getFacsimiles()).setValues(newValues);
     }
+    
+    /**
+	 * Gets the facsimile numbers for this telephone (used in ISO 19139 format).
+	 * @see {@link #getFacsimiles}
+	 */
+	@XmlElement(name = "facsimile")
+	private Collection<String> getXmlFacsimiles() {
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(String.class) : getFacsimiles();
+	}
 }

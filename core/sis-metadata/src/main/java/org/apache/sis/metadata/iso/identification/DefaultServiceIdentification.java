@@ -17,20 +17,25 @@
 package org.apache.sis.metadata.iso.identification;
 
 import java.util.Collection;
+
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.GenericName;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.xml.Namespaces;
 import org.opengis.metadata.citation.Citation;
-import org.opengis.metadata.identification.DataIdentification;
 import org.opengis.metadata.distribution.StandardOrderProcess;
-import org.opengis.metadata.identification.ServiceIdentification;
+import org.opengis.metadata.extent.Extent;
 import org.opengis.metadata.identification.CoupledResource;
 import org.opengis.metadata.identification.CouplingType;
+import org.opengis.metadata.identification.DataIdentification;
 import org.opengis.metadata.identification.OperationChainMetadata;
 import org.opengis.metadata.identification.OperationMetadata;
-import org.apache.sis.xml.Namespaces;
+import org.opengis.metadata.identification.ServiceIdentification;
+import org.opengis.util.GenericName;
 
 
 /**
@@ -47,25 +52,28 @@ import org.apache.sis.xml.Namespaces;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.5
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlType(name = "MD_ServiceIdentification_Type", propOrder = { // ISO 19139 still use the old prefix.
+@XmlType(name = "MD_ServiceIdentification_Type", namespace = Namespaces.SRV, propOrder = { // ISO 19139 still use the old prefix.
     "serviceType",
     "serviceTypeVersions",
-/// "accessProperties",
-    "coupledResources",
+	"accessProperties",
+//	"restrictions",			// ISO 19139 (equivalent to resourceConstraints) -- not implemented by SIS for some reason. TODO
+	"xmlExtent",			// ISO 19139
     "couplingType",
-/// "operatedDatasets",
-/// "profiles",
-/// "serviceStandards",
+    "coupledResources",
+	"xmlOperatedDatasets",	// ISO 19115-3
+	"xmlProfiles",			// ISO 19115-3
+	"xmlServiceStandards",	// ISO 19115-3
     "containsOperations",
     "operatesOn",
-/// "containsChain"
+	"xmlContainsChain"		// ISO 19115-3
 })
 @XmlRootElement(name = "SV_ServiceIdentification", namespace = Namespaces.SRV)
 public class DefaultServiceIdentification extends AbstractIdentification implements ServiceIdentification {
@@ -252,7 +260,7 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "accessProperties", namespace = Namespaces.SRV)
+	@XmlElement(name = "accessProperties", namespace = Namespaces.SRV)
     public StandardOrderProcess getAccessProperties() {
         return accessProperties;
 
@@ -319,7 +327,6 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "operatedDataset", namespace = Namespaces.SRV)
     public Collection<Citation> getOperatedDatasets() {
         return operatedDatasets = nonNullCollection(operatedDatasets, Citation.class);
     }
@@ -334,6 +341,18 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
     public void setOperatedDatasets(final Collection<? extends Citation> newValues) {
         operatedDatasets = writeCollection(newValues, operatedDatasets, Citation.class);
     }
+    
+    /**
+	 * Gets the operated datasets for this identification (used in ISO 19115-3 format).
+	 * @see {@link #getOperatedDatasets}
+	 */
+	@XmlElement(name = "operatedDataset", namespace = Namespaces.SRV)
+	private Collection<Citation> getXmlOperatedDatasets() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getOperatedDatasets();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getOperatedDatasets();
+	}
 
     /**
      * Returns the profile(s) to which the service adheres.
@@ -343,7 +362,6 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "profile", namespace = Namespaces.SRV)
     public Collection<Citation> getProfiles() {
         return profiles = nonNullCollection(profiles, Citation.class);
     }
@@ -356,6 +374,18 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
     public void setProfiles(final Collection<? extends Citation> newValues) {
         profiles = writeCollection(newValues, profiles, Citation.class);
     }
+    
+    /**
+	 * Gets the profiles for this identification (used in ISO 19115-3 format).
+	 * @see {@link #getProfiles}
+	 */
+    @XmlElement(name = "profile", namespace = Namespaces.SRV)
+	private Collection<Citation> getXmlProfiles() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getProfiles();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getProfiles();
+	}
 
     /**
      * Returns the standard(s) to which the service adheres.
@@ -365,7 +395,6 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "serviceStandard", namespace = Namespaces.SRV)
     public Collection<Citation> getServiceStandards() {
         return serviceStandards = nonNullCollection(serviceStandards, Citation.class);
     }
@@ -380,6 +409,18 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
     public void setServiceStandards(final Collection<? extends Citation> newValues) {
         serviceStandards = writeCollection(newValues, serviceStandards, Citation.class);
     }
+    
+    /**
+	 * Gets the service standards for this identification (used in ISO 19115-3 format).
+	 * @see {@link #getServiceStandards}
+	 */
+    @XmlElement(name = "serviceStandard", namespace = Namespaces.SRV)
+	private Collection<Citation> getXmlServiceStandards() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getServiceStandards();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getServiceStandards();
+	}
 
     /**
      * Provides information about the operations that comprise the service.
@@ -429,7 +470,6 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "containsChain", namespace = Namespaces.SRV)
     public Collection<OperationChainMetadata> getContainsChain() {
         return containsChain = nonNullCollection(containsChain, OperationChainMetadata.class);
     }
@@ -444,6 +484,18 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
     public void setContainsChain(final Collection<? extends OperationChainMetadata>  newValues) {
         containsChain = writeCollection(newValues, containsChain, OperationChainMetadata.class);
     }
+    
+    /**
+	 * Gets the contains chain for this identification (used in ISO 19115-3 format).
+	 * @see {@link #getContainsChain}
+	 */
+    @XmlElement(name = "containsChain", namespace = Namespaces.SRV)
+	private Collection<OperationChainMetadata> getXmlContainsChain() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getContainsChain();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(OperationChainMetadata.class) : getContainsChain();
+	}
 
 
 
@@ -458,11 +510,24 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
     ////////        (GML) support is not needed.                                              ////////
     ////////                                                                                  ////////
     //////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    /**
+	 * Gets the character sets for this identification (used in ISO 19139 format).
+	 * @see {@link #getExtent}
+	 */
+	@XmlElement(name = "extent")
+	private Collection<Extent> getXmlExtent() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getExtents();
+		}
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(Extent.class) : getExtents();
+	}
 
     /**
      * Invoked after JAXB has unmarshalled this object.
      */
-    private void afterUnmarshal(Unmarshaller unmarshaller, Object parent) {
+    @SuppressWarnings("unused")
+	private void afterUnmarshal(Unmarshaller unmarshaller, Object parent) {
         if (containsOperations != null && coupledResources != null) {
             OperationName.resolve(containsOperations, coupledResources);
         }

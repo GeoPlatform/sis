@@ -16,10 +16,21 @@
  */
 package org.apache.sis.xml;
 
-import javax.xml.namespace.QName;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+import java.util.TreeMap;
+
 import javax.xml.namespace.NamespaceContext;
-import javax.xml.stream.XMLStreamReader;
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.util.StreamReaderDelegate;
 
 
@@ -31,103 +42,370 @@ import javax.xml.stream.util.StreamReaderDelegate;
  * See {@link FilteredNamespaces} for more information.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.4
- * @version 0.4
+ * @version 0.8
  * @module
  */
 final class FilteredStreamReader extends StreamReaderDelegate {
-    /**
-     * The other version to unmarshall from.
-     */
-    private final FilterVersion version;
+	/**
+	 * The other version to unmarshal from.
+	 */
+	private final FilterVersion version;
 
-    /**
-     * Creates a new filter for the given version of the standards.
-     */
-    FilteredStreamReader(final XMLStreamReader in, final FilterVersion version) {
-        super(in);
-        this.version = version;
-    }
+	/**
+	 * Map of element names to namespaces. Used when reading ISO 19139.
+	 * 
+	 * How data is stored internally in the map:
+	 * 
+	 * key: ElementName|ParentElementName
+	 * value: NamespaceURI
+	 * 
+	 * If an element does not have a parent (i.e. it is its own Java class)
+	 * then the format is as follows:
+	 * 
+	 * key: ElementName
+	 * value: NamespaceURI
+	 */
+	private Map<String,String> elementNamespaceMap;
 
-    /**
-     * Converts a JAXB URI to the URI seen by the consumer of this wrapper.
-     */
-    private String toView(final String uri) {
-        final String replacement = version.toView.get(uri);
-        return (replacement != null) ? replacement : uri;
-    }
+	/**
+	 * Map of elements that need to have their name changed.
+	 * For example, gmd:URL needs to be changed to gco:CharacterString for reading ISO 19139.
+	 * 
+	 * key: OldElementName
+	 * value: NewElementName
+	 */
+	private Map<String,String> localNameMap;
 
-    /**
-     * Converts a URI read from the XML document to the URI to give to JAXB.
-     */
-    private String toImpl(final String uri) {
-        final String replacement = version.toImpl.get(uri);
-        return (replacement != null) ? replacement : uri;
-    }
+	/**
+	 * Location of ElementNameSpaceMap
+	 */
+	private final String MAP_PATH = "org/apache/sis/internal/jaxb/ElementNamespaceMap.txt";
 
-    /**
-     * Converts a name read from the XML document to the name to give to JAXB.
-     */
-    private QName toImpl(QName name) {
-        final String namespaceURI = name.getNamespaceURI();
-        final String replacement = toImpl(namespaceURI);
-        if (replacement != namespaceURI) { // Really identity check.
-            name = new QName(namespaceURI, name.getLocalPart(), name.getPrefix());
-        }
-        return name;
-    }
+	/**
+	 * Text file containing ElementNameSpaceMap
+	 */
+	private final File MAP_FILE;
 
-    /** Replaces the given URI if needed, then forwards the call. */
-    @Override
-    public void require(final int type, final String namespaceURI, final String localName) throws XMLStreamException {
-        super.require(type, toView(namespaceURI), localName);
-    }
+	/**
+	 * List of encountered XML tags, in order. Used for backtracking.
+	 */
+	private ArrayList<CloseableElement> elements;
 
-    /** Returns the context of the underlying reader wrapped in a filter that convert the namespaces on the fly. */
-    @Override
-    public NamespaceContext getNamespaceContext() {
-        return new FilteredNamespaces(super.getNamespaceContext(), version, true);
-    }
+	/**
+	 * Creates a new filter for the given version of the standards.
+	 * @throws FileNotFoundException 
+	 */
+	FilteredStreamReader(final XMLStreamReader in, final FilterVersion version) {
+		super(in);
+		this.version = version;
 
-    /** Forwards the call, then replaces the namespace URI if needed. */
-    @Override
-    public QName getName() {
-        return toImpl(super.getName());
-    }
+		// Initialize map file.
+		MAP_FILE = new File(ClassLoader.getSystemResource(MAP_PATH).getFile());
 
-    /** Forwards the call, then replaces the namespace URI if needed. */
-    @Override
-    public QName getAttributeName(final int index) {
-        return toImpl(super.getAttributeName(index));
-    }
+		// Initialize elements list.
+		elements = new ArrayList<CloseableElement>();
 
-    /** Forwards the call, then replaces the returned URI if needed. */
-    @Override
-    public String getNamespaceURI() {
-        return toImpl(super.getNamespaceURI());
-    }
+		// If reading ISO 19139, need to load ElementNamespaceMap.txt
+		// and convert its contents to a map for use in filtered reading.
+		if(version.equals(FilterVersion.ISO19139)) {
+			try {
+				readElementNamespaceMap();
+			} catch (IOException e) {
+				// Do nothing for now. The file should always be there.
+				e.printStackTrace();
+			}
+		}
 
-    /** Forwards the call, then replaces the returned URI if needed. */
-    @Override
-    public String getNamespaceURI(int index) {
-        return toImpl(super.getNamespaceURI(index));
-    }
+		// Initialize list of local names that need to be replaced.
+		// This is kind of hacky, but it should work for now.
+		// Used to circumvent type issues, e.g. change from gmd:URL to gco:CharacterString.
+		localNameMap = new TreeMap<String,String>();
+		localNameMap.put("URL", "CharacterString");
+	}
 
-    /** Forwards the call, then replaces the returned URI if needed. */
-    @Override
-    public String getNamespaceURI(final String prefix) {
-        return toImpl(super.getNamespaceURI(prefix));
-    }
+	/**
+	 * Reads the element namespace map text file into a map to be used by this class.
+	 * Stores the results in the {@code elementNamespaceMap} Map.
+	 * @throws IOException 
+	 */
+	private void readElementNamespaceMap() throws IOException {
+		// Instantiate the elementNamespaceMap
+		elementNamespaceMap = new TreeMap<String, String>();
 
-    /** Forwards the call, then replaces the returned URI if needed. */
-    @Override
-    public String getAttributeNamespace(final int index) {
-        return toImpl(super.getAttributeNamespace(index));
-    }
+		// Create a buffered reader.
+		BufferedReader reader = new BufferedReader(new FileReader(MAP_FILE));
 
-    /** Replaces the given URI if needed, then forwards the call. */
-    @Override
-    public String getAttributeValue(final String namespaceUri, final String localName) {
-        return super.getAttributeValue(toView(namespaceUri), localName);
-    }
+		// Read the file into the elementNamespaceMap.
+		String line = reader.readLine();
+		while(line != null) {
+			// Get the element name.
+			String element = line.substring(0, line.indexOf('|'));
+			// Get the parent element name (if there is one).
+			String parent = line.substring(line.indexOf('|'), line.lastIndexOf('|'));
+			// Get the namespace URI.
+			String namespace = line.substring(line.lastIndexOf('|') + 1);
+
+			// Store the values in the map.
+			elementNamespaceMap.put(element + parent, namespace);
+
+			// Read the next line.
+			line = reader.readLine();
+		}
+
+		// Close the reader.
+		reader.close();
+	}
+
+	/**
+	 * Get a collection of possible parents for an element with the given name.
+	 * @param element The name of element to get parents for.
+	 * @return Collection of possible parents.
+	 */
+	private Collection<String> getParents(String element) {
+		if(element != null && elementNamespaceMap != null) {
+			Collection<String> parents = new ArrayList<String>();
+			// Loop through the map.
+			for(String key : elementNamespaceMap.keySet()) {
+				if(key.startsWith(element + "|")) {
+					String parent = key.substring(key.indexOf("|") + 1);
+					if(!parent.equals("")) {
+						parents.add(parent);
+					}
+				}
+			}
+			// Return the list of parents.
+			return parents.size() == 0 ? null : parents;
+		}
+		return null;
+	}
+
+	/**
+	 * Given an element name and parent name, get the mapped ISO 19115-3 namespace.
+	 * @param element
+	 * @param parent
+	 * @return the mapped namespace.
+	 */
+	private String getNamespace(String element, String parent) {
+		if(parent == null) {
+			parent = "";
+		}
+		return elementNamespaceMap == null ? null : elementNamespaceMap.get(element + "|" + parent);
+	}
+
+	/**
+	 * Returns a boolean indicating whether or not an element with the given name exists
+	 * within the elementNamespaceMap. Returns false if elementNamespaceMap is null.
+	 * @param name The name of the element.
+	 */
+	private boolean inMap(String element) {
+		if(elementNamespaceMap != null && element != null) {
+			// Loop through the map.
+			for(String key : elementNamespaceMap.keySet()) {
+				if(key.startsWith(element + "|")) {
+					return true;
+				}
+			}
+		}
+		// If the element wasn't found, return false.
+		return false;
+	}
+
+	/**
+	 * Returns true if the element name needs replacement, false otherwise.
+	 * @param element
+	 */
+	private boolean needsNameReplacement(String element) {
+		return (element != null && localNameMap != null && localNameMap.get(element) != null);
+	}
+
+	/**
+	 * Converts a JAXB URI to the URI seen by the consumer of this wrapper.
+	 */
+	private String toView(final String uri) {
+		final String replacement = version.toView.get(uri);
+		return (replacement != null) ? replacement : uri;
+	}
+
+	/**
+	 * Converts a URI read from the XML document to the URI to give to JAXB.
+	 */
+	private String toImpl(final String uri) {
+		final String replacement = version.toImpl.get(uri);
+		return (replacement != null) ? replacement : uri;
+	}
+
+	/**
+	 * Converts a name read from the XML document to the name to give to JAXB.
+	 */
+	private QName toImpl(QName name) {
+		final String namespaceURI = name.getNamespaceURI();
+		final String replacement;
+		if(inMap(name.getLocalPart())) {
+			// TODO: Update this
+			replacement = elementNamespaceMap.get(name.getLocalPart());
+		}
+		else {
+			replacement = toImpl(namespaceURI);
+		}
+		if (!replacement.equals(namespaceURI)) {
+			name = new QName(replacement, name.getLocalPart(), name.getPrefix());
+		}
+		return name;
+	}
+
+	/** Replaces the given URI if needed, then forwards the call. */
+	@Override
+	public void require(final int type, final String namespaceURI, final String localName) throws XMLStreamException {
+		if(inMap(localName)) {
+			super.require(type, elementNamespaceMap.get(localName), localName);
+		}
+		else {
+			super.require(type, toView(namespaceURI), localName);
+		}
+		// Note: Never called in testing.
+	}
+
+	/** Returns the context of the underlying reader wrapped in a filter that convert the namespaces on the fly. */
+	@Override
+	public NamespaceContext getNamespaceContext() {
+		return new FilteredNamespaces(super.getNamespaceContext(), version, true);
+	}
+
+	/** Forwards the call, then replaces the namespace URI if needed. */
+	@Override
+	public QName getName() {
+		return toImpl(super.getName());
+		// Note: Never called in testing.
+	}
+
+	/** Replaces the local name if necessary for mapping purposes */
+	@Override
+	public String getLocalName() {
+		String localName = super.getLocalName();
+		if(needsNameReplacement(localName)) {
+			return localNameMap.get(localName);
+		}
+		return super.getLocalName();
+	}
+
+	/** Forwards the call, then replaces the namespace URI if needed. */
+	@Override
+	public QName getAttributeName(final int index) {
+		return toImpl(super.getAttributeName(index));
+		// Note: Never called in testing.
+	}
+
+	/** Forwards the call, then replaces the returned URI if needed. */
+	@Override
+	public String getNamespaceURI() {
+		// Get the local name of this element.
+		String name = super.getName().getLocalPart();
+
+		// If the current element is a start element, add it to the list.
+		if(super.getEventType() == XMLStreamConstants.START_ELEMENT) {
+			elements.add(new CloseableElement(name));
+		}
+		// If the element is an end element, close the last instance of that element.
+		else if(super.getEventType() == XMLStreamConstants.END_ELEMENT) {
+			// Loop through the list of elements.
+			for(int ndx = elements.size()-1; ndx >= 0; ndx--) {
+				// If this is an end element, close the last open one with a matching name.
+				String elementName = elements.get(ndx).getName();
+				if(elementName.equals(super.getLocalName()) && elements.get(ndx).isOpen()) {
+					elements.get(ndx).close();
+				}
+			}
+		}
+
+		// If the name needs a replacement, do so.
+		if(needsNameReplacement(name)) {
+			name = localNameMap.get(name);
+		}
+		// Check if the element needs to be mapped to an ISO 19139 namespace.
+		if(inMap(name)) {
+			// If the element is a root element, return the associated namespace.
+			if(getParents(name) == null) {
+				return getNamespace(name, null);
+			}
+			// If the element is not a root element, we need to backtrack until we find
+			// the latest possible parent element. Then, we use the namespace associated with that parent.
+			else {
+				Collection<String> parents = getParents(name);
+				for(int ndx = elements.size()-1; ndx >= 0; ndx--) {
+					if(elements.get(ndx).isOpen() && parents.contains(elements.get(ndx).getName())) {
+						String parentName = elements.get(ndx).getName();
+						return getNamespace(name, parentName);
+					}
+				}
+			}
+		}
+		// If we are unmarshalling ISO 19139, default to the MDB namespace in case the element name
+		// isn't mapped.
+		else if(elementNamespaceMap != null) {
+			return Namespaces.MDB;
+		}
+
+		return toImpl(super.getNamespaceURI());
+	}
+
+	/** Forwards the call, then replaces the returned URI if needed. */
+	@Override
+	public String getNamespaceURI(int index) {
+		return toImpl(super.getNamespaceURI(index));
+		// NOTE: The "index" passed to this method is the index of a namespace declaration on the root element.
+		// This should not matter as long as each /element/ has the proper namespace URI.
+	}
+
+	/** Forwards the call, then replaces the returned URI if needed. */
+	@Override
+	public String getNamespaceURI(final String prefix) {
+		return toImpl(super.getNamespaceURI(prefix));
+		// NOTE: Never called in testing.
+	}
+
+	/** Forwards the call, then replaces the returned URI if needed. */
+	@Override
+	public String getAttributeNamespace(final int index) {
+		String localName = super.getAttributeLocalName(index);
+		return inMap(localName) ? elementNamespaceMap.get(localName) : toImpl(super.getAttributeNamespace(index));
+		// NOTE: Called for each attribute (ex. "uom" in testing)
+	}
+
+	/** Replaces the given URI if needed, then forwards the call. */
+	@Override
+	public String getAttributeValue(final String namespaceUri, final String localName) {
+		if(inMap(localName)) {
+			return super.getAttributeValue(elementNamespaceMap.get(localName), localName);
+		}
+		return super.getAttributeValue(toView(namespaceUri), localName);
+		// NOTE: Never called in testing.
+	}
+
+	/**
+	 * Small class used for keeping track of elements that have been read and determining if they have been closed.
+	 * Useful for determining the parent of a child element so we can assign the correct namespace.
+	 */
+	private class CloseableElement {
+		private String name;
+		private boolean closed;
+
+		public CloseableElement(String name) {
+			this.name = name;
+			this.closed = false;
+		}
+
+		public void close() {
+			this.closed = true;
+		}
+
+		public boolean isOpen() {
+			return !closed;
+		}
+
+		public String getName() {
+			return name;
+		}
+	}
 }

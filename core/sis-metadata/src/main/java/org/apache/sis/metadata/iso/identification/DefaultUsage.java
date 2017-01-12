@@ -16,20 +16,24 @@
  */
 package org.apache.sis.metadata.iso.identification;
 
-import java.util.Date;
+import static org.apache.sis.internal.metadata.MetadataUtilities.toDate;
+import static org.apache.sis.internal.metadata.MetadataUtilities.toMilliseconds;
+
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.InternationalString;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.apache.sis.util.iso.Types;
 import org.opengis.metadata.citation.Citation;
 import org.opengis.metadata.citation.Responsibility;
 import org.opengis.metadata.identification.Usage;
-import org.apache.sis.metadata.iso.ISOMetadata;
-import org.apache.sis.util.iso.Types;
-
-import static org.apache.sis.internal.metadata.MetadataUtilities.toDate;
-import static org.apache.sis.internal.metadata.MetadataUtilities.toMilliseconds;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -45,18 +49,22 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.toMilliseconds;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_Usage_Type", propOrder = {
     "specificUsage",
     "usageDate",
     "userDeterminedLimitations",
-    "userContactInfo"
+    "userContactInfo",
+    "xmlResponses",					// ISO 19115-3
+    "xmlAdditionalDocumentation",	// ISO 19115-3
+    "xmlIdentifiedIssues"			// ISO 19115-3
 })
 @XmlRootElement(name = "MD_Usage")
 public class DefaultUsage extends ISOMetadata implements Usage {
@@ -262,7 +270,6 @@ public class DefaultUsage extends ISOMetadata implements Usage {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "response")
     public Collection<? extends InternationalString> getResponses() {
         return responses = nonNullCollection(responses, InternationalString.class);
     }
@@ -277,6 +284,18 @@ public class DefaultUsage extends ISOMetadata implements Usage {
     public void setResponses(final Collection<? extends InternationalString> newValues) {
         responses = writeCollection(newValues, responses, InternationalString.class);
     }
+    
+    /**
+	 * Gets the responses for this usage (used in ISO 19115-3 format).
+	 * @see {@link #getResponses}
+	 */
+	@XmlElement(name = "response")
+	private Collection<? extends InternationalString> getXmlResponses() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getResponses();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(InternationalString.class) : getResponses();
+	}
 
     /**
      * Publications that describe usage of data.
@@ -286,7 +305,6 @@ public class DefaultUsage extends ISOMetadata implements Usage {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "additionalDocumentation")
     public Collection<Citation> getAdditionalDocumentation() {
         return additionalDocumentation = nonNullCollection(additionalDocumentation, Citation.class);
     }
@@ -301,6 +319,18 @@ public class DefaultUsage extends ISOMetadata implements Usage {
     public void setAdditionalDocumentation(final Collection<? extends Citation> newValues) {
         additionalDocumentation = writeCollection(newValues, additionalDocumentation, Citation.class);
     }
+    
+    /**
+	 * Gets the additional documentation for this usage (used in ISO 19115-3 format).
+	 * @see {@link #getAdditionalDocumentation}
+	 */
+	@XmlElement(name = "additionalDocumentation")
+	private Collection<Citation> getXmlAdditionalDocumentation() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getAdditionalDocumentation();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getAdditionalDocumentation();
+	}
 
     /**
      * Citation of a description of known issues associated with the resource
@@ -311,7 +341,6 @@ public class DefaultUsage extends ISOMetadata implements Usage {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "identifiedIssues")
     public Collection<? extends Citation> getIdentifiedIssues() {
         return identifiedIssues = nonNullCollection(identifiedIssues, Citation.class);
     }
@@ -327,4 +356,16 @@ public class DefaultUsage extends ISOMetadata implements Usage {
     public void setIdentifiedIssues(final Collection<? extends Citation> newValues) {
         identifiedIssues = writeCollection(newValues, identifiedIssues, Citation.class);
     }
+    
+    /**
+	 * Gets the identified issues for this usage (used in ISO 19115-3 format).
+	 * @see {@link #getIdentifiedIssues}
+	 */
+	@XmlElement(name = "identifiedIssues")
+	private Collection<? extends Citation> getXmlIdentifiedIssues() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getIdentifiedIssues();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getIdentifiedIssues();
+	}
 }

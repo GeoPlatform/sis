@@ -16,22 +16,33 @@
  */
 package org.apache.sis.test;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.List;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.ArrayList;
-import java.net.URI;
-import java.net.URL;
+import static java.lang.StrictMath.abs;
+import static org.apache.sis.util.CharSequences.trimWhitespaces;
+import static org.apache.sis.util.Characters.NO_BREAK_SPACE;
+import static org.junit.Assert.fail;
+import static org.opengis.test.Assert.assertInstanceOf;
+
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
+import org.apache.sis.util.ArgumentChecks;
+import org.apache.sis.xml.Namespaces;
 import org.w3c.dom.Attr;
 import org.w3c.dom.CDATASection;
 import org.w3c.dom.Comment;
@@ -41,13 +52,6 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.ProcessingInstruction;
 import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
-import org.apache.sis.xml.Namespaces;
-import org.apache.sis.util.ArgumentChecks;
-
-import static java.lang.StrictMath.*;
-import static org.opengis.test.Assert.*;
-import static org.apache.sis.util.Characters.NO_BREAK_SPACE;
-import static org.apache.sis.util.CharSequences.trimWhitespaces;
 
 
 /**
@@ -92,7 +96,7 @@ public strictfp class XMLComparator {
         map.put("xsi",   Namespaces.XSI);
         map.put("gml",   Namespaces.GML);
         map.put("gmd",   Namespaces.GMD);
-        map.put("gmx",   Namespaces.GMX);
+        map.put("gmx",   LegacyNamespaces.GMX);
         map.put("gmi",   Namespaces.GMI);
         map.put("gco",   Namespaces.GCO);
     }

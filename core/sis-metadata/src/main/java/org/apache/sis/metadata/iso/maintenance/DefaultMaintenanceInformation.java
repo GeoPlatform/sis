@@ -35,7 +35,9 @@ import org.opengis.temporal.PeriodDuration;
 import org.opengis.util.InternationalString;
 import org.apache.sis.metadata.iso.ISOMetadata;
 import org.apache.sis.metadata.iso.citation.DefaultCitationDate;
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.apache.sis.internal.util.CheckedArrayList;
 
 
 /**
@@ -61,10 +63,12 @@ import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
  */
 @XmlType(name = "MD_MaintenanceInformation_Type", propOrder = {
     "maintenanceAndUpdateFrequency",
-    "dateOfNextUpdate",
+    "xmlMaintenanceDates",				// ISO 19115-3
+    "xmlDateOfNextUpdate",				// ISO 19139
     "userDefinedMaintenanceFrequency",
-    "updateScopes",
-    "updateScopeDescriptions",
+    "xmlMaintenanceScopes",				// ISO 19115-3 only - contains information from the two below
+    "xmlUpdateScopes",					// ISO 19139 only
+    "xmlUpdateScopeDescriptions",		// ISO 19139 only
     "maintenanceNotes",
     "contacts"
 })
@@ -200,7 +204,6 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "maintenanceDate", required = true)
     public Collection<CitationDate> getMaintenanceDates() {
         return maintenanceDates = nonNullCollection(maintenanceDates, CitationDate.class);
     }
@@ -215,6 +218,18 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
     public void setMaintenanceDates(final Collection<? extends CitationDate> newValues) {
         maintenanceDates = writeCollection(newValues, maintenanceDates, CitationDate.class);
     }
+    
+    /**
+	 * Gets the maintenance dates (used in ISO 19115-3 format).
+	 * @see {@link #getMaintenanceDates}
+	 */
+    @XmlElement(name = "maintenanceDate", required = true)
+    private Collection<CitationDate> getXmlMaintenanceDates() {
+    	if(MetadataInfo.isUnmarshalling()) {
+    		return getMaintenanceDates();
+    	}
+    	return MetadataInfo.is2003() ? new CheckedArrayList<>(CitationDate.class) : getMaintenanceDates();
+    }
 
     /**
      * Returns the scheduled revision date for resource.
@@ -228,7 +243,6 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
      */
     @Override
     @Deprecated
-    @XmlElement(name = "dateOfNextUpdate")
     public Date getDateOfNextUpdate() {
         final Collection<CitationDate> dates = getMaintenanceDates();
         if (dates != null) { // May be null on XML marshalling.
@@ -276,6 +290,24 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
             setMaintenanceDates(dates);
         }
     }
+    
+    /**
+	 * Gets the date of next update (used in ISO 19139 format).
+	 * @see {@link #getDateOfNextUpdate}
+	 */
+	@XmlElement(name = "dateOfNextUpdate")
+	private Date getXmlDateOfNextUpdate() {
+		return MetadataInfo.is2014() ? null : getDateOfNextUpdate();
+	}
+
+	/**
+	 * Sets the date of next update (used in ISO 19139 format).
+	 * @see {@link #setDateOfNextUpdate}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlDateOfNextUpdate(final Date newValue) {
+		setDateOfNextUpdate(newValue);
+	}
 
     /**
      * Returns the maintenance period other than those defined.
@@ -306,7 +338,6 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "maintenanceScope")
     public Collection<Scope> getMaintenanceScopes() {
         return maintenanceScopes = nonNullCollection(maintenanceScopes, Scope.class);
     }
@@ -321,6 +352,18 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
     public void setMaintenanceScopes(final Collection<? extends Scope> newValues) {
         maintenanceScopes = writeCollection(newValues, maintenanceScopes, Scope.class);
     }
+    
+    /**
+	 * Gets the maintenance scopes (used in ISO 19115-3 format).
+	 * @see {@link #getMaintenanceScopes}
+	 */
+    @XmlElement(name = "maintenanceScope")
+    private Collection<Scope> getXmlMaintenanceScopes() {
+    	if(MetadataInfo.isUnmarshalling()) {
+    		return getMaintenanceScopes();
+    	}
+    	return MetadataInfo.is2003() ? new CheckedArrayList<>(Scope.class) : getMaintenanceScopes();
+    }
 
     /**
      * Returns the scope of data to which maintenance is applied.
@@ -334,7 +377,6 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
      */
     @Override
     @Deprecated
-    @XmlElement(name = "updateScope")
     public final Collection<ScopeCode> getUpdateScopes() {
         return new LegacyPropertyAdapter<ScopeCode,Scope>(getMaintenanceScopes()) {
             /** Stores a legacy value into the new kind of value. */
@@ -366,10 +408,23 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
      *
      * @deprecated As of ISO 19115:2014, replaced by {@link #setMaintenanceScopes(Collection)}.
      */
-    @Deprecated
+    @SuppressWarnings("unchecked")
+	@Deprecated
     public void setUpdateScopes(final Collection<? extends ScopeCode> newValues) {
         checkWritePermission();
         ((LegacyPropertyAdapter<ScopeCode,?>) getUpdateScopes()).setValues(newValues);
+    }
+    
+    /**
+	 * Gets the update scopes (used in ISO 19139 format).
+	 * @see {@link #getUpdateScopes}
+	 */
+    @XmlElement(name = "updateScope")
+    private Collection<ScopeCode> getXmlUpdateScopes() {
+    	if(MetadataInfo.isUnmarshalling()) {
+    		return getUpdateScopes();
+    	}
+    	return MetadataInfo.is2014() ? new CheckedArrayList<>(ScopeCode.class) : getUpdateScopes();
     }
 
     /**
@@ -384,7 +439,6 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
      */
     @Override
     @Deprecated
-    @XmlElement(name = "updateScopeDescription")
     public final Collection<ScopeDescription> getUpdateScopeDescriptions() {
         return new LegacyPropertyAdapter<ScopeDescription,Scope>(getMaintenanceScopes()) {
             /** Stores a legacy value into the new kind of value. */
@@ -419,10 +473,23 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
      *
      * @deprecated As of ISO 19115:2014, replaced by {@link #setMaintenanceScopes(Collection)}.
      */
-    @Deprecated
+    @SuppressWarnings("unchecked")
+	@Deprecated
     public void setUpdateScopeDescriptions(final Collection<? extends ScopeDescription> newValues) {
         checkWritePermission();
         ((LegacyPropertyAdapter<ScopeDescription,?>) getUpdateScopeDescriptions()).setValues(newValues);
+    }
+    
+    /**
+	 * Gets the update scope descriptions (used in ISO 19139 format).
+	 * @see {@link #getUpdateScopeDescriptions}
+	 */
+    @XmlElement(name = "updateScopeDescription")
+    private Collection<ScopeDescription> getXmlUpdateScopeDescriptions() {
+    	if(MetadataInfo.isUnmarshalling()) {
+    		return getUpdateScopeDescriptions();
+    	}
+    	return MetadataInfo.is2014() ? new CheckedArrayList<>(ScopeDescription.class) : getUpdateScopeDescriptions();
     }
 
     /**

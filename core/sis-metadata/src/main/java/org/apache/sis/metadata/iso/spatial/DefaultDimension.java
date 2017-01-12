@@ -16,19 +16,24 @@
  */
 package org.apache.sis.metadata.iso.spatial;
 
-import javax.xml.bind.annotation.XmlType;
+import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.opengis.util.InternationalString;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.jaxb.gco.GO_Measure;
+import org.apache.sis.internal.jaxb.gco.GO_Measure19139;
+import org.apache.sis.internal.jaxb.gml.Measure;
+import org.apache.sis.measure.Units;
+import org.apache.sis.measure.ValueRange;
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.apache.sis.util.ArgumentChecks;
 import org.opengis.metadata.spatial.Dimension;
 import org.opengis.metadata.spatial.DimensionNameType;
-import org.apache.sis.internal.jaxb.gco.GO_Measure;
-import org.apache.sis.metadata.iso.ISOMetadata;
-import org.apache.sis.measure.ValueRange;
-import org.apache.sis.util.ArgumentChecks;
-
-import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -44,17 +49,19 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author	Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_Dimension_Type", propOrder = {
     "dimensionName",
     "dimensionSize",
-    "resolution",
+    "resolutionMeasure",
+    "xmlResolution"
 /// "dimensionTitle",
 /// "dimensionDescription"
 })
@@ -78,7 +85,12 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
     /**
      * Degree of detail in the grid dataset.
      */
-    private Double resolution;
+    //private Double resolution;
+    
+    /**
+     * Degree of detail in the grid dataset (as a Measure object - used in ISO 19115-3).
+     */
+    private Measure resolutionMeasure;
 
     /**
      * Enhancement/ modifier of the dimension name.
@@ -132,7 +144,7 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
         if (object != null) {
             dimensionName        = object.getDimensionName();
             dimensionSize        = object.getDimensionSize();
-            resolution           = object.getResolution();
+            resolutionMeasure    = new Measure(object.getResolution(), Units.METRE); // Default UOM is meter
             dimensionTitle       = object.getDimensionTitle();
             dimensionDescription = object.getDimensionDescription();
         }
@@ -215,11 +227,12 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
      * @return Degree of detail in the grid dataset, or {@code null}.
      */
     @Override
-    @ValueRange(minimum=0, isMinIncluded=false)
-    @XmlJavaTypeAdapter(GO_Measure.class)
-    @XmlElement(name = "resolution")
+/// @ValueRange(minimum=0, isMinIncluded=false)
+/// @XmlJavaTypeAdapter(GO_Measure.class)
+/// @XmlElement(name = "resolution")
+    @Deprecated
     public Double getResolution() {
-        return resolution;
+        return (resolutionMeasure == null) ? null : resolutionMeasure.value;
     }
 
     /**
@@ -228,12 +241,55 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
      * @param newValue The new resolution, or {@code null}.
      * @throws IllegalArgumentException if the given value is NaN, zero or negative.
      */
+    @Deprecated
     public void setResolution(final Double newValue) {
         checkWritePermission();
         if (ensurePositive(DefaultDimension.class, "dimensionSize", true, newValue)) {
-            resolution = newValue;
+            resolutionMeasure = new Measure(newValue, Units.METRE); // Default UOM is meter
         }
     }
+    
+    /**
+	 * Gets resolution of this dimension as a Double (used in ISO 19139).
+	 * @see {@link #getResolution}
+	 */
+    @ValueRange(minimum=0, isMinIncluded=false)
+    @XmlJavaTypeAdapter(GO_Measure19139.class)
+    @XmlElement(name = "resolution")
+	private Double getXmlResolution() {
+		return MetadataInfo.is2014() ? null : getResolution();
+	}
+
+	/**
+	 * Sets resolution of this dimension as a Double (used in ISO 19139).
+	 * @see {@link #setResolution}
+	 */
+    @SuppressWarnings("unused")
+	private void setXmlResolution(final Double newValue) {
+		setResolution(newValue);
+	}
+    
+    /**
+	 * Gets resolution of this dimension as a Measure object (used in ISO 19115-3).
+	 * @see {@link #getResolution}
+	 */
+    @ValueRange(minimum=0, isMinIncluded=false)
+    @XmlJavaTypeAdapter(GO_Measure.class)
+    @XmlElement(name = "resolution")
+	public Measure getResolutionMeasure() {
+		return MetadataInfo.is2003() ? null : resolutionMeasure;
+	}
+
+	/**
+	 * Sets resolution of this dimension as a Measure object (used in ISO 19115-3).
+	 * @see {@link #setResolution}
+	 */
+	public void setResolutionMeasure(final Measure newValue) {
+		checkWritePermission();
+		if (ensurePositive(DefaultDimension.class, "dimensionSize", true, newValue.value)) {
+			resolutionMeasure = newValue;
+		}
+	}
 
     /**
      * Returns the enhancement/ modifier of the dimension name.

@@ -24,15 +24,16 @@
  * <p>Every time JAXB tries to marshall or unmarshall an interface, the adapter
  * will be substituted to that interface.</p>
  *
- * @author  Guilhem Legal (Geomatys)
+ * @author  Guilhem Legal 	(Geomatys)
+ * @author  Cullen Rombach	(Image Matters)
  * @since   0.3
- * @version 0.3
+ * @version 0.8
  * @module
  *
  * @see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
  */
-@XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.GML, xmlns = {
-    @XmlNs(prefix = "gml", namespaceURI = Namespaces.GML)
+@XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.GEX, xmlns = {
+    @XmlNs(prefix = "gex", namespaceURI = Namespaces.GEX)
 })
 @XmlAccessorType(XmlAccessType.NONE)
 package org.apache.sis.internal.jaxb.geometry;

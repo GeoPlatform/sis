@@ -17,21 +17,23 @@
 package org.apache.sis.metadata.iso.identification;
 
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.opengis.util.ScopedName;
-import org.opengis.metadata.citation.Citation;
-import org.opengis.metadata.identification.DataIdentification;
-import org.opengis.metadata.identification.CoupledResource;
-import org.opengis.metadata.identification.OperationMetadata;
-import org.apache.sis.metadata.iso.ISOMetadata;
-import org.apache.sis.internal.jaxb.metadata.direct.GO_ScopedName;
-import org.apache.sis.xml.Namespaces;
 
-import static org.apache.sis.internal.jaxb.gco.PropertyType.LEGACY_XML;
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.jaxb.metadata.direct.GO_ScopedName;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.apache.sis.xml.Namespaces;
+import org.opengis.metadata.citation.Citation;
+import org.opengis.metadata.identification.CoupledResource;
+import org.opengis.metadata.identification.DataIdentification;
+import org.opengis.metadata.identification.OperationMetadata;
+import org.opengis.util.ScopedName;
 
 
 /**
@@ -46,19 +48,20 @@ import static org.apache.sis.internal.jaxb.gco.PropertyType.LEGACY_XML;
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
  *
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @version 0.5
- * @since   0.5
+ * @since   0.8
  * @module
  */
 @XmlType(name = "SV_CoupledResource_Type", namespace = Namespaces.SRV, propOrder = {
     "operationName",
     "identifier",
-    "scopedName" /*,
-    "resourceReferences",
-    "resources",
-    "operation" */
+    "scopedName",
+    "xmlResourceReferences",	// ISO 19115-3
+    "xmlResources",				// ISO 19115-3
+    "xmlOperation"				// ISO 19115-3
 })
 @XmlRootElement(name = "SV_CoupledResource", namespace = Namespaces.SRV)
 public class DefaultCoupledResource extends ISOMetadata implements CoupledResource {
@@ -184,7 +187,6 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
      * @return References to the resource on which the services operates.
      */
     @Override
-/// @XmlElement(name = "resourceReference", namespace = Namespaces.SRV)
     public Collection<Citation> getResourceReferences() {
         return resourceReferences = nonNullCollection(resourceReferences, Citation.class);
     }
@@ -197,6 +199,18 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
     public void setResourceReferences(final Collection<? extends Citation> newValues) {
         resourceReferences = writeCollection(newValues, resourceReferences, Citation.class);
     }
+    
+    /**
+	 * Gets the resource references for this resource (used in ISO 19115-3 format).
+	 * @see {@link #getResourceReferences}
+	 */
+	@XmlElement(name = "resourceReference", namespace = Namespaces.SRV)
+	private Collection<Citation> getXmlResourceReferences() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getResourceReferences();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getResourceReferences();
+	}
 
     /**
      * Returns the tightly coupled resources.
@@ -204,7 +218,6 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
      * @return tightly coupled resources.
      */
     @Override
-/// @XmlElement(name = "resource", namespace = Namespaces.SRV)
     public Collection<DataIdentification> getResources() {
         return resources = nonNullCollection(resources, DataIdentification.class);
     }
@@ -217,6 +230,18 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
     public void setResources(final Collection<? extends DataIdentification> newValues) {
         resources = writeCollection(newValues, resources, DataIdentification.class);
     }
+    
+    /**
+	 * Gets the resources for this resource (used in ISO 19115-3 format).
+	 * @see {@link #getResources}
+	 */
+	@XmlElement(name = "resource", namespace = Namespaces.SRV)
+	private Collection<DataIdentification> getXmlResources() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getResources();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(DataIdentification.class) : getResources();
+	}
 
     /**
      * Returns the service operation.
@@ -224,7 +249,6 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
      * @return The service operation, or {@code null} if none.
      */
     @Override
-/// @XmlElement(name = "operation", namespace = Namespaces.SRV)
     public OperationMetadata getOperation() {
         return operation;
     }
@@ -238,8 +262,24 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
         checkWritePermission();
         this.operation = newValue;
     }
-
-
+    
+    /**
+	 * Gets the operation for this resource (used in ISO 19115-3 format).
+	 * @see {@link #getOperation}
+	 */
+	@XmlElement(name = "operation", namespace = Namespaces.SRV)
+	private OperationMetadata getXmlOperation() {
+		return MetadataInfo.is2003() ? null : getOperation();
+	}
+	
+	/**
+	 * Sets the operation for this resource (used in ISO 19115-3 format).
+	 * @see {@link #setOperation}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlOperation(final OperationMetadata newValue) {
+		setOperation(newValue);
+	}
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -254,11 +294,11 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * For JAXB marhalling of ISO 19119 document only.
+     * For JAXB marshalling of ISO 19119 document only.
      */
     @XmlElement(name = "operationName", namespace = Namespaces.SRV)
     private String getOperationName() {
-        if (LEGACY_XML) {
+        if (MetadataInfo.is2003()) {
             final OperationMetadata operation = getOperation();
             if (operation != null) {
                 return operation.getOperationName();
@@ -272,7 +312,8 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
      * {@link OperationName} placeholder. That temporary instance will be replaced by the real
      * one when the enclosing {@link DefaultServiceIdentification} is unmarshalled.
      */
-    private void setOperationName(final String name) {
+    @SuppressWarnings("unused")
+	private void setOperationName(final String name) {
         if (operation == null) {
             operation = new OperationName(name);
         }
@@ -283,7 +324,7 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
      */
     @XmlElement(name = "identifier", namespace = Namespaces.SRV)
     private String getIdentifier() {
-        if (LEGACY_XML) {
+        if (MetadataInfo.is2003()) {
             final ScopedName name = getScopedName();
             if (name != null) {
                 return name.tip().toString();

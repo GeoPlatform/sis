@@ -19,11 +19,13 @@ package org.apache.sis.metadata.iso.identification;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.metadata.iso.ISOMetadata;
 import org.opengis.metadata.citation.Citation;
 import org.opengis.metadata.identification.AssociatedResource;
 import org.opengis.metadata.identification.AssociationType;
 import org.opengis.metadata.identification.InitiativeType;
-import org.apache.sis.metadata.iso.ISOMetadata;
 
 
 /**
@@ -42,18 +44,19 @@ import org.apache.sis.metadata.iso.ISOMetadata;
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
  *
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.5
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlType(name = "MD_AssociatedResource_Type" /*, propOrder = {
-    "name",
+@XmlType(name = "MD_AssociatedResource_Type" , propOrder = {
+    "xmlName",
     "associationType",
     "initiativeType",
     "metadataReference"
-}*/)
+})
 @XmlRootElement(name = "MD_AssociatedResource")
 public class DefaultAssociatedResource extends ISOMetadata implements AssociatedResource {
     /**
@@ -147,7 +150,6 @@ public class DefaultAssociatedResource extends ISOMetadata implements Associated
      * @return Citation information about the associated resource, or {@code null} if none.
      */
     @Override
-/// @XmlElement(name = "name")
     public Citation getName() {
         return name;
     }
@@ -161,6 +163,24 @@ public class DefaultAssociatedResource extends ISOMetadata implements Associated
         checkWritePermission();
         name = newValue;
     }
+    
+    /**
+	 * Gets the name for this resource for JAXB (used in ISO 19115-3 format).
+	 * @see {@link #getName}
+	 */
+	@XmlElement(name = "name")
+	private Citation getXmlName() {
+		return MetadataInfo.is2003() ? null : getName();
+	}
+	
+	/**
+	 * Sets the name for this resource for JAXB (used in ISO 19115-3 format).
+	 * @see {@link #setProcessingLevel}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlName(final Citation newValue) {
+		setName(newValue);
+	}
 
     /**
      * Returns the type of relation between the resources.
@@ -168,7 +188,7 @@ public class DefaultAssociatedResource extends ISOMetadata implements Associated
      * @return Type of relation between the resources.
      */
     @Override
-/// @XmlElement(name = "associationType", required = true)
+	@XmlElement(name = "associationType", required = true)
     public AssociationType getAssociationType() {
         return associationType;
     }
@@ -189,7 +209,7 @@ public class DefaultAssociatedResource extends ISOMetadata implements Associated
      * @return The type of initiative under which the associated resource was produced, or {@code null} if none.
      */
     @Override
-/// @XmlElement(name = "initiativeType")
+	@XmlElement(name = "initiativeType")
     public InitiativeType getInitiativeType() {
         return initiativeType;
     }
@@ -210,7 +230,7 @@ public class DefaultAssociatedResource extends ISOMetadata implements Associated
      * @return Reference to the metadata of the associated resource, or {@code null} if none.
      */
     @Override
-/// @XmlElement(name = "metadataReference")
+	@XmlElement(name = "metadataReference")
     public Citation getMetadataReference() {
         return metadataReference;
     }

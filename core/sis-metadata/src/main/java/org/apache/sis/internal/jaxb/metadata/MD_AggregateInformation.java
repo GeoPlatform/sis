@@ -17,9 +17,10 @@
 package org.apache.sis.internal.jaxb.metadata;
 
 import javax.xml.bind.annotation.XmlElementRef;
-import org.opengis.metadata.identification.AggregateInformation;
-import org.apache.sis.metadata.iso.identification.DefaultAggregateInformation;
+
 import org.apache.sis.internal.jaxb.gco.PropertyType;
+import org.apache.sis.metadata.iso.identification.DefaultAggregateInformation;
+import org.opengis.metadata.identification.AggregateInformation;
 
 
 /**

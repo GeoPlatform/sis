@@ -16,22 +16,28 @@
  */
 package org.apache.sis.metadata.iso.citation;
 
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import org.opengis.util.InternationalString;
-import org.opengis.metadata.citation.Address;
-import org.opengis.metadata.citation.Contact;
-import org.opengis.metadata.citation.Telephone;
-import org.opengis.metadata.citation.OnlineResource;
-import org.opengis.metadata.citation.TelephoneType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.apache.sis.internal.jaxb.Context;
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.jaxb.metadata.CI_OnlineResource;
+import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.apache.sis.internal.util.CheckedArrayList;
 import org.apache.sis.metadata.iso.ISOMetadata;
 import org.apache.sis.util.resources.Messages;
-import org.apache.sis.internal.jaxb.Context;
-import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.opengis.metadata.citation.Address;
+import org.opengis.metadata.citation.Contact;
+import org.opengis.metadata.citation.OnlineResource;
+import org.opengis.metadata.citation.Telephone;
+import org.opengis.metadata.citation.TelephoneType;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -47,19 +53,24 @@ import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "CI_Contact_Type", propOrder = {
-    "phone",
-    "address",
-    "onlineResource",
+    "xmlPhone",
+    "xmlPhones",
+    "xmlAddresses",
+    "xmlAddress",
+    "xmlOnlineResource",
+    "xmlOnlineResources",
     "hoursOfService",
-    "contactInstructions"
+    "contactInstructions",
+    "xmlContactType"
 })
 @XmlRootElement(name = "CI_Contact")
 public class DefaultContact extends ISOMetadata implements Contact {
@@ -203,6 +214,18 @@ public class DefaultContact extends ISOMetadata implements Contact {
             }
         }
     }
+    
+    /**
+	 * Gets the phones for this contact (used in ISO 19115-3 format).
+	 * @see {@link #getPhones}
+	 */
+	@XmlElement(name = "phone")
+	private Collection<Telephone> getXmlPhones() {
+		// This looks useless, but we need to set the owner of the phones here
+		setPhones(getPhones());
+		// Used when marshalling ISO 19115-3.
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Telephone.class) : getPhones();
+	}
 
     /**
      * Returns telephone numbers at which the organization or individual may be contacted.
@@ -215,7 +238,6 @@ public class DefaultContact extends ISOMetadata implements Contact {
      */
     @Override
     @Deprecated
-    @XmlElement(name = "phone")
     public Telephone getPhone() {
         Telephone phone = null;
         final Collection<Telephone> phones = getPhones();
@@ -265,6 +287,31 @@ public class DefaultContact extends ISOMetadata implements Contact {
         }
         setPhones(newValues);
     }
+    
+    /**
+	 * Gets the phone associated with this contact (used in ISO 19139 format).
+	 * @see {@link #getPhone}
+	 */
+	@XmlElement(name = "phone")
+	private Telephone getXmlPhone() {
+		return MetadataInfo.is2014() ? null : getPhone();
+	}
+
+	/**
+	 * Sets the phone associated with this contact (used in ISO 19139 format).
+	 * @see {@link #setPhone}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlPhone(final Telephone newValue) {
+		// ISO 19115-3
+		if(MetadataInfo.is2014()) {
+			getPhones().add(newValue);
+		}
+		// ISO 19139
+		else {
+			setPhone(newValue);
+		}
+	}
 
     /**
      * Returns the physical and email addresses at which the organization or individual may be contacted.
@@ -288,6 +335,19 @@ public class DefaultContact extends ISOMetadata implements Contact {
     public void setAddresses(final Collection<? extends Address> newValues) {
         addresses = writeCollection(newValues, addresses, Address.class);
     }
+    
+    /**
+	 * Gets the addresses for this contact (used in ISO 19115-3 format).
+	 * @see {@link #getAddresses}
+	 */
+	@XmlElement(name = "address")
+	private Collection<Address> getXmlAddresses() {
+		// Need to return the addresses Collection if unmarshalling ISO 19139.
+		if(MetadataInfo.isUnmarshalling()) {
+			return getAddresses();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Address.class) : getAddresses();
+	}
 
     /**
      * Returns the physical and email address at which the organization or individual may be contacted.
@@ -299,7 +359,6 @@ public class DefaultContact extends ISOMetadata implements Contact {
      */
     @Override
     @Deprecated
-    @XmlElement(name = "address")
     public Address getAddress() {
         return LegacyPropertyAdapter.getSingleton(getAddresses(), Address.class, null, DefaultContact.class, "getAddress");
     }
@@ -316,6 +375,25 @@ public class DefaultContact extends ISOMetadata implements Contact {
     public void setAddress(final Address newValue) {
         setAddresses(LegacyPropertyAdapter.asCollection(newValue));
     }
+    
+    /**
+	 * Gets the address associated with this contact (used in ISO 19139 format).
+	 * @see {@link #getAddress}
+	 */
+	@XmlElement(name = "address")
+	private DefaultAddress getXmlAddress() {
+		return MetadataInfo.is2014() ? null : DefaultAddress.castOrCopy(getAddress());
+	}
+
+	/**
+	 * Sets the address associated with this contact (used in ISO 19139 format).
+	 * @see {@link #setAddress}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlAddress(final Address newValue) {
+		// Not used by JAXB.
+		setAddress(newValue);
+	}
 
     /**
      * Returns on-line information that can be used to contact the individual or organization.
@@ -339,6 +417,17 @@ public class DefaultContact extends ISOMetadata implements Contact {
     public void setOnlineResources(final Collection<? extends OnlineResource> newValues) {
         onlineResources = writeCollection(newValues, onlineResources, OnlineResource.class);
     }
+    
+    /**
+	 * Gets the online resources for this contact (used in ISO 19115-3 format).
+	 * @see {@link #getOnlineResources}
+	 */
+	@XmlElement(name = "onlineResource")
+	@XmlJavaTypeAdapter(CI_OnlineResource.class)
+	private Collection<OnlineResource> getXmlOnlineResources() {
+		// Only used for marshalling ISO 19115-3.
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(OnlineResource.class) : getOnlineResources();
+	}
 
     /**
      * Returns on-line information that can be used to contact the individual or organization.
@@ -350,7 +439,6 @@ public class DefaultContact extends ISOMetadata implements Contact {
      */
     @Override
     @Deprecated
-    @XmlElement(name = "onlineResource")
     public OnlineResource getOnlineResource() {
         return LegacyPropertyAdapter.getSingleton(getOnlineResources(), OnlineResource.class, null, DefaultContact.class, "getOnlineResource");
     }
@@ -367,6 +455,25 @@ public class DefaultContact extends ISOMetadata implements Contact {
     public void setOnlineResource(final OnlineResource newValue) {
         setOnlineResources(LegacyPropertyAdapter.asCollection(newValue));
     }
+    
+    /**
+	 * Gets the online resource associated with this contact (used in ISO 19139 format).
+	 * @see {@link #getOnlineResource}
+	 */
+	@XmlElement(name = "onlineResource")
+	private OnlineResource getXmlOnlineResource() {
+		return MetadataInfo.is2014() ? null : getOnlineResource();
+	}
+
+	/**
+	 * Sets the online resource associated with this contact (used in both formats).
+	 * @see {@link #setOnlineResource}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlOnlineResource(final OnlineResource newValue) {
+		// Use this method so that unmarshalling both standards works properly.
+		setOnlineResource(newValue);
+	}
 
     /**
      * Returns the time period (including time zone) when individuals can contact the organization or individual.
@@ -418,7 +525,6 @@ public class DefaultContact extends ISOMetadata implements Contact {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "contactType")
     public InternationalString getContactType() {
         return contactType;
     }
@@ -434,4 +540,22 @@ public class DefaultContact extends ISOMetadata implements Contact {
         checkWritePermission();
         contactType = newValue;
     }
+    
+    /**
+	 * Gets the contact type of this contact (used in ISO 19139 format).
+	 * @see {@link #getContactType}
+	 */
+	@XmlElement(name = "contactType")
+	private InternationalString getXmlContactType() {
+		return MetadataInfo.is2003() ? null : getContactType();
+	}
+
+	/**
+	 * Sets the contact type of this contact (used in ISO 19139 format).
+	 * @see {@link #setContactType}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlContactType(final InternationalString newValue) {
+		setContactType(newValue);
+	}
 }

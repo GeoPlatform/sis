@@ -17,10 +17,20 @@
 package org.apache.sis.metadata.iso.identification;
 
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlSeeAlso;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.jaxb.gts.TM_Duration;
+import org.apache.sis.internal.jaxb.metadata.MD_AggregateInformation;
+import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.apache.sis.util.iso.Types;
 import org.opengis.metadata.Identifier;
 import org.opengis.metadata.citation.Citation;
 import org.opengis.metadata.citation.Responsibility;
@@ -29,22 +39,19 @@ import org.opengis.metadata.distribution.Format;
 import org.opengis.metadata.extent.Extent;
 import org.opengis.metadata.identification.AggregateInformation;
 import org.opengis.metadata.identification.AssociatedResource;
-import org.opengis.metadata.identification.Identification;
-import org.opengis.metadata.identification.DataIdentification;
 import org.opengis.metadata.identification.BrowseGraphic;
+import org.opengis.metadata.identification.DataIdentification;
+import org.opengis.metadata.identification.Identification;
 import org.opengis.metadata.identification.Keywords;
 import org.opengis.metadata.identification.Progress;
 import org.opengis.metadata.identification.Resolution;
+import org.opengis.metadata.identification.ServiceIdentification;
 import org.opengis.metadata.identification.TopicCategory;
 import org.opengis.metadata.identification.Usage;
-import org.opengis.metadata.identification.ServiceIdentification;
 import org.opengis.metadata.maintenance.MaintenanceInformation;
 import org.opengis.metadata.spatial.SpatialRepresentationType;
 import org.opengis.temporal.Duration;
 import org.opengis.util.InternationalString;
-import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
-import org.apache.sis.metadata.iso.ISOMetadata;
-import org.apache.sis.util.iso.Types;
 
 
 /**
@@ -60,12 +67,14 @@ import org.apache.sis.util.iso.Types;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
+@SuppressWarnings("deprecation")
 @XmlType(name = "AbstractMD_Identification_Type", propOrder = {
     "citation",
     "abstract",
@@ -73,15 +82,23 @@ import org.apache.sis.util.iso.Types;
     "credits",
     "status",
     "pointOfContacts",
+    "xmlSpatialRepresentationTypes",		// Here in ISO 19115-3
+    "xmlSpatialResolutions",				// Here in ISO 19115-3. Shall be kept next to 'spatialRepresentationTypes'
+    "xmlTopicCategories",					// Here in ISO 19115-3. (see subclasses for ISO 19139 placement)
+    "xmlExtents",							// Here in ISO 19115-3 (see subclasses for ISO 19139 placement)
     "resourceMaintenances",
     "graphicOverviews",
     "resourceFormats",
     "descriptiveKeywords",
     "resourceSpecificUsages",
     "resourceConstraints",
-    "aggregationInfo",
-    "spatialRepresentationTypes", // After 'pointOfContact' according ISO 19115:2014, but here for ISO 19115:2003 compatibility.
-    "spatialResolutions"          // Shall be kept next to 'spatialRepresentationTypes'
+    "xmlAggregationInfo",					// ISO 19139 (replaced by "associatedResources")
+    "xmlSpatialRepresentationTypesLegacy", 	// Here in ISO 19139
+    "xmlSpatialResolutionsLegacy",          // Here in ISO 19139. Shall be kept next to 'spatialRepresentationTypes'
+	"xmlTemporalResolutions",				// ISO 19115-3 only
+    "xmlAdditionalDocumentations",			// ISO 19115-3 only
+    "xmlProcessingLevel",					// ISO 19115-3 only
+    "xmlAssociatedResources"				// ISO 19115-3 (replaces "aggregationInfo")
 })
 @XmlRootElement(name = "MD_Identification")
 @XmlSeeAlso({
@@ -148,7 +165,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     /**
      * Spatial and temporal extent of the resource.
      */
-    private Collection<Extent> extents;
+    protected Collection<Extent> extents;
 
     /**
      * Other documentation associated with the resource.
@@ -419,7 +436,6 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
      * @since 0.5
      */
     @Override
-    @XmlElement(name = "spatialRepresentationType")
     public Collection<SpatialRepresentationType> getSpatialRepresentationTypes() {
         return spatialRepresentationTypes = nonNullCollection(spatialRepresentationTypes, SpatialRepresentationType.class);
     }
@@ -434,6 +450,30 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     public void setSpatialRepresentationTypes(final Collection<? extends SpatialRepresentationType> newValues) {
         spatialRepresentationTypes = writeCollection(newValues, spatialRepresentationTypes, SpatialRepresentationType.class);
     }
+    
+    /**
+   	 * Gets the spatial representation types for this identification (used in ISO 19115-3 format).
+   	 * @see {@link #getSpatialRepresentationTypes}
+   	 */
+   	@XmlElement(name = "spatialRepresentationType")
+   	private Collection<SpatialRepresentationType> getXmlSpatialRepresentationTypes() {
+   		if(MetadataInfo.isUnmarshalling()) {
+   			return getSpatialRepresentationTypes();
+   		}
+   		return MetadataInfo.is2003() ? new CheckedArrayList<>(SpatialRepresentationType.class) : getSpatialRepresentationTypes();
+   	}
+   	
+   	/**
+   	 * Gets the spatial representation types for this identification (used in ISO 19139 format).
+   	 * @see {@link #getSpatialRepresentationTypes}
+   	 */
+   	@XmlElement(name = "spatialRepresentationType")
+   	private Collection<SpatialRepresentationType> getXmlSpatialRepresentationTypesLegacy() {
+   		if(MetadataInfo.isUnmarshalling()) {
+   			return getSpatialRepresentationTypes();
+   		}
+   		return MetadataInfo.is2014() ? new CheckedArrayList<>(SpatialRepresentationType.class) : getSpatialRepresentationTypes();
+   	}
 
     /**
      * Returns the factor which provides a general understanding of the density of spatial data in the resource(s).
@@ -444,7 +484,6 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
      * @since 0.5
      */
     @Override
-    @XmlElement(name = "spatialResolution")
     public Collection<Resolution> getSpatialResolutions() {
         return spatialResolutions = nonNullCollection(spatialResolutions, Resolution.class);
     }
@@ -459,6 +498,30 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     public void setSpatialResolutions(final Collection<? extends Resolution> newValues) {
         spatialResolutions = writeCollection(newValues, spatialResolutions, Resolution.class);
     }
+    
+    /**
+	 * Gets the spatial resolutions for this identification (used in ISO 19115-3 format).
+	 * @see {@link #getSpatialResolutions}
+	 */
+	@XmlElement(name = "spatialResolution")
+	private Collection<Resolution> getXmlSpatialResolutions() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getSpatialResolutions();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Resolution.class) : getSpatialResolutions();
+	}
+	
+	/**
+	 * Gets the spatial resolutions for this identification (used in ISO 19139 format).
+	 * @see {@link #getSpatialResolutions}
+	 */
+	@XmlElement(name = "spatialResolution")
+	private Collection<Resolution> getXmlSpatialResolutionsLegacy() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getSpatialResolutions();
+		}
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(Resolution.class) : getSpatialResolutions();
+	}
 
     /**
      * Returns the smallest resolvable temporal period in a resource.
@@ -468,7 +531,6 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "temporalResolution")
     public Collection<Duration> getTemporalResolutions() {
         return temporalResolutions = nonNullCollection(temporalResolutions, Duration.class);
     }
@@ -483,6 +545,21 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     public void setTemporalResolutions(final Collection<? extends Duration> newValues) {
         temporalResolutions = writeCollection(newValues, temporalResolutions, Duration.class);
     }
+    
+    /**
+	 * Gets the temporal resolution for this identification (used in ISO 19115-3 format).
+	 * @see {@link #getTemporalResolutions}
+	 */
+    // TODO: Currently, the XmlJavaTypeAdapter used here just internally converts Duration objects
+    // into PeriodDuration objects. Need to add support for IntervalLength in the future.
+	@XmlElement(name = "temporalResolution")
+	@XmlJavaTypeAdapter(TM_Duration.class)
+	private Collection<Duration> getXmlTemporalResolutions() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getTemporalResolutions();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Duration.class) : getTemporalResolutions();
+	}
 
     /**
      * Returns the main theme(s) of the resource.
@@ -492,7 +569,6 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "topicCategory")
     public Collection<TopicCategory> getTopicCategories()  {
         return topicCategories = nonNullCollection(topicCategories, TopicCategory.class);
     }
@@ -507,6 +583,18 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     public void setTopicCategories(final Collection<? extends TopicCategory> newValues) {
         topicCategories = writeCollection(newValues, topicCategories, TopicCategory.class);
     }
+    
+    /**
+	 * Gets the topic categories for this identification (used in ISO 19115-3 format).
+	 * @see {@link #getTopicCategories}
+	 */
+	@XmlElement(name = "topicCategory")
+	private Collection<TopicCategory> getXmlTopicCategories() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getTopicCategories();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(TopicCategory.class) : getTopicCategories();
+	}
 
     /**
      * Returns the spatial and temporal extent of the resource.
@@ -516,7 +604,6 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "extent")
     public Collection<Extent> getExtents() {
         return extents = nonNullCollection(extents, Extent.class);
     }
@@ -531,6 +618,18 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     public void setExtents(final Collection<? extends Extent> newValues) {
         extents = writeCollection(newValues, extents, Extent.class);
     }
+    
+    /**
+   	 * Gets the character sets for this identification (used in ISO 19115-3 format).
+   	 * @see {@link #getExtents}
+   	 */
+   	@XmlElement(name = "extent")
+   	private Collection<Extent> getXmlExtents() {
+   		if(MetadataInfo.isUnmarshalling()) {
+   			return getExtents();
+   		}
+   		return MetadataInfo.is2003() ? new CheckedArrayList<>(Extent.class) : getExtents();
+   	}
 
     /**
      * Returns other documentation associated with the resource.
@@ -540,7 +639,6 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "additionalDocumentation")
     public Collection<Citation> getAdditionalDocumentations() {
         return additionalDocumentations = nonNullCollection(additionalDocumentations, Citation.class);
     }
@@ -555,6 +653,18 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     public void setAdditionalDocumentations(final Collection<? extends Citation> newValues) {
         additionalDocumentations = writeCollection(newValues, additionalDocumentations, Citation.class);
     }
+    
+    /**
+	 * Gets the additional documentation for this identification (used in ISO 19115-3 format).
+	 * @see {@link #getAdditionalDocumentations}
+	 */
+	@XmlElement(name = "additionalDocumentation")
+	private Collection<Citation> getXmlAdditionalDocumentations() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getAdditionalDocumentations();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getAdditionalDocumentations();
+	}
 
     /**
      * Returns code(s) that identifies the level of processing in the producers coding system of a resource.
@@ -564,7 +674,6 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "processingLevel")
     public Identifier getProcessingLevel() {
         return processingLevel;
     }
@@ -580,6 +689,24 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
         checkWritePermission();
         processingLevel = newValue;
     }
+    
+    /**
+	 * Gets the processing level for this identification (used in ISO 19115-3 format).
+	 * @see {@link #getProcessingLevel}
+	 */
+	@XmlElement(name = "processingLevel")
+	private Identifier getXmlProcessingLevel() {
+		return MetadataInfo.is2003() ? null : getProcessingLevel();
+	}
+	
+	/**
+	 * Sets the processing level for this identification (used in ISO 19115-3 format).
+	 * @see {@link #setProcessingLevel}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlProcessingLevel(final Identifier newValue) {
+		setProcessingLevel(newValue);
+	}
 
     /**
      * Provides information about the frequency of resource updates, and the scope of those updates.
@@ -711,7 +838,6 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "associatedResource")
     public Collection<AssociatedResource> getAssociatedResources() {
         return associatedResources = nonNullCollection(associatedResources, AssociatedResource.class);
     }
@@ -726,6 +852,18 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     public void setAssociatedResources(final Collection<? extends AssociatedResource> newValues) {
         associatedResources = writeCollection(newValues, associatedResources, AssociatedResource.class);
     }
+    
+    /**
+	 * Gets the associated resources for this identification (used in ISO 19115-3 format).
+	 * @see {@link #getAssociatedResources}
+	 */
+	@XmlElement(name = "associatedResource")
+	private Collection<AssociatedResource> getXmlAssociatedResources() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getAssociatedResources();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(AssociatedResource.class) : getAssociatedResources();
+	}
 
     /**
      * Provides aggregate dataset information.
@@ -736,7 +874,6 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
      */
     @Override
     @Deprecated
-    @XmlElement(name = "aggregationInfo")
     public Collection<AggregateInformation> getAggregationInfo() {
         return new LegacyPropertyAdapter<AggregateInformation,AssociatedResource>(getAssociatedResources()) {
             @Override protected AssociatedResource wrap(final AggregateInformation value) {
@@ -764,4 +901,26 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     public void setAggregationInfo(final Collection<? extends AggregateInformation> newValues) {
         setAssociatedResources(newValues);
     }
+    
+    /**
+	 * Gets the aggregation info for this identification (used in ISO 19139 format).
+	 * @see {@link #getAggregationInfo}
+	 */
+	@XmlElement(name = "aggregationInfo")
+	@XmlJavaTypeAdapter(MD_AggregateInformation.class)
+	private Collection<AggregateInformation> getXmlAggregationInfo() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getAggregationInfo();
+		}
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(AggregateInformation.class) : getAggregationInfo();
+	}
+	
+	/**
+	 * Sets the aggregation info for this identification (used in ISO 19139 format).
+	 * @see {@link #setAggregationInfo}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlAggregationInfo(final Collection<? extends AggregateInformation> newValues) {
+		setAggregationInfo(newValues);
+	}
 }

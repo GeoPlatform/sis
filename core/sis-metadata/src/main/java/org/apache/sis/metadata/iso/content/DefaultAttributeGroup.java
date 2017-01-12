@@ -17,13 +17,16 @@
 package org.apache.sis.metadata.iso.content;
 
 import java.util.Collection;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.apache.sis.xml.Namespaces;
 import org.opengis.metadata.content.AttributeGroup;
 import org.opengis.metadata.content.CoverageContentType;
 import org.opengis.metadata.content.RangeDimension;
-import org.apache.sis.metadata.iso.ISOMetadata;
 
 
 /**
@@ -39,17 +42,18 @@ import org.apache.sis.metadata.iso.ISOMetadata;
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
  *
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.5
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlType(name = "MD_AttributeGroup_Type", propOrder = {
-    "contentType",
-    "attribute"
+@XmlType(name = "MD_AttributeGroup_Type", namespace = Namespaces.MRC, propOrder = {
+    "contentTypes",
+    "attributes"
 })
-@XmlRootElement(name = "MD_AttributeGroup")
+@XmlRootElement(name = "MD_AttributeGroup", namespace = Namespaces.MRC)
 public class DefaultAttributeGroup extends ISOMetadata implements AttributeGroup {
     /**
      * Serial number for compatibility with different versions.

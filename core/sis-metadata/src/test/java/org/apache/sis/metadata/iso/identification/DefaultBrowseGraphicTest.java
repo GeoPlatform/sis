@@ -56,7 +56,7 @@ public final strictfp class DefaultBrowseGraphicTest extends TestCase {
         final String xml = XML.marshal(browse);
         assertXmlEquals(
                 "<gmd:MD_BrowseGraphic xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                                     " xmlns:gmx=\"" + Namespaces.GMX + "\">\n" +
+                                     " xmlns:gmx=\"" + Namespaces.GCX + "\">\n" +
                 "  <gmd:fileType>\n" +
                 "    <gmx:MimeFileType type=\"image/tiff\">image/tiff</gmx:MimeFileType>\n" +
                 "  </gmd:fileType>\n" +
@@ -79,7 +79,7 @@ public final strictfp class DefaultBrowseGraphicTest extends TestCase {
         final String xml = XML.marshal(browse);
         assertXmlEquals(
                 "<gmd:MD_BrowseGraphic xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                                     " xmlns:gmx=\"" + Namespaces.GMX + "\">\n" +
+                                     " xmlns:gmx=\"" + Namespaces.GCX + "\">\n" +
                 "  <gmd:fileName>\n" +
                 "    <gmx:FileName src=\"file:/catalog/image.png\">image.png</gmx:FileName>\n" +
                 "  </gmd:fileName>\n" +
@@ -100,7 +100,7 @@ public final strictfp class DefaultBrowseGraphicTest extends TestCase {
     public void testFileNameWithoutSrc() throws JAXBException {
         final DefaultBrowseGraphic browse = (DefaultBrowseGraphic) XML.unmarshal(
                 "<gmd:MD_BrowseGraphic xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                                     " xmlns:gmx=\"" + Namespaces.GMX + "\">\n" +
+                                     " xmlns:gmx=\"" + Namespaces.GCX + "\">\n" +
                 "  <gmd:fileName>\n" +
                 "    <gmx:FileName>file:/catalog/image.png</gmx:FileName>\n" +
                 "  </gmd:fileName>\n" +
@@ -123,7 +123,7 @@ public final strictfp class DefaultBrowseGraphicTest extends TestCase {
         final String xml = XML.marshal(browse);
         assertXmlEquals(
                 "<gmd:MD_BrowseGraphic xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                                     " xmlns:gmx=\"" + Namespaces.GMX + "\">\n" +
+                                     " xmlns:gmx=\"" + Namespaces.GCX + "\">\n" +
                 "  <gmd:fileName>\n" +
                 "    <gmx:FileName src=\"file:/catalog/image.png\">image.png</gmx:FileName>\n" +
                 "  </gmd:fileName>\n" +
@@ -181,7 +181,7 @@ public final strictfp class DefaultBrowseGraphicTest extends TestCase {
         final Warning listener = new Warning();
         final DefaultBrowseGraphic browse = listener.unmarshal(
                 "<gmd:MD_BrowseGraphic xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                                     " xmlns:gmx=\"" + Namespaces.GMX + '"' +
+                                     " xmlns:gmx=\"" + Namespaces.GCX + '"' +
                                      " xmlns:gco=\"" + Namespaces.GCO + "\">\n" +
                 "  <gmd:fileName>\n" +
                 "    <gmx:FileName src=\"file:/catalog/image.png\">image.png</gmx:FileName>\n" +
@@ -219,7 +219,7 @@ public final strictfp class DefaultBrowseGraphicTest extends TestCase {
         final Warning listener = new Warning();
         final DefaultBrowseGraphic browse = listener.unmarshal(
                 "<gmd:MD_BrowseGraphic xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                                     " xmlns:gmx=\"" + Namespaces.GMX + '"' +
+                                     " xmlns:gmx=\"" + Namespaces.GCX + '"' +
                                      " xmlns:gco=\"" + Namespaces.GCO + "\">\n" +
                 "  <gmd:fileName>\n" +
                 "    " + first + "\n" +

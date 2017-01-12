@@ -46,8 +46,9 @@ import static org.apache.sis.util.collection.Containers.hashMapCapacity;
  * }
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.4
+ * @version 0.8
  * @module
  */
 public final class Locales extends Static {
@@ -266,6 +267,7 @@ filter: for (final Locale locale : locales) {
         ArgumentChecks.ensurePositive("fromIndex", fromIndex);
         int p1 = code.indexOf('_', fromIndex);
         int i  = code.indexOf('-', fromIndex);
+        int semicolon = code.indexOf(";", fromIndex);
         if (i >= 0 && (p1 < 0 || i < p1)) {
             /*
              * IETF BCP 47 language tag string. This syntax uses the '-' separator instead of '_'.
@@ -273,6 +275,21 @@ filter: for (final Locale locale : locales) {
              * variant. Consequently we require the '-' character to appear before the first '_'.
              */
             return unique(new Locale.Builder().setLanguageTag(code).build());
+        }
+        /*
+         * Newer syntax (e.g. "eng; USA"). Split in (language, country, variant) components,
+         * then convert the 3-letters codes to the 2-letters ones.
+         */
+        else if(semicolon >= 0) {
+        	String language, country = "", variant = "";
+        	if (semicolon < 0) {
+                semicolon = code.length();
+            }
+        	language = code.substring(0, semicolon);
+        	country = (String) trimWhitespaces(code, semicolon+1, code.length());
+        	language = toISO2(language, LANGUAGE);
+            country  = toISO2(country,  COUNTRY);
+            return unique(new Locale.Builder().setLanguage(language).setRegion(country).setVariant(variant).build());
         }
         /*
          * Old syntax (e.g. "en_US"). Split in (language, country, variant) components,
