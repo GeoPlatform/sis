@@ -33,6 +33,7 @@ import org.opengis.metadata.citation.PresentationForm;
 import org.apache.sis.internal.util.CollectionsExt;
 import org.apache.sis.xml.IdentifierMap;
 import org.apache.sis.xml.IdentifierSpace;
+import org.apache.sis.xml.Namespaces;
 import org.apache.sis.metadata.iso.extent.Extents;
 import org.apache.sis.metadata.iso.DefaultIdentifier;
 import org.apache.sis.util.iso.SimpleInternationalString;
@@ -192,7 +193,7 @@ public final strictfp class DefaultCitationTest extends XMLTestCase {
                 new DefaultResponsibility(Role.FUNDER,     null, new DefaultIndividual("Robin Hood",  null, contact))
         ));
         c.getDates().add(new DefaultCitationDate(TestUtilities.date("2015-10-17 00:00:00"), DateType.ADOPTED));
-        assertMarshalEqualsFile(XML_FILE, c, "xlmns:*", "xsi:schemaLocation");
+        assertMarshalEqualsFile(XML_FILE, c, Namespaces.ISO_19139, "xlmns:*", "xsi:schemaLocation");
     }
 
     /**
@@ -205,7 +206,7 @@ public final strictfp class DefaultCitationTest extends XMLTestCase {
      */
     @Test
     public void testUnmarshalling() throws JAXBException {
-        final DefaultCitation c = unmarshalFile(DefaultCitation.class, XML_FILE);
+        final DefaultCitation c = unmarshalFile(DefaultCitation.class, XML_FILE, Namespaces.ISO_19139);
         assertTitleEquals("title", "Fight against poverty", c);
 
         final CitationDate date = getSingleton(c.getDates());

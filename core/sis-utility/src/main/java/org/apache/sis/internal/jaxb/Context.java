@@ -16,32 +16,34 @@
  */
 package org.apache.sis.internal.jaxb;
 
-import java.util.Map;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
-import java.util.Locale;
-import java.util.TimeZone;
 import java.util.LinkedList;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.logging.LogRecord;
-import org.apache.sis.util.Version;
+import java.util.logging.Logger;
+
+import org.apache.sis.internal.jaxb.MetadataInfo.Process;
+import org.apache.sis.internal.jaxb.MetadataInfo.Standard;
+import org.apache.sis.internal.jaxb.gco.PropertyType;
+import org.apache.sis.internal.system.Loggers;
+import org.apache.sis.internal.system.Semaphores;
 import org.apache.sis.util.Exceptions;
+import org.apache.sis.util.Version;
 import org.apache.sis.util.logging.Logging;
 import org.apache.sis.util.logging.WarningListener;
 import org.apache.sis.util.resources.Errors;
-import org.apache.sis.util.resources.Messages;
 import org.apache.sis.util.resources.IndexedResourceBundle;
-import org.apache.sis.internal.jaxb.MetadataInfo.Standard;
-import org.apache.sis.internal.jaxb.MetadataInfo.Process;
-import org.apache.sis.internal.jaxb.gco.PropertyType;
-import org.apache.sis.internal.system.Semaphores;
-import org.apache.sis.internal.system.Loggers;
+import org.apache.sis.util.resources.Messages;
 import org.apache.sis.xml.IdentifierSpace;
 import org.apache.sis.xml.MarshalContext;
-import org.apache.sis.xml.ValueConverter;
+import org.apache.sis.xml.Namespaces;
 import org.apache.sis.xml.ReferenceResolver;
+import org.apache.sis.xml.ValueConverter;
 
 
 /**
@@ -247,7 +249,7 @@ public final class Context extends MarshalContext {
         
         // Set metadata standard for use with ISO metadata
         if(versionMetadata != null) {
-        	if(versionMetadata.equals(LegacyNamespaces.ISO_19139)) {
+        	if(versionMetadata.equals(Namespaces.ISO_19139)) {
         		MetadataInfo.setStandard(Standard.ISO_2003);
         	}
         	else {

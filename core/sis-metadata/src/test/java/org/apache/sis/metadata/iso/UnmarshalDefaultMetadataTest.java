@@ -86,12 +86,12 @@ public class UnmarshalDefaultMetadataTest extends XMLTestCase implements Warning
 	public void testRoundTripOld() throws JAXBException, URISyntaxException {
 		// Read the ISO 19139 metadata.
 		System.out.println("\n__UNMARSHALLING 19139__");
-		unmarshaller.setProperty(XML.METADATA_VERSION, LegacyNamespaces.ISO_19139);
+		unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
 		Metadata md = (Metadata) unmarshaller.unmarshal(oldMetadata);
 
 		// Write it back to XML to ensure they are the same.
 		System.out.println("\n__MARSHALLING 19139__");
-		marshaller.setProperty(XML.METADATA_VERSION, LegacyNamespaces.ISO_19139);
+		marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
 		marshaller.marshal(md, oldOutput);
 	}
 	
@@ -99,12 +99,12 @@ public class UnmarshalDefaultMetadataTest extends XMLTestCase implements Warning
 	public void testRoundTripNoaa() throws JAXBException, URISyntaxException {
 		// Read the ISO 19139 metadata.
 		System.out.println("\n__UNMARSHALLING NOAA 19139__");
-		unmarshaller.setProperty(XML.METADATA_VERSION, LegacyNamespaces.ISO_19139);
+		unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
 		Metadata md = (Metadata) unmarshaller.unmarshal(noaaMetadata);
 
 		// Write it back to XML to ensure they are the same.
 		System.out.println("\n__MARSHALLING NOAA 19139__");
-		marshaller.setProperty(XML.METADATA_VERSION, LegacyNamespaces.ISO_19139);
+		marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
 		marshaller.marshal(md, noaaOutput);
 	}
 

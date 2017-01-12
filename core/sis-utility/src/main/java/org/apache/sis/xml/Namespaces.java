@@ -339,14 +339,17 @@ public final class Namespaces extends Static {
 	 */
 	public static final String GCX = "http://standards.iso.org/iso/19115/-3/gcx/1.0";
 	
+	/* ---------------------- */
+	/* Metadata version codes */
+	/* ---------------------- */
+	
+    public static final Version ISO_19115_3 = new Version("2014");
+    
+    public static final Version ISO_19139 = new Version("2003");
+	
 	/* -------------------------------------------------- */
 	/* Namespaces added prior to ISO 19115-3 integration. */
 	/* -------------------------------------------------- */
-	
-	/**
-     * Version code for ISO 19115-3 metadata
-     */
-    public static final Version ISO_19115_3 = new Version("2014");
 	
 	/**
 	 * The <code>{@value}</code> URL, used in ISO 19139.

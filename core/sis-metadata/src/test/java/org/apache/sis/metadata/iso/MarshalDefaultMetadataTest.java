@@ -705,7 +705,7 @@ public class MarshalDefaultMetadataTest extends XMLTestCase implements WarningLi
 		marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19115_3);
 		marshaller.marshal(md, outputNew);
 		System.out.println("_MARSHALLING 19139_");
-		marshaller.setProperty(XML.METADATA_VERSION, LegacyNamespaces.ISO_19139);
+		marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
 		marshaller.marshal(md, outputOld);
 	}
 

@@ -70,15 +70,6 @@ public final class LegacyNamespaces {
      * {@code setProperty(String, Object)} method.
      */
     public static final String APPLY_NAMESPACE_REPLACEMENTS = "org.apache.sis.xml.applyNamespaceReplacements";
-	
-	/* --------------------------------------------- */
-	/* Versions for ISO metadata (19139 and 19115-3) */
-	/* --------------------------------------------- */
-	
-	/**
-     * Version code for ISO 19139 metadata
-     */
-    public static final Version ISO_19139 = new Version("2003");
     
     /* --------------------------------- */
 	/* Old namespaces used in ISO 19139. */

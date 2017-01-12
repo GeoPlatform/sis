@@ -32,6 +32,7 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.JAXBException;
 import org.apache.sis.internal.jaxb.Context;
 import org.apache.sis.util.ArgumentChecks;
+import org.apache.sis.util.Version;
 import org.apache.sis.xml.MarshallerPool;
 import org.apache.sis.xml.XML;
 import org.junit.After;
@@ -190,10 +191,10 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *
      * @see #unmarshalFile(Class, String)
      */
-    protected final void assertMarshalEqualsFile(final String filename, final Object object,
+    protected final void assertMarshalEqualsFile(final String filename, final Object object, final Version metadataVersion,
             final String... ignoredAttributes) throws JAXBException
     {
-        assertXmlEquals(getResource(filename), marshal(object), ignoredAttributes);
+        assertXmlEquals(getResource(filename), marshal(object, metadataVersion), ignoredAttributes);
     }
 
     /**
@@ -212,10 +213,10 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *
      * @since 0.7
      */
-    protected final void assertMarshalEqualsFile(final String filename, final Object object,
+    protected final void assertMarshalEqualsFile(final String filename, final Object object, final Version metadataVersion,
             final double tolerance, final String[] ignoredNodes, final String[] ignoredAttributes) throws JAXBException
     {
-        assertXmlEquals(getResource(filename), marshal(object), tolerance, ignoredNodes, ignoredAttributes);
+        assertXmlEquals(getResource(filename), marshal(object, metadataVersion), tolerance, ignoredNodes, ignoredAttributes);
     }
 
     /**
@@ -227,9 +228,10 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *
      * @see #unmarshal(Class, String)
      */
-    protected final String marshal(final Object object) throws JAXBException {
+    protected final String marshal(final Object object, final Version metadataVersion) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
         final Marshaller marshaller = pool.acquireMarshaller();
+        marshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         final String xml = marshal(marshaller, object);
         pool.recycle(marshaller);
         return xml;
@@ -269,9 +271,10 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *
      * @see #assertMarshalEqualsFile(String, Object, String...)
      */
-    protected final <T> T unmarshalFile(final Class<T> type, final String filename) throws JAXBException {
+    protected final <T> T unmarshalFile(final Class<T> type, final String filename, final Version metadataVersion) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         final Object object = unmarshaller.unmarshal(getResource(filename));
         pool.recycle(unmarshaller);
         assertInstanceOf(filename, type, object);
@@ -289,9 +292,10 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *
      * @see #marshal(Object)
      */
-    protected final <T> T unmarshal(final Class<T> type, final String xml) throws JAXBException {
+    protected final <T> T unmarshal(final Class<T> type, final String xml, final Version metadataVersion) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
         final Object object = unmarshal(unmarshaller, xml);
         pool.recycle(unmarshaller);
         assertInstanceOf("unmarshal", type, object);
@@ -299,7 +303,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
     }
 
     /**
-     * Unmarshals the given XML using the given unmarshaler.
+     * Unmarshals the given XML using the given unmarshaller.
      *
      * @param  unmarshaller The unmarshaller to use.
      * @param  xml The XML representation of the object to unmarshal.
