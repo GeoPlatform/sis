@@ -24,6 +24,7 @@ import org.opengis.util.InternationalString;
 import org.opengis.metadata.identification.RepresentativeFraction;
 import org.opengis.metadata.identification.Resolution;
 import org.apache.sis.internal.jaxb.Context;
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.jaxb.gco.GO_Distance;
 import org.apache.sis.metadata.iso.ISOMetadata;
 import org.apache.sis.measure.ValueRange;
@@ -52,10 +53,11 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.6
+ * @version 0.8
  * @module
  *
  * @see AbstractIdentification#getSpatialResolutions()
@@ -301,6 +303,24 @@ public class DefaultResolution extends ISOMetadata implements Resolution {
             setProperty(VERTICAL, newValue);
         }
     }
+    
+    /**
+	 * Gets the vertical (used in ISO 19115-3 format).
+	 * @see {@link #getVertical}
+	 */
+	@XmlElement(name = "vertical")
+	private Double getXmlVertical() {
+		return MetadataInfo.is2003() ? null : getVertical();
+	}
+
+	/**
+	 * Sets the vertical (used in ISO 19115-3 format).
+	 * @see {@link #setVertical}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlVertical(final Double newValue) {
+		setVertical(newValue);
+	}
 
     /**
      * Returns the angular sampling measure.
@@ -332,6 +352,24 @@ public class DefaultResolution extends ISOMetadata implements Resolution {
             setProperty(ANGULAR, newValue);
         }
     }
+    
+    /**
+	 * Gets the angular distance (used in ISO 19115-3 format).
+	 * @see {@link #getAngularDistance}
+	 */
+	@XmlElement(name = "angularDistance")
+	private Double getXmlAngularDistance() {
+		return MetadataInfo.is2003() ? null : getAngularDistance();
+	}
+
+	/**
+	 * Sets the angular distance (used in ISO 19115-3 format).
+	 * @see {@link #setAngularDistance}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlAngularDistance(final Double newValue) {
+		setAngularDistance(newValue);
+	}
 
     /**
      * Returns a brief textual description of the spatial resolution of the resource.
@@ -359,4 +397,22 @@ public class DefaultResolution extends ISOMetadata implements Resolution {
     public void setLevelOfDetail(final InternationalString newValue) {
         setProperty(TEXT, newValue);
     }
+    
+    /**
+	 * Gets the level of detail (used in ISO 19115-3 format).
+	 * @see {@link #getLevelOfDetail}
+	 */
+	@XmlElement(name = "levelOfDetail")
+	private InternationalString getXmlLevelOfDetail() {
+		return MetadataInfo.is2003() ? null : getLevelOfDetail();
+	}
+
+	/**
+	 * Sets the level of detail (used in ISO 19115-3 format).
+	 * @see {@link #setLevelOfDetail}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlLevelOfDetail(final InternationalString newValue) {
+		setLevelOfDetail(newValue);
+	}
 }

@@ -98,6 +98,7 @@
     @XmlJavaTypeAdapter(CI_Citation.class),
     @XmlJavaTypeAdapter(MD_AttributeGroup.class),
     @XmlJavaTypeAdapter(MD_CoverageContentTypeCode.class),
+    @XmlJavaTypeAdapter(MD_FeatureTypeInfo.class),
     @XmlJavaTypeAdapter(MD_Identifier.class),
     @XmlJavaTypeAdapter(MD_ImagingConditionCode.class),
     @XmlJavaTypeAdapter(MD_RangeDimension.class),
@@ -144,6 +145,7 @@ import org.apache.sis.internal.jaxb.gco.UnitAdapter;
 import org.apache.sis.internal.jaxb.gmd.LocaleAdapter;
 import org.apache.sis.internal.jaxb.metadata.CI_Citation;
 import org.apache.sis.internal.jaxb.metadata.MD_AttributeGroup;
+import org.apache.sis.internal.jaxb.metadata.MD_FeatureTypeInfo;
 import org.apache.sis.internal.jaxb.metadata.MD_Identifier;
 import org.apache.sis.internal.jaxb.metadata.MD_RangeDimension;
 import org.apache.sis.internal.jaxb.metadata.MI_RangeElementDescription;

@@ -86,7 +86,7 @@ public final class Supervisor extends StandardMBean implements SupervisorMBean {
     public static synchronized void register() {
         if (name == null) {
             name = ObjectName.WILDCARD;                         // In case of failure.
-            final LogRecord record;
+            LogRecord record; // removed "final" marker to fix error, since compiler could not deduce that record would only be assigned once.
             try {
                 final MBeanServer server = ManagementFactory.getPlatformMBeanServer();
                 final ObjectName n = new ObjectName(NAME);

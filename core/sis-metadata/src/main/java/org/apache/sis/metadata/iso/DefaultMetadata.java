@@ -676,7 +676,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 *
 	 * @since 0.5
 	 */
-	// TODO: Figure out how to implement this if it's necessary.
+	// TODO: Implement this for ISO 19115-3 (if necessary).
 	@Override
 	public Collection<Charset> getCharacterSets() {
 		return characterSets = nonNullCollection(characterSets, Charset.class);
@@ -695,11 +695,13 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	
 	/**
 	 * Gets the character sets for this record (used in ISO 19139).
-	 * Actually used
 	 * @see {@link #getCharacterSet}
 	 */
 	@XmlElement(name = "characterSet")
 	private Collection<Charset>  getXmlCharacterSets() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getCharacterSets();
+		}
 		return MetadataInfo.is2014() ? new CheckedArrayList<>(Charset.class) : getCharacterSets();
 	}
 

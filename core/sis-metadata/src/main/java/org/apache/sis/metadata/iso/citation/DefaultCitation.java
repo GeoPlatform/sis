@@ -609,7 +609,6 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 	 * @since 0.5
 	 */
 	@Override
-	/// @XmlElement(name = "onlineResource")
 	public Collection<OnlineResource> getOnlineResources() {
 		return onlineResources = nonNullCollection(onlineResources, OnlineResource.class);
 	}

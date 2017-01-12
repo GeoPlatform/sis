@@ -18,26 +18,28 @@ package org.apache.sis.referencing.operation.transform;
 
 import java.util.Arrays;
 import java.util.Objects;
-import javax.measure.Unit;
+
 import javax.measure.Quantity;
-import org.opengis.util.FactoryException;
-import org.opengis.referencing.operation.Matrix;
-import org.opengis.referencing.operation.MathTransform;
-import org.opengis.referencing.operation.MathTransformFactory;
-import org.opengis.referencing.operation.TransformException;
+import javax.measure.Unit;
+
+import org.apache.sis.internal.referencing.DirectPositionView;
+import org.apache.sis.internal.referencing.Formulas;
+import org.apache.sis.internal.referencing.Resources;
+import org.apache.sis.internal.referencing.provider.DatumShiftGridFile;
+import org.apache.sis.internal.referencing.provider.NTv2;
+import org.apache.sis.measure.Units;
 import org.apache.sis.referencing.datum.DatumShiftGrid;
 import org.apache.sis.referencing.operation.matrix.Matrices;
 import org.apache.sis.referencing.operation.matrix.MatrixSIS;
 import org.apache.sis.referencing.operation.matrix.NoninvertibleMatrixException;
-import org.apache.sis.measure.Units;
-import org.apache.sis.util.resources.Errors;
 import org.apache.sis.util.ArgumentChecks;
 import org.apache.sis.util.ComparisonMode;
-import org.apache.sis.internal.referencing.Resources;
-import org.apache.sis.internal.referencing.Formulas;
-import org.apache.sis.internal.referencing.DirectPositionView;
-import org.apache.sis.internal.referencing.provider.NTv2;
-import org.apache.sis.internal.referencing.provider.DatumShiftGridFile;
+import org.apache.sis.util.resources.Errors;
+import org.opengis.referencing.operation.MathTransform;
+import org.opengis.referencing.operation.MathTransformFactory;
+import org.opengis.referencing.operation.Matrix;
+import org.opengis.referencing.operation.TransformException;
+import org.opengis.util.FactoryException;
 
 
 /**
@@ -420,6 +422,7 @@ public class InterpolatedTransform extends DatumShiftTransform {
          * Creates an inverse transform.
          */
         Inverse() {
+        	InterpolatedTransform.this.super(); // Added to fix "No enclosing instance" bug.
             tolerance = grid.getCellPrecision();
             if (!(tolerance > 0)) {         // Use ! for catching NaN.
                 throw new IllegalArgumentException(Errors.format(

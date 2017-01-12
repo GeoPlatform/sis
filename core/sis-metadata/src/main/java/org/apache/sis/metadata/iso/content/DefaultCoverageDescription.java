@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
 import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.xml.Namespaces;
 import org.opengis.metadata.Identifier;
 import org.opengis.metadata.content.AttributeGroup;
 import org.opengis.metadata.content.CoverageContentType;
@@ -59,11 +60,12 @@ import org.opengis.util.RecordType;
  */
 @XmlType(name = "MD_CoverageDescription_Type", propOrder = {
     "attributeDescription",
-    "xmlProcessingLevelCode", 		// ISO 19115-3
-    "xmlAttributeGroups",			// ISO 19115-3
-    "xmlContentType",				// ISO 19139
-    "xmlDimensions",				// ISO 19139
-    "rangeElementDescriptions"
+    "xmlProcessingLevelCode", 			// ISO 19115-3
+    "xmlAttributeGroups",				// ISO 19115-3
+    "xmlContentType",					// ISO 19139
+    "xmlDimensions",					// ISO 19139
+    "xmlRangeElementDescriptions",		// ISO 19115-3
+    "xmlRangeElementDescriptionsLegacy"	// ISO 19139 (GMI namespace)
 })
 @XmlRootElement(name = "MD_CoverageDescription")
 @XmlSeeAlso({
@@ -400,7 +402,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
      * @return description of the specific range elements of a coverage.
      */
     @Override
-    @XmlElement(name = "rangeElementDescription"/*, namespace = Namespaces.GMI*/) // Namespace for marshalling ISO 19139 should be updated.
+    //@XmlElement(name = "rangeElementDescription", namespace = Namespaces.GMI)
     public Collection<RangeElementDescription> getRangeElementDescriptions() {
         return rangeElementDescriptions = nonNullCollection(rangeElementDescriptions, RangeElementDescription.class);
     }
@@ -413,4 +415,28 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
     public void setRangeElementDescriptions(final Collection<? extends RangeElementDescription> newValues) {
         rangeElementDescriptions = writeCollection(newValues, rangeElementDescriptions, RangeElementDescription.class);
     }
+    
+    /**
+	 * Gets the range element descriptions for this coverage description (used in ISO 19115-3 format).
+	 * @see {@link #getRangeElementDescriptions}
+	 */
+	@XmlElement(name = "rangeElementDescription")
+	private Collection<RangeElementDescription> getXmlRangeElementDescriptions() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getRangeElementDescriptions();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(RangeElementDescription.class) : getRangeElementDescriptions();
+	}
+	
+	/**
+	 * Gets the range element descriptions for this coverage description (used in ISO 19139 format).
+	 * @see {@link #getRangeElementDescriptions}
+	 */
+	@XmlElement(name = "rangeElementDescription", namespace = Namespaces.GMI)
+	private Collection<RangeElementDescription> getXmlRangeElementDescriptionsLegacy() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getRangeElementDescriptions();
+		}
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(RangeElementDescription.class) : getRangeElementDescriptions();
+	}
 }

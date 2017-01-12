@@ -16,21 +16,25 @@
  */
 package org.apache.sis.metadata.iso.distribution;
 
+import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
+
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.InternationalString;
-import org.opengis.temporal.PeriodDuration;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.measure.ValueRange;
+import org.apache.sis.metadata.iso.ISOMetadata;
 import org.opengis.metadata.citation.OnlineResource;
 import org.opengis.metadata.distribution.DigitalTransferOptions;
 import org.opengis.metadata.distribution.Format;
 import org.opengis.metadata.distribution.Medium;
-import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
-import org.apache.sis.measure.ValueRange;
-import org.apache.sis.metadata.iso.ISOMetadata;
-
-import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
+import org.opengis.temporal.PeriodDuration;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -46,17 +50,21 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_DigitalTransferOptions_Type", propOrder = {
     "unitsOfDistribution",
+    "xmlDistributionFormats",	// ISO 19115-3
     "transferSize",
+    "xmlTransferFrequency",		// ISO 19115-3
     "onLines",
-    "offLine"
+    "xmlOffLines",				// ISO 19115-3
+    "xmlOffLine"				// ISO 19139
 })
 @XmlRootElement(name = "MD_DigitalTransferOptions")
 public class DefaultDigitalTransferOptions extends ISOMetadata implements DigitalTransferOptions {
@@ -245,6 +253,18 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
     public void setOffLines(final Collection<? extends Medium> newValues) {
         offLines = writeCollection(newValues, offLines, Medium.class);
     }
+    
+    /**
+	 * Gets the offLines (used in ISO 19115-3).
+	 * @see {@link #getOffLines}
+	 */
+	@XmlElement(name = "offLine")
+	private Collection<Medium>  getXmlOffLines() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getOffLines();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Medium.class) : getOffLines();
+	}
 
     /**
      * Returns information about offline media on which the resource can be obtained.
@@ -255,7 +275,6 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
      */
     @Override
     @Deprecated
-    @XmlElement(name = "offLine")
     public Medium getOffLine() {
         return LegacyPropertyAdapter.getSingleton(getOffLines(), Medium.class, null, DefaultDigitalTransferOptions.class, "getOffLine");
     }
@@ -271,6 +290,25 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
     public void setOffLine(final Medium newValue) {
         setOffLines(LegacyPropertyAdapter.asCollection(newValue));
     }
+    
+    /**
+	 * Gets the offLine (used in ISO 19139).
+	 * @see {@link #getOffLine}
+	 */
+	@XmlElement(name = "offLine")
+	private Medium getXmlOffLine() {
+		return MetadataInfo.is2014() ? null : getOffLine();
+	}
+
+	/**
+	 * Sets the offLine (used in ISO 19139).
+	 * Does nothing here, since it would overwrite the Mediums collected in getOffLines() 
+	 * @see {@link #setOffLine}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlOffLine(final Medium newValue) {
+		// Do nothing
+	}
 
     /**
      * Returns the rate of occurrence of distribution.
@@ -295,6 +333,24 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
         checkWritePermission();
         transferFrequency = newValue;
     }
+    
+    /**
+	 * Gets the transfer frequency (used in ISO 19115-3).
+	 * @see {@link #getTransferFrequency}
+	 */
+	@XmlElement(name = "transferFrequency")
+	private PeriodDuration getXmlTransferFrequency() {
+		return MetadataInfo.is2003() ? null : getTransferFrequency();
+	}
+
+	/**
+	 * Sets the transfer frequency (used in ISO 19115-3).
+	 * @see {@link #setTransferFrequency}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlTransferFrequency(final PeriodDuration newValue) {
+		setTransferFrequency(newValue);
+	}
 
     /**
      * Returns the formats of distribution.
@@ -318,4 +374,16 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
     public void setDistributionFormats(final Collection<? extends Format> newValues) {
         distributionFormats = writeCollection(newValues, distributionFormats, Format.class);
     }
+    
+    /**
+	 * Gets the distribution formats (used in ISO 19115-3).
+	 * @see {@link #getDistributionFormats}
+	 */
+	@XmlElement(name = "distributionFormat")
+	private Collection<Format> getXmlDistributionFormats() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getDistributionFormats();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Format.class) : getDistributionFormats();
+	}
 }

@@ -92,6 +92,7 @@
     @XmlJavaTypeAdapter(CI_OnlineResource.class),
     @XmlJavaTypeAdapter(CI_Responsibility.class),
     @XmlJavaTypeAdapter(MD_StandardOrderProcess.class),
+    @XmlJavaTypeAdapter(TM_PeriodDuration.class),
 
     // Java types, primitive types and basic OGC types handling
     @XmlJavaTypeAdapter(UnitAdapter.class),
@@ -103,15 +104,30 @@
 })
 package org.apache.sis.metadata.iso.distribution;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlNs;
 import javax.xml.bind.annotation.XmlNsForm;
 import javax.xml.bind.annotation.XmlSchema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;
-import org.apache.sis.xml.Namespaces;
+
 import org.apache.sis.internal.jaxb.Schemas;
-import org.apache.sis.internal.jaxb.gco.*;
-import org.apache.sis.internal.jaxb.code.*;
-import org.apache.sis.internal.jaxb.metadata.*;
+import org.apache.sis.internal.jaxb.code.MD_MediumFormatCode;
+import org.apache.sis.internal.jaxb.code.MD_MediumNameCode;
+import org.apache.sis.internal.jaxb.gco.GO_DateTime;
+import org.apache.sis.internal.jaxb.gco.GO_Integer;
+import org.apache.sis.internal.jaxb.gco.GO_LocalName;
+import org.apache.sis.internal.jaxb.gco.GO_Real;
+import org.apache.sis.internal.jaxb.gco.InternationalStringAdapter;
+import org.apache.sis.internal.jaxb.gco.UnitAdapter;
+import org.apache.sis.internal.jaxb.gts.TM_PeriodDuration;
+import org.apache.sis.internal.jaxb.metadata.CI_Citation;
+import org.apache.sis.internal.jaxb.metadata.CI_OnlineResource;
+import org.apache.sis.internal.jaxb.metadata.CI_Responsibility;
+import org.apache.sis.internal.jaxb.metadata.MD_DigitalTransferOptions;
+import org.apache.sis.internal.jaxb.metadata.MD_Distributor;
+import org.apache.sis.internal.jaxb.metadata.MD_Format;
+import org.apache.sis.internal.jaxb.metadata.MD_Medium;
+import org.apache.sis.internal.jaxb.metadata.MD_StandardOrderProcess;
+import org.apache.sis.xml.Namespaces;

@@ -16,16 +16,21 @@
  */
 package org.apache.sis.metadata.iso.content;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
+import java.util.Locale;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.GenericName;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.apache.sis.internal.util.CheckedArrayList;
 import org.opengis.metadata.citation.Citation;
 import org.opengis.metadata.content.FeatureCatalogueDescription;
 import org.opengis.metadata.content.FeatureTypeInfo;
-import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.opengis.util.GenericName;
 
 
 /**
@@ -41,256 +46,312 @@ import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_FeatureCatalogueDescription_Type", propOrder = {
-    "compliant",
-    "languages",
-    "includedWithDataset",
-    "featureTypes",
-    "featureCatalogueCitations"
+		"compliant",
+		"xmlLanguages",				// ISO 19115-3
+		"xmlLanguageStrings",		// ISO 19139
+		"includedWithDataset",
+		"xmlFeatureTypeInfo",		// ISO 19115-3
+		"xmlFeatureTypes",			// ISO 19139
+		"featureCatalogueCitations"
 })
 @XmlRootElement(name = "MD_FeatureCatalogueDescription")
 public class DefaultFeatureCatalogueDescription extends AbstractContentInformation
-        implements FeatureCatalogueDescription
+implements FeatureCatalogueDescription
 {
-    /**
-     * Serial number for inter-operability with different versions.
-     */
-    private static final long serialVersionUID = 5731044701122380718L;
+	/**
+	 * Serial number for inter-operability with different versions.
+	 */
+	private static final long serialVersionUID = 5731044701122380718L;
 
-    /**
-     * Whether or not the cited feature catalogue complies with ISO 19110.
-     *
-     * <p>Implementation note: we need to store the reference to the {@code Boolean} instance instead
-     * than using bitmask because {@link org.apache.sis.internal.jaxb.PrimitiveTypeProperties} may
-     * associate some properties to that particular instance.</p>
-     */
-    private Boolean compliant;
+	/**
+	 * Whether or not the cited feature catalogue complies with ISO 19110.
+	 *
+	 * <p>Implementation note: we need to store the reference to the {@code Boolean} instance instead
+	 * than using bitmask because {@link org.apache.sis.internal.jaxb.PrimitiveTypeProperties} may
+	 * associate some properties to that particular instance.</p>
+	 */
+	private Boolean compliant;
 
-    /**
-     * Language(s) used within the catalogue
-     */
-    private Collection<Locale> languages;
+	/**
+	 * Language(s) used within the catalogue
+	 */
+	private Collection<Locale> languages;
 
-    /**
-     * Whether or not the feature catalogue is included with the resource.
-     */
-    private boolean includedWithDataset;
+	/**
+	 * Whether or not the feature catalogue is included with the resource.
+	 */
+	private boolean includedWithDataset;
 
-    /**
-     * Subset of feature types from cited feature catalogue occurring in resource.
-     */
-    private Collection<FeatureTypeInfo> featureTypes;
+	/**
+	 * Subset of feature types from cited feature catalogue occurring in resource.
+	 */
+	private Collection<FeatureTypeInfo> featureTypes;
 
-    /**
-     * Complete bibliographic reference to one or more external feature catalogues.
-     */
-    private Collection<Citation> featureCatalogueCitations;
+	/**
+	 * Complete bibliographic reference to one or more external feature catalogues.
+	 */
+	private Collection<Citation> featureCatalogueCitations;
 
-    /**
-     * Constructs an initially empty feature catalogue description.
-     */
-    public DefaultFeatureCatalogueDescription() {
-    }
+	/**
+	 * Constructs an initially empty feature catalogue description.
+	 */
+	public DefaultFeatureCatalogueDescription() {
+	}
 
-    /**
-     * Constructs a new instance initialized with the values from the specified metadata object.
-     * This is a <cite>shallow</cite> copy constructor, since the other metadata contained in the
-     * given object are not recursively copied.
-     *
-     * @param  object  the metadata to copy values from, or {@code null} if none.
-     *
-     * @see #castOrCopy(FeatureCatalogueDescription)
-     */
-    public DefaultFeatureCatalogueDescription(final FeatureCatalogueDescription object) {
-        super(object);
-        if (object != null) {
-            compliant                 = object.isCompliant();
-            includedWithDataset       = object.isIncludedWithDataset();
-            languages                 = copyCollection(object.getLanguages(), Locale.class);
-            featureTypes              = copyCollection(object.getFeatureTypeInfo(), FeatureTypeInfo.class);
-            featureCatalogueCitations = copyCollection(object.getFeatureCatalogueCitations(), Citation.class);
-        }
-    }
+	/**
+	 * Constructs a new instance initialized with the values from the specified metadata object.
+	 * This is a <cite>shallow</cite> copy constructor, since the other metadata contained in the
+	 * given object are not recursively copied.
+	 *
+	 * @param  object  the metadata to copy values from, or {@code null} if none.
+	 *
+	 * @see #castOrCopy(FeatureCatalogueDescription)
+	 */
+	public DefaultFeatureCatalogueDescription(final FeatureCatalogueDescription object) {
+		super(object);
+		if (object != null) {
+			compliant                 = object.isCompliant();
+			includedWithDataset       = object.isIncludedWithDataset();
+			languages                 = copyCollection(object.getLanguages(), Locale.class);
+			featureTypes              = copyCollection(object.getFeatureTypeInfo(), FeatureTypeInfo.class);
+			featureCatalogueCitations = copyCollection(object.getFeatureCatalogueCitations(), Citation.class);
+		}
+	}
 
-    /**
-     * Returns a SIS metadata implementation with the values of the given arbitrary implementation.
-     * This method performs the first applicable action in the following choices:
-     *
-     * <ul>
-     *   <li>If the given object is {@code null}, then this method returns {@code null}.</li>
-     *   <li>Otherwise if the given object is already an instance of
-     *       {@code DefaultFeatureCatalogueDescription}, then it is returned unchanged.</li>
-     *   <li>Otherwise a new {@code DefaultFeatureCatalogueDescription} instance is created using the
-     *       {@linkplain #DefaultFeatureCatalogueDescription(FeatureCatalogueDescription) copy constructor}
-     *       and returned. Note that this is a <cite>shallow</cite> copy operation, since the other
-     *       metadata contained in the given object are not recursively copied.</li>
-     * </ul>
-     *
-     * @param  object  the object to get as a SIS implementation, or {@code null} if none.
-     * @return a SIS implementation containing the values of the given object (may be the
-     *         given object itself), or {@code null} if the argument was null.
-     */
-    public static DefaultFeatureCatalogueDescription castOrCopy(final FeatureCatalogueDescription object) {
-        if (object == null || object instanceof DefaultFeatureCatalogueDescription) {
-            return (DefaultFeatureCatalogueDescription) object;
-        }
-        return new DefaultFeatureCatalogueDescription(object);
-    }
+	/**
+	 * Returns a SIS metadata implementation with the values of the given arbitrary implementation.
+	 * This method performs the first applicable action in the following choices:
+	 *
+	 * <ul>
+	 *   <li>If the given object is {@code null}, then this method returns {@code null}.</li>
+	 *   <li>Otherwise if the given object is already an instance of
+	 *       {@code DefaultFeatureCatalogueDescription}, then it is returned unchanged.</li>
+	 *   <li>Otherwise a new {@code DefaultFeatureCatalogueDescription} instance is created using the
+	 *       {@linkplain #DefaultFeatureCatalogueDescription(FeatureCatalogueDescription) copy constructor}
+	 *       and returned. Note that this is a <cite>shallow</cite> copy operation, since the other
+	 *       metadata contained in the given object are not recursively copied.</li>
+	 * </ul>
+	 *
+	 * @param  object  the object to get as a SIS implementation, or {@code null} if none.
+	 * @return a SIS implementation containing the values of the given object (may be the
+	 *         given object itself), or {@code null} if the argument was null.
+	 */
+	public static DefaultFeatureCatalogueDescription castOrCopy(final FeatureCatalogueDescription object) {
+		if (object == null || object instanceof DefaultFeatureCatalogueDescription) {
+			return (DefaultFeatureCatalogueDescription) object;
+		}
+		return new DefaultFeatureCatalogueDescription(object);
+	}
 
-    /**
-     * Returns whether or not the cited feature catalogue complies with ISO 19110.
-     *
-     * @return whether or not the cited feature catalogue complies with ISO 19110, or {@code null}.
-     */
-    @Override
-    @XmlElement(name = "complianceCode")
-    public Boolean isCompliant() {
-        return compliant;
-    }
+	/**
+	 * Returns whether or not the cited feature catalogue complies with ISO 19110.
+	 *
+	 * @return whether or not the cited feature catalogue complies with ISO 19110, or {@code null}.
+	 */
+	@Override
+	@XmlElement(name = "complianceCode")
+	public Boolean isCompliant() {
+		return compliant;
+	}
 
-    /**
-     * Sets whether or not the cited feature catalogue complies with ISO 19110.
-     *
-     * @param  newValue  the new compliance value.
-     */
-    public void setCompliant(final Boolean newValue) {
-        checkWritePermission();
-        compliant = newValue;
-    }
+	/**
+	 * Sets whether or not the cited feature catalogue complies with ISO 19110.
+	 *
+	 * @param  newValue  the new compliance value.
+	 */
+	public void setCompliant(final Boolean newValue) {
+		checkWritePermission();
+		compliant = newValue;
+	}
 
-    /**
-     * Returns the language(s) used within the catalogue
-     *
-     * @return language(s) used within the catalogue.
-     */
-    @Override
-    @XmlElement(name = "language")
-    public Collection<Locale> getLanguages() {
-        return languages = nonNullCollection(languages, Locale.class);
-    }
+	/**
+	 * Returns the language(s) used within the catalogue
+	 *
+	 * @return language(s) used within the catalogue.
+	 */
+	@Override
+	public Collection<Locale> getLanguages() {
+		return languages = nonNullCollection(languages, Locale.class);
+	}
 
-    /**
-     * Sets the language(s) used within the catalogue
-     *
-     * @param  newValues  the new languages.
-     */
-    public void setLanguages(final Collection<? extends Locale> newValues) {
-        languages = writeCollection(newValues, languages, Locale.class);
-    }
+	/**
+	 * Sets the language(s) used within the catalogue
+	 *
+	 * @param  newValues  the new languages.
+	 */
+	public void setLanguages(final Collection<? extends Locale> newValues) {
+		languages = writeCollection(newValues, languages, Locale.class);
+	}
 
-    /**
-     * Returns whether or not the feature catalogue is included with the resource.
-     *
-     * @return whether or not the feature catalogue is included with the resource.
-     */
-    @Override
-    @XmlElement(name = "includedWithDataset", required = true)
-    public boolean isIncludedWithDataset() {
-        return includedWithDataset;
-    }
+	/**
+	 * Gets the languages (used in ISO 19115-3 format).
+	 * @see {@link #getLanguages}
+	 */
+	@XmlElement(name = "language")
+	private Collection<Locale> getXmlLanguages() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getLanguages();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Locale.class) : getLanguages();
+	}
 
-    /**
-     * Sets whether or not the feature catalogue is included with the resource.
-     *
-     * @param  newValue  {@code true} if the feature catalogue is included.
-     */
-    public void setIncludedWithDataset(final boolean newValue) {
-        checkWritePermission();
-        includedWithDataset = newValue;
-    }
+	/**
+	 * Gets the languages as formatted strings (used in ISO 19139 format).
+	 * @see {@link #getLanguage}
+	 */
+	@XmlElement(name = "language")
+	private Collection<String> getXmlLanguageStrings() {
+		Collection<String> formattedOutputs = new ArrayList<String>();
+		if(getLanguages() != null) {
+			for(Locale language : getLanguages()) {
+				String lang = language.getISO3Language();
+				String country = language.getISO3Country();
+				String formattedOutput = lang + "; " + country;
+				formattedOutputs.add(formattedOutput);
+			}
+		}
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(String.class) : formattedOutputs;
+	}
 
-    /**
-     * Returns the subset of feature types from cited feature catalogue occurring in resource.
-     *
-     * @return subset of feature types occurring in resource.
-     *
-     * @since 0.5
-     */
-    @Override
-    public Collection<FeatureTypeInfo> getFeatureTypeInfo() {
-        return featureTypes = nonNullCollection(featureTypes, FeatureTypeInfo.class);
-    }
+	/**
+	 * Returns whether or not the feature catalogue is included with the resource.
+	 *
+	 * @return whether or not the feature catalogue is included with the resource.
+	 */
+	@Override
+	@XmlElement(name = "includedWithDataset", required = true)
+	public boolean isIncludedWithDataset() {
+		return includedWithDataset;
+	}
 
-    /**
-     * Sets the subset of feature types from cited feature catalogue occurring in resource.
-     *
-     * @param  newValues  the new feature types.
-     *
-     * @since 0.5
-     */
-    public void setFeatureTypeInfo(final Collection<? extends FeatureTypeInfo> newValues) {
-        featureTypes = writeCollection(newValues, featureTypes, FeatureTypeInfo.class);
-    }
+	/**
+	 * Sets whether or not the feature catalogue is included with the resource.
+	 *
+	 * @param  newValue  {@code true} if the feature catalogue is included.
+	 */
+	public void setIncludedWithDataset(final boolean newValue) {
+		checkWritePermission();
+		includedWithDataset = newValue;
+	}
 
-    /**
-     * Returns the names of {@linkplain #getFeatureTypes() feature types}.
-     *
-     * @return the feature type names.
-     *
-     * @deprecated As of ISO 19115:2014, replaced by {@link #getFeatureTypeInfo()}.
-     */
-    @Override
-    @Deprecated
-    @XmlElement(name = "featureTypes")
-    public final Collection<GenericName> getFeatureTypes() {
-        return new LegacyPropertyAdapter<GenericName,FeatureTypeInfo>(getFeatureTypeInfo()) {
-            /** Stores a legacy value into the new kind of value. */
-            @Override protected FeatureTypeInfo wrap(final GenericName value) {
-                return new DefaultFeatureTypeInfo(value);
-            }
+	/**
+	 * Returns the subset of feature types from cited feature catalogue occurring in resource.
+	 *
+	 * @return subset of feature types occurring in resource.
+	 *
+	 * @since 0.5
+	 */
+	@Override
+	public Collection<FeatureTypeInfo> getFeatureTypeInfo() {
+		return featureTypes = nonNullCollection(featureTypes, FeatureTypeInfo.class);
+	}
 
-            /** Extracts the legacy value from the new kind of value. */
-            @Override protected GenericName unwrap(final FeatureTypeInfo container) {
-                return container.getFeatureTypeName();
-            }
+	/**
+	 * Sets the subset of feature types from cited feature catalogue occurring in resource.
+	 *
+	 * @param  newValues  the new feature types.
+	 *
+	 * @since 0.5
+	 */
+	public void setFeatureTypeInfo(final Collection<? extends FeatureTypeInfo> newValues) {
+		featureTypes = writeCollection(newValues, featureTypes, FeatureTypeInfo.class);
+	}
+	
+	/**
+	 * Gets the feature type info (used in ISO 19115-3 format).
+	 * @see {@link #getFeatureTypeInfo}
+	 */
+	@XmlElement(name = "featureTypeInfo")
+	private Collection<FeatureTypeInfo> getXmlFeatureTypeInfo() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getFeatureTypeInfo();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(FeatureTypeInfo.class) : getFeatureTypeInfo();
+	}
 
-            /** Updates the legacy value in an existing instance of the new kind of value. */
-            @Override protected boolean update(final FeatureTypeInfo container, final GenericName value) {
-                if (container instanceof DefaultFeatureTypeInfo) {
-                    ((DefaultFeatureTypeInfo) container).setFeatureTypeName(value);
-                    return true;
-                }
-                return false;
-            }
-        }.validOrNull();
-    }
+	/**
+	 * Returns the names of {@linkplain #getFeatureTypes() feature types}.
+	 *
+	 * @return the feature type names.
+	 *
+	 * @deprecated As of ISO 19115:2014, replaced by {@link #getFeatureTypeInfo()}.
+	 */
+	@Override
+	@Deprecated
+	public final Collection<GenericName> getFeatureTypes() {
+		return new LegacyPropertyAdapter<GenericName,FeatureTypeInfo>(getFeatureTypeInfo()) {
+			/** Stores a legacy value into the new kind of value. */
+			@Override protected FeatureTypeInfo wrap(final GenericName value) {
+				return new DefaultFeatureTypeInfo(value);
+			}
 
-    /**
-     * Sets the names of {@linkplain #getFeatureTypes() feature types}.
-     *
-     * @param  newValues  the new feature type names.
-     *
-     * @deprecated As of ISO 19115:2014, replaced by {@link #setFeatureTypeInfo(Collection)}.
-     */
-    @Deprecated
-    public void setFeatureTypes(final Collection<? extends GenericName> newValues) {
-        checkWritePermission();
-        ((LegacyPropertyAdapter<GenericName,?>) getFeatureTypes()).setValues(newValues);
-    }
+			/** Extracts the legacy value from the new kind of value. */
+			@Override protected GenericName unwrap(final FeatureTypeInfo container) {
+				return container.getFeatureTypeName();
+			}
 
-    /**
-     * Returns the complete bibliographic reference to one or more external feature catalogues.
-     *
-     * @return bibliographic reference to one or more external feature catalogues.
-     */
-    @Override
-    @XmlElement(name = "featureCatalogueCitation", required = true)
-    public Collection<Citation> getFeatureCatalogueCitations() {
-        return featureCatalogueCitations = nonNullCollection(featureCatalogueCitations, Citation.class);
-    }
+			/** Updates the legacy value in an existing instance of the new kind of value. */
+			@Override protected boolean update(final FeatureTypeInfo container, final GenericName value) {
+				if (container instanceof DefaultFeatureTypeInfo) {
+					((DefaultFeatureTypeInfo) container).setFeatureTypeName(value);
+					return true;
+				}
+				return false;
+			}
+		}.validOrNull();
+	}
 
-    /**
-     * Sets the complete bibliographic reference to one or more external feature catalogues.
-     *
-     * @param  newValues  the feature catalogue citations.
-     */
-    public void setFeatureCatalogueCitations(final Collection<? extends Citation> newValues) {
-        featureCatalogueCitations = writeCollection(newValues, featureCatalogueCitations, Citation.class);
-    }
+	/**
+	 * Sets the names of {@linkplain #getFeatureTypes() feature types}.
+	 *
+	 * @param  newValues  the new feature type names.
+	 *
+	 * @deprecated As of ISO 19115:2014, replaced by {@link #setFeatureTypeInfo(Collection)}.
+	 */
+	@SuppressWarnings("unchecked")
+	@Deprecated
+	public void setFeatureTypes(final Collection<? extends GenericName> newValues) {
+		checkWritePermission();
+		((LegacyPropertyAdapter<GenericName,?>) getFeatureTypes()).setValues(newValues);
+	}
+	
+	/**
+	 * Gets the feature types (used in ISO 19139 format).
+	 * @see {@link #getFeatureTypes}
+	 */
+	@XmlElement(name = "featureTypes")
+	private Collection<GenericName> getXmlFeatureTypes() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getFeatureTypes();
+		}
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(GenericName.class) : getFeatureTypes();
+	}
+
+	/**
+	 * Returns the complete bibliographic reference to one or more external feature catalogues.
+	 *
+	 * @return bibliographic reference to one or more external feature catalogues.
+	 */
+	@Override
+	@XmlElement(name = "featureCatalogueCitation", required = true)
+	public Collection<Citation> getFeatureCatalogueCitations() {
+		return featureCatalogueCitations = nonNullCollection(featureCatalogueCitations, Citation.class);
+	}
+
+	/**
+	 * Sets the complete bibliographic reference to one or more external feature catalogues.
+	 *
+	 * @param  newValues  the feature catalogue citations.
+	 */
+	public void setFeatureCatalogueCitations(final Collection<? extends Citation> newValues) {
+		featureCatalogueCitations = writeCollection(newValues, featureCatalogueCitations, Citation.class);
+	}
 }

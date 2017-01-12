@@ -93,6 +93,9 @@ Define Maven Mojos and Javadoc taglets for generating resource files
         <executions>
           <execution>
             <id>default-descriptor</id>
+            <goals>
+            	<goal>descriptor</goal>
+            </goals>
             <phase>process-classes</phase>
           </execution>
         </executions>

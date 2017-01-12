@@ -693,6 +693,10 @@ public class MarshalDefaultMetadataTest extends XMLTestCase implements WarningLi
 			contentInfos.add(coverageDescription);
 			//.... Feature Catalogue Description
 			DefaultFeatureCatalogueDescription featureCatalogueDescription = new DefaultFeatureCatalogueDescription();
+				//........ Included with dataset
+				featureCatalogueDescription.setIncludedWithDataset(true);
+				//........ Compliant
+				featureCatalogueDescription.setCompliant(true);
 			contentInfos.add(featureCatalogueDescription);
 		md.setContentInfo(contentInfos);
 

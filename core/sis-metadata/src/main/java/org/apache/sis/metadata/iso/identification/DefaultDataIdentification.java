@@ -223,11 +223,13 @@ public class DefaultDataIdentification extends AbstractIdentification implements
 	@XmlElement(name = "language")
 	private Collection<String> getXmlLanguageStrings() {
 		Collection<String> formattedOutputs = new ArrayList<String>();
-		for(Locale language : getLanguages()) {
-			String lang = language.getISO3Language();
-			String country = language.getISO3Country();
-			String formattedOutput = lang + "; " + country;
-			formattedOutputs.add(formattedOutput);
+		if(getLanguages() != null) {
+			for(Locale language : getLanguages()) {
+				String lang = language.getISO3Language();
+				String country = language.getISO3Country();
+				String formattedOutput = lang + "; " + country;
+				formattedOutputs.add(formattedOutput);
+			}
 		}
 		return MetadataInfo.is2014() ? new CheckedArrayList<>(String.class) : formattedOutputs;
 	}

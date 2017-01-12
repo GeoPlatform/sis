@@ -226,6 +226,7 @@ aggregationInfo|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/m
 algorithm|LE_Processing|http://www.isotc211.org/2005/gmi
 alternateTitle|CI_Citation|http://standards.iso.org/iso/19115/-3/cit/1.0
 amendmentNumber|MD_Format|http://standards.iso.org/iso/19115/-3/mrd/1.0
+angularDistance|MD_Resolution|http://standards.iso.org/iso/19115/-3/mri/1.0
 applicationProfile|CI_OnlineResource|http://standards.iso.org/iso/19115/-3/cit/1.0
 applicationSchemaInfo|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 applicationSchemaInfo|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
@@ -251,13 +252,19 @@ axisDimensionProperties|MD_Georeferenceable|http://standards.iso.org/iso/19115/-
 axisDimensionProperties|MD_GridSpatialRepresentation|http://standards.iso.org/iso/19115/-3/msr/1.0
 axisDimensionProperties|MI_Georectified|http://standards.iso.org/iso/19115/-3/msr/1.0
 axisDimensionProperties|MI_Georeferenceable|http://standards.iso.org/iso/19115/-3/msr/1.0
-bandBoundaryDefinition|MD_Band|http://www.isotc211.org/2005/gmi
+bandBoundaryDefinition|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 bandBoundaryDefinition|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 beginPosition|TimePeriod|http://www.opengis.net/gml/3.2
 begin|TimePeriod|http://www.opengis.net/gml/3.2
 bitsPerValue|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 bitsPerValue|MD_SampleDimension|http://standards.iso.org/iso/19115/-3/mrc/1.0
 bitsPerValue|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
+boundMax|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
+boundMax|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
+boundMin|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
+boundMin|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
+boundUnits|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
+boundUnits|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 cameraCalibrationInformationAvailability|MD_ImageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 cameraCalibrationInformationAvailability|MI_ImageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 cellGeometry|MD_Georectified|http://standards.iso.org/iso/19115/-3/msr/1.0
@@ -415,7 +422,7 @@ descriptor|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 descriptor|MD_RangeDimension|http://standards.iso.org/iso/19115/-3/mrc/1.0
 descriptor|MD_SampleDimension|http://standards.iso.org/iso/19115/-3/mrc/1.0
 descriptor|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
-detectedPolarization|MD_Band|http://www.isotc211.org/2005/gmi
+detectedPolarization|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 detectedPolarization|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 dimensionName|MD_Dimension|http://standards.iso.org/iso/19115/-3/msr/1.0
 dimensionSize|MD_Dimension|http://standards.iso.org/iso/19115/-3/msr/1.0
@@ -427,6 +434,7 @@ direction|SV_Parameter|http://standards.iso.org/iso/19115/-3/srv/2.0
 disseminationConstraints|MD_Releasability|http://standards.iso.org/iso/19115/-3/mco/1.0
 distance|MD_Resolution|http://standards.iso.org/iso/19115/-3/mri/1.0
 distributedComputingPlatform|SV_OperationMetadata|http://standards.iso.org/iso/19115/-3/srv/2.0
+distributionFormat|MD_DigitalTransferOptions|http://standards.iso.org/iso/19115/-3/mrd/1.0
 distributionFormat|MD_Distribution|http://standards.iso.org/iso/19115/-3/mrd/1.0
 distributionInfo|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 distributionInfo|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
@@ -537,6 +545,7 @@ extent|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 facsimile|CI_Telephone|http://standards.iso.org/iso/19115/-3/cit/1.0
 featureCatalogueCitation|MD_FeatureCatalogueDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 featureInstanceCount|MD_FeatureTypeInfo|http://standards.iso.org/iso/19115/-3/mrc/1.0
+featureTypeInfo|MD_FeatureCatalogueDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 featureTypeName|MD_FeatureTypeInfo|http://standards.iso.org/iso/19115/-3/mrc/1.0
 featureTypes|MD_FeatureCatalogueDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 featureType|MX_DataFile|http://standards.iso.org/iso/19115/-3/gcx/1.0
@@ -621,6 +630,7 @@ lensDistortionInformationAvailability|MD_ImageDescription|http://standards.iso.o
 lensDistortionInformationAvailability|MI_ImageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 levelDescription|DQ_Scope|http://standards.iso.org/iso/19157/-2/dqc/1.0
 levelDescription|MD_Scope|http://standards.iso.org/iso/19115/-3/mmi/1.0
+levelOfDetail|MD_Resolution|http://standards.iso.org/iso/19115/-3/mri/1.0
 level|DQ_Scope|http://standards.iso.org/iso/19115/-3/mmi/1.0
 level|MD_Scope|http://standards.iso.org/iso/19115/-3/mmi/1.0
 lineage|DQ_DataQuality|http://standards.iso.org/iso/19157/-2/dqc/1.0
@@ -756,7 +766,7 @@ name|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 name|MI_RangeElementDescription|http://www.isotc211.org/2005/gmi
 name|SV_OperationChainMetadata|http://standards.iso.org/iso/19115/-3/srv/2.0
 name|SV_Parameter|http://standards.iso.org/iso/19115/-3/srv/2.0
-nominalSpatialResolution|MD_Band|http://www.isotc211.org/2005/gmi
+nominalSpatialResolution|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 nominalSpatialResolution|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 northBoundLatitude|EX_GeographicBoundingBox|http://standards.iso.org/iso/19115/-3/gex/1.0
 numberOfDimensions|MD_Georectified|http://standards.iso.org/iso/19115/-3/msr/1.0
@@ -1028,7 +1038,8 @@ topicCategory|MD_DataIdentification|http://standards.iso.org/iso/19115/-3/mri/1.
 topicCategory|MD_Identification|http://standards.iso.org/iso/19115/-3/mri/1.0
 topicCategory|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 topologyLevel|MD_VectorSpatialRepresentation|http://standards.iso.org/iso/19115/-3/msr/1.0
-transferFunctionType|MD_Band|http://www.isotc211.org/2005/gmi
+transferFrequency|MD_DigitalTransferOptions|http://standards.iso.org/iso/19115/-3/mrd/1.0
+transferFunctionType|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 transferFunctionType|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 transferOptions|MD_Distribution|http://standards.iso.org/iso/19115/-3/mrd/1.0
 transferSize|MD_DigitalTransferOptions|http://standards.iso.org/iso/19115/-3/mrd/1.0
@@ -1041,7 +1052,7 @@ transformationParameterAvailability|MD_Georeferenceable|http://standards.iso.org
 transformationParameterAvailability|MD_GridSpatialRepresentation|http://standards.iso.org/iso/19115/-3/msr/1.0
 transformationParameterAvailability|MI_Georectified|http://standards.iso.org/iso/19115/-3/msr/1.0
 transformationParameterAvailability|MI_Georeferenceable|http://standards.iso.org/iso/19115/-3/msr/1.0
-transmittedPolarization|MD_Band|http://www.isotc211.org/2005/gmi
+transmittedPolarization|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 transmittedPolarization|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 triangulationIndicator|MD_ImageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 triangulationIndicator|MI_ImageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
@@ -1076,6 +1087,7 @@ version|RS_Identifier|http://standards.iso.org/iso/19115/-3/mdb/1.0
 verticalCRS|EX_VerticalExtent|http://standards.iso.org/iso/19115/-3/gex/1.0
 verticalElement|EX_Extent|http://standards.iso.org/iso/19115/-3/gex/1.0
 verticalExtent|EX_SpatialTemporalExtent|http://standards.iso.org/iso/19115/-3/gex/1.0
+vertical|MD_Resolution|http://standards.iso.org/iso/19115/-3/mri/1.0
 voice|CI_Telephone|http://standards.iso.org/iso/19115/-3/cit/1.0
 volumes|MD_Medium|http://standards.iso.org/iso/19115/-3/mrd/1.0
 westBoundLongitude|EX_GeographicBoundingBox|http://standards.iso.org/iso/19115/-3/gex/1.0
