@@ -30,6 +30,8 @@ import org.opengis.metadata.lineage.Source;
 import org.opengis.metadata.lineage.Processing;
 import org.opengis.metadata.lineage.ProcessStep;
 import org.opengis.metadata.lineage.ProcessStepReport;
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.util.CheckedArrayList;
 import org.apache.sis.metadata.iso.ISOMetadata;
 import org.apache.sis.util.iso.Types;
 import org.apache.sis.xml.Namespaces;
@@ -64,6 +66,8 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.toMilliseconds;
     "rationale",
     "date",
     "processors",
+    "xmlReferences",			// ISO 19115-3
+    "xmlScope",				// ISO 19115-3
     "sources",
     "outputs",
     "processingInformation",
@@ -290,7 +294,6 @@ public class DefaultProcessStep extends ISOMetadata implements ProcessStep {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "reference")
     public Collection<Citation> getReferences() {
         return references = nonNullCollection(references, Citation.class);
     }
@@ -305,6 +308,18 @@ public class DefaultProcessStep extends ISOMetadata implements ProcessStep {
     public void setReferences(final Collection<? extends Citation> newValues){
         references = writeCollection(newValues, references, Citation.class);
     }
+    
+    /**
+	 * Gets references. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getReferences}
+	 */
+	@XmlElement(name = "reference")
+	private Collection<Citation> getXmlAdditionalDocumentation() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getReferences();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getReferences();
+	}
 
     /**
      * Returns the type of resource and / or extent to which the process step applies.
@@ -314,7 +329,6 @@ public class DefaultProcessStep extends ISOMetadata implements ProcessStep {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "scope")
     public Scope getScope() {
         return scope;
     }
@@ -330,6 +344,24 @@ public class DefaultProcessStep extends ISOMetadata implements ProcessStep {
         checkWritePermission();
         scope = newValue;
     }
+    
+    /**
+	 * Gets the scope. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getScope}
+	 */
+	@XmlElement(name = "scope")
+	private Scope getXmlScope() {
+		return MetadataInfo.is2003() ? null : getScope();
+	}
+
+	/**
+	 * Sets the scope. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #setScope}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlScope(final Scope newValue) {
+		setScope(newValue);
+	}
 
     /**
      * Returns the information about the source data used in creating the data specified by the scope.

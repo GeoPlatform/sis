@@ -17,19 +17,18 @@
 package org.apache.sis.metadata.iso.distribution;
 
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.InternationalString;
-import org.opengis.metadata.Identifier;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.metadata.iso.ISOMetadata;
 import org.opengis.metadata.distribution.DigitalTransferOptions;
 import org.opengis.metadata.distribution.Distribution;
 import org.opengis.metadata.distribution.Distributor;
 import org.opengis.metadata.distribution.Format;
-import org.apache.sis.internal.jaxb.MetadataInfo;
-import org.apache.sis.internal.jaxb.metadata.MD_Identifier;
-import org.apache.sis.metadata.iso.ISOMetadata;
+import org.opengis.util.InternationalString;
 
 
 /**

@@ -89,6 +89,7 @@
     @XmlJavaTypeAdapter(LI_Source.class),
     @XmlJavaTypeAdapter(MD_Identifier.class),
     @XmlJavaTypeAdapter(MD_RepresentativeFraction.class),
+    @XmlJavaTypeAdapter(MD_Scope.class),
 
     // Java types, primitive types and basic OGC types handling
     @XmlJavaTypeAdapter(GO_DateTime.class),
@@ -96,15 +97,27 @@
 })
 package org.apache.sis.metadata.iso.lineage;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlNs;
 import javax.xml.bind.annotation.XmlNsForm;
 import javax.xml.bind.annotation.XmlSchema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;
 
-import org.apache.sis.xml.Namespaces;
 import org.apache.sis.internal.jaxb.Schemas;
-import org.apache.sis.internal.jaxb.gco.*;
-import org.apache.sis.internal.jaxb.metadata.*;
+import org.apache.sis.internal.jaxb.gco.GO_DateTime;
+import org.apache.sis.internal.jaxb.gco.InternationalStringAdapter;
+import org.apache.sis.internal.jaxb.metadata.CI_Citation;
+import org.apache.sis.internal.jaxb.metadata.CI_Responsibility;
+import org.apache.sis.internal.jaxb.metadata.EX_Extent;
+import org.apache.sis.internal.jaxb.metadata.LE_Algorithm;
+import org.apache.sis.internal.jaxb.metadata.LE_NominalResolution;
+import org.apache.sis.internal.jaxb.metadata.LE_ProcessStepReport;
+import org.apache.sis.internal.jaxb.metadata.LE_Processing;
+import org.apache.sis.internal.jaxb.metadata.LI_ProcessStep;
+import org.apache.sis.internal.jaxb.metadata.LI_Source;
+import org.apache.sis.internal.jaxb.metadata.MD_Identifier;
+import org.apache.sis.internal.jaxb.metadata.MD_RepresentativeFraction;
+import org.apache.sis.internal.jaxb.metadata.MD_Scope;
+import org.apache.sis.xml.Namespaces;

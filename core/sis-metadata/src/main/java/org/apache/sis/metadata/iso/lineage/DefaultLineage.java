@@ -17,18 +17,22 @@
 package org.apache.sis.metadata.iso.lineage;
 
 import java.util.Collection;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import org.opengis.util.InternationalString;
-import org.opengis.metadata.citation.Citation;
-import org.opengis.metadata.maintenance.Scope;
-import org.opengis.metadata.lineage.Source;
-import org.opengis.metadata.lineage.Lineage;
-import org.opengis.metadata.lineage.ProcessStep;
-import org.opengis.metadata.maintenance.ScopeCode;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.util.CheckedArrayList;
 import org.apache.sis.metadata.iso.ISOMetadata;
 import org.apache.sis.metadata.iso.maintenance.DefaultScope;
+import org.opengis.metadata.citation.Citation;
+import org.opengis.metadata.lineage.Lineage;
+import org.opengis.metadata.lineage.ProcessStep;
+import org.opengis.metadata.lineage.Source;
+import org.opengis.metadata.maintenance.Scope;
+import org.opengis.metadata.maintenance.ScopeCode;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -49,17 +53,18 @@ import org.apache.sis.metadata.iso.maintenance.DefaultScope;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "LI_Lineage_Type", propOrder = {
     "statement",
-/// "scope",
-/// "additionalResource",
+	"xmlScope",						// ISO 19115-3
+	"xmlAdditionalDocumentation",	// ISO 19115-3
     "processSteps",
     "sources"
 })
@@ -180,7 +185,6 @@ public class DefaultLineage extends ISOMetadata implements Lineage {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "scope")
     public Scope getScope() {
         return scope;
     }
@@ -196,6 +200,24 @@ public class DefaultLineage extends ISOMetadata implements Lineage {
         checkWritePermission();
         scope = newValue;
     }
+    
+    /**
+	 * Gets the scope. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getScope}
+	 */
+	@XmlElement(name = "scope")
+	private Scope getXmlScope() {
+		return MetadataInfo.is2003() ? null : getScope();
+	}
+
+	/**
+	 * Sets the scope. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #setScope}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlScope(final Scope newValue) {
+		setScope(newValue);
+	}
 
     /**
      * Returns additional documentation.
@@ -205,7 +227,6 @@ public class DefaultLineage extends ISOMetadata implements Lineage {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "additionalDocumentation")
     public Collection<Citation> getAdditionalDocumentation() {
         return additionalDocumentation = nonNullCollection(additionalDocumentation, Citation.class);
     }
@@ -220,6 +241,18 @@ public class DefaultLineage extends ISOMetadata implements Lineage {
     public void setAdditionalDocumentation(final Collection<? extends Citation> newValues)  {
         additionalDocumentation = writeCollection(newValues, additionalDocumentation, Citation.class);
     }
+    
+    /**
+	 * Gets additional documentation. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getAdditionalDocumentation}
+	 */
+	@XmlElement(name = "additionalDocumentation")
+	private Collection<Citation> getXmlAdditionalDocumentation() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getAdditionalDocumentation();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getAdditionalDocumentation();
+	}
 
     /**
      * Returns the information about about events in the life of a resource specified by the scope.

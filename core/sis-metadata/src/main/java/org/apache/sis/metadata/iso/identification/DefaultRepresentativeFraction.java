@@ -16,33 +16,35 @@
  */
 package org.apache.sis.metadata.iso.identification;
 
+import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
+import static org.apache.sis.util.collection.Containers.isNullOrEmpty;
+
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlElement;
+
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import org.opengis.metadata.Identifier;
-import org.opengis.metadata.identification.RepresentativeFraction;
-import org.apache.sis.metadata.UnmodifiableMetadataException;
-import org.apache.sis.internal.jaxb.ModifiableIdentifierMap;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.apache.sis.internal.jaxb.IdentifierMapAdapter;
+import org.apache.sis.internal.jaxb.ModifiableIdentifierMap;
 import org.apache.sis.internal.jaxb.gco.GO_Integer64;
 import org.apache.sis.internal.metadata.MetadataUtilities;
 import org.apache.sis.internal.util.CheckedArrayList;
 import org.apache.sis.measure.ValueRange;
-import org.apache.sis.xml.IdentifierMap;
-import org.apache.sis.xml.IdentifierSpace;
-import org.apache.sis.xml.IdentifiedObject;
+import org.apache.sis.metadata.UnmodifiableMetadataException;
 import org.apache.sis.util.ArgumentChecks;
 import org.apache.sis.util.Emptiable;
 import org.apache.sis.util.resources.Errors;
-
-import static org.apache.sis.util.collection.Containers.isNullOrEmpty;
-import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
+import org.apache.sis.xml.IdentifiedObject;
+import org.apache.sis.xml.IdentifierMap;
+import org.apache.sis.xml.IdentifierSpace;
+import org.opengis.metadata.Identifier;
+import org.opengis.metadata.identification.RepresentativeFraction;
 
 
 /**
@@ -354,7 +356,6 @@ public class DefaultRepresentativeFraction extends Number implements Representat
      * Those identifiers are marshalled in XML as {@code id} or {@code uuid} attributes.
      */
     @Override
-    @SuppressWarnings("ReturnOfCollectionOrArrayField")
     public Collection<Identifier> getIdentifiers() {
         if (identifiers == null) {
             identifiers = new CheckedArrayList<>(Identifier.class);
@@ -406,7 +407,8 @@ public class DefaultRepresentativeFraction extends Number implements Representat
      *
      * @see org.apache.sis.metadata.iso.ISOMetadata#setID(String)
      */
-    private void setID(String id) {
+    @SuppressWarnings("unused")
+	private void setID(String id) {
         MetadataUtilities.setObjectID(this, id);
     }
 
@@ -426,7 +428,8 @@ public class DefaultRepresentativeFraction extends Number implements Representat
      *
      * @see org.apache.sis.metadata.iso.ISOMetadata#setUUID(String)
      */
-    private void setUUID(final String id) {
+    @SuppressWarnings("unused")
+	private void setUUID(final String id) {
         getIdentifierMap().put(IdentifierSpace.UUID, id);
     }
 }
