@@ -16,14 +16,16 @@
  */
 package org.apache.sis.metadata.iso.citation;
 
+import static java.util.Collections.singleton;
+import static org.apache.sis.test.Assert.assertXmlEquals;
+
 import javax.xml.bind.JAXBException;
-import org.opengis.metadata.citation.Role;
+
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.test.XMLTestCase;
 import org.apache.sis.xml.Namespaces;
 import org.junit.Test;
-
-import static java.util.Collections.singleton;
-import static org.apache.sis.test.Assert.*;
+import org.opengis.metadata.citation.Role;
 
 
 /**
@@ -46,8 +48,8 @@ public final strictfp class DefaultResponsibilityTest extends XMLTestCase {
         final DefaultResponsibility  r = new DefaultResponsibility(Role.AUTHOR, null, party);
         final DefaultCitation citation = new DefaultCitation();
         citation.setCitedResponsibleParties(singleton(r));
-        final String xml = marshal(citation);
-        assertXmlEquals("<gmd:CI_Citation xmlns:gco=\"" + Namespaces.GCO + '"' +
+        final String xml = marshal(citation, Namespaces.ISO_19139);
+        assertXmlEquals("<gmd:CI_Citation xmlns:gco=\"" + LegacyNamespaces.GCO + '"' +
                                         " xmlns:gmd=\"" + Namespaces.GMD + "\">\n" +
                 "  <gmd:citedResponsibleParty>\n" +
                 "    <gmd:CI_ResponsibleParty>\n" +

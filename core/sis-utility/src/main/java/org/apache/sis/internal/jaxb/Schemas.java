@@ -55,7 +55,7 @@ public final class Schemas {
     /**
      * The XSD definition for 193139 metadata objects.
      */
-    public static final String METADATA_XSD_OLD = "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd";
+    public static final String METADATA_XSD_BASE_LEGACY = "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd";
     
     /**
      * The XSD definition for the root of ISO 19115-3 metadata objects.
@@ -121,7 +121,7 @@ public final class Schemas {
      * The root directory of OGC metadata schemas.
      * This is the schema used by default in Apache SIS.
      */
-    public static final String METADATA_ROOT_OLD = "http://schemas.opengis.net/iso/19139/20070417/";
+    public static final String METADATA_ROOT_LEGACY = "http://schemas.opengis.net/iso/19139/20070417/";
     
     /**
      * The root directory of OGC metadata schemas.
@@ -131,12 +131,12 @@ public final class Schemas {
 
     /**
      * The root directory of ISO 19139 metadata schemas.
-     * This is sometime used as an alternative to {@link #METADATA_ROOT_OLD}.
+     * This is sometime used as an alternative to {@link #METADATA_ROOT_LEGACY}.
      */
     public static final String ISO_19139_ROOT = "http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/";
 
     /**
-     * The string to append to {@link #METADATA_ROOT_OLD} or {@link #ISO_19139_ROOT} for obtaining the path
+     * The string to append to {@link #METADATA_ROOT_LEGACY} or {@link #ISO_19139_ROOT} for obtaining the path
      * to the definitions of code lists.
      *
      * <p>A localized version of this file exists also with the {@code "ML_gmxCodelists.xml"} filename
@@ -144,7 +144,7 @@ public final class Schemas {
      *
      * @see <a href="https://issues.apache.org/jira/browse/SIS-154">SIS-154</a>
      */
-    public static final String CODELISTS_PATH_OLD = "resources/Codelist/gmxCodelists.xml";
+    public static final String CODELISTS_PATH_LEGACY = "resources/Codelist/gmxCodelists.xml";
     
     /**
      * The string to append to {@link #METADATA_ROOT} for obtaining the path to the definitions of code lists.
