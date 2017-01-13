@@ -247,7 +247,7 @@
   </mdb:contact>
   <mdb:dateInfo>
     <cit:date>
-      <gco:DateTime>2017-01-12T23:04:24.376+01:00</gco:DateTime>
+      <gco:DateTime>2017-01-13T15:42:52.960+01:00</gco:DateTime>
     </cit:date>
     <cit:dateType>
       <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -333,7 +333,7 @@
               <cit:date>
 <cit:CI_Date>
   <cit:date>
-    <gco:DateTime>2017-01-12T23:04:24.376+01:00</gco:DateTime>
+    <gco:DateTime>2017-01-13T15:42:52.960+01:00</gco:DateTime>
   </cit:date>
   <cit:dateType>
     <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -448,7 +448,7 @@
           <cit:date>
             <cit:CI_Date>
               <cit:date>
-<gco:DateTime>2017-01-12T23:04:24.486+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
               </cit:date>
               <cit:dateType>
 <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -459,7 +459,7 @@
             <gco:CharacterString>edition</gco:CharacterString>
           </cit:edition>
           <cit:editionDate>
-            <gco:DateTime>2017-01-12T23:04:24.486+01:00</gco:DateTime>
+            <gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
           </cit:editionDate>
         </cit:CI_Citation>
       </mri:citation>
@@ -506,7 +506,7 @@
           <mmi:maintenanceDate>
             <cit:CI_Date>
               <cit:date>
-<gco:DateTime>2017-01-12T23:04:24.487+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:42:53.068+01:00</gco:DateTime>
               </cit:date>
               <cit:dateType>
 <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="nextUpdate" codeSpace="eng">Next update</cit:CI_DateTypeCode>
@@ -655,7 +655,7 @@
               <cit:date>
 <cit:CI_Date>
   <cit:date>
-    <gco:DateTime>2017-01-12T23:04:24.486+01:00</gco:DateTime>
+    <gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
   </cit:date>
   <cit:dateType>
     <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -666,7 +666,7 @@
 <gco:CharacterString>edition</gco:CharacterString>
               </cit:edition>
               <cit:editionDate>
-<gco:DateTime>2017-01-12T23:04:24.486+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
               </cit:editionDate>
             </cit:CI_Citation>
           </mri:citation>
@@ -735,7 +735,7 @@
               <mmi:maintenanceDate>
 <cit:CI_Date>
   <cit:date>
-    <gco:DateTime>2017-01-12T23:04:24.487+01:00</gco:DateTime>
+    <gco:DateTime>2017-01-13T15:42:53.068+01:00</gco:DateTime>
   </cit:date>
   <cit:dateType>
     <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="nextUpdate" codeSpace="eng">Next update</cit:CI_DateTypeCode>
@@ -810,7 +810,7 @@
 <gco:CharacterString>specificUsage</gco:CharacterString>
               </mri:specificUsage>
               <mri:usageDateTime>
-<gco:DateTime>2017-01-12T23:04:24.493+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:42:53.073+01:00</gco:DateTime>
               </mri:usageDateTime>
               <mri:userDeterminedLimitations>
 <gco:CharacterString>userDeterminedLimitations</gco:CharacterString>
@@ -940,7 +940,7 @@
           <cit:date>
             <cit:CI_Date>
               <cit:date>
-<gco:DateTime>2017-01-12T23:04:24.486+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
               </cit:date>
               <cit:dateType>
 <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -951,7 +951,7 @@
             <gco:CharacterString>edition</gco:CharacterString>
           </cit:edition>
           <cit:editionDate>
-            <gco:DateTime>2017-01-12T23:04:24.486+01:00</gco:DateTime>
+            <gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
           </cit:editionDate>
         </cit:CI_Citation>
       </mri:citation>
@@ -1020,7 +1020,7 @@
           <mmi:maintenanceDate>
             <cit:CI_Date>
               <cit:date>
-<gco:DateTime>2017-01-12T23:04:24.487+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:42:53.068+01:00</gco:DateTime>
               </cit:date>
               <cit:dateType>
 <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="nextUpdate" codeSpace="eng">Next update</cit:CI_DateTypeCode>
@@ -1095,7 +1095,7 @@
             <gco:CharacterString>specificUsage</gco:CharacterString>
           </mri:specificUsage>
           <mri:usageDateTime>
-            <gco:DateTime>2017-01-12T23:04:24.493+01:00</gco:DateTime>
+            <gco:DateTime>2017-01-13T15:42:53.073+01:00</gco:DateTime>
           </mri:usageDateTime>
           <mri:userDeterminedLimitations>
             <gco:CharacterString>userDeterminedLimitations</gco:CharacterString>
@@ -1208,10 +1208,34 @@
     </mri:MD_DataIdentification>
   </mdb:identificationInfo>
   <mdb:contentInfo>
+    <mrc:MD_FeatureCatalogueDescription>
+      <mrc:complianceCode>
+        <gco:Boolean>true</gco:Boolean>
+      </mrc:complianceCode>
+      <mrc:includedWithDataset>
+        <gco:Boolean>true</gco:Boolean>
+      </mrc:includedWithDataset>
+    </mrc:MD_FeatureCatalogueDescription>
+  </mdb:contentInfo>
+  <mdb:contentInfo>
     <mrc:MD_CoverageDescription>
       <mrc:attributeDescription>
         <gco:RecordType/>
       </mrc:attributeDescription>
+      <mrc:attributeGroup>
+        <mrc:MD_AttributeGroup>
+          <mrc:attribute>
+            <mrc:MD_RangeDimension>
+              <mrc:description>
+<gco:CharacterString>descriptor</gco:CharacterString>
+              </mrc:description>
+              <mrc:name>
+<mcc:MD_Identifier/>
+              </mrc:name>
+            </mrc:MD_RangeDimension>
+          </mrc:attribute>
+        </mrc:MD_AttributeGroup>
+      </mrc:attributeGroup>
       <mrc:attributeGroup>
         <mrc:MD_AttributeGroup>
           <mrc:attribute>
@@ -1233,30 +1257,6 @@
           </mrc:attribute>
         </mrc:MD_AttributeGroup>
       </mrc:attributeGroup>
-      <mrc:attributeGroup>
-        <mrc:MD_AttributeGroup>
-          <mrc:attribute>
-            <mrc:MD_RangeDimension>
-              <mrc:description>
-<gco:CharacterString>descriptor</gco:CharacterString>
-              </mrc:description>
-              <mrc:name>
-<mcc:MD_Identifier/>
-              </mrc:name>
-            </mrc:MD_RangeDimension>
-          </mrc:attribute>
-        </mrc:MD_AttributeGroup>
-      </mrc:attributeGroup>
     </mrc:MD_CoverageDescription>
-  </mdb:contentInfo>
-  <mdb:contentInfo>
-    <mrc:MD_FeatureCatalogueDescription>
-      <mrc:complianceCode>
-        <gco:Boolean>true</gco:Boolean>
-      </mrc:complianceCode>
-      <mrc:includedWithDataset>
-        <gco:Boolean>true</gco:Boolean>
-      </mrc:includedWithDataset>
-    </mrc:MD_FeatureCatalogueDescription>
   </mdb:contentInfo>
 </mdb:MD_Metadata>

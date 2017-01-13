@@ -89,6 +89,7 @@
     @XmlJavaTypeAdapter(LI_Source.class),
     @XmlJavaTypeAdapter(MD_Identifier.class),
     @XmlJavaTypeAdapter(MD_RepresentativeFraction.class),
+    @XmlJavaTypeAdapter(MD_Resolution.class),
     @XmlJavaTypeAdapter(MD_Scope.class),
 
     // Java types, primitive types and basic OGC types handling
@@ -119,5 +120,6 @@ import org.apache.sis.internal.jaxb.metadata.LI_ProcessStep;
 import org.apache.sis.internal.jaxb.metadata.LI_Source;
 import org.apache.sis.internal.jaxb.metadata.MD_Identifier;
 import org.apache.sis.internal.jaxb.metadata.MD_RepresentativeFraction;
+import org.apache.sis.internal.jaxb.metadata.MD_Resolution;
 import org.apache.sis.internal.jaxb.metadata.MD_Scope;
 import org.apache.sis.xml.Namespaces;

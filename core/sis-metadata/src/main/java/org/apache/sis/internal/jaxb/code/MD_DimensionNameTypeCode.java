@@ -17,7 +17,6 @@
 package org.apache.sis.internal.jaxb.code;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 import org.apache.sis.internal.jaxb.gmd.CodeListAdapter;
 import org.apache.sis.internal.jaxb.gmd.CodeListUID;
@@ -36,7 +35,6 @@ import org.opengis.metadata.spatial.DimensionNameType;
  * @version 0.8
  * @module
  */
-@XmlType(namespace = Namespaces.MSR)
 public final class MD_DimensionNameTypeCode
         extends CodeListAdapter<MD_DimensionNameTypeCode, DimensionNameType>
 {
@@ -79,7 +77,7 @@ public final class MD_DimensionNameTypeCode
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MD_DimensionNameTypeCode")
+    @XmlElement(name = "MD_DimensionNameTypeCode", namespace = Namespaces.MSR)
     public CodeListUID getElement() {
         return identifier;
     }

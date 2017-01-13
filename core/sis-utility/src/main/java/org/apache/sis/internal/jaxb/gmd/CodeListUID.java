@@ -113,6 +113,7 @@ public final class CodeListUID {
 	/**
 	 * Default empty constructor for JAXB.
 	 */
+	@SuppressWarnings("unused")
 	private CodeListUID() {
 	}
 

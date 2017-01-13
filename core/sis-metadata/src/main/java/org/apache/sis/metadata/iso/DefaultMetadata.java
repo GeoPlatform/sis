@@ -134,7 +134,7 @@ import org.opengis.util.InternationalString;
 		"metadataExtensionInfo",		// ISO 191##
 		"identificationInfo",			// ISO 191##
 		"contentInfo",					// ISO 191##
-		"distributionInfo",
+		"distributionInfo",				// ISO 191##
 		"dataQualityInfo",
 		"portrayalCatalogueInfo",
 		"metadataConstraints",

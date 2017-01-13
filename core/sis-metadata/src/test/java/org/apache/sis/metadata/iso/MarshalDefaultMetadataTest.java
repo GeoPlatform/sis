@@ -1,6 +1,7 @@
 package org.apache.sis.metadata.iso;
 
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
 import java.net.URI;
@@ -19,7 +20,6 @@ import java.util.logging.LogRecord;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.internal.jaxb.gml.Measure;
 import org.apache.sis.internal.jaxb.gmx.Anchor;
 import org.apache.sis.internal.jaxb.metadata.replace.ReferenceSystemMetadata;
@@ -736,6 +736,7 @@ public class MarshalDefaultMetadataTest extends XMLTestCase implements WarningLi
 	public void warningOccured(final Object source, final LogRecord warning) {
 		assertNull(resourceKey);
 		assertNull(parameters);
+		// TODO: uncomment these and fix warnings
 		//assertNotNull(resourceKey = warning.getMessage());
 		//assertNotNull(parameters  = warning.getParameters());
 	}

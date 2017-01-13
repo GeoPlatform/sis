@@ -54,11 +54,12 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.toMilliseconds;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author  Cullen Rombach 		(Image Matters
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "LI_ProcessStep_Type", propOrder = {
@@ -66,7 +67,7 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.toMilliseconds;
     "rationale",
     "date",
     "processors",
-    "xmlReferences",			// ISO 19115-3
+    "xmlReferences",		// ISO 19115-3
     "xmlScope",				// ISO 19115-3
     "sources",
     "outputs",
@@ -314,7 +315,7 @@ public class DefaultProcessStep extends ISOMetadata implements ProcessStep {
 	 * @see {@link #getReferences}
 	 */
 	@XmlElement(name = "reference")
-	private Collection<Citation> getXmlAdditionalDocumentation() {
+	private Collection<Citation> getXmlReferences() {
 		if(MetadataInfo.isUnmarshalling()) {
 			return getReferences();
 		}

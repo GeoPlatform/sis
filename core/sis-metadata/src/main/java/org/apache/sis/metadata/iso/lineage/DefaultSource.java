@@ -33,6 +33,7 @@ import org.opengis.metadata.identification.Resolution;
 import org.opengis.metadata.identification.RepresentativeFraction;
 import org.opengis.metadata.maintenance.Scope;
 import org.opengis.referencing.ReferenceSystem;
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.metadata.iso.ISOMetadata;
 import org.apache.sis.metadata.iso.maintenance.DefaultScope;
 import org.apache.sis.metadata.iso.identification.DefaultResolution;
@@ -57,19 +58,21 @@ import org.apache.sis.xml.Namespaces;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "LI_Source_Type", propOrder = {
     "description",
-    "scaleDenominator",
+    "xmlScaleDenominator",			// ISO 19139
     "sourceCitation",
     "sourceExtents",
     "sourceSteps",
+    "xmlSourceSpatialResolution",	// ISO 19115-3
     "processedLevel",
     "resolution"
 })
@@ -219,7 +222,6 @@ public class DefaultSource extends ISOMetadata implements Source {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "sourceSpatialResolution")
     public Resolution getSourceSpatialResolution() {
         return sourceSpatialResolution;
     }
@@ -235,6 +237,24 @@ public class DefaultSource extends ISOMetadata implements Source {
         checkWritePermission();
         sourceSpatialResolution = newValue;
     }
+    
+    /**
+	 * Gets the source spatial resolution. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getSourceSpatialResolution}
+	 */
+    @XmlElement(name = "sourceSpatialResolution")
+	private Resolution getXmlSourceSpatialResolution() {
+		return MetadataInfo.is2003() ? null : getSourceSpatialResolution();
+	}
+
+	/**
+	 * Sets the source spatial resolution. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #setSourceSpatialResolution}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlSourceSpatialResolution(final Resolution newValue) {
+		setSourceSpatialResolution(newValue);
+	}
 
     /**
      * Returns the denominator of the representative fraction on a source map.
@@ -247,7 +267,6 @@ public class DefaultSource extends ISOMetadata implements Source {
      */
     @Override
     @Deprecated
-    @XmlElement(name = "scaleDenominator")
     public RepresentativeFraction getScaleDenominator() {
         final Resolution resolution = getSourceSpatialResolution();
         return (resolution != null) ? resolution.getEquivalentScale() : null;
@@ -280,6 +299,24 @@ public class DefaultSource extends ISOMetadata implements Source {
             setSourceSpatialResolution(resolution);
         }
     }
+    
+    /**
+	 * Gets the source spatial resolution. Used by JAXB (ISO 19139 format).
+	 * @see {@link #getScaleDenominator}
+	 */
+    @XmlElement(name = "scaleDenominator")
+	private RepresentativeFraction getXmlScaleDenominator() {
+		return MetadataInfo.is2014() ? null : getScaleDenominator();
+	}
+
+	/**
+	 * Sets the source spatial resolution. Used by JAXB (ISO 19139 format).
+	 * @see {@link #setScaleDenominator}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlScaleDenominator(final RepresentativeFraction newValue) {
+		setScaleDenominator(newValue);
+	}
 
     /**
      * Returns the spatial reference system used by the source data.
