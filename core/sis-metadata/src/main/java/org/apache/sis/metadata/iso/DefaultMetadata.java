@@ -113,7 +113,7 @@ import org.opengis.util.InternationalString;
 		"xmlDefaultLocale", 				// ISO 19115-3
 		"xmlLanguage", 						// ISO 19139
 		"xmlLanguageString",				// ISO 19139
-		"xmlCharacterSets",					// ISO 19139 TODO: (the ISO 19115-3 version may be broken)			
+		"xmlCharacterSets",					// ISO 19139 TODO: (ISO 19115-3 version may be broken, but seems to be working)			
 		"xmlParentMetadata", 				// ISO 19115-3
 		"xmlParentIdentifier", 				// ISO 19139
 		"xmlMetadataScopes", 				// ISO 19115-3
@@ -131,7 +131,7 @@ import org.opengis.util.InternationalString;
 		"xmlMetadataLinkages",				// ISO 19115-3
 		"xmlDataSetUri",					// ISO 19139 (moved into identificationInfo)
 		"xmlLocales",						// ISO 19139
-		"spatialRepresentationInfo",		// ISO 191##
+		"spatialRepresentationInfo",		// ISO 191## (both standards)
 		"referenceSystemInfo",				// ISO 191##
 		"metadataExtensionInfo",			// ISO 191##
 		"identificationInfo",				// ISO 191##

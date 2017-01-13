@@ -16,22 +16,26 @@
  */
 package org.apache.sis.metadata.iso.maintenance;
 
-import java.util.Set;
+import static org.apache.sis.util.collection.Containers.isNullOrEmpty;
+
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlType;
+import java.util.Set;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.util.InternationalString;
-import org.opengis.metadata.maintenance.ScopeCode;
-import org.opengis.metadata.maintenance.ScopeDescription;
-import org.apache.sis.metadata.iso.ISOMetadata;
-import org.apache.sis.internal.metadata.ExcludedSet;
+import javax.xml.bind.annotation.XmlType;
+
 import org.apache.sis.internal.jaxb.Context;
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.metadata.ExcludedSet;
 import org.apache.sis.internal.system.Semaphores;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.metadata.iso.ISOMetadata;
 import org.apache.sis.util.collection.CheckedContainer;
 import org.apache.sis.util.resources.Messages;
-
-import static org.apache.sis.util.collection.Containers.isNullOrEmpty;
+import org.opengis.metadata.maintenance.ScopeCode;
+import org.opengis.metadata.maintenance.ScopeDescription;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -52,10 +56,11 @@ import static org.apache.sis.util.collection.Containers.isNullOrEmpty;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_ScopeDescription_Type") // No need for propOrder since this structure is a union (see javadoc).
@@ -322,6 +327,18 @@ public class DefaultScopeDescription extends ISOMetadata implements ScopeDescrip
     public void setFeatures(final Set<? extends CharSequence> newValues) {
         setProperty(newValues, FEATURES);
     }
+    
+    /**
+   	 * Gets the features for this scope description (used in ISO 19115-3 format).
+   	 * @see {@link #getFeatures}
+   	 */
+   	@XmlElement(name = "features")
+   	private Collection<CharSequence> getXmlFeatures() {
+   		if(MetadataInfo.isUnmarshalling()) {
+   			return getFeatures();
+   		}
+   		return MetadataInfo.is2003() ? new CheckedArrayList<>(CharSequence.class) : getFeatures();
+   	}
 
     /**
      * Returns the attribute types to which the information applies.
@@ -355,6 +372,18 @@ public class DefaultScopeDescription extends ISOMetadata implements ScopeDescrip
     public void setAttributes(final Set<? extends CharSequence> newValues) {
         setProperty(newValues, ATTRIBUTES);
     }
+    
+    /**
+   	 * Gets the attributes for this scope description (used in ISO 19115-3 format).
+   	 * @see {@link #getAttributes}
+   	 */
+   	@XmlElement(name = "attributes")
+   	private Collection<CharSequence> getXmlAttributes() {
+   		if(MetadataInfo.isUnmarshalling()) {
+   			return getAttributes();
+   		}
+   		return MetadataInfo.is2003() ? new CheckedArrayList<>(CharSequence.class) : getAttributes();
+   	}
 
     /**
      * Returns the feature instances to which the information applies.
@@ -388,6 +417,18 @@ public class DefaultScopeDescription extends ISOMetadata implements ScopeDescrip
     public void setFeatureInstances(final Set<? extends CharSequence> newValues) {
         setProperty(newValues, FEATURE_INSTANCES);
     }
+    
+    /**
+   	 * Gets the featureInstances for this scope description (used in ISO 19115-3 format).
+   	 * @see {@link #getFeatureInstances}
+   	 */
+   	@XmlElement(name = "featureInstances")
+   	private Collection<CharSequence> getXmlFeatureInstances() {
+   		if(MetadataInfo.isUnmarshalling()) {
+   			return getFeatureInstances();
+   		}
+   		return MetadataInfo.is2003() ? new CheckedArrayList<>(CharSequence.class) : getFeatureInstances();
+   	}
 
     /**
      * Returns the attribute instances to which the information applies.
@@ -421,6 +462,18 @@ public class DefaultScopeDescription extends ISOMetadata implements ScopeDescrip
     public void setAttributeInstances(final Set<? extends CharSequence> newValues) {
         setProperty(newValues, ATTRIBUTE_INSTANCES);
     }
+    
+    /**
+   	 * Gets the attributeInstances for this scope description (used in ISO 19115-3 format).
+   	 * @see {@link #getAttributeInstances}
+   	 */
+   	@XmlElement(name = "attributeInstances")
+   	private Collection<CharSequence> getXmlAttributeInstances() {
+   		if(MetadataInfo.isUnmarshalling()) {
+   			return getAttributeInstances();
+   		}
+   		return MetadataInfo.is2003() ? new CheckedArrayList<>(CharSequence.class) : getAttributeInstances();
+   	}
 
     /**
      * Returns the class of information that does not fall into the other categories to which the information applies.

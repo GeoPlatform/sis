@@ -157,8 +157,8 @@ public class MarshalDefaultMetadataTest extends XMLTestCase implements WarningLi
 	/**
 	 * The output file to which the DefaultMetadata object will be marshaled.
 	 */
-	private final File outputNew = new File("src/test/resources/org/apache/sis/metadata/iso/generated19115Metadata.xml");
-	private final File outputOld = new File("src/test/resources/org/apache/sis/metadata/iso/generated19139Metadata.xml");
+	private final File output191153 = new File("src/test/resources/org/apache/sis/metadata/iso/generated19115Metadata.xml");
+	private final File output19139 = new File("src/test/resources/org/apache/sis/metadata/iso/generated19139Metadata.xml");
 
 	@Before
 	public void setUp() {
@@ -702,10 +702,10 @@ public class MarshalDefaultMetadataTest extends XMLTestCase implements WarningLi
 		// Write the metadata to both ISO standards.
 		System.out.println("_MARSHALLING 19115-3_");
 		marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19115_3);
-		marshaller.marshal(md, outputNew);
+		marshaller.marshal(md, output191153);
 		System.out.println("_MARSHALLING 19139_");
 		marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
-		marshaller.marshal(md, outputOld);
+		marshaller.marshal(md, output19139);
 	}
 
 	@After

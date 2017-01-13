@@ -19,10 +19,12 @@ package org.apache.sis.metadata.iso.lineage;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import org.opengis.metadata.lineage.ProcessStepReport;
-import org.opengis.util.InternationalString;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.metadata.iso.ISOMetadata;
 import org.apache.sis.xml.Namespaces;
+import org.opengis.metadata.lineage.ProcessStepReport;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -37,18 +39,24 @@ import org.apache.sis.xml.Namespaces;
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
  *
- * @author  Cédric Briançon (Geomatys)
- * @author  Guilhem Legal (Geomatys)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Guilhem Legal 		(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.3
+ * @version 0.8
  * @module
  */
 @XmlType(name = "LE_ProcessStepReport_Type", propOrder = {
-    "name",
-    "description",
-    "fileType"
+    "xmlName",				// ISO 19115-3
+    "xmlNameLegacy",		// ISO 19139
+    "xmlDescription",		// ISO 19115-3
+    "xmlDescriptionLegacy",	// ISO 19139
+    "xmlFileType",			// ISO 19115-3
+    "xmlFileTypeLegacy"		// ISO 19139
 })
+// Namespace should be GMI in ISO 19139, but namespace needs to be a constant so no way to switch on the fly.
+// TODO: GMI namespace doesn't exist in ISO 19115-3. Resolve this issue.
 @XmlRootElement(name = "LE_ProcessStepReport", namespace = Namespaces.GMI)
 public class DefaultProcessStepReport extends ISOMetadata implements ProcessStepReport {
     /**
@@ -126,7 +134,6 @@ public class DefaultProcessStepReport extends ISOMetadata implements ProcessStep
      * @return Name of the processing report, or {@code null}.
      */
     @Override
-    @XmlElement(name = "name", namespace = Namespaces.GMI, required = true)
     public InternationalString getName() {
         return name;
     }
@@ -140,6 +147,33 @@ public class DefaultProcessStepReport extends ISOMetadata implements ProcessStep
         checkWritePermission();
         name = newValue;
     }
+    
+    /**
+	 * Gets the name. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getName}
+	 */
+    @XmlElement(name = "name", required = true)
+	private InternationalString getXmlName() {
+		return MetadataInfo.is2003() ? null : getName();
+	}
+
+	/**
+	 * Sets the name. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #setName}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlName(final InternationalString newValue) {
+		setName(newValue);
+	}
+	
+	/**
+	 * Gets the name. Used by JAXB (ISO 19139 format).
+	 * @see {@link #getName}
+	 */
+    @XmlElement(name = "name", namespace = Namespaces.GMI)
+	private InternationalString getXmlNameLegacy() {
+		return MetadataInfo.is2014() ? null : getName();
+	}
 
     /**
      * Returns the textual description of what occurred during the process step.
@@ -147,7 +181,6 @@ public class DefaultProcessStepReport extends ISOMetadata implements ProcessStep
      * @return What occurred during the process step, or {@code null}.
      */
     @Override
-    @XmlElement(name = "description", namespace = Namespaces.GMI)
     public InternationalString getDescription() {
         return description;
     }
@@ -161,6 +194,33 @@ public class DefaultProcessStepReport extends ISOMetadata implements ProcessStep
         checkWritePermission();
         description = newValue;
     }
+    
+    /**
+	 * Gets the description. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getDescription}
+	 */
+    @XmlElement(name = "description")
+	private InternationalString getXmlDescription() {
+		return MetadataInfo.is2003() ? null : getDescription();
+	}
+
+	/**
+	 * Sets the description. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #setDescription}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlDescription(final InternationalString newValue) {
+		setDescription(newValue);
+	}
+	
+	/**
+	 * Gets the description. Used by JAXB (ISO 19139 format).
+	 * @see {@link #getDescription}
+	 */
+    @XmlElement(name = "description", namespace = Namespaces.GMI)
+	private InternationalString getXmlDescriptionLegacy() {
+		return MetadataInfo.is2014() ? null : getDescription();
+	}
 
     /**
      * Returns the type of file that contains the processing report.
@@ -168,7 +228,6 @@ public class DefaultProcessStepReport extends ISOMetadata implements ProcessStep
      * @return Type of file that contains the processing report, or {@code null}.
      */
     @Override
-    @XmlElement(name = "fileType", namespace = Namespaces.GMI)
     public InternationalString getFileType() {
         return fileType;
     }
@@ -182,4 +241,31 @@ public class DefaultProcessStepReport extends ISOMetadata implements ProcessStep
         checkWritePermission();
         fileType = newValue;
     }
+    
+    /**
+	 * Gets the fileType. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getFileType}
+	 */
+    @XmlElement(name = "fileType")
+	private InternationalString getXmlFileType() {
+		return MetadataInfo.is2003() ? null : getFileType();
+	}
+
+	/**
+	 * Sets the fileType. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #setFileType}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlFileType(final InternationalString newValue) {
+		setFileType(newValue);
+	}
+	
+	/**
+	 * Gets the fileType. Used by JAXB (ISO 19139 format).
+	 * @see {@link #getFileType}
+	 */
+    @XmlElement(name = "fileType", namespace = Namespaces.GMI)
+	private InternationalString getXmlFileTypeLegacy() {
+		return MetadataInfo.is2014() ? null : getFileType();
+	}
 }

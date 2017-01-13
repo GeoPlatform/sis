@@ -88,7 +88,8 @@
     // Java types, primitive types and basic OGC types handling
     @XmlJavaTypeAdapter(GO_DateTime.class),
     @XmlJavaTypeAdapter(StringAdapter.class),
-    @XmlJavaTypeAdapter(InternationalStringAdapter.class)
+    @XmlJavaTypeAdapter(InternationalStringAdapter.class),
+    @XmlJavaTypeAdapter(CharSequenceAdapter.class)
 })
 package org.apache.sis.metadata.iso.maintenance;
 
@@ -103,6 +104,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;
 import org.apache.sis.internal.jaxb.Schemas;
 import org.apache.sis.internal.jaxb.code.MD_MaintenanceFrequencyCode;
 import org.apache.sis.internal.jaxb.code.MD_ScopeCode;
+import org.apache.sis.internal.jaxb.gco.CharSequenceAdapter;
 import org.apache.sis.internal.jaxb.gco.GO_DateTime;
 import org.apache.sis.internal.jaxb.gco.InternationalStringAdapter;
 import org.apache.sis.internal.jaxb.gco.StringAdapter;

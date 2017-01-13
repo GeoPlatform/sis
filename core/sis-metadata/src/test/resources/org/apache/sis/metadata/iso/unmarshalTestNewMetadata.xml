@@ -245,6 +245,16 @@
       </cit:party>
     </cit:CI_Responsibility>
   </mdb:contact>
+  <mdb:dateInfo>
+    <cit:CI_Date>
+      <cit:date>
+        <gco:DateTime>2017-01-13T21:48:17.529+01:00</gco:DateTime>
+      </cit:date>
+      <cit:dateType>
+        <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
+      </cit:dateType>
+    </cit:CI_Date>
+  </mdb:dateInfo>
   <mdb:metadataStandard>
     <cit:CI_Citation>
       <cit:title>
@@ -325,7 +335,7 @@
               <cit:date>
 <cit:CI_Date>
   <cit:date>
-    <gco:DateTime>2017-01-13T15:56:35.836+01:00</gco:DateTime>
+    <gco:DateTime>2017-01-13T21:48:17.529+01:00</gco:DateTime>
   </cit:date>
   <cit:dateType>
     <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -425,6 +435,289 @@
     </mex:MD_MetadataExtensionInformation>
   </mdb:metadataExtensionInfo>
   <mdb:identificationInfo>
+    <mri:MD_DataIdentification>
+      <mri:citation>
+        <cit:CI_Citation>
+          <cit:title>
+            <gco:CharacterString>citationTitle</gco:CharacterString>
+          </cit:title>
+          <cit:alternateTitle>
+            <gcx:Anchor xlink:href="http://example.com">alternateTitle</gcx:Anchor>
+          </cit:alternateTitle>
+          <cit:alternateTitle>
+            <gco:CharacterString>alternateTitle</gco:CharacterString>
+          </cit:alternateTitle>
+          <cit:date>
+            <cit:CI_Date>
+              <cit:date>
+<gco:DateTime>2017-01-13T21:48:17.614+01:00</gco:DateTime>
+              </cit:date>
+              <cit:dateType>
+<cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
+              </cit:dateType>
+            </cit:CI_Date>
+          </cit:date>
+          <cit:edition>
+            <gco:CharacterString>edition</gco:CharacterString>
+          </cit:edition>
+          <cit:editionDate>
+            <gco:DateTime>2017-01-13T21:48:17.614+01:00</gco:DateTime>
+          </cit:editionDate>
+        </cit:CI_Citation>
+      </mri:citation>
+      <mri:abstract>
+        <gco:CharacterString>abstract</gco:CharacterString>
+      </mri:abstract>
+      <mri:purpose>
+        <gco:CharacterString>purpose</gco:CharacterString>
+      </mri:purpose>
+      <mri:status>
+        <mdb:MD_ProgressCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ProgressCode" codeListValue="accepted" codeSpace="eng">Accepted</mdb:MD_ProgressCode>
+      </mri:status>
+      <mri:pointOfContact>
+        <cit:CI_Responsibility/>
+      </mri:pointOfContact>
+      <mri:spatialRepresentationType>
+        <mdb:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="grid">Grid</mdb:MD_SpatialRepresentationTypeCode>
+      </mri:spatialRepresentationType>
+      <mri:spatialResolution>
+        <mri:MD_Resolution>
+          <mri:distance>
+            <gco:Distance uom="http://schemas.opengis.net/iso/19139/20070417/resources/uom/gmxUom.xml#xpointer(//*[@gml:id='m'])">56777.0</gco:Distance>
+          </mri:distance>
+        </mri:MD_Resolution>
+      </mri:spatialResolution>
+      <mri:topicCategory>
+        <mdb:MD_TopicCategoryCode>farming</mdb:MD_TopicCategoryCode>
+      </mri:topicCategory>
+      <mri:topicCategory>
+        <mdb:MD_TopicCategoryCode>oceans</mdb:MD_TopicCategoryCode>
+      </mri:topicCategory>
+      <mri:extent>
+        <gex:EX_Extent>
+          <gex:description>
+            <gco:CharacterString>description</gco:CharacterString>
+          </gex:description>
+          <gex:geographicElement>
+            <gex:EX_GeographicBoundingBox>
+              <gex:extentTypeCode>
+<gco:Boolean>true</gco:Boolean>
+              </gex:extentTypeCode>
+              <gex:westBoundLongitude>
+<gco:Decimal>11.11</gco:Decimal>
+              </gex:westBoundLongitude>
+              <gex:eastBoundLongitude>
+<gco:Decimal>11.11</gco:Decimal>
+              </gex:eastBoundLongitude>
+              <gex:southBoundLatitude>
+<gco:Decimal>11.11</gco:Decimal>
+              </gex:southBoundLatitude>
+              <gex:northBoundLatitude>
+<gco:Decimal>11.11</gco:Decimal>
+              </gex:northBoundLatitude>
+            </gex:EX_GeographicBoundingBox>
+          </gex:geographicElement>
+          <gex:temporalElement>
+            <gex:EX_TemporalExtent/>
+          </gex:temporalElement>
+        </gex:EX_Extent>
+      </mri:extent>
+      <mri:resourceMaintenance>
+        <mmi:MD_MaintenanceInformation>
+          <mmi:maintenanceAndUpdateFrequency>
+            <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="annually" codeSpace="eng">Annually</mmi:MD_MaintenanceFrequencyCode>
+          </mmi:maintenanceAndUpdateFrequency>
+          <mmi:maintenanceDate>
+            <cit:CI_Date>
+              <cit:date>
+<gco:DateTime>2017-01-13T21:48:17.614+01:00</gco:DateTime>
+              </cit:date>
+              <cit:dateType>
+<cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="nextUpdate" codeSpace="eng">Next update</cit:CI_DateTypeCode>
+              </cit:dateType>
+            </cit:CI_Date>
+          </mmi:maintenanceDate>
+          <mmi:maintenanceScope>
+            <mmi:MD_Scope>
+              <mmi:level>
+<mcc:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="application" codeSpace="eng">Application</mcc:MD_ScopeCode>
+              </mmi:level>
+              <mmi:levelDescription>
+<mmi:MD_ScopeDescription>
+  <mmi:dataset>
+    <gco:CharacterString>dataset</gco:CharacterString>
+  </mmi:dataset>
+</mmi:MD_ScopeDescription>
+              </mmi:levelDescription>
+            </mmi:MD_Scope>
+          </mmi:maintenanceScope>
+        </mmi:MD_MaintenanceInformation>
+      </mri:resourceMaintenance>
+      <mri:resourceFormat>
+        <mrd:MD_Format>
+          <mrd:formatSpecificationCitation>
+            <cit:CI_Citation>
+              <cit:title>
+<gco:CharacterString>specification</gco:CharacterString>
+              </cit:title>
+              <cit:alternateTitle>
+<gco:CharacterString>name</gco:CharacterString>
+              </cit:alternateTitle>
+              <cit:edition>
+<gco:CharacterString>version</gco:CharacterString>
+              </cit:edition>
+            </cit:CI_Citation>
+          </mrd:formatSpecificationCitation>
+          <mrd:amendmentNumber>
+            <gco:CharacterString>amendmentNumber</gco:CharacterString>
+          </mrd:amendmentNumber>
+          <mrd:fileDecompressionTechnique>
+            <gco:CharacterString>decompressionTechnique</gco:CharacterString>
+          </mrd:fileDecompressionTechnique>
+        </mrd:MD_Format>
+      </mri:resourceFormat>
+      <mri:descriptiveKeywords>
+        <mri:MD_Keywords>
+          <mri:keyword>
+            <gco:CharacterString>keyword2</gco:CharacterString>
+          </mri:keyword>
+          <mri:keyword>
+            <gco:CharacterString>keyword1</gco:CharacterString>
+          </mri:keyword>
+          <mri:type>
+            <mdb:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme" codeSpace="eng">Theme</mdb:MD_KeywordTypeCode>
+          </mri:type>
+          <mri:thesaurusName>
+            <cit:CI_Citation/>
+          </mri:thesaurusName>
+          <mri:keywordClass>
+            <mri:MD_KeywordClass>
+              <mri:className>
+<gco:CharacterString>name</gco:CharacterString>
+              </mri:className>
+            </mri:MD_KeywordClass>
+          </mri:keywordClass>
+        </mri:MD_Keywords>
+      </mri:descriptiveKeywords>
+      <mri:resourceSpecificUsage>
+        <mri:MD_Usage>
+          <mri:specificUsage>
+            <gco:CharacterString>specificUsage</gco:CharacterString>
+          </mri:specificUsage>
+          <mri:usageDateTime>
+            <gco:DateTime>2017-01-13T21:48:17.620+01:00</gco:DateTime>
+          </mri:usageDateTime>
+          <mri:userDeterminedLimitations>
+            <gco:CharacterString>userDeterminedLimitations</gco:CharacterString>
+          </mri:userDeterminedLimitations>
+          <mri:userContactInfo>
+            <cit:CI_Responsibility/>
+          </mri:userContactInfo>
+          <mri:response>
+            <gco:CharacterString>response</gco:CharacterString>
+          </mri:response>
+          <mri:additionalDocumentation>
+            <cit:CI_Citation/>
+          </mri:additionalDocumentation>
+          <mri:identifiedIssues>
+            <cit:CI_Citation/>
+          </mri:identifiedIssues>
+        </mri:MD_Usage>
+      </mri:resourceSpecificUsage>
+      <mri:resourceConstraints>
+        <mco:MD_Constraints>
+          <mco:useLimitation>
+            <gco:CharacterString>useLimitation</gco:CharacterString>
+          </mco:useLimitation>
+          <mco:constraintApplicationScope>
+            <mmi:MD_Scope>
+              <mmi:level>
+<mcc:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="application" codeSpace="eng">Application</mcc:MD_ScopeCode>
+              </mmi:level>
+            </mmi:MD_Scope>
+          </mco:constraintApplicationScope>
+          <mco:graphic>
+            <mcc:MD_BrowseGraphic>
+              <mcc:fileName>
+<gco:CharacterString>filename.png</gco:CharacterString>
+              </mcc:fileName>
+              <mcc:fileDescription>
+<gco:CharacterString>description</gco:CharacterString>
+              </mcc:fileDescription>
+              <mcc:fileType>
+<gcx:MimeFileType type="fileType">fileType</gcx:MimeFileType>
+              </mcc:fileType>
+              <mcc:linkage>
+<cit:CI_OnlineResource/>
+              </mcc:linkage>
+              <mcc:imageConstraints>
+<mco:MD_Constraints/>
+              </mcc:imageConstraints>
+            </mcc:MD_BrowseGraphic>
+          </mco:graphic>
+          <mco:reference>
+            <cit:CI_Citation/>
+          </mco:reference>
+          <mco:releasability>
+            <mco:MD_Releasability>
+              <mco:statement>
+<gco:CharacterString>statement</gco:CharacterString>
+              </mco:statement>
+            </mco:MD_Releasability>
+          </mco:releasability>
+          <mco:responsibleParty>
+            <cit:CI_Responsibility/>
+          </mco:responsibleParty>
+        </mco:MD_Constraints>
+      </mri:resourceConstraints>
+      <mri:associatedResource>
+        <mri:MD_AssociatedResource>
+          <mri:name>
+            <cit:CI_Citation/>
+          </mri:name>
+          <mri:associationType>
+            <mri:DS_AssociationTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#DS_AssociationTypeCode" codeListValue="dependency" codeSpace="eng">Dependency</mri:DS_AssociationTypeCode>
+          </mri:associationType>
+          <mri:initiativeType>
+            <mri:DS_InitiativeTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#DS_InitiativeTypeCode" codeListValue="experiment">Experiment</mri:DS_InitiativeTypeCode>
+          </mri:initiativeType>
+        </mri:MD_AssociatedResource>
+      </mri:associatedResource>
+      <mri:defaultLocale>
+        <lan:PT_Locale>
+          <lan:language>
+            <lan:LanguageCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#LanguageCode" codeListValue="eng" codeSpace="eng">English</lan:LanguageCode>
+          </lan:language>
+          <lan:country>
+            <lan:CountryCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#Country" codeListValue="US" codeSpace="eng">United States</lan:CountryCode>
+          </lan:country>
+          <lan:characterEncoding>
+            <lan:MD_CharacterSetCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="eng">UTF-8</lan:MD_CharacterSetCode>
+          </lan:characterEncoding>
+        </lan:PT_Locale>
+      </mri:defaultLocale>
+      <mri:otherLocale>
+        <lan:PT_Locale>
+          <lan:language>
+            <lan:LanguageCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#LanguageCode" codeListValue="ger" codeSpace="eng">German</lan:LanguageCode>
+          </lan:language>
+          <lan:country>
+            <lan:CountryCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#Country" codeListValue="DE" codeSpace="eng">Germany</lan:CountryCode>
+          </lan:country>
+          <lan:characterEncoding>
+            <lan:MD_CharacterSetCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="eng">UTF-8</lan:MD_CharacterSetCode>
+          </lan:characterEncoding>
+        </lan:PT_Locale>
+      </mri:otherLocale>
+      <mri:environmentDescription>
+        <gco:CharacterString>environmentDescription</gco:CharacterString>
+      </mri:environmentDescription>
+      <mri:supplementalInformation>
+        <gco:CharacterString>supplementalInformation</gco:CharacterString>
+      </mri:supplementalInformation>
+    </mri:MD_DataIdentification>
+  </mdb:identificationInfo>
+  <mdb:identificationInfo>
     <srv:SV_ServiceIdentification>
       <mri:citation>
         <cit:CI_Citation>
@@ -440,7 +733,7 @@
           <cit:date>
             <cit:CI_Date>
               <cit:date>
-<gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T21:48:17.614+01:00</gco:DateTime>
               </cit:date>
               <cit:dateType>
 <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -451,7 +744,7 @@
             <gco:CharacterString>edition</gco:CharacterString>
           </cit:edition>
           <cit:editionDate>
-            <gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
+            <gco:DateTime>2017-01-13T21:48:17.614+01:00</gco:DateTime>
           </cit:editionDate>
         </cit:CI_Citation>
       </mri:citation>
@@ -498,7 +791,7 @@
           <mmi:maintenanceDate>
             <cit:CI_Date>
               <cit:date>
-<gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T21:48:17.614+01:00</gco:DateTime>
               </cit:date>
               <cit:dateType>
 <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="nextUpdate" codeSpace="eng">Next update</cit:CI_DateTypeCode>
@@ -647,7 +940,7 @@
               <cit:date>
 <cit:CI_Date>
   <cit:date>
-    <gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
+    <gco:DateTime>2017-01-13T21:48:17.614+01:00</gco:DateTime>
   </cit:date>
   <cit:dateType>
     <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -658,7 +951,7 @@
 <gco:CharacterString>edition</gco:CharacterString>
               </cit:edition>
               <cit:editionDate>
-<gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T21:48:17.614+01:00</gco:DateTime>
               </cit:editionDate>
             </cit:CI_Citation>
           </mri:citation>
@@ -727,7 +1020,7 @@
               <mmi:maintenanceDate>
 <cit:CI_Date>
   <cit:date>
-    <gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
+    <gco:DateTime>2017-01-13T21:48:17.614+01:00</gco:DateTime>
   </cit:date>
   <cit:dateType>
     <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="nextUpdate" codeSpace="eng">Next update</cit:CI_DateTypeCode>
@@ -802,7 +1095,7 @@
 <gco:CharacterString>specificUsage</gco:CharacterString>
               </mri:specificUsage>
               <mri:usageDateTime>
-<gco:DateTime>2017-01-13T15:56:35.933+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T21:48:17.620+01:00</gco:DateTime>
               </mri:usageDateTime>
               <mri:userDeterminedLimitations>
 <gco:CharacterString>userDeterminedLimitations</gco:CharacterString>
@@ -916,294 +1209,35 @@
       </srv:operatesOn>
     </srv:SV_ServiceIdentification>
   </mdb:identificationInfo>
-  <mdb:identificationInfo>
-    <mri:MD_DataIdentification>
-      <mri:citation>
-        <cit:CI_Citation>
-          <cit:title>
-            <gco:CharacterString>citationTitle</gco:CharacterString>
-          </cit:title>
-          <cit:alternateTitle>
-            <gcx:Anchor xlink:href="http://example.com">alternateTitle</gcx:Anchor>
-          </cit:alternateTitle>
-          <cit:alternateTitle>
-            <gco:CharacterString>alternateTitle</gco:CharacterString>
-          </cit:alternateTitle>
-          <cit:date>
-            <cit:CI_Date>
-              <cit:date>
-<gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
-              </cit:date>
-              <cit:dateType>
-<cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
-              </cit:dateType>
-            </cit:CI_Date>
-          </cit:date>
-          <cit:edition>
-            <gco:CharacterString>edition</gco:CharacterString>
-          </cit:edition>
-          <cit:editionDate>
-            <gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
-          </cit:editionDate>
-        </cit:CI_Citation>
-      </mri:citation>
-      <mri:abstract>
-        <gco:CharacterString>abstract</gco:CharacterString>
-      </mri:abstract>
-      <mri:purpose>
-        <gco:CharacterString>purpose</gco:CharacterString>
-      </mri:purpose>
-      <mri:status>
-        <mdb:MD_ProgressCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ProgressCode" codeListValue="accepted" codeSpace="eng">Accepted</mdb:MD_ProgressCode>
-      </mri:status>
-      <mri:pointOfContact>
-        <cit:CI_Responsibility/>
-      </mri:pointOfContact>
-      <mri:spatialRepresentationType>
-        <mdb:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="grid">Grid</mdb:MD_SpatialRepresentationTypeCode>
-      </mri:spatialRepresentationType>
-      <mri:spatialResolution>
-        <mri:MD_Resolution>
-          <mri:distance>
-            <gco:Distance uom="http://schemas.opengis.net/iso/19139/20070417/resources/uom/gmxUom.xml#xpointer(//*[@gml:id='m'])">56777.0</gco:Distance>
-          </mri:distance>
-        </mri:MD_Resolution>
-      </mri:spatialResolution>
-      <mri:topicCategory>
-        <mdb:MD_TopicCategoryCode>farming</mdb:MD_TopicCategoryCode>
-      </mri:topicCategory>
-      <mri:topicCategory>
-        <mdb:MD_TopicCategoryCode>oceans</mdb:MD_TopicCategoryCode>
-      </mri:topicCategory>
-      <mri:extent>
-        <gex:EX_Extent>
-          <gex:description>
-            <gco:CharacterString>description</gco:CharacterString>
-          </gex:description>
-          <gex:geographicElement>
-            <gex:EX_GeographicBoundingBox>
-              <gex:extentTypeCode>
-<gco:Boolean>true</gco:Boolean>
-              </gex:extentTypeCode>
-              <gex:westBoundLongitude>
-<gco:Decimal>11.11</gco:Decimal>
-              </gex:westBoundLongitude>
-              <gex:eastBoundLongitude>
-<gco:Decimal>11.11</gco:Decimal>
-              </gex:eastBoundLongitude>
-              <gex:southBoundLatitude>
-<gco:Decimal>11.11</gco:Decimal>
-              </gex:southBoundLatitude>
-              <gex:northBoundLatitude>
-<gco:Decimal>11.11</gco:Decimal>
-              </gex:northBoundLatitude>
-            </gex:EX_GeographicBoundingBox>
-          </gex:geographicElement>
-          <gex:temporalElement>
-            <gex:EX_TemporalExtent/>
-          </gex:temporalElement>
-        </gex:EX_Extent>
-      </mri:extent>
-      <mri:resourceMaintenance>
-        <mmi:MD_MaintenanceInformation>
-          <mmi:maintenanceAndUpdateFrequency>
-            <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="annually" codeSpace="eng">Annually</mmi:MD_MaintenanceFrequencyCode>
-          </mmi:maintenanceAndUpdateFrequency>
-          <mmi:maintenanceDate>
-            <cit:CI_Date>
-              <cit:date>
-<gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
-              </cit:date>
-              <cit:dateType>
-<cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="nextUpdate" codeSpace="eng">Next update</cit:CI_DateTypeCode>
-              </cit:dateType>
-            </cit:CI_Date>
-          </mmi:maintenanceDate>
-          <mmi:maintenanceScope>
-            <mmi:MD_Scope>
-              <mmi:level>
-<mcc:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="application" codeSpace="eng">Application</mcc:MD_ScopeCode>
-              </mmi:level>
-              <mmi:levelDescription>
-<mmi:MD_ScopeDescription>
-  <mmi:dataset>
-    <gco:CharacterString>dataset</gco:CharacterString>
-  </mmi:dataset>
-</mmi:MD_ScopeDescription>
-              </mmi:levelDescription>
-            </mmi:MD_Scope>
-          </mmi:maintenanceScope>
-        </mmi:MD_MaintenanceInformation>
-      </mri:resourceMaintenance>
-      <mri:resourceFormat>
-        <mrd:MD_Format>
-          <mrd:formatSpecificationCitation>
-            <cit:CI_Citation>
-              <cit:title>
-<gco:CharacterString>specification</gco:CharacterString>
-              </cit:title>
-              <cit:alternateTitle>
-<gco:CharacterString>name</gco:CharacterString>
-              </cit:alternateTitle>
-              <cit:edition>
-<gco:CharacterString>version</gco:CharacterString>
-              </cit:edition>
-            </cit:CI_Citation>
-          </mrd:formatSpecificationCitation>
-          <mrd:amendmentNumber>
-            <gco:CharacterString>amendmentNumber</gco:CharacterString>
-          </mrd:amendmentNumber>
-          <mrd:fileDecompressionTechnique>
-            <gco:CharacterString>decompressionTechnique</gco:CharacterString>
-          </mrd:fileDecompressionTechnique>
-        </mrd:MD_Format>
-      </mri:resourceFormat>
-      <mri:descriptiveKeywords>
-        <mri:MD_Keywords>
-          <mri:keyword>
-            <gco:CharacterString>keyword2</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>keyword1</gco:CharacterString>
-          </mri:keyword>
-          <mri:type>
-            <mdb:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme" codeSpace="eng">Theme</mdb:MD_KeywordTypeCode>
-          </mri:type>
-          <mri:thesaurusName>
-            <cit:CI_Citation/>
-          </mri:thesaurusName>
-          <mri:keywordClass>
-            <mri:MD_KeywordClass>
-              <mri:className>
-<gco:CharacterString>name</gco:CharacterString>
-              </mri:className>
-            </mri:MD_KeywordClass>
-          </mri:keywordClass>
-        </mri:MD_Keywords>
-      </mri:descriptiveKeywords>
-      <mri:resourceSpecificUsage>
-        <mri:MD_Usage>
-          <mri:specificUsage>
-            <gco:CharacterString>specificUsage</gco:CharacterString>
-          </mri:specificUsage>
-          <mri:usageDateTime>
-            <gco:DateTime>2017-01-13T15:56:35.933+01:00</gco:DateTime>
-          </mri:usageDateTime>
-          <mri:userDeterminedLimitations>
-            <gco:CharacterString>userDeterminedLimitations</gco:CharacterString>
-          </mri:userDeterminedLimitations>
-          <mri:userContactInfo>
-            <cit:CI_Responsibility/>
-          </mri:userContactInfo>
-          <mri:response>
-            <gco:CharacterString>response</gco:CharacterString>
-          </mri:response>
-          <mri:additionalDocumentation>
-            <cit:CI_Citation/>
-          </mri:additionalDocumentation>
-          <mri:identifiedIssues>
-            <cit:CI_Citation/>
-          </mri:identifiedIssues>
-        </mri:MD_Usage>
-      </mri:resourceSpecificUsage>
-      <mri:resourceConstraints>
-        <mco:MD_Constraints>
-          <mco:useLimitation>
-            <gco:CharacterString>useLimitation</gco:CharacterString>
-          </mco:useLimitation>
-          <mco:constraintApplicationScope>
-            <mmi:MD_Scope>
-              <mmi:level>
-<mcc:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="application" codeSpace="eng">Application</mcc:MD_ScopeCode>
-              </mmi:level>
-            </mmi:MD_Scope>
-          </mco:constraintApplicationScope>
-          <mco:graphic>
-            <mcc:MD_BrowseGraphic>
-              <mcc:fileName>
-<gco:CharacterString>filename.png</gco:CharacterString>
-              </mcc:fileName>
-              <mcc:fileDescription>
-<gco:CharacterString>description</gco:CharacterString>
-              </mcc:fileDescription>
-              <mcc:fileType>
-<gcx:MimeFileType type="fileType">fileType</gcx:MimeFileType>
-              </mcc:fileType>
-              <mcc:linkage>
-<cit:CI_OnlineResource/>
-              </mcc:linkage>
-              <mcc:imageConstraints>
-<mco:MD_Constraints/>
-              </mcc:imageConstraints>
-            </mcc:MD_BrowseGraphic>
-          </mco:graphic>
-          <mco:reference>
-            <cit:CI_Citation/>
-          </mco:reference>
-          <mco:releasability>
-            <mco:MD_Releasability>
-              <mco:statement>
-<gco:CharacterString>statement</gco:CharacterString>
-              </mco:statement>
-            </mco:MD_Releasability>
-          </mco:releasability>
-          <mco:responsibleParty>
-            <cit:CI_Responsibility/>
-          </mco:responsibleParty>
-        </mco:MD_Constraints>
-      </mri:resourceConstraints>
-      <mri:associatedResource>
-        <mri:MD_AssociatedResource>
-          <mri:name>
-            <cit:CI_Citation/>
-          </mri:name>
-          <mri:associationType>
-            <mri:DS_AssociationTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#DS_AssociationTypeCode" codeListValue="dependency" codeSpace="eng">Dependency</mri:DS_AssociationTypeCode>
-          </mri:associationType>
-          <mri:initiativeType>
-            <mri:DS_InitiativeTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#DS_InitiativeTypeCode" codeListValue="experiment">Experiment</mri:DS_InitiativeTypeCode>
-          </mri:initiativeType>
-        </mri:MD_AssociatedResource>
-      </mri:associatedResource>
-      <mri:defaultLocale>
-        <lan:PT_Locale>
-          <lan:language>
-            <lan:LanguageCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#LanguageCode" codeListValue="eng" codeSpace="eng">English</lan:LanguageCode>
-          </lan:language>
-          <lan:country>
-            <lan:CountryCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#Country" codeListValue="US" codeSpace="eng">United States</lan:CountryCode>
-          </lan:country>
-          <lan:characterEncoding>
-            <lan:MD_CharacterSetCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="eng">UTF-8</lan:MD_CharacterSetCode>
-          </lan:characterEncoding>
-        </lan:PT_Locale>
-      </mri:defaultLocale>
-      <mri:otherLocale>
-        <lan:PT_Locale>
-          <lan:language>
-            <lan:LanguageCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#LanguageCode" codeListValue="ger" codeSpace="eng">German</lan:LanguageCode>
-          </lan:language>
-          <lan:country>
-            <lan:CountryCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#Country" codeListValue="DE" codeSpace="eng">Germany</lan:CountryCode>
-          </lan:country>
-          <lan:characterEncoding>
-            <lan:MD_CharacterSetCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="eng">UTF-8</lan:MD_CharacterSetCode>
-          </lan:characterEncoding>
-        </lan:PT_Locale>
-      </mri:otherLocale>
-      <mri:environmentDescription>
-        <gco:CharacterString>environmentDescription</gco:CharacterString>
-      </mri:environmentDescription>
-      <mri:supplementalInformation>
-        <gco:CharacterString>supplementalInformation</gco:CharacterString>
-      </mri:supplementalInformation>
-    </mri:MD_DataIdentification>
-  </mdb:identificationInfo>
+  <mdb:contentInfo>
+    <mrc:MD_FeatureCatalogueDescription>
+      <mrc:complianceCode>
+        <gco:Boolean>true</gco:Boolean>
+      </mrc:complianceCode>
+      <mrc:includedWithDataset>
+        <gco:Boolean>true</gco:Boolean>
+      </mrc:includedWithDataset>
+    </mrc:MD_FeatureCatalogueDescription>
+  </mdb:contentInfo>
   <mdb:contentInfo>
     <mrc:MD_CoverageDescription>
       <mrc:attributeDescription>
         <gco:RecordType/>
       </mrc:attributeDescription>
+      <mrc:attributeGroup>
+        <mrc:MD_AttributeGroup>
+          <mrc:attribute>
+            <mrc:MD_RangeDimension>
+              <mrc:description>
+<gco:CharacterString>descriptor</gco:CharacterString>
+              </mrc:description>
+              <mrc:name>
+<mcc:MD_Identifier/>
+              </mrc:name>
+            </mrc:MD_RangeDimension>
+          </mrc:attribute>
+        </mrc:MD_AttributeGroup>
+      </mrc:attributeGroup>
       <mrc:attributeGroup>
         <mrc:MD_AttributeGroup>
           <mrc:attribute>
@@ -1225,30 +1259,6 @@
           </mrc:attribute>
         </mrc:MD_AttributeGroup>
       </mrc:attributeGroup>
-      <mrc:attributeGroup>
-        <mrc:MD_AttributeGroup>
-          <mrc:attribute>
-            <mrc:MD_RangeDimension>
-              <mrc:description>
-<gco:CharacterString>descriptor</gco:CharacterString>
-              </mrc:description>
-              <mrc:name>
-<mcc:MD_Identifier/>
-              </mrc:name>
-            </mrc:MD_RangeDimension>
-          </mrc:attribute>
-        </mrc:MD_AttributeGroup>
-      </mrc:attributeGroup>
     </mrc:MD_CoverageDescription>
-  </mdb:contentInfo>
-  <mdb:contentInfo>
-    <mrc:MD_FeatureCatalogueDescription>
-      <mrc:complianceCode>
-        <gco:Boolean>true</gco:Boolean>
-      </mrc:complianceCode>
-      <mrc:includedWithDataset>
-        <gco:Boolean>true</gco:Boolean>
-      </mrc:includedWithDataset>
-    </mrc:MD_FeatureCatalogueDescription>
   </mdb:contentInfo>
 </mdb:MD_Metadata>

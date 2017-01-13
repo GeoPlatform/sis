@@ -226,6 +226,8 @@ aggregationInfo|MD_Identification|http://standards.iso.org/iso/19115/-3/mri/1.0
 aggregationInfo|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 algorithm|LE_Processing|http://www.isotc211.org/2005/gmi
 alternateTitle|CI_Citation|http://standards.iso.org/iso/19115/-3/cit/1.0
+alternativeMetadataReference|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
+alternativeMetadataReference|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 amendmentNumber|MD_Format|http://standards.iso.org/iso/19115/-3/mrd/1.0
 angularDistance|MD_Resolution|http://standards.iso.org/iso/19115/-3/mri/1.0
 applicationProfile|CI_OnlineResource|http://standards.iso.org/iso/19115/-3/cit/1.0
@@ -710,8 +712,12 @@ metadataExtensionInfo|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 metadataExtensionInfo|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 metadataIdentifier|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 metadataIdentifier|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
+metadataLinkage|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
+metadataLinkage|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 metadataMaintenance|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 metadataMaintenance|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
+metadataProfile|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
+metadataProfile|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 metadataReference|MD_AggregateInformation|http://standards.iso.org/iso/19115/-3/mri/1.0
 metadataReference|MD_AssociatedResource|http://standards.iso.org/iso/19115/-3/mri/1.0
 metadataScope|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
@@ -926,6 +932,8 @@ resourceConstraints|SV_ServiceIdentification|http://standards.iso.org/iso/19115/
 resourceFormat|MD_DataIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 resourceFormat|MD_Identification|http://standards.iso.org/iso/19115/-3/mri/1.0
 resourceFormat|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
+resourceLineage|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
+resourceLineage|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 resourceMaintenance|MD_DataIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 resourceMaintenance|MD_Identification|http://standards.iso.org/iso/19115/-3/mri/1.0
 resourceMaintenance|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
