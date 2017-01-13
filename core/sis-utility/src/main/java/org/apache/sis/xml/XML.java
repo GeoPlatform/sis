@@ -183,7 +183,7 @@ public final class XML extends Static {
      * Specifies the metadata version of the document to be marshalled or unmarshalled.
      * The metadata version may affect the set of XML elements to be marshalled and their namespaces.
      *
-     * <div class="note"><b>Compatibility note:</b>
+     * <div class="note"><b>Compatibility note:</b></div>
      * Newer versions typically have more elements, but not always.
      *
      * The value can be {@link String} or {@link Version} objects.

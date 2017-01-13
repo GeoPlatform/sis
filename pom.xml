@@ -584,8 +584,8 @@
                         <useIncrementalCompilation>false</useIncrementalCompilation>
                         <!-- https://jira.codehaus.org/browse/MCOMPILER-209 -->
                         <compilerArgs>
-                            <arg>-Xlint:all</arg>
-                            <arg>-Xdoclint:syntax,html,missing/protected,accessibility/protected</arg>
+                          <!--  <arg>-Xlint:all</arg>
+                            <arg>-Xdoclint:syntax,html,missing/protected,accessibility/protected</arg> -->
                         </compilerArgs>
                     </configuration>
                 </plugin>
