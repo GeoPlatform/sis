@@ -64,7 +64,7 @@ final class SubTypes {
     /**
      * Returns a SIS implementation for the given object.
      *
-     * @see AbstractIdentifiedObject#castOrCopy(IdentifiedObject)
+     * see AbstractIdentifiedObject#castOrCopy(IdentifiedObject)
      */
     static AbstractIdentifiedObject castOrCopy(final IdentifiedObject object) {
         if (object instanceof CoordinateReferenceSystem) {

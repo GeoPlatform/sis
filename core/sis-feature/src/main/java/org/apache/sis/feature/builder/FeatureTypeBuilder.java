@@ -62,7 +62,7 @@ import org.opengis.feature.Operation;
  * @version 0.8
  * @module
  *
- * @see org.apache.sis.parameter.ParameterBuilder
+ * see org.apache.sis.parameter.ParameterBuilder
  */
 public class FeatureTypeBuilder extends TypeBuilder {
     /**
@@ -83,30 +83,30 @@ public class FeatureTypeBuilder extends TypeBuilder {
     /**
      * Whether the feature type is abstract. The default value is {@code false}.
      *
-     * @see #isAbstract()
-     * @see #setAbstract(boolean)
+     * see #isAbstract()
+     * see #setAbstract(boolean)
      */
     private boolean isAbstract;
 
     /**
      * The default scope to use when {@link #name(String, String)} is invoked with a null scope.
      *
-     * @see #getDefaultScope()
-     * @see #setDefaultScope(String)
+     * see #getDefaultScope()
+     * see #setDefaultScope(String)
      */
     private String defaultScope;
 
     /**
      * The default minimum number of property values.
      *
-     * @see #setDefaultCardinality(int, int)
+     * see #setDefaultCardinality(int, int)
      */
     int defaultMinimumOccurs;
 
     /**
      * The default maximum number of property values.
      *
-     * @see #setDefaultCardinality(int, int)
+     * see #setDefaultCardinality(int, int)
      */
     int defaultMaximumOccurs;
 
@@ -125,16 +125,16 @@ public class FeatureTypeBuilder extends TypeBuilder {
     /**
      * Number of attribute that have been flagged as an identifier component.
      *
-     * @see AttributeRole#IDENTIFIER_COMPONENT
-     * @see AttributeConvention#IDENTIFIER_PROPERTY
+     * see AttributeRole#IDENTIFIER_COMPONENT
+     * see AttributeConvention#IDENTIFIER_PROPERTY
      */
     int identifierCount;
 
     /**
      * The default geometry attribute, or {@code null} if none.
      *
-     * @see AttributeRole#DEFAULT_GEOMETRY
-     * @see AttributeConvention#GEOMETRY_PROPERTY
+     * see AttributeRole#DEFAULT_GEOMETRY
+     * see AttributeConvention#GEOMETRY_PROPERTY
      */
     AttributeTypeBuilder<?> defaultGeometry;
 
@@ -266,7 +266,7 @@ public class FeatureTypeBuilder extends TypeBuilder {
      *
      * @return {@code true} if the feature type to create will act as an abstract super-type.
      *
-     * @see DefaultFeatureType#isAbstract()
+     * see DefaultFeatureType#isAbstract()
      */
     public boolean isAbstract() {
         return isAbstract;
@@ -292,7 +292,7 @@ public class FeatureTypeBuilder extends TypeBuilder {
      *
      * @return the parents of the feature type to create, or an empty array if none.
      *
-     * @see DefaultFeatureType#getSuperTypes()
+     * see DefaultFeatureType#getSuperTypes()
      */
     public FeatureType[] getSuperTypes() {
         return superTypes.toArray(new FeatureType[superTypes.size()]);
@@ -424,8 +424,8 @@ public class FeatureTypeBuilder extends TypeBuilder {
      * @param  maximumOccurs  new default maximum number of property values.
      * @return {@code this} for allowing method calls chaining.
      *
-     * @see PropertyTypeBuilder#setMinimumOccurs(int)
-     * @see PropertyTypeBuilder#setMaximumOccurs(int)
+     * see PropertyTypeBuilder#setMinimumOccurs(int)
+     * see PropertyTypeBuilder#setMaximumOccurs(int)
      */
     public FeatureTypeBuilder setDefaultCardinality(final int minimumOccurs, final int maximumOccurs) {
         if (minimumOccurs < 0 || maximumOccurs < minimumOccurs) {
@@ -450,8 +450,8 @@ public class FeatureTypeBuilder extends TypeBuilder {
      * @param  suffix     characters to use at the end of the concatenated string, or {@code null} if none.
      * @return {@code this} for allowing method calls chaining.
      *
-     * @see AttributeRole#IDENTIFIER_COMPONENT
-     * @see FeatureOperations#compound(Map, String, String, String, PropertyType...)
+     * see AttributeRole#IDENTIFIER_COMPONENT
+     * see FeatureOperations#compound(Map, String, String, String, PropertyType...)
      */
     public FeatureTypeBuilder setIdentifierDelimiters(final String delimiter, final String prefix, final String suffix) {
         ensureNonEmpty("delimiter", delimiter);
@@ -473,12 +473,12 @@ public class FeatureTypeBuilder extends TypeBuilder {
      *
      * @return a live list over the properties declared to this builder.
      *
-     * @see #getProperty(String)
-     * @see #addAttribute(Class)
-     * @see #addAttribute(AttributeType)
-     * @see #addAssociation(FeatureType)
-     * @see #addAssociation(GenericName)
-     * @see #addAssociation(FeatureAssociationRole)
+     * see #getProperty(String)
+     * see #addAttribute(Class)
+     * see #addAttribute(AttributeType)
+     * see #addAssociation(FeatureType)
+     * see #addAssociation(GenericName)
+     * see #addAssociation(FeatureAssociationRole)
      */
     public List<PropertyTypeBuilder> properties() {
         return new RemoveOnlyList<>(properties);
@@ -493,7 +493,7 @@ public class FeatureTypeBuilder extends TypeBuilder {
      * @return property of the given name, or {@code null} if none.
      * @throws IllegalArgumentException if the given name is ambiguous.
      *
-     * @see #addProperty(PropertyType)
+     * see #addProperty(PropertyType)
      */
     public PropertyTypeBuilder getProperty(final String name) {
         return forName(properties, name);
@@ -516,7 +516,7 @@ public class FeatureTypeBuilder extends TypeBuilder {
      * @param  valueClass  the class of attribute values (can not be {@code Feature.class}).
      * @return a builder for an {@code AttributeType}.
      *
-     * @see #properties()
+     * see #properties()
      */
     public <V> AttributeTypeBuilder<V> addAttribute(final Class<V> valueClass) {
         ensureNonNull("valueClass", valueClass);
@@ -537,7 +537,7 @@ public class FeatureTypeBuilder extends TypeBuilder {
      * @param  template  an existing attribute type to use as a template.
      * @return a builder for an {@code AttributeType}, initialized with the values of the given template.
      *
-     * @see #properties()
+     * see #properties()
      */
     public <V> AttributeTypeBuilder<V> addAttribute(final AttributeType<V> template) {
         ensureNonNull("template", template);
@@ -555,7 +555,7 @@ public class FeatureTypeBuilder extends TypeBuilder {
      * @param  type  the type of feature values.
      * @return a builder for a {@code FeatureAssociationRole}.
      *
-     * @see #properties()
+     * see #properties()
      */
     public AssociationRoleBuilder addAssociation(final FeatureType type) {
         ensureNonNull("type", type);
@@ -573,7 +573,7 @@ public class FeatureTypeBuilder extends TypeBuilder {
      * @param  type  the name of the type of feature values.
      * @return a builder for a {@code FeatureAssociationRole}.
      *
-     * @see #properties()
+     * see #properties()
      */
     public AssociationRoleBuilder addAssociation(final GenericName type) {
         ensureNonNull("type", type);
@@ -590,7 +590,7 @@ public class FeatureTypeBuilder extends TypeBuilder {
      * @param  template  an existing feature association to use as a template.
      * @return a builder for an {@code FeatureAssociationRole}, initialized with the values of the given template.
      *
-     * @see #properties()
+     * see #properties()
      */
     public AssociationRoleBuilder addAssociation(final FeatureAssociationRole template) {
         ensureNonNull("template", template);
@@ -614,8 +614,8 @@ public class FeatureTypeBuilder extends TypeBuilder {
      * @return a builder initialized to the given builder.
      *         In the {@code Operation} case, the builder is a read-only accessor on the operation properties.
      *
-     * @see #properties()
-     * @see #getProperty(String)
+     * see #properties()
+     * see #getProperty(String)
      */
     public PropertyTypeBuilder addProperty(final PropertyType template) {
         ensureNonNull("template", template);

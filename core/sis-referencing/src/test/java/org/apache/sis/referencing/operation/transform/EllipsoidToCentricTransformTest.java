@@ -248,7 +248,7 @@ public final strictfp class EllipsoidToCentricTransformTest extends MathTransfor
      *
      * @throws FactoryException if an error occurred while creating a transform.
      *
-     * @see GeocentricTranslationTest#testWKT2D()
+     * see GeocentricTranslationTest#testWKT2D()
      */
     @Test
     public void testConcatenate() throws FactoryException {

@@ -66,7 +66,7 @@ import org.opengis.feature.Property;
  * @version 0.8
  * @module
  *
- * @see DefaultFeatureType
+ * see DefaultFeatureType
  */
 public abstract class AbstractOperation extends AbstractIdentifiedType implements Operation,
         BiFunction<Feature, ParameterValueGroup, Property>

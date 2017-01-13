@@ -103,14 +103,14 @@ final class Normalizer implements Comparable<Normalizer> {
      * inserting intermediate values between them. A shift of 2 make room for {@literal 1 << 2} intermediate
      * values. Those intermediate values are declared in the {@link #ORDER} map.
      *
-     * @see #order(AxisDirection)
+     * see #order(AxisDirection)
      */
     private static final int SHIFT = 2;
 
     /**
      * Custom code list values to handle as if the where defined between two GeoAPI values.
      *
-     * @see #order(AxisDirection)
+     * see #order(AxisDirection)
      */
     private static final Map<AxisDirection,Integer> ORDER = new HashMap<>();
     static {
@@ -405,7 +405,7 @@ final class Normalizer implements Comparable<Normalizer> {
      * @param  convention The axes convention for which a coordinate system is desired.
      * @return A coordinate system compatible with the given convention, or {@code null} if no change is needed.
      *
-     * @see AbstractCS#forConvention(AxesConvention)
+     * see AbstractCS#forConvention(AxesConvention)
      */
     static AbstractCS forConvention(final CoordinateSystem cs, final AxesConvention convention) {
         switch (convention) {

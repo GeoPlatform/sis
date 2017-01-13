@@ -56,7 +56,7 @@ import org.apache.sis.measure.Units;
  * @version 0.4
  * @module
  *
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createSphericalCS(String)
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createSphericalCS(String)
  */
 @XmlType(name = "SphericalCSType")
 @XmlRootElement(name = "SphericalCS")
@@ -115,7 +115,7 @@ public class DefaultSphericalCS extends AbstractCS implements SphericalCS {
      * @param axis1 The second axis (e.g. “Spherical longitude”).
      * @param axis2 The third  axis (e.g. “Geocentric radius”).
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createSphericalCS(Map, CoordinateSystemAxis, CoordinateSystemAxis, CoordinateSystemAxis)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createSphericalCS(Map, CoordinateSystemAxis, CoordinateSystemAxis, CoordinateSystemAxis)
      */
     public DefaultSphericalCS(final Map<String,?>   properties,
                               final CoordinateSystemAxis axis0,
@@ -134,7 +134,7 @@ public class DefaultSphericalCS extends AbstractCS implements SphericalCS {
      *
      * @param cs The coordinate system to copy.
      *
-     * @see #castOrCopy(SphericalCS)
+     * see #castOrCopy(SphericalCS)
      */
     protected DefaultSphericalCS(final SphericalCS cs) {
         super(cs);

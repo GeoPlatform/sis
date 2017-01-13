@@ -78,8 +78,8 @@ public final class SecondDefiningParameter {
      *
      * <p>This value should be {@code null} if {@link #isSphere} is {@code true}.</p>
      *
-     * @see Ellipsoid#getSemiMinorAxis()
-     * @see Ellipsoid#getInverseFlattening()
+     * see Ellipsoid#getSemiMinorAxis()
+     * see Ellipsoid#getInverseFlattening()
      */
     public Measure measure;
 

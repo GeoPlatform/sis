@@ -118,7 +118,7 @@ public class IdentifiedObjectSet<T extends IdentifiedObject> extends AbstractSet
     /**
      * The type of objects included in this set.
      *
-     * @see #getElementType()
+     * see #getElementType()
      */
     private final Class<T> type;
 
@@ -221,7 +221,7 @@ public class IdentifiedObjectSet<T extends IdentifiedObject> extends AbstractSet
      *
      * @param codes The authority codes of identified objects to store in this set.
      *
-     * @see #addAuthorityCode(String)
+     * see #addAuthorityCode(String)
      */
     public void setAuthorityCodes(final String... codes) {
         synchronized (objects) {
@@ -259,7 +259,7 @@ public class IdentifiedObjectSet<T extends IdentifiedObject> extends AbstractSet
      * @param object The object to add to the set.
      * @return {@code true} if this set changed as a result of this call.
      *
-     * @see #getAuthorityCode(IdentifiedObject)
+     * see #getAuthorityCode(IdentifiedObject)
      */
     @Override
     public boolean add(final T object) {
@@ -277,7 +277,7 @@ public class IdentifiedObjectSet<T extends IdentifiedObject> extends AbstractSet
      *
      * @throws BackingStoreException if the object creation failed.
      *
-     * @see #createObject(String)
+     * see #createObject(String)
      */
     final T get(final String code) throws BackingStoreException {
         T object;

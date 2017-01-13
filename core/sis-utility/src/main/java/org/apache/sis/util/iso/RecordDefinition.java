@@ -106,7 +106,7 @@ abstract class RecordDefinition { // Intentionally not Serializable.
      * Indices of member names. Created on construction or deserialization,
      * and shall be considered final and unmodifiable after that point.
      *
-     * @see #memberIndices()
+     * see #memberIndices()
      */
     private transient Map<MemberName,Integer> memberIndices;
 

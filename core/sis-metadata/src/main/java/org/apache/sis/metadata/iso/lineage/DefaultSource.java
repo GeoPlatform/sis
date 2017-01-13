@@ -156,7 +156,7 @@ public class DefaultSource extends ISOMetadata implements Source {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Source)
+     * see #castOrCopy(Source)
      */
     public DefaultSource(final Source object) {
         super(object);
@@ -245,7 +245,7 @@ public class DefaultSource extends ISOMetadata implements Source {
     
     /**
 	 * Gets the source spatial resolution. Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #getSourceSpatialResolution}
+	 * see {@link #getSourceSpatialResolution}
 	 */
     @XmlElement(name = "sourceSpatialResolution")
 	private Resolution getXmlSourceSpatialResolution() {
@@ -254,7 +254,7 @@ public class DefaultSource extends ISOMetadata implements Source {
 
 	/**
 	 * Sets the source spatial resolution. Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #setSourceSpatialResolution}
+	 * see {@link #setSourceSpatialResolution}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlSourceSpatialResolution(final Resolution newValue) {
@@ -307,7 +307,7 @@ public class DefaultSource extends ISOMetadata implements Source {
     
     /**
 	 * Gets the scale denominator. Used by JAXB (ISO 19139 format).
-	 * @see {@link #getScaleDenominator}
+	 * see {@link #getScaleDenominator}
 	 */
     @XmlElement(name = "scaleDenominator")
 	private RepresentativeFraction getXmlScaleDenominator() {
@@ -316,7 +316,7 @@ public class DefaultSource extends ISOMetadata implements Source {
 
 	/**
 	 * Sets the scale denominator. Used by JAXB (ISO 19139 format).
-	 * @see {@link #setScaleDenominator}
+	 * see {@link #setScaleDenominator}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlScaleDenominator(final RepresentativeFraction newValue) {
@@ -347,7 +347,7 @@ public class DefaultSource extends ISOMetadata implements Source {
     
     /**
 	 * Gets the source spatial reference system. Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #getSourceReferenceSystem}
+	 * see {@link #getSourceReferenceSystem}
 	 */
     @XmlElement(name = "sourceReferenceSystem")
 	private ReferenceSystem getXmlSourceReferenceSystem() {
@@ -356,7 +356,7 @@ public class DefaultSource extends ISOMetadata implements Source {
 
 	/**
 	 * Sets the source spatial reference system. Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #setSourceReferenceSystem}
+	 * see {@link #setSourceReferenceSystem}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlSourceReferenceSystem(final ReferenceSystem newValue) {
@@ -409,7 +409,7 @@ public class DefaultSource extends ISOMetadata implements Source {
     
     /**
 	 * Gets source metadata. Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #getSourceMetadata}
+	 * see {@link #getSourceMetadata}
 	 */
 	@XmlElement(name = "sourceMetadata")
 	private Collection<Citation> getXmlSourceMetadata() {
@@ -446,7 +446,7 @@ public class DefaultSource extends ISOMetadata implements Source {
     
     /**
 	 * Gets the scope. Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #getScope}
+	 * see {@link #getScope}
 	 */
     @XmlElement(name = "scope")
 	private Scope getXmlScope() {
@@ -455,7 +455,7 @@ public class DefaultSource extends ISOMetadata implements Source {
 
 	/**
 	 * Sets the scope Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #setScope}
+	 * see {@link #setScope}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlScope(final Scope newValue) {
@@ -506,7 +506,7 @@ public class DefaultSource extends ISOMetadata implements Source {
     
     /**
 	 * Gets source extents. Used by JAXB (ISO 19139 format).
-	 * @see {@link #getSourceExtents}
+	 * see {@link #getSourceExtents}
 	 */
 	@XmlElement(name = "sourceExtent")
 	private Collection<Extent> getXmlSourceExtents() {
@@ -579,7 +579,7 @@ public class DefaultSource extends ISOMetadata implements Source {
     
     /**
 	 * Gets the resolution. Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #getResolution}
+	 * see {@link #getResolution}
 	 */
     @XmlElement(name = "resolution")
 	private NominalResolution setResolution() {
@@ -588,7 +588,7 @@ public class DefaultSource extends ISOMetadata implements Source {
 
 	/**
 	 * Sets the resolution. Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #setScope}
+	 * see {@link #setScope}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlResolution(final NominalResolution newValue) {
@@ -597,7 +597,7 @@ public class DefaultSource extends ISOMetadata implements Source {
 	
 	/**
 	 * Gets the resolution. Used by JAXB (ISO 19139 format).
-	 * @see {@link #getResolution}
+	 * see {@link #getResolution}
 	 */
     @XmlElement(name = "resolution", namespace = Namespaces.GMI)
 	private NominalResolution setResolutionLegacy() {
@@ -606,7 +606,7 @@ public class DefaultSource extends ISOMetadata implements Source {
 
 	/**
 	 * Sets the resolution. Used by JAXB (ISO 19139 format).
-	 * @see {@link #setScope}
+	 * see {@link #setScope}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlResolutionLegacy(final NominalResolution newValue) {

@@ -46,8 +46,8 @@ import java.nio.file.Path;
  * @version 0.7
  * @module
  *
- * @see GeocentricTranslationTest#testFranceGeocentricInterpolationPoint()
- * @see org.apache.sis.referencing.operation.transform.MolodenskyTransformTest#testFranceGeocentricInterpolationPoint()
+ * see GeocentricTranslationTest#testFranceGeocentricInterpolationPoint()
+ * see org.apache.sis.referencing.operation.transform.MolodenskyTransformTest#testFranceGeocentricInterpolationPoint()
  */
 public final strictfp class FranceGeocentricInterpolationTest extends TestCase {
     /**

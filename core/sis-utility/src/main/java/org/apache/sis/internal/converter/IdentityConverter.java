@@ -36,7 +36,7 @@ import org.apache.sis.math.FunctionProperty;
  * @version 0.3
  * @module
  *
- * @see org.apache.sis.util.ObjectConverters#identity(Class)
+ * see org.apache.sis.util.ObjectConverters#identity(Class)
  */
 public final class IdentityConverter<S extends T, T> extends SystemConverter<S,T> {
     /**

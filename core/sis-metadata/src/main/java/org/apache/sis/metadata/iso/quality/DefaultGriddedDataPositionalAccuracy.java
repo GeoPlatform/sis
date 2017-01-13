@@ -62,7 +62,7 @@ public class DefaultGriddedDataPositionalAccuracy extends AbstractPositionalAccu
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(GriddedDataPositionalAccuracy)
+     * see #castOrCopy(GriddedDataPositionalAccuracy)
      */
     public DefaultGriddedDataPositionalAccuracy(final GriddedDataPositionalAccuracy object) {
         super(object);

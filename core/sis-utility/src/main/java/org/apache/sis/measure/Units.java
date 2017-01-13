@@ -91,7 +91,7 @@ public final class Units extends Static {
      *   <tr><td>Derived units:</td>    <td style="word-spacing:1em">{@link #SQUARE_METRE}, {@link #CUBIC_METRE}, {@link #METRES_PER_SECOND}.</td></tr>
      * </table></div>
      *
-     * @see org.apache.sis.metadata.iso.content.DefaultBand#getBoundUnits()
+     * see org.apache.sis.metadata.iso.content.DefaultBand#getBoundUnits()
      *
      * @since 0.8
      */
@@ -452,7 +452,7 @@ public final class Units extends Static {
      *
      * @since 0.3
      *
-     * @see java.util.concurrent.TimeUnit#MILLISECONDS
+     * see java.util.concurrent.TimeUnit#MILLISECONDS
      */
     public static final Unit<Time> MILLISECOND;
 
@@ -976,8 +976,8 @@ public final class Units extends Static {
      * The {@linkplain ConventionalUnit#getSystemUnit() system unit} is {@link #UNITY}
      * and the unlocalized name is “percentage”.
      *
-     * @see #UNITY
-     * @see #PPM
+     * see #UNITY
+     * see #PPM
      *
      * @since 0.8
      */
@@ -988,8 +988,8 @@ public final class Units extends Static {
      * The {@linkplain ConventionalUnit#getSystemUnit() system unit} is {@link #UNITY},
      * the unlocalized name is “parts per million” and the identifier is EPSG:9202.
      *
-     * @see #UNITY
-     * @see #PERCENT
+     * see #UNITY
+     * see #PERCENT
      *
      * @since 0.3
      */
@@ -1017,7 +1017,7 @@ public final class Units extends Static {
      * The unlocalized name is “pixel”.
      * This unity should not be confused with {@link #POINT}, which is approximatively equal to 1/72 of inch.
      *
-     * @see #POINT
+     * see #POINT
      */
     public static final Unit<Dimensionless> PIXEL;
 
@@ -1271,7 +1271,7 @@ public final class Units extends Static {
      * @param  unit  the unit to check (may be {@code null}).
      * @return {@code true} if the given unit is non-null and angular.
      *
-     * @see #ensureAngular(Unit)
+     * see #ensureAngular(Unit)
      */
     public static boolean isAngular(final Unit<?> unit) {
         return (unit != null) && unit.getSystemUnit().equals(RADIAN);
@@ -1284,8 +1284,8 @@ public final class Units extends Static {
      * @param  unit  the unit to check (may be {@code null}).
      * @return {@code true} if the given unit is non-null and linear.
      *
-     * @see #METRE
-     * @see #ensureLinear(Unit)
+     * see #METRE
+     * see #ensureLinear(Unit)
      */
     public static boolean isLinear(final Unit<?> unit) {
         return (unit != null) && unit.getSystemUnit().equals(METRE);
@@ -1310,7 +1310,7 @@ public final class Units extends Static {
      * @param  unit  the unit to check (may be {@code null}).
      * @return {@code true} if the given unit is non-null and temporal.
      *
-     * @see #ensureTemporal(Unit)
+     * see #ensureTemporal(Unit)
      */
     public static boolean isTemporal(final Unit<?> unit) {
         return (unit != null) && unit.getSystemUnit().equals(SECOND);
@@ -1323,8 +1323,8 @@ public final class Units extends Static {
      * @param  unit  the unit to check (may be {@code null}).
      * @return {@code true} if the given unit is non-null and a dimensionless scale.
      *
-     * @see #UNITY
-     * @see #ensureScale(Unit)
+     * see #UNITY
+     * see #ensureScale(Unit)
      */
     public static boolean isScale(final Unit<?> unit) {
         return (unit != null) && unit.getSystemUnit().equals(UNITY);
@@ -1338,7 +1338,7 @@ public final class Units extends Static {
      * @return the given {@code unit} argument, which may be null.
      * @throws IllegalArgumentException if {@code unit} is non-null and not an angular unit.
      *
-     * @see #isAngular(Unit)
+     * see #isAngular(Unit)
      */
     @SuppressWarnings("unchecked")
     public static Unit<Angle> ensureAngular(final Unit<?> unit) throws IllegalArgumentException {
@@ -1356,7 +1356,7 @@ public final class Units extends Static {
      * @return the given {@code unit} argument, which may be null.
      * @throws IllegalArgumentException if {@code unit} is non-null and not a linear unit.
      *
-     * @see #isLinear(Unit)
+     * see #isLinear(Unit)
      */
     @SuppressWarnings("unchecked")
     public static Unit<Length> ensureLinear(final Unit<?> unit) throws IllegalArgumentException {
@@ -1374,7 +1374,7 @@ public final class Units extends Static {
      * @return the given {@code unit} argument, which may be null.
      * @throws IllegalArgumentException if {@code unit} is non-null and not a temporal unit.
      *
-     * @see #isTemporal(Unit)
+     * see #isTemporal(Unit)
      */
     @SuppressWarnings("unchecked")
     public static Unit<Time> ensureTemporal(final Unit<?> unit) throws IllegalArgumentException {
@@ -1392,7 +1392,7 @@ public final class Units extends Static {
      * @return the given {@code unit} argument, which may be null.
      * @throws IllegalArgumentException if {@code unit} is non-null and not a scale unit.
      *
-     * @see #isScale(Unit)
+     * see #isScale(Unit)
      */
     @SuppressWarnings("unchecked")
     public static Unit<Dimensionless> ensureScale(final Unit<?> unit) throws IllegalArgumentException {
@@ -1547,7 +1547,7 @@ public final class Units extends Static {
      * @param  value      the point at which to compute the derivative.
      * @return the derivative at the given point, or {@code NaN} if unknown.
      *
-     * @see org.apache.sis.referencing.operation.transform.AbstractMathTransform#derivative(DirectPosition)
+     * see org.apache.sis.referencing.operation.transform.AbstractMathTransform#derivative(DirectPosition)
      */
     public static double derivative(final UnitConverter converter, final double value) {
         return AbstractConverter.derivative(converter, value);
@@ -1577,7 +1577,7 @@ public final class Units extends Static {
      * @return the parsed symbol, or {@code null} if {@code uom} was null.
      * @throws ParserException if the given symbol can not be parsed.
      *
-     * @see UnitFormat#parse(CharSequence)
+     * see UnitFormat#parse(CharSequence)
      */
     public static Unit<?> valueOf(String uom) throws ParserException {
         return (uom != null) ? UnitFormat.INSTANCE.parse(uom) : null;
@@ -1655,7 +1655,7 @@ public final class Units extends Static {
      * @param  code  the EPSG code for a unit of measurement.
      * @return the unit, or {@code null} if the code is unrecognized.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createUnit(String)
+     * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createUnit(String)
      */
     public static Unit<?> valueOfEPSG(final int code) {
         /*
@@ -1700,7 +1700,7 @@ public final class Units extends Static {
      *
      * @since 0.4
      *
-     * @see org.apache.sis.referencing.cs.CoordinateSystems#getEpsgCode(Unit, AxisDirection...)
+     * see org.apache.sis.referencing.cs.CoordinateSystems#getEpsgCode(Unit, AxisDirection...)
      */
     public static Integer getEpsgCode(Unit<?> unit, final boolean inAxis) {
         if (unit != null) {

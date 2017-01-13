@@ -153,7 +153,7 @@ public class DefaultImageDescription extends DefaultCoverageDescription implemen
      *
      * @param  object  the metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(ImageDescription)
+     * see #castOrCopy(ImageDescription)
      */
     public DefaultImageDescription(final ImageDescription object) {
         super(object);

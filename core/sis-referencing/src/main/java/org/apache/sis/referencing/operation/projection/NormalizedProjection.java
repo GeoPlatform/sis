@@ -123,8 +123,8 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * @see ContextualParameters
- * @see <a href="http://mathworld.wolfram.com/MapProjection.html">Map projections on MathWorld</a>
+ * see ContextualParameters
+ * see <a href="http://mathworld.wolfram.com/MapProjection.html">Map projections on MathWorld</a>
  */
 public abstract class NormalizedProjection extends AbstractMathTransform2D implements Serializable {
     /**
@@ -182,7 +182,7 @@ public abstract class NormalizedProjection extends AbstractMathTransform2D imple
      * and error messages. Subclasses shall not use the values defined in this object for computation purpose, except at
      * construction time.
      *
-     * @see #getContextualParameters()
+     * see #getContextualParameters()
      */
     final ContextualParameters context;
 
@@ -227,7 +227,7 @@ public abstract class NormalizedProjection extends AbstractMathTransform2D imple
      * @version 0.6
      * @module
      *
-     * @see NormalizedProjection#NormalizedProjection(OperationMethod, Parameters, Map)
+     * see NormalizedProjection#NormalizedProjection(OperationMethod, Parameters, Map)
      */
     protected static enum ParameterRole {
         /**
@@ -484,7 +484,7 @@ public abstract class NormalizedProjection extends AbstractMathTransform2D imple
      * @return The map projection from (λ,φ) to (<var>x</var>,<var>y</var>) coordinates.
      * @throws FactoryException if an error occurred while creating a transform.
      *
-     * @see ContextualParameters#completeTransform(MathTransformFactory, MathTransform)
+     * see ContextualParameters#completeTransform(MathTransformFactory, MathTransform)
      */
     public MathTransform createMapProjection(final MathTransformFactory factory) throws FactoryException {
         return context.completeTransform(factory, this);

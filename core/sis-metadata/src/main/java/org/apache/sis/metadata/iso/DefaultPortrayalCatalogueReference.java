@@ -80,7 +80,7 @@ public class DefaultPortrayalCatalogueReference extends ISOMetadata
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(PortrayalCatalogueReference)
+     * see #castOrCopy(PortrayalCatalogueReference)
      */
     public DefaultPortrayalCatalogueReference(final PortrayalCatalogueReference object) {
         super(object);

@@ -73,7 +73,7 @@ import org.apache.sis.util.resources.Vocabulary;
  * @version 0.6
  * @module
  *
- * @see WKTFormat#getWarnings()
+ * see WKTFormat#getWarnings()
  */
 public final class Warnings implements Localized, Serializable {
     /**
@@ -85,7 +85,7 @@ public final class Warnings implements Localized, Serializable {
      * The locale in which warning messages are reported.
      * Not necessarily the same than the locale for number and date parsing or formating.
      *
-     * @see #getLocale()
+     * see #getLocale()
      */
     private final Locale errorLocale;
 
@@ -98,7 +98,7 @@ public final class Warnings implements Localized, Serializable {
     /**
      * Name identifier or class name of the root object being parsed or formatted.
      *
-     * @see #setRoot(Object)
+     * see #setRoot(Object)
      */
     private String root;
 
@@ -115,7 +115,7 @@ public final class Warnings implements Localized, Serializable {
      *
      * Any element of the above tupple can be null, but at least one element must be non-null.
      *
-     * @see #add(InternationalString, Exception, String[])
+     * see #add(InternationalString, Exception, String[])
      */
     private List<Object> messages;
 
@@ -135,7 +135,7 @@ public final class Warnings implements Localized, Serializable {
      * map, which is okay only until a new parsing start. If this {@code Warnings} instance is given to the user, then
      * the {@link #publish()} method must be invoked in order to copy this map.
      *
-     * @see AbstractParser#ignoredElements
+     * see AbstractParser#ignoredElements
      */
     private Map<String, List<String>> ignoredElements;
 

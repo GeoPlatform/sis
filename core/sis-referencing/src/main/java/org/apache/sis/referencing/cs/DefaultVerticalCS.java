@@ -62,9 +62,9 @@ import org.apache.sis.measure.Units;
  * @version 0.8
  * @module
  *
- * @see org.apache.sis.referencing.crs.DefaultVerticalCRS
- * @see org.apache.sis.referencing.datum.DefaultVerticalDatum
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createVerticalCS(String)
+ * see org.apache.sis.referencing.crs.DefaultVerticalCRS
+ * see org.apache.sis.referencing.datum.DefaultVerticalDatum
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createVerticalCS(String)
  */
 @XmlType(name = "VerticalCSType")
 @XmlRootElement(name = "VerticalCS")
@@ -121,7 +121,7 @@ public class DefaultVerticalCS extends AbstractCS implements VerticalCS {
      * @param properties The properties to be given to the identified object.
      * @param axis       The single axis (e.g. “height” or “depth”).
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createVerticalCS(Map, CoordinateSystemAxis)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createVerticalCS(Map, CoordinateSystemAxis)
      */
     public DefaultVerticalCS(final Map<String,?> properties, final CoordinateSystemAxis axis) {
         super(properties, axis);
@@ -136,7 +136,7 @@ public class DefaultVerticalCS extends AbstractCS implements VerticalCS {
      *
      * @param cs The coordinate system to copy.
      *
-     * @see #castOrCopy(VerticalCS)
+     * see #castOrCopy(VerticalCS)
      */
     protected DefaultVerticalCS(final VerticalCS cs) {
         super(cs);

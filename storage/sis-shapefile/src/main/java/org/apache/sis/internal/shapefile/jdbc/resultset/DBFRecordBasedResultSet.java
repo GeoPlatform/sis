@@ -64,7 +64,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see org.apache.sis.internal.shapefile.jdbc.resultset.AbstractResultSet#getBigDecimal(java.lang.String)
+     * see org.apache.sis.internal.shapefile.jdbc.resultset.AbstractResultSet#getBigDecimal(java.lang.String)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric.
@@ -93,7 +93,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getBigDecimal(int)
+     * see java.sql.ResultSet#getBigDecimal(int)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric.
@@ -106,7 +106,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getBigDecimal(java.lang.String, int)
+     * see java.sql.ResultSet#getBigDecimal(java.lang.String, int)
      * @deprecated Deprecated API (from ResultSet Interface)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
@@ -133,7 +133,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getDate(java.lang.String)
+     * see java.sql.ResultSet#getDate(java.lang.String)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotDateException if the field is not a date.
@@ -180,7 +180,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getDate(int)
+     * see java.sql.ResultSet#getDate(int)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotDateException if the field is not a date.
@@ -193,7 +193,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getDouble(java.lang.String)
+     * see java.sql.ResultSet#getDouble(java.lang.String)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric.
@@ -208,7 +208,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getDouble(int)
+     * see java.sql.ResultSet#getDouble(int)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric.
@@ -221,7 +221,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getFloat(java.lang.String)
+     * see java.sql.ResultSet#getFloat(java.lang.String)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric.
@@ -236,7 +236,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getFloat(int)
+     * see java.sql.ResultSet#getFloat(int)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric.
@@ -249,7 +249,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see org.apache.sis.internal.shapefile.jdbc.resultset.AbstractResultSet#getInt(java.lang.String)
+     * see org.apache.sis.internal.shapefile.jdbc.resultset.AbstractResultSet#getInt(java.lang.String)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric.
@@ -264,7 +264,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getInt(int)
+     * see java.sql.ResultSet#getInt(int)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric.
@@ -277,7 +277,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getLong(java.lang.String)
+     * see java.sql.ResultSet#getLong(java.lang.String)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric.
@@ -292,7 +292,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getLong(int)
+     * see java.sql.ResultSet#getLong(int)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric.
@@ -304,7 +304,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getMetaData()
+     * see java.sql.ResultSet#getMetaData()
      */
     @Override
     public ResultSetMetaData getMetaData() {
@@ -315,7 +315,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see org.apache.sis.internal.shapefile.jdbc.resultset.AbstractResultSet#getObject(int)
+     * see org.apache.sis.internal.shapefile.jdbc.resultset.AbstractResultSet#getObject(int)
      */
     @Override
     public Object getObject(int column) throws SQLConnectionClosedException, SQLIllegalColumnIndexException, SQLFeatureNotSupportedException, SQLNoSuchFieldException, SQLNotNumericException, SQLNotDateException {
@@ -391,7 +391,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see org.apache.sis.internal.shapefile.jdbc.resultset.DBFResultSet#getObject(java.lang.String)
+     * see org.apache.sis.internal.shapefile.jdbc.resultset.DBFResultSet#getObject(java.lang.String)
      */
     @Override
     public Object getObject(String columnLabel) throws SQLConnectionClosedException, SQLFeatureNotSupportedException, SQLNoSuchFieldException, SQLNotNumericException, SQLNotDateException {
@@ -416,7 +416,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
     
     /**
-     * @see java.sql.ResultSet#getShort(java.lang.String)
+     * see java.sql.ResultSet#getShort(java.lang.String)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric or has a NULL value.
@@ -431,7 +431,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getShort(int)
+     * see java.sql.ResultSet#getShort(int)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLNotNumericException if the field value is not numeric or has a NULL value.
@@ -481,7 +481,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#getString(int)
+     * see java.sql.ResultSet#getString(int)
      * @throws SQLConnectionClosedException if the connection is closed.
      * @throws SQLNoSuchFieldException if the field looked for doesn't exist.
      * @throws SQLIllegalColumnIndexException if the column index has an illegal value.
@@ -550,7 +550,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.Wrapper#isWrapperFor(java.lang.Class)
+     * see java.sql.Wrapper#isWrapperFor(java.lang.Class)
      */
     @Override
     public boolean isWrapperFor(Class<?> iface) {
@@ -559,7 +559,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.sql.ResultSet#wasNull()
+     * see java.sql.ResultSet#wasNull()
      */
     @Override
     public boolean wasNull() {
@@ -600,7 +600,7 @@ public class DBFRecordBasedResultSet extends DBFResultSet {
     }
 
     /**
-     * @see java.lang.Object#toString()
+     * see java.lang.Object#toString()
      */
     @Override
     public String toString() {

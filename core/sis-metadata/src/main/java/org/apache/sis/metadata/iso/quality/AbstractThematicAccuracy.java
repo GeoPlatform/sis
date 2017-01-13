@@ -70,7 +70,7 @@ public class AbstractThematicAccuracy extends AbstractElement implements Themati
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(ThematicAccuracy)
+     * see #castOrCopy(ThematicAccuracy)
      */
     public AbstractThematicAccuracy(final ThematicAccuracy object) {
         super(object);

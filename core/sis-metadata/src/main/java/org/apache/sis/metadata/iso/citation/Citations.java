@@ -123,9 +123,9 @@ public final class Citations extends Static {
      *   <gml:identifier codeSpace="IOGP">urn:ogc:def:crs:EPSG::4326</gml:identifier>
      * }
      *
-     * @see #fromName(String)
-     * @see org.apache.sis.internal.jaxb.referencing.Code#getIdentifier()
-     * @see <a href="http://issues.apache.org/jira/browse/SIS-200">SIS-200</a>
+     * see #fromName(String)
+     * see org.apache.sis.internal.jaxb.referencing.Code#getIdentifier()
+     * see <a href="http://issues.apache.org/jira/browse/SIS-200">SIS-200</a>
      */
     static final Citation IOGP = new CitationConstant(Constants.IOGP);
 
@@ -263,8 +263,8 @@ public final class Citations extends Static {
      *   <li>{@link org.apache.sis.metadata.iso.ImmutableIdentifier#getAuthority()}</li>
      * </ul>
      *
-     * @see #EPSG
-     * @see #ESRI
+     * see #EPSG
+     * see #ESRI
      */
     public static final IdentifierSpace<String> OGC = new CitationConstant.Authority<>(Constants.OGC);
 
@@ -298,8 +298,8 @@ public final class Citations extends Static {
      *
      * @since 0.4
      *
-     * @see #OGC
-     * @see #EPSG
+     * see #OGC
+     * see #EPSG
      */
     public static final IdentifierSpace<String> ESRI = new CitationConstant.Authority<>("ESRI");
 
@@ -401,7 +401,7 @@ public final class Citations extends Static {
      *   <li>{@link DefaultCitation#getIdentifiers()}</li>
      * </ul>
      *
-     * @see DefaultCitation#getISBN()
+     * see DefaultCitation#getISBN()
      */
     public static final IdentifierSpace<String> ISBN = new NonMarshalledAuthority<>("ISBN", NonMarshalledAuthority.ISBN);
 
@@ -416,7 +416,7 @@ public final class Citations extends Static {
      *   <li>{@link DefaultCitation#getIdentifiers()}</li>
      * </ul>
      *
-     * @see DefaultCitation#getISSN()
+     * see DefaultCitation#getISSN()
      */
     public static final IdentifierSpace<String> ISSN = new NonMarshalledAuthority<>("ISSN", NonMarshalledAuthority.ISSN);
 
@@ -683,9 +683,9 @@ public final class Citations extends Static {
      * @return A non-empty Unicode identifier for the given citation without leading or trailing whitespaces,
      *         or {@code null} if the given citation is null or does not have any Unicode identifier or title.
      *
-     * @see org.apache.sis.metadata.iso.ImmutableIdentifier
-     * @see org.apache.sis.referencing.IdentifiedObjects#getUnicodeIdentifier(IdentifiedObject)
-     * @see org.apache.sis.util.CharSequences#isUnicodeIdentifier(CharSequence)
+     * see org.apache.sis.metadata.iso.ImmutableIdentifier
+     * see org.apache.sis.referencing.IdentifiedObjects#getUnicodeIdentifier(IdentifiedObject)
+     * see org.apache.sis.util.CharSequences#isUnicodeIdentifier(CharSequence)
      *
      * @since 0.6
      */

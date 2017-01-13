@@ -99,7 +99,7 @@ public class DefaultCoverageResult extends AbstractResult implements CoverageRes
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(CoverageResult)
+     * see #castOrCopy(CoverageResult)
      */
     public DefaultCoverageResult(final CoverageResult object) {
         super(object);

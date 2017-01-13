@@ -82,7 +82,7 @@ public class AbstractReferenceSystem extends AbstractIdentifiedObject implements
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setDomainOfValidity(Extent)}</p>
      *
-     * @see #getDomainOfValidity()
+     * see #getDomainOfValidity()
      */
     private Extent domainOfValidity;
 
@@ -93,7 +93,7 @@ public class AbstractReferenceSystem extends AbstractIdentifiedObject implements
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setScope(InternationalString)}</p>
      *
-     * @see #getScope()
+     * see #getScope()
      */
     private InternationalString scope;
 
@@ -185,7 +185,7 @@ public class AbstractReferenceSystem extends AbstractIdentifiedObject implements
      *
      * @return Area or region or timeframe in which this (coordinate) reference system is valid, or {@code null}.
      *
-     * @see org.apache.sis.metadata.iso.extent.DefaultExtent
+     * see org.apache.sis.metadata.iso.extent.DefaultExtent
      */
     @Override
     @XmlElement(name = "domainOfValidity")
@@ -281,7 +281,7 @@ public class AbstractReferenceSystem extends AbstractIdentifiedObject implements
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * @see #getDomainOfValidity()
+     * see #getDomainOfValidity()
      */
     private void setDomainOfValidity(final Extent value) {
         if (domainOfValidity == null) {
@@ -294,7 +294,7 @@ public class AbstractReferenceSystem extends AbstractIdentifiedObject implements
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * @see #getScope()
+     * see #getScope()
      */
     private void setScope(final InternationalString value) {
         if (scope == null) {

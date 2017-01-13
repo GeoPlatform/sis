@@ -63,7 +63,7 @@ public class ResourceCompilerMojo extends AbstractMojo implements FilenameFilter
      * A handler for the Eclipse workspace, used for declaring new resources.
      * When Maven is run from the command line, this object does nothing.
      *
-     * @see <a href="http://wiki.eclipse.org/M2E_compatible_maven_plugins">M2E compatible maven plugins</a>
+     * see <a href="http://wiki.eclipse.org/M2E_compatible_maven_plugins">M2E compatible maven plugins</a>
      */
     @Component
     private BuildContext buildContext;

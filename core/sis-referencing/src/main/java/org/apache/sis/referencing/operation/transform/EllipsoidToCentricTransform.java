@@ -132,7 +132,7 @@ public class EllipsoidToCentricTransform extends AbstractMathTransform implement
      * Internal parameter descriptor, used only for debugging purpose.
      * Created only when first needed.
      *
-     * @see #getParameterDescriptors()
+     * see #getParameterDescriptors()
      */
     @Debug
     private static ParameterDescriptorGroup DESCRIPTOR;
@@ -148,7 +148,7 @@ public class EllipsoidToCentricTransform extends AbstractMathTransform implement
      * reduced to about 200 km for an eccentricity of 0.16. It may be possible to find a formula for
      * the limit of <var>h</var> as a function of ℯ and φ, but this has not been explored yet.</p>
      *
-     * @see org.apache.sis.referencing.operation.projection.ConformalProjection#ECCENTRICITY_THRESHOLD
+     * see org.apache.sis.referencing.operation.projection.ConformalProjection#ECCENTRICITY_THRESHOLD
      */
     private static final double ECCENTRICITY_THRESHOLD = 0.16;
 
@@ -204,7 +204,7 @@ public class EllipsoidToCentricTransform extends AbstractMathTransform implement
      * The parameters used for creating this conversion.
      * They are used for formatting <cite>Well Known Text</cite> (WKT) and error messages.
      *
-     * @see #getContextualParameters()
+     * see #getContextualParameters()
      */
     final ContextualParameters context;
 
@@ -263,7 +263,7 @@ public class EllipsoidToCentricTransform extends AbstractMathTransform implement
      *                   (i.e. are 3-D), or {@code false} if they are only 2-D.
      * @param target     Whether the target coordinate shall be Cartesian or Spherical.
      *
-     * @see #createGeodeticConversion(MathTransformFactory, double, double, Unit, boolean, TargetType)
+     * see #createGeodeticConversion(MathTransformFactory, double, double, Unit, boolean, TargetType)
      */
     protected EllipsoidToCentricTransform(final double semiMajor, final double semiMinor,
             final Unit<Length> unit, final boolean withHeight, final TargetType target)

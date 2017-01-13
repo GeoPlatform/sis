@@ -87,7 +87,7 @@ public class DefaultTemporalExtent extends ISOMetadata implements TemporalExtent
      *
      * @param  object  the metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(TemporalExtent)
+     * see #castOrCopy(TemporalExtent)
      */
     public DefaultTemporalExtent(final TemporalExtent object) {
         super(object);
@@ -229,9 +229,9 @@ public class DefaultTemporalExtent extends ISOMetadata implements TemporalExtent
      * @throws UnsupportedOperationException if the referencing module or the temporal module is not on the classpath.
      * @throws TransformException if the envelope can not be transformed to a temporal extent.
      *
-     * @see DefaultExtent#addElements(Envelope)
-     * @see DefaultGeographicBoundingBox#setBounds(Envelope)
-     * @see DefaultVerticalExtent#setBounds(Envelope)
+     * see DefaultExtent#addElements(Envelope)
+     * see DefaultGeographicBoundingBox#setBounds(Envelope)
+     * see DefaultVerticalExtent#setBounds(Envelope)
      */
     public void setBounds(final Envelope envelope) throws TransformException {
         checkWritePermission();

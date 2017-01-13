@@ -140,7 +140,7 @@ public class DBase3FieldDescriptor extends AutoChecker {
     }
 
     /**
-     * @see java.lang.Object#toString()
+     * see java.lang.Object#toString()
      */
     @Override
     public String toString() {

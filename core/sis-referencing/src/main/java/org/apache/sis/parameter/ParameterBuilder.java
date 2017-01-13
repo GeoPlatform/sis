@@ -112,7 +112,7 @@ public class ParameterBuilder extends Builder<ParameterBuilder> {
     /**
      * {@code true} if the parameter is mandatory, or {@code false} if optional.
      *
-     * @see #setRequired(boolean)
+     * see #setRequired(boolean)
      */
     private boolean required;
 

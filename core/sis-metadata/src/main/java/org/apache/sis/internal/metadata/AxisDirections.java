@@ -238,7 +238,7 @@ public final class AxisDirections extends Static {
      * @param  dir  the direction to test, or {@code null}.
      * @return {@code true} if the given direction is a compass direction.
      *
-     * @see #angleForCompass(AxisDirection, AxisDirection)
+     * see #angleForCompass(AxisDirection, AxisDirection)
      */
     public static boolean isCompass(final AxisDirection dir) {
         if (dir == null) return false;
@@ -355,7 +355,7 @@ public final class AxisDirections extends Static {
      * @param  target  the final direction.
      * @return the arithmetic angle as a multiple of 360/{@link #COMPASS_COUNT}, or {@link Integer#MIN_VALUE} if none.
      *
-     * @see #isCompass(AxisDirection)
+     * see #isCompass(AxisDirection)
      */
     public static int angleForCompass(final AxisDirection source, final AxisDirection target) {
         final int base = NORTH.ordinal();
@@ -420,7 +420,7 @@ public final class AxisDirections extends Static {
      *
      * @since 0.6
      *
-     * @see org.apache.sis.internal.referencing.ReferencingUtilities#getUnit(CoordinateSystem)
+     * see org.apache.sis.internal.referencing.ReferencingUtilities#getUnit(CoordinateSystem)
      */
     public static Unit<Angle> getAngularUnit(final CoordinateSystem cs, Unit<Angle> unit) {
         if (cs != null) {

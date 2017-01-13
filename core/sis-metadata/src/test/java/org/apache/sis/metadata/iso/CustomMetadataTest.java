@@ -97,7 +97,7 @@ public final strictfp class CustomMetadataTest extends XMLTestCase {
      *
      * @throws JAXBException Should never happen.
      *
-     * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-108">GEOTK-108</a>
+     * see <a href="http://jira.geotoolkit.org/browse/GEOTK-108">GEOTK-108</a>
      */
     @Test
     public void testSubtypeAttributes() throws JAXBException {

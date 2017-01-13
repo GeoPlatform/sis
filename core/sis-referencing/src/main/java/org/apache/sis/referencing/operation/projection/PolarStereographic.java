@@ -59,7 +59,7 @@ import static org.apache.sis.internal.util.DoubleDouble.verbatim;
  * @version 0.6
  * @module
  *
- * @see ObliqueStereographic
+ * see ObliqueStereographic
  */
 public class PolarStereographic extends ConformalProjection {
     /**
@@ -75,7 +75,7 @@ public class PolarStereographic extends ConformalProjection {
      * <p>We do not provide such codes in public API because they duplicate the functionality of
      * {@link OperationMethod} instances. We use them only for constructors convenience.</p>
      *
-     * @see #getVariant(OperationMethod)
+     * see #getVariant(OperationMethod)
      */
     private static final byte A = 1, B = 2, C = 3, NORTH = 4, SOUTH = 5;
 

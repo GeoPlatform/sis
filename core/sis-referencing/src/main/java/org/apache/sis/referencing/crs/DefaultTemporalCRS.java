@@ -62,9 +62,9 @@ import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
  * @version 0.8
  * @module
  *
- * @see org.apache.sis.referencing.datum.DefaultTemporalDatum
- * @see org.apache.sis.referencing.cs.DefaultTimeCS
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createTemporalCRS(String)
+ * see org.apache.sis.referencing.datum.DefaultTemporalDatum
+ * see org.apache.sis.referencing.cs.DefaultTimeCS
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createTemporalCRS(String)
  */
 @XmlType(name = "TemporalCRSType", propOrder = {
     "coordinateSystem",
@@ -83,7 +83,7 @@ public class DefaultTemporalCRS extends AbstractCRS implements TemporalCRS {
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setDatum(TemporalDatum)}</p>
      *
-     * @see #getDatum()
+     * see #getDatum()
      */
     private TemporalDatum datum;
 
@@ -149,7 +149,7 @@ public class DefaultTemporalCRS extends AbstractCRS implements TemporalCRS {
      * @param datum The datum.
      * @param cs The coordinate system.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createTemporalCRS(Map, TemporalDatum, TimeCS)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createTemporalCRS(Map, TemporalDatum, TimeCS)
      */
     public DefaultTemporalCRS(final Map<String,?> properties,
                               final TemporalDatum datum,
@@ -169,7 +169,7 @@ public class DefaultTemporalCRS extends AbstractCRS implements TemporalCRS {
      *
      * @param crs The coordinate reference system to copy.
      *
-     * @see #castOrCopy(TemporalCRS)
+     * see #castOrCopy(TemporalCRS)
      */
     protected DefaultTemporalCRS(final TemporalCRS crs) {
         super(crs);
@@ -301,7 +301,7 @@ public class DefaultTemporalCRS extends AbstractCRS implements TemporalCRS {
      *
      * @return {@code "TimeCRS"}.
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#88">WKT 2 specification §14</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#88">WKT 2 specification §14</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -343,7 +343,7 @@ public class DefaultTemporalCRS extends AbstractCRS implements TemporalCRS {
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * @see #getDatum()
+     * see #getDatum()
      */
     private void setDatum(final TemporalDatum value) {
         if (datum == null) {
@@ -356,7 +356,7 @@ public class DefaultTemporalCRS extends AbstractCRS implements TemporalCRS {
     /**
      * Used by JAXB only (invoked by reflection).
      *
-     * @see #getCoordinateSystem()
+     * see #getCoordinateSystem()
      */
     private void setCoordinateSystem(final TimeCS cs) {
         setCoordinateSystem("timeCS", cs);

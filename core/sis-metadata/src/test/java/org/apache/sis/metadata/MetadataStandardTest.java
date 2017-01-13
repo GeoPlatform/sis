@@ -274,7 +274,7 @@ public final strictfp class MetadataStandardTest extends TestCase {
      * Tests the {@link MetadataStandard#hashCode(Object)} method on an object having cyclic associations.
      * In absence of safety guard against infinite recursivity, this test would produce {@link StackOverflowError}.
      *
-     * @see AbstractMetadataTest#testHashCodeOnCyclicMetadata()
+     * see AbstractMetadataTest#testHashCodeOnCyclicMetadata()
      */
     @Test
     @DependsOnMethod("testHashCode")

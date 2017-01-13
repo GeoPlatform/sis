@@ -35,7 +35,7 @@ import org.apache.sis.metadata.iso.citation.Citations;
  * @version 0.7
  * @module
  *
- * @see GeographicToGeocentric
+ * see GeographicToGeocentric
  */
 public final class GeocentricToGeographic extends AbstractProvider {
     /**

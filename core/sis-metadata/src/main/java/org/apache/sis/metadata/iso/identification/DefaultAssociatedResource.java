@@ -108,7 +108,7 @@ public class DefaultAssociatedResource extends ISOMetadata implements Associated
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(AssociatedResource)
+     * see #castOrCopy(AssociatedResource)
      */
     public DefaultAssociatedResource(final AssociatedResource object) {
         if (object != null) {
@@ -166,7 +166,7 @@ public class DefaultAssociatedResource extends ISOMetadata implements Associated
     
     /**
 	 * Gets the name for this resource for JAXB (used in ISO 19115-3 format).
-	 * @see {@link #getName}
+	 * see {@link #getName}
 	 */
 	@XmlElement(name = "name")
 	private Citation getXmlName() {
@@ -175,7 +175,7 @@ public class DefaultAssociatedResource extends ISOMetadata implements Associated
 	
 	/**
 	 * Sets the name for this resource for JAXB (used in ISO 19115-3 format).
-	 * @see {@link #setProcessingLevel}
+	 * see {@link #setProcessingLevel}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlName(final Citation newValue) {

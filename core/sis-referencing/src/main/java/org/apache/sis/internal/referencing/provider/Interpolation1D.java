@@ -48,8 +48,8 @@ public final class Interpolation1D extends AbstractProvider {
      * The operation parameter descriptor for the <cite>"preimage"</cite> parameter value.
      * This parameter is optional and often omitted.
      *
-     * @see <a href="https://en.wikipedia.org/wiki/Image_%28mathematics%29#Inverse_image">Preimage on Wikipedia</a>
-     * @see <a href="http://mathworld.wolfram.com/Preimage.html">Preimage on MathWord</a>
+     * see <a href="https://en.wikipedia.org/wiki/Image_%28mathematics%29#Inverse_image">Preimage on Wikipedia</a>
+     * see <a href="http://mathworld.wolfram.com/Preimage.html">Preimage on MathWord</a>
      */
     private static final ParameterDescriptor<double[]> PREIMAGE;
 

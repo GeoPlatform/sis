@@ -60,7 +60,7 @@ public class DefaultFormatConsistency extends AbstractLogicalConsistency impleme
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(FormatConsistency)
+     * see #castOrCopy(FormatConsistency)
      */
     public DefaultFormatConsistency(final FormatConsistency object) {
         super(object);

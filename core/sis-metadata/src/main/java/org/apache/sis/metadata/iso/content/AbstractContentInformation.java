@@ -69,7 +69,7 @@ public class AbstractContentInformation extends ISOMetadata implements ContentIn
      *
      * @param object  the metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(ContentInformation)
+     * see #castOrCopy(ContentInformation)
      */
     public AbstractContentInformation(final ContentInformation object) {
         super(object);

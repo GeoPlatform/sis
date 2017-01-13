@@ -97,7 +97,7 @@ class AbstractSingleOperation extends AbstractCoordinateOperation implements Sin
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setMethod(OperationMethod)}.</p>
      *
-     * @see #getMethod()
+     * see #getMethod()
      */
     private OperationMethod method;
 
@@ -303,8 +303,8 @@ class AbstractSingleOperation extends AbstractCoordinateOperation implements Sin
      *
      * @return a description of the parameters.
      *
-     * @see DefaultOperationMethod#getParameters()
-     * @see org.apache.sis.referencing.operation.transform.AbstractMathTransform#getParameterDescriptors()
+     * see DefaultOperationMethod#getParameters()
+     * see org.apache.sis.referencing.operation.transform.AbstractMathTransform#getParameterDescriptors()
      */
     @Override
     public ParameterDescriptorGroup getParameterDescriptors() {
@@ -326,7 +326,7 @@ class AbstractSingleOperation extends AbstractCoordinateOperation implements Sin
      * @throws UnsupportedOperationException if the parameter values can not be determined
      *         for the current math transform implementation.
      *
-     * @see org.apache.sis.referencing.operation.transform.AbstractMathTransform#getParameterValues()
+     * see org.apache.sis.referencing.operation.transform.AbstractMathTransform#getParameterValues()
      */
     @Override
     public ParameterValueGroup getParameterValues() {
@@ -418,7 +418,7 @@ class AbstractSingleOperation extends AbstractCoordinateOperation implements Sin
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * @see #getMethod()
+     * see #getMethod()
      */
     private void setMethod(final OperationMethod value) {
         if (method == null) {
@@ -438,7 +438,7 @@ class AbstractSingleOperation extends AbstractCoordinateOperation implements Sin
      * sole {@code <gml:parameterValue>} element. We currently have no easy way to distinguish those cases.
      * See {@link DefaultOperationMethod#getDescriptors()} for more discussion.</p>
      *
-     * @see DefaultOperationMethod#getDescriptors()
+     * see DefaultOperationMethod#getDescriptors()
      */
     @XmlElement(name = "parameterValue")
     private GeneralParameterValue[] getParameters() {
@@ -456,7 +456,7 @@ class AbstractSingleOperation extends AbstractCoordinateOperation implements Sin
      * This method wraps the given parameters in a {@link ParameterValueGroup},
      * unless the given descriptors was already a {@code ParameterValueGroup}.
      *
-     * @see DefaultOperationMethod#setDescriptors
+     * see DefaultOperationMethod#setDescriptors
      */
     private void setParameters(final GeneralParameterValue[] values) {
         if (parameters == null) {
@@ -511,7 +511,7 @@ class AbstractSingleOperation extends AbstractCoordinateOperation implements Sin
      *   <li>{@link #setParameters(GeneralParameterValue[])}</li>
      * </ul>
      *
-     * @see <a href="http://issues.apache.org/jira/browse/SIS-291">SIS-291</a>
+     * see <a href="http://issues.apache.org/jira/browse/SIS-291">SIS-291</a>
      */
     private void afterUnmarshal(Unmarshaller unmarshaller, Object parent) {
         final CoordinateReferenceSystem sourceCRS = super.getSourceCRS();

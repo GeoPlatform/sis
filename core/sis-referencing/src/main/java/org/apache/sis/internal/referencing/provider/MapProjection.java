@@ -153,7 +153,7 @@ public abstract class MapProjection extends AbstractProvider {
      * @param  value The parameter value in the units given by the descriptor.
      * @throws IllegalArgumentException if the given value is out of bounds.
      *
-     * @see #createZeroConstant(ParameterBuilder)
+     * see #createZeroConstant(ParameterBuilder)
      */
     public static void validate(final ParameterDescriptor<? extends Number> descriptor, final double value)
             throws IllegalArgumentException

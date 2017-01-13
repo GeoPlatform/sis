@@ -123,9 +123,9 @@ import java.util.Objects;
  * @since   0.5
  * @module
  *
- * @see DefaultConversion
- * @see DefaultTransformation
- * @see org.apache.sis.referencing.operation.transform.MathTransformProvider
+ * see DefaultConversion
+ * see DefaultTransformation
+ * see org.apache.sis.referencing.operation.transform.MathTransformProvider
  */
 @XmlType(name = "OperationMethodType", propOrder = {
     "formulaCitation",
@@ -166,7 +166,7 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setSourceDimensions(Integer)}</p>
      *
-     * @see #getSourceDimensions()
+     * see #getSourceDimensions()
      */
     private Integer sourceDimensions;
 
@@ -178,7 +178,7 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setTargetDimensions(Integer)}</p>
      *
-     * @see #getTargetDimensions()
+     * see #getTargetDimensions()
      */
     private Integer targetDimensions;
 
@@ -338,7 +338,7 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
      *
      * @param method The operation method to copy.
      *
-     * @see #castOrCopy(OperationMethod)
+     * see #castOrCopy(OperationMethod)
      */
     protected DefaultOperationMethod(final OperationMethod method) {
         super(method);
@@ -538,7 +538,7 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
      *
      * @return Interface implemented by all coordinate operations that use this method.
      *
-     * @see org.apache.sis.referencing.operation.transform.DefaultMathTransformFactory#getAvailableMethods(Class)
+     * see org.apache.sis.referencing.operation.transform.DefaultMathTransformFactory#getAvailableMethods(Class)
      */
     public Class<? extends SingleOperation> getOperationType() {
         return SingleOperation.class;
@@ -554,8 +554,8 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
      *
      * @return The formula used by this method, or {@code null} if unknown.
      *
-     * @see DefaultFormula
-     * @see org.apache.sis.referencing.operation.transform.MathTransformProvider
+     * see DefaultFormula
+     * see org.apache.sis.referencing.operation.transform.MathTransformProvider
      */
     @Override
     public Formula getFormula() {
@@ -568,7 +568,7 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
      *
      * @return The dimension of source CRS, or {@code null} if unknown.
      *
-     * @see org.apache.sis.referencing.operation.transform.AbstractMathTransform#getSourceDimensions()
+     * see org.apache.sis.referencing.operation.transform.AbstractMathTransform#getSourceDimensions()
      */
     @Override
     @XmlElement(name = "sourceDimensions")
@@ -583,7 +583,7 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
      *
      * @return The dimension of target CRS, or {@code null} if unknown.
      *
-     * @see org.apache.sis.referencing.operation.transform.AbstractMathTransform#getTargetDimensions()
+     * see org.apache.sis.referencing.operation.transform.AbstractMathTransform#getTargetDimensions()
      */
     @Override
     @XmlElement(name = "targetDimensions")
@@ -602,8 +602,8 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
      *
      * @return The parameters, or {@code null} if unknown.
      *
-     * @see DefaultConversion#getParameterDescriptors()
-     * @see DefaultConversion#getParameterValues()
+     * see DefaultConversion#getParameterDescriptors()
+     * see DefaultConversion#getParameterValues()
      */
     @Override
     public ParameterDescriptorGroup getParameters() {
@@ -692,7 +692,7 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
      *
      * @return {@code "Method"} (WKT 2) or {@code "Projection"} (WKT 1).
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#118">WKT 2 specification §17.2.3</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#118">WKT 2 specification §17.2.3</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -793,7 +793,7 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * @see #getSourceDimensions()
+     * see #getSourceDimensions()
      */
     private void setSourceDimensions(final Integer value) {
         if (sourceDimensions == null) {
@@ -806,7 +806,7 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * @see #getTargetDimensions()
+     * see #getTargetDimensions()
      */
     private void setTargetDimensions(final Integer value) {
         if (targetDimensions == null) {
@@ -890,8 +890,8 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
      *   <li>{@code usesParameter}</li>
      * </ul>
      *
-     * @see #getParameters()
-     * @see AbstractSingleOperation#getParameters()
+     * see #getParameters()
+     * see AbstractSingleOperation#getParameters()
      */
     @XmlElement(name = "parameter")
     private GeneralParameterDescriptor[] getDescriptors() {
@@ -917,7 +917,7 @@ public class DefaultOperationMethod extends AbstractIdentifiedObject implements 
      * <p><b>Maintenance note:</b> the {@code "setDescriptors"} method name is also hard-coded in
      * {@link org.apache.sis.internal.jaxb.referencing.CC_GeneralOperationParameter} for logging purpose.</p>
      *
-     * @see AbstractSingleOperation#setParameters
+     * see AbstractSingleOperation#setParameters
      */
     private void setDescriptors(final GeneralParameterDescriptor[] descriptors) {
         if (parameters == null) {

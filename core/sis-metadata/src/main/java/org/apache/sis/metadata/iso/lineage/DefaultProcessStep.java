@@ -159,7 +159,7 @@ public class DefaultProcessStep extends ISOMetadata implements ProcessStep {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(ProcessStep)
+     * see #castOrCopy(ProcessStep)
      */
     public DefaultProcessStep(final ProcessStep object) {
         super(object);
@@ -312,7 +312,7 @@ public class DefaultProcessStep extends ISOMetadata implements ProcessStep {
     
     /**
 	 * Gets references. Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #getReferences}
+	 * see {@link #getReferences}
 	 */
 	@XmlElement(name = "reference")
 	private Collection<Citation> getXmlReferences() {
@@ -348,7 +348,7 @@ public class DefaultProcessStep extends ISOMetadata implements ProcessStep {
     
     /**
 	 * Gets the scope. Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #getScope}
+	 * see {@link #getScope}
 	 */
 	@XmlElement(name = "scope")
 	private Scope getXmlScope() {
@@ -357,7 +357,7 @@ public class DefaultProcessStep extends ISOMetadata implements ProcessStep {
 
 	/**
 	 * Sets the scope. Used by JAXB (ISO 19115-3 format).
-	 * @see {@link #setScope}
+	 * see {@link #setScope}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlScope(final Scope newValue) {

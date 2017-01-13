@@ -110,7 +110,7 @@ public class DefaultAffineCS extends AbstractCS implements AffineCS {
      * @param axis0       the first axis.
      * @param axis1       the second axis.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createAffineCS(Map, CoordinateSystemAxis, CoordinateSystemAxis)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createAffineCS(Map, CoordinateSystemAxis, CoordinateSystemAxis)
      */
     public DefaultAffineCS(final Map<String,?>   properties,
                            final CoordinateSystemAxis axis0,
@@ -128,7 +128,7 @@ public class DefaultAffineCS extends AbstractCS implements AffineCS {
      * @param axis1       the second axis.
      * @param axis2       the third axis.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createAffineCS(Map, CoordinateSystemAxis, CoordinateSystemAxis, CoordinateSystemAxis)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createAffineCS(Map, CoordinateSystemAxis, CoordinateSystemAxis, CoordinateSystemAxis)
      */
     public DefaultAffineCS(final Map<String,?>   properties,
                            final CoordinateSystemAxis axis0,
@@ -147,7 +147,7 @@ public class DefaultAffineCS extends AbstractCS implements AffineCS {
      *
      * @param  cs  the coordinate system to copy.
      *
-     * @see #castOrCopy(AffineCS)
+     * see #castOrCopy(AffineCS)
      */
     protected DefaultAffineCS(final AffineCS cs) {
         super(cs);

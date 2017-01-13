@@ -43,7 +43,7 @@ final class Codes {
      * Axis directions as a maximum of 4 directions packed in a single integer.
      * Each byte is an {@link AxisDirection#ordinal()} value.
      *
-     * @see #pack(AxisDirection[])
+     * see #pack(AxisDirection[])
      */
     final int directions;
 

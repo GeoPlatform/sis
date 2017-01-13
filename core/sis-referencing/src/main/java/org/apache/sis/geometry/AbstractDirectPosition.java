@@ -149,7 +149,7 @@ public abstract class AbstractDirectPosition implements DirectPosition {
      * @return {@code true} if this position has been modified as a result of this method call,
      *         or {@code false} if no change has been done.
      *
-     * @see GeneralEnvelope#normalize()
+     * see GeneralEnvelope#normalize()
      */
     public boolean normalize() {
         boolean changed = false;
@@ -190,7 +190,7 @@ public abstract class AbstractDirectPosition implements DirectPosition {
      * @param  values The value to test for their precision.
      * @return {@code true} if every values can be casted to the {@code float} type without precision lost.
      *
-     * @see #toString(DirectPosition, boolean)
+     * see #toString(DirectPosition, boolean)
      */
     static boolean isSimplePrecision(final double... values) {
         for (final double value : values) {
@@ -229,7 +229,7 @@ public abstract class AbstractDirectPosition implements DirectPosition {
      * @param  isSimplePrecision {@code true} if every ordinate values can be casted to {@code float}.
      * @return The point as a {@code POINT} in WKT format.
      *
-     * @see #isSimplePrecision(double[])
+     * see #isSimplePrecision(double[])
      */
     static String toString(final DirectPosition position, final boolean isSimplePrecision) {
         final StringBuilder buffer = new StringBuilder(32).append("POINT");

@@ -76,7 +76,7 @@ import static java.lang.Character.*;
  * @version 0.7
  * @module
  *
- * @see StringBuilders
+ * see StringBuilders
  */
 public final class CharSequences extends Static {
     /**
@@ -191,7 +191,7 @@ public final class CharSequences extends Static {
      * @param  text  the character sequence from which to get the count, or {@code null}.
      * @return the number of Unicode code points, or 0 if the argument is {@code null}.
      *
-     * @see #codePointCount(CharSequence, int, int)
+     * see #codePointCount(CharSequence, int, int)
      */
     public static int codePointCount(final CharSequence text) {
         if (text == null)                  return 0;
@@ -222,9 +222,9 @@ public final class CharSequences extends Static {
      * @param  toIndex    the index after the last character to take in account.
      * @return the number of Unicode code points, or 0 if the argument is {@code null}.
      *
-     * @see Character#codePointCount(CharSequence, int, int)
-     * @see String#codePointCount(int, int)
-     * @see StringBuilder#codePointCount(int, int)
+     * see Character#codePointCount(CharSequence, int, int)
+     * see String#codePointCount(int, int)
+     * see StringBuilder#codePointCount(int, int)
      */
     public static int codePointCount(final CharSequence text, final int fromIndex, final int toIndex) {
         if (text == null)                  return 0;
@@ -322,9 +322,9 @@ public final class CharSequences extends Static {
      * @throws NullArgumentException if the {@code toSearch} argument is null.
      * @throws IllegalArgumentException if the {@code toSearch} argument is empty.
      *
-     * @see String#indexOf(String, int)
-     * @see StringBuilder#indexOf(String, int)
-     * @see StringBuffer#indexOf(String, int)
+     * see String#indexOf(String, int)
+     * see StringBuilder#indexOf(String, int)
+     * see StringBuffer#indexOf(String, int)
      */
     public static int indexOf(final CharSequence text, final CharSequence toSearch, int fromIndex, int toIndex) {
         ArgumentChecks.ensureNonEmpty("toSearch", toSearch);
@@ -379,7 +379,7 @@ search:     for (; fromIndex <= toIndex; fromIndex++) {
      * @return the index of the first occurrence of the given character in the specified sub-sequence,
      *         or -1 if no occurrence has been found or if the {@code text} argument is null.
      *
-     * @see String#indexOf(int, int)
+     * see String#indexOf(int, int)
      */
     public static int indexOf(final CharSequence text, final int toSearch, int fromIndex, int toIndex) {
         if (text != null) {
@@ -430,7 +430,7 @@ search:     for (; fromIndex <= toIndex; fromIndex++) {
      * @return the index of the last occurrence of the given character in the specified sub-sequence,
      *         or -1 if no occurrence has been found or if the {@code text} argument is null.
      *
-     * @see String#lastIndexOf(int, int)
+     * see String#lastIndexOf(int, int)
      */
     public static int lastIndexOf(final CharSequence text, final int toSearch, int fromIndex, int toIndex) {
         if (text != null) {
@@ -557,8 +557,8 @@ search:     for (; fromIndex <= toIndex; fromIndex++) {
      *         at the specified index, or a value equals or greater than {@code toIndex} if none.
      * @throws NullPointerException if the {@code text} argument is null.
      *
-     * @see #skipTrailingWhitespaces(CharSequence, int, int)
-     * @see #trimWhitespaces(CharSequence)
+     * see #skipTrailingWhitespaces(CharSequence, int, int)
+     * see #trimWhitespaces(CharSequence)
      */
     public static int skipLeadingWhitespaces(final CharSequence text, int fromIndex, final int toIndex) {
         while (fromIndex < toIndex) {
@@ -594,8 +594,8 @@ search:     for (; fromIndex <= toIndex; fromIndex++) {
      *         at the specified index, or a value equals or lower than {@code fromIndex} if none.
      * @throws NullPointerException if the {@code text} argument is null.
      *
-     * @see #skipLeadingWhitespaces(CharSequence, int, int)
-     * @see #trimWhitespaces(CharSequence)
+     * see #skipLeadingWhitespaces(CharSequence, int, int)
+     * see #trimWhitespaces(CharSequence)
      */
     public static int skipTrailingWhitespaces(final CharSequence text, final int fromIndex, int toIndex) {
         while (toIndex > fromIndex) {
@@ -649,7 +649,7 @@ search:     for (; fromIndex <= toIndex; fromIndex++) {
      * @return the array of subsequences computed by splitting the given text around the given
      *         character, or an empty array if {@code toSplit} was null.
      *
-     * @see String#split(String)
+     * see String#split(String)
      */
     @SuppressWarnings("ReturnOfCollectionOrArrayField")
     public static CharSequence[] split(final CharSequence text, final char separator) {
@@ -716,7 +716,7 @@ search:     for (; fromIndex <= toIndex; fromIndex++) {
      * @param  text  the multi-line text from which to get the individual lines, or {@code null}.
      * @return the lines in the text, or an empty array if the given text was null.
      *
-     * @see #indexOfLineStart(CharSequence, int, int)
+     * see #indexOfLineStart(CharSequence, int, int)
      */
     @SuppressWarnings("ReturnOfCollectionOrArrayField")
     public static CharSequence[] splitOnEOL(final CharSequence text) {
@@ -936,9 +936,9 @@ search:     for (; fromIndex <= toIndex; fromIndex++) {
      * @return the given text with substitutions applied, or {@code text} if no replacement
      *         has been applied, or {@code null} if the given text was null.
      *
-     * @see StringBuilders#toASCII(StringBuilder)
-     * @see org.apache.sis.io.wkt.Transliterator#filter(String)
-     * @see java.text.Normalizer
+     * see StringBuilders#toASCII(StringBuilder)
+     * see org.apache.sis.io.wkt.Transliterator#filter(String)
+     * see java.text.Normalizer
      */
     public static CharSequence toASCII(final CharSequence text) {
         return StringBuilders.toASCII(text, null);
@@ -978,8 +978,8 @@ search:     for (; fromIndex <= toIndex; fromIndex++) {
      * @return a characters sequence with leading and trailing whitespaces removed,
      *         or {@code null} is the given text was null.
      *
-     * @see #skipLeadingWhitespaces(CharSequence, int, int)
-     * @see #skipTrailingWhitespaces(CharSequence, int, int)
+     * see #skipLeadingWhitespaces(CharSequence, int, int)
+     * see #skipTrailingWhitespaces(CharSequence, int, int)
      */
     public static CharSequence trimWhitespaces(CharSequence text) {
         if (text != null) {
@@ -1044,7 +1044,7 @@ search:     for (; fromIndex <= toIndex; fromIndex++) {
      * @return the value without the trailing {@code ".0"} part (if any),
      *         or {@code null} if the given text was null.
      *
-     * @see StringBuilders#trimFractionalPart(StringBuilder)
+     * see StringBuilders#trimFractionalPart(StringBuilder)
      */
     public static CharSequence trimFractionalPart(final CharSequence value) {
         if (value != null) {
@@ -1479,7 +1479,7 @@ cmp:    while (ia < lga) {
      * <p>This method is used for identifying character strings that are likely to be code
      * like {@code "UTF-8"} or {@code "ISO-LATIN-1"}.</p>
      *
-     * @see #isUnicodeIdentifier(CharSequence)
+     * see #isUnicodeIdentifier(CharSequence)
      */
     private static boolean isCode(final CharSequence identifier) {
         for (int i=identifier.length(); --i>=0;) {
@@ -1497,7 +1497,7 @@ cmp:    while (ia < lga) {
      * Returns {@code true} if the given text is presumed to be an acronym. Acronyms are presumed
      * to be valid Unicode identifiers in all upper-case letters and without the {@code '_'} character.
      *
-     * @see #camelCaseToAcronym(CharSequence)
+     * see #camelCaseToAcronym(CharSequence)
      */
     private static boolean isAcronym(final CharSequence text) {
         return isUpperCase(text) && indexOf(text, '_', 0, text.length()) < 0 && isUnicodeIdentifier(text);
@@ -1543,9 +1543,9 @@ cmp:    while (ia < lga) {
      * @param  identifier  the character sequence to test, or {@code null}.
      * @return {@code true} if the given character sequence is a legal Unicode identifier.
      *
-     * @see org.apache.sis.metadata.iso.ImmutableIdentifier
-     * @see org.apache.sis.metadata.iso.citation.Citations#getUnicodeIdentifier(Citation)
-     * @see org.apache.sis.referencing.IdentifiedObjects#getUnicodeIdentifier(IdentifiedObject)
+     * see org.apache.sis.metadata.iso.ImmutableIdentifier
+     * see org.apache.sis.metadata.iso.citation.Citations#getUnicodeIdentifier(Citation)
+     * see org.apache.sis.referencing.IdentifiedObjects#getUnicodeIdentifier(IdentifiedObject)
      */
     public static boolean isUnicodeIdentifier(final CharSequence identifier) {
         final int length = length(identifier);
@@ -1572,7 +1572,7 @@ cmp:    while (ia < lga) {
      * @param  text  the character sequence to test (may be {@code null}).
      * @return {@code true} if non-null, contains at least one upper-case character and no lower-case character.
      *
-     * @see String#toUpperCase()
+     * see String#toUpperCase()
      *
      * @since 0.7
      */
@@ -1698,7 +1698,7 @@ cmp:    while (ia < lga) {
      * @return {@code true} if the two given texts are equal, ignoring case,
      *         or if both arguments are {@code null}.
      *
-     * @see String#equalsIgnoreCase(String)
+     * see String#equalsIgnoreCase(String)
      */
     public static boolean equalsIgnoreCase(final CharSequence s1, final CharSequence s2) {
         if (s1 == s2) {
@@ -1733,7 +1733,7 @@ cmp:    while (ia < lga) {
      * @param  s2  the second string to compare, or {@code null}.
      * @return {@code true} if the two given texts are equal, or if both arguments are {@code null}.
      *
-     * @see String#contentEquals(CharSequence)
+     * see String#contentEquals(CharSequence)
      */
     public static boolean equals(final CharSequence s1, final CharSequence s2) {
         if (s1 == s2) {
@@ -1775,7 +1775,7 @@ cmp:    while (ia < lga) {
      * @return {@code true} if {@code text} contains {@code part} at the given {@code offset}.
      * @throws NullPointerException if any of the arguments is null.
      *
-     * @see String#regionMatches(int, String, int, int)
+     * see String#regionMatches(int, String, int, int)
      */
     public static boolean regionMatches(final CharSequence text, final int fromIndex, final CharSequence part) {
         if (text instanceof String && part instanceof String) {
@@ -1816,7 +1816,7 @@ cmp:    while (ia < lga) {
      * @return {@code true} if {@code text} contains {@code part} at the given {@code offset}.
      * @throws NullPointerException if any of the arguments is null.
      *
-     * @see String#regionMatches(boolean, int, String, int, int)
+     * see String#regionMatches(boolean, int, String, int, int)
      *
      * @since 0.4
      */
@@ -2026,9 +2026,9 @@ cmp:    while (ia < lga) {
      * @return the given text with replacements applied, or {@code text} if no replacement has been applied,
      *         or {@code null} if the given text was null
      *
-     * @see String#replace(char, char)
-     * @see StringBuilders#replace(StringBuilder, String, String)
-     * @see String#replace(CharSequence, CharSequence)
+     * see String#replace(char, char)
+     * see StringBuilders#replace(StringBuilder, String, String)
+     * see String#replace(CharSequence, CharSequence)
      *
      * @since 0.4
      */
@@ -2061,11 +2061,11 @@ cmp:    while (ia < lga) {
      * @param dstOffset  index where to write the first character in {@code dst}.
      * @param length     number of characters to copy.
      *
-     * @see String#getChars(int, int, char[], int)
-     * @see StringBuilder#getChars(int, int, char[], int)
-     * @see StringBuffer#getChars(int, int, char[], int)
-     * @see CharBuffer#get(char[], int, int)
-     * @see javax.swing.text.Segment#array
+     * see String#getChars(int, int, char[], int)
+     * see StringBuilder#getChars(int, int, char[], int)
+     * see StringBuffer#getChars(int, int, char[], int)
+     * see CharBuffer#get(char[], int, int)
+     * see javax.swing.text.Segment#array
      */
     public static void copyChars(final CharSequence src, int srcOffset,
                                  final char[] dst, int dstOffset, int length)

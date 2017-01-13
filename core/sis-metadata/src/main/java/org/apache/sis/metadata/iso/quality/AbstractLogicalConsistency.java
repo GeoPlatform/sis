@@ -72,7 +72,7 @@ public class AbstractLogicalConsistency extends AbstractElement implements Logic
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(LogicalConsistency)
+     * see #castOrCopy(LogicalConsistency)
      */
     public AbstractLogicalConsistency(final LogicalConsistency object) {
         super(object);

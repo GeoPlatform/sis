@@ -79,7 +79,7 @@ public class DefaultGeorectified extends DefaultGridSpatialRepresentation implem
     /**
      * Mask for the {@code checkPointAvailable} boolean value.
      *
-     * @see #booleans
+     * see #booleans
      */
     private static final byte CHECK_POINT_MASK = TRANSFORMATION_MASK << 1;
 
@@ -137,7 +137,7 @@ public class DefaultGeorectified extends DefaultGridSpatialRepresentation implem
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Georectified)
+     * see #castOrCopy(Georectified)
      */
     public DefaultGeorectified(final Georectified object) {
         super(object);

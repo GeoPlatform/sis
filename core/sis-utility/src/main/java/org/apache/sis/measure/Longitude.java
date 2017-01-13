@@ -35,8 +35,8 @@ package org.apache.sis.measure;
  * @version 0.4
  * @module
  *
- * @see Latitude
- * @see AngleFormat
+ * see Latitude
+ * see AngleFormat
  */
 public final class Longitude extends Angle {
     /**
@@ -47,14 +47,14 @@ public final class Longitude extends Angle {
     /**
      * Minimum usual value for longitude ({@value}°).
      *
-     * @see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#getMinimumValue()
+     * see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#getMinimumValue()
      */
     public static final double MIN_VALUE = -180;
 
     /**
      * Maximum usual value for longitude (+{@value}°).
      *
-     * @see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#getMaximumValue()
+     * see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#getMaximumValue()
      */
     public static final double MAX_VALUE = +180;
 
@@ -82,7 +82,7 @@ public final class Longitude extends Angle {
      * @throws NumberFormatException if the string does not contain a parsable angle,
      *         or represents a longitude angle.
      *
-     * @see AngleFormat#parse(String)
+     * see AngleFormat#parse(String)
      */
     public Longitude(final String string) throws NumberFormatException {
         super(string);
@@ -115,7 +115,7 @@ public final class Longitude extends Angle {
      * @param  λ The longitude value in decimal degrees.
      * @return The given value normalized to the [-180 … 180)° range, or NaN if the given value was NaN of infinite.
      *
-     * @see Latitude#clamp(double)
+     * see Latitude#clamp(double)
      *
      * @since 0.4
      */

@@ -34,8 +34,8 @@
  * @version 0.3
  * @module
  *
- * @see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
- * @see org.opengis.util.CodeList
+ * see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
+ * see org.opengis.util.CodeList
  */
 @XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.MDB, xmlns = {
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO)

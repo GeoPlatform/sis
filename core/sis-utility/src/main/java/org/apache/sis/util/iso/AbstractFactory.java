@@ -43,7 +43,7 @@ public abstract class AbstractFactory implements Factory {
      *
      * @return The vendor for this factory implementation, or {@code null} if unknown.
      *
-     * @see Package#getImplementationVendor()
+     * see Package#getImplementationVendor()
      */
     @Override
     public Citation getVendor() {

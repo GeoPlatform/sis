@@ -125,9 +125,9 @@ import java.util.Objects;
  * @version 0.4
  * @module
  *
- * @see Angle
- * @see Latitude
- * @see Longitude
+ * see Angle
+ * see Latitude
+ * see Longitude
  */
 public class AngleFormat extends Format implements Localized {
     /**
@@ -151,7 +151,7 @@ public class AngleFormat extends Format implements Localized {
      * {@link FieldPosition} constructor in order to get the bounding index where degrees have
      * been written.
      *
-     * @see Field#DEGREES
+     * see Field#DEGREES
      */
     static final int DEGREES_FIELD = 0;
 
@@ -160,7 +160,7 @@ public class AngleFormat extends Format implements Localized {
      * {@link FieldPosition} constructor in order to get the bounding index where minutes have
      * been written.
      *
-     * @see Field#MINUTES
+     * see Field#MINUTES
      */
     static final int MINUTES_FIELD = 1;
 
@@ -169,7 +169,7 @@ public class AngleFormat extends Format implements Localized {
      * {@link FieldPosition} constructor in order to get the bounding index where seconds have
      * been written.
      *
-     * @see Field#SECONDS
+     * see Field#SECONDS
      */
     static final int SECONDS_FIELD = 2;
 
@@ -185,7 +185,7 @@ public class AngleFormat extends Format implements Localized {
      * {@link FieldPosition} constructor in order to get the bounding index where the hemisphere
      * symbol has been written.
      *
-     * @see Field#HEMISPHERE
+     * see Field#HEMISPHERE
      */
     static final int HEMISPHERE_FIELD = 4;
 
@@ -306,8 +306,8 @@ public class AngleFormat extends Format implements Localized {
      * <p>This field can not be set by the pattern string,
      * so it needs to be initialized separately.</p>
      *
-     * @see #isFallbackAllowed()
-     * @see #setFallbackAllowed(boolean)
+     * see #isFallbackAllowed()
+     * see #setFallbackAllowed(boolean)
      */
     private boolean isFallbackAllowed = true;
 
@@ -340,7 +340,7 @@ public class AngleFormat extends Format implements Localized {
      * Object to give to {@code DecimalFormat.format} methods,
      * cached in order to avoid recreating this object too often.
      *
-     * @see #dummyFieldPosition()
+     * see #dummyFieldPosition()
      */
     private transient FieldPosition dummyFieldPosition;
 
@@ -348,7 +348,7 @@ public class AngleFormat extends Format implements Localized {
      * A temporary variable which may be set to the character iterator for which the
      * attributes need to be set.
      *
-     * @see #formatToCharacterIterator(Object)
+     * see #formatToCharacterIterator(Object)
      */
     private transient FormattedCharacterIterator characterIterator;
 
@@ -451,8 +451,8 @@ public class AngleFormat extends Format implements Localized {
      * @param  pattern  the pattern to use for parsing and formatting angle.
      * @throws IllegalArgumentException if the specified pattern is not legal.
      *
-     * @see #setMinimumFractionDigits(int)
-     * @see #setMaximumFractionDigits(int)
+     * see #setMinimumFractionDigits(int)
+     * see #setMaximumFractionDigits(int)
      */
     public void applyPattern(final String pattern) throws IllegalArgumentException {
         ArgumentChecks.ensureNonEmpty("pattern", pattern);
@@ -636,8 +636,8 @@ public class AngleFormat extends Format implements Localized {
      *
      * @return the formatting pattern.
      *
-     * @see #getMinimumFractionDigits()
-     * @see #getMaximumFractionDigits()
+     * see #getMinimumFractionDigits()
+     * see #getMaximumFractionDigits()
      */
     public String toPattern() {
         return toPattern(SYMBOLS, '.');
@@ -729,7 +729,7 @@ public class AngleFormat extends Format implements Localized {
      *
      * @return the minimum number of digits allowed in the fraction portion.
      *
-     * @see DecimalFormat#getMinimumFractionDigits()
+     * see DecimalFormat#getMinimumFractionDigits()
      */
     public int getMinimumFractionDigits() {
         return minimumFractionDigits;
@@ -742,7 +742,7 @@ public class AngleFormat extends Format implements Localized {
      *
      * @param  count  the minimum number of digits allowed in the fraction portion.
      *
-     * @see DecimalFormat#setMinimumFractionDigits(int)
+     * see DecimalFormat#setMinimumFractionDigits(int)
      */
     public void setMinimumFractionDigits(final int count) {
         ArgumentChecks.ensurePositive("count", count);
@@ -762,7 +762,7 @@ public class AngleFormat extends Format implements Localized {
      *
      * @return the maximum number of digits allowed in the fraction portion.
      *
-     * @see DecimalFormat#getMaximumFractionDigits()
+     * see DecimalFormat#getMaximumFractionDigits()
      */
     public int getMaximumFractionDigits() {
         return fractionFieldWidth;
@@ -775,7 +775,7 @@ public class AngleFormat extends Format implements Localized {
      *
      * @param  count  the maximum number of digits allowed in the fraction portion.
      *
-     * @see DecimalFormat#setMaximumFractionDigits(int)
+     * see DecimalFormat#setMaximumFractionDigits(int)
      */
     public void setMaximumFractionDigits(final int count) {
         ArgumentChecks.ensurePositive("count", count);
@@ -1305,7 +1305,7 @@ public class AngleFormat extends Format implements Localized {
      *                 On output, index after the last parsed character.
      * @return the parsed string as an {@link Angle}, {@link Latitude} or {@link Longitude} object.
      *
-     * @see #isFallbackAllowed()
+     * see #isFallbackAllowed()
      */
     public Angle parse(final String source, final ParsePosition pos) {
         return parse(source, pos, false);
@@ -1654,7 +1654,7 @@ BigBoss:    switch (skipSuffix(source, pos, DEGREES_FIELD)) {
      * @return the parsed string as an {@link Angle}, {@link Latitude} or {@link Longitude} object.
      * @throws ParseException if the string can not be fully parsed.
      *
-     * @see #isFallbackAllowed()
+     * see #isFallbackAllowed()
      */
     public Angle parse(final String source) throws ParseException {
         final ParsePosition pos = new ParsePosition(0);

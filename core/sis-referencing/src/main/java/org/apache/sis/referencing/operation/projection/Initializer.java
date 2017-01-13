@@ -66,7 +66,7 @@ final class Initializer {
      * The parameters used for creating the map projection.
      * This object will be stored in the map projection.
      *
-     * @see NormalizedProjection#getContextualParameters()
+     * see NormalizedProjection#getContextualParameters()
      */
     final ContextualParameters context;
 

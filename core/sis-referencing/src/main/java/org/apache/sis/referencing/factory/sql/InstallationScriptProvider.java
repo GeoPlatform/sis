@@ -119,8 +119,8 @@ public abstract class InstallationScriptProvider extends InstallationResources {
      * @param  authority  the authority (typically {@code "EPSG"}), or {@code null} if not available.
      * @param  resources  names of the SQL scripts to read.
      *
-     * @see #getResourceNames(String)
-     * @see #openStream(String)
+     * see #getResourceNames(String)
+     * see #openStream(String)
      */
     protected InstallationScriptProvider(final String authority, final String... resources) {
         ArgumentChecks.ensureNonNull("resources", resources);

@@ -39,7 +39,7 @@ import org.apache.sis.internal.referencing.ExtendedPrecisionMatrix;
  * @version 0.8
  * @module
  *
- * @see Matrices#createDiagonal(int, int)
+ * see Matrices#createDiagonal(int, int)
  */
 class GeneralMatrix extends MatrixSIS implements ExtendedPrecisionMatrix {
     /**
@@ -412,7 +412,7 @@ class GeneralMatrix extends MatrixSIS implements ExtendedPrecisionMatrix {
      *         has been initialized (this is a <cite>all or nothing</cite> operation).
      * @throws IllegalArgumentException if the given array does not have the expected length.
      *
-     * @see Matrices#create(int, int, Number[])
+     * see Matrices#create(int, int, Number[])
      */
     final boolean setElements(final Number[] newValues) {
         final int numRow = this.numRow;                         // Protection against accidental changes.

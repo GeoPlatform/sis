@@ -57,8 +57,8 @@ import static org.apache.sis.internal.util.Citations.identifierMatches;
  * @version 0.7
  * @module
  *
- * @see CRS
- * @see org.apache.sis.geometry.Envelopes
+ * see CRS
+ * see org.apache.sis.geometry.Envelopes
  */
 public final class IdentifiedObjects extends Static {
     /**
@@ -163,7 +163,7 @@ public final class IdentifiedObjects extends Static {
      *         or a {@linkplain GenericName#tip() name tip}), or {@code null} if no name matching the
      *         specified authority has been found.
      *
-     * @see AbstractIdentifiedObject#getName()
+     * see AbstractIdentifiedObject#getName()
      */
     public static String getName(final IdentifiedObject object, final Citation authority) {
         return getName(object, authority, null);
@@ -271,7 +271,7 @@ public final class IdentifiedObjects extends Static {
      * @return the object's identifier, or {@code null} if no identifier matching the specified authority
      *         has been found.
      *
-     * @see AbstractIdentifiedObject#getIdentifier()
+     * see AbstractIdentifiedObject#getIdentifier()
      */
     public static Identifier getIdentifier(final IdentifiedObject object, final Citation authority) {
         if (object != null) {
@@ -306,8 +306,8 @@ public final class IdentifiedObjects extends Static {
      * @param  object  the identified object, or {@code null}.
      * @return a string representation of the first identifier or name, or {@code null} if none.
      *
-     * @see #getIdentifier(IdentifiedObject, Citation)
-     * @see #lookupURN(IdentifiedObject, Citation)
+     * see #getIdentifier(IdentifiedObject, Citation)
+     * see #lookupURN(IdentifiedObject, Citation)
      */
     public static String getIdentifierOrName(final IdentifiedObject object) {
         if (object != null) {
@@ -340,9 +340,9 @@ public final class IdentifiedObjects extends Static {
      * @param  object  the identified object, or {@code null}.
      * @return the first name, alias or identifier which is a valid Unicode identifier, or {@code null} if none.
      *
-     * @see org.apache.sis.metadata.iso.ImmutableIdentifier
-     * @see org.apache.sis.metadata.iso.citation.Citations#getUnicodeIdentifier(Citation)
-     * @see org.apache.sis.util.CharSequences#isUnicodeIdentifier(CharSequence)
+     * see org.apache.sis.metadata.iso.ImmutableIdentifier
+     * see org.apache.sis.metadata.iso.citation.Citations#getUnicodeIdentifier(Citation)
+     * see org.apache.sis.util.CharSequences#isUnicodeIdentifier(CharSequence)
      */
     public static String getUnicodeIdentifier(final IdentifiedObject object) {
         if (object != null) {
@@ -404,8 +404,8 @@ public final class IdentifiedObjects extends Static {
      * @return the identifier, or {@code null} if none was found without ambiguity or if the given object was null.
      * @throws FactoryException if an error occurred during the search.
      *
-     * @see #newFinder(String)
-     * @see #toURN(Class, Identifier)
+     * see #newFinder(String)
+     * see #toURN(Class, Identifier)
      *
      * @since 0.7
      */
@@ -460,7 +460,7 @@ public final class IdentifiedObjects extends Static {
      * @return the EPSG code, or {@code null} if none was found without ambiguity or if the given object was null.
      * @throws FactoryException if an error occurred during the search.
      *
-     * @see #newFinder(String)
+     * see #newFinder(String)
      *
      * @since 0.7
      */
@@ -518,10 +518,10 @@ public final class IdentifiedObjects extends Static {
      * @throws NoSuchAuthorityFactoryException if the given authority is not found.
      * @throws FactoryException if the finder can not be created for another reason.
      *
-     * @see #lookupEPSG(IdentifiedObject)
-     * @see #lookupURN(IdentifiedObject, Citation)
-     * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#newIdentifiedObjectFinder()
-     * @see IdentifiedObjectFinder#find(IdentifiedObject)
+     * see #lookupEPSG(IdentifiedObject)
+     * see #lookupURN(IdentifiedObject, Citation)
+     * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#newIdentifiedObjectFinder()
+     * see IdentifiedObjectFinder#find(IdentifiedObject)
      */
     public static IdentifiedObjectFinder newFinder(final String authority)
             throws NoSuchAuthorityFactoryException, FactoryException
@@ -568,7 +568,7 @@ public final class IdentifiedObjects extends Static {
      * @param  name    the name to compare with the object name or aliases.
      * @return {@code true} if the primary name or at least one alias matches the specified {@code name}.
      *
-     * @see AbstractIdentifiedObject#isHeuristicMatchForName(String)
+     * see AbstractIdentifiedObject#isHeuristicMatchForName(String)
      */
     public static boolean isHeuristicMatchForName(final IdentifiedObject object, final String name) {
         ArgumentChecks.ensureNonNull("name", name);
@@ -641,7 +641,7 @@ public final class IdentifiedObjects extends Static {
      * @return the URN for the given identifier, or {@code null} if the given identifier was null
      *         or can not be formatted by this method.
      *
-     * @see #lookupURN(IdentifiedObject, Citation)
+     * see #lookupURN(IdentifiedObject, Citation)
      *
      * @since 0.7
      */
@@ -679,8 +679,8 @@ public final class IdentifiedObjects extends Static {
      * @param  identifier  the identifier, or {@code null}.
      * @return a string representation of the given identifier, or {@code null}.
      *
-     * @see org.apache.sis.metadata.iso.ImmutableIdentifier#toString()
-     * @see NamedIdentifier#toString()
+     * see org.apache.sis.metadata.iso.ImmutableIdentifier#toString()
+     * see NamedIdentifier#toString()
      */
     public static String toString(final Identifier identifier) {
         if (identifier == null) {

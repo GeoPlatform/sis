@@ -45,7 +45,7 @@ public final strictfp class NameMapTest extends TestCase {
      * Tests {@code NameMap.entrySet()} for an exact match (including iteration order).
      * The properties used in this test are listed in {@link PropertyAccessorTest#testConstructor()}.
      *
-     * @see PropertyAccessorTest#testConstructor()
+     * see PropertyAccessorTest#testConstructor()
      */
     @Test
     public void testEntrySet() {

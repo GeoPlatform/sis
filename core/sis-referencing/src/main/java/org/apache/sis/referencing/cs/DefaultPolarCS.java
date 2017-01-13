@@ -52,8 +52,8 @@ import org.apache.sis.measure.Units;
  * @version 0.4
  * @module
  *
- * @see DefaultCylindricalCS
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createPolarCS(String)
+ * see DefaultCylindricalCS
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createPolarCS(String)
  */
 @XmlType(name = "PolarCSType")
 @XmlRootElement(name = "PolarCS")
@@ -111,7 +111,7 @@ public class DefaultPolarCS extends AbstractCS implements PolarCS {
      * @param axis0 The first axis.
      * @param axis1 The second axis.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createPolarCS(Map, CoordinateSystemAxis, CoordinateSystemAxis)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createPolarCS(Map, CoordinateSystemAxis, CoordinateSystemAxis)
      */
     public DefaultPolarCS(final Map<String,?>   properties,
                           final CoordinateSystemAxis axis0,
@@ -129,7 +129,7 @@ public class DefaultPolarCS extends AbstractCS implements PolarCS {
      *
      * @param cs The coordinate system to copy.
      *
-     * @see #castOrCopy(PolarCS)
+     * see #castOrCopy(PolarCS)
      */
     protected DefaultPolarCS(final PolarCS cs) {
         super(cs);

@@ -91,7 +91,7 @@ public class DefaultGCPCollection extends AbstractGeolocationInformation impleme
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(GCPCollection)
+     * see #castOrCopy(GCPCollection)
      */
     public DefaultGCPCollection(final GCPCollection object) {
         super(object);

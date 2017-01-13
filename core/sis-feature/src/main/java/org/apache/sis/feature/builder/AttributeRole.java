@@ -42,7 +42,7 @@ import org.apache.sis.feature.FeatureOperations;
  * @version 0.8
  * @module
  *
- * @see Attribute#addRole(AttributeRole)
+ * see Attribute#addRole(AttributeRole)
  */
 public enum AttributeRole {
     /**
@@ -59,7 +59,7 @@ public enum AttributeRole {
      *       {@link FeatureTypeBuilder#setIdentifierDelimiters(String, String, String)}</li>
      * </ul>
      *
-     * @see FeatureTypeBuilder#setIdentifierDelimiters(String, String, String)
+     * see FeatureTypeBuilder#setIdentifierDelimiters(String, String, String)
      */
     IDENTIFIER_COMPONENT,
 

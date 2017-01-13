@@ -27,7 +27,7 @@
  * @since   0.4
  * @module
  *
- * @see org.apache.sis.profile.france
+ * see org.apache.sis.profile.france
  */
 @XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = FrenchProfile.NAMESPACE)
 @XmlAccessorType(XmlAccessType.NONE)

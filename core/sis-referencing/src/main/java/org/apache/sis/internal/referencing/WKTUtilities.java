@@ -256,7 +256,7 @@ public final class WKTUtilities extends Static {
      * @param  type  the interface or classes for which to get the WKT type.
      * @return the WKT type for the given class or interface, or {@code null} if none.
      *
-     * @see ReferencingUtilities#toPropertyName(Class, Class)
+     * see ReferencingUtilities#toPropertyName(Class, Class)
      */
     public static String toType(final Class<?> base, final Class<?> type) {
         if (type != base) {

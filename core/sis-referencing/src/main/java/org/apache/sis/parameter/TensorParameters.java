@@ -146,7 +146,7 @@ import java.util.Objects;
  * @version 0.6
  * @module
  *
- * @see org.apache.sis.referencing.operation.matrix.Matrices
+ * see org.apache.sis.referencing.operation.matrix.Matrices
  */
 public class TensorParameters<E> implements Serializable {
     /**
@@ -403,8 +403,8 @@ public class TensorParameters<E> implements Serializable {
      * @param  i The dimension index, from 0 inclusive to {@link #rank()} exclusive.
      * @return The parameter descriptor for the dimension at the given index.
      *
-     * @see #getElementDescriptor(int...)
-     * @see #getAllDescriptors(int...)
+     * see #getElementDescriptor(int...)
+     * see #getAllDescriptors(int...)
      */
     public final ParameterDescriptor<Integer> getDimensionDescriptor(final int i) {
         return dimensions[i];
@@ -420,8 +420,8 @@ public class TensorParameters<E> implements Serializable {
      * @return The parameter descriptor for the given tensor element.
      * @throws IllegalArgumentException If the given array does not have the expected length or have illegal value.
      *
-     * @see #getDimensionDescriptor(int)
-     * @see #getAllDescriptors(int...)
+     * see #getDimensionDescriptor(int)
+     * see #getAllDescriptors(int...)
      */
     public final ParameterDescriptor<E> getElementDescriptor(final int... indices) {
         verifyRank(indices);
@@ -492,8 +492,8 @@ public class TensorParameters<E> implements Serializable {
      * @return The parameter descriptor for the given tensor element.
      * @throws IllegalArgumentException If the given array does not have the expected length or have illegal value.
      *
-     * @see #indicesToName(int[])
-     * @see #getDefaultValue(int[])
+     * see #indicesToName(int[])
+     * see #getDefaultValue(int[])
      */
     protected ParameterDescriptor<E> createElementDescriptor(final int[] indices) throws IllegalArgumentException {
         final Citation authority = dimensions[0].getName().getAuthority();
@@ -572,7 +572,7 @@ public class TensorParameters<E> implements Serializable {
      * @param  indices The indices of the tensor element for which to get the default value.
      * @return The default value for the tensor element at the given indices, or {@code null} if none.
      *
-     * @see DefaultParameterDescriptor#getDefaultValue()
+     * see DefaultParameterDescriptor#getDefaultValue()
      *
      * @since 0.6
      */
@@ -658,8 +658,8 @@ public class TensorParameters<E> implements Serializable {
      * @param  actualSize The matrix (or tensor) dimensions for which to get the parameters.
      * @return The tensor parameters, including all elements.
      *
-     * @see #getDimensionDescriptor(int)
-     * @see #getElementDescriptor(int...)
+     * see #getDimensionDescriptor(int)
+     * see #getElementDescriptor(int...)
      *
      * @since 0.6
      */
@@ -739,7 +739,7 @@ public class TensorParameters<E> implements Serializable {
      * @param  matrix The matrix to copy in the new parameter group.
      * @return A new parameter group initialized to the given matrix.
      *
-     * @see #toMatrix(ParameterValueGroup)
+     * see #toMatrix(ParameterValueGroup)
      */
     public ParameterValueGroup createValueGroup(final Map<String,?> properties, final Matrix matrix) {
         if (rank() != 2) {
@@ -759,7 +759,7 @@ public class TensorParameters<E> implements Serializable {
      * @return A matrix constructed from the specified group of parameters.
      * @throws InvalidParameterNameException if a parameter name was not recognized.
      *
-     * @see #createValueGroup(Map, Matrix)
+     * see #createValueGroup(Map, Matrix)
      */
     public Matrix toMatrix(final ParameterValueGroup parameters) throws InvalidParameterNameException {
         if (rank() != 2) {

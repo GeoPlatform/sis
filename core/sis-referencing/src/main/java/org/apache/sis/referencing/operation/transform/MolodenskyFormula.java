@@ -82,7 +82,7 @@ abstract class MolodenskyFormula extends DatumShiftTransform {
      * Shift along the geocentric X axis (toward prime meridian)
      * in units of the semi-major axis of the source ellipsoid.
      *
-     * @see org.apache.sis.referencing.datum.BursaWolfParameters#tX
+     * see org.apache.sis.referencing.datum.BursaWolfParameters#tX
      */
     protected final double tX;
 
@@ -90,7 +90,7 @@ abstract class MolodenskyFormula extends DatumShiftTransform {
      * Shift along the geocentric Y axis (toward 90°E)
      * in units of the semi-major axis of the source ellipsoid.
      *
-     * @see org.apache.sis.referencing.datum.BursaWolfParameters#tY
+     * see org.apache.sis.referencing.datum.BursaWolfParameters#tY
      */
     protected final double tY;
 
@@ -98,14 +98,14 @@ abstract class MolodenskyFormula extends DatumShiftTransform {
      * Shift along the geocentric Z axis (toward north pole)
      * in units of the semi-major axis of the source ellipsoid.
      *
-     * @see org.apache.sis.referencing.datum.BursaWolfParameters#tZ
+     * see org.apache.sis.referencing.datum.BursaWolfParameters#tZ
      */
     protected final double tZ;
 
     /**
      * Difference in the semi-major axes of the target and source ellipsoids: {@code Δa = target a - source a}.
      *
-     * @see DefaultEllipsoid#semiMajorAxisDifference(Ellipsoid)
+     * see DefaultEllipsoid#semiMajorAxisDifference(Ellipsoid)
      */
     final double Δa;
 
@@ -133,7 +133,7 @@ abstract class MolodenskyFormula extends DatumShiftTransform {
      * <var>a</var> is the <cite>semi-major</cite> axis length and
      * <var>b</var> is the <cite>semi-minor</cite> axis length.
      *
-     * @see DefaultEllipsoid#getEccentricitySquared()
+     * see DefaultEllipsoid#getEccentricitySquared()
      */
     protected final double eccentricitySquared;
 

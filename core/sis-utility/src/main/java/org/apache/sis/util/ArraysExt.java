@@ -73,7 +73,7 @@ import java.util.Objects;
  * @version 0.4
  * @module
  *
- * @see Arrays
+ * see Arrays
  */
 @SuppressWarnings("ReturnOfCollectionOrArrayField")     // Array constants in this class are immutable empty arrays.
 public final class ArraysExt extends Static {
@@ -160,7 +160,7 @@ public final class ArraysExt extends Static {
      *         array is {@code null} or already have the requested length.
      * @throws NegativeArraySizeException if {@code length} is negative.
      *
-     * @see Arrays#copyOf(Object[], int)
+     * see Arrays#copyOf(Object[], int)
      */
     public static <E> E[] resize(final E[] array, final int length) throws NegativeArraySizeException {
         return (array == null || array.length == length) ? array : Arrays.copyOf(array, length);
@@ -178,7 +178,7 @@ public final class ArraysExt extends Static {
      *         array is {@code null} or already have the requested length.
      * @throws NegativeArraySizeException if {@code length} is negative.
      *
-     * @see Arrays#copyOf(double[], int)
+     * see Arrays#copyOf(double[], int)
      */
     public static double[] resize(final double[] array, final int length) throws NegativeArraySizeException {
         if (array != null) {
@@ -204,7 +204,7 @@ public final class ArraysExt extends Static {
      *         array is {@code null} or already have the requested length.
      * @throws NegativeArraySizeException if {@code length} is negative.
      *
-     * @see Arrays#copyOf(float[], int)
+     * see Arrays#copyOf(float[], int)
      */
     public static float[] resize(final float[] array, final int length) throws NegativeArraySizeException {
         if (array != null) {
@@ -230,7 +230,7 @@ public final class ArraysExt extends Static {
      *         array is {@code null} or already have the requested length.
      * @throws NegativeArraySizeException if {@code length} is negative.
      *
-     * @see Arrays#copyOf(long[], int)
+     * see Arrays#copyOf(long[], int)
      */
     public static long[] resize(final long[] array, final int length) throws NegativeArraySizeException {
         if (array != null) {
@@ -256,7 +256,7 @@ public final class ArraysExt extends Static {
      *         array is {@code null} or already have the requested length.
      * @throws NegativeArraySizeException if {@code length} is negative.
      *
-     * @see Arrays#copyOf(int[], int)
+     * see Arrays#copyOf(int[], int)
      */
     public static int[] resize(final int[] array, final int length) throws NegativeArraySizeException {
         if (array != null) {
@@ -282,7 +282,7 @@ public final class ArraysExt extends Static {
      *         array is {@code null} or already have the requested length.
      * @throws NegativeArraySizeException if {@code length} is negative.
      *
-     * @see Arrays#copyOf(short[], int)
+     * see Arrays#copyOf(short[], int)
      */
     public static short[] resize(final short[] array, final int length) throws NegativeArraySizeException {
         if (array != null) {
@@ -308,7 +308,7 @@ public final class ArraysExt extends Static {
      *         array is {@code null} or already have the requested length.
      * @throws NegativeArraySizeException if {@code length} is negative.
      *
-     * @see Arrays#copyOf(byte[], int)
+     * see Arrays#copyOf(byte[], int)
      */
     public static byte[] resize(final byte[] array, final int length) throws NegativeArraySizeException {
         if (array != null) {
@@ -334,7 +334,7 @@ public final class ArraysExt extends Static {
      *         array is {@code null} or already have the requested length.
      * @throws NegativeArraySizeException if {@code length} is negative.
      *
-     * @see Arrays#copyOf(char[], int)
+     * see Arrays#copyOf(char[], int)
      */
     public static char[] resize(final char[] array, final int length) throws NegativeArraySizeException {
         if (array != null) {
@@ -360,7 +360,7 @@ public final class ArraysExt extends Static {
      *         array is {@code null} or already have the requested length.
      * @throws NegativeArraySizeException if {@code length} is negative.
      *
-     * @see Arrays#copyOf(boolean[], int)
+     * see Arrays#copyOf(boolean[], int)
      */
     public static boolean[] resize(final boolean[] array, final int length) throws NegativeArraySizeException {
         if (array != null) {
@@ -421,7 +421,7 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(Object[], int, int)
+     * see #insert(Object[], int, int)
      */
     public static <E> E[] remove(final E[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -444,7 +444,7 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(double[], int, int)
+     * see #insert(double[], int, int)
      */
     public static double[] remove(final double[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -468,7 +468,7 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(float[], int, int)
+     * see #insert(float[], int, int)
      */
     public static float[] remove(final float[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -492,7 +492,7 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(long[], int, int)
+     * see #insert(long[], int, int)
      */
     public static long[] remove(final long[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -516,7 +516,7 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(int[], int, int)
+     * see #insert(int[], int, int)
      */
     public static int[] remove(final int[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -540,7 +540,7 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(short[], int, int)
+     * see #insert(short[], int, int)
      */
     public static short[] remove(final short[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -564,7 +564,7 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(byte[], int, int)
+     * see #insert(byte[], int, int)
      */
     public static byte[] remove(final byte[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -588,7 +588,7 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(char[], int, int)
+     * see #insert(char[], int, int)
      */
     public static char[] remove(final char[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -612,7 +612,7 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(boolean[], int, int)
+     * see #insert(boolean[], int, int)
      */
     public static boolean[] remove(final boolean[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -672,8 +672,8 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(Object[], int, Object[], int, int)
-     * @see #remove(Object[], int, int)
+     * see #insert(Object[], int, Object[], int, int)
+     * see #remove(Object[], int, int)
      */
     public static <E> E[] insert(final E[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -697,8 +697,8 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(double[], int, double[], int, int)
-     * @see #remove(double[], int, int)
+     * see #insert(double[], int, double[], int, int)
+     * see #remove(double[], int, int)
      */
     public static double[] insert(final double[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -722,8 +722,8 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(float[], int, float[], int, int)
-     * @see #remove(float[], int, int)
+     * see #insert(float[], int, float[], int, int)
+     * see #remove(float[], int, int)
      */
     public static float[] insert(final float[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -747,8 +747,8 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(long[], int, long[], int, int)
-     * @see #remove(long[], int, int)
+     * see #insert(long[], int, long[], int, int)
+     * see #remove(long[], int, int)
      */
     public static long[] insert(final long[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -772,8 +772,8 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(int[], int, int[], int, int)
-     * @see #remove(int[], int, int)
+     * see #insert(int[], int, int[], int, int)
+     * see #remove(int[], int, int)
      */
     public static int[] insert(final int[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -797,8 +797,8 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(short[], int, short[], int, int)
-     * @see #remove(short[], int, int)
+     * see #insert(short[], int, short[], int, int)
+     * see #remove(short[], int, int)
      */
     public static short[] insert(final short[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -822,8 +822,8 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(byte[], int, byte[], int, int)
-     * @see #remove(byte[], int, int)
+     * see #insert(byte[], int, byte[], int, int)
+     * see #remove(byte[], int, int)
      */
     public static byte[] insert(final byte[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -847,8 +847,8 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(char[], int, char[], int, int)
-     * @see #remove(char[], int, int)
+     * see #insert(char[], int, char[], int, int)
+     * see #remove(char[], int, int)
      */
     public static char[] insert(final char[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -872,8 +872,8 @@ public final class ArraysExt extends Static {
      * @throws IllegalArgumentException if {@code length} is negative.
      * @throws IndexOutOfBoundsException if {@code first} or {@code first+length} is out of array bounds.
      *
-     * @see #insert(boolean[], int, boolean[], int, int)
-     * @see #remove(boolean[], int, int)
+     * see #insert(boolean[], int, boolean[], int, int)
+     * see #remove(boolean[], int, int)
      */
     public static boolean[] insert(final boolean[] array, final int first, final int length)
             throws NullArgumentException, IllegalArgumentException, IndexOutOfBoundsException
@@ -1167,7 +1167,7 @@ public final class ArraysExt extends Static {
      * @return a copy of the given array with the given element appended at the end.
      * @throws NullArgumentException if the given array is null.
      *
-     * @see #concatenate(Object[][])
+     * see #concatenate(Object[][])
      */
     public static <T> T[] append(final T[] array, final T element) throws NullArgumentException{
         ArgumentChecks.ensureNonNull("array", array);
@@ -1824,7 +1824,7 @@ public final class ArraysExt extends Static {
      * @return {@code true} if the array is non-null and contains the value (which may be null),
      *         or {@code false} otherwise.
      *
-     * @see #intersects(Object[], Object[])
+     * see #intersects(Object[], Object[])
      */
     public static boolean contains(final Object[] array, final Object value) {
         if (array != null) {
@@ -1850,7 +1850,7 @@ public final class ArraysExt extends Static {
      * @param  array2  the second array, or {@code null}.
      * @return {@code true} if both array are non-null and have at least one element in common.
      *
-     * @see #contains(Object[], Object)
+     * see #contains(Object[], Object)
      */
     public static boolean intersects(final Object[] array1, final Object[] array2) {
         if (array1 != null) {
@@ -1881,8 +1881,8 @@ public final class ArraysExt extends Static {
      * @return the concatenation of all non-null arrays (may be a direct reference to one
      *         of the given array if it can be returned with no change), or {@code null}.
      *
-     * @see #append(Object[], Object)
-     * @see #unionOfSorted(int[], int[])
+     * see #append(Object[], Object)
+     * see #unionOfSorted(int[], int[])
      */
     @SafeVarargs
     public static <T> T[] concatenate(final T[]... arrays) {
@@ -1931,7 +1931,7 @@ public final class ArraysExt extends Static {
      * @return the union of the given array without duplicated values, or {@code null}
      *         if the two given arrays were null. May be one of the given arrays.
      *
-     * @see #concatenate(Object[][])
+     * see #concatenate(Object[][])
      */
     public static int[] unionOfSorted(final int[] array1, final int[] array2) {
         if (array1 == null) return array2;

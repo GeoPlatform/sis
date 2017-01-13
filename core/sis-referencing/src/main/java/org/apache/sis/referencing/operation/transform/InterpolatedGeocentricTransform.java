@@ -83,7 +83,7 @@ import org.apache.sis.util.ArgumentChecks;
  * @version 0.7
  * @module
  *
- * @see InterpolatedMolodenskyTransform
+ * see InterpolatedMolodenskyTransform
  */
 public class InterpolatedGeocentricTransform extends DatumShiftTransform {
     /**
@@ -147,7 +147,7 @@ public class InterpolatedGeocentricTransform extends DatumShiftTransform {
     /**
      * The inverse of this interpolated geocentric transform.
      *
-     * @see #inverse()
+     * see #inverse()
      */
     private final InterpolatedGeocentricTransform inverse;
 
@@ -199,7 +199,7 @@ public class InterpolatedGeocentricTransform extends DatumShiftTransform {
      *                    shall compute (ΔX, ΔY, ΔZ) translations from <em>source</em> to <em>target</em> in the
      *                    unit of source ellipsoid axes.
      *
-     * @see #createGeodeticTransformation(MathTransformFactory, Ellipsoid, boolean, Ellipsoid, boolean, DatumShiftGrid)
+     * see #createGeodeticTransformation(MathTransformFactory, Ellipsoid, boolean, Ellipsoid, boolean, DatumShiftGrid)
      */
     protected InterpolatedGeocentricTransform(final Ellipsoid source, final boolean isSource3D,
                                               final Ellipsoid target, final boolean isTarget3D,

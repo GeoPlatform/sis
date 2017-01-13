@@ -26,7 +26,7 @@
  * @version 0.8
  * @module
  *
- * @see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
+ * see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
  */
 @XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.MDB, xmlns = {
 	@XmlNs(prefix = "mdb", namespaceURI = Namespaces.MDB),

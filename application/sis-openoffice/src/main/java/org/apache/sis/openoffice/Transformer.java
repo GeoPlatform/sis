@@ -48,7 +48,7 @@ final class Transformer {
      * The geographic area of interest. All values are in degrees. Prime meridian is Greenwich.
      * Datum does not need to be specified since area of interest is an approximative information.
      *
-     * @see #hasAreaOfInterest()
+     * see #hasAreaOfInterest()
      */
     private double westBoundLongitude, eastBoundLongitude,
                    southBoundLatitude, northBoundLatitude;

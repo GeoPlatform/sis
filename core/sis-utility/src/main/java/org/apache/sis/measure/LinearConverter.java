@@ -70,7 +70,7 @@ final class LinearConverter extends AbstractConverter {
     /**
      * The converters for SI prefixes, created when first needed.
      *
-     * @see #forPrefix(char)
+     * see #forPrefix(char)
      */
     private static final LinearConverter[] SI = new LinearConverter[POWERS.length];
 

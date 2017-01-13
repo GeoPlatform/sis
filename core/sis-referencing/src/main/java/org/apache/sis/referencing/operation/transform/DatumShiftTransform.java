@@ -74,7 +74,7 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * @see DatumShiftGrid
+ * see DatumShiftGrid
  */
 public abstract class DatumShiftTransform extends AbstractMathTransform implements Serializable {
     /**
@@ -87,7 +87,7 @@ public abstract class DatumShiftTransform extends AbstractMathTransform implemen
      * and error messages. Subclasses shall not use the values defined in this object for computation purpose, except at
      * construction time.
      *
-     * @see #getContextualParameters()
+     * see #getContextualParameters()
      */
     final ContextualParameters context;
 

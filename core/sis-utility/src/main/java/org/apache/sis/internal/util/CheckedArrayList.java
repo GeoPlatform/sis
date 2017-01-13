@@ -54,7 +54,7 @@ import org.apache.sis.util.resources.Errors;
  * @version 0.5
  * @module
  *
- * @see Collections#checkedList(List, Class)
+ * see Collections#checkedList(List, Class)
  */
 public final class CheckedArrayList<E> extends ArrayList<E> implements CheckedContainer<E> {
     /**
@@ -144,8 +144,8 @@ public final class CheckedArrayList<E> extends ArrayList<E> implements CheckedCo
      * @param  expectedType The type of elements that the collection expected.
      * @return The message to give to the exception to be thrown, or {@code null} if no message shall be thrown.
      *
-     * @see <a href="https://issues.apache.org/jira/browse/SIS-139">SIS-139</a>
-     * @see <a href="https://issues.apache.org/jira/browse/SIS-157">SIS-157</a>
+     * see <a href="https://issues.apache.org/jira/browse/SIS-139">SIS-139</a>
+     * see <a href="https://issues.apache.org/jira/browse/SIS-157">SIS-157</a>
      */
     public static String illegalElement(final Collection<?> collection, final Object element, final Class<?> expectedType) {
         final short key;

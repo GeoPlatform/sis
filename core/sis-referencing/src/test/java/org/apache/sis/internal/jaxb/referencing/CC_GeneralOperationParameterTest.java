@@ -46,7 +46,7 @@ import static org.junit.Assert.*;
  * @version 0.6
  * @module
  *
- * @see <a href="http://issues.apache.org/jira/browse/SIS-290">SIS-290</a>
+ * see <a href="http://issues.apache.org/jira/browse/SIS-290">SIS-290</a>
  */
 @DependsOn(org.apache.sis.parameter.DefaultParameterDescriptorTest.class)
 public final strictfp class CC_GeneralOperationParameterTest extends XMLTestCase {

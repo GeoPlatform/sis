@@ -90,8 +90,8 @@ import static org.apache.sis.util.StringBuilders.trimFractionalPart;
  * @version 0.5
  * @module
  *
- * @see org.apache.sis.metadata.iso.extent.Extents
- * @see CRS
+ * see org.apache.sis.metadata.iso.extent.Extents
+ * see CRS
  */
 public final class Envelopes extends Static {
     /**
@@ -199,7 +199,7 @@ public final class Envelopes extends Static {
      * @return the transformed envelope, or {@code null} if {@code envelope} was null.
      * @throws TransformException if a transform failed.
      *
-     * @see #transform(CoordinateOperation, Envelope)
+     * see #transform(CoordinateOperation, Envelope)
      *
      * @since 0.5
      */
@@ -431,7 +431,7 @@ public final class Envelopes extends Static {
      * @return the transformed envelope, or {@code null} if {@code envelope} was null.
      * @throws TransformException if a transform failed.
      *
-     * @see #transform(MathTransform, Envelope)
+     * see #transform(MathTransform, Envelope)
      *
      * @since 0.5
      */
@@ -746,9 +746,9 @@ public final class Envelopes extends Static {
      * @return the envelope of the given geometry.
      * @throws FactoryException if the given WKT can not be parsed.
      *
-     * @see #toString(Envelope)
-     * @see CRS#fromWKT(String)
-     * @see org.apache.sis.io.wkt
+     * see #toString(Envelope)
+     * see CRS#fromWKT(String)
+     * see org.apache.sis.io.wkt
      */
     public static Envelope fromWKT(final CharSequence wkt) throws FactoryException {
         ensureNonNull("wkt", wkt);
@@ -778,8 +778,8 @@ public final class Envelopes extends Static {
      * @param  envelope  the envelope to format.
      * @return this envelope as a {@code BOX} or {@code BOX3D} (most typical dimensions) element.
      *
-     * @see #fromWKT(CharSequence)
-     * @see org.apache.sis.io.wkt
+     * see #fromWKT(CharSequence)
+     * see org.apache.sis.io.wkt
      */
     public static String toString(final Envelope envelope) {
         return AbstractEnvelope.toString(envelope, false);
@@ -797,7 +797,7 @@ public final class Envelopes extends Static {
      * @return the envelope as a {@code POLYGON} in WKT format.
      * @throws IllegalArgumentException if the given envelope can not be formatted.
      *
-     * @see org.apache.sis.io.wkt
+     * see org.apache.sis.io.wkt
      */
     public static String toPolygonWKT(final Envelope envelope) throws IllegalArgumentException {
         /*

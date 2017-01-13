@@ -100,8 +100,8 @@ import org.apache.sis.metadata.iso.extent.Extents;
  * @version 0.8
  * @module
  *
- * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
- * @see <a href="http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html">Legacy WKT 1</a>
+ * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
+ * see <a href="http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html">Legacy WKT 1</a>
  */
 public class Formatter implements Localized {
     /**
@@ -137,8 +137,8 @@ public class Formatter implements Localized {
     /**
      * The symbols to use for this formatter.
      *
-     * @see WKTFormat#getSymbols()
-     * @see WKTFormat#setSymbols(Symbols)
+     * see WKTFormat#getSymbols()
+     * see WKTFormat#setSymbols(Symbols)
      */
     private final Symbols symbols;
 
@@ -153,7 +153,7 @@ public class Formatter implements Localized {
      * If non-null, the terminal must be ANSI X3.64 compatible.
      * The default value is {@code null}.
      *
-     * @see #configure(Convention, Citation, Colors, boolean, byte)
+     * see #configure(Convention, Citation, Colors, boolean, byte)
      */
     private Colors colors;
 
@@ -161,14 +161,14 @@ public class Formatter implements Localized {
      * The preferred convention for objects or parameter names.
      * This field should never be {@code null}.
      *
-     * @see #configure(Convention, Citation, Colors, boolean, byte)
+     * see #configure(Convention, Citation, Colors, boolean, byte)
      */
     private Convention convention;
 
     /**
      * The preferred authority for objects or parameter names.
      *
-     * @see #configure(Convention, Citation, Colors, boolean, byte)
+     * see #configure(Convention, Citation, Colors, boolean, byte)
      */
     private Citation authority;
 
@@ -177,7 +177,7 @@ public class Formatter implements Localized {
      * {@link Transliterator#DEFAULT}, which causes replacements like "é" → "e" in all elements
      * except {@code REMARKS["…"]}. May also be a user-supplied transliterator.
      *
-     * @see #getTransliterator()
+     * see #getTransliterator()
      */
     Transliterator transliterator;
 
@@ -190,7 +190,7 @@ public class Formatter implements Localized {
     /**
      * The enclosing WKT element being formatted.
      *
-     * @see #getEnclosingElement(int)
+     * see #getEnclosingElement(int)
      */
     private final List<FormattableObject> enclosingElements = new ArrayList<>();
 
@@ -200,8 +200,8 @@ public class Formatter implements Localized {
      * This value is set for example by {@code "GEOGCS"}, which force its enclosing {@code "PRIMEM"}
      * to take the same units than itself.
      *
-     * @see #addContextualUnit(Unit)
-     * @see #toContextualUnit(Unit)
+     * see #addContextualUnit(Unit)
+     * see #toContextualUnit(Unit)
      */
     private final Map<Unit<?>, Unit<?>> units = new HashMap<>(4);
 
@@ -210,7 +210,7 @@ public class Formatter implements Localized {
      * The rightmost bit is for the current element. The bit before the rightmost
      * is for the parent of current element, etc.
      *
-     * @see #hasContextualUnit(int)
+     * see #hasContextualUnit(int)
      */
     private long hasContextualUnit;
 
@@ -238,7 +238,7 @@ public class Formatter implements Localized {
      * The buffer in which to format. Consider this field as final. The only method to change
      * (indirectly) the value of this field is {@link WKTFormat#format(Object, Appendable)}.
      *
-     * @see #setBuffer(StringBuffer)
+     * see #setBuffer(StringBuffer)
      */
     private StringBuffer buffer;
 
@@ -247,14 +247,14 @@ public class Formatter implements Localized {
      * This is set after the opening bracket and is used for determining if a separator needs
      * to be appended.
      *
-     * @see #setBuffer(StringBuffer)
+     * see #setBuffer(StringBuffer)
      */
     private int elementStart;
 
     /**
      * {@code 1} if keywords shall be converted to upper cases, or {@code -1} for lower cases.
      *
-     * @see #configure(Convention, Citation, Colors, boolean, byte)
+     * see #configure(Convention, Citation, Colors, boolean, byte)
      */
     private byte toUpperCase;
 
@@ -273,7 +273,7 @@ public class Formatter implements Localized {
      * The amount of spaces to use in indentation, or {@value org.apache.sis.io.wkt.WKTFormat#SINGLE_LINE}
      * if indentation is disabled.
      *
-     * @see #configure(Convention, Citation, Colors, boolean, byte)
+     * see #configure(Convention, Citation, Colors, boolean, byte)
      */
     private byte indentation;
 
@@ -296,7 +296,7 @@ public class Formatter implements Localized {
      * {@code ID} (previously known as {@code AUTHORITY}) and {@code REMARKS}, and have a special treatment: they
      * are written by {@link #append(FormattableObject)} after the {@code formatTo(Formatter)} method returned.
      *
-     * @see #appendComplement(IdentifiedObject, FormattableObject)
+     * see #appendComplement(IdentifiedObject, FormattableObject)
      */
     private boolean isComplement;
 
@@ -311,8 +311,8 @@ public class Formatter implements Localized {
     /**
      * The warnings that occurred during WKT formatting, or {@code null} if none.
      *
-     * @see #isInvalidWKT()
-     * @see #getWarnings()
+     * see #isInvalidWKT()
+     * see #getWarnings()
      */
     private Warnings warnings;
 
@@ -408,8 +408,8 @@ public class Formatter implements Localized {
      *
      * @return the convention (never {@code null}).
      *
-     * @see WKTFormat#setConvention(Convention)
-     * @see FormattableObject#toString(Convention)
+     * see WKTFormat#setConvention(Convention)
+     * see FormattableObject#toString(Convention)
      */
     public final Convention getConvention() {
         return convention;
@@ -429,7 +429,7 @@ public class Formatter implements Localized {
      *
      * @return the mapper between Java character sequences and the characters to write in WKT.
      *
-     * @see WKTFormat#setTransliterator(Transliterator)
+     * see WKTFormat#setTransliterator(Transliterator)
      *
      * @since 0.6
      */
@@ -450,8 +450,8 @@ public class Formatter implements Localized {
      *
      * @return the authority for projection and parameter names.
      *
-     * @see WKTFormat#getNameAuthority()
-     * @see org.apache.sis.referencing.IdentifiedObjects#getName(IdentifiedObject, Citation)
+     * see WKTFormat#getNameAuthority()
+     * see org.apache.sis.referencing.IdentifiedObjects#getName(IdentifiedObject, Citation)
      */
     public final Citation getNameAuthority() {
         return authority;
@@ -537,7 +537,7 @@ public class Formatter implements Localized {
      * @param  longKeyword   the keyword to return if the style is {@link KeywordStyle#LONG}.
      * @return the short or long keyword depending on the keyword style setting.
      *
-     * @see WKTFormat#setKeywordStyle(KeywordStyle)
+     * see WKTFormat#setKeywordStyle(KeywordStyle)
      *
      * @since 0.6
      */
@@ -1227,7 +1227,7 @@ public class Formatter implements Localized {
      *
      * @param  unit  the unit to append to the WKT, or {@code null} if none.
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#35">WKT 2 specification §7.4</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#35">WKT 2 specification §7.4</a>
      */
     public void append(final Unit<?> unit) {
         if (unit != null) {

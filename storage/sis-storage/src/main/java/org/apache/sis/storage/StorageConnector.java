@@ -97,7 +97,7 @@ public class StorageConnector implements Serializable {
     /**
      * The input/output object given at construction time.
      *
-     * @see #getStorage()
+     * see #getStorage()
      */
     private final Object storage;
 
@@ -143,7 +143,7 @@ public class StorageConnector implements Serializable {
      * has been computed and we have determined that {@link #getStorageAs(Class)} shall returns {@code null} for that
      * type.
      *
-     * @see #getStorageAs(Class)
+     * see #getStorageAs(Class)
      */
     private transient Map<Class<?>, Object> views;
 
@@ -153,16 +153,16 @@ public class StorageConnector implements Serializable {
      * is a wrapper around an other object (e.g. an {@link InputStreamReader} wrapping an
      * {@link InputStream}), then the value is the other object.
      *
-     * @see #addViewToClose(Object, Object)
-     * @see #closeAllExcept(Object)
+     * see #addViewToClose(Object, Object)
+     * see #closeAllExcept(Object)
      */
     private transient Map<Object, Object> viewsToClose;
 
     /**
      * The options, created only when first needed.
      *
-     * @see #getOption(OptionKey)
-     * @see #setOption(OptionKey, Object)
+     * see #getOption(OptionKey)
+     * see #setOption(OptionKey, Object)
      */
     private transient Map<OptionKey<?>, Object> options;
 
@@ -214,7 +214,7 @@ public class StorageConnector implements Serializable {
      *
      * @return The input/output object as a URL, file, image input stream, <i>etc.</i>.
      *
-     * @see #getStorageAs(Class)
+     * see #getStorageAs(Class)
      */
     public Object getStorage() {
         return storage;
@@ -362,8 +362,8 @@ public class StorageConnector implements Serializable {
      * @throws IllegalArgumentException if the given {@code type} argument is not a supported type.
      * @throws DataStoreException if an error occurred while opening a stream or database connection.
      *
-     * @see #getStorage()
-     * @see #closeAllExcept(Object)
+     * see #getStorage()
+     * see #closeAllExcept(Object)
      */
     public <T> T getStorageAs(final Class<T> type) throws IllegalArgumentException, DataStoreException {
         ArgumentChecks.ensureNonNull("type", type);
@@ -734,8 +734,8 @@ public class StorageConnector implements Serializable {
      * @param  view The view to leave open, or {@code null} if none.
      * @throws DataStoreException if an error occurred while closing the stream or database connection.
      *
-     * @see #getStorageAs(Class)
-     * @see DataStoreProvider#open(StorageConnector)
+     * see #getStorageAs(Class)
+     * see DataStoreProvider#open(StorageConnector)
      */
     public void closeAllExcept(final Object view) throws DataStoreException {
         final Map<Object,Object> toClose = viewsToClose;

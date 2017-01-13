@@ -52,7 +52,7 @@ public class AbstractIdentifiedType implements IdentifiedType, Deprecable, Seria
      * Key for the <code>{@value}</code> property to be given to the constructor.
      * This is used for setting the value to be returned by {@link #getName()}.
      *
-     * @see #getName()
+     * see #getName()
      */
     public static final String NAME_KEY = "name";
 
@@ -60,7 +60,7 @@ public class AbstractIdentifiedType implements IdentifiedType, Deprecable, Seria
      * Key for the <code>{@value}</code> property to be given to the constructor.
      * This is used for setting the value to be returned by {@link #getDefinition()}.
      *
-     * @see #getDefinition()
+     * see #getDefinition()
      */
     public static final String DEFINITION_KEY = "definition";
 
@@ -68,7 +68,7 @@ public class AbstractIdentifiedType implements IdentifiedType, Deprecable, Seria
      * Key for the <code>{@value}</code> property to be given to the constructor.
      * This is used for setting the value to be returned by {@link #getDesignation()}.
      *
-     * @see #getDesignation()
+     * see #getDesignation()
      */
     public static final String DESIGNATION_KEY = "designation";
 
@@ -76,7 +76,7 @@ public class AbstractIdentifiedType implements IdentifiedType, Deprecable, Seria
      * Key for the <code>{@value}</code> property to be given to the constructor.
      * This is used for setting the value to be returned by {@link #getDescription()}.
      *
-     * @see #getDescription()
+     * see #getDescription()
      */
     public static final String DESCRIPTION_KEY = "description";
 
@@ -87,7 +87,7 @@ public class AbstractIdentifiedType implements IdentifiedType, Deprecable, Seria
      * <p>If this property is set to {@code true}, then the value associated to {@link #DESCRIPTION_KEY}
      * should give the replacement (e.g. <cite>"superceded by …"</cite>).</p>
      *
-     * @see #isDeprecated()
+     * see #isDeprecated()
      *
      * @since 0.8
      */
@@ -96,16 +96,16 @@ public class AbstractIdentifiedType implements IdentifiedType, Deprecable, Seria
     /**
      * The name of this type.
      *
-     * @see #getName()
-     * @see #NAME_KEY
+     * see #getName()
+     * see #NAME_KEY
      */
     private final GenericName name;
 
     /**
      * Concise definition of the element.
      *
-     * @see #getDefinition()
-     * @see #DEFINITION_KEY
+     * see #getDefinition()
+     * see #DEFINITION_KEY
      */
     private final InternationalString definition;
 
@@ -113,8 +113,8 @@ public class AbstractIdentifiedType implements IdentifiedType, Deprecable, Seria
      * Natural language designator for the element.
      * This can be used as an alternative to the {@linkplain #name} in user interfaces.
      *
-     * @see #getDesignation()
-     * @see #DESIGNATION_KEY
+     * see #getDesignation()
+     * see #DESIGNATION_KEY
      */
     private final InternationalString designation;
 
@@ -122,16 +122,16 @@ public class AbstractIdentifiedType implements IdentifiedType, Deprecable, Seria
      * Optional information beyond that required for concise definition of the element.
      * The description may assist in understanding the element scope and application.
      *
-     * @see #getDescription()
-     * @see #DESCRIPTION_KEY
+     * see #getDescription()
+     * see #DESCRIPTION_KEY
      */
     private final InternationalString description;
 
     /**
      * {@code true} if this type is deprecated.
      *
-     * @see #isDeprecated()
-     * @see #DEPRECATED_KEY
+     * see #isDeprecated()
+     * see #DEPRECATED_KEY
      */
     final boolean deprecated;
 

@@ -67,7 +67,7 @@ final class SystemUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
      * This is initialized by {@link Units} only and shall not change anymore after.
      * All units in this array shall use an instance of {@link LinearConverter}.
      *
-     * @see #related(int)
+     * see #related(int)
      */
     transient ConventionalUnit<Q>[] related;
 
@@ -108,7 +108,7 @@ final class SystemUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
      *
      * @return the dimension of this unit.
      *
-     * @see #isCompatible(Unit)
+     * see #isCompatible(Unit)
      */
     @Override
     public Dimension getDimension() {
@@ -310,7 +310,7 @@ final class SystemUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
      * @return the converter from this unit to {@code that} unit.
      * @throws IncommensurableException if this unit is not {@linkplain #isCompatible(Unit) compatible} with {@code that} unit.
      *
-     * @see #isCompatible(Unit)
+     * see #isCompatible(Unit)
      */
     @Override
     public UnitConverter getConverterToAny(final Unit<?> that) throws IncommensurableException {

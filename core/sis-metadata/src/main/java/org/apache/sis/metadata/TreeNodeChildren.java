@@ -59,7 +59,7 @@ final class TreeNodeChildren extends AbstractCollection<TreeTable.Node> {
      *   <li>{@link ValueExistencePolicy}: {@code parent.table.valuePolicy}</li>
      * </ul>
      *
-     * @see #childAt(int)
+     * see #childAt(int)
      */
     private final TreeNode parent;
 

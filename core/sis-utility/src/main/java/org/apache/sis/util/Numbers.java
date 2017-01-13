@@ -41,7 +41,7 @@ import static java.lang.Double.doubleToLongBits;
  * @version 0.3
  * @module
  *
- * @see org.apache.sis.math.MathFunctions
+ * see org.apache.sis.math.MathFunctions
  */
 @SuppressWarnings({
     "UnnecessaryBoxing",
@@ -152,7 +152,7 @@ public final class Numbers extends Static {
      * @param  type  the type to test (may be {@code null}).
      * @return {@code true} if {@code type} is one of the known types capable to represent floating point numbers.
      *
-     * @see #isInteger(Class)
+     * see #isInteger(Class)
      */
     public static boolean isFloat(final Class<?> type) {
         final Numbers mapping = MAPPING.get(type);
@@ -167,7 +167,7 @@ public final class Numbers extends Static {
      * @param  type  the type to test (may be {@code null}).
      * @return {@code true} if {@code type} is an integer type.
      *
-     * @see #isFloat(Class)
+     * see #isFloat(Class)
      */
     public static boolean isInteger(final Class<?> type) {
         final Numbers mapping = MAPPING.get(type);
@@ -203,7 +203,7 @@ public final class Numbers extends Static {
      * @param  type  the primitive type (may be {@code null}).
      * @return the type as a wrapper.
      *
-     * @see #wrapperToPrimitive(Class)
+     * see #wrapperToPrimitive(Class)
      */
     public static Class<?> primitiveToWrapper(final Class<?> type) {
         final Numbers mapping = MAPPING.get(type);
@@ -217,7 +217,7 @@ public final class Numbers extends Static {
      * @param  type  the wrapper type (may be {@code null}).
      * @return the type as a primitive.
      *
-     * @see #primitiveToWrapper(Class)
+     * see #primitiveToWrapper(Class)
      */
     public static Class<?> wrapperToPrimitive(final Class<?> type) {
         final Numbers mapping = MAPPING.get(type);
@@ -237,8 +237,8 @@ public final class Numbers extends Static {
      * @return the widest type of the given numbers, or {@code null} if not {@code n1} and {@code n2} are null.
      * @throws IllegalArgumentException if a number is not of a known type.
      *
-     * @see #widestClass(Number, Number)
-     * @see #narrowestClass(Number, Number)
+     * see #widestClass(Number, Number)
+     * see #narrowestClass(Number, Number)
      */
     public static Class<? extends Number> widestClass(final Number n1, final Number n2)
             throws IllegalArgumentException
@@ -268,8 +268,8 @@ public final class Numbers extends Static {
      * @return the widest of the given types, or {@code null} if both {@code c1} and {@code c2} are null.
      * @throws IllegalArgumentException if one of the given types is unknown.
      *
-     * @see #widestClass(Class, Class)
-     * @see #narrowestClass(Number, Number)
+     * see #widestClass(Class, Class)
+     * see #narrowestClass(Number, Number)
      */
     public static Class<? extends Number> widestClass(final Class<? extends Number> c1,
                                                       final Class<? extends Number> c2)
@@ -298,8 +298,8 @@ public final class Numbers extends Static {
      * @return the narrowest type of the given numbers.
      * @throws IllegalArgumentException if a number is not of a known type.
      *
-     * @see #narrowestClass(Class, Class)
-     * @see #widestClass(Class, Class)
+     * see #narrowestClass(Class, Class)
+     * see #widestClass(Class, Class)
      */
     public static Class<? extends Number> narrowestClass(final Number n1, final Number n2)
             throws IllegalArgumentException
@@ -329,8 +329,8 @@ public final class Numbers extends Static {
      * @return the narrowest of the given types, or {@code null} if both {@code c1} and {@code c2} are null.
      * @throws IllegalArgumentException if one of the given types is unknown.
      *
-     * @see #narrowestClass(Number, Number)
-     * @see #widestClass(Class, Class)
+     * see #narrowestClass(Number, Number)
+     * see #widestClass(Class, Class)
      */
     public static Class<? extends Number> narrowestClass(final Class<? extends Number> c1,
                                                          final Class<? extends Number> c2)
@@ -371,7 +371,7 @@ public final class Numbers extends Static {
      * @param  value  the value to be wrapped in a finer (if possible) {@link Number}.
      * @return the narrowest type capable to hold the given value.
      *
-     * @see #narrowestNumber(Number)
+     * see #narrowestNumber(Number)
      */
     @SuppressWarnings("fallthrough")
     public static Class<? extends Number> narrowestClass(final Number value) {
@@ -408,8 +408,8 @@ public final class Numbers extends Static {
      * @param  value  the value to be wrapped in a finer (if possible) {@link Number}.
      * @return the narrowest type capable to hold the given value.
      *
-     * @see #narrowestClass(Number)
-     * @see #cast(Number, Class)
+     * see #narrowestClass(Number)
+     * see #cast(Number, Class)
      */
     @SuppressWarnings("fallthrough")
     public static Number narrowestNumber(final Number value) {
@@ -468,7 +468,7 @@ public final class Numbers extends Static {
      * @return the narrowest type capable to hold the given value.
      * @throws NumberFormatException if the given value can not be parsed as a number.
      *
-     * @see #narrowestNumber(Number)
+     * see #narrowestNumber(Number)
      */
     public static Number narrowestNumber(final String value) throws NumberFormatException {
         // Do not trim whitespaces. It is up to the caller to do that if he wants.
@@ -681,7 +681,7 @@ public final class Numbers extends Static {
      * @param  type  the type of the object for which to get a nil value.
      * @return an object of the given type which represents a nil value, or {@code null}.
      *
-     * @see org.apache.sis.xml.NilObject
+     * see org.apache.sis.xml.NilObject
      */
     @SuppressWarnings("unchecked")
     public static <T> T valueOfNil(final Class<T> type) {

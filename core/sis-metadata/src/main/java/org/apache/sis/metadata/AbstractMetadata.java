@@ -74,7 +74,7 @@ import org.apache.sis.util.collection.TreeTable;
  * @version 0.5
  * @module
  *
- * @see MetadataStandard
+ * see MetadataStandard
  */
 @XmlTransient
 public abstract class AbstractMetadata implements LenientComparable, Emptiable {
@@ -104,7 +104,7 @@ public abstract class AbstractMetadata implements LenientComparable, Emptiable {
      *
      * @return The standard interface implemented by this implementation class.
      *
-     * @see MetadataStandard#getInterface(Class)
+     * see MetadataStandard#getInterface(Class)
      */
     public Class<?> getInterface() {
         // No need to sychronize, since this method does not depend on property values.
@@ -134,7 +134,7 @@ public abstract class AbstractMetadata implements LenientComparable, Emptiable {
      *
      * @return {@code true} if this metadata is empty.
      *
-     * @see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox#isEmpty()
+     * see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox#isEmpty()
      */
     @Override
     public boolean isEmpty() {
@@ -209,7 +209,7 @@ public abstract class AbstractMetadata implements LenientComparable, Emptiable {
      *
      * @return A view of this metadata object as a map.
      *
-     * @see MetadataStandard#asValueMap(Object, KeyNamePolicy, ValueExistencePolicy)
+     * see MetadataStandard#asValueMap(Object, KeyNamePolicy, ValueExistencePolicy)
      */
     public Map<String,Object> asMap() {
         return getStandard().asValueMap(this, KeyNamePolicy.JAVABEANS_PROPERTY, ValueExistencePolicy.NON_EMPTY);
@@ -277,7 +277,7 @@ public abstract class AbstractMetadata implements LenientComparable, Emptiable {
      *
      * @return A tree table representation of the specified metadata.
      *
-     * @see MetadataStandard#asTreeTable(Object, ValueExistencePolicy)
+     * see MetadataStandard#asTreeTable(Object, ValueExistencePolicy)
      */
     public TreeTable asTreeTable() {
         return getStandard().asTreeTable(this, ValueExistencePolicy.NON_EMPTY);
@@ -331,7 +331,7 @@ public abstract class AbstractMetadata implements LenientComparable, Emptiable {
      * for tracking changes in children properties. If this metadata is known to be immutable,
      * then subclasses may consider caching the hash code value if performance is important.</div>
      *
-     * @see MetadataStandard#hashCode(Object)
+     * see MetadataStandard#hashCode(Object)
      */
     @Override
     public int hashCode() {

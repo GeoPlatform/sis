@@ -88,7 +88,7 @@ public final class Shapes2D extends Static {
      * @param  point    a point close to the given line.
      * @return the nearest point on the given line.
      *
-     * @see #colinearPoint(Line2D, Point2D, double)
+     * see #colinearPoint(Line2D, Point2D, double)
      */
     public static Point2D nearestColinearPoint(final Line2D segment, final Point2D point) {
         return ShapeUtilities.nearestColinearPoint(segment.getX1(), segment.getY1(),
@@ -118,7 +118,7 @@ public final class Shapes2D extends Static {
      * @param  distance  the distance between the given point and the point to be returned.
      * @return a point on the given line located at the given distance from the given point.
      *
-     * @see #nearestColinearPoint(Line2D, Point2D)
+     * see #nearestColinearPoint(Line2D, Point2D)
      */
     public static Point2D colinearPoint(Line2D line, Point2D point, double distance) {
         return ShapeUtilities.colinearPoint(line.getX1(), line.getY1(),
@@ -162,8 +162,8 @@ public final class Shapes2D extends Static {
      * @return {@code destination}, or a new rectangle if {@code destination} was non-null and {@code envelope} was null.
      * @throws TransformException if a transform failed.
      *
-     * @see #transform(CoordinateOperation, Rectangle2D, Rectangle2D)
-     * @see Envelopes#transform(MathTransform, Envelope)
+     * see #transform(CoordinateOperation, Rectangle2D, Rectangle2D)
+     * see Envelopes#transform(MathTransform, Envelope)
      */
     public static Rectangle2D transform(final MathTransform2D transform,
                                         final Rectangle2D     envelope,
@@ -383,8 +383,8 @@ public final class Shapes2D extends Static {
      * @return {@code destination}, or a new rectangle if {@code destination} was non-null and {@code envelope} was null.
      * @throws TransformException if a transform failed.
      *
-     * @see #transform(MathTransform2D, Rectangle2D, Rectangle2D)
-     * @see Envelopes#transform(CoordinateOperation, Envelope)
+     * see #transform(MathTransform2D, Rectangle2D, Rectangle2D)
+     * see Envelopes#transform(CoordinateOperation, Envelope)
      */
     public static Rectangle2D transform(final CoordinateOperation operation,
                                         final Rectangle2D         envelope,

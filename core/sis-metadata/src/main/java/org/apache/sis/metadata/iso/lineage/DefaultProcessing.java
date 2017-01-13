@@ -103,7 +103,7 @@ public class DefaultProcessing extends ISOMetadata implements Processing {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Processing)
+     * see #castOrCopy(Processing)
      */
     public DefaultProcessing(final Processing object) {
         super(object);

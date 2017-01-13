@@ -124,7 +124,7 @@ public final strictfp class PolarStereographicTest extends MapProjectionTestCase
      * @throws FactoryException if an error occurred while creating the map projection.
      * @throws TransformException if an error occurred while projecting a coordinate.
      *
-     * @see org.opengis.test.referencing.ParameterizedTransformTest#testPolarStereographicA()
+     * see org.opengis.test.referencing.ParameterizedTransformTest#testPolarStereographicA()
      */
     @Test
     public void testPolarStereographicA() throws FactoryException, TransformException {
@@ -138,7 +138,7 @@ public final strictfp class PolarStereographicTest extends MapProjectionTestCase
      * @throws FactoryException if an error occurred while creating the map projection.
      * @throws TransformException if an error occurred while projecting a coordinate.
      *
-     * @see org.opengis.test.referencing.ParameterizedTransformTest#testPolarStereographicB()
+     * see org.opengis.test.referencing.ParameterizedTransformTest#testPolarStereographicB()
      */
     @Test
     public void testPolarStereographicB() throws FactoryException, TransformException {
@@ -152,7 +152,7 @@ public final strictfp class PolarStereographicTest extends MapProjectionTestCase
      * @throws FactoryException if an error occurred while creating the map projection.
      * @throws TransformException if an error occurred while projecting a coordinate.
      *
-     * @see org.opengis.test.referencing.ParameterizedTransformTest#testPolarStereographicC()
+     * see org.opengis.test.referencing.ParameterizedTransformTest#testPolarStereographicC()
      */
     @Test
     public void testPolarStereographicC() throws FactoryException, TransformException {

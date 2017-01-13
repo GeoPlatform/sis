@@ -236,7 +236,7 @@ public class ParameterFormat extends TabularFormat<Object> {
     /**
      * The amount of information to put in the table.
      *
-     * @see #getContentLevel()
+     * see #getContentLevel()
      */
     private ContentLevel contentLevel = ContentLevel.BRIEF;
 
@@ -244,14 +244,14 @@ public class ParameterFormat extends TabularFormat<Object> {
      * If the identifier should be written only for some code spaces, those code spaces.
      * Otherwise {@code null}.
      *
-     * @see #getPreferredCodespaces()
+     * see #getPreferredCodespaces()
      */
     private Set<String> preferredCodespaces;
 
     /**
      * The colors for an output on X3.64 compatible terminal, or {@code null} if none.
      *
-     * @see #getColors()
+     * see #getColors()
      */
     private Colors colors;
 

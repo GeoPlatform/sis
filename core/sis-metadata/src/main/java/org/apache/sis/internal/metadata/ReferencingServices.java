@@ -304,7 +304,7 @@ public class ReferencingServices extends OptionalDependency {
      * @return The given object converted to a {@code FormattableObject} instance.
      * @throws UnsupportedOperationException if the {@code "sis-referencing"} module has not been found on the classpath.
      *
-     * @see org.apache.sis.referencing.AbstractIdentifiedObject#castOrCopy(IdentifiedObject)
+     * see org.apache.sis.referencing.AbstractIdentifiedObject#castOrCopy(IdentifiedObject)
      *
      * @since 0.4
      */
@@ -648,8 +648,8 @@ public class ReferencingServices extends OptionalDependency {
      * @param  identifier The name or identifier of the operation method to search.
      * @return The coordinate operation method for the given name or identifier, or {@code null} if none.
      *
-     * @see org.apache.sis.referencing.operation.DefaultCoordinateOperationFactory#getOperationMethod(String)
-     * @see org.apache.sis.referencing.operation.transform.DefaultMathTransformFactory#getOperationMethod(String)
+     * see org.apache.sis.referencing.operation.DefaultCoordinateOperationFactory#getOperationMethod(String)
+     * see org.apache.sis.referencing.operation.transform.DefaultMathTransformFactory#getOperationMethod(String)
      *
      * @since 0.6
      */
@@ -685,7 +685,7 @@ public class ReferencingServices extends OptionalDependency {
      * @param  locale Language to use if possible.
      * @return The information, or {@code null} if none.
      *
-     * @see org.apache.sis.internal.util.MetadataServices#getInformation(String)
+     * see org.apache.sis.internal.util.MetadataServices#getInformation(String)
      *
      * @since 0.7
      */

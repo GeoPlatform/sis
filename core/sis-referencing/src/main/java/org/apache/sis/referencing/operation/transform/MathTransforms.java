@@ -55,7 +55,7 @@ import org.apache.sis.util.Static;
  * @version 0.7
  * @module
  *
- * @see MathTransformFactory
+ * see MathTransformFactory
  */
 public final class MathTransforms extends Static {
     /**
@@ -108,8 +108,8 @@ public final class MathTransforms extends Static {
      * @param  matrix The matrix used to define the linear transform.
      * @return The linear (usually affine) transform.
      *
-     * @see #getMatrix(MathTransform)
-     * @see DefaultMathTransformFactory#createAffineTransform(Matrix)
+     * see #getMatrix(MathTransform)
+     * see DefaultMathTransformFactory#createAffineTransform(Matrix)
      */
     public static LinearTransform linear(final Matrix matrix) {
         ArgumentChecks.ensureNonNull("matrix", matrix);
@@ -169,7 +169,7 @@ public final class MathTransforms extends Static {
      * @param values the output values (<var>y</var>) in the function range, or {@code null}.
      * @return the <i>y=f(x)</i> function.
      *
-     * @see org.opengis.coverage.InterpolationMethod
+     * see org.opengis.coverage.InterpolationMethod
      *
      * @since 0.7
      */
@@ -194,8 +194,8 @@ public final class MathTransforms extends Static {
      * @param  transforms The transforms to aggregate in a single transform, in the given order.
      * @return The aggregation of all given transforms, or {@code null} if the given {@code transforms} array was empty.
      *
-     * @see PassThroughTransform
-     * @see org.apache.sis.referencing.crs.DefaultCompoundCRS
+     * see PassThroughTransform
+     * see org.apache.sis.referencing.crs.DefaultCompoundCRS
      *
      * @since 0.6
      */
@@ -234,7 +234,7 @@ public final class MathTransforms extends Static {
      * @throws MismatchedDimensionException if the output dimension of the first transform
      *         does not match the input dimension of the second transform.
      *
-     * @see DefaultMathTransformFactory#createConcatenatedTransform(MathTransform, MathTransform)
+     * see DefaultMathTransformFactory#createConcatenatedTransform(MathTransform, MathTransform)
      */
     public static MathTransform concatenate(final MathTransform tr1, final MathTransform tr2)
             throws MismatchedDimensionException
@@ -400,8 +400,8 @@ public final class MathTransforms extends Static {
      * @param  transform The transform for which to get the matrix, or {@code null}.
      * @return The matrix of the given transform, or {@code null} if none.
      *
-     * @see #linear(Matrix)
-     * @see LinearTransform#getMatrix()
+     * see #linear(Matrix)
+     * see LinearTransform#getMatrix()
      */
     public static Matrix getMatrix(final MathTransform transform) {
         if (transform instanceof LinearTransform) {

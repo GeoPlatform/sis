@@ -78,8 +78,8 @@ import java.util.Objects;
  * @version 0.3
  * @module
  *
- * @see <a href="http://www.w3.org/TR/xlink/">XML Linking Language</a>
- * @see <a href="http://schemas.opengis.net/xlink/1.0.0/xlinks.xsd">OGC schema</a>
+ * see <a href="http://www.w3.org/TR/xlink/">XML Linking Language</a>
+ * see <a href="http://schemas.opengis.net/xlink/1.0.0/xlinks.xsd">OGC schema</a>
  */
 @XmlTransient
 public class XLink implements Serializable {
@@ -91,14 +91,14 @@ public class XLink implements Serializable {
     /**
      * The type of link. If {@code null}, then the type will be inferred by {@link #getType()}.
      *
-     * @see #getType()
+     * see #getType()
      */
     private Type type;
 
     /**
      * A URN to an external resources, or to an other part of a XML document, or an identifier.
      *
-     * @see #getHRef()
+     * see #getHRef()
      * @category locator
      */
     private URI href;
@@ -106,7 +106,7 @@ public class XLink implements Serializable {
     /**
      * A URI reference for some description of the arc role.
      *
-     * @see #getRole()
+     * see #getRole()
      * @category semantic
      */
     private URI role;
@@ -114,7 +114,7 @@ public class XLink implements Serializable {
     /**
      * A URI reference for some description of the arc role.
      *
-     * @see #getArcRole()
+     * see #getArcRole()
      * @category semantic
      */
     private URI arcrole;
@@ -123,7 +123,7 @@ public class XLink implements Serializable {
      * Just as with resources, this is simply a human-readable string with a short description
      * for the arc.
      *
-     * @see #getTitle()
+     * see #getTitle()
      * @category semantic
      */
     private InternationalString title;
@@ -132,7 +132,7 @@ public class XLink implements Serializable {
      * Communicates the desired presentation of the ending resource on traversal
      * from the starting resource.
      *
-     * @see #getShow()
+     * see #getShow()
      * @category behavior
      */
     private Show show;
@@ -140,7 +140,7 @@ public class XLink implements Serializable {
     /**
      * Communicates the desired timing of traversal from the starting resource to the ending resource.
      *
-     * @see #getActuate()
+     * see #getActuate()
      * @category behavior
      */
     private Actuate actuate;
@@ -148,7 +148,7 @@ public class XLink implements Serializable {
     /**
      * Identifies the target of a {@code from} or {@code to} attribute.
      *
-     * @see #getLabel()
+     * see #getLabel()
      * @category traversal
      */
     private String label;
@@ -157,7 +157,7 @@ public class XLink implements Serializable {
      * The starting resource. The value must correspond to the same value for some
      * {@code label} attribute.
      *
-     * @see #getFrom()
+     * see #getFrom()
      * @category traversal
      */
     private String from;
@@ -166,7 +166,7 @@ public class XLink implements Serializable {
      * The ending resource. The value must correspond to the same value for some
      * {@code label} attribute.
      *
-     * @see #getTo()
+     * see #getTo()
      * @category traversal
      */
     private String to;
@@ -213,7 +213,7 @@ public class XLink implements Serializable {
      * @version 0.3
      * @module
      *
-     * @see XLink#getType()
+     * see XLink#getType()
      */
     @XmlEnum
     public static enum Type {
@@ -537,7 +537,7 @@ public class XLink implements Serializable {
      * @version 0.3
      * @module
      *
-     * @see XLink#getShow()
+     * see XLink#getShow()
      */
     @XmlEnum
     public static enum Show {
@@ -612,7 +612,7 @@ public class XLink implements Serializable {
      * @version 0.3
      * @module
      *
-     * @see XLink#getActuate()
+     * see XLink#getActuate()
      */
     @XmlEnum
     public static enum Actuate {

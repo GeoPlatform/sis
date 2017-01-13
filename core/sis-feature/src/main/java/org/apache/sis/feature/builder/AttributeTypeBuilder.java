@@ -69,8 +69,8 @@ import org.opengis.feature.AttributeType;
  * @version 0.8
  * @module
  *
- * @see FeatureTypeBuilder#addAttribute(Class)
- * @see org.apache.sis.feature.DefaultAttributeType
+ * see FeatureTypeBuilder#addAttribute(Class)
+ * see org.apache.sis.feature.DefaultAttributeType
  */
 public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
     /**
@@ -90,7 +90,7 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      * {@code isSuffix} are null, then {@code "@identifier"} will be a {@linkplain FeatureOperations#link link}
      * to {@code idAttributes[0]}.
      *
-     * @see #addRole(AttributeRole)
+     * see #addRole(AttributeRole)
      */
     private boolean isIdentifier;
 
@@ -246,7 +246,7 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      *
      * @return the class of attribute values.
      *
-     * @see #setValueClass(Class)
+     * see #setValueClass(Class)
      */
     public Class<V> getValueClass() {
         return valueClass;
@@ -262,7 +262,7 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      * @throws UnconvertibleObjectException if the {@linkplain #getDefaultValue() default value}
      *         can not be converted to the given {@code <N>} class.
      *
-     * @see #getValueClass()
+     * see #getValueClass()
      */
     @SuppressWarnings("unchecked")
     public <N> AttributeTypeBuilder<N> setValueClass(final Class<N> type) throws UnconvertibleObjectException {
@@ -285,7 +285,7 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      *
      * @return the default attribute value, or {@code null} if none.
      *
-     * @see #setDefaultValue(Object)
+     * see #setDefaultValue(Object)
      */
     public V getDefaultValue() {
         return defaultValue;
@@ -297,7 +297,7 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      * @param  value  default attribute value, or {@code null} if none.
      * @return {@code this} for allowing method calls chaining.
      *
-     * @see #getDefaultValue()
+     * see #getDefaultValue()
      */
     public AttributeTypeBuilder<V> setDefaultValue(final V value) {
         if (!Objects.equals(defaultValue, value)) {
@@ -334,8 +334,8 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      * @param  values valid values.
      * @return {@code this} for allowing method calls chaining.
      *
-     * @see #characteristics()
-     * @see AttributeConvention#VALID_VALUES_CHARACTERISTIC
+     * see #characteristics()
+     * see AttributeConvention#VALID_VALUES_CHARACTERISTIC
      */
     @SafeVarargs
     public final AttributeTypeBuilder<V> setValidValues(final V... values) {
@@ -364,8 +364,8 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      * @param  length  maximal length of {@link CharSequence} attribute values, or {@code null}.
      * @return {@code this} for allowing method calls chaining.
      *
-     * @see #characteristics()
-     * @see AttributeConvention#MAXIMAL_LENGTH_CHARACTERISTIC
+     * see #characteristics()
+     * see AttributeConvention#MAXIMAL_LENGTH_CHARACTERISTIC
      */
     public AttributeTypeBuilder<V> setMaximalLength(final Integer length) {
         return setCharacteristic(AttributeConvention.MAXIMAL_LENGTH_CHARACTERISTIC, Integer.class, length);
@@ -392,8 +392,8 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      * @param  crs  coordinate reference system associated to attribute values, or {@code null}.
      * @return {@code this} for allowing method calls chaining.
      *
-     * @see #characteristics()
-     * @see AttributeConvention#CRS_CHARACTERISTIC
+     * see #characteristics()
+     * see AttributeConvention#CRS_CHARACTERISTIC
      */
     public AttributeTypeBuilder<V> setCRS(final CoordinateReferenceSystem crs) {
         return setCharacteristic(AttributeConvention.CRS_CHARACTERISTIC, CoordinateReferenceSystem.class, crs);
@@ -436,7 +436,7 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      * @return characteristic of the given name, or {@code null} if none.
      * @throws IllegalArgumentException if the given name is ambiguous.
      *
-     * @see #characteristics()
+     * see #characteristics()
      */
     public CharacteristicTypeBuilder<?> getCharacteristic(final String name) {
         return forName(characteristics, name);
@@ -458,7 +458,7 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      * @param  type  the class of characteristic values.
      * @return a builder for a characteristic of this attribute.
      *
-     * @see #characteristics()
+     * see #characteristics()
      */
     public <C> CharacteristicTypeBuilder<C> addCharacteristic(final Class<C> type) {
         ensureNonNull("type", type);
@@ -476,7 +476,7 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      * @param  template  an existing attribute type to use as a template.
      * @return a builder for a characteristic of this attribute, initialized with the values of the given template.
      *
-     * @see #characteristics()
+     * see #characteristics()
      */
     public <C> CharacteristicTypeBuilder<C> addCharacteristic(final AttributeType<C> template) {
         ensureNonNull("template", template);
@@ -494,11 +494,11 @@ public final class AttributeTypeBuilder<V> extends PropertyTypeBuilder {
      *
      * @return a live list over the characteristics declared to this builder.
      *
-     * @see #getCharacteristic(String)
-     * @see #addCharacteristic(Class)
-     * @see #addCharacteristic(AttributeType)
-     * @see #setValidValues(Object...)
-     * @see #setCRS(CoordinateReferenceSystem)
+     * see #getCharacteristic(String)
+     * see #addCharacteristic(Class)
+     * see #addCharacteristic(AttributeType)
+     * see #setValidValues(Object...)
+     * see #setCRS(CoordinateReferenceSystem)
      */
     public List<CharacteristicTypeBuilder<?>> characteristics() {
         return new RemoveOnlyList<>(characteristics);

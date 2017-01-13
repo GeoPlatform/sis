@@ -78,7 +78,7 @@ public class LambertConicConformal extends ConformalProjection {
      *
      * <p><b>CONVENTION:</b> Codes for SP1 case must be odd, and codes for SP2 case must be even.
      *
-     * @see #getVariant(OperationMethod)
+     * see #getVariant(OperationMethod)
      */
     private static final byte SP1  = 1,  WEST    = 3,                   // Must be odd
                               SP2  = 2,  BELGIUM = 4,  MICHIGAN = 6;    // Must be even

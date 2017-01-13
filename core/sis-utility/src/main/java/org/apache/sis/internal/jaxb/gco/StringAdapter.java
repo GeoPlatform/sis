@@ -51,7 +51,7 @@ public class StringAdapter extends XmlAdapter<GO_CharacterString, String> {
      * @param  text The {@code CharSequence} to convert to a {@code String}, or {@code null}.
      * @return The localized representation of the given text, or {@code null} if the text was null.
      *
-     * @see org.apache.sis.xml.XML#LOCALE
+     * see org.apache.sis.xml.XML#LOCALE
      */
     public static String toString(final CharSequence text) {
         if (text == null) {

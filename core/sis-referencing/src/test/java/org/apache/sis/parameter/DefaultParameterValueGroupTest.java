@@ -85,7 +85,7 @@ public final strictfp class DefaultParameterValueGroupTest extends TestCase {
     /**
      * Same as {@link #createValues(int)}, but put the parameters in a {@link DefaultParameterValueGroup}.
      *
-     * @see #testValuesAddAll()
+     * see #testValuesAddAll()
      */
     private DefaultParameterValueGroup createGroup(final int step) {
         final DefaultParameterValueGroup group = new DefaultParameterValueGroup(descriptor);

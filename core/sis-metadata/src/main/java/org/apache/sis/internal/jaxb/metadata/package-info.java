@@ -53,7 +53,7 @@
  * @version 0.5
  * @module
  *
- * @see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
+ * see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
  */
 @XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.GMD, xmlns = {
     @XmlNs(prefix = "gmd", namespaceURI = Namespaces.GMD),

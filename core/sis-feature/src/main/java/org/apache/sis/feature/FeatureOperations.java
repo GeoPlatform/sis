@@ -198,7 +198,7 @@ public final class FeatureOperations extends Static {
      *         is neither an {@code AttributeType} or an {@code Operation} computing an attribute, or an attribute has
      *         a {@linkplain DefaultAttributeType#getMaximumOccurs() maximum number of occurrences} greater than 1.
      *
-     * @see <a href="https://en.wikipedia.org/wiki/Compound_key">Compound key on Wikipedia</a>
+     * see <a href="https://en.wikipedia.org/wiki/Compound_key">Compound key on Wikipedia</a>
      */
     public static Operation compound(final Map<String,?> identification, final String delimiter,
             final String prefix, final String suffix, final PropertyType... singleAttributes)

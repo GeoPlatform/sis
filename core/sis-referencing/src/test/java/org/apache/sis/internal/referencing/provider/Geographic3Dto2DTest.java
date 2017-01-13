@@ -78,7 +78,7 @@ public final strictfp class Geographic3Dto2DTest extends TestCase {
      * @return The chain of transforms.
      * @throws FactoryException if an error occurred while creating a transform.
      *
-     * @see GeocentricTranslationTest#createDatumShiftForGeographic2D(MathTransformFactory)
+     * see GeocentricTranslationTest#createDatumShiftForGeographic2D(MathTransformFactory)
      */
     static MathTransform createDatumShiftForGeographic2D(final MathTransformFactory factory,
             final MathTransform affine, final Parameters pv) throws FactoryException

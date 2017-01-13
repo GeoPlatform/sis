@@ -89,7 +89,7 @@ public class DefaultScope extends org.apache.sis.metadata.iso.maintenance.Defaul
 	 *
 	 * @param object The metadata to copy values from, or {@code null} if none.
 	 *
-	 * @see #castOrCopy(Scope)
+	 * see #castOrCopy(Scope)
 	 */
 	public DefaultScope(final Scope object) {
 		super(object);
@@ -149,7 +149,7 @@ public class DefaultScope extends org.apache.sis.metadata.iso.maintenance.Defaul
 
 	/**
 	 * Gets extent (used in ISO 19139 format).
-	 * @see {@link #getExtent}
+	 * see {@link #getExtent}
 	 */
 	@XmlElement(name = "extent")
 	private Extent getXmlExtent() {
@@ -158,7 +158,7 @@ public class DefaultScope extends org.apache.sis.metadata.iso.maintenance.Defaul
 
 	/**
 	 * Sets the extent(used in ISO 19139 format).
-	 * @see {@link #setExtent}
+	 * see {@link #setExtent}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlExtent(final Extent newValue) {
@@ -167,7 +167,7 @@ public class DefaultScope extends org.apache.sis.metadata.iso.maintenance.Defaul
     
     /**
    	 * Gets the level descriptions for this scope (used in ISO 19139 format).
-   	 * @see {@link #getLevelDescription}
+   	 * see {@link #getLevelDescription}
    	 */
    	@XmlElement(name = "levelDescription")
    	private Collection<ScopeDescription> getXmlLevelDescription() {
@@ -179,7 +179,7 @@ public class DefaultScope extends org.apache.sis.metadata.iso.maintenance.Defaul
    	
    	/**
 	 * Gets level (used in ISO 19139 format).
-	 * @see {@link #getLevel}
+	 * see {@link #getLevel}
 	 */
 	@XmlElement(name = "level", required = true)
 	private ScopeCode getXmlLevel() {
@@ -188,7 +188,7 @@ public class DefaultScope extends org.apache.sis.metadata.iso.maintenance.Defaul
 
 	/**
 	 * Sets level (used in ISO 19139 format).
-	 * @see {@link #setLevel}
+	 * see {@link #setLevel}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlLevel(final ScopeCode newValue) {

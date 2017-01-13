@@ -121,8 +121,8 @@ public final strictfp class EPSGFactoryFallbackTest extends TestCase {
      *
      * @throws FactoryException if a CRS can not be constructed.
      *
-     * @see CRSTest#testForEpsgCode()
-     * @see CRSTest#testForCrsCode()
+     * see CRSTest#testForEpsgCode()
+     * see CRSTest#testForCrsCode()
      */
     @Test
     public void testCreateCRS() throws FactoryException {

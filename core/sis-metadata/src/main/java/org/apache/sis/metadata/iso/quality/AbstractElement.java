@@ -315,7 +315,7 @@ public class AbstractElement extends ISOMetadata implements Element {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Element)
+     * see #castOrCopy(Element)
      */
     public AbstractElement(final Element object) {
         super(object);

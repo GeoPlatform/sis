@@ -49,9 +49,9 @@ import org.opengis.referencing.cs.ParametricCS;
  * @version 0.7
  * @module
  *
- * @see org.apache.sis.referencing.crs.DefaultParametricCRS
- * @see org.apache.sis.referencing.datum.DefaultParametricDatum
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createParametricCS(String)
+ * see org.apache.sis.referencing.crs.DefaultParametricCRS
+ * see org.apache.sis.referencing.datum.DefaultParametricDatum
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createParametricCS(String)
  */
 @XmlType(name = "ParametricCSType")
 @XmlRootElement(name = "ParametricCS")
@@ -108,7 +108,7 @@ public class DefaultParametricCS extends AbstractCS implements ParametricCS {
      * @param properties The properties to be given to the identified object.
      * @param axis       The axis.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createParametricCS(Map, CoordinateSystemAxis)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createParametricCS(Map, CoordinateSystemAxis)
      */
     public DefaultParametricCS(final Map<String,?> properties, final CoordinateSystemAxis axis) {
         super(properties, axis);
@@ -123,7 +123,7 @@ public class DefaultParametricCS extends AbstractCS implements ParametricCS {
      *
      * @param cs The coordinate system to copy.
      *
-     * @see #castOrCopy(ParametricCS)
+     * see #castOrCopy(ParametricCS)
      */
     protected DefaultParametricCS(final ParametricCS cs) {
         super(cs);

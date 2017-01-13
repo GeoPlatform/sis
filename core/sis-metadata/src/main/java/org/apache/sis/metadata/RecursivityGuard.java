@@ -41,9 +41,9 @@ import java.util.IdentityHashMap;
  * @version 0.3
  * @module
  *
- * @see #HASH_CODES
- * @see ObjectPair#CURRENT
- * @see Pruner#MAPS
+ * see #HASH_CODES
+ * see ObjectPair#CURRENT
+ * see Pruner#MAPS
  */
 final class RecursivityGuard<V> extends ThreadLocal<Map<Object,V>> {
     /**

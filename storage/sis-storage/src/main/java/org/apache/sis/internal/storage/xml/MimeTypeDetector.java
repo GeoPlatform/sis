@@ -80,7 +80,7 @@ abstract class MimeTypeDetector {
      * return {@link ProbeResult#INSUFFICIENT_BYTES}, which means that the method requests more bytes for
      * detecting the MIME type.
      *
-     * @see ProbeResult#INSUFFICIENT_BYTES
+     * see ProbeResult#INSUFFICIENT_BYTES
      */
     boolean insufficientBytes;
 

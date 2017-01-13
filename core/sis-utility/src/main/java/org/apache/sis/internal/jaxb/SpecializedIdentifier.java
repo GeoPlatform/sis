@@ -59,7 +59,7 @@ public final class SpecializedIdentifier<T> implements Identifier, Cloneable, Se
      * Null value is not recommended, but this {@code SpecializedIdentifier}
      * is tolerant to such cases.
      *
-     * @see #getAuthority()
+     * see #getAuthority()
      */
     private final IdentifierSpace<T> authority;
 
@@ -70,8 +70,8 @@ public final class SpecializedIdentifier<T> implements Identifier, Cloneable, Se
      * <p>This value is set at construction time, but may be modified later by
      * {@link IdentifierMapAdapter#putSpecialized(IdentifierSpace, Object)}.</p>
      *
-     * @see #getValue()
-     * @see #getCode()
+     * see #getValue()
+     * see #getCode()
      */
     T value;
 
@@ -95,7 +95,7 @@ public final class SpecializedIdentifier<T> implements Identifier, Cloneable, Se
      * @param authority The authority, typically as one of the {@link IdentifierSpace} constants.
      * @param code      The identifier code to parse.
      *
-     * @see IdentifierMapAdapter#put(Citation, String)
+     * see IdentifierMapAdapter#put(Citation, String)
      */
     static Identifier parse(final Citation authority, final String code) {
         if (authority instanceof NonMarshalledAuthority) {
@@ -264,7 +264,7 @@ public final class SpecializedIdentifier<T> implements Identifier, Cloneable, Se
      * Returns a string representation of this identifier.
      * Example: {@code Identifier[gco:uuid=“42924124-032a-4dfe-b06e-113e3cb81cf0”]}.
      *
-     * @see IdentifierMapAdapter#toString()
+     * see IdentifierMapAdapter#toString()
      */
     @Debug
     @Override

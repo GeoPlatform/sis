@@ -173,8 +173,8 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link Names#add(Identifier)}.</p>
      *
-     * @see #getName()
-     * @see #getNames()
+     * see #getName()
+     * see #getNames()
      */
     private Identifier name;
 
@@ -195,8 +195,8 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setIdentifier(Code)}</p>
      *
-     * @see #getIdentifiers()
-     * @see #getIdentifier()
+     * see #getIdentifiers()
+     * see #getIdentifier()
      */
     private Set<Identifier> identifiers;
 
@@ -206,7 +206,7 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setRemarks(InternationalString)}</p>
      *
-     * @see #getRemarks()
+     * see #getRemarks()
      */
     private InternationalString remarks;
 
@@ -478,7 +478,7 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
      *
      * @return the primary name.
      *
-     * @see IdentifiedObjects#getName(IdentifiedObject, Citation)
+     * see IdentifiedObjects#getName(IdentifiedObject, Citation)
      */
     @Override
     public Identifier getName() {
@@ -490,7 +490,7 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
      *
      * @return the aliases, or an empty collection if there is none.
      *
-     * @see #getName()
+     * see #getName()
      */
     @Override
     public Collection<GenericName> getAlias() {
@@ -503,7 +503,7 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
      *
      * @return this object identifiers, or an empty set if there is none.
      *
-     * @see IdentifiedObjects#getIdentifier(IdentifiedObject, Citation)
+     * see IdentifiedObjects#getIdentifier(IdentifiedObject, Citation)
      */
     @Override
     public Set<Identifier> getIdentifiers() {
@@ -520,7 +520,7 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
      *
      * @return a narrative explanation of the role of this object, or {@code null} if none.
      *
-     * @see org.apache.sis.metadata.iso.ImmutableIdentifier#getDescription()
+     * see org.apache.sis.metadata.iso.ImmutableIdentifier#getDescription()
      *
      * @since 0.6
      */
@@ -617,8 +617,8 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
      * @param  name  the name to compare with the object name or aliases.
      * @return {@code true} if the primary name or at least one alias matches the specified {@code name}.
      *
-     * @see IdentifiedObjects#isHeuristicMatchForName(IdentifiedObject, String)
-     * @see org.apache.sis.util.Characters.Filter#LETTERS_AND_DIGITS
+     * see IdentifiedObjects#isHeuristicMatchForName(IdentifiedObject, String)
+     * see org.apache.sis.util.Characters.Filter#LETTERS_AND_DIGITS
      */
     public boolean isHeuristicMatchForName(final String name) {
         return NameToIdentifier.isHeuristicMatchForName(this.name, alias, name, NameToIdentifier.Simplifier.DEFAULT);
@@ -678,8 +678,8 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
      * @param  mode    the strictness level of the comparison.
      * @return {@code true} if both objects are equal according the given comparison mode.
      *
-     * @see #computeHashCode()
-     * @see org.apache.sis.util.Utilities#deepEquals(Object, Object, ComparisonMode)
+     * see #computeHashCode()
+     * see org.apache.sis.util.Utilities#deepEquals(Object, Object, ComparisonMode)
      */
     @Override
     public boolean equals(final Object object, final ComparisonMode mode) {
@@ -870,7 +870,7 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
      * @return the {@linkplain org.apache.sis.io.wkt.KeywordCase#CAMEL_CASE CamelCase} keyword
      *         for the WKT element, or {@code null} if unknown.
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#21">WKT 2 specification §7</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#21">WKT 2 specification §7</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -992,7 +992,7 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
      * It seems a more portable approach (at least for JAXB reference implementations) to design our class
      * without setter method, in order to have the same behavior on all supported JDK versions.
      *
-     * @see <a href="https://java.net/jira/browse/JAXB-488">JAXB-488</a>
+     * see <a href="https://java.net/jira/browse/JAXB-488">JAXB-488</a>
      */
     @XmlElement(name = "name", required = true)
     final Collection<Identifier> getNames() {
@@ -1086,7 +1086,7 @@ public class AbstractIdentifiedObject extends FormattableObject implements Ident
     /**
      * Invoked by JAXB for setting the remarks.
      *
-     * @see #getRemarks()
+     * see #getRemarks()
      */
     private void setRemarks(final InternationalString value) {
         if (remarks == null) {

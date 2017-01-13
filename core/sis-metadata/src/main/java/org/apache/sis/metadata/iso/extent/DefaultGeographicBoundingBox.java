@@ -105,7 +105,7 @@ import java.util.Objects;
  * @version 0.8
  * @module
  *
- * @see org.apache.sis.geometry.GeneralEnvelope
+ * see org.apache.sis.geometry.GeneralEnvelope
  */
 @XmlType(name = "EX_GeographicBoundingBox_Type", propOrder = {
     "westBoundLongitude",
@@ -172,7 +172,7 @@ public class DefaultGeographicBoundingBox extends AbstractGeographicExtent imple
      * @throws IllegalArgumentException if (<var>south bound</var> &gt; <var>north bound</var>).
      *         Note that {@linkplain Double#NaN NaN} values are allowed.
      *
-     * @see #setBounds(double, double, double, double)
+     * see #setBounds(double, double, double, double)
      */
     public DefaultGeographicBoundingBox(final double westBoundLongitude,
                                         final double eastBoundLongitude,
@@ -196,7 +196,7 @@ public class DefaultGeographicBoundingBox extends AbstractGeographicExtent imple
      *
      * @param  object  the metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(GeographicBoundingBox)
+     * see #castOrCopy(GeographicBoundingBox)
      */
     public DefaultGeographicBoundingBox(final GeographicBoundingBox object) {
         super(object);
@@ -414,7 +414,7 @@ public class DefaultGeographicBoundingBox extends AbstractGeographicExtent imple
     /**
      * Clamps the latitudes and normalizes the longitudes.
      *
-     * @see #denormalize(double, double)
+     * see #denormalize(double, double)
      */
     private void normalize() {
         southBoundLatitude = Latitude.clamp(southBoundLatitude);
@@ -504,9 +504,9 @@ public class DefaultGeographicBoundingBox extends AbstractGeographicExtent imple
      * @throws UnsupportedOperationException if the referencing module is not on the classpath.
      * @throws TransformException if the envelope can not be transformed to a geographic extent.
      *
-     * @see DefaultExtent#addElements(Envelope)
-     * @see DefaultVerticalExtent#setBounds(Envelope)
-     * @see DefaultTemporalExtent#setBounds(Envelope)
+     * see DefaultExtent#addElements(Envelope)
+     * see DefaultVerticalExtent#setBounds(Envelope)
+     * see DefaultTemporalExtent#setBounds(Envelope)
      */
     public void setBounds(final Envelope envelope) throws TransformException {
         ArgumentChecks.ensureNonNull("envelope", envelope);
@@ -548,7 +548,7 @@ public class DefaultGeographicBoundingBox extends AbstractGeographicExtent imple
      *   <li>+2 : This method has added        360° to   {@link #eastBoundLongitude}.</li>
      * </ul>
      *
-     * @see #normalize()
+     * see #normalize()
      */
     private int denormalize(final double λmin, final double λmax) {
         final boolean isSpanningAntiMeridian = westBoundLongitude > eastBoundLongitude;
@@ -634,7 +634,7 @@ public class DefaultGeographicBoundingBox extends AbstractGeographicExtent imple
      *
      * @param  box  the geographic bounding box to add to this box.
      *
-     * @see org.apache.sis.geometry.GeneralEnvelope#add(Envelope)
+     * see org.apache.sis.geometry.GeneralEnvelope#add(Envelope)
      */
     public void add(final GeographicBoundingBox box) {
         checkWritePermission();
@@ -690,8 +690,8 @@ public class DefaultGeographicBoundingBox extends AbstractGeographicExtent imple
      * @param  box  the geographic bounding box to intersect with this box.
      * @throws IllegalArgumentException if the inclusion status is not the same for both boxes.
      *
-     * @see Extents#intersection(GeographicBoundingBox, GeographicBoundingBox)
-     * @see org.apache.sis.geometry.GeneralEnvelope#intersect(Envelope)
+     * see Extents#intersection(GeographicBoundingBox, GeographicBoundingBox)
+     * see org.apache.sis.geometry.GeneralEnvelope#intersect(Envelope)
      */
     public void intersect(final GeographicBoundingBox box) throws IllegalArgumentException {
         checkWritePermission();
@@ -731,7 +731,7 @@ public class DefaultGeographicBoundingBox extends AbstractGeographicExtent imple
      *
      * @return {@code true} if this metadata does not define any bound value.
      *
-     * @see org.apache.sis.geometry.AbstractEnvelope#isAllNaN()
+     * see org.apache.sis.geometry.AbstractEnvelope#isAllNaN()
      */
     @Override
     public boolean isEmpty() {

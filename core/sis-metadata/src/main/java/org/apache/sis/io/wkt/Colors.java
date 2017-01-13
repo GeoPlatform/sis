@@ -39,8 +39,8 @@ import org.apache.sis.util.resources.Errors;
  * @version 0.4
  * @module
  *
- * @see WKTFormat#getColors()
- * @see WKTFormat#setColors(Colors)
+ * see WKTFormat#getColors()
+ * see WKTFormat#setColors(Colors)
  */
 public class Colors implements Cloneable, Serializable {
     /**
@@ -53,7 +53,7 @@ public class Colors implements Cloneable, Serializable {
      * Those colors give better results on a {@link java.io.Console} with black background.
      * This map is immutable.
      *
-     * @see FormattableObject#print()
+     * see FormattableObject#print()
      */
     public static final Colors DEFAULT = new Colors();
     static {

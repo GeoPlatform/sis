@@ -110,9 +110,9 @@ final class AuthorityFactoryIdentifier {
      * <div class="note"><b>Example:</b>
      * In the {@code "urn:ogc:def:crs:EPSG:8.2:4326"} URN, this is {@code "EPSG"}.</div>
      *
-     * @see #getAuthority()
-     * @see org.apache.sis.internal.util.DefinitionURI
-     * @see org.apache.sis.internal.metadata.NameMeaning
+     * see #getAuthority()
+     * see org.apache.sis.internal.util.DefinitionURI
+     * see org.apache.sis.internal.metadata.NameMeaning
      */
     private String authority;
 
@@ -123,9 +123,9 @@ final class AuthorityFactoryIdentifier {
      * <div class="note"><b>Example:</b>
      * In the {@code "urn:ogc:def:crs:EPSG:8.2:4326"} URN, this is {@code "8.2"}.</div>
      *
-     * @see #hasVersion()
-     * @see #unversioned(String)
-     * @see #versionOf(Citation)
+     * see #hasVersion()
+     * see #unversioned(String)
+     * see #versionOf(Citation)
      */
     private String version;
 

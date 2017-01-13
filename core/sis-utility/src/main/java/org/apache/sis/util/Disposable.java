@@ -49,9 +49,9 @@ package org.apache.sis.util;
  * @version 0.3
  * @module
  *
- * @see java.awt.Graphics#dispose()
- * @see javax.imageio.ImageReader#dispose()
- * @see javax.imageio.ImageWriter#dispose()
+ * see java.awt.Graphics#dispose()
+ * see javax.imageio.ImageReader#dispose()
+ * see javax.imageio.ImageWriter#dispose()
  */
 public interface Disposable {
     /**

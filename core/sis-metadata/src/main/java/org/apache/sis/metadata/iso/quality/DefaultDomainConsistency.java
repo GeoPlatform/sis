@@ -60,7 +60,7 @@ public class DefaultDomainConsistency extends AbstractLogicalConsistency impleme
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(DomainConsistency)
+     * see #castOrCopy(DomainConsistency)
      */
     public DefaultDomainConsistency(final DomainConsistency object) {
         super(object);

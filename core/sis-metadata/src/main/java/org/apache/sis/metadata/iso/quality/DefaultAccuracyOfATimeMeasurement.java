@@ -62,7 +62,7 @@ public class DefaultAccuracyOfATimeMeasurement extends AbstractTemporalAccuracy
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(AccuracyOfATimeMeasurement)
+     * see #castOrCopy(AccuracyOfATimeMeasurement)
      */
     public DefaultAccuracyOfATimeMeasurement(final AccuracyOfATimeMeasurement object) {
         super(object);

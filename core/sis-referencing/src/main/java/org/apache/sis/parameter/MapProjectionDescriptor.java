@@ -50,7 +50,7 @@ import org.apache.sis.util.Workaround;
  * @version 0.6
  * @module
  *
- * @see <a href="http://www.unidata.ucar.edu/software/netcdf-java/reference/StandardCoordinateTransforms.html">NetCDF projection parameters</a>
+ * see <a href="http://www.unidata.ucar.edu/software/netcdf-java/reference/StandardCoordinateTransforms.html">NetCDF projection parameters</a>
  */
 @XmlTransient
 final class MapProjectionDescriptor extends DefaultParameterDescriptorGroup {

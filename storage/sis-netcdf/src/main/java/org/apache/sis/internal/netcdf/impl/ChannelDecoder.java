@@ -70,7 +70,7 @@ import java.time.DateTimeException;
  * @version 0.8
  * @module
  *
- * @see <a href="http://portal.opengeospatial.org/files/?artifact_id=43734">NetCDF Classic and 64-bit Offset Format (1.0)</a>
+ * see <a href="http://portal.opengeospatial.org/files/?artifact_id=43734">NetCDF Classic and 64-bit Offset Format (1.0)</a>
  */
 public final class ChannelDecoder extends Decoder {
     /**
@@ -93,8 +93,8 @@ public final class ChannelDecoder extends Decoder {
      * The encoding of dimension, variable and attribute names. This is fixed to {@value} by the
      * NetCDF specification. Note however that the encoding of attribute values may be different.
      *
-     * @see #encoding
-     * @see #readName()
+     * see #encoding
+     * see #readName()
      */
     private static final String NAME_ENCODING = "UTF-8";
 
@@ -102,7 +102,7 @@ public final class ChannelDecoder extends Decoder {
      * The locale of dimension, variable and attribute names. This is used for the conversion to
      * lower-cases before case-insensitive searches.
      *
-     * @see #findAttribute(String)
+     * see #findAttribute(String)
      */
     static final Locale NAME_LOCALE = Locale.US;
 
@@ -110,7 +110,7 @@ public final class ChannelDecoder extends Decoder {
      * The pattern to use for separating the component of a time unit.
      * An example of time unit is <cite>"days since 1970-01-01T00:00:00Z"</cite>.
      *
-     * @see #numberToDate(String, Number[])
+     * see #numberToDate(String, Number[])
      */
     private static final Pattern TIME_UNIT_PATTERN = Pattern.compile("\\s+since\\s+", Pattern.CASE_INSENSITIVE);
 
@@ -124,7 +124,7 @@ public final class ChannelDecoder extends Decoder {
      * A {@link #numrecs} value indicating indeterminate record count.
      * This value allows streaming data.
      *
-     * @see #numrecs
+     * see #numrecs
      */
     private static final int STREAMING = -1;
 
@@ -133,7 +133,7 @@ public final class ChannelDecoder extends Decoder {
      * by a 32 bits integer given the number of elements in the list ({@code nelems}).
      * A 64-bits zero means that there is no list (identified as {@code ABSENT} in the BNF).
      *
-     * @see #tagName(int)
+     * see #tagName(int)
      */
     private static final int DIMENSION = 0x0A, VARIABLE = 0x0B, ATTRIBUTE = 0x0C;
 
@@ -163,15 +163,15 @@ public final class ChannelDecoder extends Decoder {
      *
      * @todo Fixed to ISO-LATIN-1 for now, needs to be determined in a better way.
      *
-     * @see #NAME_ENCODING
-     * @see #readString(String)
+     * see #NAME_ENCODING
+     * see #readString(String)
      */
     private final String encoding = "ISO-8859-1";
 
     /**
      * The variables found in the NetCDF file.
      *
-     * @see #getVariables()
+     * see #getVariables()
      */
     final VariableInfo[] variables;
 
@@ -184,22 +184,22 @@ public final class ChannelDecoder extends Decoder {
      * The attributes found in the NetCDF file.
      * Values in this map give directly the attribute value (there is no {@code Attribute} object).
      *
-     * @see #findAttribute(String)
+     * see #findAttribute(String)
      */
     private final Map<String,Object> attributeMap;
 
     /**
      * All dimensions in the NetCDF files.
      *
-     * @see #readDimensions(int)
-     * @see #findDimension(String)
+     * see #readDimensions(int)
+     * see #findDimension(String)
      */
     private Map<String,Dimension> dimensionMap;
 
     /**
      * The grid geometries, created when first needed.
      *
-     * @see #getGridGeometries()
+     * see #getGridGeometries()
      */
     private transient GridGeometry[] gridGeometries;
 

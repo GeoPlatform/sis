@@ -98,7 +98,7 @@ public final strictfp class ReferencingUtilitiesTest extends TestCase {
     /**
      * Tests {@link ReferencingUtilities#toPropertyName(Class, Class)}.
      *
-     * @see WKTUtilitiesTest#testToType()
+     * see WKTUtilitiesTest#testToType()
      *
      * @since 0.6
      */

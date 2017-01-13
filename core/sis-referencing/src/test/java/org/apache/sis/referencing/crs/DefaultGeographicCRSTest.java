@@ -172,7 +172,7 @@ public final strictfp class DefaultGeographicCRSTest extends TestCase {
      * <p>This CRS used in this test is equivalent to {@code EPSG:4979} except for axis order,
      * since EPSG puts latitude before longitude.</p>
      *
-     * @see #testWKT1_For3D()
+     * see #testWKT1_For3D()
      *
      * @since 0.7
      */
@@ -300,8 +300,8 @@ public final strictfp class DefaultGeographicCRSTest extends TestCase {
      * geographic CRS followed by an ellipsoidal height. Such construction is illegal according ISO 19111, so this
      * split shall be done on-the-fly only for formatting purpose.
      *
-     * @see #testWKT2_For3D()
-     * @see <a href="https://issues.apache.org/jira/browse/SIS-317">SIS-317</a>
+     * see #testWKT2_For3D()
+     * see <a href="https://issues.apache.org/jira/browse/SIS-317">SIS-317</a>
      *
      * @since 0.7
      */

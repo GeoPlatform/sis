@@ -53,7 +53,7 @@ public final strictfp class CacheTest extends TestCase {
      * The tested {@code Cache} shall behave like a standard {@link HashMap},
      * except for element order.
      *
-     * @see WeakValueHashMapTest#testStrongReferences()
+     * see WeakValueHashMapTest#testStrongReferences()
      */
     @Test
     public void testStrongReferences() {
@@ -66,7 +66,7 @@ public final strictfp class CacheTest extends TestCase {
      *
      * @throws InterruptedException If the test has been interrupted.
      *
-     * @see WeakValueHashMapTest#testWeakReferences()
+     * see WeakValueHashMapTest#testWeakReferences()
      */
     @Test
     @DependsOnMethod("testStrongReferences")

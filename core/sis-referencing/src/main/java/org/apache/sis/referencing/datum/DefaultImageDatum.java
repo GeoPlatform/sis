@@ -52,8 +52,8 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * @see org.apache.sis.referencing.crs.DefaultImageCRS
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createImageDatum(String)
+ * see org.apache.sis.referencing.crs.DefaultImageCRS
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createImageDatum(String)
  */
 @XmlType(name = "ImageDatumType")
 @XmlRootElement(name = "ImageDatum")
@@ -69,7 +69,7 @@ public class DefaultImageDatum extends AbstractDatum implements ImageDatum {
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setPixelInCell(PixelInCell)}</p>
      *
-     * @see #getPixelInCell()
+     * see #getPixelInCell()
      */
     private PixelInCell pixelInCell;
 
@@ -130,7 +130,7 @@ public class DefaultImageDatum extends AbstractDatum implements ImageDatum {
      * @param properties  The properties to be given to the identified object.
      * @param pixelInCell The way the image grid is associated with the image data attributes.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createImageDatum(Map, PixelInCell)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createImageDatum(Map, PixelInCell)
      */
     public DefaultImageDatum(final Map<String,?> properties, final PixelInCell pixelInCell) {
         super(properties);
@@ -147,7 +147,7 @@ public class DefaultImageDatum extends AbstractDatum implements ImageDatum {
      *
      * @param datum The datum to copy.
      *
-     * @see #castOrCopy(ImageDatum)
+     * see #castOrCopy(ImageDatum)
      */
     protected DefaultImageDatum(final ImageDatum datum) {
         super(datum);
@@ -243,7 +243,7 @@ public class DefaultImageDatum extends AbstractDatum implements ImageDatum {
      *
      * @return {@code "ImageDatum"}.
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#81">WKT 2 specification §12.2</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#81">WKT 2 specification §12.2</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -282,7 +282,7 @@ public class DefaultImageDatum extends AbstractDatum implements ImageDatum {
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * @see #getPixelInCell()
+     * see #getPixelInCell()
      */
     private void setPixelInCell(final PixelInCell value) {
         if (pixelInCell == null) {

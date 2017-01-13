@@ -38,7 +38,7 @@ import static java.lang.Character.*;
  * @version 0.8
  * @module
  *
- * @see CharSequences
+ * see CharSequences
  */
 public final class StringBuilders extends Static {
     /**
@@ -64,7 +64,7 @@ public final class StringBuilders extends Static {
      * @param  replaceBy  the replacement for the searched character.
      * @throws NullArgumentException if the {@code buffer} arguments is null.
      *
-     * @see String#replace(char, char)
+     * see String#replace(char, char)
      */
     public static void replace(final StringBuilder buffer, final char toSearch, final char replaceBy) {
         ArgumentChecks.ensureNonNull("buffer", buffer);
@@ -88,9 +88,9 @@ public final class StringBuilders extends Static {
      * @throws NullArgumentException if any of the arguments is null.
      * @throws IllegalArgumentException if the {@code toSearch} argument is empty.
      *
-     * @see String#replace(char, char)
-     * @see CharSequences#replace(CharSequence, CharSequence, CharSequence)
-     * @see StringBuilder#replace(int, int, String)
+     * see String#replace(char, char)
+     * see CharSequences#replace(CharSequence, CharSequence, CharSequence)
+     * see StringBuilder#replace(int, int, String)
      */
     public static void replace(final StringBuilder buffer, final String toSearch, final String replaceBy) {
         ArgumentChecks.ensureNonNull ("buffer",    buffer);
@@ -117,7 +117,7 @@ public final class StringBuilders extends Static {
      * @param  chars   the array that will replace previous contents.
      * @throws NullArgumentException if the {@code buffer} or {@code chars} argument is null.
      *
-     * @see StringBuilder#replace(int, int, String)
+     * see StringBuilder#replace(int, int, String)
      */
     public static void replace(final StringBuilder buffer, int start, final int end, final char[] chars) {
         ArgumentChecks.ensureNonNull("buffer", buffer);
@@ -149,7 +149,7 @@ public final class StringBuilders extends Static {
      * @throws NullPointerException if any of the arguments is null.
      * @throws IllegalArgumentException if the {@code toSearch} argument is empty.
      *
-     * @see StringBuilder#delete(int, int)
+     * see StringBuilder#delete(int, int)
      */
     public static void remove(final StringBuilder buffer, final String toSearch) {
         ArgumentChecks.ensureNonNull ("buffer",   buffer);
@@ -177,7 +177,7 @@ public final class StringBuilders extends Static {
      * @param  buffer  the buffer to trim if possible.
      * @throws NullArgumentException if the given {@code buffer} is null.
      *
-     * @see CharSequences#trimFractionalPart(CharSequence)
+     * see CharSequences#trimFractionalPart(CharSequence)
      */
     @SuppressWarnings("fallthrough")
     public static void trimFractionalPart(final StringBuilder buffer) {
@@ -203,8 +203,8 @@ public final class StringBuilders extends Static {
      * @param  buffer  the text to scan for Unicode characters to replace by ASCII characters.
      * @throws NullArgumentException if the given {@code buffer} is null.
      *
-     * @see CharSequences#toASCII(CharSequence)
-     * @see Normalizer#normalize(CharSequence, Normalizer.Form)
+     * see CharSequences#toASCII(CharSequence)
+     * see Normalizer#normalize(CharSequence, Normalizer.Form)
      */
     public static void toASCII(final StringBuilder buffer) {
         ArgumentChecks.ensureNonNull("buffer", buffer);

@@ -41,8 +41,8 @@ import java.util.logging.LogRecord;
  * @version 0.3
  * @module
  *
- * @see WarningListeners
- * @see org.apache.sis.storage.DataStore#addWarningListener(WarningListener)
+ * see WarningListeners
+ * see org.apache.sis.storage.DataStore#addWarningListener(WarningListener)
  */
 public interface WarningListener<S> extends EventListener {
     /**

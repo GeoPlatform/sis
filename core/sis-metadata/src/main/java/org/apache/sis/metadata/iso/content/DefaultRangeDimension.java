@@ -97,7 +97,7 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(RangeDimension)
+     * see #castOrCopy(RangeDimension)
      */
     public DefaultRangeDimension(final RangeDimension object) {
         super(object);
@@ -186,7 +186,7 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
     
     /**
 	 * Gets the description for this range dimension (used in ISO 19115-3 format).
-	 * @see {@link #getDescription}
+	 * see {@link #getDescription}
 	 */
 	@XmlElement(name = "description")
 	private InternationalString getXmlDescription() {
@@ -195,7 +195,7 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
 
 	/**
 	 * Sets the description for this range dimension (used in ISO 19115-3 format).
-	 * @see {@link #setDescription}
+	 * see {@link #setDescription}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlDescription(final InternationalString newValue) {
@@ -231,7 +231,7 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
     
     /**
 	 * Gets the descriptor for this range dimension (used in ISO 19139 format).
-	 * @see {@link #getDescriptor}
+	 * see {@link #getDescriptor}
 	 */
 	@XmlElement(name = "descriptor")
 	private InternationalString getXmlDescriptor() {
@@ -240,7 +240,7 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
 
 	/**
 	 * Sets the descriptor for this range dimension (used in ISO 19139 format).
-	 * @see {@link #setDescription}
+	 * see {@link #setDescription}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlDescriptor(final InternationalString newValue) {
@@ -273,7 +273,7 @@ public class DefaultRangeDimension extends ISOMetadata implements RangeDimension
     
     /**
 	 * Gets the names for this range dimension (used in ISO 19115-3 format).
-	 * @see {@link #getNames}
+	 * see {@link #getNames}
 	 */
 	@XmlElement(name = "name")
 	private Collection<Identifier> getXmlNames() {

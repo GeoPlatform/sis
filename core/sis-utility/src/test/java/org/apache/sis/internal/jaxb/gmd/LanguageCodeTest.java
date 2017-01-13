@@ -83,7 +83,7 @@ public final strictfp class LanguageCodeTest extends XMLTestCase {
      *
      * @throws JAXBException If an error occurred while creating the pool.
      *
-     * @see #disposeMarshallerPool()
+     * see #disposeMarshallerPool()
      */
     @BeforeClass
     public static void createMarshallerPool() throws JAXBException {
@@ -132,7 +132,7 @@ public final strictfp class LanguageCodeTest extends XMLTestCase {
      *
      * @throws JAXBException Should never happen.
      *
-     * @see #testMarshallCharacterString()
+     * see #testMarshallCharacterString()
      */
     @Test
     public void testMarshallLanguageCode() throws JAXBException {
@@ -156,7 +156,7 @@ public final strictfp class LanguageCodeTest extends XMLTestCase {
      *
      * @throws JAXBException Should never happen.
      *
-     * @see #testMarshallLanguageCode()
+     * see #testMarshallLanguageCode()
      */
     @Test
     public void testLanguageCode() throws JAXBException {
@@ -196,7 +196,7 @@ public final strictfp class LanguageCodeTest extends XMLTestCase {
      *
      * @throws JAXBException Should never happen.
      *
-     * @see #testMarshallLanguageCode()
+     * see #testMarshallLanguageCode()
      */
     @Test
     public void testMarshallCharacterString() throws JAXBException {

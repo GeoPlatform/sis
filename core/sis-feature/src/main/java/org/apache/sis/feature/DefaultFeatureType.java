@@ -101,9 +101,9 @@ import org.opengis.feature.PropertyNotFoundException;
  * @version 0.8
  * @module
  *
- * @see DefaultAttributeType
- * @see DefaultAssociationRole
- * @see AbstractFeature
+ * see DefaultAttributeType
+ * see DefaultAssociationRole
+ * see AbstractFeature
  */
 public class DefaultFeatureType extends AbstractIdentifiedType implements FeatureType {
     /**
@@ -114,7 +114,7 @@ public class DefaultFeatureType extends AbstractIdentifiedType implements Featur
     /**
      * If {@code true}, the feature type acts as an abstract super-type.
      *
-     * @see #isAbstract()
+     * see #isAbstract()
      */
     private final boolean isAbstract;
 
@@ -122,7 +122,7 @@ public class DefaultFeatureType extends AbstractIdentifiedType implements Featur
      * {@code true} if this feature type contains only attributes constrained to the [1 … 1] cardinality,
      * or operations. The feature type shall not contains associations.
      *
-     * @see #isSimple()
+     * see #isSimple()
      */
     private transient boolean isSimple;
 
@@ -152,7 +152,7 @@ public class DefaultFeatureType extends AbstractIdentifiedType implements Featur
     /**
      * The direct parents of this feature type, or an empty set if none.
      *
-     * @see #getSuperTypes()
+     * see #getSuperTypes()
      */
     private final Set<FeatureType> superTypes;
 
@@ -160,7 +160,7 @@ public class DefaultFeatureType extends AbstractIdentifiedType implements Featur
      * The names of all parents of this feature type, including parents of parents.
      * This is used for a more efficient implementation of {@link #isAssignableFrom(FeatureType)}.
      *
-     * @see #isAssignableFrom(FeatureType)
+     * see #isAssignableFrom(FeatureType)
      */
     private transient Set<GenericName> assignableTo;
 
@@ -169,7 +169,7 @@ public class DefaultFeatureType extends AbstractIdentifiedType implements Featur
      * that carries characteristics of a feature type.
      * This list does not include the properties inherited from the super-types.
      *
-     * @see #getProperties(boolean)
+     * see #getProperties(boolean)
      */
     private final List<PropertyType> properties;
 
@@ -177,7 +177,7 @@ public class DefaultFeatureType extends AbstractIdentifiedType implements Featur
      * All properties, including the ones declared in the super-types.
      * This is an unmodifiable view of the {@link #byName} values.
      *
-     * @see #getProperties(boolean)
+     * see #getProperties(boolean)
      */
     private transient Collection<PropertyType> allProperties;
 
@@ -185,7 +185,7 @@ public class DefaultFeatureType extends AbstractIdentifiedType implements Featur
      * A lookup table for fetching properties by name, including the properties from super-types.
      * This map shall not be modified after construction.
      *
-     * @see #getProperty(String)
+     * see #getProperty(String)
      */
     private transient Map<String, PropertyType> byName;
 
@@ -250,7 +250,7 @@ public class DefaultFeatureType extends AbstractIdentifiedType implements Featur
      * @param properties      any feature operation, any feature attribute type and any feature
      *                        association role that carries characteristics of a feature type.
      *
-     * @see org.apache.sis.feature.builder.FeatureTypeBuilder
+     * see org.apache.sis.feature.builder.FeatureTypeBuilder
      */
     @SuppressWarnings("ThisEscapedInObjectConstruction")
     public DefaultFeatureType(final Map<String,?> identification, final boolean isAbstract,
@@ -586,7 +586,7 @@ public class DefaultFeatureType extends AbstractIdentifiedType implements Featur
     /**
      * Returns {@code true} if the given property type stands for a parameterless operation which return a result.
      *
-     * @see #OPERATION_INDEX
+     * see #OPERATION_INDEX
      */
     static boolean isParameterlessOperation(final PropertyType type) {
         if (type instanceof Operation) {
@@ -809,7 +809,7 @@ public class DefaultFeatureType extends AbstractIdentifiedType implements Featur
      * @return the property for the given name, or {@code null} if none.
      * @throws PropertyNotFoundException if the given argument is not a property name of this feature.
      *
-     * @see AbstractFeature#getProperty(String)
+     * see AbstractFeature#getProperty(String)
      */
     @Override
     public PropertyType getProperty(final String name) throws PropertyNotFoundException {
@@ -881,7 +881,7 @@ public class DefaultFeatureType extends AbstractIdentifiedType implements Featur
      *
      * @return a string representation of this feature in a tabular format.
      *
-     * @see FeatureFormat
+     * see FeatureFormat
      */
     @Override
     public String toString() {

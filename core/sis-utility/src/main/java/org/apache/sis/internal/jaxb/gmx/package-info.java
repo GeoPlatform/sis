@@ -25,7 +25,7 @@
  * @version 0.8
  * @module
  *
- * @see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
+ * see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
  */
 @XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.GCX, xmlns = {
     @XmlNs(prefix = "gcx", namespaceURI = Namespaces.GCX)

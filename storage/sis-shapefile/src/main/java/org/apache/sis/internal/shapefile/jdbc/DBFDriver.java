@@ -44,7 +44,7 @@ public class DBFDriver extends AbstractJDBC implements Driver {
     }
 
     /**
-     * @see java.sql.Wrapper#isWrapperFor(java.lang.Class)
+     * see java.sql.Wrapper#isWrapperFor(java.lang.Class)
      */
     @Override
     public boolean isWrapperFor(Class<?> iface) {
@@ -92,7 +92,7 @@ public class DBFDriver extends AbstractJDBC implements Driver {
     }
 
     /**
-     * @see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getFile()
+     * see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getFile()
      */
     @Override protected File getFile() {
         return null;

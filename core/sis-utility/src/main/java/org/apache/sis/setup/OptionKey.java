@@ -113,7 +113,7 @@ public class OptionKey<T> implements Serializable {
      *
      * This option has not effect on URI encoding, which is always UTF-8.
      *
-     * @see java.net.URLDecoder
+     * see java.net.URLDecoder
      */
     public static final OptionKey<String> URL_ENCODING = new OptionKey<>("URL_ENCODING", String.class);
 

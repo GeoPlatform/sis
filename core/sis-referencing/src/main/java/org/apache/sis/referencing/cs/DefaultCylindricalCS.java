@@ -52,8 +52,8 @@ import org.apache.sis.measure.Units;
  * @version 0.4
  * @module
  *
- * @see DefaultPolarCS
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createCylindricalCS(String)
+ * see DefaultPolarCS
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createCylindricalCS(String)
  */
 @XmlType(name = "CylindricalCSType")
 @XmlRootElement(name = "CylindricalCS")
@@ -112,7 +112,7 @@ public class DefaultCylindricalCS extends AbstractCS implements CylindricalCS {
      * @param axis1 The second axis.
      * @param axis2 The third axis.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createCylindricalCS(Map, CoordinateSystemAxis, CoordinateSystemAxis, CoordinateSystemAxis)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createCylindricalCS(Map, CoordinateSystemAxis, CoordinateSystemAxis, CoordinateSystemAxis)
      */
     public DefaultCylindricalCS(final Map<String,?>   properties,
                                 final CoordinateSystemAxis axis0,
@@ -131,7 +131,7 @@ public class DefaultCylindricalCS extends AbstractCS implements CylindricalCS {
      *
      * @param cs The coordinate system to copy.
      *
-     * @see #castOrCopy(CylindricalCS)
+     * see #castOrCopy(CylindricalCS)
      */
     protected DefaultCylindricalCS(final CylindricalCS cs) {
         super(cs);

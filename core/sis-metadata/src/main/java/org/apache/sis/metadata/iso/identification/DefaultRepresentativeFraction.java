@@ -71,7 +71,7 @@ import org.opengis.metadata.identification.RepresentativeFraction;
  * @version 0.7
  * @module
  *
- * @see DefaultResolution#getEquivalentScale()
+ * see DefaultResolution#getEquivalentScale()
  */
 @XmlType(name = "MD_RepresentativeFraction_Type")
 @XmlRootElement(name = "MD_RepresentativeFraction")
@@ -264,8 +264,8 @@ public class DefaultRepresentativeFraction extends Number implements Representat
      *
      * @return {@code true} if no scale is defined.
      *
-     * @see #doubleValue()
-     * @see #floatValue()
+     * see #doubleValue()
+     * see #floatValue()
      *
      * @since 0.6
      */
@@ -280,7 +280,7 @@ public class DefaultRepresentativeFraction extends Number implements Representat
      *
      * @since 0.7
      *
-     * @see org.apache.sis.metadata.ModifiableMetadata#freeze()
+     * see org.apache.sis.metadata.ModifiableMetadata#freeze()
      */
     public void freeze() {
         isUnmodifiable = true;
@@ -392,7 +392,7 @@ public class DefaultRepresentativeFraction extends Number implements Representat
     /**
      * Invoked by JAXB for fetching the unique identifier unique for the XML document.
      *
-     * @see org.apache.sis.metadata.iso.ISOMetadata#getID()
+     * see org.apache.sis.metadata.iso.ISOMetadata#getID()
      */
     @XmlID
     @XmlAttribute  // Defined in "gco" as unqualified attribute.
@@ -405,7 +405,7 @@ public class DefaultRepresentativeFraction extends Number implements Representat
     /**
      * Invoked by JAXB for specifying the unique identifier.
      *
-     * @see org.apache.sis.metadata.iso.ISOMetadata#setID(String)
+     * see org.apache.sis.metadata.iso.ISOMetadata#setID(String)
      */
     @SuppressWarnings("unused")
 	private void setID(String id) {
@@ -415,7 +415,7 @@ public class DefaultRepresentativeFraction extends Number implements Representat
     /**
      * Invoked by JAXB for fetching the unique identifier unique "worldwide".
      *
-     * @see org.apache.sis.metadata.iso.ISOMetadata#getUUID()
+     * see org.apache.sis.metadata.iso.ISOMetadata#getUUID()
      */
     @XmlAttribute  // Defined in "gco" as unqualified attribute.
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -426,7 +426,7 @@ public class DefaultRepresentativeFraction extends Number implements Representat
     /**
      * Invoked by JAXB for specifying the unique identifier.
      *
-     * @see org.apache.sis.metadata.iso.ISOMetadata#setUUID(String)
+     * see org.apache.sis.metadata.iso.ISOMetadata#setUUID(String)
      */
     @SuppressWarnings("unused")
 	private void setUUID(final String id) {

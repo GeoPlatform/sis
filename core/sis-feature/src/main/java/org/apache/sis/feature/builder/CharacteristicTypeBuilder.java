@@ -45,7 +45,7 @@ import org.opengis.feature.AttributeType;
  * @version 0.8
  * @module
  *
- * @see AttributeTypeBuilder#addCharacteristic(Class)
+ * see AttributeTypeBuilder#addCharacteristic(Class)
  */
 public final class CharacteristicTypeBuilder<V> extends TypeBuilder {
     /**
@@ -188,7 +188,7 @@ public final class CharacteristicTypeBuilder<V> extends TypeBuilder {
      *
      * @return the class of characteristic values.
      *
-     * @see #setValueClass(Class)
+     * see #setValueClass(Class)
      */
     public Class<V> getValueClass() {
         return valueClass;
@@ -204,7 +204,7 @@ public final class CharacteristicTypeBuilder<V> extends TypeBuilder {
      * @throws UnconvertibleObjectException if the {@linkplain #getDefaultValue() default value}
      *         can not be converted to the given {@code <N>} class.
      *
-     * @see #getValueClass()
+     * see #getValueClass()
      */
     @SuppressWarnings("unchecked")
     public <N> CharacteristicTypeBuilder<N> setValueClass(final Class<N> type) throws UnconvertibleObjectException {
@@ -225,7 +225,7 @@ public final class CharacteristicTypeBuilder<V> extends TypeBuilder {
      *
      * @return the default characteristic value, or {@code null} if none.
      *
-     * @see #setDefaultValue(Object)
+     * see #setDefaultValue(Object)
      */
     public V getDefaultValue() {
         return defaultValue;
@@ -237,7 +237,7 @@ public final class CharacteristicTypeBuilder<V> extends TypeBuilder {
      * @param  value  characteristic default value, or {@code null} if none.
      * @return {@code this} for allowing method calls chaining.
      *
-     * @see #getDefaultValue()
+     * see #getDefaultValue()
      */
     public CharacteristicTypeBuilder<V> setDefaultValue(final V value) {
         if (!Objects.equals(defaultValue, value)) {

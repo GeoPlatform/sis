@@ -217,7 +217,7 @@ public final strictfp class ObliqueStereographicTest extends MapProjectionTestCa
      * @throws FactoryException if an error occurred while creating the map projection.
      * @throws TransformException if an error occurred while projecting a coordinate.
      *
-     * @see org.opengis.test.referencing.ParameterizedTransformTest#testObliqueStereographic()
+     * see org.opengis.test.referencing.ParameterizedTransformTest#testObliqueStereographic()
      */
     @Test
     @DependsOnMethod({"testTransform", "testInverseTransform"})

@@ -123,7 +123,7 @@ import static org.apache.sis.internal.util.StandardDateFormat.MILLISECONDS_PER_D
  * @version 0.8
  * @module
  *
- * @see org.apache.sis.referencing.factory.CommonAuthorityFactory
+ * see org.apache.sis.referencing.factory.CommonAuthorityFactory
  */
 @SuppressWarnings("DoubleCheckedLocking")
 public enum CommonCRS {
@@ -266,7 +266,7 @@ public enum CommonCRS {
      *   <tr><th>Ellipsoid axes unit:</th>     <td>{@link Units#METRE}</td></tr>
      * </table></blockquote>
      *
-     * @see org.apache.sis.referencing.datum.DefaultEllipsoid#getAuthalicRadius()
+     * see org.apache.sis.referencing.datum.DefaultEllipsoid#getAuthalicRadius()
      */
     SPHERE((short) 4047, (short) 0, (short) 0, (short) 6047, (short) 7048,          // Geodetic info
            (short) 0, (short) 0, (byte) 0, (byte) 0);                               // UTM info
@@ -274,7 +274,7 @@ public enum CommonCRS {
     /**
      * The enum for the default CRS.
      *
-     * @see #defaultGeographic()
+     * see #defaultGeographic()
      */
     static final CommonCRS DEFAULT = WGS84;
 
@@ -330,28 +330,28 @@ public enum CommonCRS {
     /**
      * The normalized geographic CRS, created when first needed.
      *
-     * @see #normalizedGeographic()
+     * see #normalizedGeographic()
      */
     private transient volatile GeographicCRS cachedNormalized;
 
     /**
      * The three-dimensional geographic CRS, created when first needed.
      *
-     * @see #geographic3D()
+     * see #geographic3D()
      */
     private transient volatile GeographicCRS cachedGeo3D;
 
     /**
      * The geocentric CRS using Cartesian coordinate system, created when first needed.
      *
-     * @see #geocentric()
+     * see #geocentric()
      */
     private transient volatile GeocentricCRS cachedGeocentric;
 
     /**
      * The geocentric CRS using spherical coordinate system, created when first needed.
      *
-     * @see #spherical()
+     * see #spherical()
      */
     private transient volatile GeocentricCRS cachedSpherical;
 
@@ -359,7 +359,7 @@ public enum CommonCRS {
      * The Universal Transverse Mercator projections, created when first needed.
      * All accesses to this map shall be synchronized on {@code cachedUTM}.
      *
-     * @see #UTM(double, double)
+     * see #UTM(double, double)
      */
     private final Map<Integer,ProjectedCRS> cachedUTM;
 
@@ -463,9 +463,9 @@ public enum CommonCRS {
      *
      * @return the geographic CRS with non-standard (<var>longitude</var>, <var>latitude</var>) axis order.
      *
-     * @see CRS#forCode(String)
-     * @see DefaultGeographicCRS#forConvention(AxesConvention)
-     * @see AxesConvention#NORMALIZED
+     * see CRS#forCode(String)
+     * see DefaultGeographicCRS#forConvention(AxesConvention)
+     * see AxesConvention#NORMALIZED
      */
     public GeographicCRS normalizedGeographic() {
         GeographicCRS object = cachedNormalized;
@@ -503,8 +503,8 @@ public enum CommonCRS {
      *
      * @return the geographic CRS with standard (<var>latitude</var>, <var>longitude</var>) axis order.
      *
-     * @see CRS#forCode(String)
-     * @see DefaultGeographicCRS
+     * see CRS#forCode(String)
+     * see DefaultGeographicCRS
      */
     public GeographicCRS geographic() {
         GeographicCRS object = geographic(cached);
@@ -558,8 +558,8 @@ public enum CommonCRS {
      *
      * @return the three-dimensional geographic CRS associated to this enum.
      *
-     * @see CRS#forCode(String)
-     * @see DefaultGeographicCRS
+     * see CRS#forCode(String)
+     * see DefaultGeographicCRS
      */
     public GeographicCRS geographic3D() {
         GeographicCRS object = cachedGeo3D;
@@ -616,8 +616,8 @@ public enum CommonCRS {
      *
      * @return the geocentric CRS associated to this enum.
      *
-     * @see CRS#forCode(String)
-     * @see DefaultGeocentricCRS
+     * see CRS#forCode(String)
+     * see DefaultGeocentricCRS
      */
     public GeocentricCRS geocentric() {
         GeocentricCRS object = cachedGeocentric;
@@ -666,7 +666,7 @@ public enum CommonCRS {
      *
      * @return the geocentric CRS associated to this enum.
      *
-     * @see DefaultGeocentricCRS
+     * see DefaultGeocentricCRS
      *
      * @since 0.7
      */
@@ -724,7 +724,7 @@ public enum CommonCRS {
      *
      * @return the geodetic datum associated to this enum.
      *
-     * @see org.apache.sis.referencing.datum.DefaultGeodeticDatum
+     * see org.apache.sis.referencing.datum.DefaultGeodeticDatum
      */
     public GeodeticDatum datum() {
         GeodeticDatum object = datum(cached);
@@ -765,7 +765,7 @@ public enum CommonCRS {
      *
      * @return the ellipsoid associated to this enum.
      *
-     * @see org.apache.sis.referencing.datum.DefaultEllipsoid
+     * see org.apache.sis.referencing.datum.DefaultEllipsoid
      */
     public Ellipsoid ellipsoid() {
         Ellipsoid object = ellipsoid(cached);
@@ -805,7 +805,7 @@ public enum CommonCRS {
      *
      * @return the prime meridian associated to this enum.
      *
-     * @see org.apache.sis.referencing.datum.DefaultPrimeMeridian
+     * see org.apache.sis.referencing.datum.DefaultPrimeMeridian
      */
     public PrimeMeridian primeMeridian() {
         PrimeMeridian object = primeMeridian(cached);
@@ -1023,7 +1023,7 @@ public enum CommonCRS {
      * @version 0.7
      * @module
      *
-     * @see org.apache.sis.referencing.factory.CommonAuthorityFactory
+     * see org.apache.sis.referencing.factory.CommonAuthorityFactory
      */
     public static enum Vertical {
         /**
@@ -1031,7 +1031,7 @@ public enum CommonCRS {
          * Hectopascals are the units of measurement used by the worldwide meteorological community.
          * The datum is not specific to any location or epoch.
          *
-         * @see VerticalDatumType#BAROMETRIC
+         * see VerticalDatumType#BAROMETRIC
          */
         BAROMETRIC(false, Vocabulary.Keys.BarometricAltitude, Vocabulary.Keys.ConstantPressureSurface),
 
@@ -1047,7 +1047,7 @@ public enum CommonCRS {
          *   <tr><th>Unit:</th>                     <td>{@link Units#METRE}</td></tr>
          * </table></blockquote>
          *
-         * @see VerticalDatumType#GEOIDAL
+         * see VerticalDatumType#GEOIDAL
          */
         MEAN_SEA_LEVEL(true, (short) 5714, (short) 5100),
 
@@ -1062,7 +1062,7 @@ public enum CommonCRS {
          *   <tr><th>Unit:</th>                     <td>{@link Units#METRE}</td></tr>
          * </table></blockquote>
          *
-         * @see VerticalDatumType#GEOIDAL
+         * see VerticalDatumType#GEOIDAL
          */
         DEPTH(true, (short) 5715, (short) 5100),
 
@@ -1078,7 +1078,7 @@ public enum CommonCRS {
          *   <tr><th>Unit:</th>                     <td>{@link Units#METRE}</td></tr>
          * </table></blockquote>
          *
-         * @see CommonCRS#NAD83
+         * see CommonCRS#NAD83
          *
          * @since 0.7
          */
@@ -1100,7 +1100,7 @@ public enum CommonCRS {
          * Height measured above other kind of surface, for example a geological feature.
          * The unit of measurement is metres.
          *
-         * @see VerticalDatumType#OTHER_SURFACE
+         * see VerticalDatumType#OTHER_SURFACE
          */
         OTHER_SURFACE(false, Vocabulary.Keys.Height, Vocabulary.Keys.OtherSurface);
 
@@ -1179,7 +1179,7 @@ public enum CommonCRS {
          *
          * @return the CRS associated to this enum.
          *
-         * @see DefaultVerticalCRS
+         * see DefaultVerticalCRS
          */
         public VerticalCRS crs() {
             VerticalCRS object = crs(cached);
@@ -1244,7 +1244,7 @@ public enum CommonCRS {
          *
          * @return the datum associated to this enum.
          *
-         * @see DefaultVerticalDatum
+         * see DefaultVerticalDatum
          */
         public VerticalDatum datum() {
             VerticalDatum object = datum(cached);
@@ -1427,7 +1427,7 @@ public enum CommonCRS {
          *
          * @return the CRS associated to this enum.
          *
-         * @see DefaultTemporalCRS
+         * see DefaultTemporalCRS
          */
         public TemporalCRS crs() {
             TemporalCRS object = crs(cached);
@@ -1496,7 +1496,7 @@ public enum CommonCRS {
          *
          * @return the datum associated to this enum.
          *
-         * @see DefaultTemporalDatum
+         * see DefaultTemporalDatum
          */
         public TemporalDatum datum() {
             TemporalDatum object = datum(cached);

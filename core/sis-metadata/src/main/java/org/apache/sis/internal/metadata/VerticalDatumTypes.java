@@ -49,7 +49,7 @@ public final class VerticalDatumTypes implements CodeList.Filter {
      *
      * <p>Identifier: {@code CS_DatumType.CS_VD_Ellipsoidal}</p>
      *
-     * @see <a href="http://jira.codehaus.org/browse/GEO-133">GEO-133</a>
+     * see <a href="http://jira.codehaus.org/browse/GEO-133">GEO-133</a>
      */
     public static final VerticalDatumType ELLIPSOIDAL = VerticalDatumType.valueOf("ELLIPSOIDAL");
 

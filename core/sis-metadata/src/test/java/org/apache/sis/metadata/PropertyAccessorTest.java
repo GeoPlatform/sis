@@ -114,7 +114,7 @@ public final strictfp class PropertyAccessorTest extends TestCase {
      * @param accessor The accessor to test.
      * @param expected The expected names and types as described above.
      *
-     * @see PropertyAccessor#mapping
+     * see PropertyAccessor#mapping
      */
     private static void assertMappingEquals(final PropertyAccessor accessor, final Object... expected) {
         int i = 0;
@@ -163,9 +163,9 @@ public final strictfp class PropertyAccessorTest extends TestCase {
      * Other tests that depends on {@link Citation} property order are {@link NameMapTest#testEntrySet()},
      * {@link TypeMapTest#testEntrySet()} and most tests in {@link ValueMapTest}.
      *
-     * @see NameMapTest#testEntrySet()
-     * @see TypeMapTest#testEntrySet()
-     * @see ValueMapTest
+     * see NameMapTest#testEntrySet()
+     * see TypeMapTest#testEntrySet()
+     * see ValueMapTest
      */
     @Test
     public void testConstructor() {
@@ -233,7 +233,7 @@ public final strictfp class PropertyAccessorTest extends TestCase {
      * return type. This test may need to be updated if a future GeoAPI release modifies
      * the {@link GeographicCRS} interface.
      *
-     * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-205">GEOTK-205</a>
+     * see <a href="http://jira.geotoolkit.org/browse/GEOTK-205">GEOTK-205</a>
      */
     @Test
     @DependsOnMethod("testConstructorWithInheritance")
@@ -433,7 +433,7 @@ public final strictfp class PropertyAccessorTest extends TestCase {
      *     └─Alternate title (2 of 2)…… New title 2
      * }
      *
-     * @see #testSetInAppendMode()
+     * see #testSetInAppendMode()
      */
     @Test
     @DependsOnMethod("testSet")
@@ -544,7 +544,7 @@ public final strictfp class PropertyAccessorTest extends TestCase {
      *     └─Alternate title (4 of 4)…… New title 2
      * }
      *
-     * @see #testSetCollection()
+     * see #testSetCollection()
      */
     public void testSetInAppendMode() {
         final DefaultCitation instance = new DefaultCitation();

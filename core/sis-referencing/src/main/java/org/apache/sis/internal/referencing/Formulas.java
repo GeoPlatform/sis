@@ -41,8 +41,8 @@ public final class Formulas extends Static {
      * assuming that the unit of measurement is metre. This constant determines also
      * (indirectly) the minimum accuracy of iterative methods in map projections.
      *
-     * @see #ANGULAR_TOLERANCE
-     * @see org.apache.sis.internal.util.Numerics#COMPARISON_THRESHOLD
+     * see #ANGULAR_TOLERANCE
+     * see org.apache.sis.internal.util.Numerics#COMPARISON_THRESHOLD
      */
     public static final double LINEAR_TOLERANCE = 0.01;
 
@@ -53,8 +53,8 @@ public final class Formulas extends Static {
      *
      * <p>For a {@link #LINEAR_TOLERANCE} of 1 centimetre, this is slightly less than 1E-7°.</p>
      *
-     * @see #LINEAR_TOLERANCE
-     * @see org.apache.sis.internal.util.Numerics#COMPARISON_THRESHOLD
+     * see #LINEAR_TOLERANCE
+     * see org.apache.sis.internal.util.Numerics#COMPARISON_THRESHOLD
      */
     public static final double ANGULAR_TOLERANCE = LINEAR_TOLERANCE / (NAUTICAL_MILE * 60);
 
@@ -62,7 +62,7 @@ public final class Formulas extends Static {
      * The maximal longitude value before normalization if a centimetric precision is desired.
      * This is about 4×10⁸ degrees.
      *
-     * @see org.apache.sis.measure.Longitude#normalize(double)
+     * see org.apache.sis.measure.Longitude#normalize(double)
      */
     public static final double LONGITUDE_MAX = (1L << Numerics.SIGNIFICAND_SIZE) * ANGULAR_TOLERANCE;
 
@@ -71,7 +71,7 @@ public final class Formulas extends Static {
      * From Wikipedia, <cite>"In astronomy, a Julian year (symbol: <b>a</b>) is a unit of measurement of time
      * defined as exactly 365.25 days of 86,400 SI seconds each."</cite>.
      *
-     * @see <a href="http://en.wikipedia.org/wiki/Julian_year_%28astronomy%29">Wikipedia: Julian year (astronomy)</a>
+     * see <a href="http://en.wikipedia.org/wiki/Julian_year_%28astronomy%29">Wikipedia: Julian year (astronomy)</a>
      */
     public static final long JULIAN_YEAR_LENGTH = 31557600000L;
 
@@ -93,7 +93,7 @@ public final class Formulas extends Static {
      * @param n The exponent.
      * @return 3ⁿ
      *
-     * @see org.apache.sis.math.DecimalFunctions#pow10(int)
+     * see org.apache.sis.math.DecimalFunctions#pow10(int)
      *
      * @since 0.5
      */
@@ -126,7 +126,7 @@ public final class Formulas extends Static {
      * @param  b The semi-minor axis length.
      * @return The radius of a sphere having the same surface than the specified ellipsoid.
      *
-     * @see org.apache.sis.referencing.datum.DefaultEllipsoid#getAuthalicRadius()
+     * see org.apache.sis.referencing.datum.DefaultEllipsoid#getAuthalicRadius()
      */
     public static double getAuthalicRadius(final double a, final double b) {
         if (a != b) {

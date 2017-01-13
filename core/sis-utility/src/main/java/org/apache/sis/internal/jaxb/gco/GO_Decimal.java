@@ -39,8 +39,8 @@ import javax.xml.bind.annotation.XmlType;
  * @version 0.3
  * @module
  *
- * @see GO_Real
- * @see GO_Decimal32
+ * see GO_Real
+ * see GO_Decimal32
  */
 @XmlType(name = "Decimal_PropertyType")
 public final class GO_Decimal extends PropertyType<GO_Decimal, Double> {

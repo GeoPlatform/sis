@@ -66,10 +66,10 @@ import org.opengis.referencing.operation.NoninvertibleTransformException;
  * @version 0.7
  * @module
  *
- * @see org.apache.sis.referencing.operation.transform.MathTransforms#linear(Matrix)
- * @see org.apache.sis.referencing.operation.builder.LinearTransformBuilder
- * @see java.awt.geom.AffineTransform
- * @see <a href="http://mathworld.wolfram.com/AffineTransformation.html">Affine transformation on MathWorld</a>
+ * see org.apache.sis.referencing.operation.transform.MathTransforms#linear(Matrix)
+ * see org.apache.sis.referencing.operation.builder.LinearTransformBuilder
+ * see java.awt.geom.AffineTransform
+ * see <a href="http://mathworld.wolfram.com/AffineTransformation.html">Affine transformation on MathWorld</a>
  */
 public interface LinearTransform extends MathTransform {
     /**
@@ -78,7 +78,7 @@ public interface LinearTransform extends MathTransform {
      *
      * @return {@code true} if this transform is affine.
      *
-     * @see org.apache.sis.referencing.operation.matrix.MatrixSIS#isAffine()
+     * see org.apache.sis.referencing.operation.matrix.MatrixSIS#isAffine()
      *
      * @since 0.6
      */
@@ -92,7 +92,7 @@ public interface LinearTransform extends MathTransform {
      *
      * @return The coefficients of this linear transform as a matrix.
      *
-     * @see MathTransforms#getMatrix(MathTransform)
+     * see MathTransforms#getMatrix(MathTransform)
      */
     Matrix getMatrix();
 
@@ -113,7 +113,7 @@ public interface LinearTransform extends MathTransform {
      * @param  numPts The number of vector objects to be transformed.
      * @throws TransformException if a vector can not be transformed.
      *
-     * @see java.awt.geom.AffineTransform#deltaTransform(double[], int, double[], int, int)
+     * see java.awt.geom.AffineTransform#deltaTransform(double[], int, double[], int, int)
      *
      * @since 0.7
      */
@@ -127,7 +127,7 @@ public interface LinearTransform extends MathTransform {
      * @return The inverse transform.
      * @throws NoninvertibleTransformException if the transform can not be inverted.
      *
-     * @see java.awt.geom.AffineTransform#createInverse()
+     * see java.awt.geom.AffineTransform#createInverse()
      *
      * @since 0.7
      */

@@ -47,7 +47,7 @@ import org.apache.sis.internal.jaxb.Schemas;
  * @version 0.8
  * @module
  *
- * @see CodeListAdapter
+ * see CodeListAdapter
  */
 @XmlType(name = "CodeList", propOrder = {"codeList", "codeListValue", "codeSpace"})
 public final class CodeListUID {

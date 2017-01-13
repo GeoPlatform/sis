@@ -95,7 +95,7 @@ abstract class ConformalProjection extends NormalizedProjection {
      * Note that since this boolean is static final, the compiler should exclude the code in the branch that is never
      * executed (no need to comment-out that code).
      *
-     * @see #identityEquals(double, double)
+     * see #identityEquals(double, double)
      */
     static final boolean ALLOW_TRIGONOMETRIC_IDENTITIES = true;
 
@@ -137,7 +137,7 @@ abstract class ConformalProjection extends NormalizedProjection {
      * <p><strong>Consider those fields as final!</strong> They are not final only for sub-class
      * constructors convenience and for the purpose of {@link #readObject(ObjectInputStream)}.</p>
      *
-     * @see #computeCoefficients()
+     * see #computeCoefficients()
      */
     transient double ci2, ci4, ci6, ci8;
 
@@ -231,8 +231,8 @@ abstract class ConformalProjection extends NormalizedProjection {
      * @return the latitude in radians.
      * @throws ProjectionException if the iteration does not converge.
      *
-     * @see #expOfNorthing(double, double)
-     * @see #dy_dφ(double, double)
+     * see #expOfNorthing(double, double)
+     * see #dy_dφ(double, double)
      */
     final double φ(final double expOfSouthing) throws ProjectionException {
         /*
@@ -347,8 +347,8 @@ abstract class ConformalProjection extends NormalizedProjection {
      * @param  ℯsinφ  the sine of the φ argument multiplied by {@link #eccentricity}.
      * @return {@code Math.exp} of the Mercator projection of the given latitude.
      *
-     * @see #φ(double)
-     * @see #dy_dφ(double, double)
+     * see #φ(double)
+     * see #dy_dφ(double, double)
      */
     final double expOfNorthing(final double φ, final double ℯsinφ) {
         /*
@@ -372,8 +372,8 @@ abstract class ConformalProjection extends NormalizedProjection {
      * @param  cosφ  the cosine of latitude.
      * @return the partial derivative of a Mercator projection at the given latitude.
      *
-     * @see #expOfNorthing(double, double)
-     * @see #φ(double)
+     * see #expOfNorthing(double, double)
+     * see #φ(double)
      */
     final double dy_dφ(final double sinφ, final double cosφ) {
         return (1 / cosφ)  -  eccentricitySquared * cosφ / (1 - eccentricitySquared * (sinφ*sinφ));
@@ -392,7 +392,7 @@ abstract class ConformalProjection extends NormalizedProjection {
      * for values close to the [-1 … +1] range. The tolerance threshold is approximatively 1.5E-12 (note that it
      * still about 7000 time greater than {@code Math.ulp(1.0)}).
      *
-     * @see #ALLOW_TRIGONOMETRIC_IDENTITIES
+     * see #ALLOW_TRIGONOMETRIC_IDENTITIES
      */
     static boolean identityEquals(final double actual, final double expected) {
         return !(abs(actual - expected) >                               // Use !(a > b) instead of (a <= b) in order to tolerate NaN.

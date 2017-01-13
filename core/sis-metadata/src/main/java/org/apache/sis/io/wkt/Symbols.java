@@ -70,8 +70,8 @@ import static org.apache.sis.util.ArgumentChecks.*;
  * @version 0.6
  * @module
  *
- * @see WKTFormat#getSymbols()
- * @see WKTFormat#setSymbols(Symbols)
+ * see WKTFormat#getSymbols()
+ * see WKTFormat#setSymbols(Symbols)
  */
 public class Symbols implements Localized, Cloneable, Serializable {
     /**
@@ -126,7 +126,7 @@ public class Symbols implements Localized, Cloneable, Serializable {
     /**
      * The locale of {@linkplain java.text.DecimalFormatSymbols decimal format symbols} or other symbols.
      *
-     * @see #getLocale()
+     * see #getLocale()
      */
     private Locale locale;
 
@@ -139,8 +139,8 @@ public class Symbols implements Localized, Cloneable, Serializable {
      *   <li>For each even index <var>i</var>, {@code brackets[i+1]} is the closing bracket matching {@code brackets[i]}.</li>
      * </ul>
      *
-     * @see #getOpeningBracket(int)
-     * @see #getClosingBracket(int)
+     * see #getOpeningBracket(int)
+     * see #getClosingBracket(int)
      */
     private int[] brackets;
 
@@ -162,8 +162,8 @@ public class Symbols implements Localized, Cloneable, Serializable {
      * We use the closing quote because this is the character that the parser
      * will look for determining the text end.
      *
-     * @see #getQuote()
-     * @see #readResolve()
+     * see #getQuote()
+     * see #readResolve()
      */
     private transient String quote;
 
@@ -253,7 +253,7 @@ public class Symbols implements Localized, Cloneable, Serializable {
      *
      * @return The locale for dates and numbers.
      *
-     * @see WKTFormat#getLocale(Locale.Category)
+     * see WKTFormat#getLocale(Locale.Category)
      */
     @Override
     public final Locale getLocale() {
@@ -299,8 +299,8 @@ public class Symbols implements Localized, Cloneable, Serializable {
      *
      * @return The number of bracket pairs.
      *
-     * @see #getOpeningBracket(int)
-     * @see #getClosingBracket(int)
+     * see #getOpeningBracket(int)
+     * see #getClosingBracket(int)
      */
     public final int getNumPairedBrackets() {
         return brackets.length >>> 1;
@@ -367,8 +367,8 @@ public class Symbols implements Localized, Cloneable, Serializable {
      *
      * @return The number of quote pairs.
      *
-     * @see #getOpeningQuote(int)
-     * @see #getClosingQuote(int)
+     * see #getOpeningQuote(int)
+     * see #getClosingQuote(int)
      */
     public final int getNumPairedQuotes() {
         return quotes.length >>> 1;

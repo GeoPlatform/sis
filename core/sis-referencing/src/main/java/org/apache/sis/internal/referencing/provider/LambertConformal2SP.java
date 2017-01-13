@@ -33,7 +33,7 @@ import org.apache.sis.metadata.iso.citation.Citations;
  * @version 0.6
  * @module
  *
- * @see <a href="http://www.remotesensing.org/geotiff/proj_list/lambert_conic_conformal_2sp.html">Lambert Conic Conformal 2SP on RemoteSensing.org</a>
+ * see <a href="http://www.remotesensing.org/geotiff/proj_list/lambert_conic_conformal_2sp.html">Lambert Conic Conformal 2SP on RemoteSensing.org</a>
  */
 @XmlTransient
 public final class LambertConformal2SP extends AbstractLambert {

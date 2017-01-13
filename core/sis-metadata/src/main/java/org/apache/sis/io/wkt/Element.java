@@ -87,7 +87,7 @@ final class Element implements Serializable {
      * Index of the keyword in the array given to the {@link #pullElement(String...)}
      * or {@link #pullOptionalElement(String...)} method.
      *
-     * @see #getKeywordIndex()
+     * see #getKeywordIndex()
      */
     private byte keywordIndex;
 

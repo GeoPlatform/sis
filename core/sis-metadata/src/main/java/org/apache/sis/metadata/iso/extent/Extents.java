@@ -69,7 +69,7 @@ import org.opengis.geometry.Geometry;
  * @version 0.8
  * @module
  *
- * @see org.apache.sis.geometry.Envelopes
+ * see org.apache.sis.geometry.Envelopes
  */
 public final class Extents extends Static {
     /**
@@ -116,7 +116,7 @@ public final class Extents extends Static {
      * @param  extent  the extent to convert to a geographic bounding box, or {@code null}.
      * @return a geographic bounding box extracted from the given extent, or {@code null} if none.
      *
-     * @see org.apache.sis.referencing.CRS#getDomainOfValidity(CoordinateReferenceSystem)
+     * see org.apache.sis.referencing.CRS#getDomainOfValidity(CoordinateReferenceSystem)
      */
     public static GeographicBoundingBox getGeographicBoundingBox(final Extent extent) {
         GeographicBoundingBox bounds = null;
@@ -421,7 +421,7 @@ public final class Extents extends Static {
      * @throws IllegalArgumentException if the {@linkplain DefaultGeographicBoundingBox#getInclusion() inclusion status}
      *         is not the same for both boxes.
      *
-     * @see DefaultGeographicBoundingBox#intersect(GeographicBoundingBox)
+     * see DefaultGeographicBoundingBox#intersect(GeographicBoundingBox)
      *
      * @since 0.4
      */

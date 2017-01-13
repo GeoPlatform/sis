@@ -30,7 +30,7 @@ import org.apache.sis.util.CharSequences;
  * @version 0.6
  * @module
  *
- * @see org.apache.sis.internal.jaxb.gml.MeasureList
+ * see org.apache.sis.internal.jaxb.gml.MeasureList
  */
 final class IntegerList {
     /**

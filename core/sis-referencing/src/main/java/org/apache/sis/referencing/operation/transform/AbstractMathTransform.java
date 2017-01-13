@@ -83,8 +83,8 @@ import static org.apache.sis.util.ArgumentChecks.ensureDimensionMatches;
  * @version 0.8
  * @module
  *
- * @see DefaultMathTransformFactory
- * @see org.apache.sis.referencing.operation.AbstractCoordinateOperation
+ * see DefaultMathTransformFactory
+ * see org.apache.sis.referencing.operation.AbstractCoordinateOperation
  */
 public abstract class AbstractMathTransform extends FormattableObject
         implements MathTransform, Parameterized, LenientComparable
@@ -135,7 +135,7 @@ public abstract class AbstractMathTransform extends FormattableObject
      *
      * @return The dimension of input points.
      *
-     * @see org.apache.sis.referencing.operation.DefaultOperationMethod#getSourceDimensions()
+     * see org.apache.sis.referencing.operation.DefaultOperationMethod#getSourceDimensions()
      */
     @Override
     public abstract int getSourceDimensions();
@@ -145,7 +145,7 @@ public abstract class AbstractMathTransform extends FormattableObject
      *
      * @return The dimension of output points.
      *
-     * @see org.apache.sis.referencing.operation.DefaultOperationMethod#getTargetDimensions()
+     * see org.apache.sis.referencing.operation.DefaultOperationMethod#getTargetDimensions()
      */
     @Override
     public abstract int getTargetDimensions();
@@ -161,7 +161,7 @@ public abstract class AbstractMathTransform extends FormattableObject
      *
      * @return The parameter descriptors for this math transform, or {@code null} if unspecified.
      *
-     * @see org.apache.sis.referencing.operation.DefaultOperationMethod#getParameters()
+     * see org.apache.sis.referencing.operation.DefaultOperationMethod#getParameters()
      */
     @Override
     public ParameterDescriptorGroup getParameterDescriptors() {
@@ -185,8 +185,8 @@ public abstract class AbstractMathTransform extends FormattableObject
      *         Note that those parameters may be normalized (e.g. represent a transformation
      *         of an ellipsoid of semi-major axis length of 1).
      *
-     * @see #getContextualParameters()
-     * @see org.apache.sis.referencing.operation.DefaultConversion#getParameterValues()
+     * see #getContextualParameters()
+     * see org.apache.sis.referencing.operation.DefaultConversion#getParameterValues()
      */
     @Override
     public ParameterValueGroup getParameterValues() {
@@ -347,9 +347,9 @@ public abstract class AbstractMathTransform extends FormattableObject
      * @throws TransformException if the point can not be transformed or
      *         if a problem occurred while calculating the derivative.
      *
-     * @see #derivative(DirectPosition)
-     * @see #transform(DirectPosition, DirectPosition)
-     * @see MathTransforms#derivativeAndTransform(MathTransform, double[], int, double[], int)
+     * see #derivative(DirectPosition)
+     * see #transform(DirectPosition, DirectPosition)
+     * see MathTransforms#derivativeAndTransform(MathTransform, double[], int, double[], int)
      */
     public abstract Matrix transform(double[] srcPts, int srcOff, double[] dstPts, int dstOff, boolean derivate)
             throws TransformException;
@@ -940,7 +940,7 @@ public abstract class AbstractMathTransform extends FormattableObject
      * @param  inverse    Always {@code false}, except if we are formatting the inverse transform.
      * @return Index of this transform in the {@code transforms} chain after processing.
      *
-     * @see ConcatenatedTransform#getPseudoSteps()
+     * see ConcatenatedTransform#getPseudoSteps()
      */
     int beforeFormat(final List<Object> transforms, final int index, final boolean inverse) {
         assert unwrap(transforms.get(index), inverse) == this;

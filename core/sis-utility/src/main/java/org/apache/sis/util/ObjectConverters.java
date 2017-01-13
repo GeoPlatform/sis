@@ -63,7 +63,7 @@ import org.apache.sis.internal.converter.SystemRegistry;
  * @version 0.3
  * @module
  *
- * @see ObjectConverter
+ * see ObjectConverter
  */
 public final class ObjectConverters extends Static {
     /**
@@ -140,7 +140,7 @@ public final class ObjectConverters extends Static {
      * @return A view over the {@code storage} set containing all elements converted by the given
      *         converter, or {@code null} if {@code storage} was null.
      *
-     * @see Containers#derivedSet(Set, ObjectConverter)
+     * see Containers#derivedSet(Set, ObjectConverter)
      */
     public static <S,E> Set<E> derivedSet(final Set<S> storage, final ObjectConverter<S,E> converter) {
         return Containers.derivedSet(storage, converter);
@@ -165,7 +165,7 @@ public final class ObjectConverters extends Static {
      * @return A view over the {@code storage} map containing all entries converted by the given
      *         converters, or {@code null} if {@code storage} was null.
      *
-     * @see Containers#derivedMap(Map, ObjectConverter, ObjectConverter)
+     * see Containers#derivedMap(Map, ObjectConverter, ObjectConverter)
      */
     public static <SK,SV,K,V> Map<K,V> derivedMap(final Map<SK,SV> storage,
                                                   final ObjectConverter<SK,K> keyConverter,
@@ -192,7 +192,7 @@ public final class ObjectConverters extends Static {
      * @return A view over the {@code storage} map containing all entries with the keys converted
      *         by the given converter, or {@code null} if {@code storage} was null.
      *
-     * @see Containers#derivedMap(Map, ObjectConverter, ObjectConverter)
+     * see Containers#derivedMap(Map, ObjectConverter, ObjectConverter)
      */
     public static <SK,K,V> Map<K,V> derivedKeys(final Map<SK,V> storage,
                                                 final ObjectConverter<SK,K> keyConverter,
@@ -220,7 +220,7 @@ public final class ObjectConverters extends Static {
      * @return A view over the {@code storage} map containing all entries with the values converted
      *         by the given converter, or {@code null} if {@code storage} was null.
      *
-     * @see Containers#derivedMap(Map, ObjectConverter, ObjectConverter)
+     * see Containers#derivedMap(Map, ObjectConverter, ObjectConverter)
      */
     public static <K,SV,V> Map<K,V> derivedValues(final Map<K,SV> storage,
                                                   final Class<K> keyType,

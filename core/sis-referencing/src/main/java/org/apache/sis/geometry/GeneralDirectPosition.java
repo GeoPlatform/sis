@@ -57,8 +57,8 @@ import java.util.Objects;
  * @version 0.3
  * @module
  *
- * @see DirectPosition1D
- * @see DirectPosition2D
+ * see DirectPosition1D
+ * see DirectPosition2D
  */
 public class GeneralDirectPosition extends AbstractDirectPosition implements Serializable, Cloneable {
     /**
@@ -146,8 +146,8 @@ public class GeneralDirectPosition extends AbstractDirectPosition implements Ser
      * @param  wkt The {@code POINT} or other kind of element to parse.
      * @throws IllegalArgumentException If the given string can not be parsed.
      *
-     * @see #toString()
-     * @see org.apache.sis.measure.CoordinateFormat
+     * see #toString()
+     * see org.apache.sis.measure.CoordinateFormat
      */
     public GeneralDirectPosition(final CharSequence wkt) throws IllegalArgumentException {
         if ((ordinates = parse(wkt)) == null) {

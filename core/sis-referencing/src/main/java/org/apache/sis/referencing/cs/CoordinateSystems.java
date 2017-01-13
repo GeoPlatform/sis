@@ -263,7 +263,7 @@ public final class CoordinateSystems extends Static {
      * @throws IllegalArgumentException if the CS are not of the same type, or axes do not match.
      * @throws IncommensurableException if the units are not compatible, or the conversion is non-linear.
      *
-     * @see Matrices#createTransform(AxisDirection[], AxisDirection[])
+     * see Matrices#createTransform(AxisDirection[], AxisDirection[])
      */
     @SuppressWarnings("fallthrough")
     public static Matrix swapAndScaleAxes(final CoordinateSystem sourceCS,
@@ -377,7 +377,7 @@ public final class CoordinateSystems extends Static {
      *         or {@code cs} if the given coordinate system was null or does not need any change.
      * @throws IllegalArgumentException if the specified coordinate system can not be normalized.
      *
-     * @see AxesConvention#NORMALIZED
+     * see AxesConvention#NORMALIZED
      *
      * @since 0.6
      */
@@ -420,7 +420,7 @@ public final class CoordinateSystems extends Static {
      * @return the modified coordinate system as a new instance, or {@code null} if the given {@code cs} was null,
      *         or {@code cs} if all linear units were already equal to the given one.
      *
-     * @see Units#isLinear(Unit)
+     * see Units#isLinear(Unit)
      *
      * @since 0.7
      */
@@ -451,7 +451,7 @@ public final class CoordinateSystems extends Static {
      * @return the modified coordinate system as a new instance, or {@code null} if the given {@code cs} was null,
      *         or {@code cs} if all angular units were already equal to the given one.
      *
-     * @see Units#isAngular(Unit)
+     * see Units#isAngular(Unit)
      *
      * @since 0.7
      */
@@ -522,8 +522,8 @@ public final class CoordinateSystems extends Static {
      *         or {@code null} if unknown to this method. Note that a null value does not mean that a more
      *         extensive search in the EPSG database would not find a matching coordinate system.
      *
-     * @see Units#getEpsgCode(Unit, boolean)
-     * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createCoordinateSystem(String)
+     * see Units#getEpsgCode(Unit, boolean)
+     * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createCoordinateSystem(String)
      *
      * @since 0.8
      */

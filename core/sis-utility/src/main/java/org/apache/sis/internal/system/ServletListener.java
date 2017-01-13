@@ -30,7 +30,7 @@ import javax.servlet.annotation.WebListener;
  * @version 0.7
  * @module
  *
- * @see OSGiActivator
+ * see OSGiActivator
  */
 @WebListener("Apache SIS shutdown hook")
 public final class ServletListener implements ServletContextListener {

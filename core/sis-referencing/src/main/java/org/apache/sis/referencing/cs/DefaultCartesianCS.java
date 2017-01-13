@@ -60,7 +60,7 @@ import org.apache.sis.measure.Angle;
  * @version 0.4
  * @module
  *
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createCartesianCS(String)
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createCartesianCS(String)
  */
 @XmlType(name = "CartesianCSType")
 @XmlRootElement(name = "CartesianCS")
@@ -118,7 +118,7 @@ public class DefaultCartesianCS extends DefaultAffineCS implements CartesianCS {
      * @param axis0 The first  axis (e.g. “Easting”).
      * @param axis1 The second axis (e.g. “Northing”).
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createCartesianCS(Map, CoordinateSystemAxis, CoordinateSystemAxis)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createCartesianCS(Map, CoordinateSystemAxis, CoordinateSystemAxis)
      */
     public DefaultCartesianCS(final Map<String,?>   properties,
                               final CoordinateSystemAxis axis0,
@@ -138,7 +138,7 @@ public class DefaultCartesianCS extends DefaultAffineCS implements CartesianCS {
      * @param axis1 The second axis (e.g. “Geocentric Y”).
      * @param axis2 The third  axis (e.g. “Geocentric Z”).
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createCartesianCS(Map, CoordinateSystemAxis, CoordinateSystemAxis, CoordinateSystemAxis)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createCartesianCS(Map, CoordinateSystemAxis, CoordinateSystemAxis, CoordinateSystemAxis)
      */
     public DefaultCartesianCS(final Map<String,?>   properties,
                               final CoordinateSystemAxis axis0,
@@ -158,7 +158,7 @@ public class DefaultCartesianCS extends DefaultAffineCS implements CartesianCS {
      *
      * @param cs The coordinate system to copy.
      *
-     * @see #castOrCopy(CartesianCS)
+     * see #castOrCopy(CartesianCS)
      */
     protected DefaultCartesianCS(final CartesianCS cs) {
         super(cs);

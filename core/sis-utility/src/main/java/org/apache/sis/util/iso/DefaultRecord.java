@@ -60,8 +60,8 @@ import org.opengis.util.RecordType;
  * @version 0.8
  * @module
  *
- * @see DefaultRecordType
- * @see DefaultRecordSchema
+ * see DefaultRecordType
+ * see DefaultRecordSchema
  */
 public class DefaultRecord implements Record, Serializable {
     /**
@@ -140,7 +140,7 @@ public class DefaultRecord implements Record, Serializable {
      *
      * @return The dictionary of all (<var>name</var>, <var>value</var>) pairs in this record.
      *
-     * @see RecordType#getMemberTypes()
+     * see RecordType#getMemberTypes()
      */
     @Override
     public Map<MemberName, Object> getAttributes() {

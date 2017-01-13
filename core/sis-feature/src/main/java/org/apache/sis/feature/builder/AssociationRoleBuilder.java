@@ -37,9 +37,9 @@ import org.opengis.feature.FeatureAssociationRole;
  * @version 0.8
  * @module
  *
- * @see org.apache.sis.feature.DefaultAssociationRole
- * @see FeatureTypeBuilder#addAssociation(FeatureType)
- * @see FeatureTypeBuilder#addAssociation(GenericName)
+ * see org.apache.sis.feature.DefaultAssociationRole
+ * see FeatureTypeBuilder#addAssociation(FeatureType)
+ * see FeatureTypeBuilder#addAssociation(GenericName)
  */
 public final class AssociationRoleBuilder extends PropertyTypeBuilder {
     /**

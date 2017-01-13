@@ -34,9 +34,9 @@ import org.apache.sis.internal.util.Numerics;
  * @version 0.4
  * @module
  *
- * @see Matrix2
- * @see Matrix3
- * @see Matrix4
+ * see Matrix2
+ * see Matrix3
+ * see Matrix4
  */
 public final class Matrix1 extends MatrixSIS {
     /**
@@ -85,8 +85,8 @@ public final class Matrix1 extends MatrixSIS {
      * @param elements Elements of the matrix.
      * @throws IllegalArgumentException If the given array does not have the expected length.
      *
-     * @see #setElements(double[])
-     * @see Matrices#create(int, int, double[])
+     * see #setElements(double[])
+     * see Matrices#create(int, int, double[])
      */
     public Matrix1(final double[] elements) throws IllegalArgumentException {
         setElements(elements);

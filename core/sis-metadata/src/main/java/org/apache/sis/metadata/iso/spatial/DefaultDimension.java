@@ -137,7 +137,7 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Dimension)
+     * see #castOrCopy(Dimension)
      */
     public DefaultDimension(final Dimension object) {
         super(object);
@@ -251,7 +251,7 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
     
     /**
 	 * Gets resolution of this dimension as a Double (used in ISO 19139).
-	 * @see {@link #getResolution}
+	 * see {@link #getResolution}
 	 */
     @ValueRange(minimum=0, isMinIncluded=false)
     @XmlJavaTypeAdapter(GO_Measure19139.class)
@@ -262,7 +262,7 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
 
 	/**
 	 * Sets resolution of this dimension as a Double (used in ISO 19139).
-	 * @see {@link #setResolution}
+	 * see {@link #setResolution}
 	 */
     @SuppressWarnings("unused")
 	private void setXmlResolution(final Double newValue) {
@@ -271,7 +271,7 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
     
     /**
 	 * Gets resolution of this dimension as a Measure object (used in ISO 19115-3).
-	 * @see {@link #getResolution}
+	 * see {@link #getResolution}
 	 */
     @ValueRange(minimum=0, isMinIncluded=false)
     @XmlJavaTypeAdapter(GO_Measure.class)
@@ -282,7 +282,7 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
 
 	/**
 	 * Sets resolution of this dimension as a Measure object (used in ISO 19115-3).
-	 * @see {@link #setResolution}
+	 * see {@link #setResolution}
 	 */
 	public void setResolutionMeasure(final Measure newValue) {
 		checkWritePermission();

@@ -31,7 +31,7 @@
  * @version 0.3
  * @module
  *
- * @see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
+ * see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
  */
 @XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.GML, xmlns = {
     @XmlNs(prefix = "gml", namespaceURI = Namespaces.GML),

@@ -62,7 +62,7 @@ public class DefaultThematicClassificationCorrectness extends AbstractThematicAc
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(ThematicClassificationCorrectness)
+     * see #castOrCopy(ThematicClassificationCorrectness)
      */
     public DefaultThematicClassificationCorrectness(final ThematicClassificationCorrectness object) {
         super(object);

@@ -34,7 +34,7 @@ public final class FrenchProfile extends Static {
      * The <code>{@value}</code> URL.
      * The usual prefix for this namespace is {@code "fra"}.
      *
-     * @see org.apache.sis.xml.Namespaces
+     * see org.apache.sis.xml.Namespaces
      */
     public static final String NAMESPACE = "http://www.cnig.gouv.fr/2005/fra";
 

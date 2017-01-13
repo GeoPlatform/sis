@@ -103,7 +103,7 @@ public class DefaultUserDefinedCS extends AbstractCS implements UserDefinedCS {
      * @param axis0 The first axis.
      * @param axis1 The second axis.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createUserDefinedCS(Map, CoordinateSystemAxis, CoordinateSystemAxis)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createUserDefinedCS(Map, CoordinateSystemAxis, CoordinateSystemAxis)
      */
     public DefaultUserDefinedCS(final Map<String,?>   properties,
                                 final CoordinateSystemAxis axis0,
@@ -122,7 +122,7 @@ public class DefaultUserDefinedCS extends AbstractCS implements UserDefinedCS {
      * @param axis1 The second axis.
      * @param axis2 The third axis.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createUserDefinedCS(Map, CoordinateSystemAxis, CoordinateSystemAxis, CoordinateSystemAxis)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createUserDefinedCS(Map, CoordinateSystemAxis, CoordinateSystemAxis, CoordinateSystemAxis)
      */
     public DefaultUserDefinedCS(final Map<String,?>   properties,
                                 final CoordinateSystemAxis axis0,
@@ -141,7 +141,7 @@ public class DefaultUserDefinedCS extends AbstractCS implements UserDefinedCS {
      *
      * @param cs The coordinate system to copy.
      *
-     * @see #castOrCopy(UserDefinedCS)
+     * see #castOrCopy(UserDefinedCS)
      */
     protected DefaultUserDefinedCS(final UserDefinedCS cs) {
         super(cs);

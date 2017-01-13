@@ -111,7 +111,7 @@ public class DefaultVerticalExtent extends ISOMetadata implements VerticalExtent
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(VerticalExtent)
+     * see #castOrCopy(VerticalExtent)
      */
     public DefaultVerticalExtent(final VerticalExtent object) {
         super(object);
@@ -226,9 +226,9 @@ public class DefaultVerticalExtent extends ISOMetadata implements VerticalExtent
      * @throws UnsupportedOperationException if the referencing module is not on the classpath.
      * @throws TransformException if the envelope can not be transformed to a vertical extent.
      *
-     * @see DefaultExtent#addElements(Envelope)
-     * @see DefaultGeographicBoundingBox#setBounds(Envelope)
-     * @see DefaultTemporalExtent#setBounds(Envelope)
+     * see DefaultExtent#addElements(Envelope)
+     * see DefaultGeographicBoundingBox#setBounds(Envelope)
+     * see DefaultTemporalExtent#setBounds(Envelope)
      */
     public void setBounds(final Envelope envelope) throws TransformException {
         checkWritePermission();

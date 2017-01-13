@@ -143,14 +143,14 @@ public final class Store extends DataStore {
      * This envelope contains a vertical component if the feature trajectories are 3D,
      * and a temporal component if the CSV file contains a start time and end time.
      *
-     * @see #parseEnvelope(List)
+     * see #parseEnvelope(List)
      */
     private final GeneralEnvelope envelope;
 
     /**
      * Description of the columns found in the CSV file.
      *
-     * @see #parseFeatureType(List)
+     * see #parseFeatureType(List)
      */
     final FeatureType featureType;
 
@@ -162,7 +162,7 @@ public final class Store extends DataStore {
     /**
      * Appearing order of trajectories (time or sequential), or {@code null} if unspecified.
      *
-     * @see #parseFoliation(List)
+     * see #parseFoliation(List)
      */
     final Foliation foliation;
 

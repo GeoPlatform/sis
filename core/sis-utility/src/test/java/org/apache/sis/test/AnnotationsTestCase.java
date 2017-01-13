@@ -208,7 +208,7 @@ public abstract strictfp class AnnotationsTestCase extends TestCase {
      * @param  impl The implementation class.
      * @return The name of the XML type for the given element, or {@code null} if none.
      *
-     * @see #testImplementationAnnotations()
+     * see #testImplementationAnnotations()
      */
     protected abstract String getExpectedXmlTypeForElement(Class<?> type, Class<?> impl);
 
@@ -718,8 +718,8 @@ public abstract strictfp class AnnotationsTestCase extends TestCase {
      * If a test failed, reports the class and method names were the failure occurred.
      * The message will be written in the {@link #out} printer.
      *
-     * @see #testingClass
-     * @see #testingMethod
+     * see #testingClass
+     * see #testingMethod
      */
     @After
     public final void printFailureLocation() {

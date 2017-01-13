@@ -53,8 +53,8 @@ import org.apache.sis.internal.util.UnmodifiableArrayList;
  * @version 0.3
  * @module
  *
- * @see DefaultNameSpace
- * @see DefaultLocalName
+ * see DefaultNameSpace
+ * see DefaultLocalName
  */
 
 /*

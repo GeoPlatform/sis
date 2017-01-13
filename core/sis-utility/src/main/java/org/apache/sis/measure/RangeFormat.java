@@ -93,8 +93,8 @@ import org.apache.sis.util.resources.Errors;
  * @version 0.8
  * @module
  *
- * @see Range#toString()
- * @see <a href="http://en.wikipedia.org/wiki/ISO_31-11">Wikipedia: ISO 31-11</a>
+ * see Range#toString()
+ * see <a href="http://en.wikipedia.org/wiki/ISO_31-11">Wikipedia: ISO 31-11</a>
  */
 public class RangeFormat extends Format {
     /**
@@ -105,21 +105,21 @@ public class RangeFormat extends Format {
     /**
      * The constant value for {@link FieldPosition} which designate the minimal value.
      *
-     * @see Field#MIN_VALUE
+     * see Field#MIN_VALUE
      */
     private static final int MIN_VALUE_FIELD = 0;
 
     /**
      * The constant value for {@link FieldPosition} which designate the maximal value.
      *
-     * @see Field#MAX_VALUE
+     * see Field#MAX_VALUE
      */
     private static final int MAX_VALUE_FIELD = 1;
 
     /**
      * The constant value for {@link FieldPosition} which designate the unit of measurement.
      *
-     * @see Field#UNIT
+     * see Field#UNIT
      */
     private static final int UNIT_FIELD = 2;
 
@@ -253,7 +253,7 @@ public class RangeFormat extends Format {
      * {@code true} if {@code RangeFormat} shall use the alternate form at formatting time.
      * This flag as no effect on parsing, since both forms are accepted.
      *
-     * @see #isAlternateForm()
+     * see #isAlternateForm()
      */
     private boolean alternateForm;
 
@@ -267,7 +267,7 @@ public class RangeFormat extends Format {
      *   <li>{@code Range<Date>} if the element type is assignable to {@link Date}.</li>
      * </ul>
      *
-     * @see Range#getElementType()
+     * see Range#getElementType()
      */
     protected final Class<?> elementType;
 
@@ -292,7 +292,7 @@ public class RangeFormat extends Format {
     /**
      * Whether we should insert a space between the bracket and the unit symbol.
      *
-     * @see #insertSpaceBeforeUnit(Unit)
+     * see #insertSpaceBeforeUnit(Unit)
      */
     private transient Map<Unit<?>,Boolean> insertSpaceBeforeUnit;
 
@@ -389,9 +389,9 @@ public class RangeFormat extends Format {
      * @param  localized {@code true} for returning the localized pattern, or {@code false} for the unlocalized one.
      * @return the pattern, or {@code null} if the {@link #elementFormat} doesn't use pattern.
      *
-     * @see DecimalFormat#toPattern()
-     * @see SimpleDateFormat#toPattern()
-     * @see AngleFormat#toPattern()
+     * see DecimalFormat#toPattern()
+     * see SimpleDateFormat#toPattern()
+     * see AngleFormat#toPattern()
      */
     public String getElementPattern(final boolean localized) {
         final Format format = elementFormat;
@@ -417,9 +417,9 @@ public class RangeFormat extends Format {
      * @param  localized  {@code true} if the given pattern is localized.
      * @throws IllegalStateException if the {@link #elementFormat} does not use pattern.
      *
-     * @see DecimalFormat#applyPattern(String)
-     * @see SimpleDateFormat#applyPattern(String)
-     * @see AngleFormat#applyPattern(String)
+     * see DecimalFormat#applyPattern(String)
+     * see SimpleDateFormat#applyPattern(String)
+     * see AngleFormat#applyPattern(String)
      */
     public void setElementPattern(final String pattern, final boolean localized) {
         final Format format = elementFormat;

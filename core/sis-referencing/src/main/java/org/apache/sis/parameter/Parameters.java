@@ -133,7 +133,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      *
      * @since 0.7
      *
-     * @see DefaultParameterValue#unmodifiable(ParameterValue)
+     * see DefaultParameterValue#unmodifiable(ParameterValue)
      */
     public static Parameters unmodifiable(final ParameterValueGroup parameters) {
         return UnmodifiableParameterValueGroup.create(parameters);
@@ -185,7 +185,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @return The descriptor casted to the given value class, or {@code null} if the given descriptor was null.
      * @throws ClassCastException if the given descriptor does not have the expected value class.
      *
-     * @see Class#cast(Object)
+     * see Class#cast(Object)
      *
      * @category verification
      */
@@ -216,7 +216,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @return The value casted to the given type, or {@code null} if the given value was null.
      * @throws ClassCastException if the given value doesn't have the expected value class.
      *
-     * @see Class#cast(Object)
+     * see Class#cast(Object)
      *
      * @category verification
      */
@@ -286,7 +286,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @param  parameter The parameter from which to get the name (may be {@code null}).
      * @return The member name, or {@code null} if none.
      *
-     * @see org.apache.sis.util.iso.Names#createMemberName(CharSequence, String, CharSequence, Class)
+     * see org.apache.sis.util.iso.Names#createMemberName(CharSequence, String, CharSequence, Class)
      *
      * @since 0.5
      */
@@ -309,7 +309,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @param  descriptor The parameter descriptor, or {@code null}.
      * @return The domain of valid values, or {@code null} if none.
      *
-     * @see DefaultParameterDescriptor#getValueDomain()
+     * see DefaultParameterDescriptor#getValueDomain()
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static Range<?> getValueDomain(final ParameterDescriptor<?> descriptor) {
@@ -472,8 +472,8 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      *         default value} otherwise (which may be {@code null}).
      * @throws ParameterNotFoundException if the given {@code parameter} name or alias is not legal for this group.
      *
-     * @see DefaultParameterValueGroup#parameter(String)
-     * @see DefaultParameterValue#getValue()
+     * see DefaultParameterValueGroup#parameter(String)
+     * see DefaultParameterValue#getValue()
      *
      * @since 0.6
      */
@@ -547,7 +547,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @throws ParameterNotFoundException if the given {@code parameter} name or alias is not legal for this group.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see DefaultParameterValue#booleanValue()
+     * see DefaultParameterValue#booleanValue()
      *
      * @since 0.6
      */
@@ -567,7 +567,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @throws ParameterNotFoundException if the given {@code parameter} name or alias is not legal for this group.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see DefaultParameterValue#intValue()
+     * see DefaultParameterValue#intValue()
      *
      * @since 0.6
      */
@@ -587,7 +587,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @throws ParameterNotFoundException if the given {@code parameter} name or alias is not legal for this group.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see DefaultParameterValue#intValueList()
+     * see DefaultParameterValue#intValueList()
      *
      * @since 0.6
      */
@@ -610,7 +610,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @throws ParameterNotFoundException if the given {@code parameter} name or alias is not legal for this group.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see DefaultParameterValue#doubleValue(Unit)
+     * see DefaultParameterValue#doubleValue(Unit)
      *
      * @since 0.6
      */
@@ -638,7 +638,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @throws ParameterNotFoundException if the given {@code parameter} name or alias is not legal for this group.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see DefaultParameterValue#doubleValueList(Unit)
+     * see DefaultParameterValue#doubleValueList(Unit)
      *
      * @since 0.6
      */
@@ -663,7 +663,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @throws ParameterNotFoundException if the given {@code parameter} name or alias is not legal for this group.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see DefaultParameterValue#stringValue()
+     * see DefaultParameterValue#stringValue()
      *
      * @since 0.6
      */
@@ -691,7 +691,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @return The requested parameter instance.
      * @throws ParameterNotFoundException if the given {@code parameter} name or alias is not legal for this group.
      *
-     * @see DefaultParameterValueGroup#parameter(String)
+     * see DefaultParameterValueGroup#parameter(String)
      *
      * @since 0.6
      */
@@ -706,7 +706,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      *
      * @return A copy of this group of parameter values.
      *
-     * @see #copy(ParameterValueGroup, ParameterValueGroup)
+     * see #copy(ParameterValueGroup, ParameterValueGroup)
      */
     @Override
     public Parameters clone() {
@@ -732,7 +732,7 @@ public abstract class Parameters implements ParameterValueGroup, Cloneable {
      * @throws InvalidParameterNameException if a {@code source} parameter name is unknown to the {@code destination}.
      * @throws InvalidParameterValueException if the value of a {@code source} parameter is invalid for the {@code destination}.
      *
-     * @see #clone()
+     * see #clone()
      *
      * @since 0.5
      */

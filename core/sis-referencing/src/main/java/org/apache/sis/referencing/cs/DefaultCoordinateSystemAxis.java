@@ -94,8 +94,8 @@ import java.util.Objects;
  * @version 0.8
  * @module
  *
- * @see AbstractCS
- * @see Unit
+ * see AbstractCS
+ * see Unit
  */
 @XmlType(name = "CoordinateSystemAxisType", propOrder = {
     "abbreviation",
@@ -141,7 +141,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
      * <p>Similar strings appear in {@link #formatTo(Formatter)} and
      * {@code org.apache.sis.io.wkt.GeodeticObjectParser.parseAxis(…)}.</p>
      *
-     * @see #isHeuristicMatchForName(String)
+     * see #isHeuristicMatchForName(String)
      */
     private static final Map<String,Object> ALIASES = new HashMap<>(12);
     static {
@@ -169,7 +169,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
      *
      * <p>Names at even index are for "x" and names at odd index are for "y".</p>
      *
-     * @see #isHeuristicMatchForNameXY(String, String)
+     * see #isHeuristicMatchForNameXY(String, String)
      */
     private static final String[] ALIASES_XY = {
         AxisNames.EASTING, AxisNames.NORTHING,
@@ -183,7 +183,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setAbbreviation(String)}</p>
      *
-     * @see #getAbbreviation()
+     * see #getAbbreviation()
      */
     private String abbreviation;
 
@@ -194,7 +194,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setDirection(AxisDirection)}</p>
      *
-     * @see #getDirection()
+     * see #getDirection()
      */
     private AxisDirection direction;
 
@@ -204,7 +204,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setUnit(Unit)}</p>
      *
-     * @see #getUnit()
+     * see #getUnit()
      */
     private Unit<?> unit;
 
@@ -223,7 +223,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setRangeMeaning(RangeMeaning)}</p>
      *
-     * @see #getRangeMeaning()
+     * see #getRangeMeaning()
      */
     private RangeMeaning rangeMeaning;
 
@@ -292,7 +292,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
      * @param direction    The {@linkplain #getDirection() direction} of this coordinate system axis.
      * @param unit         The {@linkplain #getUnit() unit of measure} used for this coordinate system axis.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createCoordinateSystemAxis(Map, String, AxisDirection, Unit)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createCoordinateSystemAxis(Map, String, AxisDirection, Unit)
      */
     public DefaultCoordinateSystemAxis(final Map<String,?> properties,
                                        final String        abbreviation,
@@ -357,7 +357,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
      *
      * @param axis The coordinate system axis to copy.
      *
-     * @see #castOrCopy(CoordinateSystemAxis)
+     * see #castOrCopy(CoordinateSystemAxis)
      */
     protected DefaultCoordinateSystemAxis(final CoordinateSystemAxis axis) {
         super(axis);
@@ -730,7 +730,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
      *
      * @return {@code "Axis"}.
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#39">WKT 2 specification §7.5.3</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#39">WKT 2 specification §7.5.3</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -891,7 +891,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * @see #getAbbreviation()
+     * see #getAbbreviation()
      */
     private void setAbbreviation(final String value) {
         if (abbreviation == null) {
@@ -904,7 +904,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * @see #getDirection()
+     * see #getDirection()
      */
     private void setDirection(final AxisDirection value) {
         if (direction == null) {
@@ -917,7 +917,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * @see #getUnit()
+     * see #getUnit()
      */
     private void setUnit(final Unit<?> value) {
         if (unit == null) {
@@ -930,7 +930,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * @see #getRangeMeaning()
+     * see #getRangeMeaning()
      */
     private void setRangeMeaning(final RangeMeaning value) {
         if (rangeMeaning == null) {
@@ -943,7 +943,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
     /**
      * Invoked by JAXB at marshalling time for fetching the minimum value, or {@code null} if none.
      *
-     * @see #getMinimumValue()
+     * see #getMinimumValue()
      */
     @XmlElement(name = "minimumValue")
     private Double getMinimum() {
@@ -969,7 +969,7 @@ public class DefaultCoordinateSystemAxis extends AbstractIdentifiedObject implem
     /**
      * Invoked by JAXB at marshalling time for fetching the maximum value, or {@code null} if none.
      *
-     * @see #getMaximumValue()
+     * see #getMaximumValue()
      */
     @XmlElement(name = "maximumValue")
     private Double getMaximum() {

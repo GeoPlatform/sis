@@ -84,7 +84,7 @@ public class DefaultProcessStepReport extends ISOMetadata implements ProcessStep
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(ProcessStepReport)
+     * see #castOrCopy(ProcessStepReport)
      */
     public DefaultProcessStepReport(final ProcessStepReport object) {
         super(object);

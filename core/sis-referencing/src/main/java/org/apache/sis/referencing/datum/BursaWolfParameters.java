@@ -129,8 +129,8 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * @see DefaultGeodeticDatum#getBursaWolfParameters()
- * @see <a href="http://en.wikipedia.org/wiki/Helmert_transformation">Wikipedia: Helmert transformation</a>
+ * see DefaultGeodeticDatum#getBursaWolfParameters()
+ * see <a href="http://en.wikipedia.org/wiki/Helmert_transformation">Wikipedia: Helmert transformation</a>
  */
 public class BursaWolfParameters extends FormattableObject implements Cloneable, Serializable {
     /**
@@ -196,7 +196,7 @@ public class BursaWolfParameters extends FormattableObject implements Cloneable,
      * <p>The source datum is the {@link DefaultGeodeticDatum} that contain this {@code BursaWolfParameters}
      * instance.</p>
      *
-     * @see #getTargetDatum()
+     * see #getTargetDatum()
      */
     private final GeodeticDatum targetDatum;
 
@@ -204,7 +204,7 @@ public class BursaWolfParameters extends FormattableObject implements Cloneable,
      * Region or timeframe in which a coordinate transformation based on those Bursa-Wolf parameters is valid,
      * or {@code null} if unspecified.
      *
-     * @see #getDomainOfValidity()
+     * see #getDomainOfValidity()
      */
     private final Extent domainOfValidity;
 
@@ -473,7 +473,7 @@ public class BursaWolfParameters extends FormattableObject implements Cloneable,
      * @param  time Date for which the transformation is desired, or {@code null} for the transformation's reference time.
      * @return An affine transform in geocentric space created from this Bursa-Wolf parameters and the given time.
      *
-     * @see DefaultGeodeticDatum#getPositionVectorTransformation(GeodeticDatum, Extent)
+     * see DefaultGeodeticDatum#getPositionVectorTransformation(GeodeticDatum, Extent)
      */
     public Matrix getPositionVectorTransformation(final Date time) {
         final DoubleDouble period = period(time);
@@ -521,7 +521,7 @@ public class BursaWolfParameters extends FormattableObject implements Cloneable,
      * @param  tolerance The tolerance error for the skew-symmetric matrix test, in units of PPM or arc-seconds (e.g. 1E-8).
      * @throws IllegalArgumentException if the specified matrix does not meet the conditions.
      *
-     * @see #getPositionVectorTransformation(Date)
+     * see #getPositionVectorTransformation(Date)
      */
     public void setPositionVectorTransformation(final Matrix matrix, final double tolerance) throws IllegalArgumentException {
         final int numRow = matrix.getNumRow();
@@ -616,7 +616,7 @@ public class BursaWolfParameters extends FormattableObject implements Cloneable,
      *
      * @return Area or region or timeframe in which the coordinate transformation is valid, or {@code null}.
      *
-     * @see org.apache.sis.metadata.iso.extent.DefaultExtent
+     * see org.apache.sis.metadata.iso.extent.DefaultExtent
      */
     public Extent getDomainOfValidity() {
         if (domainOfValidity == null && targetDatum != null) {

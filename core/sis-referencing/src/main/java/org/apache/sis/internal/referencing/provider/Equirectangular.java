@@ -69,7 +69,7 @@ import static java.lang.Math.*;
  * @version 0.6
  * @module
  *
- * @see <a href="http://www.remotesensing.org/geotiff/proj_list/equirectangular.html">Equirectangular on RemoteSensing.org</a>
+ * see <a href="http://www.remotesensing.org/geotiff/proj_list/equirectangular.html">Equirectangular on RemoteSensing.org</a>
  */
 @XmlTransient
 public final class Equirectangular extends AbstractProvider {

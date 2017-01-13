@@ -41,7 +41,7 @@ import org.opengis.feature.AttributeType;
  * @version 0.5
  * @module
  *
- * @see DefaultAttributeType
+ * see DefaultAttributeType
  */
 final class SingletonAttribute<V> extends AbstractAttribute<V> {
     /**

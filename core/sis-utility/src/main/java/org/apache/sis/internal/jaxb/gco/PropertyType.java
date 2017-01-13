@@ -115,7 +115,7 @@ import org.apache.sis.xml.XLink;
  * @version 0.8
  * @module
  *
- * @see XmlAdapter
+ * see XmlAdapter
  */
 public abstract class PropertyType<ValueType extends PropertyType<ValueType,BoundType>, BoundType>
         extends XmlAdapter<ValueType,BoundType>

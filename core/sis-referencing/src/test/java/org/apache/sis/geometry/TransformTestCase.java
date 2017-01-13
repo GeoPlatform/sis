@@ -194,7 +194,7 @@ public abstract strictfp class TransformTestCase<G> extends TestCase {
      * @throws FactoryException if an error occurred while creating the operation.
      * @throws TransformException if an error occurred while transforming the envelope.
      *
-     * @see <a href="https://issues.apache.org/jira/browse/SIS-329">SIS-329</a>
+     * see <a href="https://issues.apache.org/jira/browse/SIS-329">SIS-329</a>
      */
     @Test
     @DependsOnMethod("testTransform")

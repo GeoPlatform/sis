@@ -142,7 +142,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Band)
+     * see #castOrCopy(Band)
      */
     public DefaultBand(final Band object) {
         super(object);
@@ -215,7 +215,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
     
     /**
 	 * Gets the bound minimum. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getBoundMin}
+	 * see {@link #getBoundMin}
 	 */
 	@XmlElement(name = "boundMin")
 	private Double getXmlBoundMin() {
@@ -224,7 +224,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the bound minimum. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setBoundMin}
+	 * see {@link #setBoundMin}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlBoundMin(final Double newValue) {
@@ -263,7 +263,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
     
     /**
 	 * Gets the bound maximum. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getBoundMax}
+	 * see {@link #getBoundMax}
 	 */
 	@XmlElement(name = "boundMax")
 	private Double getXmlBoundMax() {
@@ -272,7 +272,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the bound maximum. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setBoundMax}
+	 * see {@link #setBoundMax}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlBoundMax(final Double newValue) {
@@ -286,7 +286,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
      *
      * @since 0.5
      *
-     * @see org.apache.sis.measure.Units#NANOMETRE
+     * see org.apache.sis.measure.Units#NANOMETRE
      */
     @Override
     public Unit<Length> getBoundUnits() {
@@ -307,7 +307,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
     
     /**
 	 * Gets the bound units. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getBoundUnits}
+	 * see {@link #getBoundUnits}
 	 */
 	@XmlElement(name = "boundUnits")
 	private Unit<Length> getXmlBoundUnits() {
@@ -316,7 +316,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the bound units. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setBoundUnits}
+	 * see {@link #setBoundUnits}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlBoundUnits(final Unit<Length> newValue) {
@@ -346,7 +346,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
     
     /**
 	 * Gets the boundary definition. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getBandBoundaryDefinition}
+	 * see {@link #getBandBoundaryDefinition}
 	 */
 	@XmlElement(name = "bandBoundaryDefinition")
 	private BandDefinition getXmlBandBoundaryDefinition() {
@@ -355,7 +355,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the boundary definition. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setBandBoundaryDefinition}
+	 * see {@link #setBandBoundaryDefinition}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlBandBoundaryDefinition(final BandDefinition newValue) {
@@ -364,7 +364,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 	
 	/**
 	 * Gets the boundary definition. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #getBandBoundaryDefinition}
+	 * see {@link #getBandBoundaryDefinition}
 	 */
 	@XmlElement(name = "bandBoundaryDefinition", namespace = Namespaces.GMI)
 	private BandDefinition getXmlBandBoundaryDefinitionLegacy() {
@@ -373,7 +373,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the boundary definition. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #setBandBoundaryDefinition}
+	 * see {@link #setBandBoundaryDefinition}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlBandBoundaryDefinitionLegacy(final BandDefinition newValue) {
@@ -502,7 +502,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
     
     /**
 	 * Gets the nominal spatial resolution. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getNominalSpatialResolution}
+	 * see {@link #getNominalSpatialResolution}
 	 */
 	@XmlElement(name = "nominalSpatialResolution")
 	private Double getXmlNominalSpatialResolution() {
@@ -511,7 +511,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the nominal spatial resolution. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setNominalSpatialResolution}
+	 * see {@link #setNominalSpatialResolution}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlNominalSpatialResolution(final Double newValue) {
@@ -520,7 +520,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 	
 	/**
 	 * Gets the nominal spatial resolution. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #getNominalSpatialResolution}
+	 * see {@link #getNominalSpatialResolution}
 	 */
 	@XmlElement(name = "nominalSpatialResolution", namespace = Namespaces.GMI)
 	private Double getXmlNominalSpatialResolutionLegacy() {
@@ -529,7 +529,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the nominal spatial resolution. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #setNominalSpatialResolution}
+	 * see {@link #setNominalSpatialResolution}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlNominalSpatialResolutionLegacy(final Double newValue) {
@@ -555,7 +555,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
     
     /**
 	 * Gets the transfer function type. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getTransferFunctionType}
+	 * see {@link #getTransferFunctionType}
 	 */
 	@XmlElement(name = "transferFunctionType")
 	private TransferFunctionType getXmlTransferFunctionType() {
@@ -564,7 +564,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the transfer function type. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setTransferFunctionType}
+	 * see {@link #setTransferFunctionType}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlTransferFunctionType(final TransferFunctionType newValue) {
@@ -573,7 +573,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 	
 	/**
 	 * Gets the transfer function type. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #getTransferFunctionType}
+	 * see {@link #getTransferFunctionType}
 	 */
 	@XmlElement(name = "transferFunctionType", namespace = Namespaces.GMI)
 	private TransferFunctionType getXmlTransferFunctionTypeLegacy() {
@@ -582,7 +582,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the transfer function type. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #setTransferFunctionType}
+	 * see {@link #setTransferFunctionType}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlTransferFunctionTypeLegacy(final TransferFunctionType newValue) {
@@ -612,7 +612,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
     
     /**
 	 * Gets the transmitted polarization. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getTransmittedPolarization}
+	 * see {@link #getTransmittedPolarization}
 	 */
 	@XmlElement(name = "transmittedPolarization")
 	private PolarizationOrientation getXmlTransmittedPolarization() {
@@ -621,7 +621,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the transmitted polarization. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setTransmittedPolarization}
+	 * see {@link #setTransmittedPolarization}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlTransmittedPolarization(final PolarizationOrientation newValue) {
@@ -630,7 +630,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 	
 	/**
 	 * Gets the transmitted polarization. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #getTransmittedPolarization}
+	 * see {@link #getTransmittedPolarization}
 	 */
 	@XmlElement(name = "transmittedPolarization", namespace = Namespaces.GMI)
 	private PolarizationOrientation getXmlTransmittedPolarizationLegacy() {
@@ -639,7 +639,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the transmitted polarization. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #setTransmittedPolarization}
+	 * see {@link #setTransmittedPolarization}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlTransmittedPolarizationLegacy(final PolarizationOrientation newValue) {
@@ -669,7 +669,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
     
     /**
 	 * Gets the detected polarization. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getDetectedPolarization}
+	 * see {@link #getDetectedPolarization}
 	 */
 	@XmlElement(name = "detectedPolarization")
 	private PolarizationOrientation getXmlDetectedPolarization() {
@@ -678,7 +678,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the detected polarization. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setDetectedPolarization}
+	 * see {@link #setDetectedPolarization}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlDetectedPolarization(final PolarizationOrientation newValue) {
@@ -687,7 +687,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 	
 	/**
 	 * Gets the detected polarization. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #getDetectedPolarization}
+	 * see {@link #getDetectedPolarization}
 	 */
 	@XmlElement(name = "detectedPolarization", namespace = Namespaces.GMI)
 	private PolarizationOrientation getXmlDetectedPolarizationLegacy() {
@@ -696,7 +696,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
 
 	/**
 	 * Sets the detected polarization. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #setDetectedPolarization}
+	 * see {@link #setDetectedPolarization}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlDetectedPolarizationLegacy(final PolarizationOrientation newValue) {

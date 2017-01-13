@@ -81,7 +81,7 @@ public class DefaultPlatformPass extends ISOMetadata implements PlatformPass {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(PlatformPass)
+     * see #castOrCopy(PlatformPass)
      */
     public DefaultPlatformPass(final PlatformPass object) {
         super(object);

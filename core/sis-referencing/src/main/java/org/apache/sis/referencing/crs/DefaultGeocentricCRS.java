@@ -73,7 +73,7 @@ import org.apache.sis.referencing.AbstractReferenceSystem;
  * @version 0.4
  * @module
  *
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createGeocentricCRS(String)
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createGeocentricCRS(String)
  */
 @XmlTransient
 public class DefaultGeocentricCRS extends DefaultGeodeticCRS implements GeocentricCRS {
@@ -142,7 +142,7 @@ public class DefaultGeocentricCRS extends DefaultGeodeticCRS implements Geocentr
      * @param datum The datum.
      * @param cs The coordinate system, which must be three-dimensional.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createGeocentricCRS(Map, GeodeticDatum, CartesianCS)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createGeocentricCRS(Map, GeodeticDatum, CartesianCS)
      */
     public DefaultGeocentricCRS(final Map<String,?> properties,
                                 final GeodeticDatum datum,
@@ -160,7 +160,7 @@ public class DefaultGeocentricCRS extends DefaultGeodeticCRS implements Geocentr
      * @param datum The datum.
      * @param cs The coordinate system.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createGeocentricCRS(Map, GeodeticDatum, SphericalCS)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createGeocentricCRS(Map, GeodeticDatum, SphericalCS)
      */
     public DefaultGeocentricCRS(final Map<String,?> properties,
                                 final GeodeticDatum datum,
@@ -178,7 +178,7 @@ public class DefaultGeocentricCRS extends DefaultGeodeticCRS implements Geocentr
      *
      * @param crs The coordinate reference system to copy.
      *
-     * @see #castOrCopy(GeocentricCRS)
+     * see #castOrCopy(GeocentricCRS)
      */
     protected DefaultGeocentricCRS(final GeocentricCRS crs) {
         super(crs);
@@ -278,7 +278,7 @@ public class DefaultGeocentricCRS extends DefaultGeodeticCRS implements Geocentr
      *
      * @return {@code "GeodeticCRS"} (WKT 2) or {@code "GeocCS"} (WKT 1).
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#49">WKT 2 specification §8</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#49">WKT 2 specification §8</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {

@@ -60,7 +60,7 @@ public class DefaultTemporalValidity extends AbstractTemporalAccuracy implements
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(TemporalValidity)
+     * see #castOrCopy(TemporalValidity)
      */
     public DefaultTemporalValidity(final TemporalValidity object) {
         super(object);

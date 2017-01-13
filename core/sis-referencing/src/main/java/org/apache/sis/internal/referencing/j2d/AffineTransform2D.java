@@ -52,7 +52,7 @@ import static org.apache.sis.util.ArgumentChecks.ensureDimensionMatches;
  * @version 0.7
  * @module
  *
- * @see ProjectiveTransform
+ * see ProjectiveTransform
  */
 public class AffineTransform2D extends ImmutableAffineTransform
         implements LinearTransform2D, LenientComparable, Parameterized
@@ -70,7 +70,7 @@ public class AffineTransform2D extends ImmutableAffineTransform
      * this affine transform is still under construction. This field <strong>must</strong> be
      * set to a non-null value before an {@link AffineTransform2D} instance is published.</p>
      *
-     * @see #getMatrix()
+     * see #getMatrix()
      */
     private final AffineMatrix matrix;
 

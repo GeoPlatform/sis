@@ -31,7 +31,7 @@ import org.apache.sis.storage.netcdf.AttributeNames;
  * @version 0.3
  * @module
  *
- * @see GridGeometry#getAxes()
+ * see GridGeometry#getAxes()
  */
 public final class Axis {
     /**

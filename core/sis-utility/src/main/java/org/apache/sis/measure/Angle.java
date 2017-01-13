@@ -61,9 +61,9 @@ import static org.apache.sis.math.MathFunctions.isNegative;
  * @version 0.3
  * @module
  *
- * @see Latitude
- * @see Longitude
- * @see AngleFormat
+ * see Latitude
+ * see Longitude
+ * see AngleFormat
  */
 public class Angle implements Comparable<Angle>, Formattable, Serializable {
     /**
@@ -74,7 +74,7 @@ public class Angle implements Comparable<Angle>, Formattable, Serializable {
     /**
      * A shared instance of {@link AngleFormat}.
      *
-     * @see #getAngleFormat()
+     * see #getAngleFormat()
      */
     private static Format format;
 
@@ -106,7 +106,7 @@ public class Angle implements Comparable<Angle>, Formattable, Serializable {
      * @param  string A string to be converted to an {@code Angle}.
      * @throws NumberFormatException if the string does not contain a parsable angle.
      *
-     * @see AngleFormat#parse(String)
+     * see AngleFormat#parse(String)
      */
     public Angle(final String string) throws NumberFormatException {
         final Object angle;
@@ -211,7 +211,7 @@ public class Angle implements Comparable<Angle>, Formattable, Serializable {
      * Developers should consider using {@link AngleFormat} for end-user applications instead
      * than this method.
      *
-     * @see AngleFormat#format(double)
+     * see AngleFormat#format(double)
      */
     @Override
     public String toString() {

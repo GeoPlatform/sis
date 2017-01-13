@@ -135,8 +135,8 @@ public abstract class AbstractEnvelope implements Envelope, Emptiable {
      * @param  envelope The envelope to cast, or {@code null}.
      * @return The values of the given envelope as an {@code AbstractEnvelope} instance.
      *
-     * @see GeneralEnvelope#castOrCopy(Envelope)
-     * @see ImmutableEnvelope#castOrCopy(Envelope)
+     * see GeneralEnvelope#castOrCopy(Envelope)
+     * see ImmutableEnvelope#castOrCopy(Envelope)
      */
     public static AbstractEnvelope castOrCopy(final Envelope envelope) {
         if (envelope == null || envelope instanceof AbstractEnvelope) {
@@ -527,8 +527,8 @@ public abstract class AbstractEnvelope implements Envelope, Emptiable {
      *
      * @return A representation of this envelope as an array of non-empty envelope.
      *
-     * @see Envelope2D#toRectangles()
-     * @see GeneralEnvelope#simplify()
+     * see Envelope2D#toRectangles()
+     * see GeneralEnvelope#simplify()
      *
      * @since 0.4
      */
@@ -627,8 +627,8 @@ public abstract class AbstractEnvelope implements Envelope, Emptiable {
      *
      * @return {@code true} if this envelope is empty.
      *
-     * @see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox#isEmpty()
-     * @see java.awt.geom.Rectangle2D#isEmpty()
+     * see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox#isEmpty()
+     * see java.awt.geom.Rectangle2D#isEmpty()
      */
     @Override
     public boolean isEmpty() {
@@ -663,8 +663,8 @@ public abstract class AbstractEnvelope implements Envelope, Emptiable {
      *
      * @return {@code true} if this envelope has NaN values.
      *
-     * @see GeneralEnvelope#setToNaN()
-     * @see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox#isEmpty()
+     * see GeneralEnvelope#setToNaN()
+     * see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox#isEmpty()
      */
     public boolean isAllNaN() {
         final int dimension = getDimension();
@@ -746,8 +746,8 @@ public abstract class AbstractEnvelope implements Envelope, Emptiable {
      * @throws MismatchedDimensionException if the specified envelope doesn't have the expected dimension.
      * @throws AssertionError If assertions are enabled and the envelopes have mismatched CRS.
      *
-     * @see #intersects(Envelope)
-     * @see #equals(Envelope, double, boolean)
+     * see #intersects(Envelope)
+     * see #equals(Envelope, double, boolean)
      *
      * @since 0.4
      */
@@ -774,7 +774,7 @@ public abstract class AbstractEnvelope implements Envelope, Emptiable {
      * @throws MismatchedDimensionException if the specified envelope doesn't have the expected dimension.
      * @throws AssertionError If assertions are enabled and the envelopes have mismatched CRS.
      *
-     * @see #intersects(Envelope, boolean)
+     * see #intersects(Envelope, boolean)
      */
     public boolean contains(final Envelope envelope, final boolean edgesInclusive) throws MismatchedDimensionException {
         ensureNonNull("envelope", envelope);
@@ -861,8 +861,8 @@ public abstract class AbstractEnvelope implements Envelope, Emptiable {
      * @throws MismatchedDimensionException if the specified envelope doesn't have the expected dimension.
      * @throws AssertionError If assertions are enabled and the envelopes have mismatched CRS.
      *
-     * @see #contains(Envelope, boolean)
-     * @see #equals(Envelope, double, boolean)
+     * see #contains(Envelope, boolean)
+     * see #equals(Envelope, double, boolean)
      *
      * @since 0.4
      */
@@ -888,8 +888,8 @@ public abstract class AbstractEnvelope implements Envelope, Emptiable {
      * @throws MismatchedDimensionException if the specified envelope doesn't have the expected dimension.
      * @throws AssertionError If assertions are enabled and the envelopes have mismatched CRS.
      *
-     * @see #contains(Envelope, boolean)
-     * @see #equals(Envelope, double, boolean)
+     * see #contains(Envelope, boolean)
+     * see #equals(Envelope, double, boolean)
      */
     public boolean intersects(final Envelope envelope, final boolean edgesInclusive) throws MismatchedDimensionException {
         ensureNonNull("envelope", envelope);
@@ -998,8 +998,8 @@ public abstract class AbstractEnvelope implements Envelope, Emptiable {
      *         axis length, or {@code false} if it is an absolute value.
      * @return {@code true} if the given object is equal to this envelope up to the given tolerance value.
      *
-     * @see #contains(Envelope)
-     * @see #intersects(Envelope)
+     * see #contains(Envelope)
+     * see #intersects(Envelope)
      */
     public boolean equals(final Envelope other, final double eps, final boolean epsIsRelative) {
         ensureNonNull("other", other);
@@ -1120,9 +1120,9 @@ public abstract class AbstractEnvelope implements Envelope, Emptiable {
      * @param  isSimplePrecision {@code true} if every lower and upper corner values can be casted to {@code float}.
      * @return This envelope as a {@code BOX} or {@code BOX3D} (most typical dimensions) element.
      *
-     * @see GeneralEnvelope#GeneralEnvelope(CharSequence)
-     * @see org.apache.sis.measure.CoordinateFormat
-     * @see org.apache.sis.io.wkt
+     * see GeneralEnvelope#GeneralEnvelope(CharSequence)
+     * see org.apache.sis.measure.CoordinateFormat
+     * see org.apache.sis.io.wkt
      */
     static String toString(final Envelope envelope, final boolean isSimplePrecision) {
         final int dimension = envelope.getDimension();

@@ -82,7 +82,7 @@ final class StandardDefinitions {
     /**
      * The EPSG code for Greenwich meridian.
      *
-     * @see org.apache.sis.internal.util.Constants#EPSG_GREENWICH
+     * see org.apache.sis.internal.util.Constants#EPSG_GREENWICH
      */
     static final String GREENWICH = "8901";
 

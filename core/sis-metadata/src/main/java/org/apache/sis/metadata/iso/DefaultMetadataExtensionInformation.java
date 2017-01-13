@@ -86,7 +86,7 @@ public class DefaultMetadataExtensionInformation extends ISOMetadata
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(MetadataExtensionInformation)
+     * see #castOrCopy(MetadataExtensionInformation)
      */
     public DefaultMetadataExtensionInformation(final MetadataExtensionInformation object) {
         super(object);

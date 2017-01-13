@@ -90,14 +90,14 @@ public abstract class CompoundFormat<T> extends Format implements Localized {
      * The locale given at construction time, or {@link Locale#ROOT} (never {@code null}) for
      * unlocalized format. See {@link #getLocale()} for more information on {@code ROOT} locale.
      *
-     * @see #getLocale()
+     * see #getLocale()
      */
     private final Locale locale;
 
     /**
      * The timezone given at construction time, or {@code null} for UTC.
      *
-     * @see #getTimeZone()
+     * see #getTimeZone()
      */
     private final TimeZone timezone;
 

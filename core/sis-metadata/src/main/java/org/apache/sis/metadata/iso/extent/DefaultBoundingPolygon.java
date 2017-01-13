@@ -81,7 +81,7 @@ public class DefaultBoundingPolygon extends AbstractGeographicExtent implements 
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(BoundingPolygon)
+     * see #castOrCopy(BoundingPolygon)
      */
     public DefaultBoundingPolygon(final BoundingPolygon object) {
         super(object);

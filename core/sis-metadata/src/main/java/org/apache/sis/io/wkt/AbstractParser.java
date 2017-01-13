@@ -130,7 +130,7 @@ abstract class AbstractParser implements Parser {
      *       This list is used for helping the users to locate the ignored elements.</li>
      * </ul>
      *
-     * @see #getAndClearWarnings(Object)
+     * see #getAndClearWarnings(Object)
      */
     final Map<String, List<String>> ignoredElements;
 
@@ -205,8 +205,8 @@ abstract class AbstractParser implements Parser {
      * @return the result of parsing the given text.
      * @throws FactoryException if the object creation failed.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createFromWKT(String)
-     * @see org.apache.sis.referencing.operation.transform.DefaultMathTransformFactory#createFromWKT(String)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createFromWKT(String)
+     * see org.apache.sis.referencing.operation.transform.DefaultMathTransformFactory#createFromWKT(String)
      */
     @Override
     public final Object createFromWKT(final String text) throws FactoryException {

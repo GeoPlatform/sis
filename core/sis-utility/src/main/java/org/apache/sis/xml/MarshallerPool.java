@@ -61,8 +61,8 @@ import org.apache.sis.util.ArgumentChecks;
  * @version 0.8
  * @module
  *
- * @see XML
- * @see <a href="http://jaxb.java.net/guide/Performance_and_thread_safety.html">JAXB Performance and thread-safety</a>
+ * see XML
+ * see <a href="http://jaxb.java.net/guide/Performance_and_thread_safety.html">JAXB Performance and thread-safety</a>
  */
 public class MarshallerPool {
     /**
@@ -124,8 +124,8 @@ public class MarshallerPool {
      * <p>This queue must be a thread-safe implementation, since it will not be invoked in
      * synchronized block.</p>
      *
-     * @see #acquireMarshaller()
-     * @see #recycle(Marshaller)
+     * see #acquireMarshaller()
+     * see #recycle(Marshaller)
      */
     private final Deque<Marshaller> marshallers;
 
@@ -137,8 +137,8 @@ public class MarshallerPool {
      * <p>This queue must be a thread-safe implementation, since it will not be invoked in
      * synchronized block.</p>
      *
-     * @see #acquireUnmarshaller()
-     * @see #recycle(Unmarshaller)
+     * see #acquireUnmarshaller()
+     * see #recycle(Unmarshaller)
      */
     private final Deque<Unmarshaller> unmarshallers;
 
@@ -146,7 +146,7 @@ public class MarshallerPool {
      * {@code true} if a task has been scheduled for removing expired (un)marshallers,
      * or {@code false} if no removal task is currently scheduled.
      *
-     * @see #scheduleRemoval()
+     * see #scheduleRemoval()
      */
     private final AtomicBoolean isRemovalScheduled;
 

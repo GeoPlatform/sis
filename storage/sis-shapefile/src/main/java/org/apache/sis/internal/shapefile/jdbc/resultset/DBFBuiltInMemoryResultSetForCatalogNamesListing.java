@@ -33,7 +33,7 @@ public class DBFBuiltInMemoryResultSetForCatalogNamesListing extends BuiltInMemo
     }
 
     /**
-     * @see java.sql.ResultSet#next()
+     * see java.sql.ResultSet#next()
      */
     @Override public boolean next() {
         logStep("next");
@@ -41,7 +41,7 @@ public class DBFBuiltInMemoryResultSetForCatalogNamesListing extends BuiltInMemo
     }
 
     /**
-     * @see java.sql.ResultSet#wasNull()
+     * see java.sql.ResultSet#wasNull()
      */
     @Override
     public boolean wasNull() {

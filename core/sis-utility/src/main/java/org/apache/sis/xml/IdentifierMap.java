@@ -39,7 +39,7 @@ import org.opengis.metadata.citation.Citation;
  * @version 0.3
  * @module
  *
- * @see IdentifiedObject#getIdentifierMap()
+ * see IdentifiedObject#getIdentifierMap()
  */
 public interface IdentifierMap extends Map<Citation,String> {
     /**

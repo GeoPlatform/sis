@@ -131,7 +131,7 @@ import org.apache.sis.measure.Units;
  * @version 0.8
  * @module
  *
- * @see org.apache.sis.referencing.operation.transform.DatumShiftTransform
+ * see org.apache.sis.referencing.operation.transform.DatumShiftTransform
  */
 public abstract class DatumShiftGrid<C extends Quantity<C>, T extends Quantity<T>> implements Serializable {
     /**
@@ -143,7 +143,7 @@ public abstract class DatumShiftGrid<C extends Quantity<C>, T extends Quantity<T
      * The unit of measurements of input values, before conversion to grid indices by {@link #coordinateToGrid}.
      * The coordinate unit is typically {@link javax.measure.Units#DEGREE}.
      *
-     * @see #getCoordinateUnit()
+     * see #getCoordinateUnit()
      */
     private final Unit<C> coordinateUnit;
 
@@ -151,14 +151,14 @@ public abstract class DatumShiftGrid<C extends Quantity<C>, T extends Quantity<T
      * Conversion from the "real world" coordinates to grid indices including fractional parts.
      * This is the conversion that needs to be applied before to interpolate.
      *
-     * @see #getCoordinateToGrid()
+     * see #getCoordinateToGrid()
      */
     private final LinearTransform coordinateToGrid;
 
     /**
      * The unit of measurement of output values, as interpolated by the {@link #interpolateAt} method.
      *
-     * @see #getTranslationUnit()
+     * see #getTranslationUnit()
      */
     private final Unit<T> translationUnit;
 
@@ -168,7 +168,7 @@ public abstract class DatumShiftGrid<C extends Quantity<C>, T extends Quantity<T
      * needs to be applied on the interpolated values as a delta transform.
      * Such conversion is applied (if needed) by the {@link #interpolateAt} method.
      *
-     * @see #isCellValueRatio()
+     * see #isCellValueRatio()
      */
     private final boolean isCellValueRatio;
 
@@ -327,7 +327,7 @@ public abstract class DatumShiftGrid<C extends Quantity<C>, T extends Quantity<T
      *
      * @return the unit of measurement of input values before conversion to grid indices.
      *
-     * @see org.apache.sis.referencing.operation.AbstractCoordinateOperation#getInterpolationCRS()
+     * see org.apache.sis.referencing.operation.AbstractCoordinateOperation#getInterpolationCRS()
      */
     public Unit<C> getCoordinateUnit() {
         return coordinateUnit;
@@ -416,7 +416,7 @@ public abstract class DatumShiftGrid<C extends Quantity<C>, T extends Quantity<T
      *
      * @return the unit of measurement of output values interpolated by {@code interpolateAt(…)}.
      *
-     * @see #interpolateAt
+     * see #interpolateAt
      */
     public Unit<T> getTranslationUnit() {
         return translationUnit;

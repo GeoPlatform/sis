@@ -76,7 +76,7 @@ public class ConverterRegistry {
     /**
      * {@code true} if this {@code ConverterRegistry} has been initialized.
      *
-     * @see #initialize()
+     * see #initialize()
      */
     private boolean isInitialized;
 

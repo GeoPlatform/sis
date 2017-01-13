@@ -63,8 +63,8 @@ import static org.apache.sis.internal.referencing.provider.TransverseMercator.*;
  * @version 0.8
  * @module
  *
- * @see Mercator
- * @see ObliqueMercator
+ * see Mercator
+ * see ObliqueMercator
  */
 public class TransverseMercator extends ConformalProjection {
     /**

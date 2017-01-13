@@ -142,8 +142,8 @@ public abstract class AbstractInternationalString implements InternationalString
      * @return The string in the given locale if available, or in an
      *         implementation-dependent fallback locale otherwise.
      *
-     * @see Locale#getDefault()
-     * @see Locale#ROOT
+     * see Locale#getDefault()
+     * see Locale#ROOT
      */
     @Override
     public abstract String toString(Locale locale);

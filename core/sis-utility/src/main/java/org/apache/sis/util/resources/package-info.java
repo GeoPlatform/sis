@@ -87,8 +87,8 @@
  * @version 0.8
  * @module
  *
- * @see java.util.ResourceBundle
- * @see java.text.MessageFormat
- * @see org.apache.sis.util.iso.ResourceInternationalString
+ * see java.util.ResourceBundle
+ * see java.text.MessageFormat
+ * see org.apache.sis.util.iso.ResourceInternationalString
  */
 package org.apache.sis.util.resources;

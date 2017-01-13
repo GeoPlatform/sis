@@ -76,10 +76,10 @@ import java.util.Objects;
  * @version 0.5
  * @module
  *
- * @see org.apache.sis.referencing.CommonCRS.Temporal#datum()
- * @see org.apache.sis.referencing.cs.DefaultTimeCS
- * @see org.apache.sis.referencing.crs.DefaultTemporalCRS
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createTemporalDatum(String)
+ * see org.apache.sis.referencing.CommonCRS.Temporal#datum()
+ * see org.apache.sis.referencing.cs.DefaultTimeCS
+ * see org.apache.sis.referencing.crs.DefaultTemporalCRS
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createTemporalDatum(String)
  */
 @XmlType(name = "TemporalDatumType")
 @XmlRootElement(name = "TemporalDatum")
@@ -156,7 +156,7 @@ public class DefaultTemporalDatum extends AbstractDatum implements TemporalDatum
      * @param properties The properties to be given to the identified object.
      * @param origin The date and time origin of this temporal datum.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createTemporalDatum(Map, Date)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createTemporalDatum(Map, Date)
      */
     public DefaultTemporalDatum(final Map<String,?> properties, final Date origin) {
         super(properties);
@@ -173,7 +173,7 @@ public class DefaultTemporalDatum extends AbstractDatum implements TemporalDatum
      *
      * @param datum The datum to copy.
      *
-     * @see #castOrCopy(TemporalDatum)
+     * see #castOrCopy(TemporalDatum)
      */
     protected DefaultTemporalDatum(final TemporalDatum datum) {
         super(datum);
@@ -271,7 +271,7 @@ public class DefaultTemporalDatum extends AbstractDatum implements TemporalDatum
      *
      * @return {@code "TimeDatum"}.
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#90">WKT 2 specification §14.2</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#90">WKT 2 specification §14.2</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -334,7 +334,7 @@ public class DefaultTemporalDatum extends AbstractDatum implements TemporalDatum
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * @see #getOrigin()
+     * see #getOrigin()
      */
     private void setOrigin(final Date value) {
         if (origin == Long.MIN_VALUE) {

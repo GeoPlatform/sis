@@ -78,9 +78,9 @@ import org.apache.sis.util.Localized;
  * @version 0.8
  * @module
  *
- * @see EPSGDataAccess
- * @see SQLTranslator
- * @see <a href="http://sis.apache.org/tables/CoordinateReferenceSystems.html">List of authority codes</a>
+ * see EPSGDataAccess
+ * see SQLTranslator
+ * see <a href="http://sis.apache.org/tables/CoordinateReferenceSystems.html">List of authority codes</a>
  */
 public class EPSGFactory extends ConcurrentAuthorityFactory<EPSGDataAccess> implements CRSAuthorityFactory,
         CSAuthorityFactory, DatumAuthorityFactory, CoordinateOperationAuthorityFactory, Localized
@@ -88,7 +88,7 @@ public class EPSGFactory extends ConcurrentAuthorityFactory<EPSGDataAccess> impl
     /**
      * The namespace of EPSG codes.
      *
-     * @see #getCodeSpaces()
+     * see #getCodeSpaces()
      */
     private static final Set<String> CODESPACES = Collections.singleton(Constants.EPSG);
 
@@ -167,7 +167,7 @@ public class EPSGFactory extends ConcurrentAuthorityFactory<EPSGDataAccess> impl
     /**
      * The locale for producing error messages. This is usually the default locale.
      *
-     * @see #getLocale()
+     * see #getLocale()
      */
     private final Locale locale;
 
@@ -366,7 +366,7 @@ public class EPSGFactory extends ConcurrentAuthorityFactory<EPSGDataAccess> impl
      * @throws IOException if the SQL script can not be found or an I/O error occurred while reading them.
      * @throws SQLException if an error occurred while writing to the database.
      *
-     * @see InstallationScriptProvider
+     * see InstallationScriptProvider
      */
     public synchronized void install(final Connection connection) throws IOException, SQLException {
         ArgumentChecks.ensureNonNull("connection", connection);
@@ -482,7 +482,7 @@ public class EPSGFactory extends ConcurrentAuthorityFactory<EPSGDataAccess> impl
      * @return Data Access Object (DAO) to use in {@code createFoo(String)} methods.
      * @throws SQLException if a problem with the database has been detected.
      *
-     * @see EPSGDataAccess#EPSGDataAccess(EPSGFactory, Connection, SQLTranslator)
+     * see EPSGDataAccess#EPSGDataAccess(EPSGFactory, Connection, SQLTranslator)
      */
     protected EPSGDataAccess newDataAccess(Connection connection, SQLTranslator translator) throws SQLException {
         return new EPSGDataAccess(this, connection, translator);

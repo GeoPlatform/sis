@@ -200,7 +200,7 @@ public abstract strictfp class MathTransformTestCase extends TransformTestCase {
      * transform dimension suggests that it should. In addition, all Apache SIS transforms
      * shall implement {@link Parameterized}.
      *
-     * @see Validators#validate(MathTransform)
+     * see Validators#validate(MathTransform)
      */
     protected final void validate() {
         assertNotNull("The 'transform' field shall be assigned a value.", transform);
@@ -358,7 +358,7 @@ public abstract strictfp class MathTransformTestCase extends TransformTestCase {
      *
      * @param expected The expected WKT.
      *
-     * @see #printInternalWKT()
+     * see #printInternalWKT()
      */
     protected final void assertWktEquals(final String expected) {
         assertNotNull("The 'transform' field shall be assigned a value.", transform);
@@ -370,7 +370,7 @@ public abstract strictfp class MathTransformTestCase extends TransformTestCase {
      *
      * @param expected A regular expression for the expected WKT.
      *
-     * @see #printInternalWKT()
+     * see #printInternalWKT()
      *
      * @since 0.6
      */
@@ -408,7 +408,7 @@ public abstract strictfp class MathTransformTestCase extends TransformTestCase {
      * Prints the current {@linkplain #transform transform} as normal and internal WKT.
      * This method is for debugging purpose only.
      *
-     * @see #verifyWKT(String)
+     * see #verifyWKT(String)
      */
     @Debug
     protected final void printInternalWKT() {

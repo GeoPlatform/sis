@@ -47,7 +47,7 @@ import org.apache.sis.measure.Units;
  * @version 0.8
  * @module
  *
- * @see <a href="http://www.awaresystems.be/imaging/tiff/tifftags.html">TIFF Tag Reference</a>
+ * see <a href="http://www.awaresystems.be/imaging/tiff/tifftags.html">TIFF Tag Reference</a>
  */
 final class ImageFileDirectory {
     /**

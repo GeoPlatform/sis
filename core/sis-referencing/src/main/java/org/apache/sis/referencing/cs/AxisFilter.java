@@ -49,7 +49,7 @@ import javax.measure.Unit;
  * @version 0.7
  * @module
  *
- * @see CoordinateSystems#replaceAxes(CoordinateSystem, AxisFilter)
+ * see CoordinateSystems#replaceAxes(CoordinateSystem, AxisFilter)
  */
 public interface AxisFilter {
     /**

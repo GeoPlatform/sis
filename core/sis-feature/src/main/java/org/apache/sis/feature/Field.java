@@ -62,7 +62,7 @@ abstract class Field<V> implements Property {
      * @return the feature or attribute value (may be {@code null}).
      * @throws MultiValuedPropertyException if this field contains more than one value.
      *
-     * @see AbstractFeature#getPropertyValue(String)
+     * see AbstractFeature#getPropertyValue(String)
      */
     @Override
     public abstract V getValue() throws MultiValuedPropertyException;
@@ -83,7 +83,7 @@ abstract class Field<V> implements Property {
      *
      * @param  value  the new value, or {@code null} for removing all values from this field.
      *
-     * @see AbstractFeature#setPropertyValue(String, Object)
+     * see AbstractFeature#setPropertyValue(String, Object)
      */
     public abstract void setValue(final V value);
 

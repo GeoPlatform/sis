@@ -74,7 +74,7 @@ public abstract class AbstractResultSet extends AbstractJDBC implements ResultSe
     }
 
     /**
-     * @see java.sql.ResultSet#getBoolean(java.lang.String)
+     * see java.sql.ResultSet#getBoolean(java.lang.String)
      */
     @Override
     public boolean getBoolean(String columnLabel) throws SQLException {
@@ -82,7 +82,7 @@ public abstract class AbstractResultSet extends AbstractJDBC implements ResultSe
     }
 
     /**
-     * @see java.sql.ResultSet#getByte(java.lang.String)
+     * see java.sql.ResultSet#getByte(java.lang.String)
      */
     @Override
     public byte getByte(String columnLabel) throws SQLException {
@@ -90,7 +90,7 @@ public abstract class AbstractResultSet extends AbstractJDBC implements ResultSe
     }
 
     /**
-     * @see java.sql.ResultSet#getBytes(java.lang.String)
+     * see java.sql.ResultSet#getBytes(java.lang.String)
      */
     @Override
     public byte[] getBytes(String columnLabel) throws SQLException {
@@ -98,7 +98,7 @@ public abstract class AbstractResultSet extends AbstractJDBC implements ResultSe
     }
 
     /**
-     * @see java.sql.ResultSet#getTime(java.lang.String)
+     * see java.sql.ResultSet#getTime(java.lang.String)
      */
     @Override
     public Time getTime(String columnLabel) throws SQLException {
@@ -552,7 +552,7 @@ public abstract class AbstractResultSet extends AbstractJDBC implements ResultSe
     }
 
     /**
-     * @see java.sql.ResultSet#updateClob(int, java.io.Reader, long)
+     * see java.sql.ResultSet#updateClob(int, java.io.Reader, long)
      */
     @Override
     public void updateClob(int columnIndex, Reader reader, long length) throws SQLException {

@@ -84,9 +84,9 @@ import org.apache.sis.util.collection.WeakHashSet;
  * @version 0.5
  * @module
  *
- * @see RangeFormat
- * @see org.apache.sis.util.collection.RangeSet
- * @see <a href="http://en.wikipedia.org/wiki/Interval_%28mathematics%29">Wikipedia: Interval</a>
+ * see RangeFormat
+ * see org.apache.sis.util.collection.RangeSet
+ * see <a href="http://en.wikipedia.org/wiki/Interval_%28mathematics%29">Wikipedia: Interval</a>
  */
 public class NumberRange<E extends Number & Comparable<? super E>> extends Range<E> {
     /**
@@ -162,7 +162,7 @@ public class NumberRange<E extends Number & Comparable<? super E>> extends Range
      * @param  isMaxIncluded  {@code true} if the maximal value is inclusive, or {@code false} if exclusive.
      * @return the new range of numeric values for the given endpoints.
      *
-     * @see #createLeftBounded(int, boolean)
+     * see #createLeftBounded(int, boolean)
      */
     public static NumberRange<Integer> create(final int minValue, final boolean isMinIncluded,
                                               final int maxValue, final boolean isMaxIncluded)
@@ -263,7 +263,7 @@ public class NumberRange<E extends Number & Comparable<? super E>> extends Range
      * @param  isMinIncluded  {@code true} if the minimal value is inclusive, or {@code false} if exclusive.
      * @return the new range of numeric values from {@code minValue} to positive infinity.
      *
-     * @see #create(int, boolean, int, boolean)
+     * see #create(int, boolean, int, boolean)
      *
      * @since 0.5
      */

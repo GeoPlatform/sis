@@ -80,7 +80,7 @@ public class AbstractPositionalAccuracy extends AbstractElement implements Posit
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(PositionalAccuracy)
+     * see #castOrCopy(PositionalAccuracy)
      */
     public AbstractPositionalAccuracy(final PositionalAccuracy object) {
         super(object);

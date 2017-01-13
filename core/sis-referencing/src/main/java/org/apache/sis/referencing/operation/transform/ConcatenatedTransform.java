@@ -60,7 +60,7 @@ import org.apache.sis.util.resources.Errors;
  * @version 0.7
  * @module
  *
- * @see org.opengis.referencing.operation.MathTransformFactory#createConcatenatedTransform(MathTransform, MathTransform)
+ * see org.opengis.referencing.operation.MathTransformFactory#createConcatenatedTransform(MathTransform, MathTransform)
  */
 class ConcatenatedTransform extends AbstractMathTransform implements Serializable {
     /**
@@ -151,7 +151,7 @@ class ConcatenatedTransform extends AbstractMathTransform implements Serializabl
      * @param  factory  the factory which is (indirectly) invoking this method, or {@code null} if none.
      * @return the concatenated transform.
      *
-     * @see MathTransforms#concatenate(MathTransform, MathTransform)
+     * see MathTransforms#concatenate(MathTransform, MathTransform)
      */
     public static MathTransform create(MathTransform tr1, MathTransform tr2, final MathTransformFactory factory)
             throws FactoryException, MismatchedDimensionException
@@ -424,7 +424,7 @@ class ConcatenatedTransform extends AbstractMathTransform implements Serializabl
      *
      * @return all single math transforms performed by this concatenated transform.
      *
-     * @see MathTransforms#getSteps(MathTransform)
+     * see MathTransforms#getSteps(MathTransform)
      */
     public final List<MathTransform> getSteps() {
         final List<MathTransform> transforms = new ArrayList<>(5);

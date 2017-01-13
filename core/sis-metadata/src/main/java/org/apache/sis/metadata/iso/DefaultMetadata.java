@@ -303,7 +303,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 *
 	 * @param object The metadata to copy values from, or {@code null} if none.
 	 *
-	 * @see #castOrCopy(Metadata)
+	 * see #castOrCopy(Metadata)
 	 */
 	public DefaultMetadata(final Metadata object) {
 		super(object);
@@ -399,7 +399,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets the metadata identifier for this record (used in ISO 19115-3 format).
-	 * @see {@link #getMetadataIdentifier}
+	 * see {@link #getMetadataIdentifier}
 	 */
 	@XmlElement(name = "metadataIdentifier")
 	@XmlJavaTypeAdapter(MD_Identifier.class)
@@ -409,7 +409,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the metadata identifier for this record (used in ISO 19115-3 format).
-	 * @see {@link #setMetadataIdentifier}
+	 * see {@link #setMetadataIdentifier}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlMetadataIdentifier(final Identifier newValue) {
@@ -454,7 +454,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets the file identifier for this record (used in ISO 19139 format).
-	 * @see {@link #getFileIdentifier}
+	 * see {@link #getFileIdentifier}
 	 */
 	@XmlElement(name = "fileIdentifier")
 	private String getXmlFileIdentifier() {
@@ -463,7 +463,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the file identifier for this record (used in ISO 19139 format).
-	 * @see {@link #setFileIdentifier}
+	 * see {@link #setFileIdentifier}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlFileIdentifier(final String newValue) {
@@ -496,7 +496,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 *
 	 * @param newValues The new languages.
 	 *
-	 * @see org.apache.sis.xml.XML#LOCALE
+	 * see org.apache.sis.xml.XML#LOCALE
 	 *
 	 * @since 0.5
 	 */
@@ -509,7 +509,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets the default locale for this record (used in ISO 19115-3 format).
-	 * @see {@link #getLanguages}
+	 * see {@link #getLanguages}
 	 */
 	@XmlElement(name = "defaultLocale")
 	@XmlJavaTypeAdapter(PT_Locale.class)
@@ -519,7 +519,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the default locale for this record (used in ISO 19115-3 format).
-	 * @see {@link #setLanguages}
+	 * see {@link #setLanguages}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlDefaultLocale(Locale newValue) {
@@ -529,7 +529,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets the other locales for this record (used in ISO 19115-3 format).
-	 * @see {@link #getLanguages}
+	 * see {@link #getLanguages}
 	 */
 	@XmlElement(name = "otherLocale")
 	@XmlJavaTypeAdapter(PT_Locale.class)
@@ -577,7 +577,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	/**
 	 * Gets the language for this record (used in ISO 19139 format).
 	 * This method pair is used for reading only.
-	 * @see {@link #getLanguage}
+	 * see {@link #getLanguage}
 	 */
 	@XmlElement(name = "language")
 	private Locale getXmlLanguage() {
@@ -587,7 +587,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the language for this record (used in ISO 19139 format).
-	 * @see {@link #setLanguage}
+	 * see {@link #setLanguage}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlLanguage(final Locale newValue) {
@@ -597,7 +597,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	/**
 	 * Gets the language for this record as a string (used in ISO 19139 format).
 	 * This method pair is used for writing in JAXB only.
-	 * @see {@link #getLanguage}
+	 * see {@link #getLanguage}
 	 */
 	@XmlElement(name = "language")
 	private String getXmlLanguageString() {
@@ -610,7 +610,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the language for this record (used in ISO 19139 format).
-	 * @see {@link #setLanguage}
+	 * see {@link #setLanguage}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlLanguageString(final String newValue) {
@@ -646,7 +646,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	/**
 	 * Gets the locales for this record (used in ISO 19139 format).
 	 * Also used by JAXB for setting values.
-	 * @see {@link #getLocales}
+	 * see {@link #getLocales}
 	 */
 	@XmlElement(name = "locale")
 	@XmlJavaTypeAdapter(PT_Locale.class)
@@ -670,9 +670,9 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 *
 	 * @return Character coding standards used for the metadata.
 	 *
-	 * @see #getLanguages()
-	 * @see org.opengis.metadata.identification.DataIdentification#getCharacterSets()
-	 * @see Charset#forName(String)
+	 * see #getLanguages()
+	 * see org.opengis.metadata.identification.DataIdentification#getCharacterSets()
+	 * see Charset#forName(String)
 	 *
 	 * @since 0.5
 	 */
@@ -695,7 +695,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	
 	/**
 	 * Gets the character sets for this record (used in ISO 19139).
-	 * @see {@link #getCharacterSet}
+	 * see {@link #getCharacterSet}
 	 */
 	@XmlElement(name = "characterSet")
 	private Collection<Charset>  getXmlCharacterSets() {
@@ -770,7 +770,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets the parent metadata for this record (used in ISO 19115-3 format).
-	 * @see {@link #getParentMetadata}
+	 * see {@link #getParentMetadata}
 	 */
 	@XmlElement(name = "parentMetadata")
 	private Citation getXmlParentMetadata() {
@@ -779,7 +779,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the parent metadata for this record (used in ISO 19115-3 format).
-	 * @see {@link #setParentMetadata}
+	 * see {@link #setParentMetadata}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlParentMetadata(final Citation newValue) {
@@ -826,7 +826,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets the parent identifier for this record (used in ISO 19139 format).
-	 * @see {@link #getParentIdentifier}
+	 * see {@link #getParentIdentifier}
 	 */
 	@XmlElement(name = "parentIdentifier")
 	private String getXmlParentIdentifier() {
@@ -835,7 +835,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the parent identifier for this record (used in ISO 19139 format).
-	 * @see {@link #setParentIdentifier}
+	 * see {@link #setParentIdentifier}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlParentIdentifier(final String newValue) {
@@ -867,7 +867,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets metadata scopes for this record (used in ISO 19115-3 format).
-	 * @see {@link #getMetadataScopes}
+	 * see {@link #getMetadataScopes}
 	 */
 	@XmlElement(name = "metadataScope")
 	@XmlJavaTypeAdapter(MD_MetadataScope.class)
@@ -877,7 +877,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the metadata scopes for this record (used in ISO 19115-3 format).
-	 * @see {@link #setMetadataScopes}
+	 * see {@link #setMetadataScopes}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlMetadataScopes(final Collection<? extends MetadataScope> newValues) {
@@ -934,7 +934,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets hierarchy levels for this record (used in ISO 19139 format).
-	 * @see {@link #getHierarchyLevels}
+	 * see {@link #getHierarchyLevels}
 	 */
 	@XmlElement(name = "hierarchyLevel")
 	private Collection<ScopeCode> getXmlHierarchyLevels() {
@@ -943,7 +943,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the hierarchy levels for this record (used in ISO 19139 format).
-	 * @see {@link #setHierarchyLevels}
+	 * see {@link #setHierarchyLevels}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlHierarchyLevels(final Collection<? extends ScopeCode> newValues) {
@@ -1001,7 +1001,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets hierarchy level names for this record (used in ISO 19139 format).
-	 * @see {@link #getHierarchyLevels}
+	 * see {@link #getHierarchyLevels}
 	 */
 	@XmlElement(name = "hierarchyLevelName")
 	private final Collection<String> getXmlHierarchyLevelNames() {
@@ -1010,7 +1010,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the hierarchy level names for this record (used in ISO 19139 format).
-	 * @see {@link #setHierarchyLevels}
+	 * see {@link #setHierarchyLevels}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlHierarchyLevelNames(final Collection<? extends String> newValues) {
@@ -1038,7 +1038,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	
 	/**
 	 * Gets the contacts for this record (used in ISO 19115-3 format).
-	 * @see {@link #getContacts}
+	 * see {@link #getContacts}
 	 */
 	@XmlElement(name = "contact", required = true)
 	@XmlJavaTypeAdapter(CI_Responsibility.class)
@@ -1055,7 +1055,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	
 	/**
 	 * Gets the contacts for this record (used in ISO 19139 format).
-	 * @see {@link #getContacts}
+	 * see {@link #getContacts}
 	 */
 	@XmlElement(name = "contact", required = true)
 	private final Collection<DefaultResponsibleParty> getXmlContactsOld() {
@@ -1076,7 +1076,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 *
 	 * @return Date(s) associated with the metadata.
 	 *
-	 * @see Citation#getDates()
+	 * see Citation#getDates()
 	 *
 	 * @since 0.5
 	 */
@@ -1117,7 +1117,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets date info for this record (used in ISO 19115-3 format).
-	 * @see {@link #getDateInfo}
+	 * see {@link #getDateInfo}
 	 */
 	@XmlElement(name = "dateInfo", required = true)
 	private final Collection<DefaultCitationDate> getXmlDateInfo() {
@@ -1129,7 +1129,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets date info for this record (used in ISO 19115-3 format).
-	 * @see {@link #setDateInfo}
+	 * see {@link #setDateInfo}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlDateInfo(final Collection<DefaultCitationDate> newValues) {
@@ -1197,7 +1197,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets the date stamp for this record (used in ISO 19139 format).
-	 * @see {@link #getDateStamp}
+	 * see {@link #getDateStamp}
 	 */
 	@XmlElement(name = "dateStamp", required = true)
 	private final Date getXmlDateStamp() {
@@ -1206,7 +1206,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the date stamp for this record (used in ISO 19139 format).
-	 * @see {@link #setDateStamp}
+	 * see {@link #setDateStamp}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlDateStamp(final Date newValue) {
@@ -1220,7 +1220,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 *
 	 * @return The standard(s) to which the metadata conform.
 	 *
-	 * @see #getMetadataProfiles()
+	 * see #getMetadataProfiles()
 	 *
 	 * @since 0.5
 	 */
@@ -1243,7 +1243,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets the metadata standards for this record (used in ISO 19115-3 format).
-	 * @see {@link #getMetadataStandards}
+	 * see {@link #getMetadataStandards}
 	 */
 	@XmlElement(name = "metadataStandard")
 	private final Collection<Citation> getXmlMetadataStandards() {
@@ -1252,7 +1252,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the metadata standards for this record (used in ISO 19115-3 format).
-	 * @see {@link #setMetadataStandards}
+	 * see {@link #setMetadataStandards}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlMetadataStandards(final Collection<? extends Citation> newValues) {
@@ -1264,8 +1264,8 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 *
 	 * @return The profile(s) to which the metadata conform.
 	 *
-	 * @see #getMetadataStandards()
-	 * @see #getMetadataExtensionInfo()
+	 * see #getMetadataStandards()
+	 * see #getMetadataExtensionInfo()
 	 *
 	 * @since 0.5
 	 */
@@ -1380,7 +1380,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets the metadata standard name for this record (used in ISO 19139 format).
-	 * @see {@link #getMetadataStandardName}
+	 * see {@link #getMetadataStandardName}
 	 */
 	@XmlElement(name = "metadataStandardName")
 	private String getXmlMetadataStandardName() {
@@ -1389,7 +1389,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the metadata standard name for this record (used in ISO 19139 format).
-	 * @see {@link #setMetadataStandardName}
+	 * see {@link #setMetadataStandardName}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlMetadataStandardName(final String newValue) {
@@ -1425,7 +1425,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Gets the metadata standard version for this record (used in ISO 19139 format).
-	 * @see {@link #getMetadataStandardVersion}
+	 * see {@link #getMetadataStandardVersion}
 	 */
 	@XmlElement(name = "metadataStandardVersion")
 	private String getXmlMetadataStandardVersion() {
@@ -1434,7 +1434,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Sets the metadata standard version for this record (used in ISO 19139 format).
-	 * @see {@link #setMetadataStandardVersion}
+	 * see {@link #setMetadataStandardVersion}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlMetadataStandardVersion(final String newValue) {

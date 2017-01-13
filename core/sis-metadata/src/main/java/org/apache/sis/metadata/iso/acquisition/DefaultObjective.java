@@ -117,7 +117,7 @@ public class DefaultObjective extends ISOMetadata implements Objective {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Objective)
+     * see #castOrCopy(Objective)
      */
     public DefaultObjective(final Objective object) {
         super(object);

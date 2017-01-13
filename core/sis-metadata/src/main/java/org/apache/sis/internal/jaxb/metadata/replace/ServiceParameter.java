@@ -88,7 +88,7 @@ public final class ServiceParameter extends SimpleIdentifiedObject implements Pa
     /**
      * The name, as used by the service for this parameter.
      *
-     * @see #getValueType()
+     * see #getValueType()
      */
     @XmlElement(required=true, name="name")
     @XmlJavaTypeAdapter(GO_MemberName.class)
@@ -114,8 +114,8 @@ public final class ServiceParameter extends SimpleIdentifiedObject implements Pa
      *   <li>In ISO 19119, this is marshalled as "{@code Optional}" or "{@code Mandatory}".</li>
      * </ul>
      *
-     * @see #getOptionality()
-     * @see #setOptionality(String)
+     * see #getOptionality()
+     * see #setOptionality(String)
      */
     public boolean optionality;
 

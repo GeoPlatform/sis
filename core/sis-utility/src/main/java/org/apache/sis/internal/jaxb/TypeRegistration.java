@@ -43,7 +43,7 @@ import org.apache.sis.internal.system.DefaultFactories;
  * @version 0.8
  * @module
  *
- * @see org.apache.sis.xml.MarshallerPool
+ * see org.apache.sis.xml.MarshallerPool
  */
 public abstract class TypeRegistration {
     /**

@@ -51,8 +51,8 @@ import java.nio.file.StandardOpenOption;
  * @version 0.8
  * @module
  *
- * @see GeocentricTranslationTest#testFranceGeocentricInterpolationPoint()
- * @see org.apache.sis.referencing.operation.transform.MolodenskyTransformTest#testFranceGeocentricInterpolationPoint()
+ * see GeocentricTranslationTest#testFranceGeocentricInterpolationPoint()
+ * see org.apache.sis.referencing.operation.transform.MolodenskyTransformTest#testFranceGeocentricInterpolationPoint()
  */
 public final strictfp class NTv2Test extends TestCase {
     /**

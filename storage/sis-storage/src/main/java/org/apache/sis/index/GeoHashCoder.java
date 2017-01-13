@@ -35,7 +35,7 @@ import org.apache.sis.util.resources.Errors;
  * @version 0.3
  * @module
  *
- * @see <a href="http://en.wikipedia.org/wiki/Geohash">Wikipedia: Geohash</a>
+ * see <a href="http://en.wikipedia.org/wiki/Geohash">Wikipedia: Geohash</a>
  */
 public class GeoHashCoder implements Serializable {
     /**

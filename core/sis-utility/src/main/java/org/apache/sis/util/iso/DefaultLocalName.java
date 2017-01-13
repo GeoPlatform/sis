@@ -60,8 +60,8 @@ import java.util.Objects;
  * @version 0.5
  * @module
  *
- * @see DefaultNameSpace
- * @see DefaultScopedName
+ * see DefaultNameSpace
+ * see DefaultScopedName
  */
 
 /*

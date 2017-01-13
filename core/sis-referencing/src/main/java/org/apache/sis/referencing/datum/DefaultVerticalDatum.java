@@ -78,10 +78,10 @@ import java.util.Objects;
  * @version 0.4
  * @module
  *
- * @see org.apache.sis.referencing.CommonCRS.Vertical#datum()
- * @see org.apache.sis.referencing.cs.DefaultVerticalCS
- * @see org.apache.sis.referencing.crs.DefaultVerticalCRS
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createVerticalDatum(String)
+ * see org.apache.sis.referencing.CommonCRS.Vertical#datum()
+ * see org.apache.sis.referencing.cs.DefaultVerticalCS
+ * see org.apache.sis.referencing.crs.DefaultVerticalCRS
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createVerticalDatum(String)
  */
 @XmlType(name = "VerticalDatumType")
 @XmlRootElement(name = "VerticalDatum")
@@ -95,8 +95,8 @@ public class DefaultVerticalDatum extends AbstractDatum implements VerticalDatum
      * The type of this vertical datum.
      * If {@code null}, a value will be inferred from the name by {@link #type()}.
      *
-     * @see #type()
-     * @see #getVerticalDatumType()
+     * see #type()
+     * see #getVerticalDatumType()
      */
     private VerticalDatumType type;
 
@@ -157,7 +157,7 @@ public class DefaultVerticalDatum extends AbstractDatum implements VerticalDatum
      * @param properties The properties to be given to the identified object.
      * @param type       The type of this vertical datum.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createVerticalDatum(Map, VerticalDatumType)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createVerticalDatum(Map, VerticalDatumType)
      */
     public DefaultVerticalDatum(final Map<String,?> properties, final VerticalDatumType type) {
         super(properties);
@@ -174,7 +174,7 @@ public class DefaultVerticalDatum extends AbstractDatum implements VerticalDatum
      *
      * @param datum The datum to copy.
      *
-     * @see #castOrCopy(VerticalDatum)
+     * see #castOrCopy(VerticalDatum)
      */
     protected DefaultVerticalDatum(final VerticalDatum datum) {
         super(datum);
@@ -223,8 +223,8 @@ public class DefaultVerticalDatum extends AbstractDatum implements VerticalDatum
      * <p>No synchronization needed; this is not a problem if this value is computed twice.
      * This method returns only existing immutable instances.</p>
      *
-     * @see #getVerticalDatumType()
-     * @see #getTypeElement()
+     * see #getVerticalDatumType()
+     * see #getTypeElement()
      */
     private VerticalDatumType type() {
         VerticalDatumType t = type;
@@ -310,7 +310,7 @@ public class DefaultVerticalDatum extends AbstractDatum implements VerticalDatum
      *
      * @return {@code "VerticalDatum"} (WKT 2) or {@code "Vert_Datum"} (WKT 1).
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#71">WKT 2 specification §10.2</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#71">WKT 2 specification §10.2</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -348,7 +348,7 @@ public class DefaultVerticalDatum extends AbstractDatum implements VerticalDatum
      * Returns the type to be marshalled to XML.
      * This element was present in GML 3.0 and 3.1, but has been removed from GML 3.2.
      *
-     * @see <a href="http://issues.apache.org/jira/browse/SIS-160">SIS-160: Need XSLT between GML 3.1 and 3.2</a>
+     * see <a href="http://issues.apache.org/jira/browse/SIS-160">SIS-160: Need XSLT between GML 3.1 and 3.2</a>
      */
     @XmlElement(name = "verticalDatumType")
     private VerticalDatumType getTypeElement() {

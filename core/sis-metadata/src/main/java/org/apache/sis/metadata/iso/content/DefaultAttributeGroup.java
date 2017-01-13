@@ -94,7 +94,7 @@ public class DefaultAttributeGroup extends ISOMetadata implements AttributeGroup
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(AttributeGroup)
+     * see #castOrCopy(AttributeGroup)
      */
     public DefaultAttributeGroup(final AttributeGroup object) {
         super(object);

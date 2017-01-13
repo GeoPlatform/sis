@@ -35,9 +35,9 @@ import org.apache.sis.internal.util.Numerics;
  * @version 0.4
  * @module
  *
- * @see Matrix1
- * @see Matrix3
- * @see Matrix4
+ * see Matrix1
+ * see Matrix3
+ * see Matrix4
  */
 public final class Matrix2 extends MatrixSIS {
     /**
@@ -92,8 +92,8 @@ public final class Matrix2 extends MatrixSIS {
      * @param elements Elements of the matrix. Column indices vary fastest.
      * @throws IllegalArgumentException If the given array does not have the expected length.
      *
-     * @see #setElements(double[])
-     * @see Matrices#create(int, int, double[])
+     * see #setElements(double[])
+     * see Matrices#create(int, int, double[])
      */
     public Matrix2(final double[] elements) throws IllegalArgumentException {
         setElements(elements);

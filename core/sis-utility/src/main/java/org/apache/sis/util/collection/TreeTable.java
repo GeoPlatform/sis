@@ -76,8 +76,8 @@ public interface TreeTable {
      *
      * @return The union of all table columns in every tree node.
      *
-     * @see Node#getValue(TableColumn)
-     * @see Node#setValue(TableColumn, Object)
+     * see Node#getValue(TableColumn)
+     * see Node#setValue(TableColumn, Object)
      */
     List<TableColumn<?>> getColumns();
 
@@ -186,7 +186,7 @@ public interface TreeTable {
          * @param  column Identifier of the column from which to get the value.
          * @return The value in the given column, or {@code null} if none.
          *
-         * @see TreeTable#getColumns()
+         * see TreeTable#getColumns()
          * @category table
          */
         <V> V getValue(TableColumn<V> column);
@@ -202,8 +202,8 @@ public interface TreeTable {
          * @throws IllegalArgumentException If the given column is not a legal column for this node.
          * @throws UnsupportedOperationException If values in the given column can not be modified.
          *
-         * @see TreeTable#getColumns()
-         * @see #isEditable(TableColumn)
+         * see TreeTable#getColumns()
+         * see #isEditable(TableColumn)
          * @category table
          */
         <V> void setValue(TableColumn<V> column, V value) throws IllegalArgumentException, UnsupportedOperationException;

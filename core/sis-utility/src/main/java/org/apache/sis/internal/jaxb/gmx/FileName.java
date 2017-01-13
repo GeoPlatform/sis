@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @version 0.4
  * @module
  *
- * @see <a href="https://issues.apache.org/jira/browse/SIS-119">SIS-119</a>
+ * see <a href="https://issues.apache.org/jira/browse/SIS-119">SIS-119</a>
  */
 @XmlType(name = "FileName_PropertyType")
 @XmlRootElement(name = "FileName")

@@ -169,7 +169,7 @@ public final strictfp class ServicesForMetadataTest extends TestCase {
      *
      * @throws FactoryException if a CRS can not be created.
      *
-     * @see <a href="https://issues.apache.org/jira/browse/SIS-303">SIS-303</a>
+     * see <a href="https://issues.apache.org/jira/browse/SIS-303">SIS-303</a>
      *
      * @since 0.7
      */

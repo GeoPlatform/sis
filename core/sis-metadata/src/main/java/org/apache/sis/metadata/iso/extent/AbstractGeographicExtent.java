@@ -91,7 +91,7 @@ public class AbstractGeographicExtent extends ISOMetadata implements GeographicE
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(GeographicExtent)
+     * see #castOrCopy(GeographicExtent)
      */
     public AbstractGeographicExtent(final GeographicExtent object) {
         super(object);

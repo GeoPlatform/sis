@@ -38,9 +38,9 @@ package org.apache.sis.referencing.operation;
  * @version 0.6
  * @module
  *
- * @see org.opengis.geometry.MismatchedReferenceSystemException
- * @see org.opengis.geometry.MismatchedDimensionException
- * @see org.apache.sis.referencing.operation.matrix.MismatchedMatrixSizeException
+ * see org.opengis.geometry.MismatchedReferenceSystemException
+ * see org.opengis.geometry.MismatchedDimensionException
+ * see org.apache.sis.referencing.operation.matrix.MismatchedMatrixSizeException
  */
 public class MismatchedDatumException extends IllegalArgumentException {
     /**

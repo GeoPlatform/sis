@@ -90,7 +90,7 @@ public class DefaultQuantitativeResult extends AbstractResult implements Quantit
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(QuantitativeResult)
+     * see #castOrCopy(QuantitativeResult)
      */
     public DefaultQuantitativeResult(final QuantitativeResult object) {
         super(object);

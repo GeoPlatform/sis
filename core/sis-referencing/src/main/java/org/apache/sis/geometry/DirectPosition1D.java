@@ -42,8 +42,8 @@ import java.util.Objects;
  * @version 0.3
  * @module
  *
- * @see DirectPosition2D
- * @see GeneralDirectPosition
+ * see DirectPosition2D
+ * see GeneralDirectPosition
  */
 public class DirectPosition1D extends AbstractDirectPosition implements Serializable, Cloneable {
     /**
@@ -100,8 +100,8 @@ public class DirectPosition1D extends AbstractDirectPosition implements Serializ
      * @throws IllegalArgumentException If the given string can not be parsed.
      * @throws MismatchedDimensionException If the given point is not one-dimensional.
      *
-     * @see #toString()
-     * @see org.apache.sis.measure.CoordinateFormat
+     * see #toString()
+     * see org.apache.sis.measure.CoordinateFormat
      */
     public DirectPosition1D(final CharSequence wkt) throws IllegalArgumentException {
         final double[] ordinates = parse(wkt);

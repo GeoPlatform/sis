@@ -324,7 +324,7 @@ public strictfp class Assert extends org.opengis.test.Assert {
      * @param  ignoredAttributes The fully-qualified names of attributes to ignore
      *         (typically {@code "xmlns:*"} and {@code "xsi:schemaLocation"}).
      *
-     * @see XMLComparator
+     * see XMLComparator
      */
     public static void assertXmlEquals(final Object expected, final Object actual, final String... ignoredAttributes) {
         assertXmlEquals(expected, actual, TestCase.STRICT, null, ignoredAttributes);
@@ -344,7 +344,7 @@ public strictfp class Assert extends org.opengis.test.Assert {
      * @param  ignoredAttributes The fully-qualified names of attributes to ignore
      *         (typically {@code "xmlns:*"} and {@code "xsi:schemaLocation"}).
      *
-     * @see XMLComparator
+     * see XMLComparator
      */
     public static void assertXmlEquals(final Object expected, final Object actual,
             final double tolerance, final String[] ignoredNodes, final String[] ignoredAttributes)

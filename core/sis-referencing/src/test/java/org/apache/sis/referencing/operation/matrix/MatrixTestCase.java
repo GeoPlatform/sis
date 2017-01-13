@@ -77,8 +77,8 @@ public abstract strictfp class MatrixTestCase extends TestCase {
      * To remove that ambiguity, one can temporarily set {@link DoubleDouble#DISABLED} to {@code true},
      * in which case the SIS results should be strictly identical to the JAMA ones.
      *
-     * @see SolverTest#TOLERANCE
-     * @see NonSquareMatrixTest#printStatistics()
+     * see SolverTest#TOLERANCE
+     * see NonSquareMatrixTest#printStatistics()
      */
     protected static final double TOLERANCE = DoubleDouble.DISABLED ? STRICT : 1E-11;
 
@@ -98,7 +98,7 @@ public abstract strictfp class MatrixTestCase extends TestCase {
      * if those statistics do not need to be collected. This is used during the test development
      * phase for tuning the tolerance threshold.
      *
-     * @see NonSquareMatrixTest#printStatistics()
+     * see NonSquareMatrixTest#printStatistics()
      */
     static final Statistics statistics = VERBOSE ? new Statistics("|SIS - JAMA|") : null;
 

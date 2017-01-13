@@ -65,9 +65,9 @@ import java.util.Objects;
  * @version 0.3
  * @module
  *
- * @see DirectPosition1D
- * @see GeneralDirectPosition
- * @see Point2D
+ * see DirectPosition1D
+ * see GeneralDirectPosition
+ * see Point2D
  */
 public class DirectPosition2D extends Point2D.Double implements DirectPosition, Cloneable {
     /**
@@ -134,7 +134,7 @@ public class DirectPosition2D extends Point2D.Double implements DirectPosition, 
      * @param  position The position to copy.
      * @throws MismatchedDimensionException if the given position is not two-dimensional.
      *
-     * @see #setLocation(Point2D)
+     * see #setLocation(Point2D)
      */
     public DirectPosition2D(final DirectPosition position) throws MismatchedDimensionException {
         ensureNonNull("position", position);
@@ -157,8 +157,8 @@ public class DirectPosition2D extends Point2D.Double implements DirectPosition, 
      * @throws IllegalArgumentException If the given string can not be parsed.
      * @throws MismatchedDimensionException If the given point is not two-dimensional.
      *
-     * @see #toString()
-     * @see org.apache.sis.measure.CoordinateFormat
+     * see #toString()
+     * see org.apache.sis.measure.CoordinateFormat
      */
     public DirectPosition2D(final CharSequence wkt) throws IllegalArgumentException {
         final double[] ordinates = AbstractDirectPosition.parse(wkt);

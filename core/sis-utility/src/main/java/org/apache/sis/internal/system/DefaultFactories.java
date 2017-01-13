@@ -36,7 +36,7 @@ import org.apache.sis.util.logging.Logging;
  * @version 0.8
  * @module
  *
- * @see <a href="https://jcp.org/en/jsr/detail?id=330">JSR-330</a>
+ * see <a href="https://jcp.org/en/jsr/detail?id=330">JSR-330</a>
  */
 public final class DefaultFactories extends SystemListener {
     /**

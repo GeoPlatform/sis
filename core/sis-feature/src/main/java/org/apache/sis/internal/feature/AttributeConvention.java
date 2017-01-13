@@ -105,7 +105,7 @@ public final class AttributeConvention extends Static {
      * <cite>Java Topology Suite</cite> (JTS) library, or any other class defined in future SIS versions.
      * See {@link #isGeometryAttribute(IdentifiedType)} for testing whether the value is a supported type.</p>
      *
-     * @see #isGeometryAttribute(IdentifiedType)
+     * see #isGeometryAttribute(IdentifiedType)
      */
     public static final LocalName GEOMETRY_PROPERTY;
 
@@ -137,7 +137,7 @@ public final class AttributeConvention extends Static {
      * <p>The {@linkplain org.apache.sis.feature.DefaultAttributeType#getValueClass() value class} should be
      * {@link org.opengis.referencing.crs.CoordinateReferenceSystem}.</p>
      *
-     * @see #getCRSCharacteristic(Property)
+     * see #getCRSCharacteristic(Property)
      */
     public static final LocalName CRS_CHARACTERISTIC;
 
@@ -151,7 +151,7 @@ public final class AttributeConvention extends Static {
      * <p>The {@linkplain org.apache.sis.feature.DefaultAttributeType#getValueClass() value class} should be
      * {@link Integer}.</p>
      *
-     * @see #getMaximalLengthCharacteristic(Property)
+     * see #getMaximalLengthCharacteristic(Property)
      */
     public static final LocalName MAXIMAL_LENGTH_CHARACTERISTIC;
 
@@ -223,7 +223,7 @@ public final class AttributeConvention extends Static {
      * @return {@code true} if the given type is (directly or indirectly) an attribute type
      *         for one of the recognized geometry types.
      *
-     * @see #GEOMETRY_PROPERTY
+     * see #GEOMETRY_PROPERTY
      */
     public static boolean isGeometryAttribute(IdentifiedType type) {
         while (type instanceof Operation) {
@@ -253,7 +253,7 @@ public final class AttributeConvention extends Static {
      * @throws ClassCastException if {@link #CRS_CHARACTERISTIC} has been found but is associated
      *         to an object which is not a {@link CoordinateReferenceSystem} instance.
      *
-     * @see org.apache.sis.feature.builder.AttributeTypeBuilder#setCRS(CoordinateReferenceSystem)
+     * see org.apache.sis.feature.builder.AttributeTypeBuilder#setCRS(CoordinateReferenceSystem)
      */
     public static CoordinateReferenceSystem getCRSCharacteristic(final Property attribute) {
         return (CoordinateReferenceSystem) getCharacteristic(attribute, CRS_CHARACTERISTIC.toString());
@@ -280,7 +280,7 @@ public final class AttributeConvention extends Static {
      * @throws ClassCastException if {@link #MAXIMAL_LENGTH_CHARACTERISTIC} has been found but is associated
      *         to an object which is not an {@link Integer} instance.
      *
-     * @see org.apache.sis.feature.builder.AttributeTypeBuilder#setMaximalLength(Integer)
+     * see org.apache.sis.feature.builder.AttributeTypeBuilder#setMaximalLength(Integer)
      */
     public static Integer getMaximalLengthCharacteristic(final Property attribute) {
         return (Integer) getCharacteristic(attribute, MAXIMAL_LENGTH_CHARACTERISTIC.toString());

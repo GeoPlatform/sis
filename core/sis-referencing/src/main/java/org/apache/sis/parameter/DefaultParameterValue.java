@@ -121,8 +121,8 @@ import static org.apache.sis.util.Utilities.deepEquals;
  * @version 0.7
  * @module
  *
- * @see DefaultParameterDescriptor
- * @see DefaultParameterValueGroup
+ * see DefaultParameterDescriptor
+ * see DefaultParameterValueGroup
  */
 @XmlType(name = "ParameterValueType", propOrder = {
     "xmlValue",
@@ -143,7 +143,7 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setDescriptor(ParameterDescriptor)}</p>
      *
-     * @see #getDescriptor()
+     * see #getDescriptor()
      */
     private ParameterDescriptor<T> descriptor;
 
@@ -185,8 +185,8 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      *
      * @param  parameter  the parameter to copy values from.
      *
-     * @see #clone()
-     * @see #unmodifiable(ParameterValue)
+     * see #clone()
+     * see #unmodifiable(ParameterValue)
      */
     public DefaultParameterValue(final ParameterValue<T> parameter) {
         ensureNonNull("parameter", parameter);
@@ -217,9 +217,9 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      *
      * @return the unit of measure, or {@code null} if none.
      *
-     * @see #doubleValue()
-     * @see #doubleValueList()
-     * @see #getValue()
+     * see #doubleValue()
+     * see #doubleValueList()
+     * see #getValue()
      */
     @Override
     public Unit<?> getUnit() {
@@ -238,8 +238,8 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @return the parameter value as an object, or {@code null} if no value has been set
      *         and there is no default value.
      *
-     * @see #setValue(Object)
-     * @see Parameters#getValue(ParameterDescriptor)
+     * see #setValue(Object)
+     * see Parameters#getValue(ParameterDescriptor)
      */
     @Override
     public T getValue() {
@@ -257,8 +257,8 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterTypeException if the value is not a boolean type.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see #setValue(boolean)
-     * @see Parameters#booleanValue(ParameterDescriptor)
+     * see #setValue(boolean)
+     * see Parameters#booleanValue(ParameterDescriptor)
      */
     @Override
     public boolean booleanValue() throws IllegalStateException {
@@ -280,9 +280,9 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterTypeException if the value is not an integer type.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see #setValue(int)
-     * @see #intValueList()
-     * @see Parameters#intValue(ParameterDescriptor)
+     * see #setValue(int)
+     * see #intValueList()
+     * see Parameters#intValue(ParameterDescriptor)
      */
     @Override
     public int intValue() throws IllegalStateException {
@@ -307,9 +307,9 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterTypeException if the value is not an array of {@code int}s.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see #setValue(Object)
-     * @see #intValue()
-     * @see Parameters#intValueList(ParameterDescriptor)
+     * see #setValue(Object)
+     * see #intValue()
+     * see Parameters#intValueList(ParameterDescriptor)
      */
     @Override
     public int[] intValueList() throws IllegalStateException {
@@ -332,10 +332,10 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterTypeException if the value is not a numeric type.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see #getUnit()
-     * @see #setValue(double)
-     * @see #doubleValueList()
-     * @see Parameters#doubleValue(ParameterDescriptor)
+     * see #getUnit()
+     * see #setValue(double)
+     * see #doubleValueList()
+     * see Parameters#doubleValue(ParameterDescriptor)
      */
     @Override
     public double doubleValue() throws IllegalStateException {
@@ -358,9 +358,9 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterTypeException if the value is not an array of {@code double}s.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see #getUnit()
-     * @see #setValue(Object)
-     * @see #doubleValue()
+     * see #getUnit()
+     * see #setValue(Object)
+     * see #doubleValue()
      */
     @Override
     public double[] doubleValueList() throws IllegalStateException {
@@ -405,10 +405,10 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterTypeException if the value is not a numeric type.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see #getUnit()
-     * @see #setValue(double,Unit)
-     * @see #doubleValueList(Unit)
-     * @see Parameters#doubleValue(ParameterDescriptor)
+     * see #getUnit()
+     * see #setValue(double,Unit)
+     * see #doubleValueList(Unit)
+     * see Parameters#doubleValue(ParameterDescriptor)
      */
     @Override
     public double doubleValue(final Unit<?> unit) throws IllegalArgumentException, IllegalStateException {
@@ -430,10 +430,10 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterTypeException if the value is not an array of {@code double}s.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see #getUnit()
-     * @see #setValue(double[],Unit)
-     * @see #doubleValue(Unit)
-     * @see Parameters#doubleValueList(ParameterDescriptor)
+     * see #getUnit()
+     * see #setValue(double[],Unit)
+     * see #doubleValue(Unit)
+     * see Parameters#doubleValueList(ParameterDescriptor)
      */
     @Override
     public double[] doubleValueList(final Unit<?> unit) throws IllegalArgumentException, IllegalStateException {
@@ -453,9 +453,9 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterTypeException if the value is not a string.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see #getValue()
-     * @see #setValue(Object)
-     * @see Parameters#stringValue(ParameterDescriptor)
+     * see #getValue()
+     * see #setValue(Object)
+     * see Parameters#stringValue(ParameterDescriptor)
      */
     @Override
     public String stringValue() throws IllegalStateException {
@@ -475,8 +475,8 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterTypeException if the value is not a reference to a file or an URI.
      * @throws IllegalStateException if the value is not defined and there is no default value.
      *
-     * @see #getValue()
-     * @see #setValue(Object)
+     * see #getValue()
+     * see #setValue(Object)
      */
     @Override
     public URI valueFile() throws IllegalStateException {
@@ -559,7 +559,7 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterValueException if the type of {@code value} is inappropriate for this parameter,
      *         or if the value is illegal for some other reason (for example the value is numeric and out of range).
      *
-     * @see #getValue()
+     * see #getValue()
      */
     @Override
     public void setValue(Object value) throws InvalidParameterValueException {
@@ -592,7 +592,7 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @param  value  the parameter value.
      * @throws InvalidParameterValueException if the boolean type is inappropriate for this parameter.
      *
-     * @see #booleanValue()
+     * see #booleanValue()
      */
     @Override
     public void setValue(final boolean value) throws InvalidParameterValueException {
@@ -611,7 +611,7 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterValueException if the integer type is inappropriate for this parameter,
      *         or if the value is illegal for some other reason (for example a value out of range).
      *
-     * @see #intValue()
+     * see #intValue()
      */
     @Override
     public void setValue(final int value) throws InvalidParameterValueException {
@@ -653,8 +653,8 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterValueException if the floating point type is inappropriate for this parameter,
      *         or if the value is illegal for some other reason (for example a value out of range).
      *
-     * @see #setValue(double,Unit)
-     * @see #doubleValue()
+     * see #setValue(double,Unit)
+     * see #doubleValue()
      */
     @Override
     public void setValue(final double value) throws InvalidParameterValueException {
@@ -678,8 +678,8 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterValueException if the floating point type is inappropriate for this parameter,
      *         or if the value is illegal for some other reason (for example a value out of range).
      *
-     * @see #setValue(double)
-     * @see #doubleValue(Unit)
+     * see #setValue(double)
+     * see #doubleValue(Unit)
      */
     @Override
     public void setValue(final double value, final Unit<?> unit) throws InvalidParameterValueException {
@@ -726,7 +726,7 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @throws InvalidParameterValueException if the type of {@code value} is inappropriate for this parameter,
      *         or if the value is illegal for some other reason (for example the value is numeric and out of range).
      *
-     * @see #validate(Object)
+     * see #validate(Object)
      */
     @SuppressWarnings("unchecked")
     protected void setValue(final Object value, final Unit<?> unit) throws InvalidParameterValueException {
@@ -829,8 +829,8 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
     /**
      * Returns a clone of this parameter value.
      *
-     * @see #DefaultParameterValue(ParameterValue)
-     * @see #unmodifiable(ParameterValue)
+     * see #DefaultParameterValue(ParameterValue)
+     * see #unmodifiable(ParameterValue)
      */
     @Override
     @SuppressWarnings("unchecked")
@@ -873,7 +873,7 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      *
      * @since 0.6
      *
-     * @see DefaultParameterValueGroup#unmodifiable(ParameterValueGroup)
+     * see DefaultParameterValueGroup#unmodifiable(ParameterValueGroup)
      */
     public static <T> DefaultParameterValue<T> unmodifiable(final ParameterValue<T> parameter) {
         return UnmodifiableParameterValue.create(parameter);
@@ -932,7 +932,7 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * @param  formatter  the formatter where to format the inner content of this WKT element.
      * @return {@code "Parameter"} or {@code "ParameterFile"}.
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#119">WKT 2 specification §17.2.4</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#119">WKT 2 specification §17.2.4</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -1067,7 +1067,7 @@ public class DefaultParameterValue<T> extends FormattableObject implements Param
      * May also be invoked by {@link DefaultParameterValueGroup} if the descriptor as been completed
      * with additional information provided in the {@code <gml:group>} element of a descriptor group.
      *
-     * @see #getDescriptor()
+     * see #getDescriptor()
      */
     final void setDescriptor(final ParameterDescriptor<T> descriptor) {
         this.descriptor = descriptor;

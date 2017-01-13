@@ -95,7 +95,7 @@ public class DefaultFeatureTypeInfo extends ISOMetadata implements FeatureTypeIn
      *
      * @param  object  the metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(FeatureTypeInfo)
+     * see #castOrCopy(FeatureTypeInfo)
      */
     public DefaultFeatureTypeInfo(final FeatureTypeInfo object) {
         super(object);
@@ -135,7 +135,7 @@ public class DefaultFeatureTypeInfo extends ISOMetadata implements FeatureTypeIn
      *
      * @return name of the feature type.
      *
-     * @see org.apache.sis.feature.DefaultFeatureType#getName()
+     * see org.apache.sis.feature.DefaultFeatureType#getName()
      */
     @Override
     @XmlElement(name = "featureTypeName", required = true)

@@ -98,7 +98,7 @@ public class DefaultDistribution extends ISOMetadata implements Distribution {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Distribution)
+     * see #castOrCopy(Distribution)
      */
     public DefaultDistribution(final Distribution object) {
         super(object);
@@ -161,7 +161,7 @@ public class DefaultDistribution extends ISOMetadata implements Distribution {
     
     /**
 	 * Gets the description. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getDescription}
+	 * see {@link #getDescription}
 	 */
 	@XmlElement(name = "description")
 	private InternationalString getXmlDescription() {
@@ -170,7 +170,7 @@ public class DefaultDistribution extends ISOMetadata implements Distribution {
 
 	/**
 	 * Sets the description. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setDescription}
+	 * see {@link #setDescription}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlDescription(final InternationalString newValue) {

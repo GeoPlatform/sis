@@ -53,8 +53,8 @@ import org.apache.sis.util.resources.Errors;
  * @version 0.8
  * @module
  *
- * @see WarningListener
- * @see org.apache.sis.storage.DataStore#listeners
+ * see WarningListener
+ * see org.apache.sis.storage.DataStore#listeners
  */
 public class WarningListeners<S> implements Localized {
     /**

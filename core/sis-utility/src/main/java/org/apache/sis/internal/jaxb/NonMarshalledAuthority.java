@@ -66,7 +66,7 @@ import org.apache.sis.xml.IdentifierSpace;
  * @version 0.7
  * @module
  *
- * @see IdentifierSpace
+ * see IdentifierSpace
  */
 public final class NonMarshalledAuthority<T> extends CitationConstant.Authority<T> {
     /**
@@ -141,7 +141,7 @@ public final class NonMarshalledAuthority<T> extends CitationConstant.Authority<
      * @param identifiers The collection in which to add the identifier.
      * @param newValue    The identifier to add, or {@code null}.
      *
-     * @see #setMarshallables(Collection, Collection)
+     * see #setMarshallables(Collection, Collection)
      */
     public static <T extends Identifier> void setMarshallable(final Collection<T> identifiers, final T newValue) {
         final Iterator<T> it = identifiers.iterator();
@@ -200,7 +200,7 @@ public final class NonMarshalledAuthority<T> extends CitationConstant.Authority<
      * @param  newValues   The identifiers to add, or {@code null}.
      * @return The collection to set (may be {@code newValues}.
      *
-     * @see #setMarshallable(Collection, Identifier)
+     * see #setMarshallable(Collection, Identifier)
      */
     @SuppressWarnings("null")
     public static Collection<? extends Identifier> setMarshallables(

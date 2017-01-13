@@ -67,7 +67,7 @@ public class AbstractCompleteness extends AbstractElement implements Completenes
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Completeness)
+     * see #castOrCopy(Completeness)
      */
     public AbstractCompleteness(final Completeness object) {
         super(object);

@@ -59,14 +59,14 @@ final class UnmodifiableParameterValueGroup extends Parameters implements Lenien
     /**
      * The parameter descriptor.
      *
-     * @see #getDescriptor()
+     * see #getDescriptor()
      */
     private final ParameterDescriptorGroup descriptor;
 
     /**
      * The parameter values.
      *
-     * @see #values()
+     * see #values()
      */
     private final List<GeneralParameterValue> values;
 
@@ -76,7 +76,7 @@ final class UnmodifiableParameterValueGroup extends Parameters implements Lenien
      * @param group The group of values to copy.
      * @param done  An initially empty map used for protection against circular references.
      *
-     * @see #create(ParameterValueGroup)
+     * see #create(ParameterValueGroup)
      */
     private UnmodifiableParameterValueGroup(final ParameterValueGroup group, final Map<ParameterValueGroup,Boolean> done) {
         if (done.put(group, Boolean.TRUE) != null) {

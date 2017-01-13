@@ -62,7 +62,7 @@ import static org.apache.sis.util.ArgumentChecks.*;
  * @version 0.5
  * @module
  *
- * @see MathTransforms#compound(MathTransform...)
+ * see MathTransforms#compound(MathTransform...)
  */
 public class PassThroughTransform extends AbstractMathTransform implements Serializable {
     /**
@@ -73,14 +73,14 @@ public class PassThroughTransform extends AbstractMathTransform implements Seria
     /**
      * Index of the first affected ordinate.
      *
-     * @see #getModifiedCoordinates()
+     * see #getModifiedCoordinates()
      */
     final int firstAffectedOrdinate;
 
     /**
      * Number of unaffected ordinates after the affected ones.
      *
-     * @see #getModifiedCoordinates()
+     * see #getModifiedCoordinates()
      */
     final int numTrailingOrdinates;
 
@@ -106,7 +106,7 @@ public class PassThroughTransform extends AbstractMathTransform implements Seria
      * @param subTransform          The sub-transform to apply on modified coordinates.
      * @param numTrailingOrdinates  Number of trailing ordinates to pass through.
      *
-     * @see #create(int, MathTransform, int)
+     * see #create(int, MathTransform, int)
      */
     protected PassThroughTransform(final int firstAffectedOrdinate,
                                    final MathTransform subTransform,
@@ -270,7 +270,7 @@ public class PassThroughTransform extends AbstractMathTransform implements Seria
      *
      * @return Zero-based indices of the modified source coordinates.
      *
-     * @see org.apache.sis.referencing.operation.DefaultPassThroughOperation#getModifiedCoordinates()
+     * see org.apache.sis.referencing.operation.DefaultPassThroughOperation#getModifiedCoordinates()
      */
     public final int[] getModifiedCoordinates() {
         final int[] index = new int[subTransform.getSourceDimensions()];
@@ -286,7 +286,7 @@ public class PassThroughTransform extends AbstractMathTransform implements Seria
      *
      * @return The sub-transform.
      *
-     * @see org.apache.sis.referencing.operation.DefaultPassThroughOperation#getOperation()
+     * see org.apache.sis.referencing.operation.DefaultPassThroughOperation#getOperation()
      */
     public final MathTransform getSubTransform() {
         return subTransform;

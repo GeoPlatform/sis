@@ -68,14 +68,14 @@ public class DefaultGeoreferenceable extends DefaultGridSpatialRepresentation im
     /**
      * Mask for the {@code controlPointAvailable} boolean value.
      *
-     * @see #booleans
+     * see #booleans
      */
     private static final byte CONTROL_POINT_MASK = TRANSFORMATION_MASK << 1;
 
     /**
      * Mask for the {@code orientationParameterAvailable} boolean value.
      *
-     * @see #booleans
+     * see #booleans
      */
     private static final byte OPERATION_MASK = CONTROL_POINT_MASK << 1;
 
@@ -112,7 +112,7 @@ public class DefaultGeoreferenceable extends DefaultGridSpatialRepresentation im
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Georeferenceable)
+     * see #castOrCopy(Georeferenceable)
      */
     public DefaultGeoreferenceable(final Georeferenceable object) {
         super(object);

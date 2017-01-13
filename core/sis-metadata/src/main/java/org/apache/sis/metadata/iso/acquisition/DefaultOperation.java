@@ -135,7 +135,7 @@ public class DefaultOperation extends ISOMetadata implements Operation {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Operation)
+     * see #castOrCopy(Operation)
      */
     public DefaultOperation(final Operation object) {
         super(object);

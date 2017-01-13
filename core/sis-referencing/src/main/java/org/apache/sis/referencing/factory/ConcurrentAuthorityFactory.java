@@ -117,7 +117,7 @@ public abstract class ConcurrentAuthorityFactory<DAO extends GeodeticAuthorityFa
      * The {@code createFoo(String)} methods that are <strong>not</strong> overridden in the Data Access Object (DAO).
      * This map is created at construction time and should not be modified after construction.
      *
-     * @see #isDefault(Class)
+     * see #isDefault(Class)
      */
     private final Map<Class<?>,Boolean> inherited = new IdentityHashMap<>();
 
@@ -223,7 +223,7 @@ public abstract class ConcurrentAuthorityFactory<DAO extends GeodeticAuthorityFa
      *
      * <p>Every access to this field must be performed in a block synchronized on {@link #availableDAOs}.</p>
      *
-     * @see #isCleanScheduled()
+     * see #isCleanScheduled()
      */
     private boolean isCleanScheduled;
 
@@ -231,7 +231,7 @@ public abstract class ConcurrentAuthorityFactory<DAO extends GeodeticAuthorityFa
      * The delay of inactivity (in nanoseconds) before to close a Data Access Object.
      * Every access to this field must be performed in a block synchronized on {@link #availableDAOs}.
      *
-     * @see #getTimeout(TimeUnit)
+     * see #getTimeout(TimeUnit)
      */
     private long timeout = 60_000_000_000L;     // 1 minute
 
@@ -310,7 +310,7 @@ public abstract class ConcurrentAuthorityFactory<DAO extends GeodeticAuthorityFa
      * Returns the number of Data Access Objects available for reuse. This count does not include the
      * Data Access Objects that are currently in use. This method is used only for testing purpose.
      *
-     * @see #isCleanScheduled()
+     * see #isCleanScheduled()
      */
     @Debug
     final int countAvailableDataAccess() {
@@ -485,7 +485,7 @@ public abstract class ConcurrentAuthorityFactory<DAO extends GeodeticAuthorityFa
      *
      * <p>This method is used only for testing purpose.</p>
      *
-     * @see #countAvailableDataAccess()
+     * see #countAvailableDataAccess()
      */
     @Debug
     final boolean isCleanScheduled() {
@@ -541,7 +541,7 @@ public abstract class ConcurrentAuthorityFactory<DAO extends GeodeticAuthorityFa
      * This method may reschedule the task again for an other execution if it appears that at least one
      * Data Access Object was not ready for disposal.
      *
-     * @see #close()
+     * see #close()
      */
     final void closeExpired() {
         final List<DAO> factories;
@@ -1579,7 +1579,7 @@ public abstract class ConcurrentAuthorityFactory<DAO extends GeodeticAuthorityFa
      *   </li>
      * </ul>
      *
-     * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-2">GEOTK-2</a>
+     * see <a href="http://jira.geotoolkit.org/browse/GEOTK-2">GEOTK-2</a>
      */
     private static final class Key {
         /** The type of the cached object.    */ final Object type;

@@ -46,9 +46,9 @@ import java.util.Objects;
  * @since   0.5
  * @module
  *
- * @see DefaultOperationMethod
- * @see org.apache.sis.referencing.operation.transform.AbstractMathTransform
- * @see org.apache.sis.referencing.operation.transform.MathTransformProvider
+ * see DefaultOperationMethod
+ * see org.apache.sis.referencing.operation.transform.AbstractMathTransform
+ * see org.apache.sis.referencing.operation.transform.MathTransformProvider
  */
 public class DefaultFormula extends FormattableObject implements Formula, Serializable {
     /**
@@ -107,7 +107,7 @@ public class DefaultFormula extends FormattableObject implements Formula, Serial
      *
      * @param formula The formula to copy.
      *
-     * @see #castOrCopy(Formula)
+     * see #castOrCopy(Formula)
      */
     protected DefaultFormula(final Formula formula) {
         ensureNonNull("formula", formula);

@@ -49,7 +49,7 @@ import org.opengis.metadata.citation.Role;
  * @version 0.5
  * @module
  *
- * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-121">GEOTK-121</a>
+ * see <a href="http://jira.geotoolkit.org/browse/GEOTK-121">GEOTK-121</a>
  */
 public final strictfp class CodeListMarshallingTest extends XMLTestCase {
     /**

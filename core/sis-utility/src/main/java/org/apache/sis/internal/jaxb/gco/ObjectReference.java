@@ -43,10 +43,10 @@ import org.apache.sis.internal.jaxb.SpecializedIdentifier;
  * @version 0.3
  * @module
  *
- * @see PropertyType
- * @see <a href="ObjectIdentification.html">ObjectIdentification</a>
- * @see <a href="http://schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd">OGC schema</a>
- * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-165">GEOTK-165</a>
+ * see PropertyType
+ * see <a href="ObjectIdentification.html">ObjectIdentification</a>
+ * see <a href="http://schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd">OGC schema</a>
+ * see <a href="http://jira.geotoolkit.org/browse/GEOTK-165">GEOTK-165</a>
  */
 final class ObjectReference {
     /**
@@ -54,7 +54,7 @@ final class ObjectReference {
      * The {@code uuidref} attribute is used to refer to an XML element that has a corresponding
      * {@code uuid} attribute.
      *
-     * @see <a href="http://www.schemacentral.com/sc/niem21/a-uuidref-1.html">Usage of uuidref</a>
+     * see <a href="http://www.schemacentral.com/sc/niem21/a-uuidref-1.html">Usage of uuidref</a>
      */
     UUID uuid;
 
@@ -72,8 +72,8 @@ final class ObjectReference {
     /**
      * Creates an object reference initialized to the given value.
      *
-     * @see ReferenceResolver#canSubstituteByReference(MarshalContext, Class, Object, UUID)
-     * @see ReferenceResolver#canSubstituteByReference(MarshalContext, Class, Object, XLink)
+     * see ReferenceResolver#canSubstituteByReference(MarshalContext, Class, Object, UUID)
+     * see ReferenceResolver#canSubstituteByReference(MarshalContext, Class, Object, XLink)
      */
     ObjectReference(final UUID uuid, final XLink link) {
         this.uuid  = uuid;

@@ -69,28 +69,28 @@ public final class Context extends MarshalContext {
     /**
      * The bit flag for enabling substitution of language codes by character strings.
      *
-     * @see org.apache.sis.xml.XML#STRING_SUBSTITUTES
+     * see org.apache.sis.xml.XML#STRING_SUBSTITUTES
      */
     public static final int SUBSTITUTE_LANGUAGE = 2;
 
     /**
      * The bit flag for enabling substitution of country codes by character strings.
      *
-     * @see org.apache.sis.xml.XML#STRING_SUBSTITUTES
+     * see org.apache.sis.xml.XML#STRING_SUBSTITUTES
      */
     public static final int SUBSTITUTE_COUNTRY = 4;
 
     /**
      * The bit flag for enabling substitution of filenames by character strings.
      *
-     * @see org.apache.sis.xml.XML#STRING_SUBSTITUTES
+     * see org.apache.sis.xml.XML#STRING_SUBSTITUTES
      */
     public static final int SUBSTITUTE_FILENAME = 8;
 
     /**
      * The bit flag for enabling substitution of mime types by character strings.
      *
-     * @see org.apache.sis.xml.XML#STRING_SUBSTITUTES
+     * see org.apache.sis.xml.XML#STRING_SUBSTITUTES
      */
     public static final int SUBSTITUTE_MIMETYPE = 16;
 
@@ -185,8 +185,8 @@ public final class Context extends MarshalContext {
      * <p>For performance reasons, this {@code wrapper} information is not provided by default.
      * See {@link #setWrapper(Context, PropertyType)} for more information.</p>
      *
-     * @see #getWrapper(Context)
-     * @see #setWrapper(Context, PropertyType)
+     * see #getWrapper(Context)
+     * see #setWrapper(Context, PropertyType)
      */
     private PropertyType<?,?> wrapper;
 
@@ -390,7 +390,7 @@ public final class Context extends MarshalContext {
      * @param  version  the version to compare to.
      * @return {@code true} if the GML version is equals or newer than the specified version.
      *
-     * @see #getVersion(String)
+     * see #getVersion(String)
      */
     public static boolean isGMLVersion(final Context context, final Version version) {
         if (context != null) {
@@ -414,7 +414,7 @@ public final class Context extends MarshalContext {
      * @param  version  the version to compare to.
      * @return {@code true} if the Metadata version is equals or newer than the specified version.
      *
-     * @see #getVersion(String)
+     * see #getVersion(String)
      */
     public static boolean isMetadataVersion(final Context context, final Version version) {
         if (context != null) {

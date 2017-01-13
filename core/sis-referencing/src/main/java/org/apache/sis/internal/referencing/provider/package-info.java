@@ -25,6 +25,6 @@
  * @version 0.8
  * @module
  *
- * @see org.apache.sis.referencing.operation.transform.MathTransformProvider
+ * see org.apache.sis.referencing.operation.transform.MathTransformProvider
  */
 package org.apache.sis.internal.referencing.provider;

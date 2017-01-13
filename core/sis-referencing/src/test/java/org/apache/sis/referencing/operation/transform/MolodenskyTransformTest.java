@@ -93,7 +93,7 @@ public final strictfp class MolodenskyTransformTest extends MathTransformTestCas
      * @throws TransformException if a transformation failed.
      * @throws IOException should never happen.
      *
-     * @see #compareWithGeocentricTranslation()
+     * see #compareWithGeocentricTranslation()
      */
     @SuppressWarnings("fallthrough")
     private void compareWithGeocentricTranslation(
@@ -262,7 +262,7 @@ public final strictfp class MolodenskyTransformTest extends MathTransformTestCas
      * @throws FactoryException if an error occurred while creating the transform.
      * @throws TransformException if transformation of a point failed.
      *
-     * @see GeocentricTranslationTest#testFranceGeocentricInterpolationPoint()
+     * see GeocentricTranslationTest#testFranceGeocentricInterpolationPoint()
      */
     @Test
     @DependsOnMethod("testMolodensky")
@@ -305,7 +305,7 @@ public final strictfp class MolodenskyTransformTest extends MathTransformTestCas
      * @throws TransformException if a transformation failed.
      * @throws IOException should never happen.
      *
-     * @see #testFranceGeocentricInterpolationPoint()
+     * see #testFranceGeocentricInterpolationPoint()
      */
     @Test
     @DependsOnMethod("testFranceGeocentricInterpolationPoint")

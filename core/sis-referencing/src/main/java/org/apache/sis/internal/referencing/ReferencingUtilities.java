@@ -74,7 +74,7 @@ public final class ReferencingUtilities extends Static {
      * @param  unit The unit for the prime meridian to return.
      * @return The prime meridian in the given units, or {@code 0} if the given prime meridian was null.
      *
-     * @see DefaultPrimeMeridian#getGreenwichLongitude(Unit)
+     * see DefaultPrimeMeridian#getGreenwichLongitude(Unit)
      */
     public static double getGreenwichLongitude(final PrimeMeridian primeMeridian, final Unit<Angle> unit) {
         if (primeMeridian == null) {
@@ -97,7 +97,7 @@ public final class ReferencingUtilities extends Static {
      * @param cs The coordinate system for which to get the unit, or {@code null}.
      * @return The unit for all axis in the given coordinate system, or {@code null}.
      *
-     * @see org.apache.sis.internal.metadata.AxisDirections#getAngularUnit(CoordinateSystem)
+     * see org.apache.sis.internal.metadata.AxisDirections#getAngularUnit(CoordinateSystem)
      */
     public static Unit<?> getUnit(final CoordinateSystem cs) {
         Unit<?> unit = null;
@@ -150,7 +150,7 @@ public final class ReferencingUtilities extends Static {
      *         got the same content (assuming that {@code addTo} was empty prior this method call).
      * @throws ClassCastException if a CRS is neither a {@link SingleCRS} or a {@link CompoundCRS}.
      *
-     * @see org.apache.sis.referencing.CRS#getSingleComponents(CoordinateReferenceSystem)
+     * see org.apache.sis.referencing.CRS#getSingleComponents(CoordinateReferenceSystem)
      */
     public static boolean getSingleComponents(final Iterable<? extends CoordinateReferenceSystem> source,
             final Collection<? super SingleCRS> addTo) throws ClassCastException
@@ -270,7 +270,7 @@ public final class ReferencingUtilities extends Static {
      * @param  excludes The keys of properties to exclude from the map.
      * @return A view of the identified object properties.
      *
-     * @see IdentifiedObjects#getProperties(IdentifiedObject, String...)
+     * see IdentifiedObjects#getProperties(IdentifiedObject, String...)
      *
      * @since 0.7
      */
@@ -317,7 +317,7 @@ public final class ReferencingUtilities extends Static {
      * @param  type The interface or classes for which to get the XML property name.
      * @return The XML property name for the given class or interface, or {@code null} if none.
      *
-     * @see WKTUtilities#toType(Class, Class)
+     * see WKTUtilities#toType(Class, Class)
      *
      * @since 0.6
      */

@@ -83,7 +83,7 @@ public abstract class ChannelData {
      * and the remaining of the {@code long} value is the stream position where the bit
      * offset is valid.
      *
-     * @see #getBitOffset()
+     * see #getBitOffset()
      */
     private long bitPosition;
 

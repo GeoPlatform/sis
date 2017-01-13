@@ -80,7 +80,7 @@ public class DBFStatement extends AbstractStatement {
     }
 
     /**
-     * @see java.sql.Statement#execute(java.lang.String)
+     * see java.sql.Statement#execute(java.lang.String)
      */
     @Override
     public boolean execute(String sql) throws SQLException {
@@ -119,7 +119,7 @@ public class DBFStatement extends AbstractStatement {
     }
 
     /**
-     * @see java.sql.Statement#getMaxRows()
+     * see java.sql.Statement#getMaxRows()
      */
     @Override
     public int getMaxRows() {
@@ -137,7 +137,7 @@ public class DBFStatement extends AbstractStatement {
     }
 
     /**
-     * @see java.sql.Statement#getUpdateCount()
+     * see java.sql.Statement#getUpdateCount()
      */
     @Override
     public int getUpdateCount() {
@@ -145,7 +145,7 @@ public class DBFStatement extends AbstractStatement {
     }
 
     /**
-     * @see java.sql.Statement#close()
+     * see java.sql.Statement#close()
      */
     @Override
     public void close() {
@@ -194,7 +194,7 @@ public class DBFStatement extends AbstractStatement {
     }
 
     /**
-     * @see java.sql.Wrapper#isWrapperFor(java.lang.Class)
+     * see java.sql.Wrapper#isWrapperFor(java.lang.Class)
      */
     @Override
     public boolean isWrapperFor(Class<?> iface) {
@@ -227,7 +227,7 @@ public class DBFStatement extends AbstractStatement {
     }
 
     /**
-     * @see java.sql.Statement#setMaxRows(int)
+     * see java.sql.Statement#setMaxRows(int)
      */
     @Override
     public void setMaxRows(int max) {
@@ -235,7 +235,7 @@ public class DBFStatement extends AbstractStatement {
     }
 
     /**
-     * @see java.lang.Object#toString()
+     * see java.lang.Object#toString()
      */
     @Override
     public String toString() {

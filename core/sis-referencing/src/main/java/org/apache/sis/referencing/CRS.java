@@ -182,8 +182,8 @@ public final class CRS extends Static {
      * @throws NoSuchAuthorityCodeException if there is no known CRS associated to the given code.
      * @throws FactoryException if the CRS creation failed for an other reason.
      *
-     * @see #getAuthorityFactory(String)
-     * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory
+     * see #getAuthorityFactory(String)
+     * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory
      *
      * @category factory
      */
@@ -243,9 +243,9 @@ public final class CRS extends Static {
      * @return the parsed Coordinate Reference System.
      * @throws FactoryException if the given WKT can not be parsed.
      *
-     * @see org.apache.sis.io.wkt
-     * @see org.apache.sis.geometry.Envelopes#fromWKT(CharSequence)
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
+     * see org.apache.sis.io.wkt
+     * see org.apache.sis.geometry.Envelopes#fromWKT(CharSequence)
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
      *
      * @since 0.6
      */
@@ -264,7 +264,7 @@ public final class CRS extends Static {
      * @return the unmarshalled Coordinate Reference System.
      * @throws FactoryException if the object creation failed.
      *
-     * @see org.apache.sis.xml.XML#unmarshal(String)
+     * see org.apache.sis.xml.XML#unmarshal(String)
      *
      * @since 0.7
      */
@@ -306,7 +306,7 @@ public final class CRS extends Static {
      * @throws OperationNotFoundException if no operation was found between the given pair of CRS.
      * @throws FactoryException if the operation can not be created for another reason.
      *
-     * @see DefaultCoordinateOperationFactory#createOperation(CoordinateReferenceSystem, CoordinateReferenceSystem, CoordinateOperationContext)
+     * see DefaultCoordinateOperationFactory#createOperation(CoordinateReferenceSystem, CoordinateReferenceSystem, CoordinateOperationContext)
      *
      * @since 0.7
      */
@@ -370,7 +370,7 @@ public final class CRS extends Static {
      * @param  operation  the coordinate operation for which to get the accuracy estimation, or {@code null}.
      * @return the accuracy estimation (always in meters), or NaN if unknown.
      *
-     * @see #findOperation(CoordinateReferenceSystem, CoordinateReferenceSystem, GeographicBoundingBox)
+     * see #findOperation(CoordinateReferenceSystem, CoordinateReferenceSystem, GeographicBoundingBox)
      *
      * @since 0.7
      */
@@ -394,8 +394,8 @@ public final class CRS extends Static {
      * @param  operation  the coordinate operation for which to get the domain of validity, or {@code null}.
      * @return the geographic area where the operation is valid, or {@code null} if unspecified.
      *
-     * @see #findOperation(CoordinateReferenceSystem, CoordinateReferenceSystem, GeographicBoundingBox)
-     * @see Extents#getGeographicBoundingBox(Extent)
+     * see #findOperation(CoordinateReferenceSystem, CoordinateReferenceSystem, GeographicBoundingBox)
+     * see Extents#getGeographicBoundingBox(Extent)
      *
      * @category information
      *
@@ -415,8 +415,8 @@ public final class CRS extends Static {
      * @param  crs  the coordinate reference system for which to get the domain of validity, or {@code null}.
      * @return the geographic area where the coordinate reference system is valid, or {@code null} if unspecified.
      *
-     * @see #getDomainOfValidity(CoordinateReferenceSystem)
-     * @see Extents#getGeographicBoundingBox(Extent)
+     * see #getDomainOfValidity(CoordinateReferenceSystem)
+     * see Extents#getGeographicBoundingBox(Extent)
      *
      * @category information
      */
@@ -442,7 +442,7 @@ public final class CRS extends Static {
      * @param  crs  the coordinate reference system, or {@code null}.
      * @return the envelope with coordinates in the given CRS, or {@code null} if none.
      *
-     * @see #getGeographicBoundingBox(CoordinateReferenceSystem)
+     * see #getGeographicBoundingBox(CoordinateReferenceSystem)
      *
      * @category information
      * @since 0.8
@@ -535,7 +535,7 @@ public final class CRS extends Static {
      * @param  crs  the coordinate reference system, or {@code null}.
      * @return {@code true} if the given CRS is non-null and likely horizontal, or {@code false} otherwise.
      *
-     * @see #getHorizontalComponent(CoordinateReferenceSystem)
+     * see #getHorizontalComponent(CoordinateReferenceSystem)
      *
      * @category information
      */
@@ -741,7 +741,7 @@ public final class CRS extends Static {
      * @return the single coordinate reference systems, or an empty list if the given CRS is {@code null}.
      * @throws ClassCastException if a CRS is neither a {@link SingleCRS} or a {@link CompoundCRS}.
      *
-     * @see DefaultCompoundCRS#getSingleComponents()
+     * see DefaultCompoundCRS#getSingleComponents()
      */
     public static List<SingleCRS> getSingleComponents(final CoordinateReferenceSystem crs) {
         final List<SingleCRS> singles;
@@ -793,7 +793,7 @@ public final class CRS extends Static {
      *
      * @since 0.5
      *
-     * @see org.apache.sis.geometry.GeneralEnvelope#subEnvelope(int, int)
+     * see org.apache.sis.geometry.GeneralEnvelope#subEnvelope(int, int)
      */
     public static CoordinateReferenceSystem getComponentAt(CoordinateReferenceSystem crs, int lower, int upper) {
         int dimension = ReferencingUtilities.getDimension(crs);
@@ -829,7 +829,7 @@ check:  while (lower != 0 || upper != dimension) {
      *
      * @since 0.5
      *
-     * @see org.apache.sis.referencing.datum.DefaultPrimeMeridian#getGreenwichLongitude(Unit)
+     * see org.apache.sis.referencing.datum.DefaultPrimeMeridian#getGreenwichLongitude(Unit)
      */
     public static double getGreenwichLongitude(final GeodeticCRS crs) {
         ArgumentChecks.ensureNonNull("crs", crs);
@@ -862,8 +862,8 @@ check:  while (lower != 0 || upper != dimension) {
      * @return the system-wide authority factory used by SIS for the given authority.
      * @throws FactoryException if no factory can be returned for the given authority.
      *
-     * @see #forCode(String)
-     * @see org.apache.sis.referencing.factory.MultiAuthoritiesFactory
+     * see #forCode(String)
+     * see org.apache.sis.referencing.factory.MultiAuthoritiesFactory
      *
      * @since 0.7
      */

@@ -122,7 +122,7 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(CoupledResource)
+     * see #castOrCopy(CoupledResource)
      */
     public DefaultCoupledResource(final CoupledResource object) {
         super(object);
@@ -202,7 +202,7 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
     
     /**
 	 * Gets the resource references for this resource (used in ISO 19115-3 format).
-	 * @see {@link #getResourceReferences}
+	 * see {@link #getResourceReferences}
 	 */
 	@XmlElement(name = "resourceReference", namespace = Namespaces.SRV)
 	private Collection<Citation> getXmlResourceReferences() {
@@ -233,7 +233,7 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
     
     /**
 	 * Gets the resources for this resource (used in ISO 19115-3 format).
-	 * @see {@link #getResources}
+	 * see {@link #getResources}
 	 */
 	@XmlElement(name = "resource", namespace = Namespaces.SRV)
 	private Collection<DataIdentification> getXmlResources() {
@@ -265,7 +265,7 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
     
     /**
 	 * Gets the operation for this resource (used in ISO 19115-3 format).
-	 * @see {@link #getOperation}
+	 * see {@link #getOperation}
 	 */
 	@XmlElement(name = "operation", namespace = Namespaces.SRV)
 	private OperationMetadata getXmlOperation() {
@@ -274,7 +274,7 @@ public class DefaultCoupledResource extends ISOMetadata implements CoupledResour
 	
 	/**
 	 * Sets the operation for this resource (used in ISO 19115-3 format).
-	 * @see {@link #setOperation}
+	 * see {@link #setOperation}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlOperation(final OperationMetadata newValue) {

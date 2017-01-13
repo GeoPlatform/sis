@@ -49,7 +49,7 @@ final class SubTypes {
     /**
      * Returns a SIS implementation for the given coordinate operation.
      *
-     * @see AbstractCoordinateOperation#castOrCopy(CoordinateOperation)
+     * see AbstractCoordinateOperation#castOrCopy(CoordinateOperation)
      */
     static AbstractCoordinateOperation castOrCopy(final CoordinateOperation object) {
         if (object instanceof Transformation) {
@@ -83,7 +83,7 @@ final class SubTypes {
     /**
      * Returns a SIS implementation for the given conversion.
      *
-     * @see DefaultConversion#castOrCopy(Conversion)
+     * see DefaultConversion#castOrCopy(Conversion)
      */
     static DefaultConversion forConversion(final Conversion object) {
         if (object instanceof CylindricalProjection) {

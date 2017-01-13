@@ -237,7 +237,7 @@ filter: for (final Locale locale : locales) {
      * @return The language for the given code (never {@code null}).
      * @throws IllformedLocaleException If the given code is not valid.
      *
-     * @see Locale#forLanguageTag(String)
+     * see Locale#forLanguageTag(String)
      */
     public static Locale parse(final String code) throws IllformedLocaleException {
         return parse(code, 0);
@@ -259,8 +259,8 @@ filter: for (final Locale locale : locales) {
      * @return The language for the given code (never {@code null}).
      * @throws IllformedLocaleException If the given code is not valid.
      *
-     * @see Locale#forLanguageTag(String)
-     * @see org.apache.sis.util.iso.Types#toInternationalString(Map, String)
+     * see Locale#forLanguageTag(String)
+     * see org.apache.sis.util.iso.Types#toInternationalString(Map, String)
      */
     public static Locale parse(final String code, final int fromIndex) throws IllformedLocaleException {
         ArgumentChecks.ensureNonNull("code", code);

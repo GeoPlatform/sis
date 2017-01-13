@@ -60,8 +60,8 @@ public class ScriptRunner implements AutoCloseable {
     /**
      * The database user having read (not write) permissions.
      *
-     * @see #isGrantOnSchemaSupported
-     * @see #isGrantOnTableSupported
+     * see #isGrantOnSchemaSupported
+     * see #isGrantOnTableSupported
      */
     protected static final String PUBLIC = "PUBLIC";
 
@@ -107,7 +107,7 @@ public class ScriptRunner implements AutoCloseable {
      * A mapping of words to replace. The replacements are performed only for occurrences outside identifiers or texts.
      * See {@link #addReplacement(String, String)} for more explanation.
      *
-     * @see #addReplacement(String, String)
+     * see #addReplacement(String, String)
      */
     private final Map<String,String> replacements = new HashMap<>();
 
@@ -115,7 +115,7 @@ public class ScriptRunner implements AutoCloseable {
      * A sentinel value for the {@linkplain #replace replacements} map meaning that {@code ScriptRunner}
      * needs to look also at the word after the word associated to {@code MORE_WORDS}.
      *
-     * @see #replace(String, String)
+     * see #replace(String, String)
      */
     protected static final String MORE_WORDS = "…";
 
@@ -141,7 +141,7 @@ public class ScriptRunner implements AutoCloseable {
      *   <li><b>Other databases:</b> assumed not supported.</li>
      * </ul>
      *
-     * @see #statementsToSkip
+     * see #statementsToSkip
      */
     protected final boolean isEnumTypeSupported;
 
@@ -164,7 +164,7 @@ public class ScriptRunner implements AutoCloseable {
      *     GRANT USAGE ON SCHEMA metadata TO PUBLIC;
      * }
      *
-     * @see #statementsToSkip
+     * see #statementsToSkip
      */
     protected final boolean isGrantOnSchemaSupported;
 
@@ -177,7 +177,7 @@ public class ScriptRunner implements AutoCloseable {
      *     GRANT SELECT ON TABLE epsg_coordinatereferencesystem TO PUBLIC;
      * }
      *
-     * @see #statementsToSkip
+     * see #statementsToSkip
      */
     protected final boolean isGrantOnTableSupported;
 
@@ -189,7 +189,7 @@ public class ScriptRunner implements AutoCloseable {
      *     COMMENT ON SCHEMA metadata IS 'ISO 19115 metadata';
      * }
      *
-     * @see #statementsToSkip
+     * see #statementsToSkip
      */
     protected final boolean isCommentSupported;
 

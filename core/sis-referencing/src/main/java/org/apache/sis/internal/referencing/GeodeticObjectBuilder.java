@@ -66,14 +66,14 @@ public class GeodeticObjectBuilder extends Builder<GeodeticObjectBuilder> {
      * The name of the conversion to use for creating a {@code ProjectedCRS} or {@code DerivedCRS}.
      * This name is for information purpose; its value does not impact the numerical results of coordinate operations.
      *
-     * @see #setConversionName(String)
+     * see #setConversionName(String)
      */
     private String conversionName;
 
     /**
      * The conversion method used by {@code ProjectedCRS} or {@code DerivedCRS}, or {@code null} if unspecified.
      *
-     * @see #setConversionMethod(String)
+     * see #setConversionMethod(String)
      */
     private OperationMethod method;
 

@@ -37,8 +37,8 @@ import org.opengis.referencing.crs.ProjectedCRS;
  * @version 0.6
  * @module
  *
- * @see org.apache.sis.referencing.crs.DefaultProjectedCRS
- * @see <a href="http://mathworld.wolfram.com/AzimuthalProjection.html">Azimuthal projection on MathWorld</a>
+ * see org.apache.sis.referencing.crs.DefaultProjectedCRS
+ * see <a href="http://mathworld.wolfram.com/AzimuthalProjection.html">Azimuthal projection on MathWorld</a>
  */
 @XmlTransient
 final class DefaultPlanarProjection extends DefaultProjection implements PlanarProjection {

@@ -66,7 +66,7 @@ public enum DataDirectory {
     /**
      * Key of the last message logged at {@link Level#WARNING}, or {@code null} if none.
      *
-     * @see #getRootDirectory()
+     * see #getRootDirectory()
      */
     private static short lastWarning;
 
@@ -74,14 +74,14 @@ public enum DataDirectory {
      * The root directory fetched from the {@code SIS_DATA} environment variable when first needed,
      * or {@code null} if none or not yet determined.
      *
-     * @see #getRootDirectory()
+     * see #getRootDirectory()
      */
     private static Path rootDirectory;
 
     /**
      * The directory, or {@code null} if none or not yet determined.
      *
-     * @see #getDirectory()
+     * see #getDirectory()
      */
     private Path directory;
 

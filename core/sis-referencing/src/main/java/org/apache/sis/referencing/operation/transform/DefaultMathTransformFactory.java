@@ -164,8 +164,8 @@ import org.apache.sis.util.resources.Errors;
  * @version 0.8
  * @module
  *
- * @see MathTransformProvider
- * @see AbstractMathTransform
+ * see MathTransformProvider
+ * see AbstractMathTransform
  */
 public class DefaultMathTransformFactory extends AbstractFactory implements MathTransformFactory, Parser {
     /*
@@ -247,7 +247,7 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
      * operation methods. By default, only operation methods that implement the {@link MathTransformProvider} interface
      * can be used by the {@code create(…)} methods in this class.
      *
-     * @see #reload()
+     * see #reload()
      */
     public DefaultMathTransformFactory() {
         /*
@@ -331,9 +331,9 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
      *         only map projection methods, <i>etc</i>.
      * @return Methods available in this factory for coordinate operations of the given type.
      *
-     * @see #getDefaultParameters(String)
-     * @see #createParameterizedTransform(ParameterValueGroup, Context)
-     * @see DefaultOperationMethod#getOperationType()
+     * see #getDefaultParameters(String)
+     * see #createParameterizedTransform(ParameterValueGroup, Context)
+     * see DefaultOperationMethod#getOperationType()
      */
     @Override
     public Set<OperationMethod> getAvailableMethods(final Class<? extends SingleOperation> type) {
@@ -378,7 +378,7 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
      * @return The coordinate operation method for the given name or identifier.
      * @throws NoSuchIdentifierException if there is no operation method registered for the specified identifier.
      *
-     * @see org.apache.sis.referencing.operation.DefaultCoordinateOperationFactory#getOperationMethod(String)
+     * see org.apache.sis.referencing.operation.DefaultCoordinateOperationFactory#getOperationMethod(String)
      */
     public OperationMethod getOperationMethod(String identifier) throws NoSuchIdentifierException {
         identifier = CharSequences.trimWhitespaces(identifier);
@@ -418,9 +418,9 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
      * @return A new group of parameter values for the {@code OperationMethod} identified by the given name.
      * @throws NoSuchIdentifierException if there is no method registered for the given name or identifier.
      *
-     * @see #getAvailableMethods(Class)
-     * @see #createParameterizedTransform(ParameterValueGroup, Context)
-     * @see AbstractMathTransform#getParameterValues()
+     * see #getAvailableMethods(Class)
+     * see #createParameterizedTransform(ParameterValueGroup, Context)
+     * see AbstractMathTransform#getParameterValues()
      */
     @Override
     public ParameterValueGroup getDefaultParameters(final String method) throws NoSuchIdentifierException {
@@ -500,7 +500,7 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
         /**
          * The parameters actually used.
          *
-         * @see #getCompletedParameters()
+         * see #getCompletedParameters()
          */
         ParameterValueGroup parameters;
 
@@ -634,8 +634,8 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
          * @return The requested matrix, or {@code null} if this {@code Context} has no information about the coordinate system.
          * @throws FactoryException if an error occurred while computing the matrix.
          *
-         * @see DefaultMathTransformFactory#createAffineTransform(Matrix)
-         * @see DefaultMathTransformFactory#createParameterizedTransform(ParameterValueGroup, Context)
+         * see DefaultMathTransformFactory#createAffineTransform(Matrix)
+         * see DefaultMathTransformFactory#createParameterizedTransform(ParameterValueGroup, Context)
          */
         @SuppressWarnings("fallthrough")
         public Matrix getMatrix(final ContextualParameters.MatrixRole role) throws FactoryException {
@@ -854,7 +854,7 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
          * @throws IllegalArgumentException if the operation fails because a parameter has a unrecognized name or an
          *         illegal value.
          *
-         * @see #getCompletedParameters()
+         * see #getCompletedParameters()
          */
         @SuppressWarnings("null")
         final RuntimeException completeParameters(OperationMethod method, final ParameterValueGroup userParams)
@@ -968,10 +968,10 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
      * @throws FactoryException if the object creation failed. This exception is thrown
      *         if some required parameter has not been supplied, or has illegal value.
      *
-     * @see #getDefaultParameters(String)
-     * @see #getAvailableMethods(Class)
-     * @see #getLastMethodUsed()
-     * @see org.apache.sis.parameter.ParameterBuilder#createGroupForMapProjection(ParameterDescriptor...)
+     * see #getDefaultParameters(String)
+     * see #getAvailableMethods(Class)
+     * see #getLastMethodUsed()
+     * see org.apache.sis.parameter.ParameterBuilder#createGroupForMapProjection(ParameterDescriptor...)
      */
     public MathTransform createParameterizedTransform(ParameterValueGroup parameters,
             final Context context) throws NoSuchIdentifierException, FactoryException
@@ -1081,8 +1081,8 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
      * @return A transform taking in account unit conversions and axis swapping.
      * @throws FactoryException if the object creation failed.
      *
-     * @see org.apache.sis.referencing.cs.AxesConvention#NORMALIZED
-     * @see org.apache.sis.referencing.operation.DefaultConversion#DefaultConversion(Map, OperationMethod, MathTransform, ParameterValueGroup)
+     * see org.apache.sis.referencing.cs.AxesConvention#NORMALIZED
+     * see org.apache.sis.referencing.operation.DefaultConversion#DefaultConversion(Map, OperationMethod, MathTransform, ParameterValueGroup)
      *
      * @since 0.7
      */
@@ -1212,7 +1212,7 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
      * @return The affine transform.
      * @throws FactoryException if the object creation failed.
      *
-     * @see MathTransforms#linear(Matrix)
+     * see MathTransforms#linear(Matrix)
      */
     @Override
     public MathTransform createAffineTransform(final Matrix matrix) throws FactoryException {
@@ -1236,7 +1236,7 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
      * @return The concatenated transform.
      * @throws FactoryException if the object creation failed.
      *
-     * @see MathTransforms#concatenate(MathTransform, MathTransform)
+     * see MathTransforms#concatenate(MathTransform, MathTransform)
      */
     @Override
     public MathTransform createConcatenatedTransform(final MathTransform tr1,
@@ -1381,7 +1381,7 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
      *
      * @return The last method used by a {@code create(…)} constructor, or {@code null} if unknown of unsupported.
      *
-     * @see #createParameterizedTransform(ParameterValueGroup, Context)
+     * see #createParameterizedTransform(ParameterValueGroup, Context)
      */
     @Override
     public OperationMethod getLastMethodUsed() {
@@ -1401,8 +1401,8 @@ public class DefaultMathTransformFactory extends AbstractFactory implements Math
      * This method is useful to sophisticated applications which dynamically make new plug-ins available at runtime,
      * for example following changes of the application classpath.
      *
-     * @see #DefaultMathTransformFactory(Iterable)
-     * @see ServiceLoader#reload()
+     * see #DefaultMathTransformFactory(Iterable)
+     * see ServiceLoader#reload()
      */
     public void reload() {
         synchronized (methods) {

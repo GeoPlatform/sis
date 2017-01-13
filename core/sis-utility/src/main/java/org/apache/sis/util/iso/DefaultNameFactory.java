@@ -73,12 +73,12 @@ import static org.apache.sis.util.iso.DefaultNameSpace.DEFAULT_SEPARATOR_STRING;
  * @version 0.5
  * @module
  *
- * @see Names
- * @see DefaultNameSpace
- * @see DefaultScopedName
- * @see DefaultLocalName
- * @see DefaultTypeName
- * @see DefaultMemberName
+ * see Names
+ * see DefaultNameSpace
+ * see DefaultScopedName
+ * see DefaultLocalName
+ * see DefaultTypeName
+ * see DefaultMemberName
  */
 public class DefaultNameFactory extends AbstractFactory implements NameFactory {
     /**
@@ -114,7 +114,7 @@ public class DefaultNameFactory extends AbstractFactory implements NameFactory {
      * @param  strings  string value for each locale key.
      * @return the international string.
      *
-     * @see Types#toInternationalString(CharSequence)
+     * see Types#toInternationalString(CharSequence)
      */
     @Override
     public InternationalString createInternationalString(final Map<Locale,String> strings) {
@@ -174,7 +174,7 @@ public class DefaultNameFactory extends AbstractFactory implements NameFactory {
      * @param  properties  an optional map of properties to be assigned to the namespace, or {@code null} if none.
      * @return a namespace having the given name and separator.
      *
-     * @see Names#createLocalName(CharSequence, String, CharSequence)
+     * see Names#createLocalName(CharSequence, String, CharSequence)
      */
     @Override
     public NameSpace createNameSpace(final GenericName name, final Map<String,?> properties) {
@@ -204,8 +204,8 @@ public class DefaultNameFactory extends AbstractFactory implements NameFactory {
      * @param  name   the type name as a string or an international string.
      * @return the type name for the given character sequence.
      *
-     * @see #toTypeName(Class)
-     * @see Names#createTypeName(CharSequence, String, CharSequence)
+     * see #toTypeName(Class)
+     * see Names#createTypeName(CharSequence, String, CharSequence)
      */
     @Override
     public TypeName createTypeName(final NameSpace scope, final CharSequence name) {
@@ -222,7 +222,7 @@ public class DefaultNameFactory extends AbstractFactory implements NameFactory {
      * @param  attributeType  the type of the data associated with the record member.
      * @return the member name for the given character sequence.
      *
-     * @see Names#createMemberName(CharSequence, String, CharSequence, Class)
+     * see Names#createMemberName(CharSequence, String, CharSequence, Class)
      */
     @Override
     public MemberName createMemberName(final NameSpace scope, final CharSequence name, final TypeName attributeType) {
@@ -238,7 +238,7 @@ public class DefaultNameFactory extends AbstractFactory implements NameFactory {
      * @param  name   the local name as a string or an international string.
      * @return the local name for the given character sequence.
      *
-     * @see Names#createLocalName(CharSequence, String, CharSequence)
+     * see Names#createLocalName(CharSequence, String, CharSequence)
      */
     @Override
     public LocalName createLocalName(final NameSpace scope, final CharSequence name) {
@@ -265,7 +265,7 @@ public class DefaultNameFactory extends AbstractFactory implements NameFactory {
      *                      This array shall contain at least one element.
      * @return the generic name for the given parsed names.
      *
-     * @see #parseGenericName(NameSpace, CharSequence)
+     * see #parseGenericName(NameSpace, CharSequence)
      */
     @Override
     public GenericName createGenericName(final NameSpace scope, final CharSequence... parsedNames) {
@@ -287,7 +287,7 @@ public class DefaultNameFactory extends AbstractFactory implements NameFactory {
      * @param  name   the qualified name, as a sequence of names separated by a scope-dependent separator.
      * @return a name parsed from the given string.
      *
-     * @see Names#parseGenericName(CharSequence, String, CharSequence)
+     * see Names#parseGenericName(CharSequence, String, CharSequence)
      */
     @Override
     public GenericName parseGenericName(final NameSpace scope, final CharSequence name) {
@@ -419,8 +419,8 @@ public class DefaultNameFactory extends AbstractFactory implements NameFactory {
      * @param  valueClass  the Java class for which to get a type name, or {@code null}.
      * @return a suggested type name, or {@code null} if the given class was null.
      *
-     * @see DefaultTypeName#toClass()
-     * @see Names#toClass(TypeName)
+     * see DefaultTypeName#toClass()
+     * see Names#toClass(TypeName)
      *
      * @since 0.5
      */

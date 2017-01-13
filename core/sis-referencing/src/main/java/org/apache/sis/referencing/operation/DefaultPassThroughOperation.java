@@ -67,7 +67,7 @@ public class DefaultPassThroughOperation extends AbstractCoordinateOperation imp
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setOperation(CoordinateOperation)}</p>
      *
-     * @see #getOperation()
+     * see #getOperation()
      */
     private CoordinateOperation operation;
 
@@ -126,7 +126,7 @@ public class DefaultPassThroughOperation extends AbstractCoordinateOperation imp
      *
      * @param operation The coordinate operation to copy.
      *
-     * @see #castOrCopy(PassThroughOperation)
+     * see #castOrCopy(PassThroughOperation)
      */
     protected DefaultPassThroughOperation(final PassThroughOperation operation) {
         super(operation);
@@ -171,7 +171,7 @@ public class DefaultPassThroughOperation extends AbstractCoordinateOperation imp
      *
      * @return The operation to apply on the subset of a coordinate tuple.
      *
-     * @see PassThroughTransform#getSubTransform()
+     * see PassThroughTransform#getSubTransform()
      */
     @Override
     @XmlElement(name = "coordOperation", required = true)
@@ -185,7 +185,7 @@ public class DefaultPassThroughOperation extends AbstractCoordinateOperation imp
      *
      * @return Zero-based indices of the modified source coordinates.
      *
-     * @see PassThroughTransform#getModifiedCoordinates()
+     * see PassThroughTransform#getModifiedCoordinates()
      */
     @Override
     public int[] getModifiedCoordinates() {
@@ -309,7 +309,7 @@ public class DefaultPassThroughOperation extends AbstractCoordinateOperation imp
      * Invoked by JAXB at unmarshalling time for setting the coordinate operation
      * applied on the subset of a coordinate tuple.
      *
-     * @see #getOperation()
+     * see #getOperation()
      */
     private void setOperation(final CoordinateOperation op) {
         if (operation == null) {
@@ -323,7 +323,7 @@ public class DefaultPassThroughOperation extends AbstractCoordinateOperation imp
      * Invoked by JAXB at marshalling time for getting the modified coordinates.
      * This method converts the zero-based indices to 1-based indices.
      *
-     * @see #getModifiedCoordinates()
+     * see #getModifiedCoordinates()
      */
     @XmlElement(name = "modifiedCoordinate", required = true)
     private int[] getIndices() {

@@ -81,7 +81,7 @@ final class PackOutput implements Closeable {
      *   <li>{@code META-INF/services} files which were merged in a single file.</li>
      * </ul>
      *
-     * @see #isMergeAllowed(String)
+     * see #isMergeAllowed(String)
      */
     private final Set<String> entriesDone = new HashSet<>();
 
@@ -89,7 +89,7 @@ final class PackOutput implements Closeable {
      * Returns {@code true} if entries of the given name are allowed to be concatenated
      * when they appear in more than one input JAR files.
      *
-     * @see #entriesDone
+     * see #entriesDone
      */
     private static boolean isMergeAllowed(final String name) {
         return name.startsWith(PackInput.SERVICES);

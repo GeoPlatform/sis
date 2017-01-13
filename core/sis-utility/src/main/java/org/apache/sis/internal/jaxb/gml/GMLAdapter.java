@@ -58,8 +58,8 @@ public abstract class GMLAdapter {
      *       context.</li>
      * </ul>
      *
-     * @see <a href="https://www.seegrid.csiro.au/wiki/bin/view/AppSchemas/GmlIdentifiers">GML identifiers</a>
-     * @see org.apache.sis.internal.jaxb.gco.PropertyType#getUUIDREF()
+     * see <a href="https://www.seegrid.csiro.au/wiki/bin/view/AppSchemas/GmlIdentifiers">GML identifiers</a>
+     * see org.apache.sis.internal.jaxb.gco.PropertyType#getUUIDREF()
      */
     @XmlID
     @XmlAttribute(namespace = Namespaces.GML, required = true)
@@ -70,7 +70,7 @@ public abstract class GMLAdapter {
      * This constructor is typically invoked at unmarshalling time.
      * The {@link #id} value will then be set by JAXB.
      *
-     * @see #copyIdTo(Object)
+     * see #copyIdTo(Object)
      */
     protected GMLAdapter() {
     }

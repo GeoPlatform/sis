@@ -99,7 +99,7 @@ enum NamespaceFilter {
 	 * to the filtered reader/writer. Keys are the actual URIs as declared in SIS implementation,
 	 * and values are the URIs read or to write instead of the actual ones.
 	 *
-	 * @see FilteredNamespaces#toView
+	 * see FilteredNamespaces#toView
 	 */
 	final Map<String,String> toView;
 
@@ -107,7 +107,7 @@ enum NamespaceFilter {
 	 * The URI replacements to apply when going from the filtered reader/writer to the "real"
 	 * data consumer (JAXB unmarshaller). This map is the converse of {@link #toView}.
 	 *
-	 * @see FilteredNamespaces#toImpl
+	 * see FilteredNamespaces#toImpl
 	 */
 	final Map<String,String> toImpl;
 

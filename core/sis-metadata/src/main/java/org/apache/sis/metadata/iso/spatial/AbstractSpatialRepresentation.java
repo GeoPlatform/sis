@@ -69,7 +69,7 @@ public class AbstractSpatialRepresentation extends ISOMetadata implements Spatia
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(SpatialRepresentation)
+     * see #castOrCopy(SpatialRepresentation)
      */
     public AbstractSpatialRepresentation(final SpatialRepresentation object) {
         super(object);

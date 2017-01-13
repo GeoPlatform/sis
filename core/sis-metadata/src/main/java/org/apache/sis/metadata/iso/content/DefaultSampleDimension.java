@@ -162,7 +162,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(SampleDimension)
+     * see #castOrCopy(SampleDimension)
      */
     public DefaultSampleDimension(final SampleDimension object) {
         super(object);
@@ -278,7 +278,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
     
     /**
 	 * Gets the mean value. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getMeanValue}
+	 * see {@link #getMeanValue}
 	 */
 	@XmlElement(name = "meanValue")
 	private Double getXmlMeanValue() {
@@ -287,7 +287,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
 
 	/**
 	 * Sets the mean value. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setMeanValue}
+	 * see {@link #setMeanValue}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlMeanValue(final Double newValue) {
@@ -320,7 +320,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
     
     /**
 	 * Gets the number of values. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getNumberOfValues}
+	 * see {@link #getNumberOfValues}
 	 */
     @ValueRange(minimum = 0)
 	@XmlElement(name = "numberOfValues")
@@ -330,7 +330,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
 
 	/**
 	 * Sets the number of values. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setNumberOfValues}
+	 * see {@link #setNumberOfValues}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlNumberOfValues(final Integer newValue) {
@@ -359,7 +359,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
     
     /**
 	 * Gets the standard deviation. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getStandardDeviation}
+	 * see {@link #getStandardDeviation}
 	 */
 	@XmlElement(name = "standardDeviation")
 	private Double getXmlStandardDeviation() {
@@ -368,7 +368,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
 
 	/**
 	 * Sets the standard deviation. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setStandardDeviation}
+	 * see {@link #setStandardDeviation}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlStandardDeviation(final Double newValue) {
@@ -418,7 +418,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
     
     /**
 	 * Gets the scale factor. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getScaleFactor}
+	 * see {@link #getScaleFactor}
 	 */
 	@XmlElement(name = "scaleFactor")
 	private Double getXmlScaleFactor() {
@@ -427,7 +427,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
 
 	/**
 	 * Sets the scale factor. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setScaleFactor}
+	 * see {@link #setScaleFactor}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlScaleFactor(final Double newValue) {
@@ -456,7 +456,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
     
     /**
 	 * Gets the offset. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getOffset}
+	 * see {@link #getOffset}
 	 */
 	@XmlElement(name = "offset")
 	private Double getXmlOffset() {
@@ -465,7 +465,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
 
 	/**
 	 * Sets the offset. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setOffset}
+	 * see {@link #setOffset}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlOffset(final Double newValue) {
@@ -521,7 +521,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
     
     /**
 	 * Gets the bits per value. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getBitsPerValue}
+	 * see {@link #getBitsPerValue}
 	 */
 	@XmlElement(name = "bitsPerValue")
 	private Integer getXmlBitsPerValue() {
@@ -530,7 +530,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
 
 	/**
 	 * Sets the bits per value. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setBitsPerValue}
+	 * see {@link #setBitsPerValue}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlBitsPerValue(final Integer newValue) {
@@ -585,7 +585,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
     
     /**
 	 * Gets the other property type. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getOtherPropertyType}
+	 * see {@link #getOtherPropertyType}
 	 */
 	@XmlElement(name = "otherPropertyType")
 	private RecordType getXmlOtherPropertyType() {
@@ -594,7 +594,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
 
 	/**
 	 * Sets the other property type. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setOtherPropertyType}
+	 * see {@link #setOtherPropertyType}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlOtherPropertyType(final RecordType newValue) {
@@ -625,7 +625,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
     
     /**
 	 * Gets the other property. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getOtherProperty}
+	 * see {@link #getOtherProperty}
 	 */
 	@XmlElement(name = "otherProperty")
 	private Record getXmlOtherProperty() {
@@ -634,7 +634,7 @@ public class DefaultSampleDimension extends DefaultRangeDimension implements Sam
 
 	/**
 	 * Sets the other property. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setOtherProperty}
+	 * see {@link #setOtherProperty}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlOtherProperty(final Record newValue) {

@@ -234,7 +234,7 @@ public final class IOUtilities extends Static {
      * @return The URI for the given URL, or {@code null} if the given URL was null.
      * @throws IOException if the URL can not be converted to a URI.
      *
-     * @see URI#URI(String)
+     * see URI#URI(String)
      */
     public static URI toURI(final URL url, final String encoding) throws IOException {
         if (url == null) {
@@ -283,7 +283,7 @@ public final class IOUtilities extends Static {
      * @return The file for the given URL, or {@code null} if the given URL was null.
      * @throws IOException if the URL can not be converted to a file.
      *
-     * @see File#File(URI)
+     * see File#File(URI)
      */
     public static File toFile(final URL url, final String encoding) throws IOException {
         if (url == null) {
@@ -325,7 +325,7 @@ public final class IOUtilities extends Static {
      * @return The path for the given URL, or {@code null} if the given URL was null.
      * @throws IOException if the URL can not be converted to a path.
      *
-     * @see Paths#get(URI)
+     * see Paths#get(URI)
      */
     public static Path toPath(final URL url, final String encoding) throws IOException {
         if (url == null) {

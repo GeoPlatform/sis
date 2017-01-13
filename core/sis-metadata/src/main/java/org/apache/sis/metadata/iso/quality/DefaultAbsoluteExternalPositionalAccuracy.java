@@ -73,7 +73,7 @@ public class DefaultAbsoluteExternalPositionalAccuracy extends AbstractPositiona
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(AbsoluteExternalPositionalAccuracy)
+     * see #castOrCopy(AbsoluteExternalPositionalAccuracy)
      */
     public DefaultAbsoluteExternalPositionalAccuracy(final AbsoluteExternalPositionalAccuracy object) {
         super(object);

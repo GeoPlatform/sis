@@ -37,7 +37,7 @@ import org.opengis.feature.InvalidPropertyValueException;
  * @version 0.7
  * @module
  *
- * @see Features#validate(Feature)
+ * see Features#validate(Feature)
  */
 final class InvalidFeatureException extends InvalidPropertyValueException implements LocalizedException {
     /**

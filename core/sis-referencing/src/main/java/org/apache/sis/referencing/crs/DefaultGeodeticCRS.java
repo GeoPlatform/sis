@@ -83,7 +83,7 @@ class DefaultGeodeticCRS extends AbstractCRS implements GeodeticCRS { // If made
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setDatum(GeodeticDatum)}</p>
      *
-     * @see #getDatum()
+     * see #getDatum()
      */
     private GeodeticDatum datum;
 
@@ -296,7 +296,7 @@ class DefaultGeodeticCRS extends AbstractCRS implements GeodeticCRS { // If made
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * @see #getDatum()
+     * see #getDatum()
      */
     private void setDatum(final GeodeticDatum value) {
         if (datum == null) {
@@ -329,7 +329,7 @@ class DefaultGeodeticCRS extends AbstractCRS implements GeodeticCRS { // If made
      * in the {@link DefaultGeographicCRS} ({@code EllipsoidCS} instead than {@code CoordinateSystem} in above code)
      * is causing confusion.</div>
      *
-     * @see <a href="http://issues.apache.org/jira/browse/SIS-166">SIS-166</a>
+     * see <a href="http://issues.apache.org/jira/browse/SIS-166">SIS-166</a>
      */
     @XmlElement(name="ellipsoidalCS") private EllipsoidalCS getEllipsoidalCS() {return getCoordinateSystem(EllipsoidalCS.class);}
     @XmlElement(name="cartesianCS")   private CartesianCS   getCartesianCS()   {return getCoordinateSystem(CartesianCS  .class);}
@@ -338,7 +338,7 @@ class DefaultGeodeticCRS extends AbstractCRS implements GeodeticCRS { // If made
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * @see #getEllipsoidalCS()
+     * see #getEllipsoidalCS()
      */
     private void setEllipsoidalCS(final EllipsoidalCS cs) {super.setCoordinateSystem("ellipsoidalCS", cs);}
     private void setCartesianCS  (final CartesianCS   cs) {super.setCoordinateSystem("cartesianCS",   cs);}

@@ -103,7 +103,7 @@ final class SubTypes implements Comparator<Object> {
     /**
      * Returns a SIS implementation for the given coordinate reference system.
      *
-     * @see AbstractCRS#castOrCopy(CoordinateReferenceSystem)
+     * see AbstractCRS#castOrCopy(CoordinateReferenceSystem)
      */
     static AbstractCRS castOrCopy(final CoordinateReferenceSystem object) {
         if (object instanceof DerivedCRS) {

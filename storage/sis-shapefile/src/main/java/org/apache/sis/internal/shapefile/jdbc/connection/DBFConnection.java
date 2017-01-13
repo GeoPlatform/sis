@@ -104,7 +104,7 @@ public class DBFConnection extends AbstractConnection {
     }
 
     /**
-     * @see java.sql.Connection#getCatalog()
+     * see java.sql.Connection#getCatalog()
      */
     @Override
     public String getCatalog() {
@@ -138,7 +138,7 @@ public class DBFConnection extends AbstractConnection {
     }
 
     /**
-     * @see java.sql.Connection#getMetaData()
+     * see java.sql.Connection#getMetaData()
      */
     @Override
     public DatabaseMetaData getMetaData() {
@@ -163,7 +163,7 @@ public class DBFConnection extends AbstractConnection {
     }
 
     /**
-     * @see java.sql.Wrapper#isWrapperFor(java.lang.Class)
+     * see java.sql.Wrapper#isWrapperFor(java.lang.Class)
      */
     @Override
     public boolean isWrapperFor(Class<?> iface) {
@@ -327,7 +327,7 @@ public class DBFConnection extends AbstractConnection {
     }
 
     /**
-     * @see java.lang.Object#toString()
+     * see java.lang.Object#toString()
      */
     @Override
     public String toString() {

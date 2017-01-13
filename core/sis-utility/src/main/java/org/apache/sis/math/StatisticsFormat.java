@@ -72,8 +72,8 @@ public class StatisticsFormat extends TabularFormat<Statistics> {
     /**
      * The "width" of the border to drawn around the table, in number of lines.
      *
-     * @see #getBorderWidth()
-     * @see #setBorderWidth(int)
+     * see #getBorderWidth()
+     * see #setBorderWidth(int)
      */
     private byte borderWidth;
 
@@ -81,9 +81,9 @@ public class StatisticsFormat extends TabularFormat<Statistics> {
      * {@code true} if the sample values given to {@code Statistics.accept(…)} methods were the
      * totality of the population under study, or {@code false} if they were only a sampling.
      *
-     * @see #isForAllPopulation()
-     * @see #setForAllPopulation(boolean)
-     * @see Statistics#standardDeviation(boolean)
+     * see #isForAllPopulation()
+     * see #setForAllPopulation(boolean)
+     * see Statistics#standardDeviation(boolean)
      */
     private boolean allPopulation;
 
@@ -162,7 +162,7 @@ public class StatisticsFormat extends TabularFormat<Statistics> {
      * @return {@code true} if the statistics to format where computed using the totality of
      *         the populations under study.
      *
-     * @see Statistics#standardDeviation(boolean)
+     * see Statistics#standardDeviation(boolean)
      */
     public boolean isForAllPopulation() {
         return allPopulation;
@@ -175,7 +175,7 @@ public class StatisticsFormat extends TabularFormat<Statistics> {
      * @param allPopulation {@code true} if the statistics to format where computed
      *        using the totality of the populations under study.
      *
-     * @see Statistics#standardDeviation(boolean)
+     * see Statistics#standardDeviation(boolean)
      */
     public void setForAllPopulation(final boolean allPopulation) {
         this.allPopulation = allPopulation;

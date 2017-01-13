@@ -56,9 +56,9 @@ import org.opengis.referencing.datum.ParametricDatum;
  * @version 0.7
  * @module
  *
- * @see org.apache.sis.referencing.datum.DefaultParametricDatum
- * @see org.apache.sis.referencing.cs.DefaultParametricCS
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createParametricCRS(String)
+ * see org.apache.sis.referencing.datum.DefaultParametricDatum
+ * see org.apache.sis.referencing.cs.DefaultParametricCS
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createParametricCRS(String)
  */
 @XmlType(name = "ParametricCRSType", propOrder = {
     "coordinateSystem",
@@ -77,7 +77,7 @@ public class DefaultParametricCRS extends AbstractCRS implements ParametricCRS {
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setDatum(ParametricDatum)}</p>
      *
-     * @see #getDatum()
+     * see #getDatum()
      */
     private ParametricDatum datum;
 
@@ -130,7 +130,7 @@ public class DefaultParametricCRS extends AbstractCRS implements ParametricCRS {
      * @param datum The datum.
      * @param cs The coordinate system.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createParametricCRS(Map, ParametricDatum, ParametricCS)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createParametricCRS(Map, ParametricDatum, ParametricCS)
      */
     public DefaultParametricCRS(final Map<String,?> properties,
                                 final ParametricDatum datum,
@@ -150,7 +150,7 @@ public class DefaultParametricCRS extends AbstractCRS implements ParametricCRS {
      *
      * @param crs The coordinate reference system to copy.
      *
-     * @see #castOrCopy(ParametricCRS)
+     * see #castOrCopy(ParametricCRS)
      */
     protected DefaultParametricCRS(final ParametricCRS crs) {
         super(crs);
@@ -236,7 +236,7 @@ public class DefaultParametricCRS extends AbstractCRS implements ParametricCRS {
      *
      * @return {@code "ParametricCRS"}.
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#83">WKT 2 specification</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#83">WKT 2 specification</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -278,7 +278,7 @@ public class DefaultParametricCRS extends AbstractCRS implements ParametricCRS {
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * @see #getDatum()
+     * see #getDatum()
      */
     private void setDatum(final ParametricDatum value) {
         if (datum == null) {
@@ -291,7 +291,7 @@ public class DefaultParametricCRS extends AbstractCRS implements ParametricCRS {
     /**
      * Used by JAXB only (invoked by reflection).
      *
-     * @see #getCoordinateSystem()
+     * see #getCoordinateSystem()
      */
     private void setCoordinateSystem(final ParametricCS cs) {
         setCoordinateSystem("parametricCS", cs);

@@ -95,7 +95,7 @@ public class DefaultOperationChainMetadata extends ISOMetadata implements Operat
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(OperationChainMetadata)
+     * see #castOrCopy(OperationChainMetadata)
      */
     public DefaultOperationChainMetadata(final OperationChainMetadata object) {
         super(object);

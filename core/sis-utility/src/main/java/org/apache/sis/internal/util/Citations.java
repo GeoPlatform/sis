@@ -62,7 +62,7 @@ public final class Citations extends Static {
      * @param  code The identifier code, or {@code null}.
      * @return {@code true} if the given identifier is {@code "IOGP:EPSG"}.
      *
-     * @see org.apache.sis.metadata.iso.citation.Citations#EPSG
+     * see org.apache.sis.metadata.iso.citation.Citations#EPSG
      */
     public static boolean isEPSG(final String codeSpace, final String code) {
         return Constants.EPSG.equalsIgnoreCase(code) &&
@@ -355,7 +355,7 @@ public final class Citations extends Static {
      * @return A non-empty identifier for the given citation without leading or trailing whitespaces,
      *         or {@code null} if the given citation is null or does not declare any identifier or title.
      *
-     * @see <a href="https://issues.apache.org/jira/browse/SIS-201">SIS-201</a>
+     * see <a href="https://issues.apache.org/jira/browse/SIS-201">SIS-201</a>
      */
     public static String getIdentifier(final Citation citation, final boolean strict) {
         if (citation != null) {

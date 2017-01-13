@@ -47,7 +47,7 @@ public class StoreTypeDetector extends FileTypeDetector {
      * @return the content type or {@code null} if the file type is not recognized.
      * @throws IOException if an I/O error occurs while reading the file.
      *
-     * @see java.nio.file.Files#probeContentType(Path)
+     * see java.nio.file.Files#probeContentType(Path)
      */
     @Override
     public String probeContentType(final Path path) throws IOException {

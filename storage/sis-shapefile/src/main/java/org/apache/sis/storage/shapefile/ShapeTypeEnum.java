@@ -29,7 +29,7 @@ import java.util.Map;
  * @version 0.5
  * @module
  *
- * @see <a href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf">ESRI Shapefile Specification</a>
+ * see <a href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf">ESRI Shapefile Specification</a>
  */
 public enum ShapeTypeEnum  {
 

@@ -74,7 +74,7 @@ public class LineAppender extends Appender implements Flushable {
      * The maximal line length, in units of <em>code points</em> (not {@code char}).
      * Can be set to {@link Integer#MAX_VALUE} if there is no limit.
      *
-     * @see #setMaximalLineLength(int)
+     * see #setMaximalLineLength(int)
      */
     private int maximalLineLength;
 
@@ -88,14 +88,14 @@ public class LineAppender extends Appender implements Flushable {
     /**
      * The tabulation width, in number of code points.
      *
-     * @see #setTabulationWidth(int)
+     * see #setTabulationWidth(int)
      */
     private short tabulationWidth = 8;
 
     /**
      * {@code true} if this formatter shall expands tabulations into spaces.
      *
-     * @see #setTabulationExpanded(boolean)
+     * see #setTabulationExpanded(boolean)
      */
     private boolean isTabulationExpanded;
 
@@ -118,7 +118,7 @@ public class LineAppender extends Appender implements Flushable {
      * new lines (resulting from line wrap) will invoke {@link #onLineBegin(boolean)}
      * directly without the help of this temporary variable.
      *
-     * @see #transfer(int)
+     * see #transfer(int)
      */
     private boolean isNewLine = true;
 
@@ -279,8 +279,8 @@ public class LineAppender extends Appender implements Flushable {
      *
      * @param  lineSeparator The new line separator, or {@code null} for forwarding EOL <i>as-is</i>.
      *
-     * @see System#lineSeparator()
-     * @see Characters#isLineOrParagraphSeparator(int)
+     * see System#lineSeparator()
+     * see Characters#isLineOrParagraphSeparator(int)
      */
     public void setLineSeparator(final String lineSeparator) {
         this.lineSeparator  = lineSeparator;

@@ -81,7 +81,7 @@
  * @version 0.7
  * @module
  *
- * @see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
+ * see javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
  */
 @XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.GCO, xmlns = {
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),

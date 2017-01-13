@@ -58,8 +58,8 @@ public final strictfp class TestUtilities extends Static {
     /**
      * Maximal time that {@code waitFoo()} methods can wait, in milliseconds.
      *
-     * @see #waitForBlockedState(Thread)
-     * @see #waitForGarbageCollection(Callable)
+     * see #waitForBlockedState(Thread)
+     * see #waitForGarbageCollection(Callable)
      */
     private static final int MAXIMAL_WAIT_TIME = 1000;
 

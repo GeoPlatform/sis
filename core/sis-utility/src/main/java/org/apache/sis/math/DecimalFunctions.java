@@ -50,8 +50,8 @@ import static org.apache.sis.internal.util.Numerics.SIGNIFICAND_SIZE;
  * @version 0.4
  * @module
  *
- * @see MathFunctions#pow10(int)
- * @see Math#log10(double)
+ * see MathFunctions#pow10(int)
+ * see Math#log10(double)
  */
 public final class DecimalFunctions extends Static {
     /**
@@ -60,14 +60,14 @@ public final class DecimalFunctions extends Static {
      * which is stored as zero because non-representable as a {@code double} value.
      * The next power, {@code parseDouble("1E-323")}, is a non-zero {@code double} value.
      *
-     * @see Double#MIN_VALUE
+     * see Double#MIN_VALUE
      */
     static final int EXPONENT_FOR_ZERO = -324;
 
     /**
      * The maximal exponent value such as {@code parseDouble("1E+308")} still a finite number.
      *
-     * @see Double#MAX_VALUE
+     * see Double#MAX_VALUE
      */
     static final int EXPONENT_FOR_MAX = 308;
 
@@ -76,7 +76,7 @@ public final class DecimalFunctions extends Static {
      * This table consumes 4.9 kb of memory. We pay this cost because integer powers of ten
      * are requested often, and {@link Math#pow(double, double)} has slight rounding errors.
      *
-     * @see #pow10(int)
+     * see #pow10(int)
      */
     @Workaround(library="JDK", version="1.4")
     private static final double[] POW10 = new double[EXPONENT_FOR_MAX - EXPONENT_FOR_ZERO];
@@ -358,7 +358,7 @@ public final class DecimalFunctions extends Static {
      * @return number of fraction digits needed for formatting numbers with the given accuracy.
      *         May be negative.
      *
-     * @see java.text.NumberFormat#setMaximumFractionDigits(int)
+     * see java.text.NumberFormat#setMaximumFractionDigits(int)
      */
     public static int fractionDigitsForDelta(double accuracy, final boolean strict) {
         accuracy = Math.abs(accuracy);
@@ -412,7 +412,7 @@ public final class DecimalFunctions extends Static {
      * @param  value  the value for which to get the number of significant fraction digits.
      * @return the number of significant fraction digits (may be negative), or 0 if {@code value} is NaN or infinity.
      *
-     * @see java.text.NumberFormat#setMinimumFractionDigits(int)
+     * see java.text.NumberFormat#setMinimumFractionDigits(int)
      */
     public static int fractionDigitsForValue(final double value) {
         /*

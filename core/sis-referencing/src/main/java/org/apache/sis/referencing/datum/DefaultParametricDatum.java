@@ -53,9 +53,9 @@ import org.opengis.referencing.datum.ParametricDatum;
  * @version 0.7
  * @module
  *
- * @see org.apache.sis.referencing.cs.DefaultParametricCS
- * @see org.apache.sis.referencing.crs.DefaultParametricCRS
- * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createParametricDatum(String)
+ * see org.apache.sis.referencing.cs.DefaultParametricCS
+ * see org.apache.sis.referencing.crs.DefaultParametricCRS
+ * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createParametricDatum(String)
  */
 @XmlType(name = "ParametricDatumType")
 @XmlRootElement(name = "ParametricDatum")
@@ -121,7 +121,7 @@ public class DefaultParametricDatum extends AbstractDatum implements ParametricD
      *
      * @param properties The properties to be given to the identified object.
      *
-     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createParametricDatum(Map)
+     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createParametricDatum(Map)
      */
     public DefaultParametricDatum(final Map<String,?> properties) {
         super(properties);
@@ -136,7 +136,7 @@ public class DefaultParametricDatum extends AbstractDatum implements ParametricD
      *
      * @param datum The datum to copy.
      *
-     * @see #castOrCopy(ParametricDatum)
+     * see #castOrCopy(ParametricDatum)
      */
     protected DefaultParametricDatum(final ParametricDatum datum) {
         super(datum);
@@ -181,7 +181,7 @@ public class DefaultParametricDatum extends AbstractDatum implements ParametricD
      *
      * @return {@code "ParametricDatum"}.
      *
-     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#83">WKT 2 specification</a>
+     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#83">WKT 2 specification</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {

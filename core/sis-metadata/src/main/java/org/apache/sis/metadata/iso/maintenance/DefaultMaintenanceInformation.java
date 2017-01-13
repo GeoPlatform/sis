@@ -134,7 +134,7 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(MaintenanceInformation)
+     * see #castOrCopy(MaintenanceInformation)
      */
     public DefaultMaintenanceInformation(final MaintenanceInformation object) {
         super(object);
@@ -221,7 +221,7 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
     
     /**
 	 * Gets the maintenance dates (used in ISO 19115-3 format).
-	 * @see {@link #getMaintenanceDates}
+	 * see {@link #getMaintenanceDates}
 	 */
     @XmlElement(name = "maintenanceDate", required = true)
     private Collection<CitationDate> getXmlMaintenanceDates() {
@@ -293,7 +293,7 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
     
     /**
 	 * Gets the date of next update (used in ISO 19139 format).
-	 * @see {@link #getDateOfNextUpdate}
+	 * see {@link #getDateOfNextUpdate}
 	 */
 	@XmlElement(name = "dateOfNextUpdate")
 	private Date getXmlDateOfNextUpdate() {
@@ -302,7 +302,7 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
 
 	/**
 	 * Sets the date of next update (used in ISO 19139 format).
-	 * @see {@link #setDateOfNextUpdate}
+	 * see {@link #setDateOfNextUpdate}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlDateOfNextUpdate(final Date newValue) {
@@ -355,7 +355,7 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
     
     /**
 	 * Gets the maintenance scopes (used in ISO 19115-3 format).
-	 * @see {@link #getMaintenanceScopes}
+	 * see {@link #getMaintenanceScopes}
 	 */
     @XmlElement(name = "maintenanceScope")
     private Collection<Scope> getXmlMaintenanceScopes() {
@@ -417,7 +417,7 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
     
     /**
 	 * Gets the update scopes (used in ISO 19139 format).
-	 * @see {@link #getUpdateScopes}
+	 * see {@link #getUpdateScopes}
 	 */
     @XmlElement(name = "updateScope")
     private Collection<ScopeCode> getXmlUpdateScopes() {
@@ -482,7 +482,7 @@ public class DefaultMaintenanceInformation extends ISOMetadata implements Mainte
     
     /**
 	 * Gets the update scope descriptions (used in ISO 19139 format).
-	 * @see {@link #getUpdateScopeDescriptions}
+	 * see {@link #getUpdateScopeDescriptions}
 	 */
     @XmlElement(name = "updateScopeDescription")
     private Collection<ScopeDescription> getXmlUpdateScopeDescriptions() {

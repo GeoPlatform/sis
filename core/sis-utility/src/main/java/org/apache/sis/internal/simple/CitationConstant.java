@@ -43,8 +43,8 @@ import org.apache.sis.internal.util.MetadataServices;
  * @version 0.7
  * @module
  *
- * @see IdentifierSpace
- * @see org.apache.sis.metadata.iso.citation.Citations
+ * see IdentifierSpace
+ * see org.apache.sis.metadata.iso.citation.Citations
  */
 public class CitationConstant extends SimpleCitation {
     /**

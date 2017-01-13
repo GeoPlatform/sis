@@ -44,8 +44,8 @@ public final strictfp class HardCodedAxes {
      * <p>This axis is usually part of a {@link #GEODETIC_LONGITUDE}, {@link #GEODETIC_LATITUDE},
      * {@link #ELLIPSOIDAL_HEIGHT} set.</p>
      *
-     * @see #SPHERICAL_LONGITUDE
-     * @see #GEODETIC_LATITUDE
+     * see #SPHERICAL_LONGITUDE
+     * see #GEODETIC_LATITUDE
      */
     public static final DefaultCoordinateSystemAxis GEODETIC_LONGITUDE = create(AxisNames.GEODETIC_LONGITUDE, "λ",
             AxisDirection.EAST, Units.DEGREE, -180, 180, RangeMeaning.WRAPAROUND);
@@ -59,8 +59,8 @@ public final strictfp class HardCodedAxes {
      * <p>This axis is usually part of a {@link #GEODETIC_LONGITUDE}, {@link #GEODETIC_LATITUDE},
      * {@link #ELLIPSOIDAL_HEIGHT} set.</p>
      *
-     * @see #SPHERICAL_LATITUDE
-     * @see #GEODETIC_LONGITUDE
+     * see #SPHERICAL_LATITUDE
+     * see #GEODETIC_LONGITUDE
      */
     public static final DefaultCoordinateSystemAxis GEODETIC_LATITUDE = create(AxisNames.GEODETIC_LATITUDE, "φ",
             AxisDirection.NORTH, Units.DEGREE, -90, 90, RangeMeaning.EXACT);
@@ -77,8 +77,8 @@ public final strictfp class HardCodedAxes {
      * Increasing ordinates values go {@linkplain AxisDirection#EAST East} and units are {@link Units#GRAD}.
      * The abbreviation is "λ" (lambda). The unit symbol is "gon".
      *
-     * @see #GEODETIC_LONGITUDE
-     * @see #SPHERICAL_LONGITUDE
+     * see #GEODETIC_LONGITUDE
+     * see #SPHERICAL_LONGITUDE
      */
     public static final DefaultCoordinateSystemAxis LONGITUDE_gon = create(AxisNames.LONGITUDE, "λ",
             AxisDirection.EAST, Units.GRAD, -200, 200, RangeMeaning.WRAPAROUND);
@@ -89,8 +89,8 @@ public final strictfp class HardCodedAxes {
      * Increasing ordinates values go {@linkplain AxisDirection#NORTH North} and units are {@link Units#GRAD}.
      * The abbreviation is "φ" (phi). The unit symbol is "gon".
      *
-     * @see #GEODETIC_LATITUDE
-     * @see #SPHERICAL_LATITUDE
+     * see #GEODETIC_LATITUDE
+     * see #SPHERICAL_LATITUDE
      */
     public static final DefaultCoordinateSystemAxis LATITUDE_gon = create(AxisNames.LATITUDE, "φ",
             AxisDirection.NORTH, Units.GRAD, -100, 100, RangeMeaning.EXACT);
@@ -104,10 +104,10 @@ public final strictfp class HardCodedAxes {
      * <p>This axis is usually part of a {@link #GEODETIC_LONGITUDE}, {@link #GEODETIC_LATITUDE},
      * {@link #ELLIPSOIDAL_HEIGHT} set.</p>
      *
-     * @see #ALTITUDE
-     * @see #GEOCENTRIC_RADIUS
-     * @see #GRAVITY_RELATED_HEIGHT
-     * @see #DEPTH
+     * see #ALTITUDE
+     * see #GEOCENTRIC_RADIUS
+     * see #GRAVITY_RELATED_HEIGHT
+     * see #DEPTH
      */
     public static final DefaultCoordinateSystemAxis ELLIPSOIDAL_HEIGHT = create(AxisNames.ELLIPSOIDAL_HEIGHT, "h",
             AxisDirection.UP, Units.METRE, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, null);
@@ -127,10 +127,10 @@ public final strictfp class HardCodedAxes {
      * Increasing ordinates values go {@linkplain AxisDirection#UP up} and units are {@linkplain Units#METRE metres}.
      * The ISO 19111 name is <cite>"gravity-related height"</cite> and the abbreviation is upper case <cite>"H"</cite>.
      *
-     * @see #ALTITUDE
-     * @see #ELLIPSOIDAL_HEIGHT
-     * @see #GEOCENTRIC_RADIUS
-     * @see #DEPTH
+     * see #ALTITUDE
+     * see #ELLIPSOIDAL_HEIGHT
+     * see #GEOCENTRIC_RADIUS
+     * see #DEPTH
      */
     public static final DefaultCoordinateSystemAxis GRAVITY_RELATED_HEIGHT = create(AxisNames.GRAVITY_RELATED_HEIGHT, "H",
             AxisDirection.UP, Units.METRE, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, null);
@@ -149,10 +149,10 @@ public final strictfp class HardCodedAxes {
      * <p>This axis is usually part of a {@link #GEODETIC_LONGITUDE}, {@link #GEODETIC_LATITUDE},
      * {@link #ALTITUDE} tuple.</p>
      *
-     * @see #ELLIPSOIDAL_HEIGHT
-     * @see #GEOCENTRIC_RADIUS
-     * @see #GRAVITY_RELATED_HEIGHT
-     * @see #DEPTH
+     * see #ELLIPSOIDAL_HEIGHT
+     * see #GEOCENTRIC_RADIUS
+     * see #GRAVITY_RELATED_HEIGHT
+     * see #DEPTH
      */
     public static final DefaultCoordinateSystemAxis ALTITUDE = create("Altitude", "h",
             AxisDirection.UP, Units.METRE, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, null);
@@ -162,10 +162,10 @@ public final strictfp class HardCodedAxes {
      * Increasing ordinates values go {@linkplain AxisDirection#DOWN down} and units are {@linkplain Units#METRE metres}.
      * The ISO 19111 name is <cite>"depth"</cite>.
      *
-     * @see #ALTITUDE
-     * @see #ELLIPSOIDAL_HEIGHT
-     * @see #GEOCENTRIC_RADIUS
-     * @see #GRAVITY_RELATED_HEIGHT
+     * see #ALTITUDE
+     * see #ELLIPSOIDAL_HEIGHT
+     * see #GEOCENTRIC_RADIUS
+     * see #GRAVITY_RELATED_HEIGHT
      */
     public static final DefaultCoordinateSystemAxis DEPTH = create(AxisNames.DEPTH, "D",
             AxisDirection.DOWN, Units.METRE, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, null);
@@ -185,11 +185,11 @@ public final strictfp class HardCodedAxes {
      * <p>This axis is usually part of a {@link #SPHERICAL_LONGITUDE}, {@link #SPHERICAL_LATITUDE},
      * {@link #GEOCENTRIC_RADIUS} set.</p>
      *
-     * @see #DISTANCE
-     * @see #ALTITUDE
-     * @see #ELLIPSOIDAL_HEIGHT
-     * @see #GRAVITY_RELATED_HEIGHT
-     * @see #DEPTH
+     * see #DISTANCE
+     * see #ALTITUDE
+     * see #ELLIPSOIDAL_HEIGHT
+     * see #GRAVITY_RELATED_HEIGHT
+     * see #DEPTH
      */
     public static final DefaultCoordinateSystemAxis GEOCENTRIC_RADIUS = create(AxisNames.GEOCENTRIC_RADIUS, "R",
             AxisDirection.UP, Units.METRE, 0, Double.POSITIVE_INFINITY, RangeMeaning.EXACT);
@@ -210,11 +210,11 @@ public final strictfp class HardCodedAxes {
      * <p>This axis is usually part of a {@link #SPHERICAL_LONGITUDE}, {@link #SPHERICAL_LATITUDE},
      * {@link #GEOCENTRIC_RADIUS} set.</p>
      *
-     * @see #GEODETIC_LONGITUDE
-     * @see #SPHERICAL_LATITUDE
+     * see #GEODETIC_LONGITUDE
+     * see #SPHERICAL_LATITUDE
      *
-     * @see <a href="http://en.wikipedia.org/wiki/Spherical_coordinate_system">Spherical coordinate system on Wikipedia</a>
-     * @see <a href="http://mathworld.wolfram.com/SphericalCoordinates.html">Spherical coordinate system on MathWorld</a>
+     * see <a href="http://en.wikipedia.org/wiki/Spherical_coordinate_system">Spherical coordinate system on Wikipedia</a>
+     * see <a href="http://mathworld.wolfram.com/SphericalCoordinates.html">Spherical coordinate system on MathWorld</a>
      */
     public static final DefaultCoordinateSystemAxis SPHERICAL_LONGITUDE = create(AxisNames.SPHERICAL_LONGITUDE, "θ",
             AxisDirection.EAST, Units.DEGREE, -180, 180, RangeMeaning.WRAPAROUND);
@@ -236,8 +236,8 @@ public final strictfp class HardCodedAxes {
      * <p>This axis is usually part of a {@link #SPHERICAL_LONGITUDE}, {@link #SPHERICAL_LATITUDE},
      * {@link #GEOCENTRIC_RADIUS} set.</p>
      *
-     * @see #GEODETIC_LATITUDE
-     * @see #SPHERICAL_LONGITUDE
+     * see #GEODETIC_LATITUDE
+     * see #SPHERICAL_LONGITUDE
      */
     public static final DefaultCoordinateSystemAxis SPHERICAL_LATITUDE = create(AxisNames.SPHERICAL_LATITUDE, "φ′",
             AxisDirection.NORTH, Units.DEGREE, -90, 90, RangeMeaning.EXACT);
@@ -249,11 +249,11 @@ public final strictfp class HardCodedAxes {
      *
      * <p>This axis is usually part of a {@link #X}, {@link #Y}, {@link #Z} set.</p>
      *
-     * @see #EASTING
-     * @see #WESTING
-     * @see #GEOCENTRIC_X
-     * @see #DISPLAY_X
-     * @see #COLUMN
+     * see #EASTING
+     * see #WESTING
+     * see #GEOCENTRIC_X
+     * see #DISPLAY_X
+     * see #COLUMN
      */
     public static final DefaultCoordinateSystemAxis X = create("x", "x",
             AxisDirection.EAST, Units.METRE, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, null);
@@ -265,11 +265,11 @@ public final strictfp class HardCodedAxes {
      *
      * <p>This axis is usually part of a {@link #X}, {@link #Y}, {@link #Z} set.</p>
      *
-     * @see #NORTHING
-     * @see #SOUTHING
-     * @see #GEOCENTRIC_Y
-     * @see #DISPLAY_Y
-     * @see #ROW
+     * see #NORTHING
+     * see #SOUTHING
+     * see #GEOCENTRIC_Y
+     * see #DISPLAY_Y
+     * see #ROW
      */
     public static final DefaultCoordinateSystemAxis Y = create("y", "y",
             AxisDirection.NORTH, Units.METRE, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, null);
@@ -336,9 +336,9 @@ public final strictfp class HardCodedAxes {
      *
      * <p>This axis is usually part of a {@link #EASTING}, {@link #NORTHING} set.</p>
      *
-     * @see #X
-     * @see #EASTING
-     * @see #WESTING
+     * see #X
+     * see #EASTING
+     * see #WESTING
      */
     public static final DefaultCoordinateSystemAxis EASTING = create(AxisNames.EASTING, "E",
             AxisDirection.EAST, Units.METRE, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, null);
@@ -348,9 +348,9 @@ public final strictfp class HardCodedAxes {
      * Increasing ordinates values go {@linkplain AxisDirection#WEST West} and units are {@linkplain Units#METRE metres}.
      * The ISO 19111 name is <cite>"westing"</cite> and the abbreviation is upper case <cite>"W"</cite>.
      *
-     * @see #X
-     * @see #EASTING
-     * @see #WESTING
+     * see #X
+     * see #EASTING
+     * see #WESTING
      */
     public static final DefaultCoordinateSystemAxis WESTING = create(AxisNames.WESTING, "W",
             AxisDirection.WEST, Units.METRE, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, null);
@@ -362,9 +362,9 @@ public final strictfp class HardCodedAxes {
      *
      * <p>This axis is usually part of a {@link #EASTING}, {@link #NORTHING} set.</p>
      *
-     * @see #Y
-     * @see #NORTHING
-     * @see #SOUTHING
+     * see #Y
+     * see #NORTHING
+     * see #SOUTHING
      */
     public static final DefaultCoordinateSystemAxis NORTHING = create(AxisNames.NORTHING, "N",
             AxisDirection.NORTH, Units.METRE, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, null);
@@ -374,9 +374,9 @@ public final strictfp class HardCodedAxes {
      * Increasing ordinates values go {@linkplain AxisDirection#SOUTH South} and units are {@linkplain Units#METRE metres}.
      * The ISO 19111 name is <cite>"southing"</cite> and the abbreviation is upper case <cite>"S"</cite>.
      *
-     * @see #Y
-     * @see #NORTHING
-     * @see #SOUTHING
+     * see #Y
+     * see #NORTHING
+     * see #SOUTHING
      */
     public static final DefaultCoordinateSystemAxis SOUTHING = create(AxisNames.SOUTHING, "S",
             AxisDirection.SOUTH, Units.METRE, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, null);
@@ -398,7 +398,7 @@ public final strictfp class HardCodedAxes {
      * This is part of a polar or engineering spherical coordinate system
      * (not to be confused with geodetic spherical coordinate system).
      *
-     * @see #GEOCENTRIC_RADIUS
+     * see #GEOCENTRIC_RADIUS
      */
     public static final DefaultCoordinateSystemAxis DISTANCE = create("Distance", "r",
             AxisDirections.AWAY_FROM, Units.METRE, 0, Double.POSITIVE_INFINITY, RangeMeaning.EXACT);

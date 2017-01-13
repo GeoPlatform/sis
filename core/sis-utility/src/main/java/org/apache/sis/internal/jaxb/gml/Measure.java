@@ -67,9 +67,9 @@ import org.apache.sis.measure.Units;
  * @version 0.8
  * @module
  *
- * @see org.apache.sis.measure.Measure
- * @see org.apache.sis.internal.jaxb.gml.MeasureList
- * @see org.apache.sis.internal.jaxb.gco.UnitAdapter
+ * see org.apache.sis.measure.Measure
+ * see org.apache.sis.internal.jaxb.gml.MeasureList
+ * see org.apache.sis.internal.jaxb.gco.UnitAdapter
  */
 @XmlType(name = "MeasureType")
 public final class Measure {

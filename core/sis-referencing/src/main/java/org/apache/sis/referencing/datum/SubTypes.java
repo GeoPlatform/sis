@@ -49,7 +49,7 @@ final class SubTypes {
     /**
      * Returns a SIS implementation for the given datum.
      *
-     * @see AbstractDatum#castOrCopy(Datum)
+     * see AbstractDatum#castOrCopy(Datum)
      */
     static AbstractDatum castOrCopy(final Datum object) {
         if (object instanceof GeodeticDatum) {

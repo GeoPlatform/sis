@@ -38,14 +38,14 @@ import org.apache.sis.util.logging.WarningListeners;
  * @version 0.3
  * @module
  *
- * @see DataStores#open(Object)
+ * see DataStores#open(Object)
  */
 public abstract class DataStore implements Localized, AutoCloseable {
     /**
      * The locale to use for formatting warnings.
      *
-     * @see #getLocale()
-     * @see #setLocale(Locale)
+     * see #getLocale()
+     * see #setLocale(Locale)
      */
     private Locale locale;
 

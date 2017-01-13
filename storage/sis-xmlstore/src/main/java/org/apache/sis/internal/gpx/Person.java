@@ -61,21 +61,21 @@ public final class Person extends Element implements Responsibility, Party, Cont
     /**
      * Name of person or organization.
      *
-     * @see #getName()
+     * see #getName()
      */
     public String name;
 
     /**
      * Email address.
      *
-     * @see #getElectronicMailAddresses()
+     * see #getElectronicMailAddresses()
      */
     public String email;
 
     /**
      * Link to Web site or other external information about person.
      *
-     * @see #getOnlineResources()
+     * see #getOnlineResources()
      */
     public URI link;
 
@@ -112,8 +112,8 @@ public final class Person extends Element implements Responsibility, Party, Cont
      *
      * @return information about the parties.
      *
-     * @see #getName()
-     * @see #getContactInfo()
+     * see #getName()
+     * see #getContactInfo()
      */
     @Override
     public Collection<Party> getParties() {
@@ -143,8 +143,8 @@ public final class Person extends Element implements Responsibility, Party, Cont
      *
      * @return contact information for the party.
      *
-     * @see #getAddresses()
-     * @see #getOnlineResources()
+     * see #getAddresses()
+     * see #getOnlineResources()
      */
     @Override
     public Collection<Contact> getContactInfo() {
@@ -183,7 +183,7 @@ public final class Person extends Element implements Responsibility, Party, Cont
      *
      * @return physical and email addresses at which the organization or individual may be contacted.
      *
-     * @see #getElectronicMailAddresses()
+     * see #getElectronicMailAddresses()
      */
     @Override
     public Collection<Address> getAddresses() {

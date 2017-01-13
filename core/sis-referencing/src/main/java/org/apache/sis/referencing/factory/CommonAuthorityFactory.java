@@ -192,7 +192,7 @@ import static org.apache.sis.internal.referencing.provider.TransverseMercator.ce
  * @version 0.8
  * @module
  *
- * @see CommonCRS
+ * see CommonCRS
  */
 public class CommonAuthorityFactory extends GeodeticAuthorityFactory implements CRSAuthorityFactory {
     /**
@@ -205,7 +205,7 @@ public class CommonAuthorityFactory extends GeodeticAuthorityFactory implements 
     /**
      * The namespaces of codes defined by OGC.
      *
-     * @see #getCodeSpaces()
+     * see #getCodeSpaces()
      */
     private static final Set<String> CODESPACES = Collections.unmodifiableSet(
             new LinkedHashSet<>(Arrays.asList(Constants.OGC, Constants.CRS, "AUTO", AUTO2)));
@@ -224,7 +224,7 @@ public class CommonAuthorityFactory extends GeodeticAuthorityFactory implements 
      * Names of objects in the AUTO(2) namespace for codes from 42001 to 42005 inclusive.
      * Those names are defined in annexes B.7 to B.11 of WMS 1.3 specification.
      *
-     * @see #getDescriptionText(String)
+     * see #getDescriptionText(String)
      */
     private static final String[] PROJECTION_NAMES = {
         "WGS 84 / Auto UTM",
@@ -248,7 +248,7 @@ public class CommonAuthorityFactory extends GeodeticAuthorityFactory implements 
     /**
      * The "Computer display" reference system (CRS:1). Created when first needed.
      *
-     * @see #displayCRS()
+     * see #displayCRS()
      */
     private CoordinateReferenceSystem displayCRS;
 
@@ -275,8 +275,8 @@ public class CommonAuthorityFactory extends GeodeticAuthorityFactory implements 
      *
      * @return the <cite>"Web Map Service"</cite> authority.
      *
-     * @see #getCodeSpaces()
-     * @see Citations#WMS
+     * see #getCodeSpaces()
+     * see Citations#WMS
      */
     @Override
     public Citation getAuthority() {
@@ -414,8 +414,8 @@ public class CommonAuthorityFactory extends GeodeticAuthorityFactory implements 
      *
      * @return a set containing at least the {@code "CRS"}, {@code "AUTO"} and {@code "AUTO2"} strings.
      *
-     * @see #getAuthority()
-     * @see Citations#WMS
+     * see #getAuthority()
+     * see Citations#WMS
      */
     @Override
     public Set<String> getCodeSpaces() {

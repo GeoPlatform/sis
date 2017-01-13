@@ -102,7 +102,7 @@ public class DefaultAddress extends ISOMetadata implements Address {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Address)
+     * see #castOrCopy(Address)
      */
     public DefaultAddress(final Address object) {
         super(object);

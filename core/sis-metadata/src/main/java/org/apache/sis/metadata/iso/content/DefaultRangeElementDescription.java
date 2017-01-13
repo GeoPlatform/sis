@@ -85,7 +85,7 @@ public class DefaultRangeElementDescription extends ISOMetadata implements Range
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(RangeElementDescription)
+     * see #castOrCopy(RangeElementDescription)
      */
     public DefaultRangeElementDescription(final RangeElementDescription object) {
         super(object);

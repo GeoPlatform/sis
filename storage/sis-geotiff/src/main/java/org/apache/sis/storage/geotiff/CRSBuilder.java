@@ -125,7 +125,7 @@ import static org.apache.sis.util.Utilities.equalsIgnoreMetadata;
  * @version 0.8
  * @module
  *
- * @see GeoKeys
+ * see GeoKeys
  */
 final class CRSBuilder {
     /**
@@ -158,7 +158,7 @@ final class CRSBuilder {
      * implementation of those factories. However we may revisit this choice if we want to let the user specify
      * his own factories.</div>
      *
-     * @see #epsgFactory()
+     * see #epsgFactory()
      */
     private GeodeticAuthorityFactory epsgFactory;
 
@@ -171,7 +171,7 @@ final class CRSBuilder {
      * implementation of those factories. However we may revisit this choice if we want to let the user specify
      * his own factories.</div>
      *
-     * @see #objectFactory()
+     * see #objectFactory()
      */
     private GeodeticObjectFactory objectFactory;
 
@@ -179,7 +179,7 @@ final class CRSBuilder {
      * Factory for fetching operation methods and creating defining conversions.
      * This is needed only for user-defined projected coordinate reference system.
      *
-     * @see #operationFactory()
+     * see #operationFactory()
      */
     private CoordinateOperationFactory operationFactory;
 
@@ -205,7 +205,7 @@ final class CRSBuilder {
      * @param  key   one of the {@link Resources.Keys} constants.
      * @param  args  arguments for the log message.
      *
-     * @see Resources
+     * see Resources
      */
     private void warning(final short key, final Object... args) {
         final LogRecord r = reader.resources().getLogRecord(Level.WARNING, key, args);
@@ -692,7 +692,7 @@ final class CRSBuilder {
      * in order to have a richer set of metadata (name, minimal and maximal values, <i>etc</i>). Otherwise an CS with
      * an arbitrary name will be returned.
      *
-     * @see CoordinateSystems#replaceLinearUnit(CoordinateSystem, Unit)
+     * see CoordinateSystems#replaceLinearUnit(CoordinateSystem, Unit)
      */
     private CartesianCS replaceLinearUnit(final CartesianCS cs, final Unit<Length> unit) throws FactoryException {
         final Integer epsg = CoordinateSystems.getEpsgCode(unit, CoordinateSystems.getAxisDirections(cs));
@@ -710,7 +710,7 @@ final class CRSBuilder {
      * in order to have a richer set of metadata (name, minimal and maximal values, <i>etc</i>). Otherwise an CS with
      * an arbitrary name will be returned.
      *
-     * @see CoordinateSystems#replaceAngularUnit(CoordinateSystem, Unit)
+     * see CoordinateSystems#replaceAngularUnit(CoordinateSystem, Unit)
      */
     private EllipsoidalCS replaceAngularUnit(final EllipsoidalCS cs, final Unit<Angle> unit) throws FactoryException {
         final Integer epsg = CoordinateSystems.getEpsgCode(unit, CoordinateSystems.getAxisDirections(cs));
@@ -932,8 +932,8 @@ final class CRSBuilder {
      * @throws ClassCastException if an object defined by an EPSG code is not of the expected type.
      * @throws FactoryException if an error occurred during objects creation with the factories.
      *
-     * @see #createPrimeMeridian(Unit)
-     * @see #createEllipsoid(Unit)
+     * see #createPrimeMeridian(Unit)
+     * see #createEllipsoid(Unit)
      */
     private GeodeticDatum createGeodeticDatum(String name, final Unit<Angle> angularUnit, final Unit<Length> linearUnit)
             throws FactoryException
@@ -1026,7 +1026,7 @@ final class CRSBuilder {
      * @throws ClassCastException if an object defined by an EPSG code is not of the expected type.
      * @throws FactoryException if an error occurred during objects creation with the factories.
      *
-     * @see #createGeodeticDatum(String, Unit, Unit)
+     * see #createGeodeticDatum(String, Unit, Unit)
      */
     private GeographicCRS createGeographicCRS(final boolean rightHanded) throws FactoryException {
         final int epsg = getAsInteger(GeoKeys.GeographicType);
@@ -1110,8 +1110,8 @@ final class CRSBuilder {
      * @throws ClassCastException if an object defined by an EPSG code is not of the expected type.
      * @throws FactoryException if an error occurred during objects creation with the factories.
      *
-     * @see #createGeographicCRS(boolean)
-     * @see #createConversion(String)
+     * see #createGeographicCRS(boolean)
+     * see #createConversion(String)
      */
     private CoordinateReferenceSystem createProjectedCRS() throws FactoryException {
         final int epsg = getAsInteger(GeoKeys.ProjectedCSType);

@@ -110,7 +110,7 @@ public final class Namespaces extends Static {
 	 * This is also defined by {@link XMLConstants#W3C_XML_SCHEMA_NS_URI}.
 	 *
 	 * @category W3C
-	 * @see XMLConstants#W3C_XML_SCHEMA_NS_URI
+	 * see XMLConstants#W3C_XML_SCHEMA_NS_URI
 	 */
 	public static final String XS = XMLConstants.W3C_XML_SCHEMA_NS_URI;
 
@@ -406,7 +406,7 @@ public final class Namespaces extends Static {
 	 * This is also defined by {@link XMLConstants#W3C_XML_SCHEMA_INSTANCE_NS_URI}.
 	 *
 	 * @category W3C
-	 * @see XMLConstants#W3C_XML_SCHEMA_INSTANCE_NS_URI
+	 * see XMLConstants#W3C_XML_SCHEMA_INSTANCE_NS_URI
 	 */
 	public static final String XSI = XMLConstants.W3C_XML_SCHEMA_INSTANCE_NS_URI;
 

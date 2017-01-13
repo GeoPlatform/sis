@@ -92,7 +92,7 @@ public class DefaultCitationDate extends ISOMetadata implements CitationDate {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(CitationDate)
+     * see #castOrCopy(CitationDate)
      */
     public DefaultCitationDate(final CitationDate object) {
         super(object);

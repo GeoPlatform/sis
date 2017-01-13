@@ -94,7 +94,7 @@ public class DefaultInstrument extends ISOMetadata implements Instrument {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(Instrument)
+     * see #castOrCopy(Instrument)
      */
     public DefaultInstrument(final Instrument object) {
         super(object);

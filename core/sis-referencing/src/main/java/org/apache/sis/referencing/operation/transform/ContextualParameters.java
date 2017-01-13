@@ -130,8 +130,8 @@ import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
  * @version 0.7
  * @module
  *
- * @see org.apache.sis.referencing.operation.projection.NormalizedProjection
- * @see AbstractMathTransform#getContextualParameters()
+ * see org.apache.sis.referencing.operation.projection.NormalizedProjection
+ * see AbstractMathTransform#getContextualParameters()
  */
 public class ContextualParameters extends Parameters implements Serializable {
     /**
@@ -143,7 +143,7 @@ public class ContextualParameters extends Parameters implements Serializable {
      * @version 0.7
      * @module
      *
-     * @see ContextualParameters#getMatrix(MatrixRole)
+     * see ContextualParameters#getMatrix(MatrixRole)
      */
     public static enum MatrixRole {
         /**
@@ -187,7 +187,7 @@ public class ContextualParameters extends Parameters implements Serializable {
      * The parameters that represents the sequence of transforms as a whole. The parameter values may be used
      * in the {@linkplain #getMatrix(MatrixRole) (de)normalization} transforms, in the kernel, or both.
      *
-     * @see #getDescriptor()
+     * see #getDescriptor()
      */
     private final ParameterDescriptorGroup descriptor;
 
@@ -198,7 +198,7 @@ public class ContextualParameters extends Parameters implements Serializable {
      * After the {@link #completeTransform(MathTransformFactory, MathTransform)} method has been invoked,
      * those matrices are typically (but not necessarily) replaced by the {@link LinearTransform} instances itself.
      *
-     * @see #getMatrix(MatrixRole)
+     * see #getMatrix(MatrixRole)
      */
     private Matrix normalize, denormalize;
 
@@ -221,7 +221,7 @@ public class ContextualParameters extends Parameters implements Serializable {
      * {@code false} if this parameter group is modifiable, or {@code true} if it has been made unmodifiable
      * (frozen) by a call to {@link #completeTransform(MathTransformFactory, MathTransform)}.
      *
-     * @see #freeze()
+     * see #freeze()
      */
     private boolean isFrozen;
 
@@ -499,7 +499,7 @@ public class ContextualParameters extends Parameters implements Serializable {
      *         transforms.
      * @throws FactoryException if an error occurred while creating a math transform instance.
      *
-     * @see org.apache.sis.referencing.operation.projection.NormalizedProjection#createMapProjection(MathTransformFactory)
+     * see org.apache.sis.referencing.operation.projection.NormalizedProjection#createMapProjection(MathTransformFactory)
      */
     public synchronized MathTransform completeTransform(final MathTransformFactory factory, final MathTransform kernel)
             throws FactoryException
@@ -525,7 +525,7 @@ public class ContextualParameters extends Parameters implements Serializable {
     /**
      * Marks this contextual parameter as unmodifiable.
      *
-     * @see #ensureModifiable()
+     * see #ensureModifiable()
      */
     private void freeze() {
         isFrozen = true;
@@ -799,8 +799,8 @@ public class ContextualParameters extends Parameters implements Serializable {
      * @param  inverse    Always {@code false}, except if we are formatting the inverse transform.
      * @return Index of this transform in the {@code transforms} chain after processing.
      *
-     * @see ConcatenatedTransform#getPseudoSteps()
-     * @see AbstractMathTransform#beforeFormat(List, int, boolean)
+     * see ConcatenatedTransform#getPseudoSteps()
+     * see AbstractMathTransform#beforeFormat(List, int, boolean)
      */
     final int beforeFormat(final List<Object> transforms, int index, final boolean inverse) {
         /*

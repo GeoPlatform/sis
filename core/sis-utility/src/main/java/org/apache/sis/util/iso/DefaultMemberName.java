@@ -49,9 +49,9 @@ import java.util.Objects;
  * @version 0.5
  * @module
  *
- * @see DefaultTypeName
- * @see DefaultNameFactory
- * @see DefaultRecordType
+ * see DefaultTypeName
+ * see DefaultNameFactory
+ * see DefaultRecordType
  */
 @XmlType(name = "MemberName_Type")
 @XmlRootElement(name = "MemberName")

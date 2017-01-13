@@ -103,7 +103,7 @@ import org.apache.sis.util.ArgumentChecks;
  * @version 0.3
  * @module
  *
- * @see TreeTable
+ * see TreeTable
  */
 public final class TreeTables extends Static {
     /**

@@ -62,7 +62,7 @@ public class DefaultConceptualConsistency extends AbstractLogicalConsistency
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * @see #castOrCopy(ConceptualConsistency)
+     * see #castOrCopy(ConceptualConsistency)
      */
     public DefaultConceptualConsistency(final ConceptualConsistency object) {
         super(object);

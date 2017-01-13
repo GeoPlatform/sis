@@ -189,7 +189,7 @@ public abstract class Builder<B extends Builder<B>> {
      *
      * <p>See <cite>Notes for subclass implementors</cite> in class javadoc for usage conditions.</p>
      *
-     * @see #onCreate(boolean)
+     * see #onCreate(boolean)
      */
     protected final Map<String,Object> properties;
 
@@ -212,7 +212,7 @@ public abstract class Builder<B extends Builder<B>> {
     /**
      * The name factory, fetched when first needed.
      *
-     * @see #factory()
+     * see #factory()
      */
     private transient NameFactory nameFactory;
 
@@ -396,8 +396,8 @@ public abstract class Builder<B extends Builder<B>> {
      * @throws IllegalStateException if {@code addName(…)} or {@code addIdentifier(…)} has been invoked at least
      *         once since builder construction or since the last call to a {@code createXXX(…)} method.
      *
-     * @see ImmutableIdentifier#getAuthority()
-     * @see ImmutableIdentifier#getCodeSpace()
+     * see ImmutableIdentifier#getAuthority()
+     * see ImmutableIdentifier#getCodeSpace()
      */
     public B setCodeSpace(final Citation authority, final String codespace) {
         if (!setProperty(Identifier.CODESPACE_KEY, codespace)) {
@@ -504,7 +504,7 @@ public abstract class Builder<B extends Builder<B>> {
      * @param  name The {@code IdentifiedObject} alias as a name in the namespace of the given authority.
      * @return {@code this}, for method call chaining.
      *
-     * @see #addIdentifier(Citation, String)
+     * see #addIdentifier(Citation, String)
      */
     public B addName(final Citation authority, final CharSequence name) {
         ensureNonNull("name", name);
@@ -622,7 +622,7 @@ public abstract class Builder<B extends Builder<B>> {
      * @param  identifier The {@code IdentifiedObject} identifier as a code in the namespace of the given authority.
      * @return {@code this}, for method call chaining.
      *
-     * @see #addName(Citation, CharSequence)
+     * see #addName(Citation, CharSequence)
      */
     public B addIdentifier(final Citation authority, final String identifier) {
         ensureNonNull("identifier", identifier);
@@ -675,7 +675,7 @@ public abstract class Builder<B extends Builder<B>> {
     /**
      * Returns {@code true} if the given name or identifier is deprecated.
      *
-     * @see #isDeprecated()
+     * see #isDeprecated()
      */
     private static boolean isDeprecated(final Object object) {
         return (object instanceof Deprecable) && ((Deprecable) object).isDeprecated();
@@ -840,7 +840,7 @@ public abstract class Builder<B extends Builder<B>> {
      * @param  description The description as a {@link String} or {@link InternationalString} instance, or {@code null} if none.
      * @return {@code this}, for method call chaining.
      *
-     * @see ImmutableIdentifier#getDescription()
+     * see ImmutableIdentifier#getDescription()
      */
     public B setDescription(final CharSequence description) {
         /*
@@ -901,7 +901,7 @@ public abstract class Builder<B extends Builder<B>> {
      *         considered deprecated, or {@code false} otherwise.
      * @return {@code this}, for method call chaining.
      *
-     * @see AbstractIdentifiedObject#isDeprecated()
+     * see AbstractIdentifiedObject#isDeprecated()
      *
      * @since 0.6
      */
@@ -935,7 +935,7 @@ public abstract class Builder<B extends Builder<B>> {
      * @param cleanup {@code false} when this method is invoked before object creation, and
      *                {@code true} when this method is invoked after object creation.
      *
-     * @see #properties
+     * see #properties
      */
     protected void onCreate(final boolean cleanup) {
         final GenericName[] valueAlias;

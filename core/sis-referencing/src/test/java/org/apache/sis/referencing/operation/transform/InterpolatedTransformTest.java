@@ -96,7 +96,7 @@ public final strictfp class InterpolatedTransformTest extends MathTransformTestC
      * @throws FactoryException if an error occurred while loading a grid.
      * @throws TransformException if an error occurred while transforming a coordinate.
      *
-     * @see InterpolatedGeocentricTransformTest#testInverseTransform()
+     * see InterpolatedGeocentricTransformTest#testInverseTransform()
      */
     @Test
     public void testForwardTransform() throws FactoryException, TransformException {

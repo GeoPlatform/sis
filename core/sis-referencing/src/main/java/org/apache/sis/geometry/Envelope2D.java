@@ -103,8 +103,8 @@ import java.util.Objects;
  * @version 0.4
  * @module
  *
- * @see GeneralEnvelope
- * @see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox
+ * see GeneralEnvelope
+ * see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox
  */
 public class Envelope2D extends Rectangle2D.Double implements Envelope, Emptiable, Cloneable {
     /**
@@ -153,7 +153,7 @@ public class Envelope2D extends Rectangle2D.Double implements Envelope, Emptiabl
      * Creates a new envelope from the given positions and CRS.
      * It is the caller responsibility to check the validity of the given CRS.
      *
-     * @see #Envelope2D(DirectPosition, DirectPosition)
+     * see #Envelope2D(DirectPosition, DirectPosition)
      */
     private Envelope2D(final CoordinateReferenceSystem crs,
                        final DirectPosition lowerCorner,
@@ -566,7 +566,7 @@ public class Envelope2D extends Rectangle2D.Double implements Envelope, Emptiabl
      * @return A representation of this envelope as an array of non-empty Java2D rectangles.
      *         The array never contains {@code this}.
      *
-     * @see GeneralEnvelope#toSimpleEnvelopes()
+     * see GeneralEnvelope#toSimpleEnvelopes()
      *
      * @since 0.4
      */
@@ -1101,7 +1101,7 @@ public class Envelope2D extends Rectangle2D.Double implements Envelope, Emptiabl
      *   BOX(-90 -180, 90 180)
      * }
      *
-     * @see Envelopes#toString(Envelope)
+     * see Envelopes#toString(Envelope)
      */
     @Override
     public String toString() {

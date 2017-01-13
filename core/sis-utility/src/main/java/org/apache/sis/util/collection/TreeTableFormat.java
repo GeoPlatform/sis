@@ -118,8 +118,8 @@ public class TreeTableFormat extends TabularFormat<TreeTable> {
      * This map shall not be modified after creation, because it may be shared
      * by many tables.
      *
-     * @see #getColumns()
-     * @see #setColumns(TableColumn[])
+     * see #getColumns()
+     * see #setColumns(TableColumn[])
      */
     private Map<TableColumn<?>,Integer> columnIndices;
 
@@ -127,8 +127,8 @@ public class TreeTableFormat extends TabularFormat<TreeTable> {
      * The number of characters to add on the left side for each indentation level.
      * The default value is 4.
      *
-     * @see #getIndentation()
-     * @see #setIndentation(int)
+     * see #getIndentation()
+     * see #setIndentation(int)
      */
     private int indentation;
 
@@ -137,8 +137,8 @@ public class TreeTableFormat extends TabularFormat<TreeTable> {
      * The default value is 2, which means that the vertical line is drawn below the third letter
      * of the node label.
      *
-     * @see #getVerticalLinePosition()
-     * @see #setVerticalLinePosition(int)
+     * see #getVerticalLinePosition()
+     * see #setVerticalLinePosition(int)
      */
     private int verticalLinePosition;
 
@@ -153,8 +153,8 @@ public class TreeTableFormat extends TabularFormat<TreeTable> {
      *   <li>{@code treeEnd}   = {@code "  └─"}</li>
      * </ul>
      *
-     * @see #clearTreeSymbols()
-     * @see #createTreeSymbols()
+     * see #clearTreeSymbols()
+     * see #createTreeSymbols()
      */
     private transient String treeBlank, treeLine, treeCross, treeEnd;
 
@@ -184,7 +184,7 @@ public class TreeTableFormat extends TabularFormat<TreeTable> {
      * Clears the symbols used when writing the tree.
      * They will be computed again when first needed.
      *
-     * @see #createTreeSymbols()
+     * see #createTreeSymbols()
      */
     private void clearTreeSymbols() {
         treeBlank = null;
@@ -503,7 +503,7 @@ public class TreeTableFormat extends TabularFormat<TreeTable> {
      * Computes the {@code tree*} fields from the {@link #indentation} and
      * {@link #verticalLinePosition} current values.
      *
-     * @see #clearTreeSymbols()
+     * see #clearTreeSymbols()
      */
     private void createTreeSymbols() {
         final int indentation = this.indentation;
@@ -816,7 +816,7 @@ public class TreeTableFormat extends TabularFormat<TreeTable> {
      * @param  toAppendTo  Where to format the tree.
      * @throws IOException If an error occurred while writing to the given appendable.
      *
-     * @see TreeTables#toString(TreeTable)
+     * see TreeTables#toString(TreeTable)
      */
     @Override
     public void format(final TreeTable tree, final Appendable toAppendTo) throws IOException {

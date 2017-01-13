@@ -108,7 +108,7 @@ public final class Types extends Static {
      * are either class names as {@link String} objects, or the {@link Class} instances.
      * This map will be built only when first needed.
      *
-     * @see #forStandardName(String)
+     * see #forStandardName(String)
      */
     private static Map<Object,Object> typeForNames;
 
@@ -139,7 +139,7 @@ public final class Types extends Static {
      * @param  type  the GeoAPI interface or code list from which to get the ISO name, or {@code null}.
      * @return the ISO name for the given type, or {@code null} if none or if the given type is {@code null}.
      *
-     * @see #forStandardName(String)
+     * see #forStandardName(String)
      */
     public static String getStandardName(final Class<?> type) {
         if (type != null) {
@@ -202,10 +202,10 @@ public final class Types extends Static {
      * @param  code  the code for which to get the name, or {@code null}.
      * @return the UML identifiers or programmatic name for the given code, or {@code null} if the given code is null.
      *
-     * @see #getCodeLabel(ControlledVocabulary)
-     * @see #getCodeTitle(ControlledVocabulary)
-     * @see #getDescription(ControlledVocabulary)
-     * @see #forCodeName(Class, String, boolean)
+     * see #getCodeLabel(ControlledVocabulary)
+     * see #getCodeTitle(ControlledVocabulary)
+     * see #getDescription(ControlledVocabulary)
+     * see #forCodeName(Class, String, boolean)
      */
     public static String getCodeName(final ControlledVocabulary code) {
         if (code == null) {
@@ -236,9 +236,9 @@ public final class Types extends Static {
      * @param  code  the code from which to get a title, or {@code null}.
      * @return a unlocalized title for the given code, or {@code null} if the given code is null.
      *
-     * @see #getCodeName(ControlledVocabulary)
-     * @see #getCodeTitle(ControlledVocabulary)
-     * @see #getDescription(ControlledVocabulary)
+     * see #getCodeName(ControlledVocabulary)
+     * see #getCodeTitle(ControlledVocabulary)
+     * see #getDescription(ControlledVocabulary)
      */
     public static String getCodeLabel(final ControlledVocabulary code) {
         if (code == null) {
@@ -268,8 +268,8 @@ public final class Types extends Static {
      * @param  code  the code for which to get the title, or {@code null}.
      * @return the title, or {@code null} if the given code is null.
      *
-     * @see #getDescription(ControlledVocabulary)
-     * @see #forCodeTitle(CharSequence)
+     * see #getDescription(ControlledVocabulary)
+     * see #forCodeTitle(CharSequence)
      */
     public static InternationalString getCodeTitle(final ControlledVocabulary code) {
         return (code != null) ? new CodeTitle(code) : null;
@@ -283,8 +283,8 @@ public final class Types extends Static {
      * @param  code  the code for which to get the localized description, or {@code null}.
      * @return the description, or {@code null} if none or if the given code is null.
      *
-     * @see #getCodeTitle(ControlledVocabulary)
-     * @see #getDescription(Class)
+     * see #getCodeTitle(ControlledVocabulary)
+     * see #getDescription(Class)
      */
     public static InternationalString getDescription(final ControlledVocabulary code) {
         if (code != null) {
@@ -303,7 +303,7 @@ public final class Types extends Static {
      * @param  type  the GeoAPI interface or code list from which to get the description, or {@code null}.
      * @return the description, or {@code null} if none or if the given type is {@code null}.
      *
-     * @see #getDescription(ControlledVocabulary)
+     * see #getDescription(ControlledVocabulary)
      */
     public static InternationalString getDescription(final Class<?> type) {
         final String name = getStandardName(type);
@@ -481,7 +481,7 @@ public final class Types extends Static {
      * @param  codeType  the type of code list or enumeration.
      * @return the list of values for the given code list or enumeration, or an empty array if none.
      *
-     * @see Class#getEnumConstants()
+     * see Class#getEnumConstants()
      */
     @SuppressWarnings("unchecked")
     public static <T extends ControlledVocabulary> T[] getCodeValues(final Class<T> codeType) {
@@ -575,7 +575,7 @@ public final class Types extends Static {
      * @return a value matching the given name, or {@code null} if the name is null
      *         or if no matching enumeration is found.
      *
-     * @see Enum#valueOf(Class, String)
+     * see Enum#valueOf(Class, String)
      *
      * @since 0.5
      */
@@ -628,8 +628,8 @@ public final class Types extends Static {
      * @return a code matching the given name, or {@code null} if the name is null
      *         or if no matching code is found and {@code canCreate} is {@code false}.
      *
-     * @see #getCodeName(ControlledVocabulary)
-     * @see CodeList#valueOf(Class, String)
+     * see #getCodeName(ControlledVocabulary)
+     * see CodeList#valueOf(Class, String)
      */
     public static <T extends CodeList<T>> T forCodeName(final Class<T> codeType, String name, final boolean canCreate) {
         name = CharSequences.trimWhitespaces(name);
@@ -654,7 +654,7 @@ public final class Types extends Static {
      *
      * @since 0.7
      *
-     * @see #getCodeTitle(ControlledVocabulary)
+     * see #getCodeTitle(ControlledVocabulary)
      */
     public static ControlledVocabulary forCodeTitle(final CharSequence title) {
         return (title instanceof CodeTitle) ? ((CodeTitle) title).code : null;
@@ -688,8 +688,8 @@ public final class Types extends Static {
      *           <li>or the value associated to that key is a not a {@link CharSequence}.</li>
      *         </ul>
      *
-     * @see Locales#parse(String, int)
-     * @see DefaultInternationalString#DefaultInternationalString(Map)
+     * see Locales#parse(String, int)
+     * see DefaultInternationalString#DefaultInternationalString(Map)
      *
      * @since 0.4
      */
@@ -777,7 +777,7 @@ public final class Types extends Static {
      * @param  string  the characters sequence to convert, or {@code null}.
      * @return the given sequence as an international string, or {@code null} if the given sequence was null.
      *
-     * @see DefaultNameFactory#createInternationalString(Map)
+     * see DefaultNameFactory#createInternationalString(Map)
      */
     public static InternationalString toInternationalString(final CharSequence string) {
         if (string == null || string instanceof InternationalString) {

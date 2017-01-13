@@ -74,8 +74,8 @@ import org.apache.sis.xml.Namespaces;
  * @version 0.8
  * @module
  *
- * @see LocalisedCharacterString
- * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-152">GEOTK-152</a>
+ * see LocalisedCharacterString
+ * see <a href="http://jira.geotoolkit.org/browse/GEOTK-152">GEOTK-152</a>
  */
 final class TextGroup {
     /**
@@ -121,7 +121,7 @@ final class TextGroup {
      *   └─ LocalisedCharacterString[#locale-fra, “Un texte”]
      * }
      *
-     * @see LocalisedCharacterString#toString()
+     * see LocalisedCharacterString#toString()
      */
     @Debug
     @Override

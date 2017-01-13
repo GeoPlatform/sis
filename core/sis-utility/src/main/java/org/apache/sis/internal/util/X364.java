@@ -36,8 +36,8 @@ import org.apache.sis.util.resources.Errors;
  * @version 0.7
  * @module
  *
- * @see <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">Wikipedia: ANSI escape codes</a>
- * @see org.apache.sis.io.wkt.Colors
+ * see <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">Wikipedia: ANSI escape codes</a>
+ * see org.apache.sis.io.wkt.Colors
  */
 public enum X364 {
     /** Reset all attributes to their default value. */ RESET               ((byte)  0, null),
@@ -67,7 +67,7 @@ public enum X364 {
      * The list of codes having a non-null {@linkplain #color} name.
      * They are the codes in the range 31 to 37 inclusive.
      *
-     * @see #forColorName(String)
+     * see #forColorName(String)
      */
     private static final X364[] NAMED;
     static {
