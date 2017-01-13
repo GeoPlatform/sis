@@ -6,7 +6,7 @@
 *   Attributes do not always map to the corresponding XML elements as expected. Sometimes Apache just "drops" them, but I am unclear on how these attributes are handled internally. Need to ask Martin about that.
 *   Elements with the deprecated GMI namespace will generally still marshal into ISO 19115-3 with that namespace (a few cases of this have been fixed, see **DefaultSource** for some examples).
 *   Related to the above, deprecated elements with the **MI_** prefix (which should generally now have the prefix **MD_**) still retain their old names. This could be fixed relatively easily in the **FilteredStreamReader** class, but it would break compatibility with those classes for reading from ISO 19139 and then writing back to ISO 19139.
-*   Packages **org.apache.sis.metadata.iso.quality** and **org.apache.sis.metadata.iso.spatial** have not been completely mapped to ISO 19115-3.
+*   Packages **org.apache.sis.metadata.iso**, **org.apache.sis.metadata.iso.quality** and **org.apache.sis.metadata.iso.spatial** have not been completely mapped to ISO 19115-3.
 
 === Potential Issues
 
