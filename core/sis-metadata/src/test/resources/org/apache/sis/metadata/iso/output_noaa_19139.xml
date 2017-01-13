@@ -7,10 +7,10 @@
             <gco:CharacterString>eng; USA</gco:CharacterString>
         </gmd:language>
         <gmd:characterSet>
-            <gmd:MD_CharacterSetCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="eng">UTF-8</gmd:MD_CharacterSetCode>
+            <gmd:MD_CharacterSetCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="eng">UTF-8</gmd:MD_CharacterSetCode>
         </gmd:characterSet>
         <gmd:hierarchyLevel>
-            <gmd:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="eng">Dataset</gmd:MD_ScopeCode>
+            <gmd:MD_ScopeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="eng">Dataset</gmd:MD_ScopeCode>
         </gmd:hierarchyLevel>
         <gmd:contact>
             <gmd:CI_ResponsibleParty>
@@ -63,7 +63,7 @@
                     </gmd:CI_Contact>
                 </gmd:contactInfo>
                 <gmd:role>
-                    <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</gmd:CI_RoleCode>
+                    <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</gmd:CI_RoleCode>
                 </gmd:role>
             </gmd:CI_ResponsibleParty>
         </gmd:contact>
@@ -92,7 +92,7 @@
                                     <gco:Date>1996-01-01</gco:Date>
                                 </gmd:date>
                                 <gmd:dateType>
-                                    <gmd:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication" codeSpace="eng">Publication</gmd:CI_DateTypeCode>
+                                    <gmd:CI_DateTypeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="publication" codeSpace="eng">Publication</gmd:CI_DateTypeCode>
                                 </gmd:dateType>
                             </gmd:CI_Date>
                         </gmd:date>
@@ -102,7 +102,7 @@
                                     <gco:Date>2013-12-18</gco:Date>
                                 </gmd:date>
                                 <gmd:dateType>
-                                    <gmd:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision" codeSpace="eng">Revision</gmd:CI_DateTypeCode>
+                                    <gmd:CI_DateTypeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="revision" codeSpace="eng">Revision</gmd:CI_DateTypeCode>
                                 </gmd:dateType>
                             </gmd:CI_Date>
                         </gmd:date>
@@ -129,7 +129,7 @@
                                     <gco:CharacterString>DOC/NOAA/NESDIS/NCEI &gt; National Centers for Environmental Information, NESDIS, NOAA, U.S. Department of Commerce</gco:CharacterString>
                                 </gmd:organisationName>
                                 <gmd:role>
-                                    <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</gmd:CI_RoleCode>
+                                    <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</gmd:CI_RoleCode>
                                 </gmd:role>
                             </gmd:CI_ResponsibleParty>
                         </gmd:citedResponsibleParty>
@@ -157,7 +157,7 @@
                                     </gmd:CI_Contact>
                                 </gmd:contactInfo>
                                 <gmd:role>
-                                    <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="originator" codeSpace="eng">Originator</gmd:CI_RoleCode>
+                                    <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="originator" codeSpace="eng">Originator</gmd:CI_RoleCode>
                                 </gmd:role>
                             </gmd:CI_ResponsibleParty>
                         </gmd:citedResponsibleParty>
@@ -183,14 +183,14 @@
                                                     <gco:CharacterString>Storm Events Database Frequently Asked Questions</gco:CharacterString>
                                                 </gmd:description>
                                                 <gmd:function>
-                                                    <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
+                                                    <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
                                                 </gmd:function>
                                             </gmd:CI_OnlineResource>
                                         </gmd:onlineResource>
                                     </gmd:CI_Contact>
                                 </gmd:contactInfo>
                                 <gmd:role>
-                                    <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="distirbutor">Distirbutor</gmd:CI_RoleCode>
+                                    <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="distirbutor">Distirbutor</gmd:CI_RoleCode>
                                 </gmd:role>
                             </gmd:CI_ResponsibleParty>
                         </gmd:citedResponsibleParty>
@@ -216,14 +216,14 @@
                                                     <gco:CharacterString>Where you can download the Storm Events Database in various ways</gco:CharacterString>
                                                 </gmd:description>
                                                 <gmd:function>
-                                                    <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="download" codeSpace="eng">Download</gmd:CI_OnLineFunctionCode>
+                                                    <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download" codeSpace="eng">Download</gmd:CI_OnLineFunctionCode>
                                                 </gmd:function>
                                             </gmd:CI_OnlineResource>
                                         </gmd:onlineResource>
                                     </gmd:CI_Contact>
                                 </gmd:contactInfo>
                                 <gmd:role>
-                                    <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="distirbutor">Distirbutor</gmd:CI_RoleCode>
+                                    <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="distirbutor">Distirbutor</gmd:CI_RoleCode>
                                 </gmd:role>
                             </gmd:CI_ResponsibleParty>
                         </gmd:citedResponsibleParty>
@@ -249,19 +249,19 @@
                                                     <gco:CharacterString>Where you can search the Storm Events Database by State, then date, event type, and/or county.</gco:CharacterString>
                                                 </gmd:description>
                                                 <gmd:function>
-                                                    <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="search" codeSpace="eng">Search</gmd:CI_OnLineFunctionCode>
+                                                    <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="search" codeSpace="eng">Search</gmd:CI_OnLineFunctionCode>
                                                 </gmd:function>
                                             </gmd:CI_OnlineResource>
                                         </gmd:onlineResource>
                                     </gmd:CI_Contact>
                                 </gmd:contactInfo>
                                 <gmd:role>
-                                    <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="distirbutor">Distirbutor</gmd:CI_RoleCode>
+                                    <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="distirbutor">Distirbutor</gmd:CI_RoleCode>
                                 </gmd:role>
                             </gmd:CI_ResponsibleParty>
                         </gmd:citedResponsibleParty>
                         <gmd:presentationForm>
-                            <gmd:CI_PresentationFormCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_PresentationFormCode" codeListValue="tableDigital" codeSpace="eng">Table digital</gmd:CI_PresentationFormCode>
+                            <gmd:CI_PresentationFormCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_PresentationFormCode" codeListValue="tableDigital" codeSpace="eng">Table digital</gmd:CI_PresentationFormCode>
                         </gmd:presentationForm>
                     </gmd:CI_Citation>
                 </gmd:citation>
@@ -272,7 +272,7 @@
                     <gco:CharacterString>To make a wide range of storm event data available to researchers and the public.</gco:CharacterString>
                 </gmd:purpose>
                 <gmd:status>
-                    <gmd:MD_ProgressCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ProgressCode" codeListValue="onGoing" codeSpace="eng">On going</gmd:MD_ProgressCode>
+                    <gmd:MD_ProgressCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_ProgressCode" codeListValue="onGoing" codeSpace="eng">On going</gmd:MD_ProgressCode>
                 </gmd:status>
                 <gmd:pointOfContact>
                     <gmd:CI_ResponsibleParty>
@@ -337,7 +337,7 @@
                                             <gco:CharacterString>NCEI home page with information, data access and contact information.</gco:CharacterString>
                                         </gmd:description>
                                         <gmd:function>
-                                            <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
+                                            <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
                                         </gmd:function>
                                     </gmd:CI_OnlineResource>
                                 </gmd:onlineResource>
@@ -347,14 +347,14 @@
                             </gmd:CI_Contact>
                         </gmd:contactInfo>
                         <gmd:role>
-                            <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</gmd:CI_RoleCode>
+                            <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</gmd:CI_RoleCode>
                         </gmd:role>
                     </gmd:CI_ResponsibleParty>
                 </gmd:pointOfContact>
                 <gmd:resourceMaintenance>
                     <gmd:MD_MaintenanceInformation>
                         <gmd:maintenanceAndUpdateFrequency>
-                            <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="monthly" codeSpace="eng">Monthly</gmd:MD_MaintenanceFrequencyCode>
+                            <gmd:MD_MaintenanceFrequencyCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="monthly" codeSpace="eng">Monthly</gmd:MD_MaintenanceFrequencyCode>
                         </gmd:maintenanceAndUpdateFrequency>
                     </gmd:MD_MaintenanceInformation>
                 </gmd:resourceMaintenance>
@@ -454,7 +454,7 @@
                             <gco:CharacterString>TERRESTRIAL HYDROSPHERE &gt; SURFACE WATER &gt; FLOODS</gco:CharacterString>
                         </gmd:keyword>
                         <gmd:type>
-                            <gmd:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme" codeSpace="eng">Theme</gmd:MD_KeywordTypeCode>
+                            <gmd:MD_KeywordTypeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="theme" codeSpace="eng">Theme</gmd:MD_KeywordTypeCode>
                         </gmd:type>
                         <gmd:thesaurusName>
                             <gmd:CI_Citation>
@@ -467,7 +467,7 @@
                                             <gco:Date>2015-08-04</gco:Date>
                                         </gmd:date>
                                         <gmd:dateType>
-                                            <gmd:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision" codeSpace="eng">Revision</gmd:CI_DateTypeCode>
+                                            <gmd:CI_DateTypeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="revision" codeSpace="eng">Revision</gmd:CI_DateTypeCode>
                                         </gmd:dateType>
                                     </gmd:CI_Date>
                                 </gmd:date>
@@ -499,14 +499,14 @@
                                                             <gco:CharacterString>Overview of the NASA GCMD Keywords.</gco:CharacterString>
                                                         </gmd:description>
                                                         <gmd:function>
-                                                            <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
+                                                            <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
                                                         </gmd:function>
                                                     </gmd:CI_OnlineResource>
                                                 </gmd:onlineResource>
                                             </gmd:CI_Contact>
                                         </gmd:contactInfo>
                                         <gmd:role>
-                                            <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</gmd:CI_RoleCode>
+                                            <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</gmd:CI_RoleCode>
                                         </gmd:role>
                                     </gmd:CI_ResponsibleParty>
                                 </gmd:citedResponsibleParty>
@@ -520,7 +520,7 @@
                             <gco:CharacterString>CONTINENT &gt; NORTH AMERICA &gt; UNITED STATES OF AMERICA</gco:CharacterString>
                         </gmd:keyword>
                         <gmd:type>
-                            <gmd:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="place" codeSpace="eng">Place</gmd:MD_KeywordTypeCode>
+                            <gmd:MD_KeywordTypeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="place" codeSpace="eng">Place</gmd:MD_KeywordTypeCode>
                         </gmd:type>
                         <gmd:thesaurusName>
                             <gmd:CI_Citation>
@@ -533,7 +533,7 @@
                                             <gco:Date>2015-04-07</gco:Date>
                                         </gmd:date>
                                         <gmd:dateType>
-                                            <gmd:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision" codeSpace="eng">Revision</gmd:CI_DateTypeCode>
+                                            <gmd:CI_DateTypeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="revision" codeSpace="eng">Revision</gmd:CI_DateTypeCode>
                                         </gmd:dateType>
                                     </gmd:CI_Date>
                                 </gmd:date>
@@ -565,14 +565,14 @@
                                                             <gco:CharacterString>Overview of the NASA GCMD Keywords.</gco:CharacterString>
                                                         </gmd:description>
                                                         <gmd:function>
-                                                            <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
+                                                            <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
                                                         </gmd:function>
                                                     </gmd:CI_OnlineResource>
                                                 </gmd:onlineResource>
                                             </gmd:CI_Contact>
                                         </gmd:contactInfo>
                                         <gmd:role>
-                                            <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</gmd:CI_RoleCode>
+                                            <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</gmd:CI_RoleCode>
                                         </gmd:role>
                                     </gmd:CI_ResponsibleParty>
                                 </gmd:citedResponsibleParty>
@@ -586,7 +586,7 @@
                             <gco:CharacterString>Point Resolution</gco:CharacterString>
                         </gmd:keyword>
                         <gmd:type>
-                            <gmd:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="dataResolution">Data resolution</gmd:MD_KeywordTypeCode>
+                            <gmd:MD_KeywordTypeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="dataResolution">Data resolution</gmd:MD_KeywordTypeCode>
                         </gmd:type>
                         <gmd:thesaurusName>
                             <gmd:CI_Citation>
@@ -599,7 +599,7 @@
                                             <gco:Date>2013-03-19</gco:Date>
                                         </gmd:date>
                                         <gmd:dateType>
-                                            <gmd:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision" codeSpace="eng">Revision</gmd:CI_DateTypeCode>
+                                            <gmd:CI_DateTypeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="revision" codeSpace="eng">Revision</gmd:CI_DateTypeCode>
                                         </gmd:dateType>
                                     </gmd:CI_Date>
                                 </gmd:date>
@@ -631,14 +631,14 @@
                                                             <gco:CharacterString>Overview of the NASA GCMD Keywords.</gco:CharacterString>
                                                         </gmd:description>
                                                         <gmd:function>
-                                                            <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
+                                                            <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
                                                         </gmd:function>
                                                     </gmd:CI_OnlineResource>
                                                 </gmd:onlineResource>
                                             </gmd:CI_Contact>
                                         </gmd:contactInfo>
                                         <gmd:role>
-                                            <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</gmd:CI_RoleCode>
+                                            <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</gmd:CI_RoleCode>
                                         </gmd:role>
                                     </gmd:CI_ResponsibleParty>
                                 </gmd:citedResponsibleParty>
@@ -655,7 +655,7 @@
                             <gco:CharacterString>DOC/NOAA/NESDIS/NCEI &gt; National Centers for Environmental Information, NESDIS, NOAA, U.S. Department of Commerce</gco:CharacterString>
                         </gmd:keyword>
                         <gmd:type>
-                            <gmd:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="dataCenter">Data center</gmd:MD_KeywordTypeCode>
+                            <gmd:MD_KeywordTypeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="dataCenter">Data center</gmd:MD_KeywordTypeCode>
                         </gmd:type>
                         <gmd:thesaurusName>
                             <gmd:CI_Citation>
@@ -668,7 +668,7 @@
                                             <gco:Date>2015-10-02</gco:Date>
                                         </gmd:date>
                                         <gmd:dateType>
-                                            <gmd:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision" codeSpace="eng">Revision</gmd:CI_DateTypeCode>
+                                            <gmd:CI_DateTypeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="revision" codeSpace="eng">Revision</gmd:CI_DateTypeCode>
                                         </gmd:dateType>
                                     </gmd:CI_Date>
                                 </gmd:date>
@@ -700,14 +700,14 @@
                                                             <gco:CharacterString>Overview of the NASA GCMD Keywords.</gco:CharacterString>
                                                         </gmd:description>
                                                         <gmd:function>
-                                                            <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
+                                                            <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
                                                         </gmd:function>
                                                     </gmd:CI_OnlineResource>
                                                 </gmd:onlineResource>
                                             </gmd:CI_Contact>
                                         </gmd:contactInfo>
                                         <gmd:role>
-                                            <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</gmd:CI_RoleCode>
+                                            <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</gmd:CI_RoleCode>
                                         </gmd:role>
                                     </gmd:CI_ResponsibleParty>
                                 </gmd:citedResponsibleParty>
@@ -718,7 +718,7 @@
                 <gmd:resourceConstraints>
                     <gmd:MD_LegalConstraints>
                         <gmd:useConstraints>
-                            <gmd:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" codeSpace="eng">Other restrictions</gmd:MD_RestrictionCode>
+                            <gmd:MD_RestrictionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" codeSpace="eng">Other restrictions</gmd:MD_RestrictionCode>
                         </gmd:useConstraints>
                         <gmd:otherConstraints>
                             <gco:CharacterString>Cite dataset when used as a source.</gco:CharacterString>
@@ -728,7 +728,7 @@
                 <gmd:resourceConstraints>
                     <gmd:MD_LegalConstraints>
                         <gmd:useConstraints>
-                            <gmd:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" codeSpace="eng">Other restrictions</gmd:MD_RestrictionCode>
+                            <gmd:MD_RestrictionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" codeSpace="eng">Other restrictions</gmd:MD_RestrictionCode>
                         </gmd:useConstraints>
                         <gmd:otherConstraints>
                             <gco:CharacterString>An effort is made to use the best available information but because of time and resource constraints, information from these sources may be unverified by the NWS. Customers should be cautious as the NWS does not guarantee the accuracy or validity of the information. Further, when it is apparent information appearing in Storm Data originated from a source outside the NWS (frequently credit is provided), Storm Data customers requiring additional information should contact that source directly. In most cases, NWS employees will not have the knowledge to respond to such requests. In cases of legal proceedings, Federal regulations generally prohibit NWS employees from appearing as witnesses in litigation not involving the United States.</gco:CharacterString>
@@ -766,7 +766,7 @@
                     </gmd:MD_AggregateInformation>
                 </gmd:aggregationInfo>
                 <gmd:spatialRepresentationType>
-                    <gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="textTable">Text table</gmd:MD_SpatialRepresentationTypeCode>
+                    <gmd:MD_SpatialRepresentationTypeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="textTable">Text table</gmd:MD_SpatialRepresentationTypeCode>
                 </gmd:spatialRepresentationType>
                 <gmd:language>
                     <gco:CharacterString>eng; USA</gco:CharacterString>
@@ -872,7 +872,7 @@
                                                     <gco:CharacterString>NCEI home page with information, data access, and customer support contacts.</gco:CharacterString>
                                                 </gmd:description>
                                                 <gmd:function>
-                                                    <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
+                                                    <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
                                                 </gmd:function>
                                             </gmd:CI_OnlineResource>
                                         </gmd:onlineResource>
@@ -882,7 +882,7 @@
                                     </gmd:CI_Contact>
                                 </gmd:contactInfo>
                                 <gmd:role>
-                                    <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="distributor" codeSpace="eng">Distributor</gmd:CI_RoleCode>
+                                    <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="distributor" codeSpace="eng">Distributor</gmd:CI_RoleCode>
                                 </gmd:role>
                             </gmd:CI_ResponsibleParty>
                         </gmd:distributorContact>
@@ -923,7 +923,7 @@
                                             <gco:CharacterString>Dataset landing page with general information and access links for the dataset.</gco:CharacterString>
                                         </gmd:description>
                                         <gmd:function>
-                                            <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
+                                            <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
                                         </gmd:function>
                                     </gmd:CI_OnlineResource>
                                 </gmd:onLine>
@@ -996,7 +996,7 @@
                                                     <gco:CharacterString>NCEI home page with information, data access and contact information.</gco:CharacterString>
                                                 </gmd:description>
                                                 <gmd:function>
-                                                    <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
+                                                    <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" codeSpace="eng">Information</gmd:CI_OnLineFunctionCode>
                                                 </gmd:function>
                                             </gmd:CI_OnlineResource>
                                         </gmd:onlineResource>
@@ -1006,7 +1006,7 @@
                                     </gmd:CI_Contact>
                                 </gmd:contactInfo>
                                 <gmd:role>
-                                    <gmd:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="distributor" codeSpace="eng">Distributor</gmd:CI_RoleCode>
+                                    <gmd:CI_RoleCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="distributor" codeSpace="eng">Distributor</gmd:CI_RoleCode>
                                 </gmd:role>
                             </gmd:CI_ResponsibleParty>
                         </gmd:distributorContact>
@@ -1045,7 +1045,7 @@
                                             <gco:CharacterString>Search the NCEI Storm Events Database to find various types of storms recorded in your county. The database currently contains data from Oct. 2006 to Present, as entered by NOAA's NWS.</gco:CharacterString>
                                         </gmd:description>
                                         <gmd:function>
-                                            <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="download" codeSpace="eng">Download</gmd:CI_OnLineFunctionCode>
+                                            <gmd:CI_OnLineFunctionCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download" codeSpace="eng">Download</gmd:CI_OnLineFunctionCode>
                                         </gmd:function>
                                     </gmd:CI_OnlineResource>
                                 </gmd:onLine>
@@ -1060,7 +1060,7 @@
                 <gmd:scope>
                     <gmd:DQ_Scope id="datasetScope">
                         <gmd:level>
-                            <gmd:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="eng">Dataset</gmd:MD_ScopeCode>
+                            <gmd:MD_ScopeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="eng">Dataset</gmd:MD_ScopeCode>
                         </gmd:level>
                         <gmd:extent xlink:href="#boundingExtent"></gmd:extent>
                     </gmd:DQ_Scope>
@@ -1075,7 +1075,7 @@
                 <gmd:scope>
                     <gmd:DQ_Scope>
                         <gmd:level>
-                            <gmd:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="repository" codeSpace="eng">Repository</gmd:MD_ScopeCode>
+                            <gmd:MD_ScopeCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="repository" codeSpace="eng">Repository</gmd:MD_ScopeCode>
                         </gmd:level>
                         <gmd:levelDescription>
                             <gmd:MD_ScopeDescription>
@@ -1105,7 +1105,7 @@
         <gmd:metadataMaintenance>
             <gmd:MD_MaintenanceInformation>
                 <gmd:maintenanceAndUpdateFrequency>
-                    <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="asNeeded" codeSpace="eng">As needed</gmd:MD_MaintenanceFrequencyCode>
+                    <gmd:MD_MaintenanceFrequencyCode codeList="http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="asNeeded" codeSpace="eng">As needed</gmd:MD_MaintenanceFrequencyCode>
                 </gmd:maintenanceAndUpdateFrequency>
                 <gmd:maintenanceNote>
                     <gco:CharacterString>Bulk metadata change applied on 2016-05-05. See version control repository history for metadata change details.</gco:CharacterString>

@@ -91,6 +91,7 @@
     @XmlJavaTypeAdapter(MD_RepresentativeFraction.class),
     @XmlJavaTypeAdapter(MD_Resolution.class),
     @XmlJavaTypeAdapter(MD_Scope.class),
+    @XmlJavaTypeAdapter(RS_ReferenceSystem.class),
 
     // Java types, primitive types and basic OGC types handling
     @XmlJavaTypeAdapter(GO_DateTime.class),
@@ -122,4 +123,5 @@ import org.apache.sis.internal.jaxb.metadata.MD_Identifier;
 import org.apache.sis.internal.jaxb.metadata.MD_RepresentativeFraction;
 import org.apache.sis.internal.jaxb.metadata.MD_Resolution;
 import org.apache.sis.internal.jaxb.metadata.MD_Scope;
+import org.apache.sis.internal.jaxb.metadata.RS_ReferenceSystem;
 import org.apache.sis.xml.Namespaces;

@@ -56,100 +56,6 @@
         <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</cit:CI_RoleCode>
       </cit:role>
       <cit:party>
-        <cit:CI_Individual>
-          <cit:name>
-            <gco:CharacterString>individualName2</gco:CharacterString>
-          </cit:name>
-          <cit:contactInfo>
-            <cit:CI_Contact>
-              <cit:phone>
-<cit:CI_Telephone>
-  <cit:number>
-    <gco:CharacterString>555-555-5555</gco:CharacterString>
-  </cit:number>
-  <cit:numberType>
-    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="facsimile" codeSpace="eng">Facsimile</cit:CI_TelephoneTypeCode>
-  </cit:numberType>
-</cit:CI_Telephone>
-              </cit:phone>
-              <cit:phone>
-<cit:CI_Telephone>
-  <cit:number>
-    <gco:CharacterString>555-867-5309</gco:CharacterString>
-  </cit:number>
-  <cit:numberType>
-    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice" codeSpace="eng">Voice</cit:CI_TelephoneTypeCode>
-  </cit:numberType>
-</cit:CI_Telephone>
-              </cit:phone>
-              <cit:address>
-<cit:CI_Address>
-  <cit:deliveryPoint>
-    <gco:CharacterString>deliveryPoint</gco:CharacterString>
-  </cit:deliveryPoint>
-  <cit:city>
-    <gco:CharacterString>city</gco:CharacterString>
-  </cit:city>
-  <cit:administrativeArea>
-    <gco:CharacterString>administrativeArea</gco:CharacterString>
-  </cit:administrativeArea>
-  <cit:postalCode>
-    <gco:CharacterString>postalCode</gco:CharacterString>
-  </cit:postalCode>
-  <cit:country>
-    <gco:CharacterString>country</gco:CharacterString>
-  </cit:country>
-  <cit:electronicMailAddress>
-    <gco:CharacterString>test@example.com</gco:CharacterString>
-  </cit:electronicMailAddress>
-</cit:CI_Address>
-              </cit:address>
-              <cit:onlineResource>
-<cit:CI_OnlineResource>
-  <cit:linkage>
-    <gco:CharacterString>http://example.com</gco:CharacterString>
-  </cit:linkage>
-  <cit:protocol>
-    <gco:CharacterString>protocol</gco:CharacterString>
-  </cit:protocol>
-  <cit:applicationProfile>
-    <gco:CharacterString>applicationProfile</gco:CharacterString>
-  </cit:applicationProfile>
-  <cit:name>
-    <gco:CharacterString>name</gco:CharacterString>
-  </cit:name>
-  <cit:description>
-    <gco:CharacterString>description</gco:CharacterString>
-  </cit:description>
-  <cit:function>
-    <cit:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="download" codeSpace="eng">Download</cit:CI_OnLineFunctionCode>
-  </cit:function>
-</cit:CI_OnlineResource>
-              </cit:onlineResource>
-              <cit:hoursOfService>
-<gco:CharacterString>Weekdays 9:00 AM - 5:00 PM</gco:CharacterString>
-              </cit:hoursOfService>
-              <cit:contactInstructions>
-<gco:CharacterString>contactInstructions</gco:CharacterString>
-              </cit:contactInstructions>
-              <cit:contactType>
-<gco:CharacterString>contactType</gco:CharacterString>
-              </cit:contactType>
-            </cit:CI_Contact>
-          </cit:contactInfo>
-          <cit:positionName>
-            <gco:CharacterString>positionName2</gco:CharacterString>
-          </cit:positionName>
-        </cit:CI_Individual>
-      </cit:party>
-    </cit:CI_Responsibility>
-  </mdb:contact>
-  <mdb:contact>
-    <cit:CI_Responsibility>
-      <cit:role>
-        <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</cit:CI_RoleCode>
-      </cit:role>
-      <cit:party>
         <cit:CI_Organisation>
           <cit:name>
             <gco:CharacterString>organisationName</gco:CharacterString>
@@ -245,9 +151,103 @@
       </cit:party>
     </cit:CI_Responsibility>
   </mdb:contact>
+  <mdb:contact>
+    <cit:CI_Responsibility>
+      <cit:role>
+        <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</cit:CI_RoleCode>
+      </cit:role>
+      <cit:party>
+        <cit:CI_Individual>
+          <cit:name>
+            <gco:CharacterString>individualName2</gco:CharacterString>
+          </cit:name>
+          <cit:contactInfo>
+            <cit:CI_Contact>
+              <cit:phone>
+<cit:CI_Telephone>
+  <cit:number>
+    <gco:CharacterString>555-555-5555</gco:CharacterString>
+  </cit:number>
+  <cit:numberType>
+    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="facsimile" codeSpace="eng">Facsimile</cit:CI_TelephoneTypeCode>
+  </cit:numberType>
+</cit:CI_Telephone>
+              </cit:phone>
+              <cit:phone>
+<cit:CI_Telephone>
+  <cit:number>
+    <gco:CharacterString>555-867-5309</gco:CharacterString>
+  </cit:number>
+  <cit:numberType>
+    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice" codeSpace="eng">Voice</cit:CI_TelephoneTypeCode>
+  </cit:numberType>
+</cit:CI_Telephone>
+              </cit:phone>
+              <cit:address>
+<cit:CI_Address>
+  <cit:deliveryPoint>
+    <gco:CharacterString>deliveryPoint</gco:CharacterString>
+  </cit:deliveryPoint>
+  <cit:city>
+    <gco:CharacterString>city</gco:CharacterString>
+  </cit:city>
+  <cit:administrativeArea>
+    <gco:CharacterString>administrativeArea</gco:CharacterString>
+  </cit:administrativeArea>
+  <cit:postalCode>
+    <gco:CharacterString>postalCode</gco:CharacterString>
+  </cit:postalCode>
+  <cit:country>
+    <gco:CharacterString>country</gco:CharacterString>
+  </cit:country>
+  <cit:electronicMailAddress>
+    <gco:CharacterString>test@example.com</gco:CharacterString>
+  </cit:electronicMailAddress>
+</cit:CI_Address>
+              </cit:address>
+              <cit:onlineResource>
+<cit:CI_OnlineResource>
+  <cit:linkage>
+    <gco:CharacterString>http://example.com</gco:CharacterString>
+  </cit:linkage>
+  <cit:protocol>
+    <gco:CharacterString>protocol</gco:CharacterString>
+  </cit:protocol>
+  <cit:applicationProfile>
+    <gco:CharacterString>applicationProfile</gco:CharacterString>
+  </cit:applicationProfile>
+  <cit:name>
+    <gco:CharacterString>name</gco:CharacterString>
+  </cit:name>
+  <cit:description>
+    <gco:CharacterString>description</gco:CharacterString>
+  </cit:description>
+  <cit:function>
+    <cit:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_OnLineFunctionCode" codeListValue="download" codeSpace="eng">Download</cit:CI_OnLineFunctionCode>
+  </cit:function>
+</cit:CI_OnlineResource>
+              </cit:onlineResource>
+              <cit:hoursOfService>
+<gco:CharacterString>Weekdays 9:00 AM - 5:00 PM</gco:CharacterString>
+              </cit:hoursOfService>
+              <cit:contactInstructions>
+<gco:CharacterString>contactInstructions</gco:CharacterString>
+              </cit:contactInstructions>
+              <cit:contactType>
+<gco:CharacterString>contactType</gco:CharacterString>
+              </cit:contactType>
+            </cit:CI_Contact>
+          </cit:contactInfo>
+          <cit:positionName>
+            <gco:CharacterString>positionName2</gco:CharacterString>
+          </cit:positionName>
+        </cit:CI_Individual>
+      </cit:party>
+    </cit:CI_Responsibility>
+  </mdb:contact>
   <mdb:dateInfo>
     <cit:date>
-      <gco:DateTime>2017-01-13T15:42:52.960+01:00</gco:DateTime>
+      <gco:DateTime>2017-01-13T15:56:35.836+01:00</gco:DateTime>
     </cit:date>
     <cit:dateType>
       <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -333,7 +333,7 @@
               <cit:date>
 <cit:CI_Date>
   <cit:date>
-    <gco:DateTime>2017-01-13T15:42:52.960+01:00</gco:DateTime>
+    <gco:DateTime>2017-01-13T15:56:35.836+01:00</gco:DateTime>
   </cit:date>
   <cit:dateType>
     <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -448,7 +448,7 @@
           <cit:date>
             <cit:CI_Date>
               <cit:date>
-<gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
               </cit:date>
               <cit:dateType>
 <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -459,7 +459,7 @@
             <gco:CharacterString>edition</gco:CharacterString>
           </cit:edition>
           <cit:editionDate>
-            <gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
+            <gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
           </cit:editionDate>
         </cit:CI_Citation>
       </mri:citation>
@@ -506,7 +506,7 @@
           <mmi:maintenanceDate>
             <cit:CI_Date>
               <cit:date>
-<gco:DateTime>2017-01-13T15:42:53.068+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
               </cit:date>
               <cit:dateType>
 <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="nextUpdate" codeSpace="eng">Next update</cit:CI_DateTypeCode>
@@ -655,7 +655,7 @@
               <cit:date>
 <cit:CI_Date>
   <cit:date>
-    <gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
+    <gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
   </cit:date>
   <cit:dateType>
     <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -666,7 +666,7 @@
 <gco:CharacterString>edition</gco:CharacterString>
               </cit:edition>
               <cit:editionDate>
-<gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
               </cit:editionDate>
             </cit:CI_Citation>
           </mri:citation>
@@ -735,7 +735,7 @@
               <mmi:maintenanceDate>
 <cit:CI_Date>
   <cit:date>
-    <gco:DateTime>2017-01-13T15:42:53.068+01:00</gco:DateTime>
+    <gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
   </cit:date>
   <cit:dateType>
     <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="nextUpdate" codeSpace="eng">Next update</cit:CI_DateTypeCode>
@@ -810,7 +810,7 @@
 <gco:CharacterString>specificUsage</gco:CharacterString>
               </mri:specificUsage>
               <mri:usageDateTime>
-<gco:DateTime>2017-01-13T15:42:53.073+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:56:35.933+01:00</gco:DateTime>
               </mri:usageDateTime>
               <mri:userDeterminedLimitations>
 <gco:CharacterString>userDeterminedLimitations</gco:CharacterString>
@@ -940,7 +940,7 @@
           <cit:date>
             <cit:CI_Date>
               <cit:date>
-<gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
               </cit:date>
               <cit:dateType>
 <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
@@ -951,7 +951,7 @@
             <gco:CharacterString>edition</gco:CharacterString>
           </cit:edition>
           <cit:editionDate>
-            <gco:DateTime>2017-01-13T15:42:53.067+01:00</gco:DateTime>
+            <gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
           </cit:editionDate>
         </cit:CI_Citation>
       </mri:citation>
@@ -1020,7 +1020,7 @@
           <mmi:maintenanceDate>
             <cit:CI_Date>
               <cit:date>
-<gco:DateTime>2017-01-13T15:42:53.068+01:00</gco:DateTime>
+<gco:DateTime>2017-01-13T15:56:35.926+01:00</gco:DateTime>
               </cit:date>
               <cit:dateType>
 <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="nextUpdate" codeSpace="eng">Next update</cit:CI_DateTypeCode>
@@ -1095,7 +1095,7 @@
             <gco:CharacterString>specificUsage</gco:CharacterString>
           </mri:specificUsage>
           <mri:usageDateTime>
-            <gco:DateTime>2017-01-13T15:42:53.073+01:00</gco:DateTime>
+            <gco:DateTime>2017-01-13T15:56:35.933+01:00</gco:DateTime>
           </mri:usageDateTime>
           <mri:userDeterminedLimitations>
             <gco:CharacterString>userDeterminedLimitations</gco:CharacterString>
@@ -1208,34 +1208,10 @@
     </mri:MD_DataIdentification>
   </mdb:identificationInfo>
   <mdb:contentInfo>
-    <mrc:MD_FeatureCatalogueDescription>
-      <mrc:complianceCode>
-        <gco:Boolean>true</gco:Boolean>
-      </mrc:complianceCode>
-      <mrc:includedWithDataset>
-        <gco:Boolean>true</gco:Boolean>
-      </mrc:includedWithDataset>
-    </mrc:MD_FeatureCatalogueDescription>
-  </mdb:contentInfo>
-  <mdb:contentInfo>
     <mrc:MD_CoverageDescription>
       <mrc:attributeDescription>
         <gco:RecordType/>
       </mrc:attributeDescription>
-      <mrc:attributeGroup>
-        <mrc:MD_AttributeGroup>
-          <mrc:attribute>
-            <mrc:MD_RangeDimension>
-              <mrc:description>
-<gco:CharacterString>descriptor</gco:CharacterString>
-              </mrc:description>
-              <mrc:name>
-<mcc:MD_Identifier/>
-              </mrc:name>
-            </mrc:MD_RangeDimension>
-          </mrc:attribute>
-        </mrc:MD_AttributeGroup>
-      </mrc:attributeGroup>
       <mrc:attributeGroup>
         <mrc:MD_AttributeGroup>
           <mrc:attribute>
@@ -1257,6 +1233,30 @@
           </mrc:attribute>
         </mrc:MD_AttributeGroup>
       </mrc:attributeGroup>
+      <mrc:attributeGroup>
+        <mrc:MD_AttributeGroup>
+          <mrc:attribute>
+            <mrc:MD_RangeDimension>
+              <mrc:description>
+<gco:CharacterString>descriptor</gco:CharacterString>
+              </mrc:description>
+              <mrc:name>
+<mcc:MD_Identifier/>
+              </mrc:name>
+            </mrc:MD_RangeDimension>
+          </mrc:attribute>
+        </mrc:MD_AttributeGroup>
+      </mrc:attributeGroup>
     </mrc:MD_CoverageDescription>
+  </mdb:contentInfo>
+  <mdb:contentInfo>
+    <mrc:MD_FeatureCatalogueDescription>
+      <mrc:complianceCode>
+        <gco:Boolean>true</gco:Boolean>
+      </mrc:complianceCode>
+      <mrc:includedWithDataset>
+        <gco:Boolean>true</gco:Boolean>
+      </mrc:includedWithDataset>
+    </mrc:MD_FeatureCatalogueDescription>
   </mdb:contentInfo>
 </mdb:MD_Metadata>

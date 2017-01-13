@@ -211,6 +211,7 @@ acquisitionInformation|MD_Metadata|http://www.isotc211.org/2005/gmi
 acquisitionInformation|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 acquisitionPlan|MI_AcquisitionInformation|http://standards.iso.org/iso/19115/-3/mac/1.0
 acquisitionRequirement|MI_AcquisitionInformation|http://standards.iso.org/iso/19115/-3/mac/1.0
+additionalDocumentation|LI_Lineage|http://standards.iso.org/iso/19115/-3/mrl/1.0
 additionalDocumentation|MD_DataIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 additionalDocumentation|MD_Identification|http://standards.iso.org/iso/19115/-3/mri/1.0
 additionalDocumentation|MD_Usage|http://standards.iso.org/iso/19115/-3/mri/1.0
@@ -898,6 +899,8 @@ recipient|MI_Requirement|http://standards.iso.org/iso/19115/-3/mac/1.0
 referenceSystemIdentifier|MD_ReferenceSystem|http://standards.iso.org/iso/19115/-3/mrs/1.0
 referenceSystemInfo|MD_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
 referenceSystemInfo|MI_Metadata|http://standards.iso.org/iso/19115/-3/mdb/1.0
+reference|LE_ProcessStep|http://standards.iso.org/iso/19115/-3/mrl/1.0
+reference|LI_ProcessStep|http://standards.iso.org/iso/19115/-3/mrl/1.0
 reference|MD_Constraints|http://standards.iso.org/iso/19115/-3/mco/1.0
 reference|MD_LegalConstraints|http://standards.iso.org/iso/19115/-3/mco/1.0
 reference|MD_SecurityConstraints|http://standards.iso.org/iso/19115/-3/mco/1.0
@@ -976,6 +979,11 @@ scaleFactor|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 scanningResolution|LE_NominalResolution|http://www.isotc211.org/2005/gmi
 schemaLanguage|MD_ApplicationSchemaInformation|http://standards.iso.org/iso/19115/-3/mdb/1.0
 scope|DQ_DataQuality|http://standards.iso.org/iso/19157/-2/dqc/1.0
+scope|LE_ProcessStep|http://standards.iso.org/iso/19115/-3/mrl/1.0
+scope|LE_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
+scope|LI_Lineage|http://standards.iso.org/iso/19115/-3/mrl/1.0
+scope|LI_ProcessStep|http://standards.iso.org/iso/19115/-3/mrl/1.0
+scope|LI_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 sensingInstrument|MI_Objective|http://standards.iso.org/iso/19115/-3/mac/1.0
 sequenceIdentifier|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 sequenceIdentifier|MD_RangeDimension|http://standards.iso.org/iso/19115/-3/mrc/1.0
@@ -994,6 +1002,12 @@ sourceCitation|LE_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 sourceCitation|LI_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 sourceExtent|LE_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 sourceExtent|LI_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
+sourceMetadata|LE_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
+sourceMetadata|LI_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
+sourceReferenceSystem|LE_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
+sourceReferenceSystem|LI_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
+sourceSpatialResolution|LE_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
+sourceSpatialResolution|LI_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 sourceStep|LE_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 sourceStep|LI_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 source|LE_ProcessStep|http://standards.iso.org/iso/19115/-3/mrl/1.0

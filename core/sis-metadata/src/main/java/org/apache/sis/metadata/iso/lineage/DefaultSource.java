@@ -34,6 +34,7 @@ import org.opengis.metadata.identification.RepresentativeFraction;
 import org.opengis.metadata.maintenance.Scope;
 import org.opengis.referencing.ReferenceSystem;
 import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.util.CheckedArrayList;
 import org.apache.sis.metadata.iso.ISOMetadata;
 import org.apache.sis.metadata.iso.maintenance.DefaultScope;
 import org.apache.sis.metadata.iso.identification.DefaultResolution;
@@ -68,13 +69,17 @@ import org.apache.sis.xml.Namespaces;
  */
 @XmlType(name = "LI_Source_Type", propOrder = {
     "description",
+    "xmlScope",						// ISO 19115-3
+    "xmlSourceSpatialResolution",	// ISO 19115-3
     "xmlScaleDenominator",			// ISO 19139
     "sourceCitation",
-    "sourceExtents",
+    "xmlSourceReferenceSystem",		// ISO 19115-3
+    "xmlSourceMetadata",			// ISO 19115-3
+    "xmlSourceExtents",				// ISO 19139
     "sourceSteps",
-    "xmlSourceSpatialResolution",	// ISO 19115-3
     "processedLevel",
-    "resolution"
+    "xmlResolution",				// ISO 19115-3
+    "xmlResolutionLegacy",			// ISO 19139
 })
 @XmlRootElement(name = "LI_Source")
 @XmlSeeAlso(org.apache.sis.internal.jaxb.gmi.LE_Source.class)
@@ -301,7 +306,7 @@ public class DefaultSource extends ISOMetadata implements Source {
     }
     
     /**
-	 * Gets the source spatial resolution. Used by JAXB (ISO 19139 format).
+	 * Gets the scale denominator. Used by JAXB (ISO 19139 format).
 	 * @see {@link #getScaleDenominator}
 	 */
     @XmlElement(name = "scaleDenominator")
@@ -310,7 +315,7 @@ public class DefaultSource extends ISOMetadata implements Source {
 	}
 
 	/**
-	 * Sets the source spatial resolution. Used by JAXB (ISO 19139 format).
+	 * Sets the scale denominator. Used by JAXB (ISO 19139 format).
 	 * @see {@link #setScaleDenominator}
 	 */
 	@SuppressWarnings("unused")
@@ -326,7 +331,6 @@ public class DefaultSource extends ISOMetadata implements Source {
      * @todo We need to annotate the referencing module before we can annotate this method.
      */
     @Override
-/// @XmlElement(name = "sourceReferenceSystem")
     public ReferenceSystem getSourceReferenceSystem()  {
         return sourceReferenceSystem;
     }
@@ -340,6 +344,24 @@ public class DefaultSource extends ISOMetadata implements Source {
         checkWritePermission();
         sourceReferenceSystem = newValue;
     }
+    
+    /**
+	 * Gets the source spatial reference system. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getSourceReferenceSystem}
+	 */
+    @XmlElement(name = "sourceReferenceSystem")
+	private ReferenceSystem getXmlSourceReferenceSystem() {
+		return MetadataInfo.is2003() ? null : getSourceReferenceSystem();
+	}
+
+	/**
+	 * Sets the source spatial reference system. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #setSourceReferenceSystem}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlSourceReferenceSystem(final ReferenceSystem newValue) {
+		setSourceReferenceSystem(newValue);
+	}
 
     /**
      * Returns the recommended reference to be used for the source data.
@@ -370,7 +392,6 @@ public class DefaultSource extends ISOMetadata implements Source {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "sourceMetadata")
     public Collection<Citation> getSourceMetadata() {
         return sourceMetadata = nonNullCollection(sourceMetadata, Citation.class);
     }
@@ -385,6 +406,18 @@ public class DefaultSource extends ISOMetadata implements Source {
     public void setSourceMetadata(final Collection<? extends Citation> newValues) {
         sourceMetadata = writeCollection(newValues, sourceMetadata, Citation.class);
     }
+    
+    /**
+	 * Gets source metadata. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getSourceMetadata}
+	 */
+	@XmlElement(name = "sourceMetadata")
+	private Collection<Citation> getXmlSourceMetadata() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getSourceMetadata();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getSourceMetadata();
+	}
 
     /**
      * Return the type and / or extent of the source.
@@ -395,7 +428,6 @@ public class DefaultSource extends ISOMetadata implements Source {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "scope")
     public Scope getScope() {
         return scope;
     }
@@ -411,6 +443,24 @@ public class DefaultSource extends ISOMetadata implements Source {
         checkWritePermission();
         scope = newValue;
     }
+    
+    /**
+	 * Gets the scope. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getScope}
+	 */
+    @XmlElement(name = "scope")
+	private Scope getXmlScope() {
+		return MetadataInfo.is2003() ? null : getScope();
+	}
+
+	/**
+	 * Sets the scope Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #setScope}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlScope(final Scope newValue) {
+		setScope(newValue);
+	}
 
     /**
      * Returns the information about the spatial, vertical and temporal extent of the source data.
@@ -422,7 +472,6 @@ public class DefaultSource extends ISOMetadata implements Source {
      */
     @Override
     @Deprecated
-    @XmlElement(name = "sourceExtent")
     public Collection<Extent> getSourceExtents() {
         Scope scope = getScope();
         if (!(scope instanceof DefaultScope)) {
@@ -454,6 +503,18 @@ public class DefaultSource extends ISOMetadata implements Source {
         }
         ((DefaultScope) scope).setExtents(newValues);
     }
+    
+    /**
+	 * Gets source extents. Used by JAXB (ISO 19139 format).
+	 * @see {@link #getSourceExtents}
+	 */
+	@XmlElement(name = "sourceExtent")
+	private Collection<Extent> getXmlSourceExtents() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getSourceExtents();
+		}
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(Extent.class) : getSourceExtents();
+	}
 
     /**
      * Returns information about process steps in which this source was used.
@@ -502,7 +563,6 @@ public class DefaultSource extends ISOMetadata implements Source {
      * @return Distance between consistent parts of two adjacent pixels, or {@code null}.
      */
     @Override
-    @XmlElement(name = "resolution", namespace = Namespaces.GMI)
     public NominalResolution getResolution() {
         return resolution;
     }
@@ -516,4 +576,40 @@ public class DefaultSource extends ISOMetadata implements Source {
         checkWritePermission();
         resolution = newValue;
     }
+    
+    /**
+	 * Gets the resolution. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getResolution}
+	 */
+    @XmlElement(name = "resolution")
+	private NominalResolution setResolution() {
+		return MetadataInfo.is2003() ? null : getResolution();
+	}
+
+	/**
+	 * Sets the resolution. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #setScope}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlResolution(final NominalResolution newValue) {
+		setResolution(newValue);
+	}
+	
+	/**
+	 * Gets the resolution. Used by JAXB (ISO 19139 format).
+	 * @see {@link #getResolution}
+	 */
+    @XmlElement(name = "resolution", namespace = Namespaces.GMI)
+	private NominalResolution setResolutionLegacy() {
+		return MetadataInfo.is2014() ? null : getResolution();
+	}
+
+	/**
+	 * Sets the resolution. Used by JAXB (ISO 19139 format).
+	 * @see {@link #setScope}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlResolutionLegacy(final NominalResolution newValue) {
+		setResolution(newValue);
+	}
 }

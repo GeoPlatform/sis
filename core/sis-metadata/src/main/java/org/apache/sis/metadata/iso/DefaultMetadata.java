@@ -113,7 +113,7 @@ import org.opengis.util.InternationalString;
 		"xmlDefaultLocale", 			// ISO 19115-3
 		"xmlLanguage", 					// ISO 19139
 		"xmlLanguageString",			// ISO 19139
-		"xmlCharacterSets",				// ISO 19139 TODO: (the ISO 19115-3 version needs to be implemented)			
+		"xmlCharacterSets",				// ISO 19139 TODO: (the ISO 19115-3 version may be broken)			
 		"xmlParentMetadata", 			// ISO 19115-3
 		"xmlParentIdentifier", 			// ISO 19139
 		"xmlMetadataScopes", 			// ISO 19115-3

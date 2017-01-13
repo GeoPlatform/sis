@@ -1,7 +1,6 @@
 package org.apache.sis.metadata.iso;
 
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
 import java.net.URI;
