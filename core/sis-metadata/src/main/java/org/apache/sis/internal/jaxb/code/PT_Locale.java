@@ -66,9 +66,9 @@ import org.apache.sis.xml.Namespaces;
  * @version 0.8
  * @module
  *
- * see LanguageCode
- * see Country
- * see org.apache.sis.internal.jaxb.gmd.LocaleAdapter
+ * @see LanguageCode
+ * @see Country
+ * @see org.apache.sis.internal.jaxb.gmd.LocaleAdapter
  */
 @XmlType(namespace = Namespaces.LAN)
 public final class PT_Locale extends XmlAdapter<PT_Locale, Locale> {

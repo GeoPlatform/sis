@@ -57,7 +57,7 @@ import org.apache.sis.internal.jaxb.PrimitiveTypeProperties;
  * @version 0.4
  * @module
  *
- * see NilObject
+ * @see NilObject
  */
 public final class NilReason implements Serializable {
     /**
@@ -495,7 +495,7 @@ public final class NilReason implements Serializable {
      * @return The reason why the given object contains no information,
      *         or {@code null} if the given object is not nil.
      *
-     * see NilObject#getNilReason()
+     * @see NilObject#getNilReason()
      *
      * @since 0.4
      */

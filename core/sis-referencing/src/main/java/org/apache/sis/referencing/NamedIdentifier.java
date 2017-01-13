@@ -310,7 +310,7 @@ public class NamedIdentifier extends ImmutableIdentifier implements GenericName 
      * @return A new generic name for the given authority and code.
      * @category Generic name
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-197">SIS-197</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-197">SIS-197</a>
      */
     private static GenericName createName(final Citation authority, String codeSpace, final CharSequence code) {
         if (codeSpace == null) {
@@ -330,7 +330,7 @@ public class NamedIdentifier extends ImmutableIdentifier implements GenericName 
      *
      * @return The last element in the list of {@linkplain #getParsedNames() parsed names}.
      *
-     * see #getCode()
+     * @see #getCode()
      */
     @Override
     public LocalName tip() {
@@ -343,8 +343,8 @@ public class NamedIdentifier extends ImmutableIdentifier implements GenericName 
      *
      * @return The first element in the list of {@linkplain #getParsedNames() parsed names}.
      *
-     * see #scope()
-     * see #getCodeSpace()
+     * @see #scope()
+     * @see #getCodeSpace()
      */
     @Override
     public LocalName head() {
@@ -355,8 +355,8 @@ public class NamedIdentifier extends ImmutableIdentifier implements GenericName 
      * Returns the scope (name space) in which this name is local.
      * By default, this is the same value than the {@link #getAuthority() authority} provided as a name space.
      *
-     * see #head()
-     * see #getAuthority()
+     * @see #head()
+     * @see #getAuthority()
      *
      * @return The scope of this name.
      */
@@ -431,7 +431,7 @@ public class NamedIdentifier extends ImmutableIdentifier implements GenericName 
      *
      * @return A local-independent string representation of this generic name.
      *
-     * see IdentifiedObjects#toString(Identifier)
+     * @see IdentifiedObjects#toString(Identifier)
      */
     @Override
     public String toString() {

@@ -52,8 +52,8 @@ import org.opengis.feature.MultiValuedPropertyException;
  * @version 0.8
  * @module
  *
- * see AbstractFeature
- * see DefaultAssociationRole
+ * @see AbstractFeature
+ * @see DefaultAssociationRole
  */
 public abstract class AbstractAssociation extends Field<Feature> implements FeatureAssociation, Cloneable, Serializable {
     /**
@@ -71,7 +71,7 @@ public abstract class AbstractAssociation extends Field<Feature> implements Feat
      *
      * @param role  information about the association.
      *
-     * see #create(FeatureAssociationRole)
+     * @see #create(FeatureAssociationRole)
      */
     protected AbstractAssociation(final FeatureAssociationRole role) {
         this.role = role;
@@ -83,7 +83,7 @@ public abstract class AbstractAssociation extends Field<Feature> implements Feat
      * @param  role  information about the association.
      * @return the new association.
      *
-     * see DefaultAssociationRole#newInstance()
+     * @see DefaultAssociationRole#newInstance()
      */
     public static AbstractAssociation create(final FeatureAssociationRole role) {
         ArgumentChecks.ensureNonNull("role", role);
@@ -135,7 +135,7 @@ public abstract class AbstractAssociation extends Field<Feature> implements Feat
      * @return the associated feature (may be {@code null}).
      * @throws MultiValuedPropertyException if this association contains more than one value.
      *
-     * see AbstractFeature#getPropertyValue(String)
+     * @see AbstractFeature#getPropertyValue(String)
      */
     @Override
     public abstract Feature getValue() throws MultiValuedPropertyException;
@@ -167,7 +167,7 @@ public abstract class AbstractAssociation extends Field<Feature> implements Feat
      * @param  value  the new value, or {@code null}.
      * @throws InvalidPropertyValueException if the given feature is not valid for this association.
      *
-     * see AbstractFeature#setPropertyValue(String, Object)
+     * @see AbstractFeature#setPropertyValue(String, Object)
      */
     @Override
     public abstract void setValue(final Feature value) throws InvalidPropertyValueException;
@@ -210,7 +210,7 @@ public abstract class AbstractAssociation extends Field<Feature> implements Feat
      *
      * @return reports on all constraint violations found.
      *
-     * see AbstractFeature#quality()
+     * @see AbstractFeature#quality()
      */
     public DataQuality quality() {
         final Validator v = new Validator(null);

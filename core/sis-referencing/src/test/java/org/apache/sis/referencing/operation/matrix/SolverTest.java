@@ -57,8 +57,8 @@ public final strictfp class SolverTest extends TestCase {
      * The tolerance threshold for this test case, which is {@value}. This value needs to be higher then the
      * {@link MatrixTestCase#TOLERANCE} one because of the increased complexity of {@link Solver} operations.
      *
-     * see MatrixTestCase#TOLERANCE
-     * see NonSquareMatrixTest#printStatistics()
+     * @see MatrixTestCase#TOLERANCE
+     * @see NonSquareMatrixTest#printStatistics()
      */
     protected static final double TOLERANCE = 100 * MatrixTestCase.TOLERANCE;
 

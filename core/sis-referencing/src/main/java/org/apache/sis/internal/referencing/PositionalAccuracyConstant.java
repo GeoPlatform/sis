@@ -47,7 +47,7 @@ import org.apache.sis.util.resources.Vocabulary;
  * @version 0.6
  * @module
  *
- * see org.opengis.referencing.operation.Transformation#getCoordinateOperationAccuracy()
+ * @see org.opengis.referencing.operation.Transformation#getCoordinateOperationAccuracy()
  */
 @XmlTransient
 public final class PositionalAccuracyConstant extends DefaultAbsoluteExternalPositionalAccuracy {
@@ -63,7 +63,7 @@ public final class PositionalAccuracyConstant extends DefaultAbsoluteExternalPos
      *
      * <p>If this value is modified, please update {@code getLinearAccuracy()} public javadoc accordingly.</p>
      *
-     * see org.apache.sis.referencing.operation.AbstractCoordinateOperation#getLinearAccuracy()
+     * @see org.apache.sis.referencing.operation.AbstractCoordinateOperation#getLinearAccuracy()
      */
     public static final double UNKNOWN_ACCURACY = 3000;
 
@@ -74,7 +74,7 @@ public final class PositionalAccuracyConstant extends DefaultAbsoluteExternalPos
      *
      * <p>If this value is modified, please update {@code getLinearAccuracy()} public javadoc accordingly.</p>
      *
-     * see org.apache.sis.referencing.operation.AbstractCoordinateOperation#getLinearAccuracy()
+     * @see org.apache.sis.referencing.operation.AbstractCoordinateOperation#getLinearAccuracy()
      */
     private static final double DATUM_SHIFT_ACCURACY = 25;
 
@@ -148,7 +148,7 @@ public final class PositionalAccuracyConstant extends DefaultAbsoluteExternalPos
      * @param  operation The operation to inspect for accuracy.
      * @return The accuracy estimate (always in meters), or NaN if unknown.
      *
-     * see org.apache.sis.referencing.operation.AbstractCoordinateOperation#getLinearAccuracy()
+     * @see org.apache.sis.referencing.operation.AbstractCoordinateOperation#getLinearAccuracy()
      */
     public static double getLinearAccuracy(final CoordinateOperation operation) {
         double accuracy = Double.NaN;

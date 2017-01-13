@@ -80,9 +80,9 @@ import org.opengis.referencing.operation.MathTransformFactory;
  * @version 0.6
  * @module
  *
- * see org.apache.sis.referencing.operation.DefaultOperationMethod
- * see DefaultMathTransformFactory
- * see AbstractMathTransform
+ * @see org.apache.sis.referencing.operation.DefaultOperationMethod
+ * @see DefaultMathTransformFactory
+ * @see AbstractMathTransform
  */
 @FunctionalInterface
 public interface MathTransformProvider {

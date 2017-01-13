@@ -83,9 +83,9 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * see java.util.WeakHashMap
- * see WeakHashSet
- * see Cache
+ * @see java.util.WeakHashMap
+ * @see WeakHashSet
+ * @see Cache
  */
 public class WeakValueHashMap<K,V> extends AbstractMap<K,V> {
     /**
@@ -99,9 +99,9 @@ public class WeakValueHashMap<K,V> extends AbstractMap<K,V> {
      * hard to simulate if not supported natively by the hash map. See {@link java.util.IdentityHashMap} javadoc
      * for some examples of cases where reference-equality semantic is useful.</p>
      *
-     * see #comparisonMode
-     * see #keyEquals(Object, Object)
-     * see #keyHashCode(Object)
+     * @see #comparisonMode
+     * @see #keyEquals(Object, Object)
+     * @see #keyHashCode(Object)
      */
     private static final byte IDENTITY = 0, EQUALS = 1, DEEP_EQUALS = 2;
 
@@ -212,8 +212,8 @@ public class WeakValueHashMap<K,V> extends AbstractMap<K,V> {
      * selected only if the keys in this map may be arrays. If the keys can not be arrays, then we select the
      * {@code EQUALS} mode for avoiding calls to the costly {@link Objects#deepEquals(Object, Object)} method.
      *
-     * see #keyEquals(Object, Object)
-     * see #keyHashCode(Object)
+     * @see #keyEquals(Object, Object)
+     * @see #keyHashCode(Object)
      */
     private final byte comparisonMode;
 

@@ -100,7 +100,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      *
      * @return the organization responsible for definition of the database, or {@code null} if unknown.
      *
-     * see #getVendor()
+     * @see #getVendor()
      */
     @Override
     public abstract Citation getAuthority();
@@ -181,7 +181,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.AbstractIdentifiedObject
+     * @see org.apache.sis.referencing.AbstractIdentifiedObject
      */
     @Override
     public abstract IdentifiedObject createObject(String code) throws NoSuchAuthorityCodeException, FactoryException;
@@ -222,8 +222,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.crs.AbstractCRS
-     * see org.apache.sis.referencing.CRS#forCode(String)
+     * @see org.apache.sis.referencing.crs.AbstractCRS
+     * @see org.apache.sis.referencing.CRS#forCode(String)
      */
     public CoordinateReferenceSystem createCoordinateReferenceSystem(final String code)
             throws NoSuchAuthorityCodeException, FactoryException
@@ -267,9 +267,9 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.crs.DefaultGeographicCRS
-     * see org.apache.sis.referencing.CommonCRS#geographic()
-     * see org.apache.sis.referencing.CommonCRS#geographic3D()
+     * @see org.apache.sis.referencing.crs.DefaultGeographicCRS
+     * @see org.apache.sis.referencing.CommonCRS#geographic()
+     * @see org.apache.sis.referencing.CommonCRS#geographic3D()
      */
     public GeographicCRS createGeographicCRS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(GeographicCRS.class, createCoordinateReferenceSystem(code), code);
@@ -301,8 +301,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed.
      *
-     * see org.apache.sis.referencing.crs.DefaultGeocentricCRS
-     * see org.apache.sis.referencing.CommonCRS#geocentric()
+     * @see org.apache.sis.referencing.crs.DefaultGeocentricCRS
+     * @see org.apache.sis.referencing.CommonCRS#geocentric()
      */
     public GeocentricCRS createGeocentricCRS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(GeocentricCRS.class, createCoordinateReferenceSystem(code), code);
@@ -336,7 +336,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.crs.DefaultProjectedCRS
+     * @see org.apache.sis.referencing.crs.DefaultProjectedCRS
      */
     public ProjectedCRS createProjectedCRS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(ProjectedCRS.class, createCoordinateReferenceSystem(code), code);
@@ -367,8 +367,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.crs.DefaultVerticalCRS
-     * see org.apache.sis.referencing.CommonCRS.Vertical#crs()
+     * @see org.apache.sis.referencing.crs.DefaultVerticalCRS
+     * @see org.apache.sis.referencing.CommonCRS.Vertical#crs()
      */
     public VerticalCRS createVerticalCRS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(VerticalCRS.class, createCoordinateReferenceSystem(code), code);
@@ -386,8 +386,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.crs.DefaultTemporalCRS
-     * see org.apache.sis.referencing.CommonCRS.Temporal#crs()
+     * @see org.apache.sis.referencing.crs.DefaultTemporalCRS
+     * @see org.apache.sis.referencing.CommonCRS.Temporal#crs()
      */
     public TemporalCRS createTemporalCRS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(TemporalCRS.class, createCoordinateReferenceSystem(code), code);
@@ -405,7 +405,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.crs.DefaultParametricCRS
+     * @see org.apache.sis.referencing.crs.DefaultParametricCRS
      */
     public ParametricCRS createParametricCRS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(ParametricCRS.class, createCoordinateReferenceSystem(code), code);
@@ -434,7 +434,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.crs.DefaultCompoundCRS
+     * @see org.apache.sis.referencing.crs.DefaultCompoundCRS
      */
     public CompoundCRS createCompoundCRS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(CompoundCRS.class, createCoordinateReferenceSystem(code), code);
@@ -453,7 +453,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.crs.DefaultDerivedCRS
+     * @see org.apache.sis.referencing.crs.DefaultDerivedCRS
      */
     public DerivedCRS createDerivedCRS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(DerivedCRS.class, createCoordinateReferenceSystem(code), code);
@@ -481,7 +481,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.crs.DefaultEngineeringCRS
+     * @see org.apache.sis.referencing.crs.DefaultEngineeringCRS
      */
     public EngineeringCRS createEngineeringCRS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(EngineeringCRS.class, createCoordinateReferenceSystem(code), code);
@@ -501,7 +501,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.crs.DefaultImageCRS
+     * @see org.apache.sis.referencing.crs.DefaultImageCRS
      */
     public ImageCRS createImageCRS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(ImageCRS.class, createCoordinateReferenceSystem(code), code);
@@ -535,7 +535,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.datum.AbstractDatum
+     * @see org.apache.sis.referencing.datum.AbstractDatum
      */
     public Datum createDatum(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(Datum.class, createObject(code), code);
@@ -568,8 +568,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.datum.DefaultGeodeticDatum
-     * see org.apache.sis.referencing.CommonCRS#datum()
+     * @see org.apache.sis.referencing.datum.DefaultGeodeticDatum
+     * @see org.apache.sis.referencing.CommonCRS#datum()
      */
     public GeodeticDatum createGeodeticDatum(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(GeodeticDatum.class, createDatum(code), code);
@@ -602,8 +602,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.datum.DefaultVerticalDatum
-     * see org.apache.sis.referencing.CommonCRS.Vertical#datum()
+     * @see org.apache.sis.referencing.datum.DefaultVerticalDatum
+     * @see org.apache.sis.referencing.CommonCRS.Vertical#datum()
      */
     public VerticalDatum createVerticalDatum(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(VerticalDatum.class, createDatum(code), code);
@@ -621,8 +621,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.datum.DefaultTemporalDatum
-     * see org.apache.sis.referencing.CommonCRS.Temporal#datum()
+     * @see org.apache.sis.referencing.datum.DefaultTemporalDatum
+     * @see org.apache.sis.referencing.CommonCRS.Temporal#datum()
      */
     public TemporalDatum createTemporalDatum(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(TemporalDatum.class, createDatum(code), code);
@@ -640,7 +640,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.datum.DefaultParametricDatum
+     * @see org.apache.sis.referencing.datum.DefaultParametricDatum
      */
     public ParametricDatum createParametricDatum(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(ParametricDatum.class, createDatum(code), code);
@@ -671,7 +671,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.datum.DefaultEngineeringDatum
+     * @see org.apache.sis.referencing.datum.DefaultEngineeringDatum
      */
     public EngineeringDatum createEngineeringDatum(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(EngineeringDatum.class, createDatum(code), code);
@@ -691,7 +691,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.datum.DefaultImageDatum
+     * @see org.apache.sis.referencing.datum.DefaultImageDatum
      */
     public ImageDatum createImageDatum(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(ImageDatum.class, createDatum(code), code);
@@ -722,8 +722,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.datum.DefaultEllipsoid
-     * see org.apache.sis.referencing.CommonCRS#ellipsoid()
+     * @see org.apache.sis.referencing.datum.DefaultEllipsoid
+     * @see org.apache.sis.referencing.CommonCRS#ellipsoid()
      */
     public Ellipsoid createEllipsoid(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(Ellipsoid.class, createObject(code), code);
@@ -755,8 +755,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.datum.DefaultPrimeMeridian
-     * see org.apache.sis.referencing.CommonCRS#primeMeridian()
+     * @see org.apache.sis.referencing.datum.DefaultPrimeMeridian
+     * @see org.apache.sis.referencing.CommonCRS#primeMeridian()
      */
     public PrimeMeridian createPrimeMeridian(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(PrimeMeridian.class, createObject(code), code);
@@ -785,7 +785,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.metadata.iso.extent.DefaultExtent
+     * @see org.apache.sis.metadata.iso.extent.DefaultExtent
      */
     public Extent createExtent(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(Extent.class, createObject(code), code);
@@ -820,8 +820,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.cs.AbstractCS
-     * see org.apache.sis.referencing.cs.CoordinateSystems#getEpsgCode(Unit, AxisDirection...)
+     * @see org.apache.sis.referencing.cs.AbstractCS
+     * @see org.apache.sis.referencing.cs.CoordinateSystems#getEpsgCode(Unit, AxisDirection...)
      */
     public CoordinateSystem createCoordinateSystem(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(CoordinateSystem.class, createObject(code), code);
@@ -853,7 +853,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.cs.DefaultEllipsoidalCS
+     * @see org.apache.sis.referencing.cs.DefaultEllipsoidalCS
      */
     public EllipsoidalCS createEllipsoidalCS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(EllipsoidalCS.class, createCoordinateSystem(code), code);
@@ -882,7 +882,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.cs.DefaultVerticalCS
+     * @see org.apache.sis.referencing.cs.DefaultVerticalCS
      */
     public VerticalCS createVerticalCS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(VerticalCS.class, createCoordinateSystem(code), code);
@@ -901,7 +901,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.cs.DefaultTimeCS
+     * @see org.apache.sis.referencing.cs.DefaultTimeCS
      */
     public TimeCS createTimeCS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(TimeCS.class, createCoordinateSystem(code), code);
@@ -919,7 +919,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.cs.DefaultParametricCS
+     * @see org.apache.sis.referencing.cs.DefaultParametricCS
      */
     public ParametricCS createParametricCS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(ParametricCS.class, createCoordinateSystem(code), code);
@@ -951,7 +951,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.cs.DefaultCartesianCS
+     * @see org.apache.sis.referencing.cs.DefaultCartesianCS
      */
     public CartesianCS createCartesianCS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(CartesianCS.class, createCoordinateSystem(code), code);
@@ -980,7 +980,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.cs.DefaultSphericalCS
+     * @see org.apache.sis.referencing.cs.DefaultSphericalCS
      */
     public SphericalCS createSphericalCS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(SphericalCS.class, createCoordinateSystem(code), code);
@@ -999,7 +999,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.cs.DefaultCylindricalCS
+     * @see org.apache.sis.referencing.cs.DefaultCylindricalCS
      */
     public CylindricalCS createCylindricalCS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(CylindricalCS.class, createCoordinateSystem(code), code);
@@ -1018,7 +1018,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.cs.DefaultPolarCS
+     * @see org.apache.sis.referencing.cs.DefaultPolarCS
      */
     public PolarCS createPolarCS(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(PolarCS.class, createCoordinateSystem(code), code);
@@ -1049,7 +1049,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis
+     * @see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis
      */
     public CoordinateSystemAxis createCoordinateSystemAxis(final String code)
             throws NoSuchAuthorityCodeException, FactoryException
@@ -1085,7 +1085,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.measure.Units#valueOfEPSG(int)
+     * @see org.apache.sis.measure.Units#valueOfEPSG(int)
      */
     public Unit<?> createUnit(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(Unit.class, createObject(code), code);
@@ -1117,8 +1117,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.parameter.DefaultParameterDescriptor
-     * see <a href="http://sis.apache.org/tables/CoordinateOperationMethods.html">Apache SIS™ Coordinate Operation Methods</a>
+     * @see org.apache.sis.parameter.DefaultParameterDescriptor
+     * @see <a href="http://sis.apache.org/tables/CoordinateOperationMethods.html">Apache SIS™ Coordinate Operation Methods</a>
      */
     public ParameterDescriptor<?> createParameterDescriptor(final String code)
             throws NoSuchAuthorityCodeException, FactoryException
@@ -1145,8 +1145,8 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.operation.DefaultOperationMethod
-     * see <a href="http://sis.apache.org/tables/CoordinateOperationMethods.html">Apache SIS™ Coordinate Operation Methods</a>
+     * @see org.apache.sis.referencing.operation.DefaultOperationMethod
+     * @see <a href="http://sis.apache.org/tables/CoordinateOperationMethods.html">Apache SIS™ Coordinate Operation Methods</a>
      */
     public OperationMethod createOperationMethod(final String code) throws NoSuchAuthorityCodeException, FactoryException {
         return cast(OperationMethod.class, createObject(code), code);
@@ -1179,7 +1179,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.referencing.operation.AbstractCoordinateOperation
+     * @see org.apache.sis.referencing.operation.AbstractCoordinateOperation
      */
     public CoordinateOperation createCoordinateOperation(final String code)
             throws NoSuchAuthorityCodeException, FactoryException
@@ -1216,7 +1216,7 @@ public abstract class GeodeticAuthorityFactory extends AbstractFactory implement
      * @return a finder to use for looking up unidentified objects.
      * @throws FactoryException if the finder can not be created.
      *
-     * see org.apache.sis.referencing.IdentifiedObjects#newFinder(String)
+     * @see org.apache.sis.referencing.IdentifiedObjects#newFinder(String)
      */
     public IdentifiedObjectFinder newIdentifiedObjectFinder() throws FactoryException {
         return new IdentifiedObjectFinder(this);

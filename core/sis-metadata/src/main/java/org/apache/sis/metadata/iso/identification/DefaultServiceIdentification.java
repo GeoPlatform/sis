@@ -165,7 +165,7 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(ServiceIdentification)
+     * @see #castOrCopy(ServiceIdentification)
      */
     public DefaultServiceIdentification(final ServiceIdentification object) {
         super(object);
@@ -344,7 +344,7 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
     
     /**
 	 * Gets the operated datasets for this identification (used in ISO 19115-3 format).
-	 * see {@link #getOperatedDatasets}
+	 * @see {@link #getOperatedDatasets}
 	 */
 	@XmlElement(name = "operatedDataset", namespace = Namespaces.SRV)
 	private Collection<Citation> getXmlOperatedDatasets() {
@@ -377,7 +377,7 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
     
     /**
 	 * Gets the profiles for this identification (used in ISO 19115-3 format).
-	 * see {@link #getProfiles}
+	 * @see {@link #getProfiles}
 	 */
     @XmlElement(name = "profile", namespace = Namespaces.SRV)
 	private Collection<Citation> getXmlProfiles() {
@@ -412,7 +412,7 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
     
     /**
 	 * Gets the service standards for this identification (used in ISO 19115-3 format).
-	 * see {@link #getServiceStandards}
+	 * @see {@link #getServiceStandards}
 	 */
     @XmlElement(name = "serviceStandard", namespace = Namespaces.SRV)
 	private Collection<Citation> getXmlServiceStandards() {
@@ -487,7 +487,7 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
     
     /**
 	 * Gets the contains chain for this identification (used in ISO 19115-3 format).
-	 * see {@link #getContainsChain}
+	 * @see {@link #getContainsChain}
 	 */
     @XmlElement(name = "containsChain", namespace = Namespaces.SRV)
 	private Collection<OperationChainMetadata> getXmlContainsChain() {
@@ -513,7 +513,7 @@ public class DefaultServiceIdentification extends AbstractIdentification impleme
     
     /**
 	 * Gets the character sets for this identification (used in ISO 19139 format).
-	 * see {@link #getExtent}
+	 * @see {@link #getExtent}
 	 */
 	@XmlElement(name = "extent")
 	private Collection<Extent> getXmlExtent() {

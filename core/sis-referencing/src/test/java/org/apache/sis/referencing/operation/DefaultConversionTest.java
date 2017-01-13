@@ -80,7 +80,7 @@ public final strictfp class DefaultConversionTest extends TestCase {
      * @param cs {@link HardCodedCS#GEODETIC_2D}, {@link HardCodedCS#GEODETIC_φλ} or other compatible coordinate system.
      * @param useGreenwich {@code true} for using Greenwich prime meridian, or {@code false} for staying on the Paris one.
      *
-     * see HardCodedCRS#NTF
+     * @see HardCodedCRS#NTF
      */
     private static GeographicCRS createParisCRS(final boolean isSource, final EllipsoidalCS cs, final boolean useGreenwich) {
         DefaultGeodeticDatum datum = HardCodedDatum.NTF;

@@ -65,7 +65,7 @@ public strictfp class MetadataAssert extends Assert {
      *
      * @since 0.6
      *
-     * see #assertAnyTitleEquals(String, String, Citation)
+     * @see #assertAnyTitleEquals(String, String, Citation)
      */
     public static void assertTitleEquals(final String message, final String expected, final Citation citation) {
         assertNotNull(message, citation);

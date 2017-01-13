@@ -95,7 +95,7 @@ public class DefaultPlatform extends ISOMetadata implements Platform {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Platform)
+     * @see #castOrCopy(Platform)
      */
     public DefaultPlatform(final Platform object) {
         super(object);

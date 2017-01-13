@@ -103,7 +103,7 @@ public class DefaultDistributor extends ISOMetadata implements Distributor {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Distributor)
+     * @see #castOrCopy(Distributor)
      */
     public DefaultDistributor(final Distributor object) {
         super(object);

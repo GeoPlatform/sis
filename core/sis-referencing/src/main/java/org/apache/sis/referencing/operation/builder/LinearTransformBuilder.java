@@ -51,9 +51,9 @@ import org.apache.sis.util.Debug;
  * @version 0.5
  * @module
  *
- * see LinearTransform
- * see Line
- * see Plane
+ * @see LinearTransform
+ * @see Line
+ * @see Plane
  */
 public class LinearTransformBuilder {
     /**

@@ -58,8 +58,8 @@ public final class AxisNames {
      * but some other conventions use φ or Ω instead.
      * Direction in the EPSG database is "East", but "counterClockwise" may also be used.
      *
-     * see <a href="http://en.wikipedia.org/wiki/Spherical_coordinate_system">Spherical coordinate system on Wikipedia</a>
-     * see <a href="http://mathworld.wolfram.com/SphericalCoordinates.html">Spherical coordinate system on MathWorld</a>
+     * @see <a href="http://en.wikipedia.org/wiki/Spherical_coordinate_system">Spherical coordinate system on Wikipedia</a>
+     * @see <a href="http://mathworld.wolfram.com/SphericalCoordinates.html">Spherical coordinate system on MathWorld</a>
      */
     public static final String SPHERICAL_LONGITUDE = "Spherical longitude";
 

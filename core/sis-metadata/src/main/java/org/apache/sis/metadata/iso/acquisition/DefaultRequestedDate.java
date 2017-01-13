@@ -81,7 +81,7 @@ public class DefaultRequestedDate extends ISOMetadata implements RequestedDate {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(RequestedDate)
+     * @see #castOrCopy(RequestedDate)
      */
     public DefaultRequestedDate(final RequestedDate object) {
         super(object);

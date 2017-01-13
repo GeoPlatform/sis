@@ -86,8 +86,8 @@ import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.referencing.CommonCRS#primeMeridian()
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createPrimeMeridian(String)
+ * @see org.apache.sis.referencing.CommonCRS#primeMeridian()
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createPrimeMeridian(String)
  */
 @XmlType(name = "PrimeMeridianType")
 @XmlRootElement(name = "PrimeMeridian")
@@ -151,7 +151,7 @@ public class DefaultPrimeMeridian extends AbstractIdentifiedObject implements Pr
      * @param  greenwichLongitude  the longitude value relative to the Greenwich Meridian.
      * @param  angularUnit         the angular unit of the longitude.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createPrimeMeridian(Map, double, Unit)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createPrimeMeridian(Map, double, Unit)
      */
     public DefaultPrimeMeridian(final Map<String,?> properties, final double greenwichLongitude,
                                 final Unit<Angle> angularUnit)
@@ -172,7 +172,7 @@ public class DefaultPrimeMeridian extends AbstractIdentifiedObject implements Pr
      *
      * @param  meridian  the prime meridian to copy.
      *
-     * see #castOrCopy(PrimeMeridian)
+     * @see #castOrCopy(PrimeMeridian)
      */
     protected DefaultPrimeMeridian(final PrimeMeridian meridian) {
         super(meridian);
@@ -328,7 +328,7 @@ public class DefaultPrimeMeridian extends AbstractIdentifiedObject implements Pr
      * but historically some other softwares interpreted the {@code PRIMEM[…]} units wrongly, which is why
      * we try to find a compromise between keeping the WKT simple and avoiding an historical ambiguity.
      *
-     * see org.apache.sis.referencing.crs.AbstractCRS#isBaseCRS(Formatter)
+     * @see org.apache.sis.referencing.crs.AbstractCRS#isBaseCRS(Formatter)
      */
     private static boolean isElementOfBaseCRS(final Formatter formatter) {
         return formatter.getEnclosingElement(2) instanceof GeneralDerivedCRS;
@@ -362,7 +362,7 @@ public class DefaultPrimeMeridian extends AbstractIdentifiedObject implements Pr
      *
      * @return {@code "PrimeMeridian"} (WKT 2) or {@code "PrimeM"} (WKT 1).
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#53">WKT 2 specification §8.2.2</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#53">WKT 2 specification §8.2.2</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {

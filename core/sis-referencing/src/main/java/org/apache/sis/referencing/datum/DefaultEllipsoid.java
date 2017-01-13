@@ -116,8 +116,8 @@ import java.util.Objects;
  * @version 0.8
  * @module
  *
- * see org.apache.sis.referencing.CommonCRS#ellipsoid()
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createEllipsoid(String)
+ * @see org.apache.sis.referencing.CommonCRS#ellipsoid()
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createEllipsoid(String)
  */
 @XmlType(name = "EllipsoidType", propOrder = {
     "semiMajorAxisMeasure",
@@ -143,7 +143,7 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
     /**
      * Tolerance threshold for comparing floating point numbers.
      *
-     * see Numerics#COMPARISON_THRESHOLD
+     * @see Numerics#COMPARISON_THRESHOLD
      */
     private static final double COMPARISON_THRESHOLD = 1E-10;
 
@@ -151,7 +151,7 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      * The equatorial radius. This field should be considered as final.
      * It is modified only by JAXB at unmarshalling time.
      *
-     * see #getSemiMajorAxis()
+     * @see #getSemiMajorAxis()
      */
     private double semiMajorAxis;
 
@@ -159,7 +159,7 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      * The polar radius. This field should be considered as final.
      * It is modified only by JAXB at unmarshalling time.
      *
-     * see #getSemiMinorAxis()
+     * @see #getSemiMinorAxis()
      */
     private double semiMinorAxis;
 
@@ -167,7 +167,7 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      * The inverse of the flattening value, or {@link Double#POSITIVE_INFINITY} if the ellipsoid is a sphere.
      * This field shall be considered as final. It is modified only by JAXB at unmarshalling time.
      *
-     * see #getInverseFlattening()
+     * @see #getInverseFlattening()
      */
     private double inverseFlattening;
 
@@ -175,7 +175,7 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      * Tells if the Inverse Flattening is definitive for this ellipsoid.
      * This field shall be considered as final. It is modified only by JAXB at unmarshalling time.
      *
-     * see #isIvfDefinitive()
+     * @see #isIvfDefinitive()
      */
     private boolean ivfDefinitive;
 
@@ -226,8 +226,8 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      * @param  ivfDefinitive      {@code true} if the inverse flattening is definitive.
      * @param  unit               the units of the semi-major and semi-minor axis values.
      *
-     * see #createEllipsoid(Map, double, double, Unit)
-     * see #createFlattenedSphere(Map, double, double, Unit)
+     * @see #createEllipsoid(Map, double, double, Unit)
+     * @see #createFlattenedSphere(Map, double, double, Unit)
      */
     protected DefaultEllipsoid(final Map<String,?> properties,
                                final double  semiMajorAxis,
@@ -257,7 +257,7 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      *
      * @param  ellipsoid  the ellipsoid to copy.
      *
-     * see #castOrCopy(Ellipsoid)
+     * @see #castOrCopy(Ellipsoid)
      */
     protected DefaultEllipsoid(final Ellipsoid ellipsoid) {
         super(ellipsoid);
@@ -279,7 +279,7 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      * @param  unit           the units of the semi-major and semi-minor axis values.
      * @return an ellipsoid with the given axis length.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createEllipsoid(Map, double, double, Unit)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createEllipsoid(Map, double, double, Unit)
      */
     public static DefaultEllipsoid createEllipsoid(final Map<String,?> properties,
                                                    final double semiMajorAxis,
@@ -305,7 +305,7 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      * @param  unit               the units of the semi-major and semi-minor axis values.
      * @return an ellipsoid with the given axis length.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createFlattenedSphere(Map, double, double, Unit)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createFlattenedSphere(Map, double, double, Unit)
      */
     public static DefaultEllipsoid createFlattenedSphere(final Map<String,?> properties,
                                                          final double semiMajorAxis,
@@ -398,7 +398,7 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      *
      * @return the radius of a sphere having the same surface than this ellipsoid.
      *
-     * see org.apache.sis.referencing.CommonCRS#SPHERE
+     * @see org.apache.sis.referencing.CommonCRS#SPHERE
      */
     public double getAuthalicRadius() {
         return Formulas.getAuthalicRadius(getSemiMajorAxis(), getSemiMinorAxis());
@@ -761,7 +761,7 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      *
      * @return {@code "Ellipsoid"} (WKT 2) or {@code "Spheroid"} (WKT 1).
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#52">WKT 2 specification §8.2.1</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#52">WKT 2 specification §8.2.1</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -820,8 +820,8 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      * been defined, it is now possible to calculate the value of the missing parameter
      * using the values of those that are set.
      *
-     * see #setSemiMajorAxisMeasure(Measure)
-     * see #setSecondDefiningParameter(SecondDefiningParameter)
+     * @see #setSemiMajorAxisMeasure(Measure)
+     * @see #setSecondDefiningParameter(SecondDefiningParameter)
      */
     private void afterUnmarshal(Unmarshaller unmarshaller, Object parent) {
         if (ivfDefinitive) {
@@ -854,8 +854,8 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      * Sets the semi-major axis value.
      * This method is invoked by JAXB at unmarshalling time only.
      *
-     * see #setSecondDefiningParameter(SecondDefiningParameter)
-     * see #afterUnmarshal(Unmarshaller, Object)
+     * @see #setSecondDefiningParameter(SecondDefiningParameter)
+     * @see #afterUnmarshal(Unmarshaller, Object)
      */
     private void setSemiMajorAxisMeasure(final Measure measure) {
         if (semiMajorAxis == 0) {
@@ -883,8 +883,8 @@ public class DefaultEllipsoid extends AbstractIdentifiedObject implements Ellips
      * value or the semi minor axis value, according to what have been defined in the
      * second defining parameter given. This is for JAXB unmarshalling process only.
      *
-     * see #setSemiMajorAxisMeasure(Measure)
-     * see #afterUnmarshal(Unmarshaller, Object)
+     * @see #setSemiMajorAxisMeasure(Measure)
+     * @see #afterUnmarshal(Unmarshaller, Object)
      */
     private void setSecondDefiningParameter(SecondDefiningParameter second) {
         if (second.secondDefiningParameter != null) {

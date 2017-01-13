@@ -64,7 +64,7 @@ abstract class Pooled {
      * This is slightly different than the prefix used by the implementation bundled with the JDK 6,
      * which is {@code "com.sun.xml.internal.bind"}.
      *
-     * see #convertPropertyKey(String)
+     * @see #convertPropertyKey(String)
      */
     static final String ENDORSED_PREFIX = "com.sun.xml.bind.";
 
@@ -74,7 +74,7 @@ abstract class Pooled {
      * If {@code true}, then an additional {@code "internal"} package name needs to be inserted
      * in the property keys.
      *
-     * see #convertPropertyKey(String)
+     * @see #convertPropertyKey(String)
      */
     private final boolean internal;
 
@@ -131,7 +131,7 @@ abstract class Pooled {
      *       natively by SIS as declared in JAXB annotations. This is sometime useful for debugging purpose.</li>
      * </ul>
      *
-     * see LegacyNamespaces#APPLY_NAMESPACE_REPLACEMENTS
+     * @see LegacyNamespaces#APPLY_NAMESPACE_REPLACEMENTS
      */
     private byte xmlnsReplaceCode;
 
@@ -139,7 +139,7 @@ abstract class Pooled {
      * The GML version to be marshalled or unmarshalled, or {@code null} if unspecified.
      * If null, then the latest version is assumed.
      *
-     * see Context#getVersion(String)
+     * @see Context#getVersion(String)
      */
     private Version versionGML;
     
@@ -147,7 +147,7 @@ abstract class Pooled {
      * The metadata version to be marshalled or unmarshalled, or {@code null} if unspecified.
      * If null, then ISO 19139 is assumed.
      *
-     * see Context#getVersion(String)
+     * @see Context#getVersion(String)
      */
     private Version versionMetadata;
 
@@ -262,7 +262,7 @@ abstract class Pooled {
      * in order to replace the namespace of the GML version implemented by SIS by the namespace of
      * the GML version asked by the user.
      *
-     * see FilteredNamespaces
+     * @see FilteredNamespaces
      */
     final FilterVersion getFilterVersion() {
         switch (xmlnsReplaceCode) {
@@ -554,7 +554,7 @@ abstract class Pooled {
      *     }
      * }
      *
-     * see Context#finish()
+     * @see Context#finish()
      * @param marshalling Should be true if marshalling, false if unmarshalling
      */
     final Context begin(Boolean marshalling) {

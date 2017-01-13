@@ -60,7 +60,7 @@ public strictfp class TensorParametersTest extends TestCase {
     /**
      * The expected parameter names according the WKT 1 convention for the matrix elements.
      *
-     * see MatrixParametersTest#NAMES
+     * @see MatrixParametersTest#NAMES
      */
     static final String[][] ELEMENT_NAMES = {
         {"elt_0_0", "elt_0_1", "elt_0_2", "elt_0_3"},

@@ -73,7 +73,7 @@ import static org.apache.sis.util.Characters.isLineOrParagraphSeparator;
  * @version 0.3
  * @module
  *
- * see org.apache.sis.util.collection.TreeTableFormat
+ * @see org.apache.sis.util.collection.TreeTableFormat
  */
 public class TableAppender extends Appender implements Flushable {
     /**
@@ -146,8 +146,8 @@ public class TableAppender extends Appender implements Flushable {
     /**
      * Alignment for current and next cells.
      *
-     * see #getCellAlignment()
-     * see #setCellAlignment(byte)
+     * @see #getCellAlignment()
+     * @see #setCellAlignment(byte)
      */
     private byte alignment = ALIGN_LEFT;
 

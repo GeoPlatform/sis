@@ -96,7 +96,7 @@ public class MolodenskyTransform extends MolodenskyFormula {
      * Internal parameter descriptor, used only for debugging purpose.
      * Created only when first needed.
      *
-     * see #getParameterDescriptors()
+     * @see #getParameterDescriptors()
      */
     @Debug
     private static ParameterDescriptorGroup DESCRIPTOR;
@@ -104,7 +104,7 @@ public class MolodenskyTransform extends MolodenskyFormula {
     /**
      * The inverse of this Molodensky transform.
      *
-     * see #inverse()
+     * @see #inverse()
      */
     private final MolodenskyTransform inverse;
 
@@ -143,7 +143,7 @@ public class MolodenskyTransform extends MolodenskyFormula {
      * @param tZ          The geocentric <var>Z</var> translation in same units than the source ellipsoid axes.
      * @param isAbridged  {@code true} for the abridged formula, or {@code false} for the complete one.
      *
-     * see #createGeodeticTransformation(MathTransformFactory, Ellipsoid, boolean, Ellipsoid, boolean, double, double, double, boolean)
+     * @see #createGeodeticTransformation(MathTransformFactory, Ellipsoid, boolean, Ellipsoid, boolean, double, double, double, boolean)
      */
     protected MolodenskyTransform(final Ellipsoid source, final boolean isSource3D,
                                   final Ellipsoid target, final boolean isTarget3D,

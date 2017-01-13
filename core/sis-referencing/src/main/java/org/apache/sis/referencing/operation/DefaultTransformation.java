@@ -51,7 +51,7 @@ import org.apache.sis.util.ArgumentChecks;
  * @version 0.6
  * @module
  *
- * see DefaultConversion
+ * @see DefaultConversion
  */
 @XmlType(name = "TransformationType")
 @XmlRootElement(name = "Transformation")
@@ -125,7 +125,7 @@ public class DefaultTransformation extends AbstractSingleOperation implements Tr
      *
      * @param  operation  the coordinate operation to copy.
      *
-     * see #castOrCopy(Transformation)
+     * @see #castOrCopy(Transformation)
      */
     protected DefaultTransformation(final Transformation operation) {
         super(operation);

@@ -49,7 +49,7 @@ final class ConventionalUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
      * The SI prefixes form smallest to largest. Power of tens go from -24 to +24 inclusive with a step of 3,
      * except for the addition of -2, -1, +1, +2 and the omission of 0.
      *
-     * see #prefix(double)
+     * @see #prefix(double)
      */
     private static final char[] PREFIXES = {'y','z','a','f','p','n','µ','m','c','d','㍲','h','k','M','G','T','P','E','Z','Y'};
 
@@ -245,7 +245,7 @@ final class ConventionalUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
      *
      * @return the dimension of this unit.
      *
-     * see #isCompatible(Unit)
+     * @see #isCompatible(Unit)
      */
     @Override
     public Dimension getDimension() {
@@ -333,7 +333,7 @@ final class ConventionalUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
      * @return the converter from this unit to {@code that} unit.
      * @throws IncommensurableException if this unit is not {@linkplain #isCompatible(Unit) compatible} with {@code that} unit.
      *
-     * see #isCompatible(Unit)
+     * @see #isCompatible(Unit)
      */
     @Override
     public UnitConverter getConverterToAny(final Unit<?> that) throws IncommensurableException {
@@ -359,7 +359,7 @@ final class ConventionalUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
      * @return the alternate unit.
      * @throws UnsupportedOperationException always thrown since this unit is not an unscaled standard unit.
      *
-     * see SystemUnit#alternate(String)
+     * @see SystemUnit#alternate(String)
      */
     @Override
     public Unit<Q> alternate(final String symbol) {

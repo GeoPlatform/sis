@@ -124,7 +124,7 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(DigitalTransferOptions)
+     * @see #castOrCopy(DigitalTransferOptions)
      */
     public DefaultDigitalTransferOptions(final DigitalTransferOptions object) {
         super(object);
@@ -256,7 +256,7 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
     
     /**
 	 * Gets the offLines (used in ISO 19115-3).
-	 * see {@link #getOffLines}
+	 * @see {@link #getOffLines}
 	 */
 	@XmlElement(name = "offLine")
 	private Collection<Medium>  getXmlOffLines() {
@@ -293,7 +293,7 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
     
     /**
 	 * Gets the offLine (used in ISO 19139).
-	 * see {@link #getOffLine}
+	 * @see {@link #getOffLine}
 	 */
 	@XmlElement(name = "offLine")
 	private Medium getXmlOffLine() {
@@ -303,7 +303,7 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
 	/**
 	 * Sets the offLine (used in ISO 19139).
 	 * Does nothing here, since it would overwrite the Mediums collected in getOffLines() 
-	 * see {@link #setOffLine}
+	 * @see {@link #setOffLine}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlOffLine(final Medium newValue) {
@@ -336,7 +336,7 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
     
     /**
 	 * Gets the transfer frequency (used in ISO 19115-3).
-	 * see {@link #getTransferFrequency}
+	 * @see {@link #getTransferFrequency}
 	 */
 	@XmlElement(name = "transferFrequency")
 	private PeriodDuration getXmlTransferFrequency() {
@@ -345,7 +345,7 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
 
 	/**
 	 * Sets the transfer frequency (used in ISO 19115-3).
-	 * see {@link #setTransferFrequency}
+	 * @see {@link #setTransferFrequency}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlTransferFrequency(final PeriodDuration newValue) {
@@ -377,7 +377,7 @@ public class DefaultDigitalTransferOptions extends ISOMetadata implements Digita
     
     /**
 	 * Gets the distribution formats (used in ISO 19115-3).
-	 * see {@link #getDistributionFormats}
+	 * @see {@link #getDistributionFormats}
 	 */
 	@XmlElement(name = "distributionFormat")
 	private Collection<Format> getXmlDistributionFormats() {

@@ -95,7 +95,7 @@ public final strictfp class StringBuildersTest extends TestCase {
     /**
      * Tests the {@link StringBuilders#toASCII(StringBuilder)} method.
      *
-     * see CharSequencesTest#testToASCII()
+     * @see CharSequencesTest#testToASCII()
      */
     @Test
     public void testToASCII() {

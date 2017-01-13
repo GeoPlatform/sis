@@ -53,8 +53,8 @@ import org.apache.sis.metadata.iso.citation.Citations;
  * @version 0.6
  * @module
  *
- * see WKTFormat#getConvention()
- * see WKTFormat#setConvention(Convention)
+ * @see WKTFormat#getConvention()
+ * @see WKTFormat#setConvention(Convention)
  */
 public enum Convention {
     /**
@@ -68,7 +68,7 @@ public enum Convention {
      * <p>This is the default convention used by {@link FormattableObject#toWKT()}
      * and for new {@link WKTFormat} instances.</p>
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
      */
     WKT2(false, true, false),
 
@@ -140,7 +140,7 @@ public enum Convention {
      * </table>
      * </td></tr></table>
      *
-     * see <a href="http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html">Legacy WKT 1</a>
+     * @see <a href="http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html">Legacy WKT 1</a>
      */
     WKT1(true, true, false),
 
@@ -206,7 +206,7 @@ public enum Convention {
      *
      * This convention is used only for debugging purpose.
      *
-     * see org.apache.sis.referencing.operation.projection.NormalizedProjection#getParameterValues()
+     * @see org.apache.sis.referencing.operation.projection.NormalizedProjection#getParameterValues()
      */
     @Debug
     INTERNAL(false, false, false);
@@ -296,9 +296,9 @@ public enum Convention {
      *
      * @return The organization, standard or project to look for when fetching Map Projection parameter names.
      *
-     * see WKTFormat#getNameAuthority()
-     * see Citations#EPSG
-     * see Citations#OGC
+     * @see WKTFormat#getNameAuthority()
+     * @see Citations#EPSG
+     * @see Citations#OGC
      */
     final Citation getNameAuthority() {
         return isWKT1 ? Citations.OGC : Citations.EPSG;

@@ -50,7 +50,7 @@ public abstract class PropertyTypeBuilder extends TypeBuilder {
      * The feature type builder instance that created this {@code PropertyTypeBuilder}.
      * This is set at construction time and considered as immutable until it is set to {@code null}.
      *
-     * see #owner()
+     * @see #owner()
      */
     private FeatureTypeBuilder owner;
 
@@ -58,7 +58,7 @@ public abstract class PropertyTypeBuilder extends TypeBuilder {
      * The minimum number of property values.
      * The default value is 1, unless otherwise specified by {@link #setDefaultCardinality(int, int)}.
      *
-     * see #getMinimumOccurs()
+     * @see #getMinimumOccurs()
      */
     int minimumOccurs;
 
@@ -66,7 +66,7 @@ public abstract class PropertyTypeBuilder extends TypeBuilder {
      * The maximum number of property values.
      * The default value is 1, unless otherwise specified by {@link #setDefaultCardinality(int, int)}.
      *
-     * see #getMaximumOccurs()
+     * @see #getMaximumOccurs()
      */
     int maximumOccurs;
 
@@ -111,7 +111,7 @@ public abstract class PropertyTypeBuilder extends TypeBuilder {
      *
      * @return the minimum number of property values.
      *
-     * see org.apache.sis.feature.DefaultAttributeType#getMinimumOccurs()
+     * @see org.apache.sis.feature.DefaultAttributeType#getMinimumOccurs()
      */
     public int getMinimumOccurs() {
         return minimumOccurs;
@@ -125,7 +125,7 @@ public abstract class PropertyTypeBuilder extends TypeBuilder {
      * @param  occurs the new minimum number of property values.
      * @return {@code this} for allowing method calls chaining.
      *
-     * see #getMinimumOccurs()
+     * @see #getMinimumOccurs()
      */
     public PropertyTypeBuilder setMinimumOccurs(final int occurs) {
         if (occurs != minimumOccurs) {
@@ -148,7 +148,7 @@ public abstract class PropertyTypeBuilder extends TypeBuilder {
      *
      * @return the maximum number of property values, or {@link Integer#MAX_VALUE} if none.
      *
-     * see org.apache.sis.feature.DefaultAttributeType#getMaximumOccurs()
+     * @see org.apache.sis.feature.DefaultAttributeType#getMaximumOccurs()
      */
     public final int getMaximumOccurs() {
         return maximumOccurs;
@@ -162,7 +162,7 @@ public abstract class PropertyTypeBuilder extends TypeBuilder {
      * @param  occurs the new maximum number of property values.
      * @return {@code this} for allowing method calls chaining.
      *
-     * see #getMaximumOccurs()
+     * @see #getMaximumOccurs()
      */
     public PropertyTypeBuilder setMaximumOccurs(final int occurs) {
         if (occurs != maximumOccurs) {

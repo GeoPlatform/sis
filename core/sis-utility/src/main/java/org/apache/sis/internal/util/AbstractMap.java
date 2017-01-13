@@ -85,7 +85,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * @param <K> the type of keys maintained by the map.
      * @param <V> the type of mapped values.
      *
-     * see AbstractMap#entryIterator()
+     * @see AbstractMap#entryIterator()
      */
     protected static abstract class EntryIterator<K,V> {
         /**
@@ -142,7 +142,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * @param <K> the type of keys maintained by the map.
      * @param <V> the type of mapped values.
      *
-     * see AbstractMap#entryIterator()
+     * @see AbstractMap#entryIterator()
      */
     protected static class IteratorAdapter<K,V> extends EntryIterator<K,V> {
         /**

@@ -47,8 +47,8 @@ import static java.lang.Math.ulp;
  * @version 0.5
  * @module
  *
- * see Line
- * see org.apache.sis.referencing.operation.builder.LinearTransformBuilder
+ * @see Line
+ * @see org.apache.sis.referencing.operation.builder.LinearTransformBuilder
  */
 public class Plane implements Cloneable, Serializable {
     /**
@@ -113,7 +113,7 @@ public class Plane implements Cloneable, Serializable {
      * @param sy The slope along the <var>y</var> values.
      * @param z0 The <var>z</var> value at (<var>x</var>,<var>y</var>) = (0,0).
      *
-     * see #setEquation(double, double, double)
+     * @see #setEquation(double, double, double)
      */
     public Plane(final double sx, final double sy, final double z0) {
         this.sx = sx;
@@ -147,7 +147,7 @@ public class Plane implements Cloneable, Serializable {
      *
      * @return The <var>z₀</var> term.
      *
-     * see #z(double, double)
+     * @see #z(double, double)
      */
     public final double z0() {
         return z0;
@@ -191,7 +191,7 @@ public class Plane implements Cloneable, Serializable {
      * @param y The <var>y</var> value where to compute <var>z</var>.
      * @return  The <var>z</var> value.
      *
-     * see #z0()
+     * @see #z0()
      */
     public final double z(final double x, final double y) {
         return z0 + sx*x + sy*y;

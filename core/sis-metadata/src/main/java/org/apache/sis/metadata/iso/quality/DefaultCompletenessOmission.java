@@ -60,7 +60,7 @@ public class DefaultCompletenessOmission extends AbstractCompleteness implements
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(CompletenessOmission)
+     * @see #castOrCopy(CompletenessOmission)
      */
     public DefaultCompletenessOmission(final CompletenessOmission object) {
         super(object);

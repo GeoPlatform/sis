@@ -64,7 +64,7 @@ public final strictfp class GeneralMatrixTest extends MatrixTestCase {
      * This test verifies that {@code getExtendedElements} can infer default error
      * terms for some well known values.
      *
-     * see Matrix2Test#testGetExtendedElements()
+     * @see Matrix2Test#testGetExtendedElements()
      */
     @Test
     public void testGetExtendedElements() {

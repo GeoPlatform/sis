@@ -56,21 +56,21 @@ import javax.xml.namespace.NamespaceContext;
  * @version 0.4
  * @module
  *
- * see <a href="http://issues.apache.org/jira/browse/SIS-152">SIS-152</a>
+ * @see <a href="http://issues.apache.org/jira/browse/SIS-152">SIS-152</a>
  */
 final class FilteredNamespaces implements NamespaceContext {
     /**
      * The context to wrap, given by {@link FilteredStreamReader} or {@link FilteredStreamWriter}.
      *
-     * see javax.xml.stream.XMLStreamReader#getNamespaceContext()
-     * see javax.xml.stream.XMLStreamWriter#getNamespaceContext()
+     * @see javax.xml.stream.XMLStreamReader#getNamespaceContext()
+     * @see javax.xml.stream.XMLStreamWriter#getNamespaceContext()
      */
     private final NamespaceContext context;
 
     /**
      * The URI replacements to apply when going from the wrapped context to the filtered context.
      *
-     * see FilterVersion#toView
+     * @see FilterVersion#toView
      */
     private final Map<String,String> toView;
 
@@ -78,7 +78,7 @@ final class FilteredNamespaces implements NamespaceContext {
      * The URI replacements to apply when going from the filtered context to the wrapped context.
      * This map is the converse of {@link #toView}.
      *
-     * see FilterVersion#toImpl
+     * @see FilterVersion#toImpl
      */
     private final Map<String,String> toImpl;
 

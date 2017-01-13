@@ -49,7 +49,7 @@ import org.apache.sis.metadata.iso.citation.Citations;
  * @since   0.6
  * @version 0.6
  *
- * see <a href="http://www.remotesensing.org/geotiff/proj_list/miller_cylindrical.html">Miller Cylindrical on RemoteSensing.org</a>
+ * @see <a href="http://www.remotesensing.org/geotiff/proj_list/miller_cylindrical.html">Miller Cylindrical on RemoteSensing.org</a>
  */
 @XmlTransient
 public final class MillerCylindrical extends AbstractMercator {

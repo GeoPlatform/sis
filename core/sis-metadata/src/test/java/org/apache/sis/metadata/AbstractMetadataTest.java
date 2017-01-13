@@ -39,7 +39,7 @@ public final strictfp class AbstractMetadataTest extends TestCase {
      * This is the same test than {@link MetadataStandardTest#testHashCodeOnCyclicMetadata()}, with
      * only a different entry point.
      *
-     * see MetadataStandardTest#testHashCodeOnCyclicMetadata()
+     * @see MetadataStandardTest#testHashCodeOnCyclicMetadata()
      */
     @Test
     public void testHashCodeOnCyclicMetadata() {

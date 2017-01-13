@@ -60,7 +60,7 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
  * @version 0.8
  * @module
  *
- * see AbstractIdentification#getSpatialResolutions()
+ * @see AbstractIdentification#getSpatialResolutions()
  */
 @XmlType(name = "MD_Resolution_Type") // No need for propOrder since this structure is a union (see javadoc).
 @XmlRootElement(name = "MD_Resolution")
@@ -151,7 +151,7 @@ public class DefaultResolution extends ISOMetadata implements Resolution {
      *
      * @param  object  the metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Resolution)
+     * @see #castOrCopy(Resolution)
      */
     public DefaultResolution(final Resolution object) {
         super(object);
@@ -306,7 +306,7 @@ public class DefaultResolution extends ISOMetadata implements Resolution {
     
     /**
 	 * Gets the vertical (used in ISO 19115-3 format).
-	 * see {@link #getVertical}
+	 * @see {@link #getVertical}
 	 */
 	@XmlElement(name = "vertical")
 	private Double getXmlVertical() {
@@ -315,7 +315,7 @@ public class DefaultResolution extends ISOMetadata implements Resolution {
 
 	/**
 	 * Sets the vertical (used in ISO 19115-3 format).
-	 * see {@link #setVertical}
+	 * @see {@link #setVertical}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlVertical(final Double newValue) {
@@ -355,7 +355,7 @@ public class DefaultResolution extends ISOMetadata implements Resolution {
     
     /**
 	 * Gets the angular distance (used in ISO 19115-3 format).
-	 * see {@link #getAngularDistance}
+	 * @see {@link #getAngularDistance}
 	 */
 	@XmlElement(name = "angularDistance")
 	private Double getXmlAngularDistance() {
@@ -364,7 +364,7 @@ public class DefaultResolution extends ISOMetadata implements Resolution {
 
 	/**
 	 * Sets the angular distance (used in ISO 19115-3 format).
-	 * see {@link #setAngularDistance}
+	 * @see {@link #setAngularDistance}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlAngularDistance(final Double newValue) {
@@ -400,7 +400,7 @@ public class DefaultResolution extends ISOMetadata implements Resolution {
     
     /**
 	 * Gets the level of detail (used in ISO 19115-3 format).
-	 * see {@link #getLevelOfDetail}
+	 * @see {@link #getLevelOfDetail}
 	 */
 	@XmlElement(name = "levelOfDetail")
 	private InternationalString getXmlLevelOfDetail() {
@@ -409,7 +409,7 @@ public class DefaultResolution extends ISOMetadata implements Resolution {
 
 	/**
 	 * Sets the level of detail (used in ISO 19115-3 format).
-	 * see {@link #setLevelOfDetail}
+	 * @see {@link #setLevelOfDetail}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlLevelOfDetail(final InternationalString newValue) {

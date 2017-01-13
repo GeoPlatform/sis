@@ -240,7 +240,7 @@ public final strictfp class DefaultEllipsoidTest extends XMLTestCase {
      *
      * @throws JAXBException if an error occurred during (un)marshalling.
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-333">SIS-333</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-333">SIS-333</a>
      *
      * @since 0.8
      */

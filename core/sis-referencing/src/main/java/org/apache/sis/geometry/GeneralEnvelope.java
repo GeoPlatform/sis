@@ -115,8 +115,8 @@ import static org.apache.sis.math.MathFunctions.isSameSign;
  * @version 0.5
  * @module
  *
- * see Envelope2D
- * see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox
+ * @see Envelope2D
+ * @see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox
  */
 public class GeneralEnvelope extends ArrayEnvelope implements Cloneable, Serializable {
     /**
@@ -194,7 +194,7 @@ public class GeneralEnvelope extends ArrayEnvelope implements Cloneable, Seriali
      *
      * @param envelope The envelope to copy.
      *
-     * see #castOrCopy(Envelope)
+     * @see #castOrCopy(Envelope)
      */
     public GeneralEnvelope(final Envelope envelope) {
         super(envelope);
@@ -250,8 +250,8 @@ public class GeneralEnvelope extends ArrayEnvelope implements Cloneable, Seriali
      * @param  wkt The {@code BOX}, {@code POLYGON} or other kind of element to parse.
      * @throws IllegalArgumentException If the given string can not be parsed.
      *
-     * see Envelopes#fromWKT(CharSequence)
-     * see Envelopes#toString(Envelope)
+     * @see Envelopes#fromWKT(CharSequence)
+     * @see Envelopes#toString(Envelope)
      */
     public GeneralEnvelope(final CharSequence wkt) throws IllegalArgumentException {
         super(wkt);
@@ -266,8 +266,8 @@ public class GeneralEnvelope extends ArrayEnvelope implements Cloneable, Seriali
      * @param  envelope The envelope to cast, or {@code null}.
      * @return The values of the given envelope as a {@code GeneralEnvelope} instance.
      *
-     * see AbstractEnvelope#castOrCopy(Envelope)
-     * see ImmutableEnvelope#castOrCopy(Envelope)
+     * @see AbstractEnvelope#castOrCopy(Envelope)
+     * @see ImmutableEnvelope#castOrCopy(Envelope)
      */
     public static GeneralEnvelope castOrCopy(final Envelope envelope) {
         if (envelope == null || envelope instanceof GeneralEnvelope) {
@@ -431,7 +431,7 @@ public class GeneralEnvelope extends ArrayEnvelope implements Cloneable, Seriali
      * The {@linkplain #getCoordinateReferenceSystem() coordinate reference system}
      * (if any) stay unchanged.
      *
-     * see #isAllNaN()
+     * @see #isAllNaN()
      */
     public void setToNaN() {                   // Must be overridden in SubEnvelope
         Arrays.fill(ordinates, Double.NaN);
@@ -583,7 +583,7 @@ public class GeneralEnvelope extends ArrayEnvelope implements Cloneable, Seriali
      * @throws MismatchedDimensionException If the given envelope does not have the expected number of dimensions.
      * @throws AssertionError If assertions are enabled and the envelopes have mismatched CRS.
      *
-     * see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox#add(GeographicBoundingBox)
+     * @see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox#add(GeographicBoundingBox)
      */
     public void add(final Envelope envelope) throws MismatchedDimensionException {
         ensureNonNull("envelope", envelope);
@@ -708,7 +708,7 @@ public class GeneralEnvelope extends ArrayEnvelope implements Cloneable, Seriali
      * @throws MismatchedDimensionException If the given envelope does not have the expected number of dimensions.
      * @throws AssertionError If assertions are enabled and the envelopes have mismatched CRS.
      *
-     * see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox#intersect(GeographicBoundingBox)
+     * @see org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBox#intersect(GeographicBoundingBox)
      */
     public void intersect(final Envelope envelope) throws MismatchedDimensionException {
         ensureNonNull("envelope", envelope);
@@ -879,7 +879,7 @@ public class GeneralEnvelope extends ArrayEnvelope implements Cloneable, Seriali
      * @return {@code true} if this envelope has been modified as a result of this method call,
      *         or {@code false} if no change has been done.
      *
-     * see AbstractDirectPosition#normalize()
+     * @see AbstractDirectPosition#normalize()
      */
     public boolean normalize() {
         boolean changed = false;
@@ -959,7 +959,7 @@ public class GeneralEnvelope extends ArrayEnvelope implements Cloneable, Seriali
      * @throws IllegalStateException If a upper ordinate value is less than a lower ordinate
      *         value on an axis which does not have the {@code WRAPAROUND} range meaning.
      *
-     * see #toSimpleEnvelopes()
+     * @see #toSimpleEnvelopes()
      */
     public boolean simplify() throws IllegalStateException {
         boolean changed = false;
@@ -1013,7 +1013,7 @@ public class GeneralEnvelope extends ArrayEnvelope implements Cloneable, Seriali
      * @return The sub-envelope of dimension {@code endIndex - beginIndex}.
      * @throws IndexOutOfBoundsException If an index is out of bounds.
      *
-     * see org.apache.sis.referencing.CRS#getComponentAt(CoordinateReferenceSystem, int, int)
+     * @see org.apache.sis.referencing.CRS#getComponentAt(CoordinateReferenceSystem, int, int)
      */
     // Must be overridden in SubEnvelope
     public GeneralEnvelope subEnvelope(final int beginIndex, final int endIndex) throws IndexOutOfBoundsException {

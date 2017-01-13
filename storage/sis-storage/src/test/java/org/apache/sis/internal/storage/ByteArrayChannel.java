@@ -35,8 +35,8 @@ import java.nio.channels.SeekableByteChannel;
  * @version 0.7
  * @module
  *
- * see ChannelDataOutputTest
- * see ChannelImageOutputStream
+ * @see ChannelDataOutputTest
+ * @see ChannelImageOutputStream
  */
 final strictfp class ByteArrayChannel implements SeekableByteChannel {
     /**

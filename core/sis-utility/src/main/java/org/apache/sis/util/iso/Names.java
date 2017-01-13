@@ -75,12 +75,12 @@ import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
  * @version 0.8
  * @module
  *
- * see DefaultNameFactory
- * see DefaultNameSpace
- * see DefaultScopedName
- * see DefaultLocalName
- * see DefaultTypeName
- * see DefaultMemberName
+ * @see DefaultNameFactory
+ * @see DefaultNameSpace
+ * @see DefaultScopedName
+ * @see DefaultLocalName
+ * @see DefaultTypeName
+ * @see DefaultMemberName
  */
 public final class Names extends Static {
     /**
@@ -117,7 +117,7 @@ public final class Names extends Static {
      * @param  scopedName  the name to parse using {@code ':'} as the separator between components.
      * @return a local or scoped name in the given namespace.
      *
-     * see DefaultNameFactory#parseGenericName(NameSpace, CharSequence)
+     * @see DefaultNameFactory#parseGenericName(NameSpace, CharSequence)
      */
     public static GenericName parseGenericName(final CharSequence namespace, final String separator, final CharSequence scopedName) {
         ensureNonNull("localPart", scopedName);
@@ -166,7 +166,7 @@ public final class Names extends Static {
      * @param  localPart  the name which is locale in the given namespace.
      * @return a local name in the given namespace.
      *
-     * see DefaultNameFactory#createLocalName(NameSpace, CharSequence)
+     * @see DefaultNameFactory#createLocalName(NameSpace, CharSequence)
      */
     public static LocalName createLocalName(final CharSequence namespace, final String separator, final CharSequence localPart) {
         ensureNonNull("localPart", localPart);
@@ -192,7 +192,7 @@ public final class Names extends Static {
      * @param  localPart  the name which is locale in the given namespace.
      * @return a type name in the given namespace.
      *
-     * see DefaultNameFactory#createTypeName(NameSpace, CharSequence)
+     * @see DefaultNameFactory#createTypeName(NameSpace, CharSequence)
      */
     public static TypeName createTypeName(final CharSequence namespace, final String separator, final CharSequence localPart) {
         ensureNonNull("localPart", localPart);
@@ -215,7 +215,7 @@ public final class Names extends Static {
      * @param  valueClass the type of values, used for inferring a {@link TypeName} instance.
      * @return a member name in the given namespace for values of the given type.
      *
-     * see DefaultNameFactory#createMemberName(NameSpace, CharSequence, TypeName)
+     * @see DefaultNameFactory#createMemberName(NameSpace, CharSequence, TypeName)
      */
     public static MemberName createMemberName(final CharSequence namespace, final String separator,
             final CharSequence localPart, final Class<?> valueClass)
@@ -266,8 +266,8 @@ public final class Names extends Static {
      * @throws UnknownNameException if a mapping from the given name to a Java class was expected to exist
      *         (typically because of the {@linkplain DefaultTypeName#scope() scope}) but the operation failed.
      *
-     * see DefaultTypeName#toClass()
-     * see DefaultNameFactory#toTypeName(Class)
+     * @see DefaultTypeName#toClass()
+     * @see DefaultNameFactory#toTypeName(Class)
      *
      * @since 0.5
      */
@@ -305,7 +305,7 @@ public final class Names extends Static {
      * @param  name  the generic name to format in expanded form, or {@code null}.
      * @return expanded form of the given generic name, or {@code null} if the given name was null.
      *
-     * see DefaultNameSpace#toString()
+     * @see DefaultNameSpace#toString()
      */
     public static String toExpandedString(final GenericName name) {
         if (name == null) {

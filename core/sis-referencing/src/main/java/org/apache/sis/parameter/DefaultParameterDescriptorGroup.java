@@ -89,8 +89,8 @@ import static org.apache.sis.util.Utilities.deepEquals;
  * @version 0.6
  * @module
  *
- * see DefaultParameterValueGroup
- * see DefaultParameterDescriptor
+ * @see DefaultParameterValueGroup
+ * @see DefaultParameterDescriptor
  */
 @XmlType(name = "OperationParameterGroupType")
 @XmlRootElement(name = "OperationParameterGroup")
@@ -106,7 +106,7 @@ public class DefaultParameterDescriptorGroup extends AbstractParameterDescriptor
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setDescriptors(GeneralParameterDescriptor[])}</p>
      *
-     * see #descriptors()
+     * @see #descriptors()
      */
     private List<GeneralParameterDescriptor> descriptors;
 
@@ -233,7 +233,7 @@ public class DefaultParameterDescriptorGroup extends AbstractParameterDescriptor
      *
      * @param descriptor The descriptor to shallow copy.
      *
-     * see #castOrCopy(ParameterDescriptorGroup)
+     * @see #castOrCopy(ParameterDescriptorGroup)
      */
     protected DefaultParameterDescriptorGroup(final ParameterDescriptorGroup descriptor) {
         super(descriptor);
@@ -458,7 +458,7 @@ public class DefaultParameterDescriptorGroup extends AbstractParameterDescriptor
      * <strong>This is not a valid object.</strong> This constructor is strictly reserved to JAXB
      * and to {@link DefaultParameterValueGroup}, which will assign values later.
      *
-     * see #setDescriptors(GeneralParameterDescriptor[])
+     * @see #setDescriptors(GeneralParameterDescriptor[])
      */
     DefaultParameterDescriptorGroup() {
         descriptors = Collections.emptyList();

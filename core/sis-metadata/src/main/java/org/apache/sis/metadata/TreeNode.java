@@ -86,7 +86,7 @@ class TreeNode implements Node {
      * The parent of this node to be returned by {@link #getParent()},
      * or {@code null} if this node is the root of the tree.
      *
-     * see #getParent()
+     * @see #getParent()
      */
     private final TreeNode parent;
 
@@ -105,14 +105,14 @@ class TreeNode implements Node {
      *
      * This field shall never be null.
      *
-     * see #getUserObject()
+     * @see #getUserObject()
      */
     final Object metadata;
 
     /**
      * The value of {@link TableColumn#NAME}, computed by {@link #getName()} then cached.
      *
-     * see #getName()
+     * @see #getName()
      */
     private transient CharSequence name;
 
@@ -121,7 +121,7 @@ class TreeNode implements Node {
      * can not have children (i.e. {@linkplain #isLeaf() is a leaf}), then this field is set to
      * {@link #LEAF}.
      *
-     * see #getChildren()
+     * @see #getChildren()
      */
     private transient Collection<Node> children;
 

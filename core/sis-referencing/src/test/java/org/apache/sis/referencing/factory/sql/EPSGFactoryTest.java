@@ -325,7 +325,7 @@ public final strictfp class EPSGFactoryTest extends TestCase {
      *
      * @throws FactoryException if an error occurred while querying the factory.
      *
-     * see #testCreateByName()
+     * @see #testCreateByName()
      */
     @Test
     @DependsOnMethod("testCreateByName")
@@ -555,7 +555,7 @@ public final strictfp class EPSGFactoryTest extends TestCase {
      *
      * @throws FactoryException if an error occurred while querying the factory.
      *
-     * see #testProjectedByName()
+     * @see #testProjectedByName()
      */
     @Test
     public void testCreateByName() throws FactoryException {

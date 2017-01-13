@@ -54,9 +54,9 @@ import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.referencing.datum.DefaultVerticalDatum
- * see org.apache.sis.referencing.cs.DefaultVerticalCS
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createVerticalCRS(String)
+ * @see org.apache.sis.referencing.datum.DefaultVerticalDatum
+ * @see org.apache.sis.referencing.cs.DefaultVerticalCS
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createVerticalCRS(String)
  */
 @XmlType(name = "VerticalCRSType", propOrder = {
     "coordinateSystem",
@@ -75,7 +75,7 @@ public class DefaultVerticalCRS extends AbstractCRS implements VerticalCRS {
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setDatum(VerticalDatum)}</p>
      *
-     * see #getDatum()
+     * @see #getDatum()
      */
     private VerticalDatum datum;
 
@@ -128,7 +128,7 @@ public class DefaultVerticalCRS extends AbstractCRS implements VerticalCRS {
      * @param datum The datum.
      * @param cs The coordinate system.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createVerticalCRS(Map, VerticalDatum, VerticalCS)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createVerticalCRS(Map, VerticalDatum, VerticalCS)
      */
     public DefaultVerticalCRS(final Map<String,?> properties,
                               final VerticalDatum datum,
@@ -148,7 +148,7 @@ public class DefaultVerticalCRS extends AbstractCRS implements VerticalCRS {
      *
      * @param crs The coordinate reference system to copy.
      *
-     * see #castOrCopy(VerticalCRS)
+     * @see #castOrCopy(VerticalCRS)
      */
     protected DefaultVerticalCRS(final VerticalCRS crs) {
         super(crs);
@@ -231,7 +231,7 @@ public class DefaultVerticalCRS extends AbstractCRS implements VerticalCRS {
      *
      * @return {@code "VerticalCRS"} (WKT 2) or {@code "Vert_CS"} (WKT 1).
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#69">WKT 2 specification §10</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#69">WKT 2 specification §10</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -272,7 +272,7 @@ public class DefaultVerticalCRS extends AbstractCRS implements VerticalCRS {
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * see #getDatum()
+     * @see #getDatum()
      */
     private void setDatum(final VerticalDatum value) {
         if (datum == null) {
@@ -285,7 +285,7 @@ public class DefaultVerticalCRS extends AbstractCRS implements VerticalCRS {
     /**
      * Used by JAXB only (invoked by reflection).
      *
-     * see #getCoordinateSystem()
+     * @see #getCoordinateSystem()
      */
     private void setCoordinateSystem(final VerticalCS cs) {
         setCoordinateSystem("verticalCS", cs);

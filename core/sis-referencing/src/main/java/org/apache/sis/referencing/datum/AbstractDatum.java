@@ -69,8 +69,8 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.referencing.cs.AbstractCS
- * see org.apache.sis.referencing.crs.AbstractCRS
+ * @see org.apache.sis.referencing.cs.AbstractCS
+ * @see org.apache.sis.referencing.crs.AbstractCRS
  */
 @XmlType(name = "AbstractDatumType", propOrder = {
     "domainOfValidity",
@@ -105,7 +105,7 @@ public class AbstractDatum extends AbstractIdentifiedObject implements Datum {
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setAnchorPoint(InternationalString)}</p>
      *
-     * see #getAnchorPoint()
+     * @see #getAnchorPoint()
      */
     private InternationalString anchorDefinition;
 
@@ -125,7 +125,7 @@ public class AbstractDatum extends AbstractIdentifiedObject implements Datum {
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setDomainOfValidity(Extent)}</p>
      *
-     * see #getDomainOfValidity()
+     * @see #getDomainOfValidity()
      */
     private Extent domainOfValidity;
 
@@ -135,7 +135,7 @@ public class AbstractDatum extends AbstractIdentifiedObject implements Datum {
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setScope(InternationalString)}</p>
      *
-     * see #getScope()
+     * @see #getScope()
      */
     private InternationalString scope;
 
@@ -314,7 +314,7 @@ public class AbstractDatum extends AbstractIdentifiedObject implements Datum {
      *
      * @return Area or region or timeframe in which this datum is valid, or {@code null}.
      *
-     * see org.apache.sis.metadata.iso.extent.DefaultExtent
+     * @see org.apache.sis.metadata.iso.extent.DefaultExtent
      */
     @Override
     @XmlElement(name = "domainOfValidity")
@@ -500,7 +500,7 @@ public class AbstractDatum extends AbstractIdentifiedObject implements Datum {
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * see #getAnchorPoint()
+     * @see #getAnchorPoint()
      */
     private void setAnchorPoint(final InternationalString value) {
         if (anchorDefinition == null) {
@@ -513,7 +513,7 @@ public class AbstractDatum extends AbstractIdentifiedObject implements Datum {
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * see #getRealizationEpoch()
+     * @see #getRealizationEpoch()
      */
     private void setRealizationEpoch(final Date value) {
         if (realizationEpoch == Long.MIN_VALUE) {
@@ -526,7 +526,7 @@ public class AbstractDatum extends AbstractIdentifiedObject implements Datum {
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * see #getDomainOfValidity()
+     * @see #getDomainOfValidity()
      */
     private void setDomainOfValidity(final Extent value) {
         if (domainOfValidity == null) {
@@ -539,7 +539,7 @@ public class AbstractDatum extends AbstractIdentifiedObject implements Datum {
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * see #getScope()
+     * @see #getScope()
      */
     private void setScope(final InternationalString value) {
         if (scope == null) {

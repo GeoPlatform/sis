@@ -55,7 +55,7 @@ import org.apache.sis.util.logging.Logging;
  * @version 0.7
  * @module
  *
- * see <a href="https://issues.apache.org/jira/browse/SIS-76">SIS-76</a>
+ * @see <a href="https://issues.apache.org/jira/browse/SIS-76">SIS-76</a>
  */
 public final class DelayedExecutor extends DaemonThread {
     /**

@@ -61,7 +61,7 @@ public class GeoTiffStore extends DataStore {
     /**
      * The metadata, or {@code null} if not yet created.
      *
-     * see #getMetadata()
+     * @see #getMetadata()
      */
     private Metadata metadata;
 

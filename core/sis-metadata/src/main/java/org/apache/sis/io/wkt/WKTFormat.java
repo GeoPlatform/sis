@@ -110,8 +110,8 @@ import org.apache.sis.internal.util.LocalizedParseException;
  * @version 0.8
  * @module
  *
- * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
- * see <a href="http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html">Legacy WKT 1</a>
+ * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
+ * @see <a href="http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html">Legacy WKT 1</a>
  */
 public class WKTFormat extends CompoundFormat<Object> {
     /**
@@ -186,7 +186,7 @@ public class WKTFormat extends CompoundFormat<Object> {
      * WKT fragments that can be inserted in longer WKT strings, or {@code null} if none. Keys are short identifiers
      * and values are WKT subtrees to substitute to the identifiers when they are found in a WKT to parse.
      *
-     * see #fragments()
+     * @see #fragments()
      */
     private Map<String,Element> fragments;
 
@@ -217,14 +217,14 @@ public class WKTFormat extends CompoundFormat<Object> {
      * serializable), so any value that users may have specified with {@link #setFactory(Class, Factory)}
      * will be lost at serialization time.
      *
-     * see #factories()
+     * @see #factories()
      */
     private transient Map<Class<?>,Factory> factories;
 
     /**
      * The warning produced by the last parsing or formatting operation, or {@code null} if none.
      *
-     * see #getWarnings()
+     * @see #getWarnings()
      */
     private transient Warnings warnings;
 
@@ -470,7 +470,7 @@ public class WKTFormat extends CompoundFormat<Object> {
      *
      * @return the organization, standard or project to look for when fetching projection and parameter names.
      *
-     * see Formatter#getNameAuthority()
+     * @see Formatter#getNameAuthority()
      */
     public Citation getNameAuthority() {
         Citation result = authority;
@@ -488,7 +488,7 @@ public class WKTFormat extends CompoundFormat<Object> {
      *
      * @param  authority  the new authority, or {@code null} for inferring it from the convention.
      *
-     * see Formatter#getNameAuthority()
+     * @see Formatter#getNameAuthority()
      */
     public void setNameAuthority(final Citation authority) {
         this.authority = authority;
@@ -768,7 +768,7 @@ public class WKTFormat extends CompoundFormat<Object> {
      * @param  toAppendTo  where the text is to be appended.
      * @throws IOException if an error occurred while writing to {@code toAppendTo}.
      *
-     * see FormattableObject#toWKT()
+     * @see FormattableObject#toWKT()
      */
     @Override
     public void format(final Object object, final Appendable toAppendTo) throws IOException {

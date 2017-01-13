@@ -175,7 +175,7 @@ public final class ArgumentChecks extends Static {
      * @param  value  the value to check, or {@code null}.
      * @throws IllegalArgumentException if {@code value} is non-null and is not assignable to the given type.
      *
-     * see org.apache.sis.util.collection.Containers#property(Map, Object, Class)
+     * @see org.apache.sis.util.collection.Containers#property(Map, Object, Class)
      */
     public static void ensureCanCast(final String name, final Class<?> expectedType, final Object value)
             throws IllegalArgumentException
@@ -207,7 +207,7 @@ public final class ArgumentChecks extends Static {
      * @throws IndexOutOfBoundsException if the given index is negative or not lower than the
      *         given upper value.
      *
-     * see #ensurePositive(String, int)
+     * @see #ensurePositive(String, int)
      */
     public static void ensureValidIndex(final int upper, final int index) throws IndexOutOfBoundsException {
         if (index < 0 || index >= upper) {
@@ -231,7 +231,7 @@ public final class ArgumentChecks extends Static {
      * @throws IndexOutOfBoundsException if the given [{@code lower} … {@code upper}]
      *         range is out of the sequence index range.
      *
-     * see #ensureSizeBetween(String, int, int, int)
+     * @see #ensureSizeBetween(String, int, int, int)
      */
     public static void ensureValidIndexRange(final int length, final int lower, final int upper) throws IndexOutOfBoundsException {
         if (lower < 0 || upper < lower || upper > length) {
@@ -248,8 +248,8 @@ public final class ArgumentChecks extends Static {
      * @param  value  the user argument to check.
      * @throws IllegalArgumentException if the given value is negative.
      *
-     * see #ensureValidIndex(int, int)
-     * see #ensureStrictlyPositive(String, int)
+     * @see #ensureValidIndex(int, int)
+     * @see #ensureStrictlyPositive(String, int)
      */
     public static void ensurePositive(final String name, final int value)
             throws IllegalArgumentException
@@ -267,7 +267,7 @@ public final class ArgumentChecks extends Static {
      * @param  value  the user argument to check.
      * @throws IllegalArgumentException if the given value is negative.
      *
-     * see #ensureStrictlyPositive(String, long)
+     * @see #ensureStrictlyPositive(String, long)
      */
     public static void ensurePositive(final String name, final long value)
             throws IllegalArgumentException
@@ -287,7 +287,7 @@ public final class ArgumentChecks extends Static {
      * @param  value  the user argument to check.
      * @throws IllegalArgumentException if the given value is NaN or negative.
      *
-     * see #ensureStrictlyPositive(String, float)
+     * @see #ensureStrictlyPositive(String, float)
      */
     public static void ensurePositive(final String name, final float value)
             throws IllegalArgumentException
@@ -308,7 +308,7 @@ public final class ArgumentChecks extends Static {
      * @param  value  the user argument to check.
      * @throws IllegalArgumentException if the given value is NaN or negative.
      *
-     * see #ensureStrictlyPositive(String, double)
+     * @see #ensureStrictlyPositive(String, double)
      */
     public static void ensurePositive(final String name, final double value)
             throws IllegalArgumentException
@@ -327,7 +327,7 @@ public final class ArgumentChecks extends Static {
      * @param  value  the user argument to check.
      * @throws IllegalArgumentException if the given value is negative or equals to zero.
      *
-     * see #ensurePositive(String, int)
+     * @see #ensurePositive(String, int)
      */
     public static void ensureStrictlyPositive(final String name, final int value)
             throws IllegalArgumentException
@@ -345,7 +345,7 @@ public final class ArgumentChecks extends Static {
      * @param  value  the user argument to check.
      * @throws IllegalArgumentException if the given value is negative or equals to zero.
      *
-     * see #ensurePositive(String, long)
+     * @see #ensurePositive(String, long)
      */
     public static void ensureStrictlyPositive(final String name, final long value)
             throws IllegalArgumentException
@@ -365,7 +365,7 @@ public final class ArgumentChecks extends Static {
      * @param  value  the user argument to check.
      * @throws IllegalArgumentException if the given value is NaN, zero or negative.
      *
-     * see #ensurePositive(String, float)
+     * @see #ensurePositive(String, float)
      */
     public static void ensureStrictlyPositive(final String name, final float value)
             throws IllegalArgumentException
@@ -386,7 +386,7 @@ public final class ArgumentChecks extends Static {
      * @param  value  the user argument to check.
      * @throws IllegalArgumentException if the given value is NaN, zero or negative.
      *
-     * see #ensurePositive(String, double)
+     * @see #ensurePositive(String, double)
      */
     public static void ensureStrictlyPositive(final String name, final double value)
             throws IllegalArgumentException
@@ -451,9 +451,9 @@ public final class ArgumentChecks extends Static {
      * @param  value  the user argument to check.
      * @throws IllegalArgumentException if the given value is not in the given range.
      *
-     * see #ensureSizeBetween(String, int, int, int)
-     * see #ensureValidIndex(int, int)
-     * see #ensureValidIndexRange(int, int, int)
+     * @see #ensureSizeBetween(String, int, int, int)
+     * @see #ensureValidIndex(int, int)
+     * @see #ensureValidIndexRange(int, int, int)
      */
     public static void ensureBetween(final String name, final int min, final int max, final int value)
             throws IllegalArgumentException
@@ -531,8 +531,8 @@ public final class ArgumentChecks extends Static {
      * @param  size  the user collection size or array length to be checked.
      * @throws IllegalArgumentException if the given value is not in the given range.
      *
-     * see #ensureBetween(String, int, int, int)
-     * see #ensureValidIndexRange(int, int, int)
+     * @see #ensureBetween(String, int, int, int)
+     * @see #ensureValidIndexRange(int, int, int)
      */
     public static void ensureSizeBetween(final String name, final int min, final int max, final int size)
             throws IllegalArgumentException

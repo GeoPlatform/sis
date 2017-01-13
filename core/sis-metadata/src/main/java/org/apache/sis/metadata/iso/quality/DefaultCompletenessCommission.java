@@ -60,7 +60,7 @@ public class DefaultCompletenessCommission extends AbstractCompleteness implemen
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(CompletenessCommission)
+     * @see #castOrCopy(CompletenessCommission)
      */
     public DefaultCompletenessCommission(final CompletenessCommission object) {
         super(object);

@@ -89,7 +89,7 @@ public abstract class DBFResultSet extends AbstractResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#close()
+     * @see java.sql.ResultSet#close()
      */
     @Override
     public void close() {
@@ -214,7 +214,7 @@ public abstract class DBFResultSet extends AbstractResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getFetchSize()
+     * @see java.sql.ResultSet#getFetchSize()
      */
     @Override
     public int getFetchSize() throws SQLException {
@@ -343,7 +343,7 @@ public abstract class DBFResultSet extends AbstractResultSet {
     }
 
     /**
-     * see java.sql.Wrapper#isWrapperFor(java.lang.Class)
+     * @see java.sql.Wrapper#isWrapperFor(java.lang.Class)
      */
     @Override
     public boolean isWrapperFor(Class<?> iface) {
@@ -432,7 +432,7 @@ public abstract class DBFResultSet extends AbstractResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#isBeforeFirst()
+     * @see java.sql.ResultSet#isBeforeFirst()
      */
     @Override
     public boolean isBeforeFirst() throws SQLException {
@@ -449,7 +449,7 @@ public abstract class DBFResultSet extends AbstractResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#isFirst()
+     * @see java.sql.ResultSet#isFirst()
      */
     @Override
     public boolean isFirst() throws SQLException {
@@ -924,7 +924,7 @@ public abstract class DBFResultSet extends AbstractResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#wasNull()
+     * @see java.sql.ResultSet#wasNull()
      */
     @Override
     public boolean wasNull() {
@@ -956,7 +956,7 @@ public abstract class DBFResultSet extends AbstractResultSet {
     }
 
     /**
-     * see java.lang.Object#toString()
+     * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {

@@ -119,7 +119,7 @@ public class DefaultRequirement extends ISOMetadata implements Requirement {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Requirement)
+     * @see #castOrCopy(Requirement)
      */
     public DefaultRequirement(final Requirement object) {
         super(object);

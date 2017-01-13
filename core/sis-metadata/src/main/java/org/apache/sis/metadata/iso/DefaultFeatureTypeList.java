@@ -86,7 +86,7 @@ public class DefaultFeatureTypeList extends ISOMetadata implements FeatureTypeLi
      *
      * @param object the metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(FeatureTypeList)
+     * @see #castOrCopy(FeatureTypeList)
      */
     public DefaultFeatureTypeList(final FeatureTypeList object) {
         super(object);

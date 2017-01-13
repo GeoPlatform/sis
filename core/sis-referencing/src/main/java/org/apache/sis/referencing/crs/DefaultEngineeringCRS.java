@@ -64,8 +64,8 @@ import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.referencing.datum.DefaultEngineeringDatum
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createEngineeringCRS(String)
+ * @see org.apache.sis.referencing.datum.DefaultEngineeringDatum
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createEngineeringCRS(String)
  */
 @XmlType(name = "EngineeringCRSType", propOrder = {
     "coordinateSystem",
@@ -84,7 +84,7 @@ public class DefaultEngineeringCRS extends AbstractCRS implements EngineeringCRS
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setDatum(EngineeringDatum)}</p>
      *
-     * see #getDatum()
+     * @see #getDatum()
      */
     private EngineeringDatum datum;
 
@@ -137,7 +137,7 @@ public class DefaultEngineeringCRS extends AbstractCRS implements EngineeringCRS
      * @param datum The datum.
      * @param cs The coordinate system.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createEngineeringCRS(Map, EngineeringDatum, CoordinateSystem)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createEngineeringCRS(Map, EngineeringDatum, CoordinateSystem)
      */
     public DefaultEngineeringCRS(final Map<String,?> properties,
                                  final EngineeringDatum   datum,
@@ -157,7 +157,7 @@ public class DefaultEngineeringCRS extends AbstractCRS implements EngineeringCRS
      *
      * @param crs The coordinate reference system to copy.
      *
-     * see #castOrCopy(EngineeringCRS)
+     * @see #castOrCopy(EngineeringCRS)
      */
     protected DefaultEngineeringCRS(final EngineeringCRS crs) {
         super(crs);
@@ -248,7 +248,7 @@ public class DefaultEngineeringCRS extends AbstractCRS implements EngineeringCRS
      *
      * @return {@code "EngineeringCRS"} (WKT 2) or {@code "Local_CS"} (WKT 1).
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#74">WKT 2 specification §11</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#74">WKT 2 specification §11</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -289,7 +289,7 @@ public class DefaultEngineeringCRS extends AbstractCRS implements EngineeringCRS
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * see #getDatum()
+     * @see #getDatum()
      */
     private void setDatum(final EngineeringDatum value) {
         if (datum == null) {
@@ -302,7 +302,7 @@ public class DefaultEngineeringCRS extends AbstractCRS implements EngineeringCRS
     /**
      * Used by JAXB only (invoked by reflection).
      *
-     * see #getCoordinateSystem()
+     * @see #getCoordinateSystem()
      */
     private void setCoordinateSystem(final CoordinateSystem cs) {
         setCoordinateSystem(null, cs);  // 'null' here means to infer the XML property name from the cs type.

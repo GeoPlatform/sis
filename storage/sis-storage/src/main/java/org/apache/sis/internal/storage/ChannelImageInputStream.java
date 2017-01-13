@@ -49,9 +49,9 @@ import java.nio.channels.SeekableByteChannel;
  * @version 0.5
  * @module
  *
- * see javax.imageio.stream.FileImageInputStream
- * see javax.imageio.ImageIO#createImageInputStream(Object)
- * see java.nio.channels.Channels#newInputStream(ReadableByteChannel)
+ * @see javax.imageio.stream.FileImageInputStream
+ * @see javax.imageio.ImageIO#createImageInputStream(Object)
+ * @see java.nio.channels.Channels#newInputStream(ReadableByteChannel)
  */
 public class ChannelImageInputStream extends ChannelDataInput implements ImageInputStream {
     /**
@@ -311,8 +311,8 @@ loop:   while ((c = read()) >= 0) {
      * Synonymous of {@link #isCachedMemory()} since the caching behavior of this class is uniquely determined
      * by the policy that we choose for {@code isCachedMemory()}. This class never creates temporary files.
      *
-     * see #isCachedMemory()
-     * see #isCachedFile()
+     * @see #isCachedMemory()
+     * @see #isCachedFile()
      */
     @Override
     public final boolean isCached() {

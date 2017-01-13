@@ -57,7 +57,7 @@ import org.opengis.util.InternationalString;
  * @version 0.3
  * @module
  *
- * see Types#toInternationalString(Map, String)
+ * @see Types#toInternationalString(Map, String)
  */
 public class DefaultInternationalString extends AbstractInternationalString implements Serializable {
     /**
@@ -107,7 +107,7 @@ public class DefaultInternationalString extends AbstractInternationalString impl
      *
      * @param strings The strings in various locales, or {@code null} if none.
      *
-     * see Types#toInternationalString(Map, String)
+     * @see Types#toInternationalString(Map, String)
      */
     public DefaultInternationalString(final Map<Locale,String> strings) {
         if (Containers.isNullOrEmpty(strings)) {

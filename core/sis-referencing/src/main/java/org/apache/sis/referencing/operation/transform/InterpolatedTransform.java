@@ -96,7 +96,7 @@ public class InterpolatedTransform extends DatumShiftTransform {
     /**
      * The inverse of this interpolated transform.
      *
-     * see #inverse()
+     * @see #inverse()
      */
     private final InterpolatedTransform.Inverse inverse;
 
@@ -126,7 +126,7 @@ public class InterpolatedTransform extends DatumShiftTransform {
      * @throws NoninvertibleMatrixException if the conversion from geodetic coordinates
      *         to grid indices can not be inverted.
      *
-     * see #createGeodeticTransformation(MathTransformFactory, DatumShiftGrid)
+     * @see #createGeodeticTransformation(MathTransformFactory, DatumShiftGrid)
      */
     @SuppressWarnings( {"OverridableMethodCallDuringObjectConstruction", "fallthrough"})
     protected <T extends Quantity<T>> InterpolatedTransform(final DatumShiftGrid<T,T> grid)

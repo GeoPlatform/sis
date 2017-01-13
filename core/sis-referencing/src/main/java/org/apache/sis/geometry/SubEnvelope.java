@@ -46,14 +46,14 @@ final class SubEnvelope extends GeneralEnvelope {
     /**
      * The index of the first valid ordinate value of the lower corner in the {@link #ordinates} array.
      *
-     * see ArrayEnvelope#beginIndex()
+     * @see ArrayEnvelope#beginIndex()
      */
     private final int beginIndex;
 
     /**
      * The index after the last valid ordinate value of the lower corner  in the {@link #ordinates} array.
      *
-     * see ArrayEnvelope#endIndex()
+     * @see ArrayEnvelope#endIndex()
      */
     private final int endIndex;
 

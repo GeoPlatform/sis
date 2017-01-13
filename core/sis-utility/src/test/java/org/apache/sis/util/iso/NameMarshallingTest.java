@@ -55,7 +55,7 @@ public final strictfp class NameMarshallingTest extends XMLTestCase {
     /**
      * A poll of configured {@link Marshaller} and {@link Unmarshaller}, created when first needed.
      *
-     * see #disposeMarshallerPool()
+     * @see #disposeMarshallerPool()
      */
     private static MarshallerPool pool;
 

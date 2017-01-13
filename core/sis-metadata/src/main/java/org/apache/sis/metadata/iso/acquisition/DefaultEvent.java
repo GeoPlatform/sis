@@ -119,7 +119,7 @@ public class DefaultEvent extends ISOMetadata implements Event {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Event)
+     * @see #castOrCopy(Event)
      */
     public DefaultEvent(final Event object) {
         super(object);

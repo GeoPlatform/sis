@@ -51,9 +51,9 @@ import org.apache.sis.measure.Units;
  * @version 0.4
  * @module
  *
- * see org.apache.sis.referencing.crs.DefaultTemporalCRS
- * see org.apache.sis.referencing.datum.DefaultTemporalDatum
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createTimeCS(String)
+ * @see org.apache.sis.referencing.crs.DefaultTemporalCRS
+ * @see org.apache.sis.referencing.datum.DefaultTemporalDatum
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createTimeCS(String)
  */
 @XmlType(name = "TimeCSType")
 @XmlRootElement(name = "TimeCS")
@@ -110,7 +110,7 @@ public class DefaultTimeCS extends AbstractCS implements TimeCS {
      * @param properties The properties to be given to the identified object.
      * @param axis       The axis.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createTimeCS(Map, CoordinateSystemAxis)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createTimeCS(Map, CoordinateSystemAxis)
      */
     public DefaultTimeCS(final Map<String,?> properties, final CoordinateSystemAxis axis) {
         super(properties, axis);
@@ -125,7 +125,7 @@ public class DefaultTimeCS extends AbstractCS implements TimeCS {
      *
      * @param cs The coordinate system to copy.
      *
-     * see #castOrCopy(TimeCS)
+     * @see #castOrCopy(TimeCS)
      */
     protected DefaultTimeCS(final TimeCS cs) {
         super(cs);

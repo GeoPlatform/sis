@@ -103,7 +103,7 @@ class PropertyAccessor {
      * needed for XML marshalling in ISO 19139 compliant document, while not part of abstract
      * ISO 19115 specification.
      *
-     * see IdentifiedObject#getIdentifiers()
+     * @see IdentifiedObject#getIdentifiers()
      */
     private static final Method EXTRA_GETTER;
     static {
@@ -182,7 +182,7 @@ class PropertyAccessor {
      *
      * <p>This array shall not contains any {@code null} elements.</p>
      *
-     * see #name(int, KeyNamePolicy)
+     * @see #name(int, KeyNamePolicy)
      */
     private final String[] names;
 
@@ -209,7 +209,7 @@ class PropertyAccessor {
      * annotations. Consequently the map may contain many entries for the same value if some
      * method names are different than the UML identifiers.</p>
      *
-     * see #indexOf(String, boolean)
+     * @see #indexOf(String, boolean)
      */
     private final Map<String,Integer> mapping;
 
@@ -219,7 +219,7 @@ class PropertyAccessor {
      * looking for a converter, and also reduce thread contention since it reduces the number
      * of calls to the synchronized {@link ObjectConverters#find(Class, Class)} method.
      *
-     * see #convert(Object[], Class)
+     * @see #convert(Object[], Class)
      */
     private transient volatile ObjectConverter<?,?> lastConverter;
 
@@ -228,7 +228,7 @@ class PropertyAccessor {
      * The array will be created when first needed. A {@code null} element means that
      * the information at that index has not yet been computed.
      *
-     * see #information(int)
+     * @see #information(int)
      */
     private transient ExtendedElementInformation[] informations;
 
@@ -482,7 +482,7 @@ class PropertyAccessor {
      * This is the properties to show in map or tree, <strong>not</strong> including
      * hidden properties like deprecated methods or {@link #EXTRA_GETTER} method.
      *
-     * see #count(Object, ValueExistencePolicy, int)
+     * @see #count(Object, ValueExistencePolicy, int)
      */
     final int count() {
         return standardCount;
@@ -626,7 +626,7 @@ class PropertyAccessor {
      * @param  index The index of the property for which to get the information.
      * @return The information for the property at the given index, or {@code null} if the index is out of bounds.
      *
-     * see PropertyInformation
+     * @see PropertyInformation
      */
     @SuppressWarnings({"unchecked","rawtypes"})
     final synchronized ExtendedElementInformation information(final int index) {
@@ -688,7 +688,7 @@ class PropertyAccessor {
      * @param  metadata The metadata object to query.
      * @throws BackingStoreException If the implementation threw a checked exception.
      *
-     * see #set(Method, Object, Object[])
+     * @see #set(Method, Object, Object[])
      */
     private static Object get(final Method method, final Object metadata) throws BackingStoreException {
         assert (method.getReturnType() != Void.TYPE) : method;
@@ -827,7 +827,7 @@ class PropertyAccessor {
      * @param  newValues The argument to give to the method to be invoked.
      * @throws BackingStoreException If the implementation threw a checked exception.
      *
-     * see #get(Method, Object)
+     * @see #get(Method, Object)
      */
     private static void set(final Method setter, final Object metadata, final Object[] newValues)
             throws BackingStoreException
@@ -1050,7 +1050,7 @@ class PropertyAccessor {
      * @param  valuePolicy The behavior of the count toward null or empty values.
      * @throws BackingStoreException If the implementation threw a checked exception.
      *
-     * see #count()
+     * @see #count()
      */
     public int count(final Object metadata, final ValueExistencePolicy valuePolicy, final int mode)
             throws BackingStoreException
@@ -1095,7 +1095,7 @@ class PropertyAccessor {
      * @param  mode      The strictness level of the comparison.
      * @throws BackingStoreException If the implementation threw a checked exception.
      *
-     * see MetadataStandard#equals(Object, Object, ComparisonMode)
+     * @see MetadataStandard#equals(Object, Object, ComparisonMode)
      */
     public boolean equals(final Object metadata1, final Object metadata2, final ComparisonMode mode)
             throws BackingStoreException

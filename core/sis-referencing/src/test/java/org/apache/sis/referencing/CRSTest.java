@@ -65,7 +65,7 @@ public final strictfp class CRSTest extends TestCase {
      *
      * @throws FactoryException If a CRS can not be constructed.
      *
-     * see CommonCRSTest#testForCode()
+     * @see CommonCRSTest#testForCode()
      */
     @Test
     public void testForEpsgCode() throws FactoryException {
@@ -94,7 +94,7 @@ public final strictfp class CRSTest extends TestCase {
      *
      * @throws FactoryException If a CRS can not be constructed.
      *
-     * see CommonCRSTest#testForCode()
+     * @see CommonCRSTest#testForCode()
      */
     @Test
     @DependsOnMethod("testForEpsgCode")

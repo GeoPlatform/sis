@@ -67,7 +67,7 @@ import org.opengis.metadata.citation.TelephoneType;
  * @version 0.8
  * @module
  *
- * see DefaultContact#getPhones()
+ * @see DefaultContact#getPhones()
  */
 @XmlType(name = "CI_Telephone_Type", propOrder = {
 	"xmlNumber",		// ISO 19115-3
@@ -118,7 +118,7 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Telephone)
+     * @see #castOrCopy(Telephone)
      */
     public DefaultTelephone(final Telephone object) {
         super(object);
@@ -179,7 +179,7 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
     
     /**
 	 * Gets the number for this telephone (used in ISO 19115-3 format).
-	 * see {@link #getNumber}
+	 * @see {@link #getNumber}
 	 */
 	@XmlElement(name = "number", required = true)
 	private String getXmlNumber() {
@@ -188,7 +188,7 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
 
 	/**
 	 * Sets the number for this telephone (used in ISO 19115-3 format).
-	 * see {@link #setNumber}
+	 * @see {@link #setNumber}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlNumber(final String newValue) {
@@ -221,7 +221,7 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
     
     /**
 	 * Gets the number type for this telephone (used in ISO 19115-3 format).
-	 * see {@link #getNumberType}
+	 * @see {@link #getNumberType}
 	 */
 	@XmlElement(name = "numberType")
 	@XmlJavaTypeAdapter(CI_TelephoneTypeCode.class)
@@ -231,7 +231,7 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
 
 	/**
 	 * Sets the number type for this telephone (used in ISO 19115-3 format).
-	 * see {@link #setNumberType}
+	 * @see {@link #setNumberType}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlNumberType(final TelephoneType newValue) {
@@ -326,7 +326,7 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
     
     /**
 	 * Gets the voice numbers for this telephone (used in ISO 19139 format).
-	 * see {@link #getVoices}
+	 * @see {@link #getVoices}
 	 */
 	@XmlElement(name = "voice")
 	private Collection<String> getXmlVoices() {
@@ -366,7 +366,7 @@ public class DefaultTelephone extends ISOMetadata implements Telephone {
     
     /**
 	 * Gets the facsimile numbers for this telephone (used in ISO 19139 format).
-	 * see {@link #getFacsimiles}
+	 * @see {@link #getFacsimiles}
 	 */
 	@XmlElement(name = "facsimile")
 	private Collection<String> getXmlFacsimiles() {

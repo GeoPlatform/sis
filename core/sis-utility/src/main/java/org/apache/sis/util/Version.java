@@ -66,7 +66,7 @@ public class Version implements CharSequence, Comparable<Version>, Serializable 
      * A few commonly used version numbers. This list is based on SIS needs, e.g. in {@code DataStore} implementations.
      * New constants are likely to be added in any future SIS versions.
      *
-     * see #valueOf(int[])
+     * @see #valueOf(int[])
      */
     private static final Version[] CONSTANTS = {
         new Version("1"),

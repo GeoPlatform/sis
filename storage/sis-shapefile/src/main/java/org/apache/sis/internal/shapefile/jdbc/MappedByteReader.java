@@ -256,7 +256,7 @@ public class MappedByteReader extends AbstractDbase3ByteReader implements AutoCl
     }
 
     /**
-     * see org.apache.sis.internal.shapefile.jdbc.Dbase3ByteReader#getColumnCount()
+     * @see org.apache.sis.internal.shapefile.jdbc.Dbase3ByteReader#getColumnCount()
      */
     @Override
     public int getColumnCount() {

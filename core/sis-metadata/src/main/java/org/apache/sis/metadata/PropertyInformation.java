@@ -59,9 +59,9 @@ import org.apache.sis.util.logging.Logging;
  * @version 0.5
  * @module
  *
- * see InformationMap
- * see MetadataStandard#asInformationMap(Class, KeyNamePolicy)
- * see <a href="https://issues.apache.org/jira/browse/SIS-80">SIS-80</a>
+ * @see InformationMap
+ * @see MetadataStandard#asInformationMap(Class, KeyNamePolicy)
+ * @see <a href="https://issues.apache.org/jira/browse/SIS-80">SIS-80</a>
  */
 final class PropertyInformation<E> extends SimpleIdentifier
         implements ExtendedElementInformation, CheckedContainer<E>
@@ -74,7 +74,7 @@ final class PropertyInformation<E> extends SimpleIdentifier
     /**
      * The interface which contain this property.
      *
-     * see #getParentEntity()
+     * @see #getParentEntity()
      */
     private final Class<?> parent;
 
@@ -82,8 +82,8 @@ final class PropertyInformation<E> extends SimpleIdentifier
      * The value type, either the method return type if not a collection,
      * or the type of elements in the collection otherwise.
      *
-     * see #getDataType()
-     * see #getElementType()
+     * @see #getDataType()
+     * @see #getElementType()
      */
     private final Class<E> elementType;
 
@@ -93,7 +93,7 @@ final class PropertyInformation<E> extends SimpleIdentifier
      * i.e. the actual {@code minimumOccurs} value can either 0 or 1 depending on
      * the value of another property.
      *
-     * see #getObligation()
+     * @see #getObligation()
      */
     private final byte minimumOccurs;
 
@@ -101,7 +101,7 @@ final class PropertyInformation<E> extends SimpleIdentifier
      * The maximum number of occurrences as an unsigned number.
      * Value 255 (or -1 as a signed number) shall be understood as {@link Integer#MAX_VALUE}.
      *
-     * see #getMaximumOccurrence()
+     * @see #getMaximumOccurrence()
      */
     private final byte maximumOccurs;
 
@@ -110,7 +110,7 @@ final class PropertyInformation<E> extends SimpleIdentifier
      * instance of {@link ValueRange} at construction time, then replaced by an instance of
      * {@link DomainRange} when first needed by the {@link #getDomainValue()} method.
      *
-     * see #getDomainValue()
+     * @see #getDomainValue()
      */
     private Object domainValue;
 
@@ -165,7 +165,7 @@ final class PropertyInformation<E> extends SimpleIdentifier
      * Returns the ISO name of the class containing the property,
      * or the simple class name if the ISO name is undefined.
      *
-     * see #getParentEntity()
+     * @see #getParentEntity()
      */
     @Override
     public final String getCodeSpace() {
@@ -252,7 +252,7 @@ final class PropertyInformation<E> extends SimpleIdentifier
      * If the property type is an array or a collection, then this method
      * returns the type of elements in the array or collection.
      *
-     * see TypeValuePolicy#ELEMENT_TYPE
+     * @see TypeValuePolicy#ELEMENT_TYPE
      */
     @Override
     public Class<E> getElementType() {
@@ -304,7 +304,7 @@ final class PropertyInformation<E> extends SimpleIdentifier
      * Returns the name of the metadata entity under which this metadata element may appear.
      * The name may be standard metadata element or other extended metadata element.
      *
-     * see #getCodeSpace()
+     * @see #getCodeSpace()
      */
     @Override
     public Collection<String> getParentEntity() {

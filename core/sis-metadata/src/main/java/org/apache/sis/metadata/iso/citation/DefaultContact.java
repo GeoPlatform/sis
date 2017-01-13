@@ -132,7 +132,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Contact)
+     * @see #castOrCopy(Contact)
      */
     public DefaultContact(final Contact object) {
         super(object);
@@ -217,7 +217,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
     
     /**
 	 * Gets the phones for this contact (used in ISO 19115-3 format).
-	 * see {@link #getPhones}
+	 * @see {@link #getPhones}
 	 */
 	@XmlElement(name = "phone")
 	private Collection<Telephone> getXmlPhones() {
@@ -290,7 +290,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
     
     /**
 	 * Gets the phone associated with this contact (used in ISO 19139 format).
-	 * see {@link #getPhone}
+	 * @see {@link #getPhone}
 	 */
 	@XmlElement(name = "phone")
 	private Telephone getXmlPhone() {
@@ -299,7 +299,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
 
 	/**
 	 * Sets the phone associated with this contact (used in ISO 19139 format).
-	 * see {@link #setPhone}
+	 * @see {@link #setPhone}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlPhone(final Telephone newValue) {
@@ -338,7 +338,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
     
     /**
 	 * Gets the addresses for this contact (used in ISO 19115-3 format).
-	 * see {@link #getAddresses}
+	 * @see {@link #getAddresses}
 	 */
 	@XmlElement(name = "address")
 	private Collection<Address> getXmlAddresses() {
@@ -378,7 +378,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
     
     /**
 	 * Gets the address associated with this contact (used in ISO 19139 format).
-	 * see {@link #getAddress}
+	 * @see {@link #getAddress}
 	 */
 	@XmlElement(name = "address")
 	private DefaultAddress getXmlAddress() {
@@ -387,7 +387,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
 
 	/**
 	 * Sets the address associated with this contact (used in ISO 19139 format).
-	 * see {@link #setAddress}
+	 * @see {@link #setAddress}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlAddress(final Address newValue) {
@@ -420,7 +420,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
     
     /**
 	 * Gets the online resources for this contact (used in ISO 19115-3 format).
-	 * see {@link #getOnlineResources}
+	 * @see {@link #getOnlineResources}
 	 */
 	@XmlElement(name = "onlineResource")
 	@XmlJavaTypeAdapter(CI_OnlineResource.class)
@@ -458,7 +458,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
     
     /**
 	 * Gets the online resource associated with this contact (used in ISO 19139 format).
-	 * see {@link #getOnlineResource}
+	 * @see {@link #getOnlineResource}
 	 */
 	@XmlElement(name = "onlineResource")
 	private OnlineResource getXmlOnlineResource() {
@@ -467,7 +467,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
 
 	/**
 	 * Sets the online resource associated with this contact (used in both formats).
-	 * see {@link #setOnlineResource}
+	 * @see {@link #setOnlineResource}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlOnlineResource(final OnlineResource newValue) {
@@ -543,7 +543,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
     
     /**
 	 * Gets the contact type of this contact (used in ISO 19139 format).
-	 * see {@link #getContactType}
+	 * @see {@link #getContactType}
 	 */
 	@XmlElement(name = "contactType")
 	private InternationalString getXmlContactType() {
@@ -552,7 +552,7 @@ public class DefaultContact extends ISOMetadata implements Contact {
 
 	/**
 	 * Sets the contact type of this contact (used in ISO 19139 format).
-	 * see {@link #setContactType}
+	 * @see {@link #setContactType}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlContactType(final InternationalString newValue) {

@@ -127,7 +127,7 @@ public class DefaultOnlineResource extends ISOMetadata implements OnlineResource
 	 *
 	 * @param object The metadata to copy values from, or {@code null} if none.
 	 *
-	 * see #castOrCopy(OnlineResource)
+	 * @see #castOrCopy(OnlineResource)
 	 */
 	public DefaultOnlineResource(final OnlineResource object) {
 		super(object);
@@ -282,7 +282,7 @@ public class DefaultOnlineResource extends ISOMetadata implements OnlineResource
 
 	/**
 	 * Gets the linkage for this online resource (used in ISO 19115-3 format).
-	 * see {@link #getLinkage}
+	 * @see {@link #getLinkage}
 	 */
 	@XmlElement(name = "linkage", required = true)
 	private String getXmlLinkage() {
@@ -291,7 +291,7 @@ public class DefaultOnlineResource extends ISOMetadata implements OnlineResource
 
 	/**
 	 * Sets the linkage for this online resource (Used for both formats).
-	 * see {@link #setLinkage}
+	 * @see {@link #setLinkage}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlLinkage(final String newValue) {
@@ -301,7 +301,7 @@ public class DefaultOnlineResource extends ISOMetadata implements OnlineResource
 
 	/**
 	 * Gets the linkage for this online resource (used in ISO 19139 format).
-	 * see {@link #getLinkage}
+	 * @see {@link #getLinkage}
 	 */
 	@XmlElement(name = "linkage", required = true)
 	private URI getXmlLinkageLegacy() {
@@ -310,7 +310,7 @@ public class DefaultOnlineResource extends ISOMetadata implements OnlineResource
 
 	/**
 	 * Sets the linkage for this online resource (unused - placeholder only).
-	 * see {@link #setLinkage}
+	 * @see {@link #setLinkage}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlLinkageLegacy(final URI newValue) {
@@ -380,7 +380,7 @@ public class DefaultOnlineResource extends ISOMetadata implements OnlineResource
 
 	/**
 	 * Gets the protocol request for this online resource (used in ISO 19115-3 format).
-	 * see {@link #getProtocolRequest}
+	 * @see {@link #getProtocolRequest}
 	 */
 	@XmlElement(name = "protocolRequest")
 	private String getXmlProtocolRequest() {
@@ -389,7 +389,7 @@ public class DefaultOnlineResource extends ISOMetadata implements OnlineResource
 
 	/**
 	 * Sets the protocol request for this online resource (used in ISO 19115-3 format).
-	 * see {@link #setProtocolRequest}
+	 * @see {@link #setProtocolRequest}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlProtocolRequest(final String newValue) {

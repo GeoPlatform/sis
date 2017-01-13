@@ -73,7 +73,7 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.parameter.TensorParameters
+ * @see org.apache.sis.parameter.TensorParameters
  */
 public final class Matrices extends Static {
     /**
@@ -181,7 +181,7 @@ public final class Matrices extends Static {
      * @param  elements  the matrix elements in a row-major array. Column indices vary fastest.
      * @return a matrix initialized to the given elements.
      *
-     * see MatrixSIS#setElements(double[])
+     * @see MatrixSIS#setElements(double[])
      */
     public static MatrixSIS create(final int numRow, final int numCol, final double[] elements) {
         if (numRow == numCol) switch (numRow) {
@@ -346,9 +346,9 @@ public final class Matrices extends Static {
      * @param  dstEnvelope  the destination envelope.
      * @return the transform from the given source envelope to target envelope.
      *
-     * see #createTransform(AxisDirection[], AxisDirection[])
-     * see #createTransform(Envelope, AxisDirection[], Envelope, AxisDirection[])
-     * see org.apache.sis.referencing.cs.CoordinateSystems#swapAndScaleAxes(CoordinateSystem, CoordinateSystem)
+     * @see #createTransform(AxisDirection[], AxisDirection[])
+     * @see #createTransform(Envelope, AxisDirection[], Envelope, AxisDirection[])
+     * @see org.apache.sis.referencing.cs.CoordinateSystems#swapAndScaleAxes(CoordinateSystem, CoordinateSystem)
      */
     public static MatrixSIS createTransform(final Envelope srcEnvelope, final Envelope dstEnvelope) {
         ArgumentChecks.ensureNonNull("srcEnvelope", srcEnvelope);
@@ -425,9 +425,9 @@ public final class Matrices extends Static {
      * @throws IllegalArgumentException if {@code dstAxes} contains at least one axis not found in {@code srcAxes},
      *         or if some colinear axes were found.
      *
-     * see #createTransform(Envelope, Envelope)
-     * see #createTransform(Envelope, AxisDirection[], Envelope, AxisDirection[])
-     * see org.apache.sis.referencing.cs.CoordinateSystems#swapAndScaleAxes(CoordinateSystem, CoordinateSystem)
+     * @see #createTransform(Envelope, Envelope)
+     * @see #createTransform(Envelope, AxisDirection[], Envelope, AxisDirection[])
+     * @see org.apache.sis.referencing.cs.CoordinateSystems#swapAndScaleAxes(CoordinateSystem, CoordinateSystem)
      */
     public static MatrixSIS createTransform(final AxisDirection[] srcAxes, final AxisDirection[] dstAxes) {
         ArgumentChecks.ensureNonNull("srcAxes", srcAxes);
@@ -490,9 +490,9 @@ public final class Matrices extends Static {
      * @throws IllegalArgumentException if {@code dstAxes} contains at least one axis not found in {@code srcAxes},
      *         or if some colinear axes were found.
      *
-     * see #createTransform(Envelope, Envelope)
-     * see #createTransform(AxisDirection[], AxisDirection[])
-     * see org.apache.sis.referencing.cs.CoordinateSystems#swapAndScaleAxes(CoordinateSystem, CoordinateSystem)
+     * @see #createTransform(Envelope, Envelope)
+     * @see #createTransform(AxisDirection[], AxisDirection[])
+     * @see org.apache.sis.referencing.cs.CoordinateSystems#swapAndScaleAxes(CoordinateSystem, CoordinateSystem)
      */
     public static MatrixSIS createTransform(final Envelope srcEnvelope, final AxisDirection[] srcAxes,
                                             final Envelope dstEnvelope, final AxisDirection[] dstAxes)
@@ -548,7 +548,7 @@ public final class Matrices extends Static {
      * @throws IllegalArgumentException if a value of {@code selectedDimensions} is lower than 0
      *         or not smaller than {@code sourceDimensions}.
      *
-     * see org.apache.sis.referencing.operation.transform.TransformSeparator
+     * @see org.apache.sis.referencing.operation.transform.TransformSeparator
      */
     public static MatrixSIS createDimensionSelect(final int sourceDimensions, final int[] selectedDimensions) {
         final int numTargetDim = selectedDimensions.length;
@@ -623,7 +623,7 @@ public final class Matrices extends Static {
      * @return a matrix for the same transform than the given matrix,
      *         augmented with leading and trailing pass-through coordinates.
      *
-     * see org.apache.sis.referencing.operation.DefaultMathTransformFactory#createPassThroughTransform(int, MathTransform, int)
+     * @see org.apache.sis.referencing.operation.DefaultMathTransformFactory#createPassThroughTransform(int, MathTransform, int)
      */
     public static MatrixSIS createPassThrough(final int firstAffectedOrdinate,
             final Matrix subMatrix, final int numTrailingOrdinates)
@@ -774,8 +774,8 @@ public final class Matrices extends Static {
      * @param  matrix  the matrix to copy, or {@code null}.
      * @return a copy of the given matrix, or {@code null} if the given matrix was null.
      *
-     * see MatrixSIS#clone()
-     * see MatrixSIS#castOrCopy(Matrix)
+     * @see MatrixSIS#clone()
+     * @see MatrixSIS#castOrCopy(Matrix)
      */
     public static MatrixSIS copy(final Matrix matrix) {
         if (matrix == null) {
@@ -823,7 +823,7 @@ public final class Matrices extends Static {
      * @throws MismatchedMatrixSizeException if the number of columns in {@code m1} is not equals to the
      *         number of rows in {@code m2}.
      *
-     * see MatrixSIS#multiply(Matrix)
+     * @see MatrixSIS#multiply(Matrix)
      *
      * @since 0.6
      */
@@ -845,7 +845,7 @@ public final class Matrices extends Static {
      * @return the inverse of this matrix, or {@code null} if the given matrix was null.
      * @throws NoninvertibleMatrixException if the given matrix is not invertible.
      *
-     * see MatrixSIS#inverse()
+     * @see MatrixSIS#inverse()
      *
      * @since 0.6
      */
@@ -869,7 +869,7 @@ public final class Matrices extends Static {
      * @param  matrix  the matrix to test.
      * @return {@code true} if the matrix represents an affine transform.
      *
-     * see MatrixSIS#isAffine()
+     * @see MatrixSIS#isAffine()
      */
     public static boolean isAffine(final Matrix matrix) {
         if (matrix instanceof MatrixSIS) {
@@ -920,7 +920,7 @@ public final class Matrices extends Static {
      * @param  tolerance  the tolerance value, or 0 for a strict comparison.
      * @return {@code true} if this matrix is close to the identity matrix given the tolerance threshold.
      *
-     * see MatrixSIS#isIdentity()
+     * @see MatrixSIS#isIdentity()
      */
     public static boolean isIdentity(final Matrix matrix, final double tolerance) {
         final int numRow = matrix.getNumRow();
@@ -965,7 +965,7 @@ public final class Matrices extends Static {
      * @return {@code true} if the values of the two matrix do not differ by a quantity greater
      *         than the given tolerance threshold.
      *
-     * see MatrixSIS#equals(Matrix, double)
+     * @see MatrixSIS#equals(Matrix, double)
      */
     public static boolean equals(final Matrix m1, final Matrix m2, final double epsilon, final boolean relative) {
         if (m1 != m2) {
@@ -1025,7 +1025,7 @@ public final class Matrices extends Static {
      * @param  mode  the strictness level of the comparison.
      * @return {@code true} if both matrices are equal.
      *
-     * see MatrixSIS#equals(Object, ComparisonMode)
+     * @see MatrixSIS#equals(Object, ComparisonMode)
      */
     public static boolean equals(final Matrix m1, final Matrix m2, final ComparisonMode mode) {
         switch (mode) {

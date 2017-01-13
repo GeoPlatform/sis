@@ -127,7 +127,7 @@ public class AbstractCoordinateOperation extends AbstractIdentifiedObject implem
      * This field is non-final only for the convenience of constructors and for initialization
      * at XML unmarshalling time by {@link #setSource(CoordinateReferenceSystem)}.</p>
      *
-     * see #getSourceCRS()
+     * @see #getSourceCRS()
      */
     CoordinateReferenceSystem sourceCRS;
 
@@ -138,7 +138,7 @@ public class AbstractCoordinateOperation extends AbstractIdentifiedObject implem
      * This field is non-final only for the convenience of constructors and for initialization
      * at XML unmarshalling time by {@link #setTarget(CoordinateReferenceSystem)}.</p>
      *
-     * see #getTargetCRS()
+     * @see #getTargetCRS()
      */
     CoordinateReferenceSystem targetCRS;
 
@@ -149,7 +149,7 @@ public class AbstractCoordinateOperation extends AbstractIdentifiedObject implem
      * <p><b>Consider this field as final!</b>
      * This field is non-final only for the convenience of constructors.</p>
      *
-     * see #getInterpolationCRS()
+     * @see #getInterpolationCRS()
      */
     private CoordinateReferenceSystem interpolationCRS;
 
@@ -160,7 +160,7 @@ public class AbstractCoordinateOperation extends AbstractIdentifiedObject implem
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setOperationVersion(String)}.</p>
      *
-     * see #getOperationVersion()
+     * @see #getOperationVersion()
      */
     private String operationVersion;
 
@@ -171,7 +171,7 @@ public class AbstractCoordinateOperation extends AbstractIdentifiedObject implem
      * This field is non-final only for the convenience of constructors and for initialization
      * at XML unmarshalling time by {@link #setAccuracy(PositionalAccuracy[])}.</p>
      *
-     * see #getCoordinateOperationAccuracy()
+     * @see #getCoordinateOperationAccuracy()
      */
     Collection<PositionalAccuracy> coordinateOperationAccuracy;
 
@@ -182,7 +182,7 @@ public class AbstractCoordinateOperation extends AbstractIdentifiedObject implem
      * This field is non-final only for the convenience of constructors and for initialization
      * at XML unmarshalling time by {@link #setDomainOfValidity(Extent)}.</p>
      *
-     * see #getDomainOfValidity()
+     * @see #getDomainOfValidity()
      */
     Extent domainOfValidity;
 
@@ -192,7 +192,7 @@ public class AbstractCoordinateOperation extends AbstractIdentifiedObject implem
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setScope(InternationalString)}.</p>
      *
-     * see #getScope()
+     * @see #getScope()
      */
     private InternationalString scope;
 
@@ -380,7 +380,7 @@ check:      for (int isTarget=0; ; isTarget++) {        // 0 == source check; 1 
      *
      * @param  operation  the coordinate operation to copy.
      *
-     * see #castOrCopy(CoordinateOperation)
+     * @see #castOrCopy(CoordinateOperation)
      */
     protected AbstractCoordinateOperation(final CoordinateOperation operation) {
         super(operation);
@@ -540,7 +540,7 @@ check:      for (int isTarget=0; ; isTarget++) {        // 0 == source check; 1 
      *
      * @return the position error estimations, or an empty collection if not available.
      *
-     * see #getLinearAccuracy()
+     * @see #getLinearAccuracy()
      */
     @Override
     public Collection<PositionalAccuracy> getCoordinateOperationAccuracy() {
@@ -584,7 +584,7 @@ check:      for (int isTarget=0; ; isTarget++) {        // 0 == source check; 1 
      *
      * @return the accuracy estimation (always in meters), or NaN if unknown.
      *
-     * see org.apache.sis.referencing.CRS#getLinearAccuracy(CoordinateOperation)
+     * @see org.apache.sis.referencing.CRS#getLinearAccuracy(CoordinateOperation)
      */
     public double getLinearAccuracy() {
         return PositionalAccuracyConstant.getLinearAccuracy(this);
@@ -853,7 +853,7 @@ check:      for (int isTarget=0; ; isTarget++) {        // 0 == source check; 1 
      * @param  formatter  the formatter to use.
      * @return {@code "CoordinateOperation"}.
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#113">WKT 2 specification §17</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#113">WKT 2 specification §17</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -1022,7 +1022,7 @@ check:      for (int isTarget=0; ; isTarget++) {        // 0 == source check; 1 
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * see #getOperationVersion()
+     * @see #getOperationVersion()
      */
     private void setOperationVersion(final String value) {
         if (operationVersion == null) {
@@ -1035,7 +1035,7 @@ check:      for (int isTarget=0; ; isTarget++) {        // 0 == source check; 1 
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * see #getDomainOfValidity()
+     * @see #getDomainOfValidity()
      */
     private void setDomainOfValidity(final Extent value) {
         if (domainOfValidity == null) {
@@ -1048,7 +1048,7 @@ check:      for (int isTarget=0; ; isTarget++) {        // 0 == source check; 1 
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * see #getScope()
+     * @see #getScope()
      */
     private void setScope(final InternationalString value) {
         if (scope == null) {

@@ -54,6 +54,6 @@
  * @version 0.3
  * @module
  *
- * see <a href="http://download.oracle.com/javase/6/docs/technotes/guides/logging/overview.html">Java Logging Overview</a>
+ * @see <a href="http://download.oracle.com/javase/6/docs/technotes/guides/logging/overview.html">Java Logging Overview</a>
  */
 package org.apache.sis.util.logging;

@@ -116,8 +116,8 @@ public final class CollectionsExt extends Static {
      * @param  <E>  the type of elements in the empty collection.
      * @return an empty collection.
      *
-     * see Collections#emptyList()
-     * see Collections#emptySet()
+     * @see Collections#emptyList()
+     * @see Collections#emptySet()
      */
     @SuppressWarnings({"unchecked","rawtype"})
     public static <E> Queue<E> emptyQueue() {
@@ -290,7 +290,7 @@ public final class CollectionsExt extends Static {
      * @param  array        the array to copy in a set. May be {@code null} or contain null elements.
      * @return a set containing the array elements, or {@code null} if the given array was null.
      *
-     * see Collections#unmodifiableSet(Set)
+     * @see Collections#unmodifiableSet(Set)
      */
     @SafeVarargs
     @SuppressWarnings("fallthrough")

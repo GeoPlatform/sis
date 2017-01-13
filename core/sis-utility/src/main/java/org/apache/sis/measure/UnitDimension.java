@@ -75,7 +75,7 @@ final class UnitDimension implements Dimension, Serializable {
      * (base dimensions are identified by non-zero {@link #symbol}). If this {@code UnitDimension} is itself a
      * base dimension, then the map contains {@code this} raised to power 1. The map shall never be {@code null}.
      *
-     * see #getBaseDimensions()
+     * @see #getBaseDimensions()
      */
     final Map<UnitDimension,Fraction> components;
 

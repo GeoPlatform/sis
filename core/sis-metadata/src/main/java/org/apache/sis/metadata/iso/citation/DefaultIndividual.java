@@ -87,7 +87,7 @@ public class DefaultIndividual extends AbstractParty implements Individual {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Individual)
+     * @see #castOrCopy(Individual)
      */
     public DefaultIndividual(final Individual object) {
         super(object);

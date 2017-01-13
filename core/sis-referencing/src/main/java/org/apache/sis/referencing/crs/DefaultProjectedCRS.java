@@ -75,7 +75,7 @@ import static org.apache.sis.internal.referencing.WKTUtilities.toFormattable;
  * @version 0.6
  * @module
  *
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createProjectedCRS(String)
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createProjectedCRS(String)
  */
 @XmlType(name="ProjectedCRSType", propOrder = {
     "baseCRS",
@@ -146,7 +146,7 @@ public class DefaultProjectedCRS extends AbstractDerivedCRS<Projection> implemen
      * @throws MismatchedDimensionException if the source and target dimensions of {@code baseToDerived}
      *         do not match the dimensions of {@code base} and {@code derivedCS} respectively.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createProjectedCRS(Map, GeographicCRS, Conversion, CartesianCS)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createProjectedCRS(Map, GeographicCRS, Conversion, CartesianCS)
      */
     public DefaultProjectedCRS(final Map<String,?> properties,
                                final GeographicCRS baseCRS,
@@ -166,7 +166,7 @@ public class DefaultProjectedCRS extends AbstractDerivedCRS<Projection> implemen
      *
      * @param crs The coordinate reference system to copy.
      *
-     * see #castOrCopy(ProjectedCRS)
+     * @see #castOrCopy(ProjectedCRS)
      */
     protected DefaultProjectedCRS(final ProjectedCRS crs) {
         super(crs);
@@ -370,7 +370,7 @@ public class DefaultProjectedCRS extends AbstractDerivedCRS<Projection> implemen
      *
      * @return {@code "ProjectedCRS"} (WKT 2) or {@code "ProjCS"} (WKT 1).
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#57">WKT 2 specification §9</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#57">WKT 2 specification §9</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -517,7 +517,7 @@ public class DefaultProjectedCRS extends AbstractDerivedCRS<Projection> implemen
     /**
      * Used by JAXB only (invoked by reflection).
      *
-     * see #getBaseCRS()
+     * @see #getBaseCRS()
      */
     private void setBaseCRS(final GeographicCRS crs) {
         setBaseCRS("baseGeodeticCRS", crs);
@@ -526,7 +526,7 @@ public class DefaultProjectedCRS extends AbstractDerivedCRS<Projection> implemen
     /**
      * Used by JAXB only (invoked by reflection).
      *
-     * see #getCoordinateSystem()
+     * @see #getCoordinateSystem()
      */
     private void setCoordinateSystem(final CartesianCS cs) {
         setCoordinateSystem("cartesianCS", cs);

@@ -66,7 +66,7 @@ public final strictfp class DefaultResolutionTest extends TestCase {
     /**
      * Tests the {@link DefaultResolution#DefaultResolution(RepresentativeFraction)} constructor.
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-195">SIS-195</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-195">SIS-195</a>
      *
      * @since 0.6
      */
@@ -142,7 +142,7 @@ public final strictfp class DefaultResolutionTest extends TestCase {
      *
      * @throws JAXBException If an error occurred while marshalling the element.
      *
-     * see DefaultResolution#getValue()
+     * @see DefaultResolution#getValue()
      */
     @Test
     public void testXML() throws JAXBException {

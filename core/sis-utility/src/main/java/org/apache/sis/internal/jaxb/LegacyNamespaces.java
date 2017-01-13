@@ -28,7 +28,7 @@ import org.apache.sis.util.Version;
  * @version 0.8
  * @module
  *
- * see org.apache.sis.xml.Namespaces
+ * @see org.apache.sis.xml.Namespaces
  */
 public final class LegacyNamespaces {
     /**

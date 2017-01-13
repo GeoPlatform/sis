@@ -76,7 +76,7 @@ import java.util.Objects;
  * @version 0.3
  * @module
  *
- * see java.util.WeakHashMap
+ * @see java.util.WeakHashMap
  */
 public class WeakHashSet<E> extends AbstractSet<E> implements CheckedContainer<E> {
     /**
@@ -242,7 +242,7 @@ public class WeakHashSet<E> extends AbstractSet<E> implements CheckedContainer<E
      * @return an element equals to the given one if already presents in the set,
      *         or {@code null} otherwise.
      *
-     * see #unique(Object)
+     * @see #unique(Object)
      */
     public synchronized E get(final Object element) {
         return intern(element, GET);

@@ -148,7 +148,7 @@ public class SQLTranslator implements Function<String,String> {
      * <p><b>Consider this field as final.</b> This field is non-final only for construction convenience,
      * or for updating after the {@link EPSGInstaller} class created the database.</p>
      *
-     * see #getCatalog()
+     * @see #getCatalog()
      */
     private String catalog;
 
@@ -164,7 +164,7 @@ public class SQLTranslator implements Function<String,String> {
      * <p><b>Consider this field as final.</b> This field is non-final only for construction convenience,
      * or for updating after the {@link EPSGInstaller} class created the database.</p>
      *
-     * see #getSchema()
+     * @see #getSchema()
      */
     private String schema;
 
@@ -197,7 +197,7 @@ public class SQLTranslator implements Function<String,String> {
      * {@code true} if the database uses the {@code BOOLEAN} type instead than {@code SMALLINT}
      * for the {@code show_crs}, {@code show_operation} and all {@code deprecated} fields.
      *
-     * see #useBoolean()
+     * @see #useBoolean()
      */
     private boolean useBoolean;
 
@@ -205,7 +205,7 @@ public class SQLTranslator implements Function<String,String> {
      * {@code true} if one of the {@link #SENTINEL} tables exist.
      * If {@code false}, then {@link EPSGInstaller} needs to be run.
      *
-     * see #isTableFound()
+     * @see #isTableFound()
      */
     private boolean isTableFound;
 

@@ -37,7 +37,7 @@ public class DBFBuiltInMemoryResultSetForTablesListing extends BuiltInMemoryResu
     }
 
     /**
-     * see java.sql.ResultSet#getString(java.lang.String)
+     * @see java.sql.ResultSet#getString(java.lang.String)
      */
     @Override public String getString(String columnLabel) {
         logStep("getString", columnLabel);
@@ -72,7 +72,7 @@ public class DBFBuiltInMemoryResultSetForTablesListing extends BuiltInMemoryResu
     }
 
     /**
-     * see java.sql.ResultSet#next()
+     * @see java.sql.ResultSet#next()
      */
     @Override public boolean next() throws SQLNoResultException
     {

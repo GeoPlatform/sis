@@ -58,7 +58,7 @@ import java.nio.file.NoSuchFileException;
  * @version 0.4
  * @module
  *
- * see NetcdfStore
+ * @see NetcdfStore
  */
 public class NetcdfStoreProvider extends DataStoreProvider {
     /**

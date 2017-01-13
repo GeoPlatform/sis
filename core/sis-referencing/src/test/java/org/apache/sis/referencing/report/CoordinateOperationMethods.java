@@ -139,7 +139,7 @@ public strictfp class CoordinateOperationMethods extends HTMLGenerator {
      * Keys are {@link OperationMethod} names, and values are the union of the domain of validity
      * of all CRS using that {@code OperationMethod}.
      *
-     * see #computeUnionOfAllDomainOfValidity(CRSAuthorityFactory)
+     * @see #computeUnionOfAllDomainOfValidity(CRSAuthorityFactory)
      */
     private final Map<String, DefaultGeographicBoundingBox> domainOfValidity;
 

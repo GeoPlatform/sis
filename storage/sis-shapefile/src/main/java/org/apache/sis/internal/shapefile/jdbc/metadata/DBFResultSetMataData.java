@@ -57,14 +57,14 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.Wrapper#unwrap(java.lang.Class)
+     * @see java.sql.Wrapper#unwrap(java.lang.Class)
      */
     @Override public <T> T unwrap(Class<T> iface) throws SQLFeatureNotSupportedException {
         throw unsupportedOperation("unwrap", iface);
     }
 
     /**
-     * see java.sql.Wrapper#isWrapperFor(java.lang.Class)
+     * @see java.sql.Wrapper#isWrapperFor(java.lang.Class)
      */
     @Override
     public boolean isWrapperFor(Class<?> iface) {
@@ -73,7 +73,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getColumnCount()
+     * @see java.sql.ResultSetMetaData#getColumnCount()
      * @throws SQLConnectionClosedException if the connection is closed.
      */
     @SuppressWarnings("resource") // The current connection is only used and has not to be closed.
@@ -85,7 +85,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#isAutoIncrement(int)
+     * @see java.sql.ResultSetMetaData#isAutoIncrement(int)
      * @throws SQLIllegalColumnIndexException if the column index is illegal.
      * @throws SQLConnectionClosedException if the connection is closed.
      */
@@ -103,7 +103,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#isCaseSensitive(int)
+     * @see java.sql.ResultSetMetaData#isCaseSensitive(int)
      */
     @Override public boolean isCaseSensitive(int column) {
         logStep("isCaseSensitive", column);
@@ -111,7 +111,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#isSearchable(int)
+     * @see java.sql.ResultSetMetaData#isSearchable(int)
      */
     @Override public boolean isSearchable(int column) {
         logStep("isSearchable", column);
@@ -119,7 +119,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#isCurrency(int)
+     * @see java.sql.ResultSetMetaData#isCurrency(int)
      * @throws SQLIllegalColumnIndexException if the column index is illegal.
      * @throws SQLConnectionClosedException if the connection is closed.
      */
@@ -136,7 +136,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#isNullable(int)
+     * @see java.sql.ResultSetMetaData#isNullable(int)
      */
     @Override public int isNullable(int column) {
         logStep("isNullable", column);
@@ -144,7 +144,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#isSigned(int)
+     * @see java.sql.ResultSetMetaData#isSigned(int)
      */
     @Override public boolean isSigned(int column) {
         logStep("isSigned", column);
@@ -152,7 +152,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getColumnDisplaySize(int)
+     * @see java.sql.ResultSetMetaData#getColumnDisplaySize(int)
      * @throws SQLIllegalColumnIndexException if the column index is illegal.
      * @throws SQLConnectionClosedException if the connection is closed.
      */
@@ -200,7 +200,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getColumnLabel(int)
+     * @see java.sql.ResultSetMetaData#getColumnLabel(int)
      * @throws SQLIllegalColumnIndexException if the column index is illegal.
      * @throws SQLConnectionClosedException if the connection is closed.
      */
@@ -217,7 +217,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getColumnName(int)
+     * @see java.sql.ResultSetMetaData#getColumnName(int)
      * @throws SQLIllegalColumnIndexException if the column index is illegal.
      * @throws SQLConnectionClosedException if the connection is closed.
      */
@@ -234,7 +234,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getSchemaName(int)
+     * @see java.sql.ResultSetMetaData#getSchemaName(int)
      */
     @Override public String getSchemaName(int column) {
         logStep("getSchemaName", column);
@@ -242,7 +242,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getPrecision(int)
+     * @see java.sql.ResultSetMetaData#getPrecision(int)
      * @throws SQLIllegalColumnIndexException if the column index is illegal.
      * @throws SQLConnectionClosedException if the connection is closed.
      */
@@ -259,7 +259,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getScale(int)
+     * @see java.sql.ResultSetMetaData#getScale(int)
      * @throws SQLIllegalColumnIndexException if the column index is illegal.
      * @throws SQLConnectionClosedException if the connection is closed.
      */
@@ -276,7 +276,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getTableName(int)
+     * @see java.sql.ResultSetMetaData#getTableName(int)
      */
     @Override public String getTableName(int column) {
         logStep("getTableName", column);
@@ -290,7 +290,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getCatalogName(int)
+     * @see java.sql.ResultSetMetaData#getCatalogName(int)
      */
     @Override public String getCatalogName(int column) {
         logStep("getCatalogName", column);
@@ -298,7 +298,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getColumnType(int)
+     * @see java.sql.ResultSetMetaData#getColumnType(int)
      * @throws SQLIllegalColumnIndexException if the column index is illegal.
      */
     @Override public int getColumnType(int column) throws SQLIllegalColumnIndexException, SQLConnectionClosedException {
@@ -314,7 +314,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getColumnTypeName(int)
+     * @see java.sql.ResultSetMetaData#getColumnTypeName(int)
      * @throws SQLIllegalColumnIndexException if the column index is illegal.
      * @throws SQLConnectionClosedException if the connection is closed.
      */
@@ -331,7 +331,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#isReadOnly(int)
+     * @see java.sql.ResultSetMetaData#isReadOnly(int)
      */
     @Override public boolean isReadOnly(int column) {
         logStep("isReadOnly", column);
@@ -339,7 +339,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#isWritable(int)
+     * @see java.sql.ResultSetMetaData#isWritable(int)
      */
     @Override public boolean isWritable(int column) {
         logStep("isWritable", column);
@@ -347,7 +347,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#isDefinitelyWritable(int)
+     * @see java.sql.ResultSetMetaData#isDefinitelyWritable(int)
      */
     @Override public boolean isDefinitelyWritable(int column) {
         logStep("isDefinitelyWritable", column);
@@ -355,7 +355,7 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see java.sql.ResultSetMetaData#getColumnClassName(int)
+     * @see java.sql.ResultSetMetaData#getColumnClassName(int)
      * @throws SQLFeatureNotSupportedException if underlying class implementing a type isn't currently set.
      * @throws SQLIllegalColumnIndexException if the column index is illegal.
      * @throws SQLConnectionClosedException if the connection is closed.
@@ -425,14 +425,14 @@ public class DBFResultSetMataData extends AbstractJDBC implements ResultSetMetaD
     }
 
     /**
-     * see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getInterface()
+     * @see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getInterface()
      */
     @Override protected Class<?> getInterface() {
         return ResultSetMetaData.class;
     }
 
     /**
-     * see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getFile()
+     * @see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getFile()
      */
     @Override
     protected File getFile() {

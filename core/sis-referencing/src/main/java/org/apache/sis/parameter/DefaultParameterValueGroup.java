@@ -107,8 +107,8 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * see DefaultParameterDescriptorGroup
- * see DefaultParameterValue
+ * @see DefaultParameterDescriptorGroup
+ * @see DefaultParameterValue
  */
 @XmlType(name = "ParameterValueGroupType", propOrder = {
     "values",
@@ -128,7 +128,7 @@ public class DefaultParameterValueGroup extends Parameters implements LenientCom
      * This field is modified only by the {@link #clone()} method and
      * at unmarshalling time by {@link #setValues(GeneralParameterValue[])}</p>
      *
-     * see #values()
+     * @see #values()
      */
     private ParameterValueList values;
 
@@ -153,7 +153,7 @@ public class DefaultParameterValueGroup extends Parameters implements LenientCom
      *
      * @param parameters The parameters to copy values from.
      *
-     * see #clone()
+     * @see #clone()
      *
      * @since 0.6
      */
@@ -245,7 +245,7 @@ public class DefaultParameterValueGroup extends Parameters implements LenientCom
      * @return The parameter value for the given name.
      * @throws ParameterNotFoundException if there is no parameter value for the given name.
      *
-     * see #getValue(ParameterDescriptor)
+     * @see #getValue(ParameterDescriptor)
      */
     @Override
     public ParameterValue<?> parameter(final String name) throws ParameterNotFoundException {
@@ -278,7 +278,7 @@ public class DefaultParameterValueGroup extends Parameters implements LenientCom
      * Returns the value in this group for the specified name if it exists, or {@code null} if none.
      * This method does not create any new {@code ParameterValue} instance.
      *
-     * see #isKnownImplementation()
+     * @see #isKnownImplementation()
      */
     @Override
     ParameterValue<?> parameterIfExist(final String name) throws ParameterNotFoundException {
@@ -493,7 +493,7 @@ scan:   for (final GeneralParameterValue param : actual.values()) {
      *
      * @return A copy of this group of parameter values.
      *
-     * see #copy(ParameterValueGroup, ParameterValueGroup)
+     * @see #copy(ParameterValueGroup, ParameterValueGroup)
      */
     @Override
     public DefaultParameterValueGroup clone() {
@@ -529,7 +529,7 @@ scan:   for (final GeneralParameterValue param : actual.values()) {
      * except the the group identification (name, <i>etc.</i>) and for any optional parameters which
      * were not present in the above {@code GeneralParameterValue} array.
      *
-     * see #getDescriptor()
+     * @see #getDescriptor()
      */
     private void setDescriptor(final ParameterDescriptorGroup descriptor) {
         if (values == null) {

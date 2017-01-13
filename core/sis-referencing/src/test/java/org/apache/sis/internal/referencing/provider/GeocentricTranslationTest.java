@@ -164,7 +164,7 @@ public final strictfp class GeocentricTranslationTest extends MathTransformTestC
      * @throws FactoryException if an error occurred while creating the transform.
      * @throws NoninvertibleTransformException if an error occurred while creating the transform.
      *
-     * see #testGeographicDomain()
+     * @see #testGeographicDomain()
      */
     public static MathTransform createDatumShiftForGeographic3D(
             final MathTransformFactory factory,
@@ -275,7 +275,7 @@ public final strictfp class GeocentricTranslationTest extends MathTransformTestC
      * @throws FactoryException if an error occurred while creating the transform.
      * @throws TransformException if transformation of a point failed.
      *
-     * see org.apache.sis.referencing.operation.transform.MolodenskyTransformTest#testFranceGeocentricInterpolationPoint()
+     * @see org.apache.sis.referencing.operation.transform.MolodenskyTransformTest#testFranceGeocentricInterpolationPoint()
      */
     @Test
     public void testFranceGeocentricInterpolationPoint() throws FactoryException, TransformException {

@@ -155,8 +155,8 @@ public abstract class TypeBuilder implements Localized {
      *
      * @return the name of the {@code IdentifiedType} to create (may be a default name or {@code null}).
      *
-     * see AbstractIdentifiedType#getName()
-     * see #setName(GenericName)
+     * @see AbstractIdentifiedType#getName()
+     * @see #setName(GenericName)
      */
     public GenericName getName() {
         return (GenericName) identification().get(AbstractIdentifiedType.NAME_KEY);
@@ -189,9 +189,9 @@ public abstract class TypeBuilder implements Localized {
      * @param  name  the generic name (can not be {@code null}).
      * @return {@code this} for allowing method calls chaining.
      *
-     * see #getName()
-     * see #setName(String)
-     * see AbstractIdentifiedType#NAME_KEY
+     * @see #getName()
+     * @see #setName(String)
+     * @see AbstractIdentifiedType#NAME_KEY
      */
     public TypeBuilder setName(final GenericName name) {
         ensureNonNull("name", name);
@@ -213,8 +213,8 @@ public abstract class TypeBuilder implements Localized {
      * @param  localPart  the local part of the generic name (can not be {@code null}).
      * @return {@code this} for allowing method calls chaining.
      *
-     * see #getName()
-     * see #setName(String, String)
+     * @see #getName()
+     * @see #setName(String, String)
      */
     public TypeBuilder setName(final String localPart) {
         ensureNonEmpty("localPart", localPart);
@@ -235,8 +235,8 @@ public abstract class TypeBuilder implements Localized {
      * @param  localPart  the local part of the generic name (can not be {@code null}).
      * @return {@code this} for allowing method calls chaining.
      *
-     * see #getName()
-     * see #setName(String)
+     * @see #getName()
+     * @see #setName(String)
      */
     public TypeBuilder setName(String scope, final String localPart) {
         ensureNonEmpty("localPart", localPart);
@@ -251,7 +251,7 @@ public abstract class TypeBuilder implements Localized {
      *
      * @return concise definition of the element, or {@code null} if none.
      *
-     * see AbstractIdentifiedType#getDefinition()
+     * @see AbstractIdentifiedType#getDefinition()
      */
     public CharSequence getDefinition() {
         return (CharSequence) identification.get(AbstractIdentifiedType.DEFINITION_KEY);
@@ -263,8 +263,8 @@ public abstract class TypeBuilder implements Localized {
      * @param  definition a concise definition of the element, or {@code null} if none.
      * @return {@code this} for allowing method calls chaining.
      *
-     * see #getDefinition()
-     * see AbstractIdentifiedType#DEFINITION_KEY
+     * @see #getDefinition()
+     * @see AbstractIdentifiedType#DEFINITION_KEY
      */
     public TypeBuilder setDefinition(final CharSequence definition) {
         if (!Objects.equals(definition, identification.put(AbstractIdentifiedType.DEFINITION_KEY, definition))) {
@@ -279,7 +279,7 @@ public abstract class TypeBuilder implements Localized {
      *
      * @return natural language designator for the element, or {@code null} if none.
      *
-     * see AbstractIdentifiedType#getDesignation()
+     * @see AbstractIdentifiedType#getDesignation()
      */
     public CharSequence getDesignation() {
         return (CharSequence) identification.get(AbstractIdentifiedType.DESIGNATION_KEY);
@@ -292,8 +292,8 @@ public abstract class TypeBuilder implements Localized {
      * @param  designation a natural language designator for the element, or {@code null} if none.
      * @return {@code this} for allowing method calls chaining.
      *
-     * see #getDesignation()
-     * see AbstractIdentifiedType#DESIGNATION_KEY
+     * @see #getDesignation()
+     * @see AbstractIdentifiedType#DESIGNATION_KEY
      */
     public TypeBuilder setDesignation(final CharSequence designation) {
         if (!Objects.equals(designation, identification.put(AbstractIdentifiedType.DESIGNATION_KEY, designation))) {
@@ -308,7 +308,7 @@ public abstract class TypeBuilder implements Localized {
      *
      * @return information beyond that required for concise definition of the element, or {@code null} if none.
      *
-     * see AbstractIdentifiedType#getDescription()
+     * @see AbstractIdentifiedType#getDescription()
      */
     public CharSequence getDescription() {
         return (CharSequence) identification.get(AbstractIdentifiedType.DESCRIPTION_KEY);
@@ -323,8 +323,8 @@ public abstract class TypeBuilder implements Localized {
      * @param  description  information beyond that required for concise definition of the element, or {@code null} if none.
      * @return {@code this} for allowing method calls chaining.
      *
-     * see #getDescription()
-     * see AbstractIdentifiedType#DESCRIPTION_KEY
+     * @see #getDescription()
+     * @see AbstractIdentifiedType#DESCRIPTION_KEY
      */
     public TypeBuilder setDescription(final CharSequence description) {
         if (!Objects.equals(description, identification.put(AbstractIdentifiedType.DESCRIPTION_KEY, description))) {
@@ -340,7 +340,7 @@ public abstract class TypeBuilder implements Localized {
      *
      * @return whether this type is deprecated.
      *
-     * see AbstractIdentifiedType#isDeprecated()
+     * @see AbstractIdentifiedType#isDeprecated()
      */
     public boolean isDeprecated() {
         return Boolean.TRUE.equals(identification.get(AbstractIdentifiedType.DEPRECATED_KEY));
@@ -354,8 +354,8 @@ public abstract class TypeBuilder implements Localized {
      * @param  deprecated  whether this type is deprecated.
      * @return {@code this} for allowing method calls chaining.
      *
-     * see #isDeprecated()
-     * see AbstractIdentifiedType#DEPRECATED_KEY
+     * @see #isDeprecated()
+     * @see AbstractIdentifiedType#DEPRECATED_KEY
      */
     public TypeBuilder setDeprecated(final boolean deprecated) {
         final Boolean wrapper = deprecated;

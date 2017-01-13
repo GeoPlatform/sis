@@ -199,7 +199,7 @@ public final strictfp class DefaultParameterDescriptorGroupTest extends TestCase
     /**
      * Tests WKT formatting of a group with a parameter having an identifier.
      *
-     * see DefaultParameterDescriptorTest#testIdentifiedParameterWKT()
+     * @see DefaultParameterDescriptorTest#testIdentifiedParameterWKT()
      *
      * @since 0.6
      */

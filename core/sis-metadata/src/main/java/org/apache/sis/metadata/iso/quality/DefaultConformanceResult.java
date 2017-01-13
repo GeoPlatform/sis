@@ -105,7 +105,7 @@ public class DefaultConformanceResult extends AbstractResult implements Conforma
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(ConformanceResult)
+     * @see #castOrCopy(ConformanceResult)
      */
     public DefaultConformanceResult(final ConformanceResult object) {
         super(object);

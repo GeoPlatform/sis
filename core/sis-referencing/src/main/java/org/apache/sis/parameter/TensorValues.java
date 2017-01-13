@@ -73,8 +73,8 @@ final class TensorValues<E> extends AbstractParameterDescriptor
      * A provider of descriptors for matrix parameters. This object is used like a collection of
      * {@link ParameterDescriptor}s, even if it does not implement any standard collection API.
      *
-     * see TensorParameters#descriptor(ParameterDescriptorGroup, String, int[])
-     * see TensorParameters#getAllDescriptors(int[])
+     * @see TensorParameters#descriptor(ParameterDescriptorGroup, String, int[])
+     * @see TensorParameters#getAllDescriptors(int[])
      */
     private final TensorParameters<E> descriptors;
 

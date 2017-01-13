@@ -107,9 +107,9 @@ import static org.apache.sis.internal.util.Utilities.appendUnicodeIdentifier;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.internal.metadata.NameMeaning
- * see <a href="http://portal.opengeospatial.org/files/?artifact_id=24045">Definition identifier URNs in OGC namespace</a>
- * see <a href="http://www.opengeospatial.org/ogcna">OGC Naming Authority</a>
+ * @see org.apache.sis.internal.metadata.NameMeaning
+ * @see <a href="http://portal.opengeospatial.org/files/?artifact_id=24045">Definition identifier URNs in OGC namespace</a>
+ * @see <a href="http://www.opengeospatial.org/ogcna">OGC Naming Authority</a>
  */
 public final class DefinitionURI {
     /**
@@ -163,7 +163,7 @@ public final class DefinitionURI {
      * <div class="note"><b>Example:</b>
      * In the {@code "urn:ogc:def:crs:EPSG:8.2:4326"} URN, this is {@code "crs"}.</div>
      *
-     * see org.apache.sis.internal.metadata.NameMeaning#toObjectType(Class)
+     * @see org.apache.sis.internal.metadata.NameMeaning#toObjectType(Class)
      */
     public String type;
 
@@ -175,7 +175,7 @@ public final class DefinitionURI {
      * <div class="note"><b>Example:</b>
      * In the {@code "urn:ogc:def:crs:EPSG:8.2:4326"} URN, this is {@code "EPSG"}.</div>
      *
-     * see org.apache.sis.internal.metadata.NameMeaning#authority(String)
+     * @see org.apache.sis.internal.metadata.NameMeaning#authority(String)
      */
     public String authority;
 
@@ -530,7 +530,7 @@ public final class DefinitionURI {
      * @param  code       the code, or {@code null}.
      * @return an identifier using the URN syntax, or {@code null} if a mandatory information is missing.
      *
-     * see org.apache.sis.internal.metadata.NameMeaning#toURN(Class, String, String, String)
+     * @see org.apache.sis.internal.metadata.NameMeaning#toURN(Class, String, String, String)
      */
     public static String format(final String type, final String authority, final String version, final String code) {
         final StringBuilder buffer = new StringBuilder(PREFIX);

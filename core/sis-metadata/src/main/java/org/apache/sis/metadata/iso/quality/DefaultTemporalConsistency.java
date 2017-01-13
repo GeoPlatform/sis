@@ -60,7 +60,7 @@ public class DefaultTemporalConsistency extends AbstractTemporalAccuracy impleme
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(TemporalConsistency)
+     * @see #castOrCopy(TemporalConsistency)
      */
     public DefaultTemporalConsistency(final TemporalConsistency object) {
         super(object);

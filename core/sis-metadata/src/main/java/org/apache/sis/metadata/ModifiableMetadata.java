@@ -113,7 +113,7 @@ public abstract class ModifiableMetadata extends AbstractMetadata implements Clo
      * If {@code null}, then no unmodifiable entity is available.
      * If {@code this}, then this entity is itself unmodifiable.
      *
-     * see #unmodifiable()
+     * @see #unmodifiable()
      */
     private transient ModifiableMetadata unmodifiable;
 
@@ -129,8 +129,8 @@ public abstract class ModifiableMetadata extends AbstractMetadata implements Clo
      *
      * @return {@code true} if this metadata is modifiable.
      *
-     * see #freeze()
-     * see #checkWritePermission()
+     * @see #freeze()
+     * @see #checkWritePermission()
      */
     public final boolean isModifiable() {
         return unmodifiable != this && unmodifiable != FREEZING;
@@ -201,8 +201,8 @@ public abstract class ModifiableMetadata extends AbstractMetadata implements Clo
      * <p>Subclasses usually do not need to override this method since the default implementation
      * performs its work using Java reflection.</p>
      *
-     * see #isModifiable()
-     * see #checkWritePermission()
+     * @see #isModifiable()
+     * @see #checkWritePermission()
      */
     public void freeze() {
         if (isModifiable()) {
@@ -235,8 +235,8 @@ public abstract class ModifiableMetadata extends AbstractMetadata implements Clo
      *
      * @throws UnmodifiableMetadataException if this metadata is unmodifiable.
      *
-     * see #isModifiable()
-     * see #freeze()
+     * @see #isModifiable()
+     * @see #freeze()
      */
     protected void checkWritePermission() throws UnmodifiableMetadataException {
         if (unmodifiable != null) {
@@ -268,7 +268,7 @@ public abstract class ModifiableMetadata extends AbstractMetadata implements Clo
      *         elements, or {@code null} if the source was null.
      * @throws UnmodifiableMetadataException if this metadata is unmodifiable.
      *
-     * see #nonNullList(List, Class)
+     * @see #nonNullList(List, Class)
      */
     @SuppressWarnings("unchecked")
     protected final <E> List<E> writeList(final Collection<? extends E> source,
@@ -315,7 +315,7 @@ public abstract class ModifiableMetadata extends AbstractMetadata implements Clo
      *         or {@code null} if the source was null.
      * @throws UnmodifiableMetadataException if this metadata is unmodifiable.
      *
-     * see #nonNullSet(Set, Class)
+     * @see #nonNullSet(Set, Class)
      */
     @SuppressWarnings("unchecked")
     protected final <E> Set<E> writeSet(final Collection<? extends E> source,

@@ -137,7 +137,7 @@ public final strictfp class ParametersTest extends TestCase {
     /**
      * Tests {@link Parameters#copy(ParameterValueGroup, ParameterValueGroup)}.
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-202">SIS-202</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-202">SIS-202</a>
      */
     @Test
     public void testCopy() {

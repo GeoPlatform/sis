@@ -97,7 +97,7 @@ public final strictfp class DefaultLegalConstraintsTest extends XMLTestCase impl
      *
      * @throws JAXBException If an error occurred during the during unmarshalling processes.
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-157">SIS-157</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-157">SIS-157</a>
      */
     @Test
     public void testUnmarshallEmptyCodeListValue() throws JAXBException {

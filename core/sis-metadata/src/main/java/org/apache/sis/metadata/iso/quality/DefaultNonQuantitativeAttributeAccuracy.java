@@ -61,7 +61,7 @@ public class DefaultNonQuantitativeAttributeAccuracy extends AbstractThematicAcc
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(NonQuantitativeAttributeAccuracy)
+     * @see #castOrCopy(NonQuantitativeAttributeAccuracy)
      */
     public DefaultNonQuantitativeAttributeAccuracy(final NonQuantitativeAttributeAccuracy object) {
         super(object);

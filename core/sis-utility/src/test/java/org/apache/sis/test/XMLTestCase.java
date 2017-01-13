@@ -64,7 +64,7 @@ import org.junit.After;
  * @version 0.8
  * @module
  *
- * see XMLComparator
+ * @see XMLComparator
  */
 public abstract strictfp class XMLTestCase extends TestCase {
     /**
@@ -92,7 +92,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *
      * <p>This field is initially {@code null} and created when first needed.</p>
      *
-     * see #getMarshallerPool()
+     * @see #getMarshallerPool()
      */
     private static MarshallerPool defaultPool;
 
@@ -101,8 +101,8 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * The context is initially {@code null} and can be created either explicitely,
      * or by invoking the {@link #createContext(boolean, Locale, String)} convenience method.
      *
-     * see #createContext(boolean, Locale, String)
-     * see #clearContext()
+     * @see #createContext(boolean, Locale, String)
+     * @see #clearContext()
      */
     protected Context context;
 
@@ -146,7 +146,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * @param locale   The locale, or {@code null} for the default.
      * @param timezone The timezone, or {@code null} for the default.
      *
-     * see #clearContext()
+     * @see #clearContext()
      */
     protected final void createContext(final boolean marshal, final Locale locale, final String timezone) {
         context = new Context(marshal ? Context.MARSHALLING : 0, locale,
@@ -196,7 +196,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *         (typically {@code "xmlns:*"} and {@code "xsi:schemaLocation"}).
      * @throws JAXBException If an error occurred during marshalling.
      *
-     * see #unmarshalFile(Class, String)
+     * @see #unmarshalFile(Class, String)
      */
     protected final void assertMarshalEqualsFile(final String filename, final Object object,
             final String... ignoredAttributes) throws JAXBException
@@ -214,7 +214,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *         (typically {@code "xmlns:*"} and {@code "xsi:schemaLocation"}).
      * @throws JAXBException If an error occurred during marshalling.
      *
-     * see #unmarshalFile(Class, String)
+     * @see #unmarshalFile(Class, String)
      */
     protected final void assertMarshalEqualsFile(final String filename, final Object object, Version metadataVersion,
             final String... ignoredAttributes) throws JAXBException
@@ -234,7 +234,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *         (typically {@code "xmlns:*"} and {@code "xsi:schemaLocation"}).
      * @throws JAXBException If an error occurred during marshalling.
      *
-     * see #unmarshalFile(Class, String)
+     * @see #unmarshalFile(Class, String)
      *
      * @since 0.7
      */
@@ -257,7 +257,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      *         (typically {@code "xmlns:*"} and {@code "xsi:schemaLocation"}).
      * @throws JAXBException If an error occurred during marshalling.
      *
-     * see #unmarshalFile(Class, String)
+     * @see #unmarshalFile(Class, String)
      *
      * @since 0.7
      */
@@ -274,7 +274,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * @return The marshalled object.
      * @throws JAXBException If an error occurred while marshalling the object.
      *
-     * see #unmarshal(Class, String)
+     * @see #unmarshal(Class, String)
      */
     protected final String marshal(final Object object) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
@@ -292,7 +292,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * @return The marshalled object.
      * @throws JAXBException If an error occurred while marshalling the object.
      *
-     * see #unmarshal(Class, String)
+     * @see #unmarshal(Class, String)
      */
     protected final String marshal(final Object object, Version metadataVersion) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
@@ -310,7 +310,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * @return The marshalled object.
      * @throws JAXBException If an error occurred while marshalling the object.
      *
-     * see #unmarshal(Unmarshaller, String)
+     * @see #unmarshal(Unmarshaller, String)
      */
     protected final String marshal(final Marshaller marshaller, final Object object) throws JAXBException {
         ArgumentChecks.ensureNonNull("marshaller", marshaller);
@@ -333,7 +333,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * @return The marshalled object.
      * @throws JAXBException If an error occurred while marshalling the object.
      *
-     * see #unmarshal(Unmarshaller, String)
+     * @see #unmarshal(Unmarshaller, String)
      */
     protected final String marshal(final Marshaller marshaller, final Object object, Version metadataVersion) throws JAXBException {
         ArgumentChecks.ensureNonNull("marshaller", marshaller);
@@ -358,7 +358,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * @return The object unmarshalled from the given file.
      * @throws JAXBException If an error occurred during unmarshalling.
      *
-     * see #assertMarshalEqualsFile(String, Object, String...)
+     * @see #assertMarshalEqualsFile(String, Object, String...)
      */
     protected final <T> T unmarshalFile(final Class<T> type, final String filename) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
@@ -382,7 +382,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * @return The object unmarshalled from the given file.
      * @throws JAXBException If an error occurred during unmarshalling.
      *
-     * see #assertMarshalEqualsFile(String, Object, String...)
+     * @see #assertMarshalEqualsFile(String, Object, String...)
      */
     protected final <T> T unmarshalFile(final Class<T> type, final String filename, Version metadataVersion) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
@@ -403,7 +403,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * @return The unmarshalled object.
      * @throws JAXBException If an error occurred while unmarshalling the XML.
      *
-     * see #marshal(Object)
+     * @see #marshal(Object)
      */
     protected final <T> T unmarshal(final Class<T> type, final String xml) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
@@ -424,7 +424,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * @return The unmarshalled object.
      * @throws JAXBException If an error occurred while unmarshalling the XML.
      *
-     * see #marshal(Object)
+     * @see #marshal(Object)
      */
     protected final <T> T unmarshal(final Class<T> type, final String xml, Version metadataVersion) throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
@@ -443,7 +443,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * @return The unmarshalled object.
      * @throws JAXBException If an error occurred while unmarshalling the XML.
      *
-     * see #marshal(Marshaller, Object)
+     * @see #marshal(Marshaller, Object)
      */
     protected final Object unmarshal(final Unmarshaller unmarshaller, final String xml) throws JAXBException {
         ArgumentChecks.ensureNonNull("unmarshaller", unmarshaller);
@@ -461,7 +461,7 @@ public abstract strictfp class XMLTestCase extends TestCase {
      * @return The unmarshalled object.
      * @throws JAXBException If an error occurred while unmarshalling the XML.
      *
-     * see #marshal(Marshaller, Object)
+     * @see #marshal(Marshaller, Object)
      */
     protected final Object unmarshal(final Unmarshaller unmarshaller, final String xml, Version metadataVersion) throws JAXBException {
         ArgumentChecks.ensureNonNull("unmarshaller", unmarshaller);

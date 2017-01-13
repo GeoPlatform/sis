@@ -176,7 +176,7 @@ final class AppendableWriter extends Writer {
      * @return The content of the underlying {@code Appendable},
      *         or a localized message for unavailable content.
      *
-     * see IO#content(Appendable)
+     * @see IO#content(Appendable)
      */
     @Override
     @SuppressWarnings("SynchronizeOnNonFinalField")

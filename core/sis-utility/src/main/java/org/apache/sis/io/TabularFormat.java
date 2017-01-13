@@ -67,7 +67,7 @@ import org.apache.sis.util.resources.Errors;
  *
  * @param <T> The base type of objects parsed and formatted by this class.
  *
- * see TableAppender
+ * @see TableAppender
  */
 public abstract class TabularFormat<T> extends CompoundFormat<T> {
     /**
@@ -79,8 +79,8 @@ public abstract class TabularFormat<T> extends CompoundFormat<T> {
      * The line separator to use for formatting the tree.
      * The default value is system-dependent.
      *
-     * see #getLineSeparator()
-     * see #setLineSeparator(String)
+     * @see #getLineSeparator()
+     * @see #setLineSeparator(String)
      */
     protected String lineSeparator;
 

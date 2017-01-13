@@ -80,7 +80,7 @@ public class DefaultVectorSpatialRepresentation extends AbstractSpatialRepresent
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(VectorSpatialRepresentation)
+     * @see #castOrCopy(VectorSpatialRepresentation)
      */
     public DefaultVectorSpatialRepresentation(final VectorSpatialRepresentation object) {
         super(object);

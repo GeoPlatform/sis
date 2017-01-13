@@ -99,7 +99,7 @@ public class CoordinateOperationContext implements Serializable {
      *
      * @return The spatio-temporal area of interest, or {@code null} if none.
      *
-     * see Extents#getGeographicBoundingBox(Extent)
+     * @see Extents#getGeographicBoundingBox(Extent)
      */
     public Extent getAreaOfInterest() {
         return areaOfInterest;

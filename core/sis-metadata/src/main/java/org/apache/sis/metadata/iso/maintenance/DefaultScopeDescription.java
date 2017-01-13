@@ -137,7 +137,7 @@ public class DefaultScopeDescription extends ISOMetadata implements ScopeDescrip
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(ScopeDescription)
+     * @see #castOrCopy(ScopeDescription)
      */
     public DefaultScopeDescription(final ScopeDescription object) {
         super(object);

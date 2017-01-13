@@ -49,9 +49,9 @@ import org.apache.sis.internal.jaxb.NonMarshalledAuthority;
  * @version 0.3
  * @module
  *
- * see org.apache.sis.metadata.iso.citation.Citations
- * see IdentifiedObject
- * see IdentifierMap
+ * @see org.apache.sis.metadata.iso.citation.Citations
+ * @see IdentifiedObject
+ * @see IdentifierMap
  */
 public interface IdentifierSpace<T> extends Citation {
     /**
@@ -68,7 +68,7 @@ public interface IdentifierSpace<T> extends Citation {
      * marshalling and unmarshalling time. If many of {@code gml:id}, {@code gco:uuid} and {@code xlink:href}
      * attributes are used, then {@code gml:id} has precedence.</p>
      *
-     * see javax.xml.bind.annotation.XmlID
+     * @see javax.xml.bind.annotation.XmlID
      */
     IdentifierSpace<String> ID = new NonMarshalledAuthority<>("gml:id", NonMarshalledAuthority.ID);
 
@@ -85,7 +85,7 @@ public interface IdentifierSpace<T> extends Citation {
      * {@code gco:uuidref} attribute. However this is not done automatically by Apache SIS. Users need
      * to manage their set of UUIDs in their own {@link ReferenceResolver} subclass.</p>
      *
-     * see UUID
+     * @see UUID
      */
     IdentifierSpace<UUID> UUID = new NonMarshalledAuthority<>("gco:uuid", NonMarshalledAuthority.UUID);
 
@@ -97,7 +97,7 @@ public interface IdentifierSpace<T> extends Citation {
      *
      * <p>The XML {@linkplain #getName() attribute name} is {@code "xlink:href"}.</p>
      *
-     * see XLink#getHRef()
+     * @see XLink#getHRef()
      */
     IdentifierSpace<URI> HREF = new NonMarshalledAuthority<>("xlink:href", NonMarshalledAuthority.HREF);
 
@@ -107,7 +107,7 @@ public interface IdentifierSpace<T> extends Citation {
      * Note that the above {@link #HREF} identifier space is a special case of this
      * {@code xlink} identifier space.
      *
-     * see XLink
+     * @see XLink
      */
     IdentifierSpace<XLink> XLINK = new NonMarshalledAuthority<>("xlink", NonMarshalledAuthority.XLINK);
 

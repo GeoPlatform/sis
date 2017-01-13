@@ -74,7 +74,7 @@ public final class Affine extends AbstractProvider {
      *
      * <p>Note: in contrast, the name used by OGC is just "Affine".</p>
      *
-     * see org.apache.sis.internal.util.Constants#AFFINE
+     * @see org.apache.sis.internal.util.Constants#AFFINE
      */
     public static final String NAME = "Affine parametric transformation";
 
@@ -120,7 +120,7 @@ public final class Affine extends AbstractProvider {
      * If an instance of {@code Affine()} is desired, invoke {@code getProvider(EPSG_DIMENSION, EPSG_DIMENSION)}
      * instead.
      *
-     * see org.apache.sis.referencing.operation.transform.DefaultMathTransformFactory
+     * @see org.apache.sis.referencing.operation.transform.DefaultMathTransformFactory
      */
     @SuppressWarnings("ThisEscapedInObjectConstruction")
     public Affine() {
@@ -139,7 +139,7 @@ public final class Affine extends AbstractProvider {
      * Creates a provider for affine transform with the specified dimensions.
      * This is created when first needed by {@link #getProvider(int, int)}.
      *
-     * see #getProvider(int, int)
+     * @see #getProvider(int, int)
      */
     private Affine(final int sourceDimensions, final int targetDimensions) {
         super(IDENTIFICATION_OGC, sourceDimensions, targetDimensions, new Descriptor(IDENTIFICATION_OGC,

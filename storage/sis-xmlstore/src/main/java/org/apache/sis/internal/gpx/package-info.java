@@ -55,8 +55,8 @@
  *   <li>All measurements are in metric units.</li>
  * </ul>
  *
- * see <a href="https://en.wikipedia.org/wiki/GPS_Exchange_Format">GPS Exchange Format on Wikipedia</a>
- * see <a href="http://www.topografix.com/GPX/1/1/">GPX 1.1 Schema Documentation</a>
+ * @see <a href="https://en.wikipedia.org/wiki/GPS_Exchange_Format">GPS Exchange Format on Wikipedia</a>
+ * @see <a href="http://www.topografix.com/GPX/1/1/">GPX 1.1 Schema Documentation</a>
  *
  * @author  Johann Sorel (Geomatys)
  * @since   0.8

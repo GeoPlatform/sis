@@ -110,7 +110,7 @@ public final strictfp class DefaultProjectedCRSTest extends XMLTestCase {
      * but the axes can be in degrees or in grads depending if the {@code baseCRS} argument is
      * {@link HardCodedCRS.NTF_NORMALIZED_AXES} or {@link HardCodedCRS.NTF} respectively.
      *
-     * see HardCodedCRS#NTF
+     * @see HardCodedCRS#NTF
      */
     private static ProjectedCRS create(final GeographicCRS baseCRS) throws FactoryException {
         return new GeodeticObjectBuilder()

@@ -51,7 +51,7 @@ abstract strictfp class HTMLGenerator implements Closeable {
     /**
      * The language to use for the reports to generate.
      *
-     * see #toLocalizedString(InternationalString)
+     * @see #toLocalizedString(InternationalString)
      */
     static final Locale LOCALE = Locale.US;
 
@@ -70,7 +70,7 @@ abstract strictfp class HTMLGenerator implements Closeable {
      * The spaces to write in the margin before every new line.
      * The number of spaces will increase by the indentation amount when new elements are opened.
      *
-     * see #INDENTATION
+     * @see #INDENTATION
      */
     private String margin = "";
 
@@ -261,7 +261,7 @@ abstract strictfp class HTMLGenerator implements Closeable {
      * @param  text The text to localize, or {@code null}.
      * @return The localized test, or {@code null}.
      *
-     * see #LOCALE
+     * @see #LOCALE
      */
     static String toLocalizedString(final InternationalString text) {
         return (text != null) ? text.toString(LOCALE) : null;

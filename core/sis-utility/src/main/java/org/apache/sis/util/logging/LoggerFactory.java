@@ -49,8 +49,8 @@ import org.apache.sis.util.collection.WeakValueHashMap;
  * @version 0.3
  * @module
  *
- * see Logging
- * see LoggerAdapter
+ * @see Logging
+ * @see LoggerAdapter
  */
 public abstract class LoggerFactory<L> {
     /**

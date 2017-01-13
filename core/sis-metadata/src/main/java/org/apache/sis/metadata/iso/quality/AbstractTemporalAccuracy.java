@@ -69,7 +69,7 @@ public class AbstractTemporalAccuracy extends AbstractElement implements Tempora
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(TemporalAccuracy)
+     * @see #castOrCopy(TemporalAccuracy)
      */
     public AbstractTemporalAccuracy(final TemporalAccuracy object) {
         super(object);

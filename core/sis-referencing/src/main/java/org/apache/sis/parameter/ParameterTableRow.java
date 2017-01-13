@@ -67,21 +67,21 @@ final class ParameterTableRow {
      *   <li>{@link Identifier} for identifiers.</li>
      * </ul>
      *
-     * see #addIdentifier(String, Object)
+     * @see #addIdentifier(String, Object)
      */
     private final Map<String,Set<Object>> identifiers;
 
     /**
      * The largest codespace width, in number of Unicode code points.
      *
-     * see #addIdentifier(String, Object)
+     * @see #addIdentifier(String, Object)
      */
     int codespaceWidth;
 
     /**
      * The string representation of the domain of values, or {@code null} if none.
      *
-     * see #setValueDomain(Range, Format, StringBuffer)
+     * @see #setValueDomain(Range, Format, StringBuffer)
      */
     String valueDomain;
 
@@ -89,14 +89,14 @@ final class ParameterTableRow {
      * The position to use for alignment of {@link #valueDomain}.
      * This is usually after the '…' separator.
      *
-     * see #setValueDomain(Range, Format, StringBuffer)
+     * @see #setValueDomain(Range, Format, StringBuffer)
      */
     int valueDomainAlignment;
 
     /**
      * The values. Some elements in this list may be null.
      *
-     * see #addValue(Object, Unit)
+     * @see #addValue(Object, Unit)
      */
     final List<Object> values;
 
@@ -107,7 +107,7 @@ final class ParameterTableRow {
      * <p>This list is initially filled with {@link Unit} instance. Later in the formatting process,
      * {@code Unit} instances will be replaced by their symbol.</p>
      *
-     * see #addValue(Object, Unit)
+     * @see #addValue(Object, Unit)
      */
     final List<Object> units;
 

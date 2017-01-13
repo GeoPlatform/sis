@@ -62,8 +62,8 @@ import org.apache.sis.util.Utilities;
  * @version 0.7
  * @module
  *
- * see GeodeticAuthorityFactory#newIdentifiedObjectFinder()
- * see IdentifiedObjects#newFinder(String)
+ * @see GeodeticAuthorityFactory#newIdentifiedObjectFinder()
+ * @see IdentifiedObjects#newFinder(String)
  */
 public class IdentifiedObjectFinder {
     /**
@@ -135,21 +135,21 @@ public class IdentifiedObjectFinder {
      * The cache or the adapter which is wrapping this finder, or {@code null} if none.
      * An example of wrapper is {@link ConcurrentAuthorityFactory}'s finder.
      *
-     * see #setWrapper(IdentifiedObjectFinder)
+     * @see #setWrapper(IdentifiedObjectFinder)
      */
     private IdentifiedObjectFinder wrapper;
 
     /**
      * The domain of the search (for example whether to include deprecated objects in the search).
      *
-     * see #getSearchDomain()
+     * @see #getSearchDomain()
      */
     private Domain domain = Domain.VALID_DATASET;
 
     /**
      * {@code true} if the search should ignore coordinate system axes.
      *
-     * see #isIgnoringAxes()
+     * @see #isIgnoringAxes()
      */
     private boolean ignoreAxes;
 
@@ -169,7 +169,7 @@ public class IdentifiedObjectFinder {
      *
      * @param  factory  the factory to scan for the identified objects.
      *
-     * see GeodeticAuthorityFactory#newIdentifiedObjectFinder()
+     * @see GeodeticAuthorityFactory#newIdentifiedObjectFinder()
      */
     protected IdentifiedObjectFinder(final AuthorityFactory factory) {
         ArgumentChecks.ensureNonNull("factory", factory);
@@ -391,8 +391,8 @@ public class IdentifiedObjectFinder {
      * @return the identified object, or {@code null} if not found.
      * @throws FactoryException if an error occurred while creating an object.
      *
-     * see #createFromCodes(IdentifiedObject)
-     * see #createFromNames(IdentifiedObject)
+     * @see #createFromCodes(IdentifiedObject)
+     * @see #createFromNames(IdentifiedObject)
      */
     private IdentifiedObject createFromIdentifiers(final IdentifiedObject object) throws FactoryException {
         for (final Identifier id : object.getIdentifiers()) {
@@ -433,8 +433,8 @@ public class IdentifiedObjectFinder {
      * @return the identified object, or {@code null} if not found.
      * @throws FactoryException if an error occurred while creating an object.
      *
-     * see #createFromCodes(IdentifiedObject)
-     * see #createFromIdentifiers(IdentifiedObject)
+     * @see #createFromCodes(IdentifiedObject)
+     * @see #createFromIdentifiers(IdentifiedObject)
      */
     private IdentifiedObject createFromNames(final IdentifiedObject object) throws FactoryException {
         String code = object.getName().getCode();
@@ -488,8 +488,8 @@ public class IdentifiedObjectFinder {
      * @return the identified object, or {@code null} if not found.
      * @throws FactoryException if an error occurred while scanning through authority codes.
      *
-     * see #createFromIdentifiers(IdentifiedObject)
-     * see #createFromNames(IdentifiedObject)
+     * @see #createFromIdentifiers(IdentifiedObject)
+     * @see #createFromNames(IdentifiedObject)
      */
     Set<IdentifiedObject> createFromCodes(final IdentifiedObject object) throws FactoryException {
         final Set<IdentifiedObject> result = new LinkedHashSet<>();     // We need to preserve order.

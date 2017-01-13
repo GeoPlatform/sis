@@ -58,7 +58,7 @@ import java.util.EnumSet;
  * @version 0.3
  * @module
  *
- * see org.apache.sis.util.ObjectConverter#properties()
+ * @see org.apache.sis.util.ObjectConverter#properties()
  */
 public enum FunctionProperty {
     /**
@@ -71,7 +71,7 @@ public enum FunctionProperty {
      * should be), but the inverse operation may not be implemented. In such case, the function
      * properties shall not include this {@code INVERTIBLE} value.</p>
      *
-     * see org.apache.sis.util.ObjectConverter#inverse()
+     * @see org.apache.sis.util.ObjectConverter#inverse()
      */
     INVERTIBLE,
 
@@ -87,8 +87,8 @@ public enum FunctionProperty {
      * <cite>bijective</cite> function. In such functions, there is a one-to-one relationship
      * between all input and output values.
      *
-     * see #SURJECTIVE
-     * see #isBijective(Set)
+     * @see #SURJECTIVE
+     * @see #isBijective(Set)
      */
     INJECTIVE,
 
@@ -105,8 +105,8 @@ public enum FunctionProperty {
      * <cite>bijective</cite> function. In such functions, there is a one-to-one relationship
      * between all input and output values.
      *
-     * see #INJECTIVE
-     * see #isBijective(Set)
+     * @see #INJECTIVE
+     * @see #isBijective(Set)
      */
     SURJECTIVE,
 
@@ -121,8 +121,8 @@ public enum FunctionProperty {
      * <p>A function may be both order preserving and {@linkplain #ORDER_REVERSING order reversing}
      * if all input values are mapped to a constant output value.</p>
      *
-     * see #ORDER_REVERSING
-     * see #isMonotonic(Set)
+     * @see #ORDER_REVERSING
+     * @see #isMonotonic(Set)
      */
     ORDER_PRESERVING,
 
@@ -137,15 +137,15 @@ public enum FunctionProperty {
      * <p>A function may be both {@linkplain #ORDER_PRESERVING order preserving} and order reversing
      * if all input values are mapped to a constant output value.</p>
      *
-     * see #ORDER_PRESERVING
-     * see #isMonotonic(Set)
+     * @see #ORDER_PRESERVING
+     * @see #isMonotonic(Set)
      */
     ORDER_REVERSING;
 
     /**
      * Bijective functions shall contain all the value in this set.
      *
-     * see #isBijective(Set)
+     * @see #isBijective(Set)
      */
     private static final EnumSet<FunctionProperty> BIJECTIVE = EnumSet.of(INJECTIVE, SURJECTIVE);
 

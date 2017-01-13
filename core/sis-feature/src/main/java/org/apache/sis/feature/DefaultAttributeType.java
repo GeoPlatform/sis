@@ -102,8 +102,8 @@ import org.opengis.feature.AttributeType;
  * @version 0.8
  * @module
  *
- * see DefaultFeatureType
- * see AbstractAttribute
+ * @see DefaultFeatureType
+ * @see AbstractAttribute
  */
 public class DefaultAttributeType<V> extends FieldType implements AttributeType<V> {
     /**
@@ -114,14 +114,14 @@ public class DefaultAttributeType<V> extends FieldType implements AttributeType<
     /**
      * The class that describe the type of attribute values.
      *
-     * see #getValueClass()
+     * @see #getValueClass()
      */
     private final Class<V> valueClass;
 
     /**
      * The default value for the attribute, or {@code null} if none.
      *
-     * see #getDefaultValue()
+     * @see #getDefaultValue()
      */
     private final V defaultValue;
 
@@ -129,7 +129,7 @@ public class DefaultAttributeType<V> extends FieldType implements AttributeType<
      * Other attribute types that describes this attribute type, or {@code null} if none.
      * This is used for attributes of attribute (e.g. accuracy of a position).
      *
-     * see #characteristics()
+     * @see #characteristics()
      */
     private transient CharacteristicTypeMap characteristics;
 
@@ -183,7 +183,7 @@ public class DefaultAttributeType<V> extends FieldType implements AttributeType<
      *                         then {@code characterizedBy} could holds the measurement accuracy.
      *                         See <cite>"Attribute characterization"</cite> in class Javadoc for more information.
      *
-     * see org.apache.sis.feature.builder.AttributeTypeBuilder
+     * @see org.apache.sis.feature.builder.AttributeTypeBuilder
      */
     public DefaultAttributeType(final Map<String,?> identification, final Class<V> valueClass,
             final int minimumOccurs, final int maximumOccurs, final V defaultValue,
@@ -308,7 +308,7 @@ public class DefaultAttributeType<V> extends FieldType implements AttributeType<
      *
      * @return other attribute types that describes this attribute type, or an empty map if none.
      *
-     * see AbstractAttribute#characteristics()
+     * @see AbstractAttribute#characteristics()
      */
     @Override
     public Map<String,AttributeType<?>> characteristics() {
@@ -320,7 +320,7 @@ public class DefaultAttributeType<V> extends FieldType implements AttributeType<
      *
      * @return a new attribute instance.
      *
-     * see AbstractAttribute#create(AttributeType)
+     * @see AbstractAttribute#create(AttributeType)
      */
     @Override
     public Attribute<V> newInstance() {

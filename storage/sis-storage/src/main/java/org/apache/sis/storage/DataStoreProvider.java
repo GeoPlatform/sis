@@ -123,7 +123,7 @@ public abstract class DataStoreProvider {
      * @return a data store implementation associated with this provider for the given storage.
      * @throws DataStoreException if an error occurred while creating the data store instance.
      *
-     * see DataStores#open(Object)
+     * @see DataStores#open(Object)
      */
     public abstract DataStore open(StorageConnector storage) throws DataStoreException;
 }

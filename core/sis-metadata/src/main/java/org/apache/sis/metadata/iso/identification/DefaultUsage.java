@@ -139,7 +139,7 @@ public class DefaultUsage extends ISOMetadata implements Usage {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Usage)
+     * @see #castOrCopy(Usage)
      */
     public DefaultUsage(final Usage object) {
         super(object);
@@ -287,7 +287,7 @@ public class DefaultUsage extends ISOMetadata implements Usage {
     
     /**
 	 * Gets the responses for this usage (used in ISO 19115-3 format).
-	 * see {@link #getResponses}
+	 * @see {@link #getResponses}
 	 */
 	@XmlElement(name = "response")
 	private Collection<? extends InternationalString> getXmlResponses() {
@@ -322,7 +322,7 @@ public class DefaultUsage extends ISOMetadata implements Usage {
     
     /**
 	 * Gets the additional documentation for this usage (used in ISO 19115-3 format).
-	 * see {@link #getAdditionalDocumentation}
+	 * @see {@link #getAdditionalDocumentation}
 	 */
 	@XmlElement(name = "additionalDocumentation")
 	private Collection<Citation> getXmlAdditionalDocumentation() {
@@ -359,7 +359,7 @@ public class DefaultUsage extends ISOMetadata implements Usage {
     
     /**
 	 * Gets the identified issues for this usage (used in ISO 19115-3 format).
-	 * see {@link #getIdentifiedIssues}
+	 * @see {@link #getIdentifiedIssues}
 	 */
 	@XmlElement(name = "identifiedIssues")
 	private Collection<? extends Citation> getXmlIdentifiedIssues() {

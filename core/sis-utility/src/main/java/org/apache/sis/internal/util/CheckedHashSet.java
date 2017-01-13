@@ -44,7 +44,7 @@ import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
  * @version 0.4
  * @module
  *
- * see Collections#checkedSet(Set, Class)
+ * @see Collections#checkedSet(Set, Class)
  */
 public final class CheckedHashSet<E> extends LinkedHashSet<E> implements CheckedContainer<E> {
     /**

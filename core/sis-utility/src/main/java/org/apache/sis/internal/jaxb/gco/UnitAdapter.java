@@ -31,7 +31,7 @@ import org.apache.sis.internal.jaxb.gml.Measure;
  * @version 0.8
  * @module
  *
- * see Measure
+ * @see Measure
  */
 public class UnitAdapter extends XmlAdapter<String, Unit<?>> {
     /**

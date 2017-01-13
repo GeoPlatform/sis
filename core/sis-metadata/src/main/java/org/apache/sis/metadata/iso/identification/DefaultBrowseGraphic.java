@@ -119,7 +119,7 @@ public class DefaultBrowseGraphic extends ISOMetadata implements BrowseGraphic {
 	 *
 	 * @param object The metadata to copy values from, or {@code null} if none.
 	 *
-	 * see #castOrCopy(BrowseGraphic)
+	 * @see #castOrCopy(BrowseGraphic)
 	 */
 	public DefaultBrowseGraphic(final BrowseGraphic object) {
 		super(object);
@@ -179,7 +179,7 @@ public class DefaultBrowseGraphic extends ISOMetadata implements BrowseGraphic {
 
 	/**
 	 * Gets the file name for this file. Used in ISO 19115-3.
-	 * see {@link #getFileName}
+	 * @see {@link #getFileName}
 	 */
 	@XmlElement(name = "fileName", required = true)
 	private String getXmlFileName() {
@@ -191,7 +191,7 @@ public class DefaultBrowseGraphic extends ISOMetadata implements BrowseGraphic {
 
 	/**
 	 * Sets the file name for this file. Used in ISO 19115-3.
-	 * see {@link #setFileName}
+	 * @see {@link #setFileName}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlFileName(final String newValue) {
@@ -200,7 +200,7 @@ public class DefaultBrowseGraphic extends ISOMetadata implements BrowseGraphic {
 
 	/**
 	 * Gets the file name for this file. Used in ISO 19139.
-	 * see {@link #getFileName}
+	 * @see {@link #getFileName}
 	 */
 	@XmlElement(name = "fileName", required = true)
 	private URI getXmlFileNameLegacy() {
@@ -209,7 +209,7 @@ public class DefaultBrowseGraphic extends ISOMetadata implements BrowseGraphic {
 
 	/**
 	 * Sets the file name for this file. Used in ISO 19139.
-	 * see {@link #setFileName}
+	 * @see {@link #setFileName}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlFileNameLegacy(final URI newValue) {
@@ -290,7 +290,7 @@ public class DefaultBrowseGraphic extends ISOMetadata implements BrowseGraphic {
 
 	/**
 	 * Gets the image constraints for this browse graphic (used in ISO 19115-3 format).
-	 * see {@link #getImageConstraints}
+	 * @see {@link #getImageConstraints}
 	 */
 	@XmlElement(name = "imageConstraints")
 	private Collection<Constraints> getXmlImageConstraints() {
@@ -325,7 +325,7 @@ public class DefaultBrowseGraphic extends ISOMetadata implements BrowseGraphic {
 
 	/**
 	 * Gets the linkages for this browse graphic (used in ISO 19115-3 format).
-	 * see {@link #getImageConstraints}
+	 * @see {@link #getImageConstraints}
 	 */
 	@XmlElement(name = "linkage")
 	private Collection<OnlineResource> getXmlLinkages() {

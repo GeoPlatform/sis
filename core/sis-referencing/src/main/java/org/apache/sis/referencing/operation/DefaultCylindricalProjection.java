@@ -37,8 +37,8 @@ import org.opengis.referencing.crs.ProjectedCRS;
  * @version 0.6
  * @module
  *
- * see org.apache.sis.referencing.crs.DefaultProjectedCRS
- * see <a href="http://mathworld.wolfram.com/CylindricalProjection.html">Cylindrical projection on MathWorld</a>
+ * @see org.apache.sis.referencing.crs.DefaultProjectedCRS
+ * @see <a href="http://mathworld.wolfram.com/CylindricalProjection.html">Cylindrical projection on MathWorld</a>
  */
 @XmlTransient
 final class DefaultCylindricalProjection extends DefaultProjection implements CylindricalProjection {

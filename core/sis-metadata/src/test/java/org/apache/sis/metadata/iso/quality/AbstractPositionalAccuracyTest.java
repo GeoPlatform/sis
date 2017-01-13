@@ -54,8 +54,8 @@ public final strictfp class AbstractPositionalAccuracyTest extends XMLTestCase {
      *
      * @throws JAXBException If an error occurred during the during marshalling / unmarshalling processes.
      *
-     * see <a href="http://jira.geotoolkit.org/browse/GEOTK-107">GEOTK-107</a>
-     * see FreeTextMarshallingTest
+     * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-107">GEOTK-107</a>
+     * @see FreeTextMarshallingTest
      */
     @Test
     public void testXML() throws JAXBException {

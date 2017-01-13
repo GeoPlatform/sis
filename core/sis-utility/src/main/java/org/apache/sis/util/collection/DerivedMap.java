@@ -91,14 +91,14 @@ class DerivedMap<SK,SV,K,V> extends AbstractMap<K,V> implements
     /**
      * Key set. Will be constructed only when first needed.
      *
-     * see #keySet()
+     * @see #keySet()
      */
     private transient Set<K> keySet;
 
     /**
      * Entry set. Will be constructed only when first needed.
      *
-     * see #entrySet()
+     * @see #entrySet()
      */
     private transient Set<Map.Entry<K,V>> entrySet;
 

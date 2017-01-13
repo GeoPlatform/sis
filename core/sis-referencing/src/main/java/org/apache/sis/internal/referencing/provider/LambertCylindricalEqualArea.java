@@ -34,7 +34,7 @@ import org.apache.sis.referencing.operation.projection.CylindricalEqualArea;
  * @version 0.8
  * @module
  *
- * see <a href="http://www.remotesensing.org/geotiff/proj_list/cylindrical_equal_area.html">Cylindrical Equal Area on RemoteSensing.org</a>
+ * @see <a href="http://www.remotesensing.org/geotiff/proj_list/cylindrical_equal_area.html">Cylindrical Equal Area on RemoteSensing.org</a>
  */
 @XmlTransient
 public final class LambertCylindricalEqualArea extends MapProjection {

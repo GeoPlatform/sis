@@ -125,7 +125,7 @@ public class DefaultApplicationSchemaInformation extends ISOMetadata
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(ApplicationSchemaInformation)
+     * @see #castOrCopy(ApplicationSchemaInformation)
      */
     public DefaultApplicationSchemaInformation(final ApplicationSchemaInformation object) {
         super(object);

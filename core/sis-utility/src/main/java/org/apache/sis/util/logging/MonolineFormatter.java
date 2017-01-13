@@ -113,8 +113,8 @@ import static org.apache.sis.internal.util.StandardDateFormat.UTC;
  * @version 0.7
  * @module
  *
- * see SimpleFormatter
- * see Handler#setFormatter(Formatter)
+ * @see SimpleFormatter
+ * @see Handler#setFormatter(Formatter)
  */
 public class MonolineFormatter extends Formatter {
     /** Do not format source class name.       */ private static final int NO_SOURCE    = 0;
@@ -167,7 +167,7 @@ public class MonolineFormatter extends Formatter {
      * The "interesting" elements are the first stack trace elements, and the element which point
      * to the method that produced the log record.
      *
-     * see #printAbridged(Throwable, Appendable, String, String, String)
+     * @see #printAbridged(Throwable, Appendable, String, String, String)
      */
     private static final int CONTEXT_STACK_TRACE_ELEMENTS = 2;
 
@@ -175,15 +175,15 @@ public class MonolineFormatter extends Formatter {
      * The string to write on the left side of the first line of every log records.
      * The default value is an empty string. This field can not be null.
      *
-     * see #getHeader()
-     * see #setHeader(String)
+     * @see #getHeader()
+     * @see #setHeader(String)
      */
     private String header = "";
 
     /**
      * The colors to apply, or {@code null} if none.
      *
-     * see #colors()
+     * @see #colors()
      */
     private SortedMap<Level,X364> colors;
 
@@ -210,7 +210,7 @@ public class MonolineFormatter extends Formatter {
      * If the logging level is shorter, remaining characters will be padded with spaces.
      * This is used in order to align the messages.
      *
-     * see #levelWidth(Level)
+     * @see #levelWidth(Level)
      */
     private final int levelWidth;
 
@@ -275,7 +275,7 @@ public class MonolineFormatter extends Formatter {
      *
      * @param handler The handler to be used with this formatter, or {@code null} if unknown.
      *
-     * see Handler#setFormatter(Formatter)
+     * @see Handler#setFormatter(Formatter)
      */
     public MonolineFormatter(final Handler handler) {
         this.startMillis = System.currentTimeMillis();

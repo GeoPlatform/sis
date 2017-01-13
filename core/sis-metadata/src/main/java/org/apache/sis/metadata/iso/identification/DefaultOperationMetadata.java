@@ -134,7 +134,7 @@ public class DefaultOperationMetadata extends ISOMetadata implements OperationMe
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(OperationMetadata)
+     * @see #castOrCopy(OperationMetadata)
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public DefaultOperationMetadata(final OperationMetadata object) {
@@ -218,7 +218,7 @@ public class DefaultOperationMetadata extends ISOMetadata implements OperationMe
     
     /**
 	 * Gets DCPs for this operation (used in ISO 19115-3 format).
-	 * see {@link #getDistributedComputingPlatforms}
+	 * @see {@link #getDistributedComputingPlatforms}
 	 */
     @XmlElement(name = "distributedComputingPlatform", namespace = Namespaces.SRV)
 	private Collection<DistributedComputingPlatform> getXmlDistributedComputingPlatforms() {
@@ -230,7 +230,7 @@ public class DefaultOperationMetadata extends ISOMetadata implements OperationMe
     
     /**
 	 * Gets DCPs for this operation (used in ISO 19139 format).
-	 * see {@link #getDistributedComputingPlatforms}
+	 * @see {@link #getDistributedComputingPlatforms}
 	 */
     @XmlElement(name = "DCP", namespace = Namespaces.SRV)
 	private Collection<DistributedComputingPlatform> getXmlDistributedComputingPlatformsLegacy() {

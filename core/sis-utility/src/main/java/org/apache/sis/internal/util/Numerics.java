@@ -87,8 +87,8 @@ public final class Numerics extends Static {
      * <p>The current value is set to the smallest power of 10 which allow the
      * {@code org.apache.sis.test.integration.ConsistencyTest} to pass.</p>
      *
-     * see org.apache.sis.internal.referencing.Formulas#LINEAR_TOLERANCE
-     * see org.apache.sis.internal.referencing.Formulas#ANGULAR_TOLERANCE
+     * @see org.apache.sis.internal.referencing.Formulas#LINEAR_TOLERANCE
+     * @see org.apache.sis.internal.referencing.Formulas#ANGULAR_TOLERANCE
      */
     public static final double COMPARISON_THRESHOLD = 1E-13;
 
@@ -104,10 +104,10 @@ public final class Numerics extends Static {
      * Note that this idiom differentiates positive zero from negative zero.
      * It should be used only when such difference matter.
      *
-     * see org.apache.sis.math.MathFunctions#isPositive(double)
-     * see org.apache.sis.math.MathFunctions#isNegative(double)
-     * see org.apache.sis.math.MathFunctions#isSameSign(double, double)
-     * see org.apache.sis.math.MathFunctions#xorSign(double, double)
+     * @see org.apache.sis.math.MathFunctions#isPositive(double)
+     * @see org.apache.sis.math.MathFunctions#isNegative(double)
+     * @see org.apache.sis.math.MathFunctions#isSameSign(double, double)
+     * @see org.apache.sis.math.MathFunctions#xorSign(double, double)
      */
     public static final long SIGN_BIT_MASK = Long.MIN_VALUE;
 
@@ -196,7 +196,7 @@ public final class Numerics extends Static {
      * @param  v2  the second value to compare.
      * @return {@code true} if both values are equal.
      *
-     * see Float#equals(Object)
+     * @see Float#equals(Object)
      */
     public static boolean equals(final float v1, final float v2) {
         return Float.floatToIntBits(v1) == Float.floatToIntBits(v2);
@@ -211,7 +211,7 @@ public final class Numerics extends Static {
      * @param  v2  the second value to compare.
      * @return {@code true} if both values are equal.
      *
-     * see Double#equals(Object)
+     * @see Double#equals(Object)
      */
     public static boolean equals(final double v1, final double v2) {
         return Double.doubleToLongBits(v1) == Double.doubleToLongBits(v2);
@@ -354,8 +354,8 @@ public final class Numerics extends Static {
      * @param  exp2  the power of 2 to convert Must be in the [-2620 … 2620] range.
      * @return the power of 10, rounded toward negative infinity.
      *
-     * see org.apache.sis.math.MathFunctions#LOG10_2
-     * see org.apache.sis.math.MathFunctions#getExponent(double)
+     * @see org.apache.sis.math.MathFunctions#LOG10_2
+     * @see org.apache.sis.math.MathFunctions#getExponent(double)
      */
     public static int toExp10(final int exp2) {
         /*

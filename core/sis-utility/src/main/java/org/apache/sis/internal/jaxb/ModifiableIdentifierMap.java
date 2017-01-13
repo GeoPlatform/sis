@@ -42,7 +42,7 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.xml.IdentifiedObject
+ * @see org.apache.sis.xml.IdentifiedObject
  */
 public final class ModifiableIdentifierMap extends IdentifierMapAdapter {
     /**
@@ -69,7 +69,7 @@ public final class ModifiableIdentifierMap extends IdentifierMapAdapter {
      * @param  href The new value, or {@code null} for removing the value.
      * @return The previous value, or {@code null} if none.
      *
-     * see #getHRef()
+     * @see #getHRef()
      */
     private URI setHRef(final URI href) {
         URI old = store(IdentifierSpace.HREF, null);

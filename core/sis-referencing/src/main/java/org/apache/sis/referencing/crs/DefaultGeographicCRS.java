@@ -88,7 +88,7 @@ import static org.apache.sis.internal.util.Constants.CRS84;
  * @version 0.6
  * @module
  *
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createGeographicCRS(String)
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createGeographicCRS(String)
  */
 @XmlTransient
 public class DefaultGeographicCRS extends DefaultGeodeticCRS implements GeographicCRS {
@@ -156,7 +156,7 @@ public class DefaultGeographicCRS extends DefaultGeodeticCRS implements Geograph
      * @param datum The datum.
      * @param cs The two- or three-dimensional coordinate system.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createGeographicCRS(Map, GeodeticDatum, EllipsoidalCS)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createGeographicCRS(Map, GeodeticDatum, EllipsoidalCS)
      */
     public DefaultGeographicCRS(final Map<String,?> properties,
                                 final GeodeticDatum datum,
@@ -174,7 +174,7 @@ public class DefaultGeographicCRS extends DefaultGeodeticCRS implements Geograph
      *
      * @param crs The coordinate reference system to copy.
      *
-     * see #castOrCopy(GeographicCRS)
+     * @see #castOrCopy(GeographicCRS)
      */
     protected DefaultGeographicCRS(final GeographicCRS crs) {
         super(crs);
@@ -310,7 +310,7 @@ public class DefaultGeographicCRS extends DefaultGeodeticCRS implements Geograph
      *
      * @return {@code "GeodeticCRS"} (WKT 2) or {@code "GeogCS"} (WKT 1).
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#49">WKT 2 specification §8</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#49">WKT 2 specification §8</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {

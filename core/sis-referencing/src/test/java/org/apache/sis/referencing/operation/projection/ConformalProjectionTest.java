@@ -292,7 +292,7 @@ public final strictfp class ConformalProjectionTest extends TransformTestCase {
      *
      * @throws ProjectionException if an error occurred during computation of φ.
      *
-     * see MercatorMethodComparison
+     * @see MercatorMethodComparison
      */
     @Test
     public void compareWithSeriesExpansion() throws ProjectionException {

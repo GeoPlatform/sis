@@ -97,7 +97,7 @@ public abstract strictfp class TestCase {
      * the {@value org.apache.sis.test.TestConfiguration#OUTPUT_ENCODING_KEY} system
      * property has been set to a different value.
      *
-     * see org.apache.sis.test
+     * @see org.apache.sis.test
      */
     public static final PrintWriter out;
 

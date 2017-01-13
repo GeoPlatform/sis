@@ -66,7 +66,7 @@ public final strictfp class LinearConverterTest extends TestCase {
      *
      * @throws ReflectiveOperationException if this test can not access the private fields of {@link LinearConverter}.
      *
-     * see ConventionalUnitTest#verifyPrefixes()
+     * @see ConventionalUnitTest#verifyPrefixes()
      */
     @Test
     public void verifyPrefixes() throws ReflectiveOperationException {

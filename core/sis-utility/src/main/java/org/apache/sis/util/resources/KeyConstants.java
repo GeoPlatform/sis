@@ -33,7 +33,7 @@ import org.apache.sis.util.CharSequences;
  * @version 0.8
  * @module
  *
- * see IndexedResourceBundle#getKeyConstants()
+ * @see IndexedResourceBundle#getKeyConstants()
  */
 public class KeyConstants {
     /**
@@ -45,8 +45,8 @@ public class KeyConstants {
      * The key names. This is usually not needed, but may be created from the {@code Keys}
      * inner class in some occasions.
      *
-     * see #getKeyNames()
-     * see #getKeyName(short)
+     * @see #getKeyNames()
+     * @see #getKeyName(short)
      */
     private transient String[] keys;
 

@@ -69,8 +69,8 @@ import java.util.Objects;
  * @version 0.3
  * @module
  *
- * see Node
- * see TableColumn
+ * @see Node
+ * @see TableColumn
  */
 public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
     /**
@@ -81,8 +81,8 @@ public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
     /**
      * The root node, or {@code null} if not yet specified.
      *
-     * see #getRoot()
-     * see #setRoot(TreeTable.Node)
+     * @see #getRoot()
+     * @see #setRoot(TreeTable.Node)
      */
     private TreeTable.Node root;
 
@@ -90,7 +90,7 @@ public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
      * The table columns as an unmodifiable list, or {@code null} if not yet created.
      * The content of this list is the {@link #columnIndices} keys sorted by their index values.
      *
-     * see #getColumns()
+     * @see #getColumns()
      */
     private transient List<TableColumn<?>> columns;
 
@@ -104,7 +104,7 @@ public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
      * But we serialize this field anyway because children nodes will typically hold
      * a reference to that map, and we want to preserve the references tree.</div>
      *
-     * see DefaultTreeTable.Node#columnIndices
+     * @see DefaultTreeTable.Node#columnIndices
      */
     final Map<TableColumn<?>,Integer> columnIndices;
 
@@ -188,8 +188,8 @@ public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
      * Returns the table columns given at construction time.
      * The returned list is never null neither empty.
      *
-     * see Node#getValue(TableColumn)
-     * see Node#setValue(TableColumn, Object)
+     * @see Node#getValue(TableColumn)
+     * @see Node#setValue(TableColumn, Object)
      */
     @Override
     public final List<TableColumn<?>> getColumns() {
@@ -240,7 +240,7 @@ public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
      * @throws CloneNotSupportedException If this table, the root node or one of its children
      *         can not be cloned.
      *
-     * see Node#clone()
+     * @see Node#clone()
      */
     @Override
     public DefaultTreeTable clone() throws CloneNotSupportedException {
@@ -258,7 +258,7 @@ public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
      * @param  other The object to compare with this table.
      * @return {@code true} if the two objects are equal.
      *
-     * see Node#equals(Object)
+     * @see Node#equals(Object)
      */
     @Override
     public boolean equals(final Object other) {
@@ -277,7 +277,7 @@ public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
      * Returns a hash code value for this table.
      * This method is defined for consistency with {@link #equals(Object)} contract.
      *
-     * see Node#hashCode()
+     * @see Node#hashCode()
      */
     @Override
     public int hashCode() {
@@ -320,8 +320,8 @@ public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
      * @version 0.3
      * @module
      *
-     * see DefaultTreeTable
-     * see TableColumn
+     * @see DefaultTreeTable
+     * @see TableColumn
      */
     public static class Node implements TreeTable.Node, Cloneable, Serializable {
         /**
@@ -375,8 +375,8 @@ public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
         /**
          * The parent of this node, or {@code null} if none.
          *
-         * see #getParent()
-         * see #setParent(TreeTable.Node)
+         * @see #getParent()
+         * @see #setParent(TreeTable.Node)
          */
         private TreeTable.Node parent;
 
@@ -393,7 +393,7 @@ public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
          *
          * <p>This map shall be read-only since many {@code Node} instances may share it.</p>
          *
-         * see DefaultTreeTable#columnIndices
+         * @see DefaultTreeTable#columnIndices
          */
         final Map<TableColumn<?>,Integer> columnIndices;
 
@@ -593,7 +593,7 @@ public class DefaultTreeTable implements TreeTable, Cloneable, Serializable {
          * @param  value  The value to set.
          * @throws IllegalArgumentException If the given column is not a legal column for this node.
          *
-         * see #isEditable(TableColumn)
+         * @see #isEditable(TableColumn)
          */
         @Override
         public <V> void setValue(final TableColumn<V> column, final V value) throws IllegalArgumentException {

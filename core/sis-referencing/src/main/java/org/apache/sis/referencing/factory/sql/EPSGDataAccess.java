@@ -162,7 +162,7 @@ import org.apache.sis.internal.util.StandardDateFormat;
  * @version 0.8
  * @module
  *
- * see <a href="http://sis.apache.org/tables/CoordinateReferenceSystems.html">List of authority codes</a>
+ * @see <a href="http://sis.apache.org/tables/CoordinateReferenceSystems.html">List of authority codes</a>
  */
 public class EPSGDataAccess extends GeodeticAuthorityFactory implements CRSAuthorityFactory,
         CSAuthorityFactory, DatumAuthorityFactory, CoordinateOperationAuthorityFactory, Localized, AutoCloseable
@@ -177,7 +177,7 @@ public class EPSGDataAccess extends GeodeticAuthorityFactory implements CRSAutho
      * <p>We perform those replacements for avoiding a "Unit conversion from “DMS” to “°” is non-linear" exception
      * at projected CRS creation time.</p>
      *
-     * see #replaceDeprecatedCS
+     * @see #replaceDeprecatedCS
      */
     @Workaround(library = "EPSG:6401-6420", version = "8.9")        // Deprecated in 2002 but still present in 2016.
     private static final Map<Integer,Integer> DEPRECATED_CS = deprecatedCS();
@@ -219,7 +219,7 @@ public class EPSGDataAccess extends GeodeticAuthorityFactory implements CRSAutho
      * We use the UTC timezone, which may not be quite accurate. But there is no obvious timezone for "epoch",
      * and the "epoch" is approximative anyway.
      *
-     * see #getCalendar()
+     * @see #getCalendar()
      */
     private Calendar calendar;
 
@@ -257,7 +257,7 @@ public class EPSGDataAccess extends GeodeticAuthorityFactory implements CRSAutho
      * Cache for axis names. This service is not provided by {@code ConcurrentAuthorityFactory}
      * since {@link AxisName} objects are particular to the EPSG database.
      *
-     * see #getAxisName(int)
+     * @see #getAxisName(int)
      */
     private final Map<Integer,AxisName> axisNames = new HashMap<>();
 
@@ -265,7 +265,7 @@ public class EPSGDataAccess extends GeodeticAuthorityFactory implements CRSAutho
      * Cache for the number of dimensions of coordinate systems. This service is not provided by
      * {@code ConcurrentAuthorityFactory} since the number of dimension is used internally in this class.
      *
-     * see #getDimensionForCS(int)
+     * @see #getDimensionForCS(int)
      */
     private final Map<Integer,Integer> csDimensions = new HashMap<>();
 
@@ -273,7 +273,7 @@ public class EPSGDataAccess extends GeodeticAuthorityFactory implements CRSAutho
      * Cache for whether conversions are projections. This service is not provided by {@code ConcurrentAuthorityFactory}
      * since the check for conversion type is used internally in this class.
      *
-     * see #isProjection(int)
+     * @see #isProjection(int)
      */
     private final Map<Integer,Boolean> isProjection = new HashMap<>();
 
@@ -281,7 +281,7 @@ public class EPSGDataAccess extends GeodeticAuthorityFactory implements CRSAutho
      * Cache of naming systems other than EPSG. There is usually few of them (at most 15).
      * This is used for aliases.
      *
-     * see #createProperties(String, String, String, String, boolean)
+     * @see #createProperties(String, String, String, String, boolean)
      */
     private final Map<String,NameSpace> namingSystems = new HashMap<>();
 
@@ -318,7 +318,7 @@ public class EPSGDataAccess extends GeodeticAuthorityFactory implements CRSAutho
      * coordinate system at CRS creation time. This flag should be set to {@code true} only when creating
      * the base CRS of a projected or derived CRS.
      *
-     * see #DEPRECATED_CS
+     * @see #DEPRECATED_CS
      */
     private transient boolean replaceDeprecatedCS;
 
@@ -332,7 +332,7 @@ public class EPSGDataAccess extends GeodeticAuthorityFactory implements CRSAutho
      * The connection to the EPSG database. This connection is specified at {@linkplain #EPSGDataAccess construction time}
      * and closed by the {@link #close()} method.
      *
-     * see #close()
+     * @see #close()
      */
     protected final Connection connection;
 
@@ -357,7 +357,7 @@ public class EPSGDataAccess extends GeodeticAuthorityFactory implements CRSAutho
      * @param translator  the translator from the SQL statements using MS-Access dialect
      *                    to SQL statements using the dialect of the actual database.
      *
-     * see EPSGFactory#newDataAccess(Connection, SQLTranslator)
+     * @see EPSGFactory#newDataAccess(Connection, SQLTranslator)
      */
     protected EPSGDataAccess(final EPSGFactory owner, final Connection connection, final SQLTranslator translator) {
         ArgumentChecks.ensureNonNull("connection", connection);
@@ -1179,7 +1179,7 @@ addURIs:    for (int i=0; ; i++) {
      * Returns a string like the given string but with accented letters replaced by ASCII letters
      * and all characters that are not letter or digit replaced by the wildcard % character.
      *
-     * see SQLUtilities#toLikePattern(String)
+     * @see SQLUtilities#toLikePattern(String)
      */
     private static String toLikePattern(final String name) {
         return SQLUtilities.toLikePattern(CharSequences.toASCII(name).toString());
@@ -1200,9 +1200,9 @@ addURIs:    for (int i=0; ; i++) {
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see #createCoordinateReferenceSystem(String)
-     * see #createDatum(String)
-     * see #createCoordinateSystem(String)
+     * @see #createCoordinateReferenceSystem(String)
+     * @see #createDatum(String)
+     * @see #createCoordinateSystem(String)
      */
     @Override
     public synchronized IdentifiedObject createObject(final String code)
@@ -1841,9 +1841,9 @@ addURIs:    for (int i=0; ; i++) {
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see #createGeodeticDatum(String)
-     * see #createEllipsoidalCS(String)
-     * see org.apache.sis.referencing.datum.DefaultEllipsoid
+     * @see #createGeodeticDatum(String)
+     * @see #createEllipsoidalCS(String)
+     * @see org.apache.sis.referencing.datum.DefaultEllipsoid
      */
     @Override
     public synchronized Ellipsoid createEllipsoid(final String code)
@@ -1931,8 +1931,8 @@ addURIs:    for (int i=0; ; i++) {
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see #createGeodeticDatum(String)
-     * see org.apache.sis.referencing.datum.DefaultPrimeMeridian
+     * @see #createGeodeticDatum(String)
+     * @see org.apache.sis.referencing.datum.DefaultPrimeMeridian
      */
     @Override
     public synchronized PrimeMeridian createPrimeMeridian(final String code)
@@ -1988,9 +1988,9 @@ addURIs:    for (int i=0; ; i++) {
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see #createCoordinateReferenceSystem(String)
-     * see #createDatum(String)
-     * see org.apache.sis.metadata.iso.extent.DefaultExtent
+     * @see #createCoordinateReferenceSystem(String)
+     * @see #createDatum(String)
+     * @see org.apache.sis.metadata.iso.extent.DefaultExtent
      */
     @Override
     public synchronized Extent createExtent(final String code)
@@ -2192,7 +2192,7 @@ addURIs:    for (int i=0; ; i++) {
      * @param  cs  the EPSG code for the coordinate system.
      * @return the number of dimensions, or {@code null} if not found.
      *
-     * see #getDimensionsForMethod(int)
+     * @see #getDimensionsForMethod(int)
      */
     private Integer getDimensionForCS(final Integer cs) throws SQLException {
         Integer dimension = csDimensions.get(cs);
@@ -2269,8 +2269,8 @@ addURIs:    for (int i=0; ; i++) {
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see #createCoordinateSystem(String)
-     * see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis
+     * @see #createCoordinateSystem(String)
+     * @see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis
      */
     @Override
     public synchronized CoordinateSystemAxis createCoordinateSystemAxis(final String code)
@@ -2443,7 +2443,7 @@ addURIs:    for (int i=0; ; i++) {
      * @throws NoSuchAuthorityCodeException if the specified {@code code} was not found.
      * @throws FactoryException if the object creation failed for some other reason.
      *
-     * see org.apache.sis.parameter.DefaultParameterDescriptor
+     * @see org.apache.sis.parameter.DefaultParameterDescriptor
      */
     @Override
     public synchronized ParameterDescriptor<?> createParameterDescriptor(final String code)
@@ -3247,7 +3247,7 @@ next:               while (r.next()) {
      * @param  method  the EPSG code of the operation method for which to get the dimensions.
      * @return the dimensions in an array of length 2.
      *
-     * see #getDimensionForCS(int)
+     * @see #getDimensionForCS(int)
      */
     private Integer[] getDimensionsForMethod(final Integer method) throws SQLException {
         final Integer[] dimensions = new Integer[2];
@@ -3438,7 +3438,7 @@ next:               while (r.next()) {
      *
      * @throws FactoryException if an error occurred while closing the connection.
      *
-     * see #connection
+     * @see #connection
      */
     @Override
     public synchronized void close() throws FactoryException {

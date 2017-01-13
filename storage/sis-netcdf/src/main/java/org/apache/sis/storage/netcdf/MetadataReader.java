@@ -384,9 +384,9 @@ final class MetadataReader {
      * @return the responsible party, or {@code null} if none.
      * @throws IOException if an I/O operation was necessary but failed.
      *
-     * see AttributeNames#CREATOR
-     * see AttributeNames#CONTRIBUTOR
-     * see AttributeNames#PUBLISHER
+     * @see AttributeNames#CREATOR
+     * @see AttributeNames#CONTRIBUTOR
+     * @see AttributeNames#PUBLISHER
      */
     private Responsibility createResponsibleParty(final Responsible keys, final boolean isPointOfContact)
             throws IOException

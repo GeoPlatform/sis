@@ -72,7 +72,7 @@ public class DefaultGridSpatialRepresentation extends AbstractSpatialRepresentat
     /**
      * Mask for the {@code transformationParameterAvailable} boolean value.
      *
-     * see #booleans
+     * @see #booleans
      */
     static final byte TRANSFORMATION_MASK = 1;
 
@@ -97,10 +97,10 @@ public class DefaultGridSpatialRepresentation extends AbstractSpatialRepresentat
     /**
      * The set of booleans values. Bits are read and written using the {@code *_MASK} constants.
      *
-     * see #TRANSFORMATION_MASK
-     * see DefaultGeorectified#CHECK_POINT_MASK
-     * see DefaultGeoreferenceable#CONTROL_POINT_MASK
-     * see DefaultGeoreferenceable#OPERATION_MASK
+     * @see #TRANSFORMATION_MASK
+     * @see DefaultGeorectified#CHECK_POINT_MASK
+     * @see DefaultGeoreferenceable#CONTROL_POINT_MASK
+     * @see DefaultGeoreferenceable#OPERATION_MASK
      */
     byte booleans;
 
@@ -124,7 +124,7 @@ public class DefaultGridSpatialRepresentation extends AbstractSpatialRepresentat
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(GridSpatialRepresentation)
+     * @see #castOrCopy(GridSpatialRepresentation)
      */
     public DefaultGridSpatialRepresentation(final GridSpatialRepresentation object) {
         super(object);

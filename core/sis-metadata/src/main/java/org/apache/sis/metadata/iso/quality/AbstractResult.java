@@ -70,7 +70,7 @@ public class AbstractResult extends ISOMetadata implements Result {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Result)
+     * @see #castOrCopy(Result)
      */
     public AbstractResult(final Result object) {
         super(object);

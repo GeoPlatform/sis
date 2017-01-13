@@ -91,7 +91,7 @@ final class LinkOperation extends AbstractOperation {
      * @param identification  the name of the link, together with optional information.
      * @param referent        the referenced attribute or feature association.
      *
-     * see FeatureOperations#link(Map, PropertyType)
+     * @see FeatureOperations#link(Map, PropertyType)
      */
     LinkOperation(final Map<String,?> identification, final PropertyType referent) {
         super(identification);

@@ -106,7 +106,7 @@ import static org.apache.sis.util.Numbers.*;
  * @version 0.5
  * @module
  *
- * see Range
+ * @see Range
  */
 public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range<E>>
         implements CheckedContainer<Range<E>>, SortedSet<Range<E>>, Cloneable, Serializable
@@ -195,7 +195,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
      * The type of elements in the ranges. If the element are numbers,
      * then the value is the wrapper type (not the primitive type).
      *
-     * see Range#getElementType()
+     * @see Range#getElementType()
      */
     protected final Class<E> elementType;
 
@@ -211,7 +211,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
      * if exclusive. This value is specified at construction time and enforced when ranges are
      * added or removed.
      *
-     * see Range#isMinIncluded()
+     * @see Range#isMinIncluded()
      */
     protected final boolean isMinIncluded;
 
@@ -220,7 +220,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
      * if exclusive. This value is specified at construction time and enforced when ranges are
      * added or removed.
      *
-     * see Range#isMaxIncluded()
+     * @see Range#isMaxIncluded()
      */
     protected final boolean isMaxIncluded;
 
@@ -241,7 +241,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
      * The length of valid elements in the {@linkplain #array}. Since the array contains both
      * the minimum and maximum values, its length is twice the number of ranges in this set.
      *
-     * see #size()
+     * @see #size()
      */
     private transient int length;
 
@@ -919,7 +919,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
      * @param  upper High endpoint (exclusive) of the sub set.
      * @return A view of the specified range within this sorted set.
      *
-     * see #intersect(Range)
+     * @see #intersect(Range)
      */
     @Override
     public SortedSet<Range<E>> subSet(final Range<E> lower, final Range<E> upper) {
@@ -945,7 +945,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
      * @param  upper High endpoint (exclusive) of the headSet.
      * @return A view of the specified initial range of this sorted set.
      *
-     * see #intersect(Range)
+     * @see #intersect(Range)
      */
     @Override
     public SortedSet<Range<E>> headSet(final Range<E> upper) {
@@ -968,7 +968,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
      * @param  lower Low endpoint (inclusive) of the tailSet.
      * @return A view of the specified final range of this sorted set.
      *
-     * see #intersect(Range)
+     * @see #intersect(Range)
      */
     @Override
     public SortedSet<Range<E>> tailSet(final Range<E> lower) {
@@ -985,7 +985,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
      * @version 0.3
      * @module
      *
-     * see RangeSet#intersect(Range)
+     * @see RangeSet#intersect(Range)
      */
     private final class SubSet extends AbstractSet<Range<E>> implements SortedSet<Range<E>>, Serializable {
         /**
@@ -1003,7 +1003,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
          * {@code RangeSet}. Those indices need to be recomputed every time the enclosing
          * {@code RangeSet} has been modified.
          *
-         * see #updateBounds()
+         * @see #updateBounds()
          */
         private transient int lower, upper;
 
@@ -1433,7 +1433,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
      * @throws IndexOutOfBoundsException if {@code index} is out of bounds.
      * @throws ClassCastException if range elements are not convertible to numbers.
      *
-     * see org.apache.sis.measure.NumberRange#getMinDouble()
+     * @see org.apache.sis.measure.NumberRange#getMinDouble()
      */
     public double getMinDouble(int index) throws IndexOutOfBoundsException, ClassCastException {
         if ((index *= 2) >= length) {
@@ -1471,7 +1471,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
      * @throws IndexOutOfBoundsException if {@code index} is out of bounds.
      * @throws ClassCastException if range elements are not convertible to numbers.
      *
-     * see org.apache.sis.measure.NumberRange#getMaxDouble()
+     * @see org.apache.sis.measure.NumberRange#getMaxDouble()
      */
     public double getMaxDouble(int index) throws IndexOutOfBoundsException, ClassCastException {
         if ((index *= 2) >= length) {
@@ -1513,7 +1513,7 @@ public class RangeSet<E extends Comparable<? super E>> extends AbstractSet<Range
     /**
      * A {@link RangeSet} implementation for {@link NumberRange} elements.
      *
-     * see RangeSet#create(Class, boolean, boolean)
+     * @see RangeSet#create(Class, boolean, boolean)
      */
     private static final class Numeric<E extends Number & Comparable<? super E>> extends RangeSet<E> {
         private static final long serialVersionUID = 5603640102714482527L;

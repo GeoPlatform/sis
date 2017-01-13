@@ -33,7 +33,7 @@ import static org.apache.sis.util.Characters.SOFT_HYPHEN;
  * @version 0.3
  * @module
  *
- * see LineAppender#setMaximalLineLength(int)
+ * @see LineAppender#setMaximalLineLength(int)
  */
 @DependsOn(LineAppenderTest.class)
 public strictfp class WordWrapTest extends LineAppenderTest {

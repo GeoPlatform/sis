@@ -74,14 +74,14 @@ abstract class EqualAreaProjection extends NormalizedProjection {
      * <p><strong>Consider those fields as final!</strong> They are not final only for sub-class
      * constructors convenience and for the purpose of {@link #readObject(ObjectInputStream)}.</p>
      *
-     * see #computeCoefficients()
+     * @see #computeCoefficients()
      */
     private transient double ci2, ci4, ci8;
 
     /**
      * Value of {@link #qm(double)} function (part of Snyder equation (3-12)) at pole (sinφ = 1).
      *
-     * see #computeCoefficients()
+     * @see #computeCoefficients()
      */
     private transient double qmPolar;
 

@@ -70,9 +70,9 @@ public final class Copyright extends Element implements LegalConstraints, Respon
      * This field is mandatory in principle, but {@code Copyright} implementation is robust to null value.
      * This field is mapped to the {@linkplain #getName() responsible party name} in ISO 19115 metadata.
      *
-     * see #getResponsibleParties()
-     * see #getParties()
-     * see #getName()
+     * @see #getResponsibleParties()
+     * @see #getParties()
+     * @see #getName()
      */
     public String author;
 
@@ -80,7 +80,7 @@ public final class Copyright extends Element implements LegalConstraints, Respon
      * The copyright year, or {@code null} if unspecified.
      * This field is mapped to the {@linkplain #getDate() citation date} in ISO 19115 metadata.
      *
-     * see #getDate()
+     * @see #getDate()
      */
     public Integer year;
 
@@ -88,7 +88,7 @@ public final class Copyright extends Element implements LegalConstraints, Respon
      * Link to an external file containing the license text, or {@code null} if none.
      * This field is mapped to the {@linkplain #getOnlineResources() online resources} in ISO 19115 metadata.
      *
-     * see #getOnlineResources()
+     * @see #getOnlineResources()
      */
     public URI license;
 
@@ -114,7 +114,7 @@ public final class Copyright extends Element implements LegalConstraints, Respon
      *
      * @return restrictions or limitations or warnings on using the data.
      *
-     * see #getReferences()
+     * @see #getReferences()
      */
     @Override
     public Collection<Restriction> getUseConstraints() {
@@ -173,10 +173,10 @@ public final class Copyright extends Element implements LegalConstraints, Respon
      *
      * @return citations for the limitation of constraint.
      *
-     * see #getTitle()
-     * see #getDates()
-     * see #getPresentationForms()
-     * see #getOnlineResources()
+     * @see #getTitle()
+     * @see #getDates()
+     * @see #getPresentationForms()
+     * @see #getOnlineResources()
      */
     @Override
     public Collection<Citation> getReferences() {
@@ -200,9 +200,9 @@ public final class Copyright extends Element implements LegalConstraints, Respon
      *
      * @return parties responsible for the resource constraints.
      *
-     * see #getRole()
-     * see #getParties()
-     * see #getCitedResponsibleParties()
+     * @see #getRole()
+     * @see #getParties()
+     * @see #getCitedResponsibleParties()
      */
     @Override
     public Collection<Responsibility> getResponsibleParties() {
@@ -245,7 +245,7 @@ public final class Copyright extends Element implements LegalConstraints, Respon
      *
      * @return information about the parties.
      *
-     * see #getName()
+     * @see #getName()
      */
     @Override
     public Collection<Party> getParties() {
@@ -311,8 +311,8 @@ public final class Copyright extends Element implements LegalConstraints, Respon
      *
      * @return reference date for the cited resource.
      *
-     * see #getDate()
-     * see #getDateType()
+     * @see #getDate()
+     * @see #getDateType()
      */
     @Override
     public Collection<CitationDate> getDates() {
@@ -384,7 +384,7 @@ public final class Copyright extends Element implements LegalConstraints, Respon
      *
      * @return the information for individuals or organisations that are responsible for the license.
      *
-     * see #getResponsibleParties()
+     * @see #getResponsibleParties()
      */
     @Override
     public Collection<Responsibility> getCitedResponsibleParties() {

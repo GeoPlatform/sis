@@ -49,7 +49,7 @@ import static org.apache.sis.util.Characters.isLineOrParagraphSeparator;
  * @version 0.3
  * @module
  *
- * see java.io.FilterWriter
+ * @see java.io.FilterWriter
  */
 abstract class Appender implements Appendable {
     /**
@@ -189,7 +189,7 @@ abstract class Appender implements Appendable {
      *
      * @return The content of this {@code Appendable}, or a localized message for unavailable content.
      *
-     * see IO#content(Appendable)
+     * @see IO#content(Appendable)
      */
     @Override
     public String toString() {

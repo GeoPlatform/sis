@@ -88,7 +88,7 @@ public class DefaultMetadataScope extends ISOMetadata implements MetadataScope {
      *
      * @param object  the metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(MetadataScope)
+     * @see #castOrCopy(MetadataScope)
      */
     public DefaultMetadataScope(final MetadataScope object) {
         super(object);

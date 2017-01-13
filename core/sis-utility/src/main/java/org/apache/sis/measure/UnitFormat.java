@@ -74,7 +74,7 @@ import org.apache.sis.util.collection.WeakValueHashMap;
  * @version 0.8
  * @module
  *
- * see Units#valueOf(String)
+ * @see Units#valueOf(String)
  */
 public class UnitFormat extends Format implements javax.measure.format.UnitFormat, Localized {
     /**
@@ -99,14 +99,14 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
     /**
      * The locale specified at construction time or modified by {@link #setLocale(Locale)}.
      *
-     * see #getLocale()
+     * @see #getLocale()
      */
     private Locale locale;
 
     /**
      * Whether this {@code UnitFormat} should format long names like "metre" or use unit symbols.
      *
-     * see #getStyle()
+     * @see #getStyle()
      */
     private Style style;
 
@@ -136,7 +136,7 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
          *
          * <p>This is the default style of {@link UnitFormat}.</p>
          *
-         * see Unit#getSymbol()
+         * @see Unit#getSymbol()
          */
         SYMBOL('⋅', '∕'),
 
@@ -155,7 +155,7 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
          *   <li>A period between two decimal digits is interpreted as a decimal separator.</li>
          * </ul>
          *
-         * see org.apache.sis.util.CharSequences#toASCII(CharSequence)
+         * @see org.apache.sis.util.CharSequences#toASCII(CharSequence)
          */
         UCUM('.', '/') {
             /** Replace non-ASCII characters on a "best effort" basis. */
@@ -194,7 +194,7 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
         /**
          * Format unit symbols as localized long names if known, or Unicode symbols otherwise.
          *
-         * see Unit#getName()
+         * @see Unit#getName()
          */
         NAME('⋅', '∕');
 
@@ -246,7 +246,7 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
     /**
      * Symbols or names to use for formatting unit in replacement to the default unit symbols or names.
      *
-     * see #label(Unit, String)
+     * @see #label(Unit, String)
      */
     private final Map<Unit<?>,String> unitToLabel;
 
@@ -254,7 +254,7 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
      * Units associated to a given label (in addition to the system-wide {@link UnitRegistry}).
      * This map is the converse of {@link #unitToLabel}.
      *
-     * see #label(Unit, String)
+     * @see #label(Unit, String)
      */
     private final Map<String,Unit<?>> labelToUnit;
 
@@ -262,7 +262,7 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
      * The mapping from unit symbols to long localized names.
      * Those resources are locale-dependent and loaded when first needed.
      *
-     * see #symbolToName()
+     * @see #symbolToName()
      */
     private transient volatile ResourceBundle symbolToName;
 
@@ -270,7 +270,7 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
      * Mapping from long localized and unlocalized names to unit instances.
      * This map is used only for parsing and created when first needed.
      *
-     * see #nameToUnit()
+     * @see #nameToUnit()
      */
     private transient volatile Map<String,Unit<?>> nameToUnit;
 
@@ -279,7 +279,7 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
      * if the user create many {@code UnitFormat} instances. Note that we do not cache {@link #symbolToName} because
      * {@link ResourceBundle} already provides its own caching mechanism.
      *
-     * see #nameToUnit()
+     * @see #nameToUnit()
      */
     private static final WeakValueHashMap<Locale, Map<String,Unit<?>>> SHARED = new WeakValueHashMap<>(Locale.class);
 
@@ -323,7 +323,7 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
      *
      * @param  locale  the new locale for this {@code UnitFormat}.
      *
-     * see UnitServices#getUnitFormat(String)
+     * @see UnitServices#getUnitFormat(String)
      */
     public void setLocale(final Locale locale) {
         ArgumentChecks.ensureNonNull("locale", locale);
@@ -765,7 +765,7 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
      * Returns {@code true} if the {@code '.'} character at the given index is surrounded by digits or
      * is at the beginning or the end of the character sequences. This check is used for heuristic rules.
      *
-     * see Style#UCUM
+     * @see Style#UCUM
      */
     private static boolean isDecimalSeparator(final CharSequence symbols, int i, final int length) {
         return (i   == 0      || isDigit(symbols.charAt(i-1)) &&
@@ -800,7 +800,7 @@ public class UnitFormat extends Format implements javax.measure.format.UnitForma
      * @return the unit parsed from the specified symbols.
      * @throws ParserException if a problem occurred while parsing the given symbols.
      *
-     * see Units#valueOf(String)
+     * @see Units#valueOf(String)
      */
     @Override
     @SuppressWarnings( {"null", "fallthrough"})

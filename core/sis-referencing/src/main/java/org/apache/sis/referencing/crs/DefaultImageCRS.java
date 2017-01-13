@@ -56,8 +56,8 @@ import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.referencing.datum.DefaultImageDatum
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createImageCRS(String)
+ * @see org.apache.sis.referencing.datum.DefaultImageDatum
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createImageCRS(String)
  */
 @XmlType(name = "ImageCRSType", propOrder = {
     "cartesianCS",
@@ -77,7 +77,7 @@ public class DefaultImageCRS extends AbstractCRS implements ImageCRS {
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setDatum(ImageDatum)}</p>
      *
-     * see #getDatum()
+     * @see #getDatum()
      */
     private ImageDatum datum;
 
@@ -130,7 +130,7 @@ public class DefaultImageCRS extends AbstractCRS implements ImageCRS {
      * @param datum The datum.
      * @param cs The coordinate system.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createImageCRS(Map, ImageDatum, AffineCS)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createImageCRS(Map, ImageDatum, AffineCS)
      */
     public DefaultImageCRS(final Map<String,?> properties,
                            final ImageDatum    datum,
@@ -150,7 +150,7 @@ public class DefaultImageCRS extends AbstractCRS implements ImageCRS {
      *
      * @param crs The coordinate reference system to copy.
      *
-     * see #castOrCopy(ImageCRS)
+     * @see #castOrCopy(ImageCRS)
      */
     protected DefaultImageCRS(final ImageCRS crs) {
         super(crs);
@@ -235,7 +235,7 @@ public class DefaultImageCRS extends AbstractCRS implements ImageCRS {
      *
      * @return {@code "ImageCRS"}.
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#79">WKT 2 specification §12</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#79">WKT 2 specification §12</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -277,7 +277,7 @@ public class DefaultImageCRS extends AbstractCRS implements ImageCRS {
     /**
      * Invoked by JAXB at unmarshalling time.
      *
-     * see #getDatum()
+     * @see #getDatum()
      */
     private void setDatum(final ImageDatum value) {
         if (datum == null) {
@@ -309,7 +309,7 @@ public class DefaultImageCRS extends AbstractCRS implements ImageCRS {
      * for an unknown reason, the unmarshalled CS object is empty. Maybe this is because the covariant return type
      * ({@code AffineCS} instead than {@code CoordinateSystem} in above code) is causing confusion.</div>
      *
-     * see <a href="http://issues.apache.org/jira/browse/SIS-166">SIS-166</a>
+     * @see <a href="http://issues.apache.org/jira/browse/SIS-166">SIS-166</a>
      */
     @XmlElement(name = "cartesianCS") private CartesianCS getCartesianCS() {return getCoordinateSystem(CartesianCS.class);}
     @XmlElement(name = "affineCS")    private AffineCS    getAffineCS()    {return getCoordinateSystem(AffineCS.class);}
@@ -317,7 +317,7 @@ public class DefaultImageCRS extends AbstractCRS implements ImageCRS {
     /**
      * Used by JAXB only (invoked by reflection).
      *
-     * see #getCartesianCS()
+     * @see #getCartesianCS()
      */
     private void setCartesianCS(final CartesianCS cs) {setCoordinateSystem("cartesianCS", cs);}
     private void setAffineCS   (final AffineCS    cs) {setCoordinateSystem("affineCS",    cs);}

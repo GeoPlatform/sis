@@ -104,8 +104,8 @@ public class MetadataBuilder {
      * Instructs {@link #newParty(byte)} that the next party to create should be an instance of
      * {@link DefaultIndividual}.
      *
-     * see #partyType
-     * see #newParty(byte)
+     * @see #partyType
+     * @see #newParty(byte)
      */
     public static final byte INDIVIDUAL = 1;
 
@@ -113,8 +113,8 @@ public class MetadataBuilder {
      * Instructs {@link #newParty(byte)} that the next party to create should be an instance of
      * {@link DefaultOrganisation}.
      *
-     * see #partyType
-     * see #newParty(byte)
+     * @see #partyType
+     * @see #newParty(byte)
      */
     public static final byte ORGANISATION = 2;
 
@@ -218,9 +218,9 @@ public class MetadataBuilder {
      * Value can be {@link #INDIVIDUAL}, {@link #ORGANISATION} or 0 if unknown, in which case an {@link AbstractParty}
      * will be created.
      *
-     * see #INDIVIDUAL
-     * see #ORGANISATION
-     * see #newParty(byte)
+     * @see #INDIVIDUAL
+     * @see #ORGANISATION
+     * @see #newParty(byte)
      */
     private byte partyType;
 
@@ -235,7 +235,7 @@ public class MetadataBuilder {
      * For using the same instance of {@code Double} when the value is the same.
      * We use this map because the same values appear many time in a Landsat file.
      *
-     * see #parseDouble(String)
+     * @see #parseDouble(String)
      */
     private final Map<Number,Number> sharedNumbers = new HashMap<>();
 
@@ -786,7 +786,7 @@ public class MetadataBuilder {
      * @param  endTime    when the data ends, or {@code null}.
      * @throws UnsupportedOperationException if the temporal module is not on the classpath.
      *
-     * see #addAcquisitionTime(Date)
+     * @see #addAcquisitionTime(Date)
      */
     public final void addExtent(final Date startTime, final Date endTime) {
         if (startTime != null || endTime != null) {
@@ -1227,7 +1227,7 @@ parse:      for (int i = 0; i < length;) {
      *
      * @param  time  the acquisition time, or {@code null}.
      *
-     * see #addExtent(Date, Date)
+     * @see #addExtent(Date, Date)
      */
     public final void addAcquisitionTime(final Date time) {
         if (time != null) {
@@ -1267,8 +1267,8 @@ parse:      for (int i = 0; i < length;) {
      *
      * @param  identifier  identification of the processing package that produced the data, or {@code null}.
      *
-     * see #addSoftwareReference(CharSequence)
-     * see #addHostComputer(CharSequence)
+     * @see #addSoftwareReference(CharSequence)
+     * @see #addHostComputer(CharSequence)
      */
     public final void addProcessing(String identifier) {
         if (identifier != null && !(identifier = identifier.trim()).isEmpty()) {

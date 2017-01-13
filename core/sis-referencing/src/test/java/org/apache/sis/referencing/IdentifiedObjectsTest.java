@@ -92,7 +92,7 @@ public final strictfp class IdentifiedObjectsTest extends TestCase {
      *
      * @throws FactoryException if an error occurred during the lookup.
      *
-     * see CRSTest#testIdentifiedObjectLookup()
+     * @see CRSTest#testIdentifiedObjectLookup()
      */
     public static void testLookupEPSG() throws FactoryException {
         assertEquals("EPSG:4326", Integer.valueOf(4326), IdentifiedObjects.lookupEPSG(HardCodedCRS.WGS84_φλ));
@@ -110,7 +110,7 @@ public final strictfp class IdentifiedObjectsTest extends TestCase {
      *
      * @throws FactoryException if an error occurred during the lookup.
      *
-     * see CRSTest#testIdentifiedObjectLookup()
+     * @see CRSTest#testIdentifiedObjectLookup()
      */
     public static void testLookupWMS() throws FactoryException {
         assertNull("CRS:84", IdentifiedObjects.lookupEPSG(HardCodedCRS.WGS84));

@@ -114,7 +114,7 @@ public class MetadataSource implements AutoCloseable {
      * In case there is no connection pool, then the mechanism defined in this package will hopefully
      * keeps the performance at a reasonable level.
      *
-     * see #closeExpired()
+     * @see #closeExpired()
      */
     private static final long TIMEOUT = 2000_000000;
 
@@ -141,7 +141,7 @@ public class MetadataSource implements AutoCloseable {
      * closed and set to {@code null} after all {@linkplain #statements cached statements}
      * have been closed.
      *
-     * see #connection()
+     * @see #connection()
      */
     private Connection connection;
 
@@ -175,8 +175,8 @@ public class MetadataSource implements AutoCloseable {
      *     }
      * }
      *
-     * see #take(Class, int)
-     * see #recycle(CachedStatement, int)
+     * @see #take(Class, int)
+     * @see #recycle(CachedStatement, int)
      */
     private final CachedStatement[] statements;
 
@@ -197,7 +197,7 @@ public class MetadataSource implements AutoCloseable {
      *
      * <p>Consider this field as final. This field is modified only by {@link #install()}.</p>
      *
-     * see #helper()
+     * @see #helper()
      */
     private boolean quoteSchema;
 
@@ -205,7 +205,7 @@ public class MetadataSource implements AutoCloseable {
      * A helper class used for constructing SQL statements. This helper is created when first needed,
      * then kept until the connection is closed.
      *
-     * see #helper()
+     * @see #helper()
      */
     private transient SQLBuilder helper;
 
@@ -213,14 +213,14 @@ public class MetadataSource implements AutoCloseable {
      * All columns found in tables that have been queried or created up to date.
      * Keys are table names and values are the columns defined for that table.
      *
-     * see #getExistingColumns(String)
+     * @see #getExistingColumns(String)
      */
     private final Map<String, Set<String>> tableColumns;
 
     /**
      * The class loader to use for creating {@link Proxy} instances.
      *
-     * see #lookup(Class, String)
+     * @see #lookup(Class, String)
      */
     private final ClassLoader classloader;
 
@@ -228,7 +228,7 @@ public class MetadataSource implements AutoCloseable {
      * The objects which have been created by a previous call to {@link #lookup(Class, String)}.
      * Used in order to share existing instances for the same interface and primary key.
      *
-     * see #lookup(Class, String)
+     * @see #lookup(Class, String)
      */
     private final WeakValueHashMap<CacheKey,Object> pool;
 
@@ -236,21 +236,21 @@ public class MetadataSource implements AutoCloseable {
      * The last converter used. This field exists only for performance purposes, on
      * the assumption that the last used converter has good chances to be used again.
      *
-     * see #getValue(Class, Method, Dispatcher)
+     * @see #getValue(Class, Method, Dispatcher)
      */
     private transient volatile ObjectConverter<?,?> lastConverter;
 
     /**
      * Where to report the warnings. This is not necessarily a logger, since users can register listeners.
      *
-     * see #getValue(Class, Method, Dispatcher)
+     * @see #getValue(Class, Method, Dispatcher)
      */
     private final WarningListeners<MetadataSource> listeners;
 
     /**
      * Whether at least one {@link CloseTask} is scheduled for execution.
      *
-     * see #scheduleCloseTask()
+     * @see #scheduleCloseTask()
      */
     private boolean isCloseScheduled;
 

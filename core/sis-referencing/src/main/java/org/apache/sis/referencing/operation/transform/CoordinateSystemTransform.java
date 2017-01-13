@@ -64,7 +64,7 @@ abstract class CoordinateSystemTransform extends AbstractMathTransform {
     /**
      * The complete transform, including conversion between degrees and radians.
      *
-     * see #completeTransform(MathTransformFactory)
+     * @see #completeTransform(MathTransformFactory)
      */
     private transient volatile MathTransform complete;
 
@@ -72,7 +72,7 @@ abstract class CoordinateSystemTransform extends AbstractMathTransform {
      * The {@link #complete} transform in a {@link PassThroughTransform} with a 1 trailing ordinate.
      * This is used for supporting the cylindrical case on top the polar case.
      *
-     * see #passthrough(MathTransformFactory)
+     * @see #passthrough(MathTransformFactory)
      */
     private transient volatile MathTransform passthrough;
 

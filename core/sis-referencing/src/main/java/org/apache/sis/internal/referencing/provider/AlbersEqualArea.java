@@ -35,7 +35,7 @@ import org.apache.sis.referencing.operation.projection.NormalizedProjection;
  * @version 0.8
  * @module
  *
- * see <a href="http://www.remotesensing.org/geotiff/proj_list/albers_equal_area_conic.html">Albers Equal-Area Conic on RemoteSensing.org</a>
+ * @see <a href="http://www.remotesensing.org/geotiff/proj_list/albers_equal_area_conic.html">Albers Equal-Area Conic on RemoteSensing.org</a>
  */
 @XmlTransient
 public final class AlbersEqualArea extends MapProjection {

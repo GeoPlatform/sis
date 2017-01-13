@@ -101,7 +101,7 @@ import org.opengis.referencing.datum.ParametricDatum;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createDerivedCRS(String)
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createDerivedCRS(String)
  */
 @XmlType(name="DerivedCRSType", propOrder = {
     "baseCRS",
@@ -173,7 +173,7 @@ public class DefaultDerivedCRS extends AbstractDerivedCRS<Conversion> implements
      * @throws MismatchedDimensionException if the source and target dimensions of {@code baseToDerived}
      *         do not match the dimensions of {@code base} and {@code derivedCS} respectively.
      *
-     * see #create(Map, SingleCRS, Conversion, CoordinateSystem)
+     * @see #create(Map, SingleCRS, Conversion, CoordinateSystem)
      */
     protected DefaultDerivedCRS(final Map<String,?>    properties,
                                 final SingleCRS        baseCRS,
@@ -238,7 +238,7 @@ public class DefaultDerivedCRS extends AbstractDerivedCRS<Conversion> implements
      * @param  derivedCS        The coordinate system for the derived CRS.
      * @throws IllegalArgumentException if at least one argument has an incompatible number of dimensions.
      *
-     * see #create(Map, SingleCRS, CoordinateReferenceSystem, OperationMethod, MathTransform, CoordinateSystem)
+     * @see #create(Map, SingleCRS, CoordinateReferenceSystem, OperationMethod, MathTransform, CoordinateSystem)
      */
     protected DefaultDerivedCRS(final Map<String,?>             properties,
                                 final SingleCRS                 baseCRS,
@@ -259,7 +259,7 @@ public class DefaultDerivedCRS extends AbstractDerivedCRS<Conversion> implements
      *
      * @param crs The coordinate reference system to copy.
      *
-     * see #castOrCopy(DerivedCRS)
+     * @see #castOrCopy(DerivedCRS)
      */
     protected DefaultDerivedCRS(final DerivedCRS crs) {
         super(crs);
@@ -283,8 +283,8 @@ public class DefaultDerivedCRS extends AbstractDerivedCRS<Conversion> implements
      * @throws MismatchedDimensionException if the source and target dimensions of {@code baseToDerived}
      *         do not match the dimensions of {@code base} and {@code derivedCS} respectively.
      *
-     * see #DefaultDerivedCRS(Map, SingleCRS, Conversion, CoordinateSystem)
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createDerivedCRS(Map, CoordinateReferenceSystem, Conversion, CoordinateSystem)
+     * @see #DefaultDerivedCRS(Map, SingleCRS, Conversion, CoordinateSystem)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createDerivedCRS(Map, CoordinateReferenceSystem, Conversion, CoordinateSystem)
      */
     public static DefaultDerivedCRS create(final Map<String,?>    properties,
                                            final SingleCRS        baseCRS,
@@ -338,7 +338,7 @@ public class DefaultDerivedCRS extends AbstractDerivedCRS<Conversion> implements
      * @return The newly created derived CRS, potentially implementing an additional CRS interface.
      * @throws IllegalArgumentException if at least one argument has an incompatible number of dimensions.
      *
-     * see #DefaultDerivedCRS(Map, SingleCRS, CoordinateReferenceSystem, OperationMethod, MathTransform, CoordinateSystem)
+     * @see #DefaultDerivedCRS(Map, SingleCRS, CoordinateReferenceSystem, OperationMethod, MathTransform, CoordinateSystem)
      */
     public static DefaultDerivedCRS create(final Map<String,?>             properties,
                                            final SingleCRS                 baseCRS,
@@ -528,7 +528,7 @@ public class DefaultDerivedCRS extends AbstractDerivedCRS<Conversion> implements
      *
      * @return {@code "Fitted_CS"} (WKT 1) or a type-dependent keyword (WKT 2).
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#93">WKT 2 specification §15</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#93">WKT 2 specification §15</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -944,7 +944,7 @@ public class DefaultDerivedCRS extends AbstractDerivedCRS<Conversion> implements
     /**
      * Used by JAXB only (invoked by reflection).
      *
-     * see #getBaseCRS()
+     * @see #getBaseCRS()
      */
     private void setBaseCRS(final SingleCRS crs) {
         setBaseCRS("baseCRS", crs);
@@ -953,7 +953,7 @@ public class DefaultDerivedCRS extends AbstractDerivedCRS<Conversion> implements
     /**
      * Used by JAXB only (invoked by reflection).
      *
-     * see #getCoordinateSystem()
+     * @see #getCoordinateSystem()
      */
     private void setCoordinateSystem(final CoordinateSystem cs) {
         setCoordinateSystem("coordinateSystem", cs);

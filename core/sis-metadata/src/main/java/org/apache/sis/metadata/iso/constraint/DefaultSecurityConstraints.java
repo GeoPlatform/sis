@@ -108,7 +108,7 @@ public class DefaultSecurityConstraints extends DefaultConstraints implements Se
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(SecurityConstraints)
+     * @see #castOrCopy(SecurityConstraints)
      */
     public DefaultSecurityConstraints(final SecurityConstraints object) {
         super(object);

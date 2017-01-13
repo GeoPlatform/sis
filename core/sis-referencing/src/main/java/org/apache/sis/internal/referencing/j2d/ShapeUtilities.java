@@ -63,7 +63,7 @@ public final class ShapeUtilities extends Static {
      * @param  by2 <var>y</var> value of the last  point on the second line.
      * @return The intersection point, or {@code null} if none.
      *
-     * see org.apache.sis.geometry.Shapes2D#intersectionPoint(Line2D, Line2D)
+     * @see org.apache.sis.geometry.Shapes2D#intersectionPoint(Line2D, Line2D)
      */
     public static Point2D.Double intersectionPoint(final double ax1, final double ay1, double ax2, double ay2,
                                                    final double bx1, final double by1, double bx2, double by2)
@@ -114,9 +114,9 @@ public final class ShapeUtilities extends Static {
      * @param  y  <var>y</var> value of a point close to the given line.
      * @return The nearest point on the given line.
      *
-     * see #colinearPoint(double,double , double,double , double,double , double)
+     * @see #colinearPoint(double,double , double,double , double,double , double)
      *
-     * see org.apache.sis.geometry.Shapes2D#nearestColinearPoint(Line2D, Point2D)
+     * @see org.apache.sis.geometry.Shapes2D#nearestColinearPoint(Line2D, Point2D)
      */
     public static Point2D.Double nearestColinearPoint(final double x1, final double y1,
                                                       final double x2, final double y2,
@@ -173,9 +173,9 @@ public final class ShapeUtilities extends Static {
      * @param  distance The distance between the given point and the point to be returned.
      * @return A point on the given line located at the given distance from the given point.
      *
-     * see #nearestColinearPoint(double,double , double,double , double,double)
+     * @see #nearestColinearPoint(double,double , double,double , double,double)
      *
-     * see org.apache.sis.geometry.Shapes2D#colinearPoint(Line2D, Point2D, double)
+     * @see org.apache.sis.geometry.Shapes2D#colinearPoint(Line2D, Point2D, double)
      */
     public static Point2D.Double colinearPoint(double x1, double y1, double x2, double y2,
                                                double x, double y, double distance)
@@ -367,7 +367,7 @@ public final class ShapeUtilities extends Static {
      * @param  y3 <var>y</var> value of the third  point.
      * @return The center of a circle passing by the given points.
      *
-     * see org.apache.sis.geometry.Shapes2D#circle(Point2D, Point2D, Point2D)
+     * @see org.apache.sis.geometry.Shapes2D#circle(Point2D, Point2D, Point2D)
      */
     public static Point2D.Double circleCentre(double x1, double y1,
                                               double x2, double y2,

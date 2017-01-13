@@ -100,7 +100,7 @@ public class DefaultOrganisation extends AbstractParty implements Organisation {
 	 *
 	 * @param object The metadata to copy values from, or {@code null} if none.
 	 *
-	 * see #castOrCopy(Organisation)
+	 * @see #castOrCopy(Organisation)
 	 */
 	public DefaultOrganisation(final Organisation object) {
 		super(object);

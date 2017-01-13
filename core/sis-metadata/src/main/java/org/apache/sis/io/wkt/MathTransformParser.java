@@ -60,7 +60,7 @@ import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
  * @version 0.8
  * @module
  *
- * see <a href="http://www.geoapi.org/snapshot/javadoc/org/opengis/referencing/doc-files/WKT.html">Well Know Text specification</a>
+ * @see <a href="http://www.geoapi.org/snapshot/javadoc/org/opengis/referencing/doc-files/WKT.html">Well Know Text specification</a>
  */
 class MathTransformParser extends AbstractParser {
     /**
@@ -98,7 +98,7 @@ class MathTransformParser extends AbstractParser {
     /**
      * The method for the last math transform passed, or {@code null} if none.
      *
-     * see #getOperationMethod()
+     * @see #getOperationMethod()
      */
     private transient OperationMethod lastMethod;
 

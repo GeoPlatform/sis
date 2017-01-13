@@ -46,8 +46,8 @@ import org.opengis.feature.PropertyNotFoundException;
  * @version 0.8
  * @module
  *
- * see DenseFeature
- * see DefaultFeatureType
+ * @see DenseFeature
+ * @see DefaultFeatureType
  */
 final class SparseFeature extends AbstractFeature implements Cloneable {
     /**
@@ -88,7 +88,7 @@ final class SparseFeature extends AbstractFeature implements Cloneable {
      * requested. The intend is to reduce the amount of allocated objects as much as possible, because
      * typical SIS applications may create a very large amount of features.
      *
-     * see #valuesKind
+     * @see #valuesKind
      */
     private HashMap<Integer, Object> properties;
 

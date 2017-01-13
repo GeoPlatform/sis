@@ -78,7 +78,7 @@ public class GeoRSSData implements QuadTreeData {
 
 
     /* (non-Javadoc)
-    * see org.apache.sis.storage.QuadTreeData#getLatLon()
+    * @see org.apache.sis.storage.QuadTreeData#getLatLon()
     */
     @Override
     public DirectPosition2D getLatLon() {

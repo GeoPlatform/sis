@@ -57,7 +57,7 @@ public class SQLBuilder {
      * Whether the schema name should be written between quotes. If {@code false},
      * we will let the database engine uses its default lower case / upper case policy.
      *
-     * see #appendIdentifier(String, String)
+     * @see #appendIdentifier(String, String)
      */
     private final boolean quoteSchema;
 

@@ -51,7 +51,7 @@ import org.opengis.feature.MultiValuedPropertyException;
  * @version 0.6
  * @module
  *
- * see DefaultAttributeType
+ * @see DefaultAttributeType
  */
 final class MultiValuedAttribute<V> extends AbstractAttribute<V> {
     /**

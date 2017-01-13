@@ -44,7 +44,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#isWrapperFor(java.lang.Class)
+     * @see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#isWrapperFor(java.lang.Class)
      */
     @Override public boolean isWrapperFor(Class<?> iface) {
         logStep("isWrapperFor", iface);
@@ -52,7 +52,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#allProceduresAreCallable()
+     * @see java.sql.DatabaseMetaData#allProceduresAreCallable()
      */
     @Override public boolean allProceduresAreCallable() {
         logStep("allProceduresAreCallable");
@@ -60,7 +60,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#allTablesAreSelectable()
+     * @see java.sql.DatabaseMetaData#allTablesAreSelectable()
      */
     @Override public boolean allTablesAreSelectable() {
         logStep("allTablesAreSelectable");
@@ -68,7 +68,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getColumns(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+     * @see java.sql.DatabaseMetaData#getColumns(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
      * @throws SQLConnectionClosedException if the connection is closed.
      */
     @Override
@@ -88,7 +88,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getURL()
+     * @see java.sql.DatabaseMetaData#getURL()
      */
     @Override public String getURL() {
         logStep("getURL");
@@ -96,7 +96,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getUserName()
+     * @see java.sql.DatabaseMetaData#getUserName()
      */
     @Override public String getUserName() {
         logStep("getUserName");
@@ -104,7 +104,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#isReadOnly()
+     * @see java.sql.DatabaseMetaData#isReadOnly()
      */
     @Override public boolean isReadOnly() {
         logStep("isReadOnly");
@@ -112,7 +112,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#nullsAreSortedHigh()
+     * @see java.sql.DatabaseMetaData#nullsAreSortedHigh()
      */
     @Override public boolean nullsAreSortedHigh() {
         logStep("nullsAreSortedHigh");
@@ -120,7 +120,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#nullsAreSortedLow()
+     * @see java.sql.DatabaseMetaData#nullsAreSortedLow()
      */
     @Override public boolean nullsAreSortedLow() {
         logStep("nullsAreSortedLow");
@@ -128,7 +128,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#nullsAreSortedAtStart()
+     * @see java.sql.DatabaseMetaData#nullsAreSortedAtStart()
      */
     @Override public boolean nullsAreSortedAtStart() {
         logStep("nullsAreSortedAtStart");
@@ -136,7 +136,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#nullsAreSortedAtEnd()
+     * @see java.sql.DatabaseMetaData#nullsAreSortedAtEnd()
      */
     @Override public boolean nullsAreSortedAtEnd() {
         logStep("nullsAreSortedAtEnd");
@@ -144,7 +144,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getDatabaseProductName()
+     * @see java.sql.DatabaseMetaData#getDatabaseProductName()
      */
     @Override public String getDatabaseProductName() {
         logStep("getDatabaseProductName");
@@ -152,7 +152,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getDatabaseProductVersion()
+     * @see java.sql.DatabaseMetaData#getDatabaseProductVersion()
      */
     @Override public String getDatabaseProductVersion() {
         logStep("getDatabaseProductVersion");
@@ -160,7 +160,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getDriverName()
+     * @see java.sql.DatabaseMetaData#getDriverName()
      */
     @Override public String getDriverName() {
         logStep("getDriverName");
@@ -168,7 +168,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getDriverVersion()
+     * @see java.sql.DatabaseMetaData#getDriverVersion()
      */
     @Override public String getDriverVersion() {
         logStep("getDriverVersion");
@@ -176,7 +176,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getDriverMajorVersion()
+     * @see java.sql.DatabaseMetaData#getDriverMajorVersion()
      */
     @Override public int getDriverMajorVersion() {
         logStep("getDriverMajorVersion");
@@ -184,7 +184,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getDriverMinorVersion()
+     * @see java.sql.DatabaseMetaData#getDriverMinorVersion()
      */
     @Override public int getDriverMinorVersion() {
         logStep("getDriverMinorVersion");
@@ -192,7 +192,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#usesLocalFiles()
+     * @see java.sql.DatabaseMetaData#usesLocalFiles()
      */
     @Override public boolean usesLocalFiles() {
         logStep("usesLocalFiles");
@@ -200,7 +200,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#usesLocalFilePerTable()
+     * @see java.sql.DatabaseMetaData#usesLocalFilePerTable()
      */
     @Override public boolean usesLocalFilePerTable() {
         logStep("usesLocalFilePerTable");
@@ -208,7 +208,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsMixedCaseIdentifiers()
+     * @see java.sql.DatabaseMetaData#supportsMixedCaseIdentifiers()
      */
     @Override public boolean supportsMixedCaseIdentifiers() {
         logStep("supportsMixedCaseIdentifiers");
@@ -216,7 +216,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#storesUpperCaseIdentifiers()
+     * @see java.sql.DatabaseMetaData#storesUpperCaseIdentifiers()
      */
     @Override public boolean storesUpperCaseIdentifiers() {
         logStep("storesUpperCaseIdentifiers");
@@ -224,7 +224,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#storesLowerCaseIdentifiers()
+     * @see java.sql.DatabaseMetaData#storesLowerCaseIdentifiers()
      */
     @Override public boolean storesLowerCaseIdentifiers() {
         logStep("storesLowerCaseIdentifiers");
@@ -232,7 +232,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#storesMixedCaseIdentifiers()
+     * @see java.sql.DatabaseMetaData#storesMixedCaseIdentifiers()
      */
     @Override public boolean storesMixedCaseIdentifiers() {
         logStep("storesMixedCaseIdentifiers");
@@ -240,7 +240,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsMixedCaseQuotedIdentifiers()
+     * @see java.sql.DatabaseMetaData#supportsMixedCaseQuotedIdentifiers()
      */
     @Override public boolean supportsMixedCaseQuotedIdentifiers() {
         logStep("supportsMixedCaseQuotedIdentifiers");
@@ -248,7 +248,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#storesUpperCaseQuotedIdentifiers()
+     * @see java.sql.DatabaseMetaData#storesUpperCaseQuotedIdentifiers()
      */
     @Override public boolean storesUpperCaseQuotedIdentifiers() {
         logStep("storesUpperCaseQuotedIdentifiers");
@@ -256,7 +256,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#storesLowerCaseQuotedIdentifiers()
+     * @see java.sql.DatabaseMetaData#storesLowerCaseQuotedIdentifiers()
      */
     @Override public boolean storesLowerCaseQuotedIdentifiers() {
         logStep("storesLowerCaseQuotedIdentifiers");
@@ -264,7 +264,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#storesMixedCaseQuotedIdentifiers()
+     * @see java.sql.DatabaseMetaData#storesMixedCaseQuotedIdentifiers()
      */
     @Override public boolean storesMixedCaseQuotedIdentifiers() {
         logStep("storesMixedCaseQuotedIdentifiers");
@@ -272,7 +272,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getIdentifierQuoteString()
+     * @see java.sql.DatabaseMetaData#getIdentifierQuoteString()
      */
     @Override public String getIdentifierQuoteString() {
         logStep("getIdentifierQuoteString");
@@ -280,7 +280,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getSQLKeywords()
+     * @see java.sql.DatabaseMetaData#getSQLKeywords()
      */
     @Override public String getSQLKeywords() {
         logStep("getSQLKeywords");
@@ -288,7 +288,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getNumericFunctions()
+     * @see java.sql.DatabaseMetaData#getNumericFunctions()
      */
     @Override public String getNumericFunctions() {
         logStep("getNumericFunctions");
@@ -296,7 +296,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getStringFunctions()
+     * @see java.sql.DatabaseMetaData#getStringFunctions()
      */
     @Override public String getStringFunctions() {
         logStep("getStringFunctions");
@@ -304,7 +304,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getSystemFunctions()
+     * @see java.sql.DatabaseMetaData#getSystemFunctions()
      */
     @Override public String getSystemFunctions() {
         logStep("getSystemFunctions");
@@ -312,7 +312,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getTimeDateFunctions()
+     * @see java.sql.DatabaseMetaData#getTimeDateFunctions()
      */
     @Override public String getTimeDateFunctions() {
         logStep("getTimeDateFunctions");
@@ -320,7 +320,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getExtraNameCharacters()
+     * @see java.sql.DatabaseMetaData#getExtraNameCharacters()
      */
     @Override public String getExtraNameCharacters() {
         logStep("getExtraNameCharacters");
@@ -328,7 +328,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsAlterTableWithAddColumn()
+     * @see java.sql.DatabaseMetaData#supportsAlterTableWithAddColumn()
      */
     @Override public boolean supportsAlterTableWithAddColumn() {
         logStep("supportsAlterTableWithAddColumn");
@@ -336,7 +336,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsAlterTableWithDropColumn()
+     * @see java.sql.DatabaseMetaData#supportsAlterTableWithDropColumn()
      */
     @Override public boolean supportsAlterTableWithDropColumn() {
         logStep("supportsAlterTableWithDropColumn");
@@ -344,7 +344,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsColumnAliasing()
+     * @see java.sql.DatabaseMetaData#supportsColumnAliasing()
      */
     @Override public boolean supportsColumnAliasing() {
         logStep("supportsColumnAliasing");
@@ -352,7 +352,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#nullPlusNonNullIsNull()
+     * @see java.sql.DatabaseMetaData#nullPlusNonNullIsNull()
      */
     @Override public boolean nullPlusNonNullIsNull() {
         logStep("nullPlusNonNullIsNull");
@@ -360,7 +360,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsConvert()
+     * @see java.sql.DatabaseMetaData#supportsConvert()
      */
     @Override public boolean supportsConvert() {
         logStep("supportsConvert");
@@ -368,7 +368,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsConvert(int, int)
+     * @see java.sql.DatabaseMetaData#supportsConvert(int, int)
      */
     @Override public boolean supportsConvert(int fromType, int toType) {
         logStep("supportsConvert", fromType, toType);
@@ -376,7 +376,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsTableCorrelationNames()
+     * @see java.sql.DatabaseMetaData#supportsTableCorrelationNames()
      */
     @Override public boolean supportsTableCorrelationNames() {
         logStep("supportsTableCorrelationNames");
@@ -384,7 +384,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsDifferentTableCorrelationNames()
+     * @see java.sql.DatabaseMetaData#supportsDifferentTableCorrelationNames()
      */
     @Override public boolean supportsDifferentTableCorrelationNames() {
         logStep("supportsDifferentTableCorrelationNames");
@@ -392,7 +392,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsExpressionsInOrderBy()
+     * @see java.sql.DatabaseMetaData#supportsExpressionsInOrderBy()
      */
     @Override public boolean supportsExpressionsInOrderBy() {
         logStep("supportsExpressionsInOrderBy");
@@ -400,7 +400,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsOrderByUnrelated()
+     * @see java.sql.DatabaseMetaData#supportsOrderByUnrelated()
      */
     @Override public boolean supportsOrderByUnrelated() {
         logStep("supportsOrderByUnrelated");
@@ -408,7 +408,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsGroupBy()
+     * @see java.sql.DatabaseMetaData#supportsGroupBy()
      */
     @Override public boolean supportsGroupBy() {
         logStep("supportsGroupBy");
@@ -416,14 +416,14 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsGroupByUnrelated()
+     * @see java.sql.DatabaseMetaData#supportsGroupByUnrelated()
      */
     @Override public boolean supportsGroupByUnrelated() {
         logStep("supportsGroupByUnrelated");
         return false;
     }
     /**
-     * see java.sql.DatabaseMetaData#supportsGroupByBeyondSelect()
+     * @see java.sql.DatabaseMetaData#supportsGroupByBeyondSelect()
      */
     @Override public boolean supportsGroupByBeyondSelect() {
         logStep("supportsGroupByBeyondSelect");
@@ -431,7 +431,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsLikeEscapeClause()
+     * @see java.sql.DatabaseMetaData#supportsLikeEscapeClause()
      */
     @Override public boolean supportsLikeEscapeClause() {
         logStep("supportsLikeEscapeClause");
@@ -439,7 +439,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsMultipleResultSets()
+     * @see java.sql.DatabaseMetaData#supportsMultipleResultSets()
      */
     @Override public boolean supportsMultipleResultSets() {
         logStep("supportsMultipleResultSets");
@@ -447,7 +447,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsMultipleTransactions()
+     * @see java.sql.DatabaseMetaData#supportsMultipleTransactions()
      */
     @Override public boolean supportsMultipleTransactions() {
         logStep("supportsMultipleTransactions");
@@ -455,7 +455,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsNonNullableColumns()
+     * @see java.sql.DatabaseMetaData#supportsNonNullableColumns()
      */
     @Override public boolean supportsNonNullableColumns() {
         logStep("supportsNonNullableColumns");
@@ -463,7 +463,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsMinimumSQLGrammar()
+     * @see java.sql.DatabaseMetaData#supportsMinimumSQLGrammar()
      */
     @Override public boolean supportsMinimumSQLGrammar() {
         logStep("supportsMinimumSQLGrammar");
@@ -471,7 +471,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsCoreSQLGrammar()
+     * @see java.sql.DatabaseMetaData#supportsCoreSQLGrammar()
      */
     @Override public boolean supportsCoreSQLGrammar() {
         logStep("supportsCoreSQLGrammar");
@@ -479,7 +479,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsExtendedSQLGrammar()
+     * @see java.sql.DatabaseMetaData#supportsExtendedSQLGrammar()
      */
     @Override public boolean supportsExtendedSQLGrammar() {
         logStep("supportsExtendedSQLGrammar");
@@ -487,7 +487,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsANSI92EntryLevelSQL()
+     * @see java.sql.DatabaseMetaData#supportsANSI92EntryLevelSQL()
      */
     @Override public boolean supportsANSI92EntryLevelSQL() {
         logStep("supportsANSI92EntryLevelSQL");
@@ -495,7 +495,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsANSI92IntermediateSQL()
+     * @see java.sql.DatabaseMetaData#supportsANSI92IntermediateSQL()
      */
     @Override public boolean supportsANSI92IntermediateSQL() {
         logStep("supportsANSI92IntermediateSQL");
@@ -503,7 +503,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsANSI92FullSQL()
+     * @see java.sql.DatabaseMetaData#supportsANSI92FullSQL()
      */
     @Override public boolean supportsANSI92FullSQL() {
         logStep("supportsANSI92FullSQL");
@@ -511,7 +511,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsIntegrityEnhancementFacility()
+     * @see java.sql.DatabaseMetaData#supportsIntegrityEnhancementFacility()
      */
     @Override public boolean supportsIntegrityEnhancementFacility() {
         logStep("supportsIntegrityEnhancementFacility");
@@ -519,7 +519,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsOuterJoins()
+     * @see java.sql.DatabaseMetaData#supportsOuterJoins()
      */
     @Override public boolean supportsOuterJoins() {
         logStep("supportsOuterJoins");
@@ -527,7 +527,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsFullOuterJoins()
+     * @see java.sql.DatabaseMetaData#supportsFullOuterJoins()
      */
     @Override public boolean supportsFullOuterJoins() {
         logStep("supportsFullOuterJoins");
@@ -535,7 +535,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsLimitedOuterJoins()
+     * @see java.sql.DatabaseMetaData#supportsLimitedOuterJoins()
      */
     @Override public boolean supportsLimitedOuterJoins() {
         logStep("supportsLimitedOuterJoins");
@@ -543,7 +543,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getSchemaTerm()
+     * @see java.sql.DatabaseMetaData#getSchemaTerm()
      */
     @Override public String getSchemaTerm() {
         logStep("getSchemaTerm");
@@ -551,7 +551,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getProcedureTerm()
+     * @see java.sql.DatabaseMetaData#getProcedureTerm()
      */
     @Override public String getProcedureTerm() {
         logStep("getProcedureTerm");
@@ -559,7 +559,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getCatalogTerm()
+     * @see java.sql.DatabaseMetaData#getCatalogTerm()
      */
     @Override public String getCatalogTerm() {
         logStep("getCatalogTerm");
@@ -567,7 +567,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#isCatalogAtStart()
+     * @see java.sql.DatabaseMetaData#isCatalogAtStart()
      */
     @Override public boolean isCatalogAtStart() {
         logStep("isCatalogAtStart");
@@ -575,7 +575,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getCatalogSeparator()
+     * @see java.sql.DatabaseMetaData#getCatalogSeparator()
      */
     @Override public String getCatalogSeparator() {
         logStep("getCatalogSeparator");
@@ -583,7 +583,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsSchemasInDataManipulation()
+     * @see java.sql.DatabaseMetaData#supportsSchemasInDataManipulation()
      */
     @Override public boolean supportsSchemasInDataManipulation() {
         logStep("supportsSchemasInDataManipulation");
@@ -591,7 +591,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsSchemasInProcedureCalls()
+     * @see java.sql.DatabaseMetaData#supportsSchemasInProcedureCalls()
      */
     @Override public boolean supportsSchemasInProcedureCalls() {
         logStep("supportsSchemasInProcedureCalls");
@@ -599,7 +599,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsSchemasInTableDefinitions()
+     * @see java.sql.DatabaseMetaData#supportsSchemasInTableDefinitions()
      */
     @Override public boolean supportsSchemasInTableDefinitions() {
         logStep("supportsSchemasInTableDefinitions");
@@ -607,7 +607,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsSchemasInIndexDefinitions()
+     * @see java.sql.DatabaseMetaData#supportsSchemasInIndexDefinitions()
      */
     @Override public boolean supportsSchemasInIndexDefinitions() {
         logStep("supportsSchemasInIndexDefinitions");
@@ -615,7 +615,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsSchemasInPrivilegeDefinitions()
+     * @see java.sql.DatabaseMetaData#supportsSchemasInPrivilegeDefinitions()
      */
     @Override public boolean supportsSchemasInPrivilegeDefinitions() {
         logStep("supportsSchemasInPrivilegeDefinitions");
@@ -623,7 +623,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsCatalogsInDataManipulation()
+     * @see java.sql.DatabaseMetaData#supportsCatalogsInDataManipulation()
      */
     @Override public boolean supportsCatalogsInDataManipulation() {
         logStep("supportsCatalogsInDataManipulation");
@@ -631,7 +631,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsCatalogsInProcedureCalls()
+     * @see java.sql.DatabaseMetaData#supportsCatalogsInProcedureCalls()
      */
     @Override public boolean supportsCatalogsInProcedureCalls() {
         logStep("supportsCatalogsInProcedureCalls");
@@ -639,7 +639,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsCatalogsInTableDefinitions()
+     * @see java.sql.DatabaseMetaData#supportsCatalogsInTableDefinitions()
      */
     @Override public boolean supportsCatalogsInTableDefinitions() {
         logStep("supportsCatalogsInTableDefinitions");
@@ -647,7 +647,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsCatalogsInIndexDefinitions()
+     * @see java.sql.DatabaseMetaData#supportsCatalogsInIndexDefinitions()
      */
     @Override public boolean supportsCatalogsInIndexDefinitions() {
         logStep("supportsCatalogsInIndexDefinitions");
@@ -655,7 +655,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsCatalogsInPrivilegeDefinitions()
+     * @see java.sql.DatabaseMetaData#supportsCatalogsInPrivilegeDefinitions()
      */
     @Override public boolean supportsCatalogsInPrivilegeDefinitions() {
         logStep("supportsCatalogsInPrivilegeDefinitions");
@@ -663,7 +663,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsPositionedDelete()
+     * @see java.sql.DatabaseMetaData#supportsPositionedDelete()
      */
     @Override public boolean supportsPositionedDelete() {
         logStep("supportsPositionedDelete");
@@ -671,7 +671,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsPositionedUpdate()
+     * @see java.sql.DatabaseMetaData#supportsPositionedUpdate()
      */
     @Override public boolean supportsPositionedUpdate() {
         logStep("supportsPositionedUpdate");
@@ -679,7 +679,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsSelectForUpdate()
+     * @see java.sql.DatabaseMetaData#supportsSelectForUpdate()
      */
     @Override public boolean supportsSelectForUpdate() {
         logStep("supportsSelectForUpdate");
@@ -687,7 +687,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsStoredProcedures()
+     * @see java.sql.DatabaseMetaData#supportsStoredProcedures()
      */
     @Override public boolean supportsStoredProcedures() {
         logStep("supportsStoredProcedures");
@@ -695,7 +695,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsSubqueriesInComparisons()
+     * @see java.sql.DatabaseMetaData#supportsSubqueriesInComparisons()
      */
     @Override public boolean supportsSubqueriesInComparisons() {
         logStep("supportsStoredProcedures");
@@ -703,7 +703,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsSubqueriesInExists()
+     * @see java.sql.DatabaseMetaData#supportsSubqueriesInExists()
      */
     @Override public boolean supportsSubqueriesInExists() {
         logStep("supportsSubqueriesInExists");
@@ -711,7 +711,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsSubqueriesInIns()
+     * @see java.sql.DatabaseMetaData#supportsSubqueriesInIns()
      */
     @Override public boolean supportsSubqueriesInIns() {
         logStep("supportsSubqueriesInIns");
@@ -719,7 +719,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsSubqueriesInQuantifieds()
+     * @see java.sql.DatabaseMetaData#supportsSubqueriesInQuantifieds()
      */
     @Override public boolean supportsSubqueriesInQuantifieds() {
         logStep("supportsSubqueriesInQuantifieds");
@@ -727,7 +727,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsCorrelatedSubqueries()
+     * @see java.sql.DatabaseMetaData#supportsCorrelatedSubqueries()
      */
     @Override public boolean supportsCorrelatedSubqueries() {
         logStep("supportsCorrelatedSubqueries");
@@ -735,7 +735,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsUnion()
+     * @see java.sql.DatabaseMetaData#supportsUnion()
      */
     @Override public boolean supportsUnion() {
         logStep("supportsUnion");
@@ -743,7 +743,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsUnionAll()
+     * @see java.sql.DatabaseMetaData#supportsUnionAll()
      */
     @Override public boolean supportsUnionAll() {
         logStep("supportsUnionAll");
@@ -751,7 +751,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsOpenCursorsAcrossCommit()
+     * @see java.sql.DatabaseMetaData#supportsOpenCursorsAcrossCommit()
      */
     @Override public boolean supportsOpenCursorsAcrossCommit() {
         logStep("supportsOpenCursorsAcrossCommit");
@@ -759,7 +759,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsOpenCursorsAcrossRollback()
+     * @see java.sql.DatabaseMetaData#supportsOpenCursorsAcrossRollback()
      */
     @Override public boolean supportsOpenCursorsAcrossRollback() {
         logStep("supportsOpenCursorsAcrossRollback");
@@ -767,7 +767,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsOpenStatementsAcrossCommit()
+     * @see java.sql.DatabaseMetaData#supportsOpenStatementsAcrossCommit()
      */
     @Override public boolean supportsOpenStatementsAcrossCommit() {
         logStep("supportsOpenStatementsAcrossCommit");
@@ -775,7 +775,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsOpenStatementsAcrossRollback()
+     * @see java.sql.DatabaseMetaData#supportsOpenStatementsAcrossRollback()
      */
     @Override public boolean supportsOpenStatementsAcrossRollback() {
         logStep("supportsOpenStatementsAcrossRollback");
@@ -783,7 +783,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxBinaryLiteralLength()
+     * @see java.sql.DatabaseMetaData#getMaxBinaryLiteralLength()
      */
     @Override public int getMaxBinaryLiteralLength() {
         logStep("getMaxBinaryLiteralLength");
@@ -791,7 +791,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxCharLiteralLength()
+     * @see java.sql.DatabaseMetaData#getMaxCharLiteralLength()
      */
     @Override public int getMaxCharLiteralLength() {
         logStep("getMaxCharLiteralLength");
@@ -799,7 +799,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxColumnNameLength()
+     * @see java.sql.DatabaseMetaData#getMaxColumnNameLength()
      */
     @Override public int getMaxColumnNameLength() {
         logStep("getMaxColumnNameLength");
@@ -807,7 +807,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxColumnsInGroupBy()
+     * @see java.sql.DatabaseMetaData#getMaxColumnsInGroupBy()
      */
     @Override public int getMaxColumnsInGroupBy() {
         logStep("getMaxColumnsInGroupBy");
@@ -815,7 +815,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxColumnsInIndex()
+     * @see java.sql.DatabaseMetaData#getMaxColumnsInIndex()
      */
     @Override public int getMaxColumnsInIndex() {
         logStep("getMaxColumnsInIndex");
@@ -823,7 +823,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxColumnsInOrderBy()
+     * @see java.sql.DatabaseMetaData#getMaxColumnsInOrderBy()
      */
     @Override public int getMaxColumnsInOrderBy() {
         logStep("getMaxColumnsInOrderBy");
@@ -831,7 +831,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxColumnsInSelect()
+     * @see java.sql.DatabaseMetaData#getMaxColumnsInSelect()
      */
     @Override public int getMaxColumnsInSelect() {
         logStep("getMaxColumnsInSelect");
@@ -839,7 +839,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxColumnsInTable()
+     * @see java.sql.DatabaseMetaData#getMaxColumnsInTable()
      */
     @Override public int getMaxColumnsInTable() {
         logStep("getMaxColumnsInTable");
@@ -847,7 +847,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxConnections()
+     * @see java.sql.DatabaseMetaData#getMaxConnections()
      */
     @Override public int getMaxConnections() {
         logStep("getMaxConnections");
@@ -855,7 +855,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxCursorNameLength()
+     * @see java.sql.DatabaseMetaData#getMaxCursorNameLength()
      */
     @Override public int getMaxCursorNameLength() {
         logStep("getMaxCursorNameLength");
@@ -863,7 +863,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxIndexLength()
+     * @see java.sql.DatabaseMetaData#getMaxIndexLength()
      */
     @Override public int getMaxIndexLength() {
         logStep("getMaxIndexLength");
@@ -871,7 +871,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxSchemaNameLength()
+     * @see java.sql.DatabaseMetaData#getMaxSchemaNameLength()
      */
     @Override public int getMaxSchemaNameLength() {
         logStep("getMaxSchemaNameLength");
@@ -879,7 +879,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxProcedureNameLength()
+     * @see java.sql.DatabaseMetaData#getMaxProcedureNameLength()
      */
     @Override public int getMaxProcedureNameLength() {
         logStep("getMaxProcedureNameLength");
@@ -887,7 +887,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxCatalogNameLength()
+     * @see java.sql.DatabaseMetaData#getMaxCatalogNameLength()
      */
     @Override public int getMaxCatalogNameLength() {
         logStep("getMaxCatalogNameLength");
@@ -895,7 +895,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxRowSize()
+     * @see java.sql.DatabaseMetaData#getMaxRowSize()
      */
     @Override public int getMaxRowSize() {
         logStep("getMaxRowSize");
@@ -903,7 +903,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#doesMaxRowSizeIncludeBlobs()
+     * @see java.sql.DatabaseMetaData#doesMaxRowSizeIncludeBlobs()
      */
     @Override public boolean doesMaxRowSizeIncludeBlobs() {
         logStep("doesMaxRowSizeIncludeBlobs");
@@ -911,7 +911,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxStatementLength()
+     * @see java.sql.DatabaseMetaData#getMaxStatementLength()
      */
     @Override public int getMaxStatementLength() {
         logStep("getMaxStatementLength");
@@ -919,7 +919,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxStatements()
+     * @see java.sql.DatabaseMetaData#getMaxStatements()
      */
     @Override public int getMaxStatements() {
         logStep("getMaxStatements");
@@ -927,7 +927,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxTableNameLength()
+     * @see java.sql.DatabaseMetaData#getMaxTableNameLength()
      */
     @Override public int getMaxTableNameLength() {
         logStep("getMaxTableNameLength");
@@ -935,7 +935,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxTablesInSelect()
+     * @see java.sql.DatabaseMetaData#getMaxTablesInSelect()
      */
     @Override public int getMaxTablesInSelect() {
         logStep("getMaxTablesInSelect");
@@ -943,7 +943,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getMaxUserNameLength()
+     * @see java.sql.DatabaseMetaData#getMaxUserNameLength()
      */
     @Override public int getMaxUserNameLength() {
         logStep("getMaxUserNameLength");
@@ -951,7 +951,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getDefaultTransactionIsolation()
+     * @see java.sql.DatabaseMetaData#getDefaultTransactionIsolation()
      */
     @Override public int getDefaultTransactionIsolation() {
         logStep("getDefaultTransactionIsolation");
@@ -959,7 +959,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsTransactions()
+     * @see java.sql.DatabaseMetaData#supportsTransactions()
      */
     @Override public boolean supportsTransactions() {
         logStep("supportsTransactions");
@@ -967,7 +967,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsTransactionIsolationLevel(int)
+     * @see java.sql.DatabaseMetaData#supportsTransactionIsolationLevel(int)
      */
     @Override public boolean supportsTransactionIsolationLevel(int level) {
         logStep("supportsTransactionIsolationLevel", level);
@@ -975,7 +975,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsDataDefinitionAndDataManipulationTransactions()
+     * @see java.sql.DatabaseMetaData#supportsDataDefinitionAndDataManipulationTransactions()
      */
     @Override public boolean supportsDataDefinitionAndDataManipulationTransactions() {
         logStep("supportsDataDefinitionAndDataManipulationTransactions");
@@ -983,7 +983,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsDataManipulationTransactionsOnly()
+     * @see java.sql.DatabaseMetaData#supportsDataManipulationTransactionsOnly()
      */
     @Override public boolean supportsDataManipulationTransactionsOnly() {
         logStep("supportsDataManipulationTransactionsOnly");
@@ -991,7 +991,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#dataDefinitionCausesTransactionCommit()
+     * @see java.sql.DatabaseMetaData#dataDefinitionCausesTransactionCommit()
      */
     @Override public boolean dataDefinitionCausesTransactionCommit() {
         logStep("dataDefinitionCausesTransactionCommit");
@@ -999,7 +999,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#dataDefinitionIgnoredInTransactions()
+     * @see java.sql.DatabaseMetaData#dataDefinitionIgnoredInTransactions()
      */
     @Override public boolean dataDefinitionIgnoredInTransactions() {
         logStep("dataDefinitionIgnoredInTransactions");
@@ -1007,7 +1007,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getTables(java.lang.String, java.lang.String, java.lang.String, java.lang.String[])
+     * @see java.sql.DatabaseMetaData#getTables(java.lang.String, java.lang.String, java.lang.String, java.lang.String[])
      */
     @SuppressWarnings("resource") // The statement will be closed by the caller.
     @Override public ResultSet getTables(String catalog, String schemaPattern, String tableNamePattern, String[] types) {
@@ -1020,7 +1020,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getSchemas()
+     * @see java.sql.DatabaseMetaData#getSchemas()
      */
     @SuppressWarnings("resource") // The statement will be closed by the caller.
     @Override public ResultSet getSchemas() {
@@ -1033,7 +1033,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getCatalogs()
+     * @see java.sql.DatabaseMetaData#getCatalogs()
      */
     @SuppressWarnings("resource") // The statement will be closed by the caller.
     @Override public ResultSet getCatalogs() {
@@ -1046,7 +1046,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getTableTypes()
+     * @see java.sql.DatabaseMetaData#getTableTypes()
      */
     @SuppressWarnings("resource") // The statement will be closed by the caller.
     @Override public ResultSet getTableTypes() {
@@ -1059,7 +1059,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsResultSetType(int)
+     * @see java.sql.DatabaseMetaData#supportsResultSetType(int)
      */
     @Override public boolean supportsResultSetType(int type) {
         logStep("supportsResultSetType", type);
@@ -1076,7 +1076,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsResultSetConcurrency(int, int)
+     * @see java.sql.DatabaseMetaData#supportsResultSetConcurrency(int, int)
      */
     @Override public boolean supportsResultSetConcurrency(int type, int concurrency) {
         logStep("supportsResultSetConcurrency", type, concurrency);
@@ -1084,7 +1084,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#ownUpdatesAreVisible(int)
+     * @see java.sql.DatabaseMetaData#ownUpdatesAreVisible(int)
      */
     @Override public boolean ownUpdatesAreVisible(int type) {
         logStep("ownUpdatesAreVisible", type);
@@ -1092,7 +1092,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#ownDeletesAreVisible(int)
+     * @see java.sql.DatabaseMetaData#ownDeletesAreVisible(int)
      */
     @Override public boolean ownDeletesAreVisible(int type) {
         logStep("ownDeletesAreVisible", type);
@@ -1100,7 +1100,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#ownInsertsAreVisible(int)
+     * @see java.sql.DatabaseMetaData#ownInsertsAreVisible(int)
      */
     @Override public boolean ownInsertsAreVisible(int type) {
         logStep("ownInsertsAreVisible", type);
@@ -1108,7 +1108,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#othersUpdatesAreVisible(int)
+     * @see java.sql.DatabaseMetaData#othersUpdatesAreVisible(int)
      */
     @Override public boolean othersUpdatesAreVisible(int type) {
         logStep("othersUpdatesAreVisible", type);
@@ -1116,7 +1116,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#othersDeletesAreVisible(int)
+     * @see java.sql.DatabaseMetaData#othersDeletesAreVisible(int)
      */
     @Override public boolean othersDeletesAreVisible(int type) {
         logStep("othersDeletesAreVisible", type);
@@ -1124,7 +1124,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#othersInsertsAreVisible(int)
+     * @see java.sql.DatabaseMetaData#othersInsertsAreVisible(int)
      */
     @Override public boolean othersInsertsAreVisible(int type) {
         logStep("othersInsertsAreVisible", type);
@@ -1132,7 +1132,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#updatesAreDetected(int)
+     * @see java.sql.DatabaseMetaData#updatesAreDetected(int)
      */
     @Override public boolean updatesAreDetected(int type) {
         logStep("updatesAreDetected", type);
@@ -1140,7 +1140,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#deletesAreDetected(int)
+     * @see java.sql.DatabaseMetaData#deletesAreDetected(int)
      */
     @Override public boolean deletesAreDetected(int type) {
         logStep("deletesAreDetected", type);
@@ -1148,7 +1148,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#insertsAreDetected(int)
+     * @see java.sql.DatabaseMetaData#insertsAreDetected(int)
      */
     @Override public boolean insertsAreDetected(int type) {
         logStep("insertsAreDetected", type);
@@ -1156,7 +1156,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsBatchUpdates()
+     * @see java.sql.DatabaseMetaData#supportsBatchUpdates()
      */
     @Override public boolean supportsBatchUpdates() {
         logStep("supportsBatchUpdates");
@@ -1164,7 +1164,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getConnection()
+     * @see java.sql.DatabaseMetaData#getConnection()
      */
     @Override public Connection getConnection() {
         logStep("getConnection");
@@ -1172,7 +1172,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsSavepoints()
+     * @see java.sql.DatabaseMetaData#supportsSavepoints()
      */
     @Override public boolean supportsSavepoints() {
         logStep("supportsSavepoints");
@@ -1180,7 +1180,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsNamedParameters()
+     * @see java.sql.DatabaseMetaData#supportsNamedParameters()
      */
     @Override public boolean supportsNamedParameters() {
         logStep("supportsNamedParameters");
@@ -1188,7 +1188,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsMultipleOpenResults()
+     * @see java.sql.DatabaseMetaData#supportsMultipleOpenResults()
      */
     @Override public boolean supportsMultipleOpenResults() {
         logStep("supportsMultipleOpenResults");
@@ -1196,7 +1196,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsGetGeneratedKeys()
+     * @see java.sql.DatabaseMetaData#supportsGetGeneratedKeys()
      */
     @Override public boolean supportsGetGeneratedKeys() {
         logStep("supportsGetGeneratedKeys");
@@ -1204,7 +1204,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsResultSetHoldability(int)
+     * @see java.sql.DatabaseMetaData#supportsResultSetHoldability(int)
      */
     @Override public boolean supportsResultSetHoldability(int holdability) {
         logStep("supportsResultSetHoldability", holdability);
@@ -1212,7 +1212,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getResultSetHoldability()
+     * @see java.sql.DatabaseMetaData#getResultSetHoldability()
      */
     @Override public int getResultSetHoldability() {
         logStep("getResultSetHoldability");
@@ -1220,7 +1220,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getDatabaseMajorVersion()
+     * @see java.sql.DatabaseMetaData#getDatabaseMajorVersion()
      */
     @Override public int getDatabaseMajorVersion() {
         logStep("getDatabaseMajorVersion");
@@ -1228,7 +1228,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getDatabaseMinorVersion()
+     * @see java.sql.DatabaseMetaData#getDatabaseMinorVersion()
      */
     @Override public int getDatabaseMinorVersion() {
         logStep("getDatabaseMinorVersion");
@@ -1236,7 +1236,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getJDBCMajorVersion()
+     * @see java.sql.DatabaseMetaData#getJDBCMajorVersion()
      */
     @Override public int getJDBCMajorVersion() {
         logStep("getJDBCMajorVersion");
@@ -1244,7 +1244,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#getJDBCMinorVersion()
+     * @see java.sql.DatabaseMetaData#getJDBCMinorVersion()
      */
     @Override public int getJDBCMinorVersion() {
         logStep("getJDBCMinorVersion");
@@ -1252,7 +1252,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#locatorsUpdateCopy()
+     * @see java.sql.DatabaseMetaData#locatorsUpdateCopy()
      */
     @Override public boolean locatorsUpdateCopy() {
         logStep("locatorsUpdateCopy");
@@ -1260,7 +1260,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsStatementPooling()
+     * @see java.sql.DatabaseMetaData#supportsStatementPooling()
      */
     @Override public boolean supportsStatementPooling() {
         logStep("supportsStatementPooling");
@@ -1268,7 +1268,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#supportsStoredFunctionsUsingCallSyntax()
+     * @see java.sql.DatabaseMetaData#supportsStoredFunctionsUsingCallSyntax()
      */
     @Override public boolean supportsStoredFunctionsUsingCallSyntax() {
         logStep("supportsStoredFunctionsUsingCallSyntax");
@@ -1276,7 +1276,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#autoCommitFailureClosesAllResultSets()
+     * @see java.sql.DatabaseMetaData#autoCommitFailureClosesAllResultSets()
      */
     @Override public boolean autoCommitFailureClosesAllResultSets() {
         logStep("autoCommitFailureClosesAllResultSets");
@@ -1284,7 +1284,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see java.sql.DatabaseMetaData#generatedKeyAlwaysReturned()
+     * @see java.sql.DatabaseMetaData#generatedKeyAlwaysReturned()
      */
     @Override public boolean generatedKeyAlwaysReturned() {
         logStep("generatedKeyAlwaysReturned");
@@ -1292,7 +1292,7 @@ public class DBFDatabaseMetaData extends AbstractDatabaseMetaData {
     }
 
     /**
-     * see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getInterface()
+     * @see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getInterface()
      */
     @Override protected Class<?> getInterface() {
         return DatabaseMetaData.class;

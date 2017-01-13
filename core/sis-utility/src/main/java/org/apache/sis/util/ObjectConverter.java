@@ -79,7 +79,7 @@ import java.util.function.Function;
  * @version 0.3
  * @module
  *
- * see ObjectConverters
+ * @see ObjectConverters
  */
 public interface ObjectConverter<S,T> extends Function<S,T> {
     /**
@@ -152,7 +152,7 @@ public interface ObjectConverter<S,T> extends Function<S,T> {
      * @return A converter for converting instances of <var>T</var> back to instances of <var>S</var>.
      * @throws UnsupportedOperationException If this converter is not invertible.
      *
-     * see FunctionProperty#INVERTIBLE
+     * @see FunctionProperty#INVERTIBLE
      */
     ObjectConverter<T,S> inverse() throws UnsupportedOperationException;
 }

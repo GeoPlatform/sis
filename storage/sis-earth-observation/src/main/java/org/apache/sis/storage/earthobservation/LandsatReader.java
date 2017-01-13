@@ -110,8 +110,8 @@ final class LandsatReader {
     /**
      * Names of Landsat bands.
      *
-     * see #bands
-     * see #band(int)
+     * @see #bands
+     * @see #band(int)
      */
     private static final String[] BAND_NAMES = {
         "Coastal Aerosol",                      //   433 nm
@@ -130,8 +130,8 @@ final class LandsatReader {
     /**
      * Peak response wavelength for the Landsat bands, in nanometres.
      *
-     * see #bands
-     * see #band(int)
+     * @see #bands
+     * @see #band(int)
      */
     private static final short[] WAVELENGTHS = {
         433, 482, 562, 655, 865, 1610, 2200, 590, 1375, 10800, 12000
@@ -208,7 +208,7 @@ final class LandsatReader {
      * An identifier of the file being read, or {@code null} if unknown.
      * This is used mostly for formatting error messages.
      *
-     * see #getFilename()
+     * @see #getFilename()
      */
     private String filename;
 
@@ -231,7 +231,7 @@ final class LandsatReader {
      * The acquisition time, or {@code null} if not yet known. This needs to be parsed in two steps:
      * first by parsing the {@code "DATE_ACQUIRED"} attribute, then {@code "SCENE_CENTER_TIME"}.
      *
-     * see #flushSceneTime()
+     * @see #flushSceneTime()
      */
     private Temporal sceneTime;
 
@@ -268,9 +268,9 @@ final class LandsatReader {
      *   <li>Thermal Infrared Sensor (TIRS) 2</li>
      * </ol>
      *
-     * see #BAND_NAMES
-     * see #WAVELENGTHS
-     * see #band(int)
+     * @see #BAND_NAMES
+     * @see #WAVELENGTHS
+     * @see #band(int)
      */
     private final DefaultBand[] bands;
 

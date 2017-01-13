@@ -114,7 +114,7 @@ public class DefaultAcquisitionInformation extends ISOMetadata implements Acquis
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(AcquisitionInformation)
+     * @see #castOrCopy(AcquisitionInformation)
      */
     public DefaultAcquisitionInformation(final AcquisitionInformation object) {
         super(object);

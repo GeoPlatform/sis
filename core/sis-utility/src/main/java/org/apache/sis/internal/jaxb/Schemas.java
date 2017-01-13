@@ -142,14 +142,14 @@ public final class Schemas {
      * <p>A localized version of this file exists also with the {@code "ML_gmxCodelists.xml"} filename
      * instead of {@code "gmxCodelists.xml"}</p>
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-154">SIS-154</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-154">SIS-154</a>
      */
     public static final String CODELISTS_PATH = "resources/Codelist/gmxCodelists.xml";
     
     /**
      * The string to append to {@link #METADATA_ROOT} for obtaining the path to the definitions of code lists.
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-154">SIS-154</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-154">SIS-154</a>
      */
     public static final String CODELISTS_PATH_NEW = "resources/Codelist/cat/codelists.xml";
 
@@ -160,7 +160,7 @@ public final class Schemas {
      * <p>A localized version of this file exists also with the {@code "ML_gmxUom.xml"} filename
      * instead of {@code "gmxUom.xml"}</p>
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-154">SIS-154</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-154">SIS-154</a>
      */
     public static final String UOM_PATH = "resources/uom/gmxUom.xml";
 

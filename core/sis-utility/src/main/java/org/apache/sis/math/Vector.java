@@ -88,7 +88,7 @@ import static org.apache.sis.util.ArgumentChecks.ensureValidIndex;
  * @version 0.8
  * @module
  *
- * see org.apache.sis.util.collection.IntegerList
+ * @see org.apache.sis.util.collection.IntegerList
  */
 public abstract class Vector extends AbstractList<Number> implements RandomAccess {
     /**
@@ -147,7 +147,7 @@ public abstract class Vector extends AbstractList<Number> implements RandomAcces
      * @param  array  the object to wrap in a vector, or {@code null}.
      * @return the given array wrapped in a vector, or {@code null} if the argument was {@code null}.
      *
-     * see DecimalFunctions#floatToDouble(float)
+     * @see DecimalFunctions#floatToDouble(float)
      */
     public static Vector createForDecimal(final float[] array) {
         return (array != null) ? new ArrayVector.Decimal(array) : null;
@@ -200,7 +200,7 @@ public abstract class Vector extends AbstractList<Number> implements RandomAcces
      *
      * @return the type of elements in this vector.
      *
-     * see org.apache.sis.util.collection.CheckedContainer#getElementType()
+     * @see org.apache.sis.util.collection.CheckedContainer#getElementType()
      */
     public abstract Class<? extends Number> getElementType();
 
@@ -432,7 +432,7 @@ public abstract class Vector extends AbstractList<Number> implements RandomAcces
      * @return the difference, always signed.
      * @throws ArithmeticException if the difference is too large.
      *
-     * see Math#subtractExact(long, long)
+     * @see Math#subtractExact(long, long)
      */
     final long subtract(final long a, final long b) {
         final long inc = a - b;

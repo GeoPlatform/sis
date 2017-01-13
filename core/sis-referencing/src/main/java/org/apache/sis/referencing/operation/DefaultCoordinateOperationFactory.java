@@ -101,7 +101,7 @@ public class DefaultCoordinateOperationFactory extends AbstractFactory implement
      * The factory to use if {@link CoordinateOperationFinder} needs to create CRS for intermediate steps.
      * Will be created only when first needed.
      *
-     * see #getCRSFactory()
+     * @see #getCRSFactory()
      */
     private volatile CRSFactory crsFactory;
 
@@ -109,14 +109,14 @@ public class DefaultCoordinateOperationFactory extends AbstractFactory implement
      * The factory to use if {@link CoordinateOperationFinder} needs to create CS for intermediate steps.
      * Will be created only when first needed.
      *
-     * see #getCSFactory()
+     * @see #getCSFactory()
      */
     private volatile CSFactory csFactory;
 
     /**
      * The math transform factory. Will be created only when first needed.
      *
-     * see #getMathTransformFactory()
+     * @see #getMathTransformFactory()
      */
     private volatile MathTransformFactory mtFactory;
 
@@ -133,7 +133,7 @@ public class DefaultCoordinateOperationFactory extends AbstractFactory implement
      * If current implementation, we cache only operations found without context (otherwise
      * we would need to take in account the area of interest and desired accuracy in the key).
      *
-     * see #createOperation(CoordinateReferenceSystem, CoordinateReferenceSystem, CoordinateOperationContext)
+     * @see #createOperation(CoordinateReferenceSystem, CoordinateReferenceSystem, CoordinateOperationContext)
      */
     final Cache<CRSPair,CoordinateOperation> cache;
 
@@ -267,7 +267,7 @@ public class DefaultCoordinateOperationFactory extends AbstractFactory implement
      * @return The operation method of the given name.
      * @throws FactoryException if the requested operation method can not be fetched.
      *
-     * see DefaultMathTransformFactory#getOperationMethod(String)
+     * @see DefaultMathTransformFactory#getOperationMethod(String)
      */
     @Override
     public OperationMethod getOperationMethod(String name) throws FactoryException {
@@ -331,7 +331,7 @@ public class DefaultCoordinateOperationFactory extends AbstractFactory implement
      * @return The operation method created from the given arguments.
      * @throws FactoryException if the object creation failed.
      *
-     * see DefaultOperationMethod#DefaultOperationMethod(Map, Integer, Integer, ParameterDescriptorGroup)
+     * @see DefaultOperationMethod#DefaultOperationMethod(Map, Integer, Integer, ParameterDescriptorGroup)
      */
     @Override
     public OperationMethod createOperationMethod(final Map<String,?> properties,
@@ -390,7 +390,7 @@ public class DefaultCoordinateOperationFactory extends AbstractFactory implement
      * @return The defining conversion created from the given arguments.
      * @throws FactoryException if the object creation failed.
      *
-     * see DefaultConversion#DefaultConversion(Map, OperationMethod, MathTransform, ParameterValueGroup)
+     * @see DefaultConversion#DefaultConversion(Map, OperationMethod, MathTransform, ParameterValueGroup)
      */
     @Override
     public Conversion createDefiningConversion(
@@ -486,9 +486,9 @@ next:   for (int i=components.size(); --i >= 0;) {
      * @return The coordinate operation created from the given arguments.
      * @throws FactoryException if the object creation failed.
      *
-     * see DefaultOperationMethod#getOperationType()
-     * see DefaultTransformation
-     * see DefaultConversion
+     * @see DefaultOperationMethod#getOperationType()
+     * @see DefaultTransformation
+     * @see DefaultConversion
      */
     public SingleOperation createSingleOperation(
             final Map<String,?>             properties,
@@ -709,7 +709,7 @@ next:   for (int i=components.size(); --i >= 0;) {
      * @throws OperationNotFoundException if no operation path was found from {@code sourceCRS} to {@code targetCRS}.
      * @throws FactoryException if the operation creation failed for some other reason.
      *
-     * see CoordinateOperationFinder
+     * @see CoordinateOperationFinder
      *
      * @since 0.7
      */

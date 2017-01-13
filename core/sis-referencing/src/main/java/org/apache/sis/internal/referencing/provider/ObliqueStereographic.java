@@ -34,7 +34,7 @@ import org.apache.sis.referencing.operation.projection.NormalizedProjection;
  * @version 0.8
  * @module
  *
- * see <a href="http://www.remotesensing.org/geotiff/proj_list/oblique_stereographic.html">Oblique Stereographic on RemoteSensing.org</a>
+ * @see <a href="http://www.remotesensing.org/geotiff/proj_list/oblique_stereographic.html">Oblique Stereographic on RemoteSensing.org</a>
  */
 @XmlTransient
 public final class ObliqueStereographic extends AbstractStereographic {

@@ -73,8 +73,8 @@ public final class Utilities extends Static {
      * @param  object2 The second object to compare (may be null).
      * @return {@code true} if both objects are equal, ignoring metadata.
      *
-     * see #deepEquals(Object, Object, ComparisonMode)
-     * see ComparisonMode#IGNORE_METADATA
+     * @see #deepEquals(Object, Object, ComparisonMode)
+     * @see ComparisonMode#IGNORE_METADATA
      */
     public static boolean equalsIgnoreMetadata(final Object object1, final Object object2) {
         return deepEquals(object1, object2, ComparisonMode.IGNORE_METADATA);
@@ -107,8 +107,8 @@ public final class Utilities extends Static {
      * @param  object2 The second object to compare (may be null).
      * @return {@code true} if both objects are approximatively equal.
      *
-     * see #deepEquals(Object, Object, ComparisonMode)
-     * see ComparisonMode#APPROXIMATIVE
+     * @see #deepEquals(Object, Object, ComparisonMode)
+     * @see ComparisonMode#APPROXIMATIVE
      */
     public static boolean equalsApproximatively(final Object object1, final Object object2) {
         return deepEquals(object1, object2, ComparisonMode.APPROXIMATIVE);
@@ -128,8 +128,8 @@ public final class Utilities extends Static {
      * @param  mode    The strictness level of the comparison.
      * @return {@code true} if both objects are equal for the given level of strictness.
      *
-     * see #equalsIgnoreMetadata(Object, Object)
-     * see #equalsApproximatively(Object, Object)
+     * @see #equalsIgnoreMetadata(Object, Object)
+     * @see #equalsApproximatively(Object, Object)
      */
     public static boolean deepEquals(final Object object1, final Object object2, final ComparisonMode mode) {
         if (object1 == object2) {

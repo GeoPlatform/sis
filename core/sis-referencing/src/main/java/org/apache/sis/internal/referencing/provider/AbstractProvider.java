@@ -137,7 +137,7 @@ public abstract class AbstractProvider extends DefaultOperationMethod implements
     /**
      * Creates a descriptor for a 0 constant value in degrees.
      *
-     * see MapProjection#validate(ParameterDescriptor, double)
+     * @see MapProjection#validate(ParameterDescriptor, double)
      */
     static ParameterDescriptor<Double> createZeroConstant(final ParameterBuilder builder) {
         final Double zero = +0.0;
@@ -234,7 +234,7 @@ public abstract class AbstractProvider extends DefaultOperationMethod implements
      *
      * @return {@code true} if the inverse of this operation method can be described by the same operation method.
      *
-     * see org.apache.sis.internal.referencing.SignReversalComment
+     * @see org.apache.sis.internal.referencing.SignReversalComment
      */
     public boolean isInvertible() {
         return false;

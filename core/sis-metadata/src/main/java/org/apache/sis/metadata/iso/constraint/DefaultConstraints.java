@@ -136,7 +136,7 @@ public class DefaultConstraints extends ISOMetadata implements Constraints {
 	 *
 	 * @param object the metadata to copy values from, or {@code null} if none.
 	 *
-	 * see #castOrCopy(Constraints)
+	 * @see #castOrCopy(Constraints)
 	 */
 	public DefaultConstraints(final Constraints object) {
 		super(object);
@@ -236,7 +236,7 @@ public class DefaultConstraints extends ISOMetadata implements Constraints {
 
 	/**
 	 * Gets the constraint application scope (used in ISO 19115-3 format).
-	 * see {@link #getConstraintApplicationScope}
+	 * @see {@link #getConstraintApplicationScope}
 	 */
 	@XmlElement(name = "constraintApplicationScope")
 	@XmlJavaTypeAdapter(MD_Scope.class)
@@ -246,7 +246,7 @@ public class DefaultConstraints extends ISOMetadata implements Constraints {
 
 	/**
 	 * Sets constraint application scope (used in ISO 19115-3 format).
-	 * see {@link #setConstraintApplicationScope}
+	 * @see {@link #setConstraintApplicationScope}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlConstraintApplicationScope(final Scope newValue) {
@@ -255,7 +255,7 @@ public class DefaultConstraints extends ISOMetadata implements Constraints {
 
 	/**
 	 * Gets the constraint application scope (used in ISO 19139 format).
-	 * see {@link #getConstraintApplicationScope}
+	 * @see {@link #getConstraintApplicationScope}
 	 */
 	@SuppressWarnings("deprecation")
 	@XmlElement(name = "constraintApplicationScope")
@@ -274,7 +274,7 @@ public class DefaultConstraints extends ISOMetadata implements Constraints {
 
 	/**
 	 * Sets constraint application scope (used in ISO 19139 format).
-	 * see {@link #setConstraintApplicationScope}
+	 * @see {@link #setConstraintApplicationScope}
 	 */
 	@SuppressWarnings({ "unused", "deprecation" })
 	private void setXmlConstraintApplicationScopeLegacy(final org.opengis.metadata.quality.Scope newValue) {
@@ -306,7 +306,7 @@ public class DefaultConstraints extends ISOMetadata implements Constraints {
 
 	/**
 	 * Gets the graphics (used in ISO 19115-3 format).
-	 * see {@link #getGraphics}
+	 * @see {@link #getGraphics}
 	 */
 	@XmlElement(name = "graphic")
 	private Collection<BrowseGraphic> getXmlGraphics() {
@@ -342,7 +342,7 @@ public class DefaultConstraints extends ISOMetadata implements Constraints {
 
 	/**
 	 * Gets the references (used in ISO 19115-3 format).
-	 * see {@link #getReferences}
+	 * @see {@link #getReferences}
 	 */
 	@XmlElement(name = "reference")
 	private Collection<Citation> getXmlReferences() {
@@ -378,7 +378,7 @@ public class DefaultConstraints extends ISOMetadata implements Constraints {
 
 	/**
 	 * Gets the releasability of this constraint (used in ISO 19115-3 format).
-	 * see {@link #getReleasability}
+	 * @see {@link #getReleasability}
 	 */
 	@XmlElement(name = "releasability")
 	private Releasability getXmlReleasability() {
@@ -387,7 +387,7 @@ public class DefaultConstraints extends ISOMetadata implements Constraints {
 
 	/**
 	 * Sets the releasability of this constraint (used in ISO 19115-3 format).
-	 * see {@link #setReleasability}
+	 * @see {@link #setReleasability}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlReleasability(final Releasability newValue) {
@@ -419,7 +419,7 @@ public class DefaultConstraints extends ISOMetadata implements Constraints {
 
 	/**
 	 * Gets the parties responsible for this constraint (used in ISO 19115-3 format).
-	 * see {@link #getResponsibleParties}
+	 * @see {@link #getResponsibleParties}
 	 */
 	@XmlElement(name = "responsibleParty")
 	private Collection<Responsibility> getXmlResponsibleParties() {

@@ -63,9 +63,9 @@ import org.opengis.metadata.citation.Citation;
  * @version 0.3
  * @module
  *
- * see IdentifierSpace
- * see org.apache.sis.metadata.iso.ISOMetadata
- * see ReferenceResolver#newIdentifiedObject(MarshalContext, Class, Identifier[])
+ * @see IdentifierSpace
+ * @see org.apache.sis.metadata.iso.ISOMetadata
+ * @see ReferenceResolver#newIdentifiedObject(MarshalContext, Class, Identifier[])
  */
 public interface IdentifiedObject {
     /**
@@ -92,9 +92,9 @@ public interface IdentifiedObject {
      *
      * @return All identifiers associated to this object, or an empty collection if none.
      *
-     * see org.apache.sis.metadata.iso.citation.DefaultCitation#getIdentifiers()
-     * see org.apache.sis.metadata.iso.acquisition.DefaultObjective#getIdentifiers()
-     * see org.apache.sis.referencing.AbstractIdentifiedObject#getIdentifiers()
+     * @see org.apache.sis.metadata.iso.citation.DefaultCitation#getIdentifiers()
+     * @see org.apache.sis.metadata.iso.acquisition.DefaultObjective#getIdentifiers()
+     * @see org.apache.sis.referencing.AbstractIdentifiedObject#getIdentifiers()
      */
     Collection<? extends Identifier> getIdentifiers();
 

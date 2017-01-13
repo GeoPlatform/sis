@@ -45,8 +45,8 @@ package org.apache.sis.util;
  * @version 0.7
  * @module
  *
- * see LenientComparable#equals(Object, ComparisonMode)
- * see Utilities#deepEquals(Object, Object, ComparisonMode)
+ * @see LenientComparable#equals(Object, ComparisonMode)
+ * @see Utilities#deepEquals(Object, Object, ComparisonMode)
  */
 public enum ComparisonMode {
     /**
@@ -65,7 +65,7 @@ public enum ComparisonMode {
      *   <li>Private fields are compared directly instead than invoking public getter methods.</li>
      * </ul>
      *
-     * see Object#equals(Object)
+     * @see Object#equals(Object)
      */
     STRICT,
 
@@ -116,7 +116,7 @@ public enum ComparisonMode {
      * value of 60° produces the same results than a <cite>"Mercator (1SP)"</cite> projection with a <cite>scale factor</cite>
      * value of 0.5.</div>
      *
-     * see org.apache.sis.util.Utilities#equalsIgnoreMetadata(Object, Object)
+     * @see org.apache.sis.util.Utilities#equalsIgnoreMetadata(Object, Object)
      */
     IGNORE_METADATA,
 

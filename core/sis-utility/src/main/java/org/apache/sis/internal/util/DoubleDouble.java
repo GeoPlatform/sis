@@ -60,7 +60,7 @@ import org.apache.sis.math.DecimalFunctions;
  * @version 0.8
  * @module
  *
- * see <a href="http://en.wikipedia.org/wiki/Double-double_%28arithmetic%29#Double-double_arithmetic">Wikipedia: Double-double arithmetic</a>
+ * @see <a href="http://en.wikipedia.org/wiki/Double-double_%28arithmetic%29#Double-double_arithmetic">Wikipedia: Double-double arithmetic</a>
  */
 public final class DoubleDouble extends Number {
     /**
@@ -123,7 +123,7 @@ public final class DoubleDouble extends Number {
      * <p>Elements in this array shall be sorted in strictly increasing order.
      * For any value at index <var>i</var>, the associated error is {@code ERRORS[i]}.
      *
-     * see #errorForWellKnownValue(double)
+     * @see #errorForWellKnownValue(double)
      */
     private static final double[] VALUES = {
         // Some of the following constants have more fraction digits than necessary. We declare the extra
@@ -490,7 +490,7 @@ public final class DoubleDouble extends Number {
      * @param  i1           index of the second value to swap.
      * @param  errorOffset  offset to add to the indices in order to get the error indices in the given array.
      *
-     * see org.apache.sis.util.ArraysExt#swap(double[], int, int)
+     * @see org.apache.sis.util.ArraysExt#swap(double[], int, int)
      */
     public static void swap(final double[] array, int i0, int i1, final int errorOffset) {
         double t = array[i0];

@@ -100,7 +100,7 @@ public class DefaultSpatialTemporalExtent extends DefaultTemporalExtent implemen
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(SpatialTemporalExtent)
+     * @see #castOrCopy(SpatialTemporalExtent)
      */
     public DefaultSpatialTemporalExtent(final SpatialTemporalExtent object) {
         super(object);

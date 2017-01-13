@@ -59,7 +59,7 @@ public class LazySet<E> extends SetOfUnknownSize<E> {
      * The iterator to use for filling this set, or {@code null} if the iteration did not started yet or is finished.
      * Those two cases can be distinguished by looking whether the {@link #cachedElements} array is null or not.
      *
-     * see #sourceIterator()
+     * @see #sourceIterator()
      */
     private Iterator<? extends E> sourceIterator;
 
@@ -67,8 +67,8 @@ public class LazySet<E> extends SetOfUnknownSize<E> {
      * The elements that we cached so far, or {@code null} if the iteration did not started yet.
      * After the iteration started, this array will grow as needed.
      *
-     * see #createCache()
-     * see #cache(Object)
+     * @see #createCache()
+     * @see #cache(Object)
      */
     private E[] cachedElements;
 

@@ -102,7 +102,7 @@ public class DefaultDataQuality extends ISOMetadata implements DataQuality {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(DataQuality)
+     * @see #castOrCopy(DataQuality)
      */
     public DefaultDataQuality(final DataQuality object) {
         super(object);

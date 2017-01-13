@@ -191,7 +191,7 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 	 *
 	 * @param object The metadata to copy values from, or {@code null} if none.
 	 *
-	 * see #castOrCopy(Citation)
+	 * @see #castOrCopy(Citation)
 	 */
 	@SuppressWarnings("deprecation")
 	public DefaultCitation(final Citation object) {
@@ -367,9 +367,9 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 	 *
 	 * @return The identifiers, or an empty collection if none.
 	 *
-	 * see #getISBN()
-	 * see #getISSN()
-	 * see #getIdentifierMap()
+	 * @see #getISBN()
+	 * @see #getISSN()
+	 * @see #getIdentifierMap()
 	 */
 	@Override
 	@XmlElement(name = "identifier")
@@ -387,8 +387,8 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 	 *
 	 * @param newValues The new identifiers, or {@code null} if none.
 	 *
-	 * see #setISBN(String)
-	 * see #setISSN(String)
+	 * @see #setISBN(String)
+	 * @see #setISSN(String)
 	 */
 	public void setIdentifiers(Collection<? extends Identifier> newValues) {
 		newValues = NonMarshalledAuthority.setMarshallables(identifiers, newValues);
@@ -507,7 +507,7 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 	
 	/**
 	 * Gets the collective title for this citation (used in ISO 19139 format).
-	 * see {@link #getCollectiveTitle}
+	 * @see {@link #getCollectiveTitle}
 	 */
 	@XmlElement(name = "collectiveTitle")
 	private InternationalString getXmlCollectiveTitle() {
@@ -516,7 +516,7 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 
 	/**
 	 * Sets the collective title for this citation (used in ISO 19139 format).
-	 * see {@link #setCollectiveTitle}
+	 * @see {@link #setCollectiveTitle}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlCollectiveTitle(final InternationalString newValue) {
@@ -533,8 +533,8 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 	 *
 	 * @return The ISBN, or {@code null} if none.
 	 *
-	 * see #getIdentifiers()
-	 * see Citations#ISBN
+	 * @see #getIdentifiers()
+	 * @see Citations#ISBN
 	 */
 	@Override
 	@XmlElement(name = "ISBN")
@@ -552,8 +552,8 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 	 *
 	 * @param newValue The new ISBN, or {@code null} if none.
 	 *
-	 * see #setIdentifiers(Collection)
-	 * see Citations#ISBN
+	 * @see #setIdentifiers(Collection)
+	 * @see Citations#ISBN
 	 */
 	public void setISBN(final String newValue) {
 		checkWritePermission();
@@ -572,8 +572,8 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 	 *
 	 * @return The ISSN, or {@code null} if none.
 	 *
-	 * see #getIdentifiers()
-	 * see Citations#ISSN
+	 * @see #getIdentifiers()
+	 * @see Citations#ISSN
 	 */
 	@Override
 	@XmlElement(name = "ISSN")
@@ -591,8 +591,8 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 	 *
 	 * @param newValue The new ISSN.
 	 *
-	 * see #setIdentifiers(Collection)
-	 * see Citations#ISSN
+	 * @see #setIdentifiers(Collection)
+	 * @see Citations#ISSN
 	 */
 	public void setISSN(final String newValue) {
 		checkWritePermission();
@@ -626,7 +626,7 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 
 	/**
 	 * Gets the online resources for this citation (used in ISO 19115-3 format).
-	 * see {@link #getOnlineResources}
+	 * @see {@link #getOnlineResources}
 	 */
 	@XmlElement(name = "onlineResource")
 	@XmlJavaTypeAdapter(CI_OnlineResource.class)
@@ -636,7 +636,7 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 
 	/**
 	 * Sets the online resources for this citation (used in ISO 19115-3 format).
-	 * see {@link #setOnlineResources}
+	 * @see {@link #setOnlineResources}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlOnlineResources(final Collection<? extends OnlineResource> newValues) {
@@ -668,7 +668,7 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 
 	/**
 	 * Gets the graphics for this citation (used in ISO 19115-3 format).
-	 * see {@link #getGraphics}
+	 * @see {@link #getGraphics}
 	 */
 	@XmlElement(name = "graphic")
 	@XmlJavaTypeAdapter(MD_BrowseGraphic.class)
@@ -678,7 +678,7 @@ public class DefaultCitation extends ISOMetadata implements Citation {
 
 	/**
 	 * Sets the online resources for this citation (used in ISO 19115-3 format).
-	 * see {@link #setGraphics}
+	 * @see {@link #setGraphics}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlGraphics(final Collection<? extends BrowseGraphic> newValues) {

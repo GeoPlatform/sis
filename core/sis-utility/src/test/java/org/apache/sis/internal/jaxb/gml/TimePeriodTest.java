@@ -67,7 +67,7 @@ public final strictfp class TimePeriodTest extends XMLTestCase {
      *
      * @throws JAXBException If an error occurred while creating the pool.
      *
-     * see #disposeMarshallerPool()
+     * @see #disposeMarshallerPool()
      */
     @BeforeClass
     public static void createMarshallerPool() throws JAXBException {

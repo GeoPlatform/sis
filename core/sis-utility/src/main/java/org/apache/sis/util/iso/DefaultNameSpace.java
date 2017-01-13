@@ -56,11 +56,11 @@ import java.util.Objects;
  * @version 0.3
  * @module
  *
- * see DefaultScopedName
- * see DefaultLocalName
- * see DefaultTypeName
- * see DefaultMemberName
- * see DefaultNameFactory
+ * @see DefaultScopedName
+ * @see DefaultLocalName
+ * @see DefaultTypeName
+ * @see DefaultMemberName
+ * @see DefaultNameFactory
  */
 public class DefaultNameSpace implements NameSpace, Serializable {
     /**
@@ -85,7 +85,7 @@ public class DefaultNameSpace implements NameSpace, Serializable {
      * value for stopping iterative searches (using GLOBAL would have higher risk of never-ending
      * loops in case of bug), and in order to reduce the stream size during serialization.
      *
-     * see #parent()
+     * @see #parent()
      */
     private final DefaultNameSpace parent;
 
@@ -476,7 +476,7 @@ public class DefaultNameSpace implements NameSpace, Serializable {
      *
      * @return A JCR-like lexical form of this namespace.
      *
-     * see Names#toExpandedString(GenericName)
+     * @see Names#toExpandedString(GenericName)
      */
     @Debug
     @Override

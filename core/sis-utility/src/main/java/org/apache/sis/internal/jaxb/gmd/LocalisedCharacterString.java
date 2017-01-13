@@ -37,7 +37,7 @@ import org.apache.sis.util.Debug;
  * @version 0.3
  * @module
  *
- * see TextGroup
+ * @see TextGroup
  */
 final class LocalisedCharacterString {
     /**
@@ -80,7 +80,7 @@ final class LocalisedCharacterString {
      * Returns the locale language for {@code <LocalisedCharacterString>} attribute.
      *
      * @return The current locale.
-     * see <a href="https://issues.apache.org/jira/browse/SIS-137">SIS-137</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-137">SIS-137</a>
      */
     @XmlAttribute(name = "locale", required = true)
     public String getLocale() {
@@ -96,7 +96,7 @@ final class LocalisedCharacterString {
      * where {@code xxx} are the two or three letters representing the language.
      *
      * @param localeId The new locale.
-     * see <a href="https://issues.apache.org/jira/browse/SIS-137">SIS-137</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-137">SIS-137</a>
      */
     public void setLocale(final String localeId) {
         if (localeId != null) {
@@ -135,7 +135,7 @@ final class LocalisedCharacterString {
      *   LocalisedCharacterString[#locale-fra, “Un texte”]
      * }
      *
-     * see TextGroup#toString()
+     * @see TextGroup#toString()
      */
     @Debug
     @Override

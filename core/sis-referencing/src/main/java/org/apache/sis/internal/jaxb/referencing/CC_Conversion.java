@@ -39,7 +39,7 @@ public final class CC_Conversion extends PropertyType<CC_Conversion, Conversion>
      * unmarshalling. A temporary location is needed because {@code AbstractDerivedCRS} does not have any explicit
      * field for {@code baseCRS}.
      *
-     * see #setBaseCRS(Conversion, SingleCRS)
+     * @see #setBaseCRS(Conversion, SingleCRS)
      */
     private SingleCRS baseCRS;
 

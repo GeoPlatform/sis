@@ -128,7 +128,7 @@ public class DefaultMedium extends ISOMetadata implements Medium {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Medium)
+     * @see #castOrCopy(Medium)
      */
     public DefaultMedium(final Medium object) {
         super(object);
@@ -221,7 +221,7 @@ public class DefaultMedium extends ISOMetadata implements Medium {
     
     /**
 	 * Gets the density. Used by JAXB. (used in ISO 19115-3 format)
-	 * see {@link #getDensity}
+	 * @see {@link #getDensity}
 	 */
 	@XmlElement(name = "density")
 	private Double getXmlDensity() {
@@ -230,7 +230,7 @@ public class DefaultMedium extends ISOMetadata implements Medium {
 
 	/**
 	 * Sets the density. Used by JAXB. (used in ISO 19115-3 format)
-	 * see {@link #setDensity}
+	 * @see {@link #setDensity}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlDensity(final Double newValue) {
@@ -281,7 +281,7 @@ public class DefaultMedium extends ISOMetadata implements Medium {
     
     /**
 	 * Gets the density. Used by JAXB. (used in ISO 19139 format)
-	 * see {@link #getDensities}
+	 * @see {@link #getDensities}
 	 */
 	@XmlElement(name = "density")
 	private Collection<Double> getXmlDensities() {
@@ -405,7 +405,7 @@ public class DefaultMedium extends ISOMetadata implements Medium {
     
     /**
 	 * Gets the density. Used by JAXB. (used in ISO 19115-3 format)
-	 * see {@link #getIdentifier}
+	 * @see {@link #getIdentifier}
 	 */
 	@XmlElement(name = "identifier")
 	private Identifier getXmlIdentifier() {
@@ -414,7 +414,7 @@ public class DefaultMedium extends ISOMetadata implements Medium {
 
 	/**
 	 * Sets the density. Used by JAXB. (used in ISO 19115-3 format)
-	 * see {@link #setIdentifier}
+	 * @see {@link #setIdentifier}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlIdentifier(final Identifier newValue) {

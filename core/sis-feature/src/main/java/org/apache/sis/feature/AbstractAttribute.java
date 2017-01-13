@@ -72,8 +72,8 @@ import org.opengis.feature.MultiValuedPropertyException;
  * @version 0.8
  * @module
  *
- * see AbstractFeature
- * see DefaultAttributeType
+ * @see AbstractFeature
+ * @see DefaultAttributeType
  */
 public abstract class AbstractAttribute<V> extends Field<V> implements Attribute<V>, Cloneable, Serializable {
     /**
@@ -97,7 +97,7 @@ public abstract class AbstractAttribute<V> extends Field<V> implements Attribute
      * store only their value instead), so we presume that peoples who ask for {@code Attribute} instances are
      * willing to accept their cost.</div>
      *
-     * see #characteristics()
+     * @see #characteristics()
      */
     private transient Map<String,Attribute<?>> characteristics;
 
@@ -106,7 +106,7 @@ public abstract class AbstractAttribute<V> extends Field<V> implements Attribute
      *
      * @param type  information about the attribute (base Java class, domain of values, <i>etc.</i>).
      *
-     * see #create(AttributeType)
+     * @see #create(AttributeType)
      */
     protected AbstractAttribute(final AttributeType<V> type) {
         this.type = type;
@@ -120,7 +120,7 @@ public abstract class AbstractAttribute<V> extends Field<V> implements Attribute
      * @param  type  information about the attribute (base Java class, domain of values, <i>etc.</i>).
      * @return the new attribute.
      *
-     * see DefaultAttributeType#newInstance()
+     * @see DefaultAttributeType#newInstance()
      */
     public static <V> AbstractAttribute<V> create(final AttributeType<V> type) {
         ArgumentChecks.ensureNonNull("type", type);
@@ -211,7 +211,7 @@ public abstract class AbstractAttribute<V> extends Field<V> implements Attribute
      * @return the attribute value (may be {@code null}).
      * @throws MultiValuedPropertyException if this attribute contains more than one value.
      *
-     * see AbstractFeature#getPropertyValue(String)
+     * @see AbstractFeature#getPropertyValue(String)
      */
     @Override
     public abstract V getValue() throws MultiValuedPropertyException;
@@ -244,7 +244,7 @@ public abstract class AbstractAttribute<V> extends Field<V> implements Attribute
      * @throws InvalidPropertyValueException if this method verifies argument validity and the given value
      *         does not met the attribute constraints.
      *
-     * see AbstractFeature#setPropertyValue(String, Object)
+     * @see AbstractFeature#setPropertyValue(String, Object)
      */
     @Override
     public abstract void setValue(final V value) throws InvalidPropertyValueException;
@@ -336,7 +336,7 @@ public abstract class AbstractAttribute<V> extends Field<V> implements Attribute
      *
      * @return other attribute types that describes this attribute type, or an empty map if none.
      *
-     * see DefaultAttributeType#characteristics()
+     * @see DefaultAttributeType#characteristics()
      */
     @Override
     @SuppressWarnings("ReturnOfCollectionOrArrayField")
@@ -441,7 +441,7 @@ public abstract class AbstractAttribute<V> extends Field<V> implements Attribute
      *
      * @return reports on all constraint violations found.
      *
-     * see AbstractFeature#quality()
+     * @see AbstractFeature#quality()
      */
     public DataQuality quality() {
         final Validator v = new Validator(ScopeCode.ATTRIBUTE);

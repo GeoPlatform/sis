@@ -82,7 +82,7 @@ public final class Logging extends Static {
      * object state when new {@link LoggerFactory} instances become available on the classpath of a running JVM.
      * However it usually doesn't work since loggers are typically stored in static final fields.</div>
      *
-     * see #setLoggerFactory(LoggerFactory)
+     * @see #setLoggerFactory(LoggerFactory)
      */
     private static volatile LoggerFactory<?> factory;
     static {
@@ -251,8 +251,8 @@ public final class Logging extends Static {
      * @return {@code true} if the error has been logged, or {@code false} if the given {@code error}
      *         was null or if the logger does not log anything at {@link Level#WARNING}.
      *
-     * see #recoverableException(Logger, Class, String, Throwable)
-     * see #severeException(Logger, Class, String, Throwable)
+     * @see #recoverableException(Logger, Class, String, Throwable)
+     * @see #severeException(Logger, Class, String, Throwable)
      */
     public static boolean unexpectedException(final Logger logger, final Class<?> classe,
                                               final String method, final Throwable error)
@@ -403,7 +403,7 @@ public final class Logging extends Static {
      * @return {@code true} if the error has been logged, or {@code false} if the given {@code error}
      *         was null or if the logger does not log anything at {@link Level#CONFIG}.
      *
-     * see #unexpectedException(Logger, Class, String, Throwable)
+     * @see #unexpectedException(Logger, Class, String, Throwable)
      */
     static boolean configurationException(final Logger logger, final Class<?> classe, final String method, final Throwable error) {
         final String classname = (classe != null) ? classe.getName() : null;
@@ -422,8 +422,8 @@ public final class Logging extends Static {
      * @return {@code true} if the error has been logged, or {@code false} if the given {@code error}
      *         was null or if the logger does not log anything at {@link Level#FINE}.
      *
-     * see #unexpectedException(Logger, Class, String, Throwable)
-     * see #severeException(Logger, Class, String, Throwable)
+     * @see #unexpectedException(Logger, Class, String, Throwable)
+     * @see #severeException(Logger, Class, String, Throwable)
      */
     public static boolean recoverableException(final Logger logger, final Class<?> classe,
                                                final String method, final Throwable error)
@@ -444,8 +444,8 @@ public final class Logging extends Static {
      * @return {@code true} if the error has been logged, or {@code false} if the given {@code error}
      *         was null or if the logger does not log anything at {@link Level#SEVERE}.
      *
-     * see #unexpectedException(Logger, Class, String, Throwable)
-     * see #recoverableException(Logger, Class, String, Throwable)
+     * @see #unexpectedException(Logger, Class, String, Throwable)
+     * @see #recoverableException(Logger, Class, String, Throwable)
      */
     public static boolean severeException(final Logger logger, final Class<?> classe,
                                           final String method, final Throwable error)

@@ -98,7 +98,7 @@ public class DefaultEnvironmentalRecord extends ISOMetadata implements Environme
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(EnvironmentalRecord)
+     * @see #castOrCopy(EnvironmentalRecord)
      */
     public DefaultEnvironmentalRecord(final EnvironmentalRecord object) {
         super(object);

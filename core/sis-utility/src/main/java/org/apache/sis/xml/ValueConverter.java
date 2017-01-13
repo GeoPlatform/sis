@@ -137,8 +137,8 @@ public class ValueConverter {
      * @return the language code, or {@code null} if the given value was null or does not contains a language code.
      * @throws MissingResourceException if no language code can be found for the given locale.
      *
-     * see Locale#getISO3Language()
-     * see Locale#getLanguage()
+     * @see Locale#getISO3Language()
+     * @see Locale#getLanguage()
      */
     public String toLanguageCode(final MarshalContext context, final Locale value) throws MissingResourceException {
         if (value != null) {
@@ -169,8 +169,8 @@ public class ValueConverter {
      * @return the country code, or {@code null} if the given value was null or does not contains a country code.
      * @throws MissingResourceException if no country code can be found for the given locale.
      *
-     * see Locale#getISO3Country()
-     * see Locale#getCountry()
+     * @see Locale#getISO3Country()
+     * @see Locale#getCountry()
      */
     public String toCountryCode(final MarshalContext context, final Locale value) throws MissingResourceException {
         if (value != null) {
@@ -234,7 +234,7 @@ public class ValueConverter {
      * @param  value    the locale to convert to a character set code, or {@code null}.
      * @return the country code, or {@code null} if the given value was null.
      *
-     * see Charset#name()
+     * @see Charset#name()
      *
      * @since 0.5
      */
@@ -257,7 +257,7 @@ public class ValueConverter {
      *         if an exception was thrown and {@code exceptionOccured(…)} returned {@code true}.
      * @throws IllformedLocaleException if the given string can not be converted to a locale.
      *
-     * see Locales#parse(String)
+     * @see Locales#parse(String)
      */
     public Locale toLocale(final MarshalContext context, String value) throws IllformedLocaleException {
         value = trimWhitespaces(value);
@@ -282,7 +282,7 @@ public class ValueConverter {
      *         if an exception was thrown and {@code exceptionOccured(…)} returned {@code true}.
      * @throws IllegalCharsetNameException if the given string can not be converted to a character set.
      *
-     * see Charset#forName(String)
+     * @see Charset#forName(String)
      *
      * @since 0.5
      */
@@ -316,7 +316,7 @@ public class ValueConverter {
      *         if an exception was thrown and {@code exceptionOccured(…)} returned {@code true}.
      * @throws IllegalArgumentException if the given string can not be converted to a unit.
      *
-     * see Units#valueOf(String)
+     * @see Units#valueOf(String)
      */
     public Unit<?> toUnit(final MarshalContext context, String value) throws IllegalArgumentException {
         value = trimWhitespaces(value);
@@ -345,7 +345,7 @@ public class ValueConverter {
      *         if an exception was thrown and {@code exceptionOccured(…)} returned {@code true}.
      * @throws IllegalArgumentException if the given string can not be converted to a UUID.
      *
-     * see UUID#fromString(String)
+     * @see UUID#fromString(String)
      */
     public UUID toUUID(final MarshalContext context, String value) throws IllegalArgumentException {
         value = trimWhitespaces(value);
@@ -374,7 +374,7 @@ public class ValueConverter {
      *         an exception was thrown and {@code exceptionOccured(…)} returned {@code true}.
      * @throws URISyntaxException if the given string can not be converted to a URI.
      *
-     * see URI#URI(String)
+     * @see URI#URI(String)
      */
     public URI toURI(final MarshalContext context, String value) throws URISyntaxException {
         value = trimWhitespaces(value);
@@ -403,7 +403,7 @@ public class ValueConverter {
      *         exception was thrown and {@code exceptionOccured(…)} returned {@code true}.
      * @throws URISyntaxException if the given URL can not be converted to a URI.
      *
-     * see URL#toURI()
+     * @see URL#toURI()
      */
     public URI toURI(final MarshalContext context, final URL value) throws URISyntaxException {
         if (value != null) try {
@@ -431,7 +431,7 @@ public class ValueConverter {
      *         exception was thrown and {@code exceptionOccured(…)} returned {@code true}.
      * @throws MalformedURLException if the given URI can not be converted to a URL.
      *
-     * see URI#toURL()
+     * @see URI#toURL()
      */
     public URL toURL(final MarshalContext context, final URI value) throws MalformedURLException {
         if (value != null) try {
@@ -459,7 +459,7 @@ public class ValueConverter {
      *         if an exception was thrown and {@code exceptionOccured(…)} returned {@code true}.
      * @throws URISyntaxException if the given string can not be converted to a nil reason.
      *
-     * see NilReason#valueOf(String)
+     * @see NilReason#valueOf(String)
      */
     public NilReason toNilReason(final MarshalContext context, String value) throws URISyntaxException {
         value = trimWhitespaces(value);

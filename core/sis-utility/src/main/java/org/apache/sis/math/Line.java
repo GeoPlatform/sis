@@ -45,8 +45,8 @@ import static java.lang.Double.*;
  * @version 0.5
  * @module
  *
- * see Plane
- * see org.apache.sis.referencing.operation.builder.LinearTransformBuilder
+ * @see Plane
+ * @see org.apache.sis.referencing.operation.builder.LinearTransformBuilder
  */
 public class Line implements Cloneable, Serializable {
     /**
@@ -89,7 +89,7 @@ public class Line implements Cloneable, Serializable {
      * @param slope The slope.
      * @param y0 The <var>y</var> value at <var>x</var> = 0.
      *
-     * see #setEquation(double, double)
+     * @see #setEquation(double, double)
      */
     public Line(final double slope, final double y0) {
         this.slope =  slope;
@@ -102,8 +102,8 @@ public class Line implements Cloneable, Serializable {
      *
      * @return The slope.
      *
-     * see #x0()
-     * see #y0()
+     * @see #x0()
+     * @see #y0()
      */
     public final double slope() {
         return slope;
@@ -115,8 +115,8 @@ public class Line implements Cloneable, Serializable {
      *
      * @return The <var>x</var> value for <var>y</var> = 0.
      *
-     * see #y0()
-     * see #slope()
+     * @see #y0()
+     * @see #slope()
      */
     public final double x0() {
         return x0;
@@ -129,7 +129,7 @@ public class Line implements Cloneable, Serializable {
      * @param  y The <var>y</var> value where to evaluate the inverse function.
      * @return The <var>x</var> value for the given <var>y</var> value.
      *
-     * see #y(double)
+     * @see #y(double)
      */
     public final double x(final double y) {
         return x0 + y/slope;
@@ -141,8 +141,8 @@ public class Line implements Cloneable, Serializable {
      *
      * @return The <var>y</var> value for <var>x</var> = 0.
      *
-     * see #x0()
-     * see #slope()
+     * @see #x0()
+     * @see #slope()
      */
     public final double y0() {
         return y0;
@@ -155,7 +155,7 @@ public class Line implements Cloneable, Serializable {
      * @param  x The <var>x</var> value where to evaluate the inverse function.
      * @return The <var>y</var> value for the given <var>x</var> value.
      *
-     * see #x(double)
+     * @see #x(double)
      */
     public final double y(final double x) {
         return y0 + x*slope;
@@ -184,8 +184,8 @@ public class Line implements Cloneable, Serializable {
      * @param slope The slope.
      * @param y0 The <var>y</var> value at <var>x</var> = 0.
      *
-     * see #setFromPoints(double, double, double, double)
-     * see #fit(double[], double[])
+     * @see #setFromPoints(double, double, double, double)
+     * @see #fit(double[], double[])
      */
     public void setEquation(final double slope, final double y0) {
         this.slope =  slope;

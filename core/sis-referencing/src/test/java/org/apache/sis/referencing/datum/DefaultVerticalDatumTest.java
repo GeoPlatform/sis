@@ -130,7 +130,7 @@ public final strictfp class DefaultVerticalDatumTest extends XMLTestCase {
      *
      * @throws JAXBException If an error occurred during unmarshalling.
      *
-     * see <a href="http://issues.apache.org/jira/browse/SIS-160">SIS-160: Need XSLT between GML 3.1 and 3.2</a>
+     * @see <a href="http://issues.apache.org/jira/browse/SIS-160">SIS-160: Need XSLT between GML 3.1 and 3.2</a>
      */
     @Test
     public void testGML31() throws JAXBException {

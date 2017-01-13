@@ -97,7 +97,7 @@ public class AbstractParty extends ISOMetadata implements Party {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Party)
+     * @see #castOrCopy(Party)
      */
     public AbstractParty(final Party object) {
         super(object);

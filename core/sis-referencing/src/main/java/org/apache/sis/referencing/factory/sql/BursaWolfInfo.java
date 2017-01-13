@@ -47,8 +47,8 @@ import org.apache.sis.measure.Units;
  * @version 0.8
  * @module
  *
- * see BursaWolfParameters
- * see TimeDependentBWP
+ * @see BursaWolfParameters
+ * @see TimeDependentBWP
  */
 final class BursaWolfInfo {
     // See org.apache.sis.measure.Units.valueOfEPSG(int) for hard-coded units from EPSG codes.

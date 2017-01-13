@@ -75,8 +75,8 @@ package org.apache.sis.xml;
  * @version 0.3
  * @module
  *
- * see NilReason#createNilObject(Class)
- * see org.apache.sis.util.Numbers#valueOfNil(Class)
+ * @see NilReason#createNilObject(Class)
+ * @see org.apache.sis.util.Numbers#valueOfNil(Class)
  */
 public interface NilObject {
     /**
@@ -84,7 +84,7 @@ public interface NilObject {
      *
      * @return The reason why this object contains no information.
      *
-     * see NilReason#forObject(Object)
+     * @see NilReason#forObject(Object)
      */
     NilReason getNilReason();
 }

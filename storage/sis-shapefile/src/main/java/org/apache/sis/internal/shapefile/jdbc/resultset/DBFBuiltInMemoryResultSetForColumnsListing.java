@@ -54,7 +54,7 @@ public class DBFBuiltInMemoryResultSetForColumnsListing extends BuiltInMemoryRes
     }
 
     /**
-     * see java.sql.ResultSet#getString(java.lang.String)
+     * @see java.sql.ResultSet#getString(java.lang.String)
      * @throws SQLNoSuchFieldException if the column does not exist.
      */
     @Override public String getString(String columnLabel) throws SQLNoSuchFieldException {
@@ -159,7 +159,7 @@ public class DBFBuiltInMemoryResultSetForColumnsListing extends BuiltInMemoryRes
     }
 
     /**
-     * see java.sql.ResultSet#getInt(java.lang.String)
+     * @see java.sql.ResultSet#getInt(java.lang.String)
      * @throws SQLNoSuchFieldException if the column does not exist.
      */
     @Override public int getInt(String columnLabel) throws SQLNoSuchFieldException {
@@ -254,7 +254,7 @@ public class DBFBuiltInMemoryResultSetForColumnsListing extends BuiltInMemoryRes
     }
 
     /**
-     * see java.sql.ResultSet#next()
+     * @see java.sql.ResultSet#next()
      */
     @Override public boolean next() throws SQLNoResultException {
         if (this.itDescriptor.hasNext()) {

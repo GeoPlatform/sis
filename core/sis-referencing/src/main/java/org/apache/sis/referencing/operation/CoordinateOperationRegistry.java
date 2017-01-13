@@ -122,14 +122,14 @@ class CoordinateOperationRegistry {
      * Only the changes in ellipsoid axis-length are taken in account.
      * Such ellipsoid shifts are approximative and may have 1 kilometre error.
      *
-     * see org.apache.sis.internal.referencing.PositionalAccuracyConstan#DATUM_SHIFT_OMITTED
+     * @see org.apache.sis.internal.referencing.PositionalAccuracyConstan#DATUM_SHIFT_OMITTED
      */
     static final Identifier ELLIPSOID_CHANGE = createIdentifier(Vocabulary.Keys.EllipsoidChange);
 
     /**
      * The identifier for a transformation which is a datum shift.
      *
-     * see org.apache.sis.internal.referencing.PositionalAccuracyConstant#DATUM_SHIFT_APPLIED
+     * @see org.apache.sis.internal.referencing.PositionalAccuracyConstant#DATUM_SHIFT_APPLIED
      */
     static final Identifier DATUM_SHIFT = createIdentifier(Vocabulary.Keys.DatumShift);
 
@@ -180,14 +180,14 @@ class CoordinateOperationRegistry {
      * After initialization, this field may be updated as {@code CoordinateOperationFinder}
      * progresses in its search for a coordinate operation.
      *
-     * see CoordinateOperationContext#getAreaOfInterest()
+     * @see CoordinateOperationContext#getAreaOfInterest()
      */
     protected Extent areaOfInterest;
 
     /**
      * The desired accuracy in metres, or 0 for the best accuracy available.
      *
-     * see CoordinateOperationContext#getDesiredAccuracy()
+     * @see CoordinateOperationContext#getDesiredAccuracy()
      */
     protected double desiredAccuracy;
 

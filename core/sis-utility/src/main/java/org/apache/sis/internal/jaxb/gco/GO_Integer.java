@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
  * @version 0.4
  * @module
  *
- * see GO_Integer64
+ * @see GO_Integer64
  */
 @XmlType(name = "Integer_PropertyType")
 public final class GO_Integer extends PropertyType<GO_Integer, Integer> {

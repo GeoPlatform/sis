@@ -49,7 +49,7 @@ import org.opengis.referencing.ReferenceSystem;
  * @version 0.5
  * @module
  *
- * see org.apache.sis.referencing.AbstractReferenceSystem
+ * @see org.apache.sis.referencing.AbstractReferenceSystem
  */
 @XmlRootElement(name = "MD_ReferenceSystem")
 public class ReferenceSystemMetadata extends SimpleIdentifiedObject implements ReferenceSystem {
@@ -105,7 +105,7 @@ public class ReferenceSystemMetadata extends SimpleIdentifiedObject implements R
     
     /**
 	 * Gets the name for this reference system metadata (used in ISO 19115-3 format).
-	 * see {@link #getName}
+	 * @see {@link #getName}
 	 */
     @XmlElement(name = "referenceSystemIdentifier")
     @XmlJavaTypeAdapter(MD_Identifier.class)
@@ -115,7 +115,7 @@ public class ReferenceSystemMetadata extends SimpleIdentifiedObject implements R
 
 	/**
 	 * Sets the name for this reference system metadata (used in ISO 19115-3 format).
-	 * see {@link #setName}
+	 * @see {@link #setName}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlName(final Identifier newValue) {
@@ -124,7 +124,7 @@ public class ReferenceSystemMetadata extends SimpleIdentifiedObject implements R
 	
 	/**
 	 * Gets the name for this reference system metadata (used in ISO 19139 format).
-	 * see {@link #getName}
+	 * @see {@link #getName}
 	 */
     @XmlElement(name = "referenceSystemIdentifier")
     @XmlJavaTypeAdapter(RS_Identifier.class)
@@ -134,7 +134,7 @@ public class ReferenceSystemMetadata extends SimpleIdentifiedObject implements R
 
 	/**
 	 * Sets the name for this reference system metadata (used in ISO 19139 format).
-	 * see {@link #setName}
+	 * @see {@link #setName}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlNameOld(final Identifier newValue) {

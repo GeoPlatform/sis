@@ -283,7 +283,7 @@ public final class Classes extends Static {
      * @return all implemented interfaces (not including the given {@code type} if it was an interface),
      *         or an empty array if none.
      *
-     * see Class#getInterfaces()
+     * @see Class#getInterfaces()
      */
     @SuppressWarnings({"unchecked","rawtypes"})                             // Generic array creation.
     public static <T> Class<? super T>[] getAllInterfaces(final Class<T> type) {
@@ -618,8 +618,8 @@ cmp:    for (final Class<?> c : c1) {
      * @return the simple name with outer class name (if any) of the first non-anonymous
      *         class in the hierarchy, or {@code "<*>"} if the given class is null.
      *
-     * see #getShortClassName(Object)
-     * see Class#getSimpleName()
+     * @see #getShortClassName(Object)
+     * @see Class#getSimpleName()
      */
     public static String getShortName(Class<?> classe) {
         if (classe == null) {
@@ -646,7 +646,7 @@ cmp:    for (final Class<?> c : c1) {
      * @return the simple class name with outer class name (if any) of the first non-anonymous
      *         class in the hierarchy, or {@code "<*>"} if the given object is null.
      *
-     * see #getShortName(Class)
+     * @see #getShortName(Class)
      */
     public static String getShortClassName(final Object object) {
         return getShortName(getClass(object));

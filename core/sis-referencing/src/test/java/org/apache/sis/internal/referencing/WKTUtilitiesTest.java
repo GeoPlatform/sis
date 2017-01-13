@@ -39,7 +39,7 @@ public final strictfp class WKTUtilitiesTest extends TestCase {
     /**
      * Tests {@link ReferencingUtilities#toType(Class, Class)}.
      *
-     * see ReferencingUtilitiesTest#testToPropertyName()
+     * @see ReferencingUtilitiesTest#testToPropertyName()
      */
     @Test
     public void testToType() {

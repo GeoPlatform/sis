@@ -87,7 +87,7 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.xml.IdentifiedObject
+ * @see org.apache.sis.xml.IdentifiedObject
  */
 public class IdentifierMapAdapter extends AbstractMap<Citation,String> implements IdentifierMap, Serializable {
     /**
@@ -132,7 +132,7 @@ public class IdentifierMapAdapter extends AbstractMap<Citation,String> implement
      * This method does not test if an explicit {@code xlink:href} identifier exists;
      * this check must be done by the caller <strong>before</strong> to invoke this method.
      *
-     * see ModifiableIdentifierMap#setHRef(URI)
+     * @see ModifiableIdentifierMap#setHRef(URI)
      */
     private URI getHRef() {
         final Identifier identifier = getIdentifier(IdentifierSpace.XLINK);
@@ -526,7 +526,7 @@ public class IdentifierMapAdapter extends AbstractMap<Citation,String> implement
      *   <li>{xlink:href=“http://www.mydomain.org/myHREF”}</li>
      * </ul>
      *
-     * see SpecializedIdentifier#toString()
+     * @see SpecializedIdentifier#toString()
      */
     @Debug
     @Override

@@ -65,7 +65,7 @@ import org.apache.sis.util.Debug;
  * @version 0.8
  * @module
  *
- * see InterpolatedGeocentricTransform
+ * @see InterpolatedGeocentricTransform
  */
 public class InterpolatedMolodenskyTransform extends MolodenskyFormula {
     /**
@@ -92,7 +92,7 @@ public class InterpolatedMolodenskyTransform extends MolodenskyFormula {
     /**
      * The inverse of this interpolated Molodensky transform.
      *
-     * see #inverse()
+     * @see #inverse()
      */
     private final InterpolatedMolodenskyTransform inverse;
 
@@ -143,7 +143,7 @@ public class InterpolatedMolodenskyTransform extends MolodenskyFormula {
      *                    shall compute (ΔX, ΔY, ΔZ) translations from <em>source</em> to <em>target</em> in the
      *                    unit of source ellipsoid axes.
      *
-     * see #createGeodeticTransformation(MathTransformFactory, Ellipsoid, boolean, Ellipsoid, boolean, DatumShiftGrid)
+     * @see #createGeodeticTransformation(MathTransformFactory, Ellipsoid, boolean, Ellipsoid, boolean, DatumShiftGrid)
      */
     protected InterpolatedMolodenskyTransform(final Ellipsoid source, final boolean isSource3D,
                                               final Ellipsoid target, final boolean isTarget3D,

@@ -50,8 +50,8 @@ import static java.lang.Double.doubleToRawLongBits;
  * @version 0.7
  * @module
  *
- * see LogarithmicTransform1D
- * see ExponentialTransform1D
+ * @see LogarithmicTransform1D
+ * @see ExponentialTransform1D
  */
 class LinearTransform1D extends AbstractMathTransform1D implements LinearTransform, Serializable {
     /**
@@ -87,7 +87,7 @@ class LinearTransform1D extends AbstractMathTransform1D implements LinearTransfo
      * @param scale  The {@code scale}  term in the linear equation.
      * @param offset The {@code offset} term in the linear equation.
      *
-     * see #create(double, double)
+     * @see #create(double, double)
      */
     protected LinearTransform1D(final double scale, final double offset) {
         this.scale  = scale;
@@ -101,7 +101,7 @@ class LinearTransform1D extends AbstractMathTransform1D implements LinearTransfo
      * @param  offset The {@code offset} term in the linear equation.
      * @return The linear transform for the given scale and offset.
      *
-     * see MathTransforms#linear(double, double)
+     * @see MathTransforms#linear(double, double)
      */
     public static LinearTransform1D create(final double scale, final double offset) {
         if (offset == 0) {

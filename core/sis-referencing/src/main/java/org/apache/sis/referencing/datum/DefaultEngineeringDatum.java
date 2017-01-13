@@ -43,8 +43,8 @@ import org.apache.sis.io.wkt.Formatter;
  * @version 0.4
  * @module
  *
- * see org.apache.sis.referencing.crs.DefaultEngineeringCRS
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createEngineeringDatum(String)
+ * @see org.apache.sis.referencing.crs.DefaultEngineeringCRS
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createEngineeringDatum(String)
  */
 @XmlType(name = "EngineeringDatumType")
 @XmlRootElement(name = "EngineeringDatum")
@@ -110,7 +110,7 @@ public class DefaultEngineeringDatum extends AbstractDatum implements Engineerin
      *
      * @param properties The properties to be given to the identified object.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createEngineeringDatum(Map)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createEngineeringDatum(Map)
      */
     public DefaultEngineeringDatum(final Map<String,?> properties) {
         super(properties);
@@ -125,7 +125,7 @@ public class DefaultEngineeringDatum extends AbstractDatum implements Engineerin
      *
      * @param datum The datum to copy.
      *
-     * see #castOrCopy(EngineeringDatum)
+     * @see #castOrCopy(EngineeringDatum)
      */
     protected DefaultEngineeringDatum(final EngineeringDatum datum) {
         super(datum);
@@ -167,7 +167,7 @@ public class DefaultEngineeringDatum extends AbstractDatum implements Engineerin
      *
      * @return {@code "EngineeringDatum"} (WKT 2) or {@code "Local_Datum"} (WKT 1).
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#76">WKT 2 specification §11.2</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#76">WKT 2 specification §11.2</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {

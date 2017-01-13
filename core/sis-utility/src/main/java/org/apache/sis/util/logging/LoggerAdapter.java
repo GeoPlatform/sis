@@ -90,7 +90,7 @@ import org.apache.sis.util.Debug;
  * @version 0.5
  * @module
  *
- * see Logging
+ * @see Logging
  */
 public abstract class LoggerAdapter extends Logger {
     /**

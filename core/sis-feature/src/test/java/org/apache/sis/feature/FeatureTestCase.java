@@ -147,7 +147,7 @@ public abstract strictfp class FeatureTestCase extends TestCase {
      * if the implementation was {@link DenseFeature} (see SIS-178). This test reproduced the bug,
      * and now aim to avoid regression.</div>
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-178">SIS-178</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-178">SIS-178</a>
      */
     @Test
     public void testGetProperty() {

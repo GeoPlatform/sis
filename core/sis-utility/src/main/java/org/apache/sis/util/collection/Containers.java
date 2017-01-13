@@ -91,7 +91,7 @@ public final class Containers extends Static {
      * @param  array The array to wrap, or {@code null} if none.
      * @return The given array wrapped in an unmodifiable list, or {@code null} if the given array was null.
      *
-     * see java.util.Arrays#asList(Object[])
+     * @see java.util.Arrays#asList(Object[])
      */
     @SafeVarargs
     public static <E> List<? extends E> unmodifiableList(final E... array) {
@@ -152,7 +152,7 @@ public final class Containers extends Static {
      * @return A view over the {@code storage} set containing all elements converted by the given converter,
      *         or {@code null} if {@code storage} was null.
      *
-     * see org.apache.sis.util.ObjectConverters#derivedSet(Set, ObjectConverter)
+     * @see org.apache.sis.util.ObjectConverters#derivedSet(Set, ObjectConverter)
      */
     public static <S,E> Set<E> derivedSet(final Set<S> storage, final ObjectConverter<S,E> converter) {
         ArgumentChecks.ensureNonNull("converter", converter);
@@ -197,9 +197,9 @@ public final class Containers extends Static {
      * @return A view over the {@code storage} map containing all entries converted by the given converters,
      *         or {@code null} if {@code storage} was null.
      *
-     * see org.apache.sis.util.ObjectConverters#derivedMap(Map, ObjectConverter, ObjectConverter)
-     * see org.apache.sis.util.ObjectConverters#derivedKeys(Map, ObjectConverter, Class)
-     * see org.apache.sis.util.ObjectConverters#derivedValues(Map, Class, ObjectConverter)
+     * @see org.apache.sis.util.ObjectConverters#derivedMap(Map, ObjectConverter, ObjectConverter)
+     * @see org.apache.sis.util.ObjectConverters#derivedKeys(Map, ObjectConverter, Class)
+     * @see org.apache.sis.util.ObjectConverters#derivedValues(Map, Class, ObjectConverter)
      */
     public static <SK,SV,K,V> Map<K,V> derivedMap(final Map<SK,SV> storage,
                                                   final ObjectConverter<SK,K> keyConverter,
@@ -232,7 +232,7 @@ public final class Containers extends Static {
      * @throws IllegalArgumentException If a non-null property value exists for the given key but can
      *         not be casted to the given type.
      *
-     * see ArgumentChecks#ensureCanCast(String, Class, Object)
+     * @see ArgumentChecks#ensureCanCast(String, Class, Object)
      */
     @SuppressWarnings("unchecked")
     public static <T> T property(final Map<?,?> properties, final Object key, final Class<T> type)

@@ -57,8 +57,8 @@ import org.opengis.feature.FeatureAssociationRole;
  * @version 0.8
  * @module
  *
- * see DefaultFeatureType
- * see AbstractAssociation
+ * @see DefaultFeatureType
+ * @see AbstractAssociation
  */
 public class DefaultAssociationRole extends FieldType implements FeatureAssociationRole {
     /**
@@ -69,7 +69,7 @@ public class DefaultAssociationRole extends FieldType implements FeatureAssociat
     /**
      * The type of feature instances to be associated.
      *
-     * see #getValueType()
+     * @see #getValueType()
      */
     private volatile FeatureType valueType;
 
@@ -78,7 +78,7 @@ public class DefaultAssociationRole extends FieldType implements FeatureAssociat
      * This field is initially null, then computed when first needed.
      * This information is used only by {@link AbstractAssociation#toString()} implementation.
      *
-     * see #getTitleProperty()
+     * @see #getTitleProperty()
      */
     private volatile transient String titleProperty;
 
@@ -127,7 +127,7 @@ public class DefaultAssociationRole extends FieldType implements FeatureAssociat
      * @param maximumOccurs   the maximum number of occurrences of the association within its containing entity,
      *                        or {@link Integer#MAX_VALUE} if there is no restriction.
      *
-     * see org.apache.sis.feature.builder.AssociationRoleBuilder
+     * @see org.apache.sis.feature.builder.AssociationRoleBuilder
      */
     public DefaultAssociationRole(final Map<String,?> identification, final FeatureType valueType,
             final int minimumOccurs, final int maximumOccurs)
@@ -189,7 +189,7 @@ public class DefaultAssociationRole extends FieldType implements FeatureAssociat
      *
      * @return {@code true} if the associated feature is complete, or {@code false} if only its name is known.
      *
-     * see #getValueType()
+     * @see #getValueType()
      *
      * @since 0.8
      */
@@ -347,8 +347,8 @@ public class DefaultAssociationRole extends FieldType implements FeatureAssociat
      *         {@linkplain #DefaultAssociationRole(Map, GenericName, int, int) only by its name}
      *         and not yet resolved.
      *
-     * see #isResolved()
-     * see Features#getValueTypeName(PropertyType)
+     * @see #isResolved()
+     * @see Features#getValueTypeName(PropertyType)
      */
     @Override
     public final FeatureType getValueType() {
@@ -438,7 +438,7 @@ public class DefaultAssociationRole extends FieldType implements FeatureAssociat
      *
      * @return a new association instance.
      *
-     * see AbstractAssociation#create(FeatureAssociationRole)
+     * @see AbstractAssociation#create(FeatureAssociationRole)
      */
     @Override
     public FeatureAssociation newInstance() {

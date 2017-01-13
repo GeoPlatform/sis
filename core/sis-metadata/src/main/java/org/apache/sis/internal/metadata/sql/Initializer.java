@@ -85,7 +85,7 @@ public abstract class Initializer {
      * This field is never reset to {@code null} even if the classpath changed because this class loader is for
      * a JAR file the JDK installation directory, and we presume that the JDK installation do not change.
      *
-     * see #forJavaDB(String)
+     * @see #forJavaDB(String)
      */
     private static URLClassLoader javadbLoader;
 
@@ -93,7 +93,7 @@ public abstract class Initializer {
      * The unique, SIS-wide, data source to the {@code $SIS_DATA/Databases/SpatialMetadata} database.
      * Created when first needed, and cleared on shutdown.
      *
-     * see #getDataSource()
+     * @see #getDataSource()
      */
     private static DataSource source;
 

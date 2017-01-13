@@ -43,9 +43,9 @@ import org.apache.sis.metadata.iso.citation.Citations;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.internal.util.DefinitionURI
- * see <a href="http://www.opengeospatial.org/ogcna">http://www.opengeospatial.org/ogcna</a>
- * see <a href="http://portal.opengeospatial.org/files/?artifact_id=24045">Definition identifier URNs in OGC namespace</a>
+ * @see org.apache.sis.internal.util.DefinitionURI
+ * @see <a href="http://www.opengeospatial.org/ogcna">http://www.opengeospatial.org/ogcna</a>
+ * @see <a href="http://portal.opengeospatial.org/files/?artifact_id=24045">Definition identifier URNs in OGC namespace</a>
  */
 public final class NameMeaning extends Static {
     /**
@@ -109,8 +109,8 @@ public final class NameMeaning extends Static {
      * Apache SIS uses upper cases for now. The lower/upper case policy should be kept consistent with the policy
      * used by {@link org.apache.sis.referencing.factory.MultiAuthoritiesFactory} for its keys.
      *
-     * see org.apache.sis.referencing.factory.MultiAuthoritiesFactory
-     * see <a href="http://www.opengis.net/def/auth/">http://www.opengis.net/def/auth/</a>
+     * @see org.apache.sis.referencing.factory.MultiAuthoritiesFactory
+     * @see <a href="http://www.opengis.net/def/auth/">http://www.opengis.net/def/auth/</a>
      *
      * @since 0.7
      */
@@ -152,7 +152,7 @@ public final class NameMeaning extends Static {
      *
      * @since 0.7
      *
-     * see DefinitionURI#format(String, String, String, String)
+     * @see DefinitionURI#format(String, String, String, String)
      */
     public static String toURN(final Class<?> type, final String authority, String version, String code) {
         if (type != null && authority != null && code != null) {

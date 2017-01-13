@@ -38,7 +38,7 @@ import org.apache.sis.util.ArgumentChecks;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.math.Vector
+ * @see org.apache.sis.math.Vector
  */
 public class IntegerList extends AbstractList<Integer> implements RandomAccess, Serializable, Cloneable {
     /**
@@ -232,7 +232,7 @@ public class IntegerList extends AbstractList<Integer> implements RandomAccess, 
      * @param  value  the value to add.
      * @throws IllegalArgumentException if the given value is out of bounds.
      *
-     * see #removeLast()
+     * @see #removeLast()
      */
     public void addInt(final int value) throws IllegalArgumentException {
         ArgumentChecks.ensureBetween("value", 0, mask, value);

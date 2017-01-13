@@ -72,8 +72,8 @@ import java.util.Objects;
  * @version 0.6
  * @module
  *
- * see DefaultParameterValue
- * see DefaultParameterDescriptorGroup
+ * @see DefaultParameterValue
+ * @see DefaultParameterDescriptorGroup
  */
 @XmlType(name = "OperationParameterType")
 @XmlRootElement(name = "OperationParameter")
@@ -86,7 +86,7 @@ public class DefaultParameterDescriptor<T> extends AbstractParameterDescriptor i
     /**
      * The class that describe the type of parameter values.
      *
-     * see #getValueClass()
+     * @see #getValueClass()
      */
     private final Class<T> valueClass;
 
@@ -94,7 +94,7 @@ public class DefaultParameterDescriptor<T> extends AbstractParameterDescriptor i
      * A set of valid values (usually from a {@linkplain CodeList code list})
      * or {@code null} if it does not apply. This set is immutable.
      *
-     * see #getValidValues()
+     * @see #getValidValues()
      */
     private final Set<T> validValues;
 
@@ -109,14 +109,14 @@ public class DefaultParameterDescriptor<T> extends AbstractParameterDescriptor i
      *       <code>valueClass.{@linkplain Class#getComponentType() getComponentType()}</code>.</li>
      * </ul>
      *
-     * see #getValueDomain()
+     * @see #getValueDomain()
      */
     private final Range<?> valueDomain;
 
     /**
      * The default value for the parameter, or {@code null}.
      *
-     * see #getDefaultValue()
+     * @see #getDefaultValue()
      */
     private final T defaultValue;
 
@@ -266,7 +266,7 @@ public class DefaultParameterDescriptor<T> extends AbstractParameterDescriptor i
      *
      * @param descriptor The descriptor to shallow copy.
      *
-     * see #castOrCopy(ParameterDescriptor)
+     * @see #castOrCopy(ParameterDescriptor)
      */
     @SuppressWarnings("unchecked")
     protected DefaultParameterDescriptor(final ParameterDescriptor<T> descriptor) {
@@ -347,7 +347,7 @@ public class DefaultParameterDescriptor<T> extends AbstractParameterDescriptor i
      *
      * @return The domain of values, or {@code null}.
      *
-     * see Parameters#getValueDomain(ParameterDescriptor)
+     * @see Parameters#getValueDomain(ParameterDescriptor)
      */
     /* Implementation note: this method is final because the constructor performs various checks on range validity,
      * and we can not express those rules in the method signature. The 'Verifier.ensureValidValue(…)' method needs

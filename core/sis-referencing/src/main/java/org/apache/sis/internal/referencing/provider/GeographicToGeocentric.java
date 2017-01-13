@@ -39,7 +39,7 @@ import org.apache.sis.internal.util.Constants;
  * @version 0.7
  * @module
  *
- * see GeocentricToGeographic
+ * @see GeocentricToGeographic
  */
 public final class GeographicToGeocentric extends AbstractProvider {
     /**

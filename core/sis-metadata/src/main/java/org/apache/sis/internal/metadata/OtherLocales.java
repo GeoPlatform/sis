@@ -168,7 +168,7 @@ public final class OtherLocales extends AbstractCollection<Locale> {
 	 * @param  newValue The new value to set, or {@code null} for instead removing the first element.
 	 * @return The collection (may or may not be the given {@code values} collection).
 	 *
-	 * see org.apache.sis.internal.util.CollectionsExt#first(Iterable)
+	 * @see org.apache.sis.internal.util.CollectionsExt#first(Iterable)
 	 */
 	public static <T> Collection<T> setFirst(Collection<T> values, final T newValue) {
 		if (values == null) {

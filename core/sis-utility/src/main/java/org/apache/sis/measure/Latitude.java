@@ -50,8 +50,8 @@ package org.apache.sis.measure;
  * @version 0.4
  * @module
  *
- * see Longitude
- * see AngleFormat
+ * @see Longitude
+ * @see AngleFormat
  */
 public final class Latitude extends Angle {
     /**
@@ -62,14 +62,14 @@ public final class Latitude extends Angle {
     /**
      * Minimum usual value for latitude ({@value}°).
      *
-     * see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#getMinimumValue()
+     * @see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#getMinimumValue()
      */
     public static final double MIN_VALUE = -90;
 
     /**
      * Maximum usual value for latitude (+{@value}°).
      *
-     * see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#getMaximumValue()
+     * @see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#getMaximumValue()
      */
     public static final double MAX_VALUE = +90;
 
@@ -96,7 +96,7 @@ public final class Latitude extends Angle {
      * @throws NumberFormatException if the string does not contain a parsable angle,
      *         or represents a longitude angle.
      *
-     * see AngleFormat#parse(String)
+     * @see AngleFormat#parse(String)
      */
     public Latitude(final String string) throws NumberFormatException {
         super(string);
@@ -135,7 +135,7 @@ public final class Latitude extends Angle {
      * @param  φ The latitude value in decimal degrees.
      * @return The given value clamped to the [-90 … 90]° range, or NaN if the given value was NaN.
      *
-     * see Longitude#normalize(double)
+     * @see Longitude#normalize(double)
      *
      * @since 0.4
      */

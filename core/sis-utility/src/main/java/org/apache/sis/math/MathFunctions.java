@@ -61,14 +61,14 @@ import static org.apache.sis.internal.util.Numerics.SIGNIFICAND_SIZE;
  * @version 0.7
  * @module
  *
- * see DecimalFunctions
- * see org.apache.sis.util.Numbers
+ * @see DecimalFunctions
+ * @see org.apache.sis.util.Numbers
  */
 public final class MathFunctions extends Static {
     /**
      * The square root of 2, which is approximated by {@value}.
      *
-     * see Math#sqrt(double)
+     * @see Math#sqrt(double)
      */
     public static final double SQRT_2 = 1.4142135623730951;
 
@@ -80,8 +80,8 @@ public final class MathFunctions extends Static {
      *   double exp10 = exp2 * LOG10_2;
      * }
      *
-     * see Math#log10(double)
-     * see #getExponent(double)
+     * @see Math#log10(double)
+     * @see #getExponent(double)
      *
      * @since 0.4
      */
@@ -90,16 +90,16 @@ public final class MathFunctions extends Static {
     /**
      * The minimal ordinal value for {@code NaN} numbers created by {@link #toNanFloat(int)}.
      *
-     * see #toNanFloat(int)
-     * see #toNanOrdinal(float)
+     * @see #toNanFloat(int)
+     * @see #toNanOrdinal(float)
      */
     private static final int MIN_NAN_ORDINAL = -0x200000;
 
     /**
      * The maximal ordinal value for {@code NaN} numbers created by {@link #toNanFloat(int)}.
      *
-     * see #toNanFloat(int)
-     * see #toNanOrdinal(float)
+     * @see #toNanFloat(int)
+     * @see #toNanOrdinal(float)
      */
     static final int MAX_NAN_ORDINAL = 0x1FFFFF;
 
@@ -113,7 +113,7 @@ public final class MathFunctions extends Static {
      * This is enough for current needs because 16 bits prime numbers are sufficient for finding
      * the divisors of any 32 bits integers.</div>
      *
-     * see #nextPrimeNumber(int)
+     * @see #nextPrimeNumber(int)
      */
     public static final int HIGHEST_SUPPORTED_PRIME_NUMBER = 65521;
 
@@ -121,7 +121,7 @@ public final class MathFunctions extends Static {
      * Maximal length needed for the {@link #primes} array in order to store prime numbers
      * from 2 to 32749 (15 bits) or {@value #HIGHEST_SUPPORTED_PRIME_NUMBER} (16 bits).
      *
-     * see #primeNumberAt(int)
+     * @see #primeNumberAt(int)
      */
     static final int PRIMES_LENGTH_15_BITS = 3512,
                      PRIMES_LENGTH_16_BITS = 6542;
@@ -131,7 +131,7 @@ public final class MathFunctions extends Static {
      * We limit ourself to 16 bits numbers because they are sufficient for computing
      * divisors of any 32 bits number.
      *
-     * see #primeNumberAt(int)
+     * @see #primeNumberAt(int)
      */
     @SuppressWarnings("VolatileArrayField")     // Because we will not modify array content.
     private static volatile short[] primes = new short[] {2, 3};
@@ -174,7 +174,7 @@ public final class MathFunctions extends Static {
      * @param  vector The vector for which to compute the magnitude.
      * @return The magnitude of the given vector.
      *
-     * see Math#hypot(double, double)
+     * @see Math#hypot(double, double)
      */
     public static double magnitude(final double... vector) {
         int i = vector.length;
@@ -242,8 +242,8 @@ public final class MathFunctions extends Static {
      * @return The unbiased exponent, corrected for sub-normal numbers if needed.
      *         Values will be in the [-1075 … 1024] range, inclusive.
      *
-     * see Math#getExponent(double)
-     * see Math#scalb(double, int)
+     * @see Math#getExponent(double)
+     * @see Math#scalb(double, int)
      *
      * @since 0.4
      */
@@ -271,9 +271,9 @@ public final class MathFunctions extends Static {
      * @param x The exponent.
      * @return 10 raised to the given exponent.
      *
-     * see #pow10(int)
-     * see Math#pow(double, double)
-     * see Math#log10(double)
+     * @see #pow10(int)
+     * @see Math#pow(double, double)
+     * @see Math#log10(double)
      */
     public static double pow10(final double x) {
         final int ix = (int) x;
@@ -305,9 +305,9 @@ public final class MathFunctions extends Static {
      * @param x The exponent.
      * @return 10 raised to the given exponent.
      *
-     * see #pow10(double)
-     * see #LOG10_2
-     * see DecimalFunctions
+     * @see #pow10(double)
+     * @see #LOG10_2
+     * @see DecimalFunctions
      */
     public static double pow10(final int x) {
         return DecimalFunctions.pow10(x);
@@ -320,7 +320,7 @@ public final class MathFunctions extends Static {
      * @param  x The value for which to compute the inverse hyperbolic sine.
      * @return The inverse hyperbolic sine of the given value.
      *
-     * see Math#sinh(double)
+     * @see Math#sinh(double)
      *
      * @since 0.6
      */
@@ -335,7 +335,7 @@ public final class MathFunctions extends Static {
      * @param  x The value for which to compute the inverse hyperbolic cosine.
      * @return The inverse hyperbolic cosine of the given value.
      *
-     * see Math#cosh(double)
+     * @see Math#cosh(double)
      *
      * @since 0.6
      */
@@ -358,7 +358,7 @@ public final class MathFunctions extends Static {
      * @param  x The value for which to compute the inverse hyperbolic tangent.
      * @return The inverse hyperbolic tangent of the given value.
      *
-     * see Math#tanh(double)
+     * @see Math#tanh(double)
      */
     public static double atanh(final double x) {
         /*
@@ -387,8 +387,8 @@ public final class MathFunctions extends Static {
      * @param  value The value to test.
      * @return {@code true} if the given value is positive, excluding negative zero.
      *
-     * see #isPositiveZero(double)
-     * see #isNegative(double)
+     * @see #isPositiveZero(double)
+     * @see #isNegative(double)
      */
     public static boolean isPositive(final double value) {
         return (doubleToRawLongBits(value) & SIGN_BIT_MASK) == 0 && !Double.isNaN(value);
@@ -406,8 +406,8 @@ public final class MathFunctions extends Static {
      * @param  value The value to test.
      * @return {@code true} if the given value is +0.0 (not -0.0).
      *
-     * see #isPositive(double)
-     * see #isNegativeZero(double)
+     * @see #isPositive(double)
+     * @see #isNegativeZero(double)
      *
      * @since 0.4
      */
@@ -432,8 +432,8 @@ public final class MathFunctions extends Static {
      * @param  value The value to test.
      * @return {@code true} if the given value is negative, including negative zero.
      *
-     * see #isNegativeZero(double)
-     * see #isPositive(double)
+     * @see #isNegativeZero(double)
+     * @see #isPositive(double)
      */
     public static boolean isNegative(final double value) {
         return (doubleToRawLongBits(value) & SIGN_BIT_MASK) != 0 && !Double.isNaN(value);
@@ -451,8 +451,8 @@ public final class MathFunctions extends Static {
      * @param  value The value to test.
      * @return {@code true} if the given value is -0.0 (not +0.0).
      *
-     * see #isNegative(double)
-     * see #isPositiveZero(double)
+     * @see #isNegative(double)
+     * @see #isPositiveZero(double)
      *
      * @since 0.4
      */
@@ -474,7 +474,7 @@ public final class MathFunctions extends Static {
      * @param  v2 The second value, to compare the sign with the first value.
      * @return {@code true} if the given values are not NaN and have the same sign.
      *
-     * see Math#signum(double)
+     * @see Math#signum(double)
      */
     public static boolean isSameSign(final double v1, final double v2) {
         return !Double.isNaN(v1) && !Double.isNaN(v2) &&
@@ -494,7 +494,7 @@ public final class MathFunctions extends Static {
      * @param  sign The parameter providing the sign to <cite>xor</cite> with the value.
      * @return The provided value with its sign reversed if the {@code sign} parameter is negative.
      *
-     * see Math#copySign(double, double)
+     * @see Math#copySign(double, double)
      */
     public static double xorSign(final double value, final double sign) {
         return longBitsToDouble(doubleToRawLongBits(value) ^
@@ -566,7 +566,7 @@ public final class MathFunctions extends Static {
      * @return One of the legal {@linkplain Float#isNaN(float) NaN} values as a float.
      * @throws IllegalArgumentException if the specified ordinal is out of range.
      *
-     * see Float#intBitsToFloat(int)
+     * @see Float#intBitsToFloat(int)
      */
     public static float toNanFloat(final int ordinal) throws IllegalArgumentException {
         ArgumentChecks.ensureBetween("ordinal", MIN_NAN_ORDINAL, MAX_NAN_ORDINAL, ordinal);
@@ -621,7 +621,7 @@ public final class MathFunctions extends Static {
      * @param l1 lower part of the quadruple precision floating point number.
      * @return double precision approximation.
      *
-     * see <a href="https://en.wikipedia.org/wiki/Quadruple-precision_floating-point_format">Quadruple-precision floating-point format on Wikipedia</a>
+     * @see <a href="https://en.wikipedia.org/wiki/Quadruple-precision_floating-point_format">Quadruple-precision floating-point format on Wikipedia</a>
      *
      * @since 0.7
      */
@@ -671,7 +671,7 @@ public final class MathFunctions extends Static {
      * @return The prime number at the specified index.
      * @throws IndexOutOfBoundsException if the specified index is too large.
      *
-     * see java.math.BigInteger#isProbablePrime(int)
+     * @see java.math.BigInteger#isProbablePrime(int)
      */
     static int primeNumberAt(final int index) throws IndexOutOfBoundsException {
         ArgumentChecks.ensureValidIndex(PRIMES_LENGTH_16_BITS, index);
@@ -715,7 +715,7 @@ testNextNumber:         while (true) { // Simulate a "goto" statement (usually n
      * @return The given number if it is a prime number, or the next prime number otherwise.
      * @throws IllegalArgumentException If the given value is outside the supported range.
      *
-     * see java.math.BigInteger#isProbablePrime(int)
+     * @see java.math.BigInteger#isProbablePrime(int)
      */
     public static int nextPrimeNumber(final int number) throws IllegalArgumentException {
         ArgumentChecks.ensureBetween("number", 2, HIGHEST_SUPPORTED_PRIME_NUMBER, number);

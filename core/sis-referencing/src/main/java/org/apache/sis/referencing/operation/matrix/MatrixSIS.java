@@ -59,7 +59,7 @@ import org.apache.sis.util.resources.Errors;
  * @version 0.7
  * @module
  *
- * see Matrices
+ * @see Matrices
  */
 public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable, Serializable {
     /**
@@ -134,7 +134,7 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      * @return the matrix argument if it can be safely casted (including {@code null} argument),
      *         or a copy of the given matrix otherwise.
      *
-     * see Matrices#copy(Matrix)
+     * @see Matrices#copy(Matrix)
      */
     public static MatrixSIS castOrCopy(final Matrix matrix) {
         if (matrix == null || matrix instanceof MatrixSIS) {
@@ -184,7 +184,7 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      *
      * @since 0.8
      *
-     * see #setElement(int, int, double)
+     * @see #setElement(int, int, double)
      */
     public void setNumber(int row, int column, final Number value) {
         if (value instanceof DoubleDouble) {
@@ -266,7 +266,7 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      * @throws IllegalArgumentException if the given array does not have the expected length.
      * @throws UnsupportedOperationException if this matrix is unmodifiable.
      *
-     * see Matrices#create(int, int, double[])
+     * @see Matrices#create(int, int, double[])
      */
     public abstract void setElements(final double[] elements);
 
@@ -360,8 +360,8 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      *
      * @return {@code true} if this matrix represents an affine transform.
      *
-     * see Matrices#isAffine(Matrix)
-     * see org.apache.sis.referencing.operation.transform.LinearTransform#isAffine()
+     * @see Matrices#isAffine(Matrix)
+     * @see org.apache.sis.referencing.operation.transform.LinearTransform#isAffine()
      */
     public boolean isAffine() {
         return isAffine(this);
@@ -396,8 +396,8 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      *
      * @return {@code true} if this matrix is an identity matrix.
      *
-     * see Matrices#isIdentity(Matrix, double)
-     * see AffineTransform#isIdentity()
+     * @see Matrices#isIdentity(Matrix, double)
+     * @see AffineTransform#isIdentity()
      */
     @Override
     public abstract boolean isIdentity();
@@ -475,7 +475,7 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      * @param  offset  the amount by which to translate the source ordinate value before to apply the transform, or {@code null} if none.
      * @throws UnsupportedOperationException if this matrix is unmodifiable.
      *
-     * see AffineTransform#concatenate(AffineTransform)
+     * @see AffineTransform#concatenate(AffineTransform)
      *
      * @since 0.6
      */
@@ -510,7 +510,7 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      * @param  offset  the amount by which to translate the target ordinate value after this transform, or {@code null} if none.
      * @throws UnsupportedOperationException if this matrix is unmodifiable.
      *
-     * see AffineTransform#preConcatenate(AffineTransform)
+     * @see AffineTransform#preConcatenate(AffineTransform)
      *
      * @since 0.6
      */
@@ -576,7 +576,7 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      * @return the inverse of this matrix.
      * @throws NoninvertibleMatrixException if this matrix is not invertible.
      *
-     * see AffineTransform#createInverse()
+     * @see AffineTransform#createInverse()
      */
     public MatrixSIS inverse() throws NoninvertibleMatrixException {
         return Solver.inverse(this, true);
@@ -706,7 +706,7 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      * @param  tolerance  the tolerance value.
      * @return {@code true} if this matrix is close enough to the given matrix given the tolerance value.
      *
-     * see Matrices#equals(Matrix, Matrix, double, boolean)
+     * @see Matrices#equals(Matrix, Matrix, double, boolean)
      */
     public boolean equals(final Matrix matrix, final double tolerance) {
         return Matrices.equals(this, matrix, tolerance, false);
@@ -732,7 +732,7 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      * @param  mode    the strictness level of the comparison.
      * @return {@code true} if both objects are equal.
      *
-     * see Matrices#equals(Matrix, Matrix, ComparisonMode)
+     * @see Matrices#equals(Matrix, Matrix, ComparisonMode)
      */
     @Override
     public boolean equals(final Object object, final ComparisonMode mode) {
@@ -744,7 +744,7 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      *
      * @return a new matrix of the same class and with the same values than this matrix.
      *
-     * see Matrices#copy(Matrix)
+     * @see Matrices#copy(Matrix)
      */
     @Override
     public MatrixSIS clone() {
@@ -759,7 +759,7 @@ public abstract class MatrixSIS implements Matrix, LenientComparable, Cloneable,
      * Returns a unlocalized string representation of this matrix.
      * For each column, the numbers are aligned on the decimal separator.
      *
-     * see Matrices#toString(Matrix)
+     * @see Matrices#toString(Matrix)
      */
     @Override
     public String toString() {

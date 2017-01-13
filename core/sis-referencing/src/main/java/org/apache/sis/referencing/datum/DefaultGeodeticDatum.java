@@ -128,10 +128,10 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * see DefaultEllipsoid
- * see DefaultPrimeMeridian
- * see org.apache.sis.referencing.CommonCRS#datum()
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createGeodeticDatum(String)
+ * @see DefaultEllipsoid
+ * @see DefaultPrimeMeridian
+ * @see org.apache.sis.referencing.CommonCRS#datum()
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createGeodeticDatum(String)
  */
 @XmlType(name = "GeodeticDatumType", propOrder = {
     "primeMeridian",
@@ -161,7 +161,7 @@ public class DefaultGeodeticDatum extends AbstractDatum implements GeodeticDatum
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setEllipsoid(Ellipsoid)}</p>
      *
-     * see #getEllipsoid()
+     * @see #getEllipsoid()
      */
     private Ellipsoid ellipsoid;
 
@@ -171,7 +171,7 @@ public class DefaultGeodeticDatum extends AbstractDatum implements GeodeticDatum
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setPrimeMeridian(PrimeMeridian)}</p>
      *
-     * see #getPrimeMeridian()
+     * @see #getPrimeMeridian()
      */
     private PrimeMeridian primeMeridian;
 
@@ -254,7 +254,7 @@ public class DefaultGeodeticDatum extends AbstractDatum implements GeodeticDatum
      * @param ellipsoid     The ellipsoid.
      * @param primeMeridian The prime meridian.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createGeodeticDatum(Map, Ellipsoid, PrimeMeridian)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createGeodeticDatum(Map, Ellipsoid, PrimeMeridian)
      */
     public DefaultGeodeticDatum(final Map<String,?> properties,
                                 final Ellipsoid     ellipsoid,
@@ -287,7 +287,7 @@ public class DefaultGeodeticDatum extends AbstractDatum implements GeodeticDatum
      *
      * @param datum The datum to copy.
      *
-     * see #castOrCopy(GeodeticDatum)
+     * @see #castOrCopy(GeodeticDatum)
      */
     protected DefaultGeodeticDatum(final GeodeticDatum datum) {
         super(datum);
@@ -414,7 +414,7 @@ public class DefaultGeodeticDatum extends AbstractDatum implements GeodeticDatum
      * @param  areaOfInterest The geographic and temporal extent where the transformation should be valid, or {@code null}.
      * @return An affine transform from {@code this} to {@code target} in geocentric space, or {@code null} if none.
      *
-     * see BursaWolfParameters#getPositionVectorTransformation(Date)
+     * @see BursaWolfParameters#getPositionVectorTransformation(Date)
      */
     public Matrix getPositionVectorTransformation(final GeodeticDatum targetDatum, final Extent areaOfInterest) {
         ensureNonNull("targetDatum", targetDatum);
@@ -609,7 +609,7 @@ public class DefaultGeodeticDatum extends AbstractDatum implements GeodeticDatum
      *
      * @return {@code "Datum"} or {@code "GeodeticDatum"}.
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#51">WKT 2 specification §8.2</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#51">WKT 2 specification §8.2</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
@@ -681,7 +681,7 @@ public class DefaultGeodeticDatum extends AbstractDatum implements GeodeticDatum
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * see #getEllipsoid()
+     * @see #getEllipsoid()
      */
     private void setEllipsoid(final Ellipsoid value) {
         if (ellipsoid == null) {
@@ -694,7 +694,7 @@ public class DefaultGeodeticDatum extends AbstractDatum implements GeodeticDatum
     /**
      * Invoked by JAXB only at unmarshalling time.
      *
-     * see #getPrimeMeridian()
+     * @see #getPrimeMeridian()
      */
     private void setPrimeMeridian(final PrimeMeridian value) {
         if (primeMeridian == null) {

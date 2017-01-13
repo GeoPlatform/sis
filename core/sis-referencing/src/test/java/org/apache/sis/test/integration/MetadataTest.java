@@ -100,7 +100,7 @@ import java.nio.charset.StandardCharsets;
  * @version 0.8
  * @module
  *
- * see org.apache.sis.metadata.iso.DefaultMetadataTest
+ * @see org.apache.sis.metadata.iso.DefaultMetadataTest
  */
 @DependsOn({
     org.apache.sis.referencing.datum.DefaultVerticalDatumTest.class

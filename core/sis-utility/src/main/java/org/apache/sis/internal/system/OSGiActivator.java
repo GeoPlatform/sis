@@ -32,7 +32,7 @@ import org.osgi.framework.BundleListener;
  * @version 0.7
  * @module
  *
- * see ServletListener
+ * @see ServletListener
  */
 public final class OSGiActivator implements BundleActivator, BundleListener {
     /**

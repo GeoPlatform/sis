@@ -97,7 +97,7 @@ public class DefaultGeometricObjects extends ISOMetadata implements GeometricObj
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(GeometricObjects)
+     * @see #castOrCopy(GeometricObjects)
      */
     public DefaultGeometricObjects(final GeometricObjects object) {
         super(object);

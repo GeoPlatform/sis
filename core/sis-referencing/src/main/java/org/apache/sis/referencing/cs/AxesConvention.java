@@ -109,8 +109,8 @@ import org.apache.sis.measure.Units;
  * @version 0.8
  * @module
  *
- * see AbstractCS#forConvention(AxesConvention)
- * see org.apache.sis.referencing.crs.AbstractCRS#forConvention(AxesConvention)
+ * @see AbstractCS#forConvention(AxesConvention)
+ * @see org.apache.sis.referencing.crs.AbstractCRS#forConvention(AxesConvention)
  */
 public enum AxesConvention implements AxisFilter {
     /**
@@ -141,8 +141,8 @@ public enum AxesConvention implements AxisFilter {
      * changes are more difficult to handle by coordinate operation factories.
      * </div>
      *
-     * see org.apache.sis.referencing.CommonCRS#normalizedGeographic()
-     * see CoordinateSystems#replaceAxes(CoordinateSystem, AxisFilter)
+     * @see org.apache.sis.referencing.CommonCRS#normalizedGeographic()
+     * @see CoordinateSystems#replaceAxes(CoordinateSystem, AxisFilter)
      */
     NORMALIZED {
         @Override
@@ -254,8 +254,8 @@ public enum AxesConvention implements AxisFilter {
      *       <td>Can be used for the mapping of North pole.</td></tr>
      * </table></div>
      *
-     * see org.apache.sis.referencing.cs.CoordinateSystems#angle(AxisDirection, AxisDirection)
-     * see <a href="http://en.wikipedia.org/wiki/Right_hand_rule">Right-hand rule on Wikipedia</a>
+     * @see org.apache.sis.referencing.cs.CoordinateSystems#angle(AxisDirection, AxisDirection)
+     * @see <a href="http://en.wikipedia.org/wiki/Right_hand_rule">Right-hand rule on Wikipedia</a>
      */
     RIGHT_HANDED,
 
@@ -280,7 +280,7 @@ public enum AxesConvention implements AxisFilter {
      * using the [0 … 360]° range may not be affine. For example the data in the West hemisphere ([-180 … 0]°)
      * may need to move on the right side of the East hemisphere ([180 … 360]°).</p>
      *
-     * see org.opengis.referencing.cs.RangeMeaning#WRAPAROUND
+     * @see org.opengis.referencing.cs.RangeMeaning#WRAPAROUND
      */
     POSITIVE_RANGE
 }

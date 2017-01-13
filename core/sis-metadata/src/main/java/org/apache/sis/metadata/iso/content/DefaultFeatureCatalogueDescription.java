@@ -113,7 +113,7 @@ implements FeatureCatalogueDescription
 	 *
 	 * @param  object  the metadata to copy values from, or {@code null} if none.
 	 *
-	 * see #castOrCopy(FeatureCatalogueDescription)
+	 * @see #castOrCopy(FeatureCatalogueDescription)
 	 */
 	public DefaultFeatureCatalogueDescription(final FeatureCatalogueDescription object) {
 		super(object);
@@ -193,7 +193,7 @@ implements FeatureCatalogueDescription
 
 	/**
 	 * Gets the languages (used in ISO 19115-3 format).
-	 * see {@link #getLanguages}
+	 * @see {@link #getLanguages}
 	 */
 	@XmlElement(name = "language")
 	private Collection<Locale> getXmlLanguages() {
@@ -205,7 +205,7 @@ implements FeatureCatalogueDescription
 
 	/**
 	 * Gets the languages as formatted strings (used in ISO 19139 format).
-	 * see {@link #getLanguage}
+	 * @see {@link #getLanguage}
 	 */
 	@XmlElement(name = "language")
 	private Collection<String> getXmlLanguageStrings() {
@@ -267,7 +267,7 @@ implements FeatureCatalogueDescription
 	
 	/**
 	 * Gets the feature type info (used in ISO 19115-3 format).
-	 * see {@link #getFeatureTypeInfo}
+	 * @see {@link #getFeatureTypeInfo}
 	 */
 	@XmlElement(name = "featureTypeInfo")
 	private Collection<FeatureTypeInfo> getXmlFeatureTypeInfo() {
@@ -325,7 +325,7 @@ implements FeatureCatalogueDescription
 	
 	/**
 	 * Gets the feature types (used in ISO 19139 format).
-	 * see {@link #getFeatureTypes}
+	 * @see {@link #getFeatureTypes}
 	 */
 	@XmlElement(name = "featureTypes")
 	private Collection<GenericName> getXmlFeatureTypes() {

@@ -45,7 +45,7 @@ public final class Fraction extends Number implements Comparable<Fraction>, Seri
      * The <var>a</var> term in the <var>a</var>/<var>b</var> fraction.
      * Can be positive, negative or zero.
      *
-     * see #doubleValue()
+     * @see #doubleValue()
      */
     public final int numerator;
 
@@ -54,7 +54,7 @@ public final class Fraction extends Number implements Comparable<Fraction>, Seri
      * Can be positive, negative or zero. If zero, then the fraction {@linkplain #doubleValue() floating point}
      * value will be positive infinity, negative infinity or NaN depending on the {@linkplain #numerator} value.
      *
-     * see #doubleValue()
+     * @see #doubleValue()
      */
     public final int denominator;
 
@@ -328,9 +328,9 @@ public final class Fraction extends Number implements Comparable<Fraction>, Seri
      *
      * @return {@link #numerator} / {@link denominator} rounded toward zero.
      *
-     * see #round()
-     * see #floor()
-     * see #ceil()
+     * @see #round()
+     * @see #floor()
+     * @see #ceil()
      */
     @Override
     public int intValue() {

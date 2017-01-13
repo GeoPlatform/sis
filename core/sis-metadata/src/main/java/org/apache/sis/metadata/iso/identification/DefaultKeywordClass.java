@@ -97,7 +97,7 @@ public class DefaultKeywordClass extends ISOMetadata implements KeywordClass {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(KeywordClass)
+     * @see #castOrCopy(KeywordClass)
      */
     public DefaultKeywordClass(final KeywordClass object) {
         super(object);

@@ -97,7 +97,7 @@ public abstract class AbstractMathTransform2D extends AbstractMathTransform impl
      *         or in a new point if {@code ptDst} was null.
      * @throws TransformException If the point can not be transformed.
      *
-     * see MathTransform2D#transform(Point2D, Point2D)
+     * @see MathTransform2D#transform(Point2D, Point2D)
      */
     @Override
     public Point2D transform(final Point2D ptSrc, final Point2D ptDst) throws TransformException {
@@ -363,7 +363,7 @@ public abstract class AbstractMathTransform2D extends AbstractMathTransform impl
          *         or in a new point if {@code ptDst} was null.
          * @throws TransformException If the point can not be transformed.
          *
-         * see MathTransform2D#transform(Point2D, Point2D)
+         * @see MathTransform2D#transform(Point2D, Point2D)
          */
         @Override
         public Point2D transform(final Point2D ptSrc, final Point2D ptDst) throws TransformException {

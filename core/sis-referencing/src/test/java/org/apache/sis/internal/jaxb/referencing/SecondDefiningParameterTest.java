@@ -48,7 +48,7 @@ public final strictfp class SecondDefiningParameterTest extends XMLTestCase {
     /**
      * XML of a sphere.
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-333">SIS-333</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-333">SIS-333</a>
      */
     private static final String SPHERE =
             "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +

@@ -73,7 +73,7 @@ public class AbstractGeolocationInformation extends ISOMetadata implements Geolo
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(GeolocationInformation)
+     * @see #castOrCopy(GeolocationInformation)
      */
     public AbstractGeolocationInformation(final GeolocationInformation object) {
         super(object);

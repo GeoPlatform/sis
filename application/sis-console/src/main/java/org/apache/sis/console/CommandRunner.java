@@ -46,7 +46,7 @@ abstract class CommandRunner {
      * Special value for {@code arguments[commandIndex]} meaning that this sub-command is created
      * for JUnit test purpose.
      *
-     * see #outputBuffer
+     * @see #outputBuffer
      */
     static final String TEST = "TEST";
 
@@ -60,7 +60,7 @@ abstract class CommandRunner {
     /**
      * The set of legal options for this command.
      *
-     * see #help(String)
+     * @see #help(String)
      */
     private final EnumSet<Option> validOptions;
 
@@ -115,7 +115,7 @@ abstract class CommandRunner {
      * The buffer where {@link #out} and {@link #err} output are sent, or {@code null} if none.
      * This is non-null only during JUnit tests.
      *
-     * see #TEST
+     * @see #TEST
      */
     final StringBuffer outputBuffer;
 

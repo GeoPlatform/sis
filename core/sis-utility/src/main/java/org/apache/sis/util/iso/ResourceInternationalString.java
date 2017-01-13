@@ -82,7 +82,7 @@ import org.apache.sis.util.ArgumentChecks;
  * @version 0.3
  * @module
  *
- * see ResourceBundle#getBundle(String, Locale)
+ * @see ResourceBundle#getBundle(String, Locale)
  */
 public class ResourceInternationalString extends AbstractInternationalString implements Serializable {
     /**
@@ -138,7 +138,7 @@ public class ResourceInternationalString extends AbstractInternationalString imp
      * @param  locale The locale for which to get the resource bundle.
      * @return The resource bundle for the given locale.
      *
-     * see ResourceBundle#getBundle(String, Locale, ClassLoader)
+     * @see ResourceBundle#getBundle(String, Locale, ClassLoader)
      */
     protected ResourceBundle getBundle(final Locale locale) {
         return ResourceBundle.getBundle(resources, locale);

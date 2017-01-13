@@ -61,7 +61,7 @@ import org.w3c.dom.Element;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.internal.jaxb.gmd.PT_FreeText
+ * @see org.apache.sis.internal.jaxb.gmd.PT_FreeText
  */
 @XmlType(name = "CharacterString_PropertyType")
 @XmlSeeAlso({
@@ -129,8 +129,8 @@ public class GO_CharacterString {
      * 0 if the text shall be marshalled as a {@code <gco:CharacterString>},
      * or one of the static constants in this class otherwise.
      *
-     * see #FILENAME
-     * see #MIME_TYPE
+     * @see #FILENAME
+     * @see #MIME_TYPE
      */
     public byte type;
 

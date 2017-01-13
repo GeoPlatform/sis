@@ -134,7 +134,7 @@ abstract class DaemonThread extends Thread {
      * @throws InterruptedException If an other thread invoked {@link #interrupt()} while
      *         we were waiting for the daemon threads to die.
      *
-     * see Threads#shutdown(long)
+     * @see Threads#shutdown(long)
      */
     static void killAll(DaemonThread thread, final long stopWaitingAt) throws InterruptedException {
         for (DaemonThread t=thread; t!=null; t=t.previous) {

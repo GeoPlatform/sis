@@ -123,14 +123,14 @@ final class Tags {
     /**
      * holds an XML list of name=value 'metadata' values about the image as a whole, and about specific samples.
      *
-     * see <a href="http://www.awaresystems.be/imaging/tiff/tifftags/gdal_metadata.html">TIFF Tag GDAL_METADATA</a>
+     * @see <a href="http://www.awaresystems.be/imaging/tiff/tifftags/gdal_metadata.html">TIFF Tag GDAL_METADATA</a>
      */
     public static final short GDAL_METADATA = (short) 0xA480;             // 42112
 
     /**
      * Contains an ASCII encoded nodata or background pixel value.
      *
-     * see <a href="http://www.awaresystems.be/imaging/tiff/tifftags/gdal_nodata.html">TIFF Tag GDAL_NODATA</a>
+     * @see <a href="http://www.awaresystems.be/imaging/tiff/tifftags/gdal_nodata.html">TIFF Tag GDAL_NODATA</a>
      */
     public static final short GDAL_NODATA = (short) 0xA481;               // 42113
 
@@ -144,7 +144,7 @@ final class Tags {
      * GeoTIFF keys are stored in a kind of directory inside the TIFF directory, with
      * the keys enumerated in the {@link CRSBuilder} class.
      *
-     * see GeoKeys
+     * @see GeoKeys
      */
     public static final short GeoKeyDirectory = (short) 0x87AF;           // 34735
 

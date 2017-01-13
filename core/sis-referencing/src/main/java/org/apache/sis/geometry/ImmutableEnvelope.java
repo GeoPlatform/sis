@@ -105,7 +105,7 @@ public final class ImmutableEnvelope extends ArrayEnvelope implements Serializab
      *
      * @param envelope The envelope to copy.
      *
-     * see #castOrCopy(Envelope)
+     * @see #castOrCopy(Envelope)
      */
     public ImmutableEnvelope(final Envelope envelope) {
         super(envelope);
@@ -169,8 +169,8 @@ public final class ImmutableEnvelope extends ArrayEnvelope implements Serializab
      * @param  envelope The envelope to cast, or {@code null}.
      * @return The values of the given envelope as an {@code ImmutableEnvelope} instance.
      *
-     * see AbstractEnvelope#castOrCopy(Envelope)
-     * see GeneralEnvelope#castOrCopy(Envelope)
+     * @see AbstractEnvelope#castOrCopy(Envelope)
+     * @see GeneralEnvelope#castOrCopy(Envelope)
      */
     public static ImmutableEnvelope castOrCopy(final Envelope envelope) {
         if (envelope == null || envelope instanceof ImmutableEnvelope) {

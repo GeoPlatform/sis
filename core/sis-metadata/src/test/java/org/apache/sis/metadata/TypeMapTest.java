@@ -57,7 +57,7 @@ public final strictfp class TypeMapTest extends TestCase {
      * Tests {@code TypeMap.entrySet()} for an exact match (including iteration order).
      * The properties used in this test are listed in {@link PropertyAccessorTest#testConstructor()}.
      *
-     * see PropertyAccessorTest#testConstructor()
+     * @see PropertyAccessorTest#testConstructor()
      */
     @Test
     public void testEntrySet() {

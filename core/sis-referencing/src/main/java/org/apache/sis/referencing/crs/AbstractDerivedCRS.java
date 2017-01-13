@@ -78,7 +78,7 @@ abstract class AbstractDerivedCRS<C extends Conversion> extends AbstractCRS impl
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setConversionFromBase(Conversion)}</p>
      *
-     * see #getConversionFromBase()
+     * @see #getConversionFromBase()
      */
     private C conversionFromBase;
 

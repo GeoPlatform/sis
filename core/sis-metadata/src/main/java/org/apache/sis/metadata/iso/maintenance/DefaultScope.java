@@ -99,7 +99,7 @@ public class DefaultScope extends ISOMetadata implements Scope {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Scope)
+     * @see #castOrCopy(Scope)
      */
     public DefaultScope(final Scope object) {
         super(object);
@@ -157,7 +157,7 @@ public class DefaultScope extends ISOMetadata implements Scope {
     
     /**
 	 * Gets level (used in ISO 19115-3 format).
-	 * see {@link #getLevel}
+	 * @see {@link #getLevel}
 	 */
 	@XmlElement(name = "level", required = true)
 	private ScopeCode getXmlLevel() {
@@ -166,7 +166,7 @@ public class DefaultScope extends ISOMetadata implements Scope {
 
 	/**
 	 * Sets level (used in ISO 19115-3 format).
-	 * see {@link #setLevel}
+	 * @see {@link #setLevel}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlLevel(final ScopeCode newValue) {
@@ -198,7 +198,7 @@ public class DefaultScope extends ISOMetadata implements Scope {
     
     /**
    	 * Gets the extents for this scope (used in ISO 19115-3 format).
-   	 * see {@link #getExtents}
+   	 * @see {@link #getExtents}
    	 */
    	@XmlElement(name = "extent")
    	private Collection<Extent> getXmlExtents() {
@@ -229,7 +229,7 @@ public class DefaultScope extends ISOMetadata implements Scope {
     
     /**
    	 * Gets the level descriptions for this scope (used in ISO 19115-3 format).
-   	 * see {@link #getLevelDescription}
+   	 * @see {@link #getLevelDescription}
    	 */
    	@XmlElement(name = "levelDescription")
    	private Collection<ScopeDescription> getXmlLevelDescription() {

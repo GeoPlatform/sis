@@ -59,7 +59,7 @@ public final strictfp class ValueConverterTest extends TestCase {
      * Note that we do not expect the 3 letters code, because the {@code schemas.opengis.net}
      * practice seems to be to use 2 letter codes.
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-153">SIS-153</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-153">SIS-153</a>
      */
     @Test
     public void testToCountryCode() {

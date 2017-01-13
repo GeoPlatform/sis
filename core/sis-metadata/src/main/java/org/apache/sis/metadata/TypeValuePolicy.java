@@ -27,7 +27,7 @@ package org.apache.sis.metadata;
  * @version 0.3
  * @module
  *
- * see MetadataStandard#asTypeMap(Class, KeyNamePolicy, TypeValuePolicy)
+ * @see MetadataStandard#asTypeMap(Class, KeyNamePolicy, TypeValuePolicy)
  */
 public enum TypeValuePolicy {
     /**

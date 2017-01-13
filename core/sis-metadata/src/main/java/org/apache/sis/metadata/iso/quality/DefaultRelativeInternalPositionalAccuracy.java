@@ -63,7 +63,7 @@ public class DefaultRelativeInternalPositionalAccuracy extends AbstractPositiona
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(RelativeInternalPositionalAccuracy)
+     * @see #castOrCopy(RelativeInternalPositionalAccuracy)
      */
     public DefaultRelativeInternalPositionalAccuracy(final RelativeInternalPositionalAccuracy object) {
         super(object);

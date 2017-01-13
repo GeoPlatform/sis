@@ -62,7 +62,7 @@ public class DefaultTopologicalConsistency extends AbstractLogicalConsistency
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(TopologicalConsistency)
+     * @see #castOrCopy(TopologicalConsistency)
      */
     public DefaultTopologicalConsistency(final TopologicalConsistency object) {
         super(object);

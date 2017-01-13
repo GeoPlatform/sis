@@ -54,8 +54,8 @@ import java.util.Objects;
  * @version 0.6
  * @module
  *
- * see RangeFormat
- * see org.apache.sis.util.collection.RangeSet
+ * @see RangeFormat
+ * @see org.apache.sis.util.collection.RangeSet
  */
 public class MeasurementRange<E extends Number & Comparable<? super E>> extends NumberRange<E> {
     /**
@@ -66,7 +66,7 @@ public class MeasurementRange<E extends Number & Comparable<? super E>> extends 
     /**
      * The unit of measurement, or {@code null} if unknown.
      *
-     * see #unit()
+     * @see #unit()
      */
     private final Unit<?> unit;
 
@@ -138,7 +138,7 @@ public class MeasurementRange<E extends Number & Comparable<? super E>> extends 
      * @param  unit           the unit of measurement, or {@code null} if unknown.
      * @return the new range, or {@code null} if both {@code minValue} and {@code maxValue} are {@code null}.
      *
-     * see NumberRange#createBestFit(Number, boolean, Number, boolean)
+     * @see NumberRange#createBestFit(Number, boolean, Number, boolean)
      */
     @SuppressWarnings({"rawtypes","unchecked"})
     public static MeasurementRange<?> createBestFit(final Number minValue, final boolean isMinIncluded,

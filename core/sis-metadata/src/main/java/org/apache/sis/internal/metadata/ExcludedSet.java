@@ -35,7 +35,7 @@ import org.apache.sis.util.resources.Errors;
  * @version 0.3
  * @module
  *
- * see Collections#emptySet()
+ * @see Collections#emptySet()
  */
 public final class ExcludedSet<E> extends AbstractSet<E> implements Serializable {
     /**

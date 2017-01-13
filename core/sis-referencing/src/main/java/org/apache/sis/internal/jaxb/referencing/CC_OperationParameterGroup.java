@@ -134,7 +134,7 @@ public final class CC_OperationParameterGroup extends PropertyType<CC_OperationP
      *                      to apply in the {@code GeneralParameterValue} instances.
      * @return A sequence containing the merged set of parameter descriptors.
      *
-     * see <a href="http://issues.apache.org/jira/browse/SIS-290">SIS-290</a>
+     * @see <a href="http://issues.apache.org/jira/browse/SIS-290">SIS-290</a>
      */
     public static GeneralParameterDescriptor[] merge(
             final List<GeneralParameterDescriptor> descriptors,

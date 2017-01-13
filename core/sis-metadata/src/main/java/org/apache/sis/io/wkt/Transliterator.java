@@ -92,8 +92,8 @@ import org.apache.sis.util.Characters;
  * @version 0.6
  * @module
  *
- * see org.apache.sis.util.Characters#isValidWKT(int)
- * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#39">WKT 2 specification §7.5.3</a>
+ * @see org.apache.sis.util.Characters#isValidWKT(int)
+ * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#39">WKT 2 specification §7.5.3</a>
  */
 public abstract class Transliterator implements Serializable {
     /**
@@ -158,7 +158,7 @@ public abstract class Transliterator implements Serializable {
      * @param  text The text to format without non-ASCII characters.
      * @return The text to write in <cite>Well Known Text</cite>.
      *
-     * see org.apache.sis.util.Characters#isValidWKT(int)
+     * @see org.apache.sis.util.Characters#isValidWKT(int)
      */
     public String filter(final String text) {
         CharSequence s = CharSequences.toASCII(text);
@@ -212,7 +212,7 @@ public abstract class Transliterator implements Serializable {
      * @param  name      The axis name, to be eventually replaced by this method.
      * @return The axis name to format, or {@code null} if the name shall be omitted.
      *
-     * see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#formatTo(Formatter)
+     * @see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#formatTo(Formatter)
      */
     public String toShortAxisName(final CoordinateSystem cs, final AxisDirection direction, final String name) {
         if (name.equalsIgnoreCase(AxisNames.GEODETIC_LATITUDE )) return AxisNames.LATITUDE;  // ISO 19162:2015 §7.5.3(ii)
@@ -325,7 +325,7 @@ public abstract class Transliterator implements Serializable {
      * @param  abbreviation The axis abbreviation, to be eventually replaced by this method.
      * @return The axis abbreviation to format.
      *
-     * see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#formatTo(Formatter)
+     * @see org.apache.sis.referencing.cs.DefaultCoordinateSystemAxis#formatTo(Formatter)
      */
     public String toLatinAbbreviation(final CoordinateSystem cs, final AxisDirection direction, String abbreviation) {
         if (abbreviation != null && !abbreviation.isEmpty()) {

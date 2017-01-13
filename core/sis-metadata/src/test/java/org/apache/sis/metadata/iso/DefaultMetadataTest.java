@@ -114,7 +114,7 @@ public final strictfp class DefaultMetadataTest extends XMLTestCase implements W
      *
      * @throws JAXBException If an error occurred during the during unmarshalling processes.
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-139">SIS-139</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-139">SIS-139</a>
      */
     @Test
     public void testEmptyCollection() throws JAXBException {

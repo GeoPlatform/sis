@@ -50,7 +50,7 @@ import static org.apache.sis.test.TestUtilities.getSingleton;
  * @version 0.5
  * @module
  *
- * see MetadataStandardTest#testValueMap()
+ * @see MetadataStandardTest#testValueMap()
  */
 @DependsOn(PropertyAccessorTest.class)
 public final strictfp class ValueMapTest extends TestCase {

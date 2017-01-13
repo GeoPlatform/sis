@@ -36,10 +36,10 @@ import java.util.Iterator;
  * @version 0.3
  * @module
  *
- * see ValueMap
- * see NameMap
- * see TypeMap
- * see InformationMap
+ * @see ValueMap
+ * @see NameMap
+ * @see TypeMap
+ * @see InformationMap
  */
 abstract class PropertyMap<V> extends AbstractMap<String,V> {
     /**

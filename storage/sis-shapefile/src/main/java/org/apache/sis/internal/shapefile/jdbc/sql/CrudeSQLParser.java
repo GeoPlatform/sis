@@ -113,7 +113,7 @@ public class CrudeSQLParser extends AbstractJDBC {
     }
 
     /**
-     * see java.sql.Wrapper#isWrapperFor(java.lang.Class)
+     * @see java.sql.Wrapper#isWrapperFor(java.lang.Class)
      */
     @Override public boolean isWrapperFor(Class<?> iface) {
         logStep("isWrapperFor", iface);
@@ -121,14 +121,14 @@ public class CrudeSQLParser extends AbstractJDBC {
     }
 
     /**
-     * see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getFile()
+     * @see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getFile()
      */
     @Override protected File getFile() {
         return this.rs.getFile();
     }
 
     /**
-     * see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getInterface()
+     * @see org.apache.sis.internal.shapefile.jdbc.AbstractJDBC#getInterface()
      */
     @Override protected Class<?> getInterface() {
         logStep("getInterface");

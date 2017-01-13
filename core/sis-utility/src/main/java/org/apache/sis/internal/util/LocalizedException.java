@@ -39,7 +39,7 @@ import org.apache.sis.util.Localized;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.util.Exceptions#getLocalizedMessage(Throwable, Locale)
+ * @see org.apache.sis.util.Exceptions#getLocalizedMessage(Throwable, Locale)
  */
 public interface LocalizedException {
     /**

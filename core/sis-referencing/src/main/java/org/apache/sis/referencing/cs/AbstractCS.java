@@ -68,8 +68,8 @@ import static org.apache.sis.util.Utilities.deepEquals;
  * @version 0.8
  * @module
  *
- * see DefaultCoordinateSystemAxis
- * see org.apache.sis.referencing.crs.AbstractCRS
+ * @see DefaultCoordinateSystemAxis
+ * @see org.apache.sis.referencing.crs.AbstractCRS
  */
 @XmlType(name = "AbstractCoordinateSystemType")
 @XmlRootElement(name = "AbstractCoordinateSystem")
@@ -103,7 +103,7 @@ public class AbstractCS extends AbstractIdentifiedObject implements CoordinateSy
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setAxis(CoordinateSystemAxis[])}</p>
      *
-     * see #getAxis(int)
+     * @see #getAxis(int)
      */
     private CoordinateSystemAxis[] axes;
 
@@ -111,7 +111,7 @@ public class AbstractCS extends AbstractIdentifiedObject implements CoordinateSy
      * Other coordinate systems derived from this coordinate systems for other axes conventions.
      * Created only when first needed.
      *
-     * see #forConvention(AxesConvention)
+     * @see #forConvention(AxesConvention)
      */
     private transient Map<AxesConvention,AbstractCS> derived;
 
@@ -210,7 +210,7 @@ public class AbstractCS extends AbstractIdentifiedObject implements CoordinateSy
      *
      * @param cs The coordinate system to copy.
      *
-     * see #castOrCopy(CoordinateSystem)
+     * @see #castOrCopy(CoordinateSystem)
      */
     protected AbstractCS(final CoordinateSystem cs) {
         super(cs);
@@ -326,7 +326,7 @@ public class AbstractCS extends AbstractIdentifiedObject implements CoordinateSy
      * @param  convention The axes convention for which a coordinate system is desired.
      * @return A coordinate system compatible with the given convention (may be {@code this}).
      *
-     * see org.apache.sis.referencing.crs.AbstractCRS#forConvention(AxesConvention)
+     * @see org.apache.sis.referencing.crs.AbstractCRS#forConvention(AxesConvention)
      */
     public synchronized AbstractCS forConvention(final AxesConvention convention) {
         ensureNonNull("convention", convention);
@@ -462,7 +462,7 @@ public class AbstractCS extends AbstractIdentifiedObject implements CoordinateSy
      *
      * @return {@code "CS"}.
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#36">WKT 2 specification §7.5</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#36">WKT 2 specification §7.5</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {

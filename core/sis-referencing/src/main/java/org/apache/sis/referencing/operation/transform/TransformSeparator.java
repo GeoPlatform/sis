@@ -68,9 +68,9 @@ public class TransformSeparator {
      * new arrays should be created and assigned to this field. This approach makes easier to keep snapshots
      * of indices arrays at various stages during the process of separating a {@code MathTransform}.</p>
      *
-     * see #getSourceDimensions()
-     * see #addSourceDimensions(int...)
-     * see #addSourceDimensionRange(int, int)
+     * @see #getSourceDimensions()
+     * @see #addSourceDimensions(int...)
+     * @see #addSourceDimensionRange(int, int)
      */
     protected int[] sourceDimensions;
 
@@ -84,9 +84,9 @@ public class TransformSeparator {
      * new arrays should be created and assigned to this field. This approach makes easier to keep snapshots
      * of indices arrays at various stages during the process of separating a {@code MathTransform}.</p>
      *
-     * see #getTargetDimensions()
-     * see #addTargetDimensions(int...)
-     * see #addTargetDimensionRange(int, int)
+     * @see #getTargetDimensions()
+     * @see #addTargetDimensions(int...)
+     * @see #addTargetDimensionRange(int, int)
      */
     protected int[] targetDimensions;
 

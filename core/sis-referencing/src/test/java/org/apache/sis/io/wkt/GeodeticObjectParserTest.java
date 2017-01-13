@@ -318,7 +318,7 @@ public final strictfp class GeodeticObjectParserTest extends TestCase {
      *
      * @throws ParseException if the parsing failed.
      *
-     * see #testGeographicWithImplicitAxesInSeconds()
+     * @see #testGeographicWithImplicitAxesInSeconds()
      */
     @Test
     @DependsOnMethod("testGeographicCRS")
@@ -336,7 +336,7 @@ public final strictfp class GeodeticObjectParserTest extends TestCase {
      *
      * @throws ParseException if the parsing failed.
      *
-     * see #testGeographicWithImplicitAxes()
+     * @see #testGeographicWithImplicitAxes()
      */
     @Test
     @DependsOnMethod("testGeographicWithImplicitAxes")
@@ -719,8 +719,8 @@ public final strictfp class GeodeticObjectParserTest extends TestCase {
      *
      * @throws ParseException if the parsing failed.
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-309">SIS-309</a>
-     * see <a href="https://issues.apache.org/jira/browse/SIS-310">SIS-310</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-309">SIS-309</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-310">SIS-310</a>
      */
     @Test
     @DependsOnMethod("testProjectedWithGradUnits")
@@ -1058,7 +1058,7 @@ public final strictfp class GeodeticObjectParserTest extends TestCase {
      *
      * @throws ParseException if the parsing failed.
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-317">SIS-317</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-317">SIS-317</a>
      *
      * @since 0.7
      */

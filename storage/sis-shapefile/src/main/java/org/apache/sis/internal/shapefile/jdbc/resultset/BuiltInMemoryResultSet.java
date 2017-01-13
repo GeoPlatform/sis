@@ -42,7 +42,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getBigDecimal(java.lang.String, int)
+     * @see java.sql.ResultSet#getBigDecimal(java.lang.String, int)
      * @deprecated Deprecated API (from ResultSet Interface)
      */
     @Deprecated @Override
@@ -51,7 +51,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getBigDecimal(int)
+     * @see java.sql.ResultSet#getBigDecimal(int)
      */
     @Override
     public BigDecimal getBigDecimal(int columnIndex) throws SQLException {
@@ -59,7 +59,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getBigDecimal(java.lang.String)
+     * @see java.sql.ResultSet#getBigDecimal(java.lang.String)
      */
     @Override
     public BigDecimal getBigDecimal(String columnLabel) throws SQLException {
@@ -67,7 +67,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getDate(int)
+     * @see java.sql.ResultSet#getDate(int)
      */
     @Override
     public Date getDate(int columnIndex) throws SQLException {
@@ -75,7 +75,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getDate(java.lang.String)
+     * @see java.sql.ResultSet#getDate(java.lang.String)
      */
     @Override
     public Date getDate(String columnLabel) throws SQLException {
@@ -83,7 +83,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getDouble(java.lang.String)
+     * @see java.sql.ResultSet#getDouble(java.lang.String)
      */
     @Override
     public double getDouble(String columnLabel) throws SQLException {
@@ -91,7 +91,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getDouble(int)
+     * @see java.sql.ResultSet#getDouble(int)
      */
     @Override
     public double getDouble(int columnIndex) throws SQLException {
@@ -99,7 +99,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getFloat(int)
+     * @see java.sql.ResultSet#getFloat(int)
      */
     @Override
     public float getFloat(int columnIndex) throws SQLException {
@@ -107,7 +107,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getFloat(java.lang.String)
+     * @see java.sql.ResultSet#getFloat(java.lang.String)
      */
     @Override
     public float getFloat(String columnLabel) throws SQLException {
@@ -115,7 +115,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getInt(java.lang.String)
+     * @see java.sql.ResultSet#getInt(java.lang.String)
      */
     @Override
     public int getInt(String columnLabel) throws SQLException {
@@ -123,7 +123,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getInt(int)
+     * @see java.sql.ResultSet#getInt(int)
      */
     @Override
     public int getInt(int columnIndex) throws SQLException {
@@ -131,28 +131,28 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getLong(java.lang.String)
+     * @see java.sql.ResultSet#getLong(java.lang.String)
      */
     @Override public long getLong(String columnLabel) throws SQLException {
         throw unsupportedOperation("getLong", columnLabel);
     }
 
     /**
-     * see java.sql.ResultSet#getLong(int)
+     * @see java.sql.ResultSet#getLong(int)
      */
     @Override public long getLong(int columnIndex) throws SQLException {
         return getLong(getFieldName(columnIndex, this.sql));
     }
 
     /**
-     * see java.sql.ResultSet#getShort(java.lang.String)
+     * @see java.sql.ResultSet#getShort(java.lang.String)
      */
     @Override public short getShort(String columnLabel) throws SQLException {
         throw unsupportedOperation("getShort", columnLabel);
     }
 
     /**
-     * see java.sql.ResultSet#getShort(int)
+     * @see java.sql.ResultSet#getShort(int)
      */
     @Override
     public short getShort(int columnIndex) throws SQLException {
@@ -160,14 +160,14 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getString(java.lang.String)
+     * @see java.sql.ResultSet#getString(java.lang.String)
      */
     @Override public String getString(String columnLabel) throws SQLException {
         throw unsupportedOperation("getString", columnLabel);
     }
 
     /**
-     * see java.sql.ResultSet#getString(int)
+     * @see java.sql.ResultSet#getString(int)
      */
     @Override
     public String getString(int columnIndex) throws SQLException {
@@ -175,7 +175,7 @@ public abstract class BuiltInMemoryResultSet extends DBFResultSet {
     }
 
     /**
-     * see java.sql.ResultSet#getMetaData()
+     * @see java.sql.ResultSet#getMetaData()
      */
     @Override public ResultSetMetaData getMetaData() throws SQLException {
         throw unsupportedOperation("getMetaData");

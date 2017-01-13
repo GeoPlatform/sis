@@ -128,7 +128,7 @@ public class DefaultDataIdentification extends AbstractIdentification implements
 	 *
 	 * @param object The metadata to copy values from, or {@code null} if none.
 	 *
-	 * see #castOrCopy(DataIdentification)
+	 * @see #castOrCopy(DataIdentification)
 	 */
 	public DefaultDataIdentification(final DataIdentification object) {
 		super(object);
@@ -191,7 +191,7 @@ public class DefaultDataIdentification extends AbstractIdentification implements
 	 *
 	 * @param newValues The new languages.
 	 *
-	 * see org.apache.sis.xml.XML#LOCALE
+	 * @see org.apache.sis.xml.XML#LOCALE
 	 *
 	 * @since 0.5
 	 */
@@ -205,7 +205,7 @@ public class DefaultDataIdentification extends AbstractIdentification implements
 	/**
 	 * Gets the languages for this identification (used in ISO 19139 format).
 	 * This method is used for unmarshalling only.
-	 * see {@link #getLanguages}
+	 * @see {@link #getLanguages}
 	 */
 	@XmlElement(name = "language")
 	private Collection<Locale> getXmlLanguages() {
@@ -218,7 +218,7 @@ public class DefaultDataIdentification extends AbstractIdentification implements
 	/**
 	 * Gets the language for this record as a string (used in ISO 19139 format).
 	 * This method pair is used for marshalling in JAXB only.
-	 * see {@link #getLanguage}
+	 * @see {@link #getLanguage}
 	 */
 	@XmlElement(name = "language")
 	private Collection<String> getXmlLanguageStrings() {
@@ -236,7 +236,7 @@ public class DefaultDataIdentification extends AbstractIdentification implements
 
 	/**
 	 * Gets the default locale for this record (used in ISO 19115-3 format).
-	 * see {@link #getLanguages}
+	 * @see {@link #getLanguages}
 	 */
 	@XmlElement(name = "defaultLocale")
 	@XmlJavaTypeAdapter(PT_Locale.class)
@@ -246,7 +246,7 @@ public class DefaultDataIdentification extends AbstractIdentification implements
 
 	/**
 	 * Sets the default locale for this record (used in ISO 19115-3 format).
-	 * see {@link #setLanguages}
+	 * @see {@link #setLanguages}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlDefaultLocale(Locale newValue) {
@@ -257,7 +257,7 @@ public class DefaultDataIdentification extends AbstractIdentification implements
 	/**
 	 * Gets the other locales for this record (used in ISO 19115-3 format).
 	 * Used to write in
-	 * see {@link #getLanguages}
+	 * @see {@link #getLanguages}
 	 */
 	@XmlElement(name = "otherLocale")
 	@XmlJavaTypeAdapter(PT_Locale.class)
@@ -289,7 +289,7 @@ public class DefaultDataIdentification extends AbstractIdentification implements
 
 	/**
 	 * Gets the character sets for this identification (used in ISO 19139 format).
-	 * see {@link #getCharacterSets}
+	 * @see {@link #getCharacterSets}
 	 */
 	@XmlElement(name = "characterSet")
 	private Collection<Charset> getXmlCharacterSets() {
@@ -344,7 +344,7 @@ public class DefaultDataIdentification extends AbstractIdentification implements
 
 	/**
 	 * Gets the topic categories for this identification (used in ISO 19139 format).
-	 * see {@link #getTopicCategories}
+	 * @see {@link #getTopicCategories}
 	 */
 	@XmlElement(name = "topicCategory")
 	private Collection<TopicCategory> getXmlTopicCategory() {
@@ -356,7 +356,7 @@ public class DefaultDataIdentification extends AbstractIdentification implements
 
 	/**
 	 * Gets the character sets for this identification (used in ISO 19139 format).
-	 * see {@link #getExtent}
+	 * @see {@link #getExtent}
 	 */
 	@XmlElement(name = "extent")
 	private Collection<Extent> getXmlExtent() {

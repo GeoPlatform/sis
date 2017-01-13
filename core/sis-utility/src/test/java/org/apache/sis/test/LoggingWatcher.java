@@ -103,7 +103,7 @@ public final strictfp class LoggingWatcher extends TestWatcher implements Filter
      *
      * @param description A description of the JUnit test which is starting.
      *
-     * see #isLoggable(LogRecord)
+     * @see #isLoggable(LogRecord)
      */
     @Override
     protected final void starting(final Description description) {

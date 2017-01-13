@@ -62,7 +62,7 @@ import java.nio.file.Files;
  * @version 0.8
  * @module
  *
- * see <a href="http://www.ngs.noaa.gov/cgi-bin/nadcon.prl">NADCON on-line computation</a>
+ * @see <a href="http://www.ngs.noaa.gov/cgi-bin/nadcon.prl">NADCON on-line computation</a>
  */
 @XmlTransient
 public final class NADCON extends AbstractProvider {

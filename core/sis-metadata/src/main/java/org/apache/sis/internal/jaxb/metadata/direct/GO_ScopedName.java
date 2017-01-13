@@ -31,7 +31,7 @@ import org.apache.sis.internal.jaxb.gml.CodeType;
  * @version 0.5
  * @module
  *
- * see org.apache.sis.internal.jaxb.gco.GO_GenericName
+ * @see org.apache.sis.internal.jaxb.gco.GO_GenericName
  */
 public final class GO_ScopedName extends XmlAdapter<CodeType.ScopedName, ScopedName> {
     /**

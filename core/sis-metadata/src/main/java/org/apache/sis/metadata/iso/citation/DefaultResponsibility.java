@@ -109,7 +109,7 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Responsibility)
+     * @see #castOrCopy(Responsibility)
      */
     public DefaultResponsibility(final Responsibility object) {
         super(object);
@@ -167,7 +167,7 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
     
     /**
      * Gets the role for this responsibility (used in ISO 19115-3 format).
-     * see {@link #getRole}
+     * @see {@link #getRole}
      */
     @XmlElement(name = "role", required = true)
     private Role getXmlRole() {
@@ -176,7 +176,7 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
     
     /**
      * Sets the role for this responsibility (used in ISO 19115-3 format).
-     * see {@link #setRole}
+     * @see {@link #setRole}
      */
     @SuppressWarnings("unused")
 	private void setXmlRole(final Role newValue) {
@@ -204,7 +204,7 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
     
     /**
      * Gets the extents for this responsibility (used in ISO 19115-3 format).
-     * see {@link #getExtents}
+     * @see {@link #getExtents}
      */
     @XmlElement(name = "extent")
     private Collection<Extent> getXmlExtents() {
@@ -213,7 +213,7 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
     
     /**
      * Sets the extents for this responsibility (used in ISO 19115-3 format).
-     * see {@link #setExtents}
+     * @see {@link #setExtents}
      */
     @SuppressWarnings("unused")
 	private void setXmlExtents(final Collection<? extends Extent> newValues) {
@@ -241,7 +241,7 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
     
     /**
      * Gets the parties for this responsibility (used in ISO 19115-3 format).
-     * see {@link #getParties}
+     * @see {@link #getParties}
      */
     @XmlElement(name = "party")
     private Collection<Party> getXmlParties() {
@@ -250,7 +250,7 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
     
     /**
      * Sets the parties for this responsibility (used in ISO 19115-3 format).
-     * see {@link #setParties}
+     * @see {@link #setParties}
      */
     @SuppressWarnings("unused")
 	private void setXmlParties(final Collection<? extends Party> newValues) {

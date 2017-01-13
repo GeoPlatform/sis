@@ -62,8 +62,8 @@ import org.apache.sis.internal.util.X364;
  * @version 0.6
  * @module
  *
- * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
- * see <a href="http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html">Legacy WKT 1</a>
+ * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
+ * @see <a href="http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html">Legacy WKT 1</a>
  */
 @XmlTransient
 public abstract class FormattableObject {
@@ -100,7 +100,7 @@ public abstract class FormattableObject {
      * @return The default Well Know Text representation of this object.
      * @throws UnformattableObjectException If this object can not be formatted as a standard WKT.
      *
-     * see org.opengis.referencing.IdentifiedObject#toWKT()
+     * @see org.opengis.referencing.IdentifiedObject#toWKT()
      */
     public String toWKT() throws UnformattableObjectException {
         return formatWKT(Convention.DEFAULT, false, true);
@@ -242,8 +242,8 @@ public abstract class FormattableObject {
      * @param  formatter The formatter where to format the inner content of this WKT element.
      * @return The {@linkplain KeywordCase#CAMEL_CASE CamelCase} keyword for the WKT element, or {@code null} if unknown.
      *
-     * see #toWKT()
-     * see #toString()
+     * @see #toWKT()
+     * @see #toString()
      */
     protected abstract String formatTo(Formatter formatter);
 }

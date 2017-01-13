@@ -126,7 +126,7 @@ public final strictfp class ImmutableIdentifierTest extends TestCase {
     /**
      * Tests the constructor with the {@code "authority"} attribute as one of the pre-defined constants.
      *
-     * see Citations#fromName(String)
+     * @see Citations#fromName(String)
      */
     @Test
     @DependsOnMethod("testConstructorWithStringValues")

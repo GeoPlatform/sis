@@ -167,7 +167,7 @@ public final class Constants extends Static {
     /**
      * The OGC name for <cite>"Affine parametric transformation"</cite>.
      *
-     * see org.apache.sis.internal.referencing.provider.Affine#NAME
+     * @see org.apache.sis.internal.referencing.provider.Affine#NAME
      */
     public static final String AFFINE = "Affine";
 

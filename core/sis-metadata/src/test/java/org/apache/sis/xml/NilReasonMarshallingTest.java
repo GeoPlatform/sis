@@ -37,7 +37,7 @@ import static org.apache.sis.test.MetadataAssert.*;
  * @version 0.4
  * @module
  *
- * see <a href="http://jira.geotoolkit.org/browse/GEOTK-149">GEOTK-149</a>
+ * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-149">GEOTK-149</a>
  */
 public final strictfp class NilReasonMarshallingTest extends XMLTestCase {
     /**

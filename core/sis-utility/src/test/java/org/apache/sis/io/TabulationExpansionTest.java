@@ -31,7 +31,7 @@ import static org.junit.Assert.*;
  * @version 0.3
  * @module
  *
- * see LineAppender#setTabulationExpanded(boolean)
+ * @see LineAppender#setTabulationExpanded(boolean)
  */
 @DependsOn(LineAppenderTest.class)
 public final strictfp class TabulationExpansionTest extends LineAppenderTest {

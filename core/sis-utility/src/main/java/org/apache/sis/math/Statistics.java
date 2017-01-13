@@ -101,7 +101,7 @@ public class Statistics implements DoubleConsumer, LongConsumer, Cloneable, Seri
      * If non-null, then this name will be shown as column header in the table formatted
      * by {@link StatisticsFormat}.
      *
-     * see #name()
+     * @see #name()
      */
     private final InternationalString name;
 
@@ -203,7 +203,7 @@ public class Statistics implements DoubleConsumer, LongConsumer, Cloneable, Seri
      *         The given array can not be null, but can contain null elements.
      * @return The newly constructed, initially empty, set of statistics.
      *
-     * see #differences()
+     * @see #differences()
      */
     public static Statistics forSeries(final CharSequence name, final CharSequence... differenceNames) {
         ArgumentChecks.ensureNonNull("differenceNames", differenceNames);
@@ -249,8 +249,8 @@ public class Statistics implements DoubleConsumer, LongConsumer, Cloneable, Seri
      *
      * @param sample The sample value (may be NaN).
      *
-     * see #accept(long)
-     * see #combine(Statistics)
+     * @see #accept(long)
+     * @see #combine(Statistics)
      */
     @Override
     public void accept(final double sample) {
@@ -289,8 +289,8 @@ public class Statistics implements DoubleConsumer, LongConsumer, Cloneable, Seri
      *
      * @param sample The sample value.
      *
-     * see #accept(double)
-     * see #combine(Statistics)
+     * @see #accept(double)
+     * @see #combine(Statistics)
      */
     @Override
     public void accept(final long sample) {
@@ -482,8 +482,8 @@ public class Statistics implements DoubleConsumer, LongConsumer, Cloneable, Seri
      * @return The statistics on the differences between consecutive sample values,
      *         or {@code null} if not calculated by this object.
      *
-     * see #forSeries(CharSequence, CharSequence[])
-     * see #scale(double)
+     * @see #forSeries(CharSequence, CharSequence[])
+     * @see #scale(double)
      */
     public Statistics differences() {
         return null;
@@ -504,7 +504,7 @@ public class Statistics implements DoubleConsumer, LongConsumer, Cloneable, Seri
      *
      * @return A string representation of this statistics object.
      *
-     * see StatisticsFormat
+     * @see StatisticsFormat
      */
     @Override
     public String toString() {

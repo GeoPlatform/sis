@@ -79,8 +79,8 @@ abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q>, Serializa
      * <p>The value given assigned to this field is also used by {@link #getName()}
      * for fetching a localized name from the resource bundle.</p>
      *
-     * see #getSymbol()
-     * see SystemUnit#alternate(String)
+     * @see #getSymbol()
+     * @see SystemUnit#alternate(String)
      */
     private final String symbol;
 
@@ -122,8 +122,8 @@ abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q>, Serializa
      *
      * @return the unit symbol, or {@code null} if this unit has no specific symbol.
      *
-     * see #toString()
-     * see UnitFormat
+     * @see #toString()
+     * @see UnitFormat
      */
     @Override
     public final String getSymbol() {
@@ -136,7 +136,7 @@ abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q>, Serializa
      *
      * @return the unit name, or {@code null} if this unit has no specific name.
      *
-     * see UnitFormat#format(Unit, Appendable)
+     * @see UnitFormat#format(Unit, Appendable)
      */
     @Override
     public final String getName() {
@@ -174,7 +174,7 @@ abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q>, Serializa
      * @param  that the other unit to compare for compatibility.
      * @return {@code true} if the given unit is compatible with this unit.
      *
-     * see #getDimension()
+     * @see #getDimension()
      */
     @Override
     public final boolean isCompatible(final Unit<?> that) {
@@ -294,7 +294,7 @@ abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q>, Serializa
      * Returns the unlocalized string representation of this unit, either as a single symbol
      * or a product of symbols or scale factors, eventually with an offset.
      *
-     * see #getSymbol()
+     * @see #getSymbol()
      */
     @Override
     public final String toString() {

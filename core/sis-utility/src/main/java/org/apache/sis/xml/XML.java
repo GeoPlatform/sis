@@ -102,8 +102,8 @@ public final class XML extends Static {
      * {@link org.apache.sis.metadata.iso.DefaultMetadata#setLanguage(Locale) setLanguage(Locale)}
      * method will have precedence over this property. This behavior is compliant with INSPIRE rules.
      *
-     * see Marshaller#setProperty(String, Object)
-     * see org.apache.sis.metadata.iso.DefaultMetadata#setLanguage(Locale)
+     * @see Marshaller#setProperty(String, Object)
+     * @see org.apache.sis.metadata.iso.DefaultMetadata#setLanguage(Locale)
      */
     public static final String LOCALE = "org.apache.sis.xml.locale";
 
@@ -183,7 +183,7 @@ public final class XML extends Static {
      * Specifies the metadata version of the document to be marshalled or unmarshalled.
      * The metadata version may affect the set of XML elements to be marshalled and their namespaces.
      *
-     * <div class="note"><b>Compatibility note:</b></div>
+     * <div class="note"><b>Compatibility note:</b>
      * Newer versions typically have more elements, but not always.
      *
      * The value can be {@link String} or {@link Version} objects.
@@ -219,8 +219,8 @@ public final class XML extends Static {
      *     Object obj = XML.unmarshal(source, properties);
      * }
      *
-     * see Unmarshaller#setProperty(String, Object)
-     * see ReferenceResolver
+     * @see Unmarshaller#setProperty(String, Object)
+     * @see ReferenceResolver
      */
     public static final String RESOLVER = "org.apache.sis.xml.resolver";
 
@@ -268,8 +268,8 @@ public final class XML extends Static {
      * }
      * </div>
      *
-     * see Unmarshaller#setProperty(String, Object)
-     * see ValueConverter
+     * @see Unmarshaller#setProperty(String, Object)
+     * @see ValueConverter
      */
     public static final String CONVERTER = "org.apache.sis.xml.converter";
 
@@ -315,7 +315,7 @@ public final class XML extends Static {
      * property is set for this key, then the {@link WarningListener#warningOccured(Object, LogRecord)}
      * method will be invoked and the warning will <em>not</em> be logged by the (un)marshaller.</p>
      *
-     * see WarningListener
+     * @see WarningListener
      */
     public static final String WARNING_LISTENER = "org.apache.sis.xml.warningListener";
 
@@ -328,7 +328,7 @@ public final class XML extends Static {
      * set of classes returned by {@link TypeRegistration#defaultClassesToBeBound()} may
      * have changed.
      *
-     * see #getPool()
+     * @see #getPool()
      */
     private static volatile MarshallerPool POOL;
 

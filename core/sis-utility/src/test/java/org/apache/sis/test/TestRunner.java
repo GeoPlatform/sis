@@ -78,14 +78,14 @@ public final class TestRunner extends BlockJUnit4ClassRunner {
      * There is no need to prefix the method names by classnames because a new instance of {@code TestRunner}
      * will be created for each test class, even if the the test classes are aggregated in a {@link TestSuite}.</div>
      *
-     * see #addDependencyFailure(String)
+     * @see #addDependencyFailure(String)
      */
     private Set<String> methodDependencyFailures;
 
     /**
      * The dependency classes that failed. This set will be created only when first needed.
      *
-     * see #addDependencyFailure(String)
+     * @see #addDependencyFailure(String)
      */
     private static Set<Class<?>> classDependencyFailures;
 
@@ -93,7 +93,7 @@ public final class TestRunner extends BlockJUnit4ClassRunner {
      * {@code true} if every tests shall be skipped. This happen if at least one test failure
      * occurred in at least one class listed in the {@link DependsOn} annotation.
      *
-     * see #checkClassDependencies()
+     * @see #checkClassDependencies()
      */
     private boolean skipAll;
 

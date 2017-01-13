@@ -234,7 +234,7 @@ public final strictfp class CharSequencesTest extends TestCase {
     /**
      * Tests the {@link CharSequences#toASCII(CharSequence)} method.
      *
-     * see StringBuildersTest#testToASCII()
+     * @see StringBuildersTest#testToASCII()
      */
     @Test
     public void testToASCII() {

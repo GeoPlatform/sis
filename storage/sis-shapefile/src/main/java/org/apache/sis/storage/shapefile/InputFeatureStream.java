@@ -178,7 +178,7 @@ public class InputFeatureStream extends InputStream {
     }
     
     /**
-     * see java.io.InputStream#read()
+     * @see java.io.InputStream#read()
      */
     @Override
     public int read() {
@@ -186,7 +186,7 @@ public class InputFeatureStream extends InputStream {
     }
 
     /**
-     * see java.io.InputStream#available()
+     * @see java.io.InputStream#available()
      */
     @Override
     public int available() {
@@ -194,7 +194,7 @@ public class InputFeatureStream extends InputStream {
     }
 
     /**
-     * see java.io.InputStream#close()
+     * @see java.io.InputStream#close()
      */
     @Override
     public void close() {

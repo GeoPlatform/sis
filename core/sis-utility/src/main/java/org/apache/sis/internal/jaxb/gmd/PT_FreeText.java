@@ -62,7 +62,7 @@ import org.apache.sis.util.ArraysExt;
  * @version 0.8
  * @module
  *
- * see <a href="http://jira.geotoolkit.org/browse/GEOTK-152">GEOTK-152</a>
+ * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-152">GEOTK-152</a>
  */
 @XmlType(name = "PT_FreeText_PropertyType", namespace = Namespaces.LAN)
 public final class PT_FreeText extends GO_CharacterString {
@@ -70,7 +70,7 @@ public final class PT_FreeText extends GO_CharacterString {
      * A set of {@link LocalisedCharacterString}, representing the {@code <gmd:textGroup>} element.
      * The array shall contain one element for each locale.
      *
-     * see <a href="http://jira.geotoolkit.org/browse/GEOTK-152">GEOTK-152</a>
+     * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-152">GEOTK-152</a>
      */
     @XmlElementWrapper(name = "PT_FreeText")
     @XmlElement(required = true)
@@ -96,7 +96,7 @@ public final class PT_FreeText extends GO_CharacterString {
      * @param text The text to write in the {@code <gco:CharacterString>} element.
      * @param textGroup The text group elements.
      *
-     * see org.apache.sis.xml.XML#LOCALE
+     * @see org.apache.sis.xml.XML#LOCALE
      */
     private PT_FreeText(final String text, final TextGroup[] textGroup) {
         super(text);

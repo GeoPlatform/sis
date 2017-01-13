@@ -39,8 +39,8 @@ import org.apache.sis.internal.jaxb.Context;
  * @version 0.4
  * @module
  *
- * see LanguageCode
- * see org.apache.sis.internal.jaxb.code.PT_Locale
+ * @see LanguageCode
+ * @see org.apache.sis.internal.jaxb.code.PT_Locale
  */
 public final class LocaleAdapter extends XmlAdapter<LanguageCode, Locale> {
     /**

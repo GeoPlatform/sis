@@ -81,7 +81,7 @@ import org.opengis.feature.Operation;
  * @version 0.8
  * @module
  *
- * see DefaultFeatureType#newInstance()
+ * @see DefaultFeatureType#newInstance()
  */
 public abstract class AbstractFeature implements Feature, Serializable {
     /**
@@ -99,7 +99,7 @@ public abstract class AbstractFeature implements Feature, Serializable {
      *
      * @param type  information about the feature (name, characteristics, <i>etc.</i>).
      *
-     * see DefaultFeatureType#newInstance()
+     * @see DefaultFeatureType#newInstance()
      */
     protected AbstractFeature(final FeatureType type) {
         ArgumentChecks.ensureNonNull("type", type);
@@ -149,8 +149,8 @@ public abstract class AbstractFeature implements Feature, Serializable {
      * @return the property of the given name (never {@code null}).
      * @throws PropertyNotFoundException if the given argument is not a property name of this feature.
      *
-     * see #getPropertyValue(String)
-     * see DefaultFeatureType#getProperty(String)
+     * @see #getPropertyValue(String)
+     * @see DefaultFeatureType#getProperty(String)
      */
     @Override
     public Property getProperty(final String name) throws PropertyNotFoundException {
@@ -193,7 +193,7 @@ public abstract class AbstractFeature implements Feature, Serializable {
      * @throws InvalidPropertyValueException if the value of the given property is not valid.
      * @throws IllegalArgumentException if the property can not be set for another reason.
      *
-     * see #setPropertyValue(String, Object)
+     * @see #setPropertyValue(String, Object)
      */
     @Override
     public void setProperty(final Property property) throws IllegalArgumentException {
@@ -360,7 +360,7 @@ public abstract class AbstractFeature implements Feature, Serializable {
      * @return the value for the given property, or {@code null} if none.
      * @throws PropertyNotFoundException if the given argument is not an attribute or association name of this feature.
      *
-     * see AbstractAttribute#getValue()
+     * @see AbstractAttribute#getValue()
      */
     @Override
     public abstract Object getPropertyValue(final String name) throws PropertyNotFoundException;
@@ -380,7 +380,7 @@ public abstract class AbstractFeature implements Feature, Serializable {
      * @throws ClassCastException if the value is not assignable to the expected value class.
      * @throws InvalidPropertyValueException if the given value is not valid for a reason other than its type.
      *
-     * see AbstractAttribute#setValue(Object)
+     * @see AbstractAttribute#setValue(Object)
      */
     @Override
     public abstract void setPropertyValue(final String name, final Object value) throws IllegalArgumentException;
@@ -695,8 +695,8 @@ public abstract class AbstractFeature implements Feature, Serializable {
      *
      * @return reports on all constraint violations found.
      *
-     * see AbstractAttribute#quality()
-     * see AbstractAssociation#quality()
+     * @see AbstractAttribute#quality()
+     * @see AbstractAssociation#quality()
      */
     public DataQuality quality() {
         final Validator v = new Validator(ScopeCode.FEATURE);
@@ -709,7 +709,7 @@ public abstract class AbstractFeature implements Feature, Serializable {
      *
      * @return a string representation of this feature in a tabular format.
      *
-     * see FeatureFormat
+     * @see FeatureFormat
      */
     @Override
     public String toString() {

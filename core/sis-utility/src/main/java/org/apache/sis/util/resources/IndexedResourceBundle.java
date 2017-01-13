@@ -78,7 +78,7 @@ public class IndexedResourceBundle extends ResourceBundle implements Localized {
      * Key used in properties map for localizing some aspects of the operation being executed.
      * The {@code getResources(Map<?,?>)} methods defined in some sub-classes will look for this property.
      *
-     * see org.apache.sis.referencing.AbstractIdentifiedObject#LOCALE_KEY
+     * @see org.apache.sis.referencing.AbstractIdentifiedObject#LOCALE_KEY
      */
     public static final String LOCALE_KEY = "locale";
 
@@ -104,7 +104,7 @@ public class IndexedResourceBundle extends ResourceBundle implements Localized {
      * {@code Resources_en}, {@code Resources_de}, etc., which will only be used if a key has
      * not been found in the child resources.
      *
-     * see #ensureLoaded(String)
+     * @see #ensureLoaded(String)
      */
     @SuppressWarnings("VolatileArrayField")     // Okay because we set this field only after the array has been fully constructed.
     private volatile String[] values;
@@ -141,8 +141,8 @@ public class IndexedResourceBundle extends ResourceBundle implements Localized {
      * @return resources in the given locale.
      * @throws MissingResourceException if resources can't be found.
      *
-     * see Vocabulary#getResources(Locale)
-     * see Errors#getResources(Locale)
+     * @see Vocabulary#getResources(Locale)
+     * @see Errors#getResources(Locale)
      */
     protected static <T extends IndexedResourceBundle> T getBundle(Class<T> base, Locale locale)
             throws MissingResourceException
@@ -501,10 +501,10 @@ public class IndexedResourceBundle extends ResourceBundle implements Localized {
      * @return the string for the given key.
      * @throws MissingResourceException if no object for the given key can be found.
      *
-     * see #getString(String)
-     * see #getString(short,Object,Object)
-     * see #getString(short,Object,Object,Object)
-     * see MessageFormat
+     * @see #getString(String)
+     * @see #getString(short,Object,Object)
+     * @see #getString(short,Object,Object,Object)
+     * @see MessageFormat
      */
     public final String getString(final short key, final Object arg0) throws MissingResourceException {
         final String pattern = getString(key);

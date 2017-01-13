@@ -101,7 +101,7 @@ public abstract class DatumShiftGridFile<C extends Quantity<C>, T extends Quanti
      * <p>This field is initialized to {@link Double#NaN}. It is loader responsibility
      * to assign a value to this field after {@code DatumShiftGridFile} construction.</p>
      *
-     * see #getCellPrecision()
+     * @see #getCellPrecision()
      */
     double accuracy;
 

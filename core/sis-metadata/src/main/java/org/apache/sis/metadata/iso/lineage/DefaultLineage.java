@@ -116,7 +116,7 @@ public class DefaultLineage extends ISOMetadata implements Lineage {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Lineage)
+     * @see #castOrCopy(Lineage)
      */
     public DefaultLineage(final Lineage object) {
         super(object);
@@ -203,7 +203,7 @@ public class DefaultLineage extends ISOMetadata implements Lineage {
     
     /**
 	 * Gets the scope. Used by JAXB (ISO 19115-3 format).
-	 * see {@link #getScope}
+	 * @see {@link #getScope}
 	 */
 	@XmlElement(name = "scope")
 	private Scope getXmlScope() {
@@ -212,7 +212,7 @@ public class DefaultLineage extends ISOMetadata implements Lineage {
 
 	/**
 	 * Sets the scope. Used by JAXB (ISO 19115-3 format).
-	 * see {@link #setScope}
+	 * @see {@link #setScope}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlScope(final Scope newValue) {
@@ -244,7 +244,7 @@ public class DefaultLineage extends ISOMetadata implements Lineage {
     
     /**
 	 * Gets additional documentation. Used by JAXB (ISO 19115-3 format).
-	 * see {@link #getAdditionalDocumentation}
+	 * @see {@link #getAdditionalDocumentation}
 	 */
 	@XmlElement(name = "additionalDocumentation")
 	private Collection<Citation> getXmlAdditionalDocumentation() {

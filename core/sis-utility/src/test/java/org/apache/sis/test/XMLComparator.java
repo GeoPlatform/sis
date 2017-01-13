@@ -78,15 +78,15 @@ import org.xml.sax.SAXException;
  * @version 0.4
  * @module
  *
- * see XMLTestCase
- * see Assert#assertXmlEquals(Object, Object, String[])
+ * @see XMLTestCase
+ * @see Assert#assertXmlEquals(Object, Object, String[])
  */
 public strictfp class XMLComparator {
     /**
      * Commonly used prefixes for namespaces. Used as shorthands for calls to
      * {@link Assert#assertXmlEquals(Object, Object, String[])}.
      *
-     * see #substitutePrefix(String)
+     * @see #substitutePrefix(String)
      */
     private static final Map<String, String> PREFIX_URL = new HashMap<>(16);
     static {
@@ -104,7 +104,7 @@ public strictfp class XMLComparator {
     /**
      * The DOM factory, created when first needed.
      *
-     * see #newDocumentBuilder()
+     * @see #newDocumentBuilder()
      */
     private static DocumentBuilderFactory factory;
 

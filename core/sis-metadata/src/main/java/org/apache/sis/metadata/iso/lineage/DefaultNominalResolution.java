@@ -88,7 +88,7 @@ public class DefaultNominalResolution extends ISOMetadata implements NominalReso
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(NominalResolution)
+     * @see #castOrCopy(NominalResolution)
      */
     public DefaultNominalResolution(final NominalResolution object) {
         super(object);

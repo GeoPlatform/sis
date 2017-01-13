@@ -96,7 +96,7 @@ enum Option {
      * Boolean values accepted on the command line. Values at even indices are {@code false}
      * and values at odd indices are {@code true}.
      *
-     * see #parseBoolean(String)
+     * @see #parseBoolean(String)
      */
     private static final String[] BOOLEAN_VALUES = {
         "false", "true",
@@ -108,7 +108,7 @@ enum Option {
      * The string representation of this option, as used on the command line.
      * This is usually the lower-case version of {@link #name()}.
      *
-     * see #label()
+     * @see #label()
      */
     private String label;
 

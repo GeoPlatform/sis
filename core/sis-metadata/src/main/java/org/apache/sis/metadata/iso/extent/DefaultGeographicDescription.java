@@ -137,7 +137,7 @@ public class DefaultGeographicDescription extends AbstractGeographicExtent imple
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(GeographicDescription)
+     * @see #castOrCopy(GeographicDescription)
      */
     public DefaultGeographicDescription(final GeographicDescription object) {
         super(object);

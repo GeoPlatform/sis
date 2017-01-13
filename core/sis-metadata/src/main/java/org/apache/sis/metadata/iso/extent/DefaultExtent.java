@@ -64,9 +64,9 @@ import org.apache.sis.internal.metadata.ReferencingServices;
  * @version 0.3
  * @module
  *
- * see Extents#getGeographicBoundingBox(Extent)
- * see org.apache.sis.referencing.AbstractReferenceSystem#getDomainOfValidity()
- * see org.apache.sis.referencing.datum.AbstractDatum#getDomainOfValidity()
+ * @see Extents#getGeographicBoundingBox(Extent)
+ * @see org.apache.sis.referencing.AbstractReferenceSystem#getDomainOfValidity()
+ * @see org.apache.sis.referencing.datum.AbstractDatum#getDomainOfValidity()
  */
 @XmlType(name = "EX_Extent_Type", propOrder = {
     "description",
@@ -136,7 +136,7 @@ public class DefaultExtent extends ISOMetadata implements Extent {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Extent)
+     * @see #castOrCopy(Extent)
      */
     public DefaultExtent(final Extent object) {
         super(object);
@@ -266,9 +266,9 @@ public class DefaultExtent extends ISOMetadata implements Extent {
      * @throws UnsupportedOperationException if the referencing module is not on the classpath.
      * @throws TransformException if a coordinate transformation was required and failed.
      *
-     * see DefaultGeographicBoundingBox#setBounds(Envelope)
-     * see DefaultVerticalExtent#setBounds(Envelope)
-     * see DefaultTemporalExtent#setBounds(Envelope)
+     * @see DefaultGeographicBoundingBox#setBounds(Envelope)
+     * @see DefaultVerticalExtent#setBounds(Envelope)
+     * @see DefaultTemporalExtent#setBounds(Envelope)
      */
     public void addElements(final Envelope envelope) throws TransformException {
         checkWritePermission();

@@ -51,7 +51,7 @@ import java.util.Objects;
  * @version 0.4
  * @module
  *
- * see DataStoreProvider#probeContent(StorageConnector)
+ * @see DataStoreProvider#probeContent(StorageConnector)
  */
 public class ProbeResult implements Serializable {
     /**
@@ -135,21 +135,21 @@ public class ProbeResult implements Serializable {
     /**
      * {@code true} if the storage is supported by the {@link DataStoreProvider}.
      *
-     * see #isSupported()
+     * @see #isSupported()
      */
     private final boolean isSupported;
 
     /**
      * The storage MIME type, or {@code null} if unknown or not applicable.
      *
-     * see #getMimeType()
+     * @see #getMimeType()
      */
     private final String mimeType;
 
     /**
      * The version of file format or database schema used by the storage, or {@code null} if unknown or not applicable.
      *
-     * see #getVersion()
+     * @see #getVersion()
      */
     private final Version version;
 

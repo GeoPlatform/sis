@@ -46,8 +46,8 @@ import java.nio.file.FileSystemNotFoundException;
  * @version 0.4
  * @module
  *
- * see Files#probeContentType(Path)
- * see DataStores#probeContentType(Object)
+ * @see Files#probeContentType(Path)
+ * @see DataStores#probeContentType(Object)
  */
 final class MimeTypeCommand extends CommandRunner {
     /**

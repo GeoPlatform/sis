@@ -82,7 +82,7 @@ import org.apache.sis.util.Utilities;
  * @version 0.7
  * @module
  *
- * see DefaultTransformation
+ * @see DefaultTransformation
  */
 @XmlType(name = "ConversionType")
 @XmlRootElement(name = "Conversion")
@@ -198,7 +198,7 @@ public class DefaultConversion extends AbstractSingleOperation implements Conver
      * @param transform  Transform from positions in the source CRS to positions in the target CRS, or {@code null}.
      * @param parameters The {@code transform} parameter values, or {@code null}.
      *
-     * see DefaultMathTransformFactory#swapAndScaleAxes(MathTransform, DefaultMathTransformFactory.Context)
+     * @see DefaultMathTransformFactory#swapAndScaleAxes(MathTransform, DefaultMathTransformFactory.Context)
      */
     public DefaultConversion(final Map<String,?>       properties,
                              final OperationMethod     method,
@@ -313,7 +313,7 @@ public class DefaultConversion extends AbstractSingleOperation implements Conver
      *
      * @param operation The coordinate operation to copy.
      *
-     * see #castOrCopy(Conversion)
+     * @see #castOrCopy(Conversion)
      */
     protected DefaultConversion(final Conversion operation) {
         super(operation);
@@ -396,7 +396,7 @@ public class DefaultConversion extends AbstractSingleOperation implements Conver
      *         parameter values}, or a {@linkplain CoordinateSystems#swapAndScaleAxes change of axis order or units}
      *         failed.
      *
-     * see DefaultMathTransformFactory#createParameterizedTransform(ParameterValueGroup, DefaultMathTransformFactory.Context)
+     * @see DefaultMathTransformFactory#createParameterizedTransform(ParameterValueGroup, DefaultMathTransformFactory.Context)
      */
     public <T extends Conversion> T specialize(final Class<T> baseType,
             final CoordinateReferenceSystem sourceCRS, final CoordinateReferenceSystem targetCRS,

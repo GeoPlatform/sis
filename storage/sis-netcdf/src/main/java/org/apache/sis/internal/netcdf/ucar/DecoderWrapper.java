@@ -69,14 +69,14 @@ public final class DecoderWrapper extends Decoder implements CancelTask {
      * and all other groups shall be non-null values for the {@code "NCISOMetadata"}, {@code "THREDDSMetadata"}
      * and {@code "CFMetadata"} groups, if they exist.
      *
-     * see #setSearchPath(String[])
+     * @see #setSearchPath(String[])
      */
     private Group[] groups;
 
     /**
      * The variables, computed when first needed.
      *
-     * see #getVariables()
+     * @see #getVariables()
      */
     private transient Variable[] variables;
 
@@ -88,7 +88,7 @@ public final class DecoderWrapper extends Decoder implements CancelTask {
     /**
      * The grid geometries, computed when first needed.
      *
-     * see #getGridGeometries()
+     * @see #getGridGeometries()
      */
     private transient GridGeometry[] geometries;
 

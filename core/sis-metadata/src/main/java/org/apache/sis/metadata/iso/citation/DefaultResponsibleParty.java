@@ -85,7 +85,7 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Responsibility)
+     * @see #castOrCopy(Responsibility)
      */
     public DefaultResponsibleParty(final Responsibility object) {
         super(object);
@@ -124,8 +124,8 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
      * @param  position {@code true} for returning the position name instead than individual name.
      * @return The name or position of the first individual, or {@code null}.
      *
-     * see #getIndividualName()
-     * see #getPositionName()
+     * @see #getIndividualName()
+     * @see #getPositionName()
      */
     private InternationalString getIndividual(final boolean position) {
         final Collection<Party> parties = getParties();
@@ -149,9 +149,9 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
      * @param  position {@code true} for returning the position name instead than individual name.
      * @return The name or position of the first individual, or {@code null}.
      *
-     * see #getOrganisationName()
-     * see #getIndividualName()
-     * see #getPositionName()
+     * @see #getOrganisationName()
+     * @see #getIndividualName()
+     * @see #getPositionName()
      */
     private static InternationalString getName(final Collection<? extends Party> parties,
             final Class<? extends Party> type, final boolean position)

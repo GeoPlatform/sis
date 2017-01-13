@@ -104,7 +104,7 @@ class ObjectToString<S> extends SystemConverter<S,String> {
      * Specialized instance for {@link org.opengis.util.CodeList}.
      * This class invokes {@link org.opengis.util.CodeList#name()} instead than {@code toString()}.
      *
-     * see org.apache.sis.internal.converter.StringConverter.CodeList
+     * @see org.apache.sis.internal.converter.StringConverter.CodeList
      */
     static final class CodeList<S extends org.opengis.util.CodeList<S>> extends ObjectToString<S> {
         private static final long serialVersionUID = 1454105232343463228L;
@@ -131,7 +131,7 @@ class ObjectToString<S> extends SystemConverter<S,String> {
      * Specialized instance for {@link java.lang.Enum}.
      * This class invokes {@link java.lang.Enum#name()} instead than {@code toString()}.
      *
-     * see org.apache.sis.internal.converter.StringConverter.Enum
+     * @see org.apache.sis.internal.converter.StringConverter.Enum
      */
     static final class Enum<S extends java.lang.Enum<S>> extends ObjectToString<S> {
         private static final long serialVersionUID = 5391817175838307542L;

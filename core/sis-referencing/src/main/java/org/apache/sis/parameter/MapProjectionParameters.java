@@ -154,7 +154,7 @@ final class MapProjectionParameters extends DefaultParameterValueGroup {
      * and {@code "semi_minor"} parameters. When explicitely set, this parameter value is also assigned
      * to the {@code "semi_major"} and {@code "semi_minor"} axis lengths.
      *
-     * see org.apache.sis.referencing.datum.DefaultEllipsoid#getAuthalicRadius()
+     * @see org.apache.sis.referencing.datum.DefaultEllipsoid#getAuthalicRadius()
      */
     static final class EarthRadius extends DefaultParameterValue<Double> {
         /**
@@ -238,7 +238,7 @@ final class MapProjectionParameters extends DefaultParameterValueGroup {
      * and {@code "semi_minor"} parameters. When explicitly set, this parameter value is used for computing the
      * semi-minor axis length.
      *
-     * see org.apache.sis.referencing.datum.DefaultEllipsoid#getInverseFlattening()
+     * @see org.apache.sis.referencing.datum.DefaultEllipsoid#getInverseFlattening()
      */
     static final class InverseFlattening extends DefaultParameterValue<Double> {
         /**
@@ -357,7 +357,7 @@ final class MapProjectionParameters extends DefaultParameterValueGroup {
     /**
      * Whether the inverse flattening parameter is definitive.
      *
-     * see org.apache.sis.referencing.datum.DefaultEllipsoid#isIvfDefinitive()
+     * @see org.apache.sis.referencing.datum.DefaultEllipsoid#isIvfDefinitive()
      */
     static final class IsIvfDefinitive extends DefaultParameterValue<Boolean> {
         /**

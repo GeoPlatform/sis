@@ -40,7 +40,7 @@ import org.opengis.feature.InvalidPropertyValueException;
  * @version 0.6
  * @module
  *
- * see DefaultAssociationRole
+ * @see DefaultAssociationRole
  */
 final class SingletonAssociation extends AbstractAssociation {
     /**

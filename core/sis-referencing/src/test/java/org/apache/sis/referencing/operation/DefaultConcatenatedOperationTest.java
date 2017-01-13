@@ -60,7 +60,7 @@ public final strictfp class DefaultConcatenatedOperationTest extends XMLTestCase
     /**
      * Creates a “Tokyo to JGD2000” transformation.
      *
-     * see DefaultTransformationTest#createGeocentricTranslation()
+     * @see DefaultTransformationTest#createGeocentricTranslation()
      */
     private static DefaultConcatenatedOperation createGeocentricTranslation() throws FactoryException, NoninvertibleTransformException {
         final MathTransformFactory mtFactory = DefaultFactories.forBuildin(MathTransformFactory.class);

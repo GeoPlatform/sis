@@ -59,7 +59,7 @@ public final class AffineTransforms2D extends Static {
      *         or a copy of the given matrix otherwise.
      * @throws IllegalArgumentException if the given matrix size is not 3×3 or if the matrix is not affine.
      *
-     * see Matrices#isAffine(Matrix)
+     * @see Matrices#isAffine(Matrix)
      */
     public static AffineTransform castOrCopy(final Matrix matrix) throws IllegalArgumentException {
         if (matrix == null || matrix instanceof AffineTransform) {
@@ -105,7 +105,7 @@ public final class AffineTransforms2D extends Static {
      * @return the transform of the given shape, or {@code null} if the given shape was null.
      *         May or may not be the same instance than the given shape.
      *
-     * see AffineTransform#createTransformedShape(Shape)
+     * @see AffineTransform#createTransformedShape(Shape)
      */
     public static Shape transform(final AffineTransform transform, Shape shape, boolean allowOverwrite) {
         ArgumentChecks.ensureNonNull("transform", transform);
@@ -178,7 +178,7 @@ public final class AffineTransforms2D extends Static {
      *
      * @return the direct transform of the {@code bounds} rectangle, or {@code null} if {@code bounds} was null.
      *
-     * see org.apache.sis.geometry.Shapes2D#transform(MathTransform2D, Rectangle2D, Rectangle2D)
+     * @see org.apache.sis.geometry.Shapes2D#transform(MathTransform2D, Rectangle2D, Rectangle2D)
      */
     public static Rectangle2D transform(final AffineTransform transform,
             final Rectangle2D bounds, final Rectangle2D dest)

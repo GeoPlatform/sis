@@ -156,7 +156,7 @@ public class DefaultFormat extends ISOMetadata implements Format {
      *
      * @param  object  the metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Format)
+     * @see #castOrCopy(Format)
      */
     public DefaultFormat(final Format object) {
         super(object);
@@ -241,7 +241,7 @@ public class DefaultFormat extends ISOMetadata implements Format {
     
     /**
 	 * Gets the format specification citation (used in ISO 19115-3 format).
-	 * see {@link #getFormatSpecificationCitation}
+	 * @see {@link #getFormatSpecificationCitation}
 	 */
 	@XmlElement(name = "formatSpecificationCitation", required = true)
 	private Citation getXmlFormatSpecificationCitation() {
@@ -250,7 +250,7 @@ public class DefaultFormat extends ISOMetadata implements Format {
 	
 	/**
 	 * Sets the format specification citation (used in ISO 19115-3 format).
-	 * see {@link #setFormatSpecificationCitation}
+	 * @see {@link #setFormatSpecificationCitation}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlFormatSpecificationCitation(final Citation newValue) {
@@ -289,7 +289,7 @@ public class DefaultFormat extends ISOMetadata implements Format {
     
     /**
 	 * Gets the specification (used in ISO 19139 format).
-	 * see {@link #getFormatSpecificationCitation}
+	 * @see {@link #getFormatSpecificationCitation}
 	 */
 	@XmlElement(name = "specification")
 	private InternationalString getXmlSpecification() {
@@ -298,7 +298,7 @@ public class DefaultFormat extends ISOMetadata implements Format {
 	
 	/**
 	 * Sets the specification (used in ISO 19139 format).
-	 * see {@link #setFormatSpecificationCitation}
+	 * @see {@link #setFormatSpecificationCitation}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlSpecification(final InternationalString newValue) {
@@ -343,7 +343,7 @@ public class DefaultFormat extends ISOMetadata implements Format {
     
     /**
 	 * Gets the name (used in ISO 19139 format).
-	 * see {@link #getName}
+	 * @see {@link #getName}
 	 */
 	@XmlElement(name = "name", required = true)
 	private InternationalString getXmlName() {
@@ -352,7 +352,7 @@ public class DefaultFormat extends ISOMetadata implements Format {
 	
 	/**
 	 * Sets the name (used in ISO 19139 format).
-	 * see {@link #setName}
+	 * @see {@link #setName}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlName(final InternationalString newValue) {
@@ -392,7 +392,7 @@ public class DefaultFormat extends ISOMetadata implements Format {
     
     /**
 	 * Gets the version (used in ISO 19139 format).
-	 * see {@link #getVersion}
+	 * @see {@link #getVersion}
 	 */
 	@XmlElement(name = "version", required = true)
 	private InternationalString getXmlVersion() {
@@ -401,7 +401,7 @@ public class DefaultFormat extends ISOMetadata implements Format {
 	
 	/**
 	 * Sets the version (used in ISO 19139 format).
-	 * see {@link #setVersion}
+	 * @see {@link #setVersion}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlVersion(final InternationalString newValue) {
@@ -478,7 +478,7 @@ public class DefaultFormat extends ISOMetadata implements Format {
     
     /**
 	 * Gets the media (used in ISO 19115-3 format).
-	 * see {@link #getMedia}
+	 * @see {@link #getMedia}
 	 */
 	@XmlElement(name = "medium")
 	private Collection<Medium> getXmlMedia() {

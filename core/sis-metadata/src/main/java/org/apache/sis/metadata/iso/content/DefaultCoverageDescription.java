@@ -111,7 +111,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
      *
      * @param  object  the metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(CoverageDescription)
+     * @see #castOrCopy(CoverageDescription)
      */
     public DefaultCoverageDescription(final CoverageDescription object) {
         super(object);
@@ -201,7 +201,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
     
     /**
 	 * Gets the processing level code for this coverage description (used in ISO 19115-3 format).
-	 * see {@link #getProcessingLevelCode}
+	 * @see {@link #getProcessingLevelCode}
 	 */
 	@XmlElement(name = "processingLevelCode")
 	private Identifier getXmlProcessingLevelCode() {
@@ -210,7 +210,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
 
 	/**
 	 * Sets the processing level code for this coverage description (used in ISO 19115-3 format).
-	 * see {@link #setProcessingLevelCode}
+	 * @see {@link #setProcessingLevelCode}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlProcessingLevelCode(final Identifier newValue) {
@@ -242,7 +242,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
     
     /**
 	 * Gets the attribute groups for this coverage description (used in ISO 19115-3 format).
-	 * see {@link #getAttributeGroups}
+	 * @see {@link #getAttributeGroups}
 	 */
 	@XmlElement(name = "attributeGroup")
 	private Collection<AttributeGroup> getXmlAttributeGroups() {
@@ -317,7 +317,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
     
     /**
 	 * Gets the content type for this coverage description (used in ISO 19139 format).
-	 * see {@link #getContentType}
+	 * @see {@link #getContentType}
 	 */
 	@XmlElement(name = "contentType")
 	private CoverageContentType getXmlContentType() {
@@ -326,7 +326,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
 
 	/**
 	 * Sets the content type for this coverage description (used in ISO 19139 format).
-	 * see {@link #setContentType}
+	 * @see {@link #setContentType}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlContentType(final CoverageContentType newValue) {
@@ -386,7 +386,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
     
     /**
 	 * Gets the dimensions for this coverage description (used in ISO 19139 format).
-	 * see {@link #getDimensions}
+	 * @see {@link #getDimensions}
 	 */
 	@XmlElement(name = "dimension")
 	private Collection<RangeDimension> getXmlDimensions() {
@@ -418,7 +418,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
     
     /**
 	 * Gets the range element descriptions for this coverage description (used in ISO 19115-3 format).
-	 * see {@link #getRangeElementDescriptions}
+	 * @see {@link #getRangeElementDescriptions}
 	 */
 	@XmlElement(name = "rangeElementDescription")
 	private Collection<RangeElementDescription> getXmlRangeElementDescriptions() {
@@ -430,7 +430,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
 	
 	/**
 	 * Gets the range element descriptions for this coverage description (used in ISO 19139 format).
-	 * see {@link #getRangeElementDescriptions}
+	 * @see {@link #getRangeElementDescriptions}
 	 */
 	@XmlElement(name = "rangeElementDescription", namespace = Namespaces.GMI)
 	private Collection<RangeElementDescription> getXmlRangeElementDescriptionsLegacy() {

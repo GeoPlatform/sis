@@ -110,7 +110,7 @@ import static org.apache.sis.util.Utilities.equalsIgnoreMetadata;
  * @version 0.8
  * @module
  *
- * see DefaultCoordinateOperationFactory#createOperation(CoordinateReferenceSystem, CoordinateReferenceSystem, CoordinateOperationContext)
+ * @see DefaultCoordinateOperationFactory#createOperation(CoordinateReferenceSystem, CoordinateReferenceSystem, CoordinateOperationContext)
  */
 public class CoordinateOperationFinder extends CoordinateOperationRegistry {
     /**
@@ -120,7 +120,7 @@ public class CoordinateOperationFinder extends CoordinateOperationRegistry {
      * difference between Molodensky and Geocentric Translation methods, which is much lower. We nevertheless
      * use a relatively high threshold as a conservative approach.
      *
-     * see #desiredAccuracy
+     * @see #desiredAccuracy
      */
     private static final double MOLODENSKY_ACCURACY = 5;
 
@@ -135,7 +135,7 @@ public class CoordinateOperationFinder extends CoordinateOperationRegistry {
      *       identifier, and the value is that identifier.</li>
      * </ul>
      *
-     * see #derivedFrom(IdentifiedObject)
+     * @see #derivedFrom(IdentifiedObject)
      */
     private final Map<Identifier,Object> identifierOfStepCRS;
 
@@ -158,7 +158,7 @@ public class CoordinateOperationFinder extends CoordinateOperationRegistry {
      * @param  context   the area of interest and desired accuracy, or {@code null} if none.
      * @throws FactoryException if an error occurred while initializing this {@code CoordinateOperationFinder}.
      *
-     * see DefaultCoordinateOperationFactory#createOperationFinder(CoordinateOperationAuthorityFactory, CoordinateOperationContext)
+     * @see DefaultCoordinateOperationFactory#createOperationFinder(CoordinateOperationAuthorityFactory, CoordinateOperationContext)
      */
     public CoordinateOperationFinder(final CoordinateOperationAuthorityFactory registry,
                                      final CoordinateOperationFactory          factory,

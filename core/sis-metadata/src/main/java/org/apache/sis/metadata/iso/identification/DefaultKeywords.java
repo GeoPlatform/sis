@@ -119,7 +119,7 @@ public class DefaultKeywords extends ISOMetadata implements Keywords {
      *
      * @param object  the metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Keywords)
+     * @see #castOrCopy(Keywords)
      */
     public DefaultKeywords(final Keywords object) {
         super(object);
@@ -244,7 +244,7 @@ public class DefaultKeywords extends ISOMetadata implements Keywords {
     
     /**
 	 * Gets the keyword class (used in ISO 19115-3 format).
-	 * see {@link #getKeywordClass}
+	 * @see {@link #getKeywordClass}
 	 */
 	@XmlElement(name = "keywordClass")
 	private KeywordClass getXmlKeywordClass() {
@@ -253,7 +253,7 @@ public class DefaultKeywords extends ISOMetadata implements Keywords {
 
 	/**
 	 * Sets the keyword class (used in ISO 19115-3 format).
-	 * see {@link #setKeywordClass}
+	 * @see {@link #setKeywordClass}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlKeywordClass(final KeywordClass newValue) {

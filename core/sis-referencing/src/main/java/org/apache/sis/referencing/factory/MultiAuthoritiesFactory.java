@@ -122,7 +122,7 @@ import org.apache.sis.util.collection.BackingStoreException;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.referencing.CRS#getAuthorityFactory(String)
+ * @see org.apache.sis.referencing.CRS#getAuthorityFactory(String)
  */
 public class MultiAuthoritiesFactory extends GeodeticAuthorityFactory implements CRSAuthorityFactory,
         CSAuthorityFactory, DatumAuthorityFactory, CoordinateOperationAuthorityFactory
@@ -157,7 +157,7 @@ public class MultiAuthoritiesFactory extends GeodeticAuthorityFactory implements
     /**
      * The code spaces of all factories given to the constructor, created when first requested.
      *
-     * see #getCodeSpaces()
+     * @see #getCodeSpaces()
      */
     private volatile Set<String> codeSpaces;
 
@@ -165,7 +165,7 @@ public class MultiAuthoritiesFactory extends GeodeticAuthorityFactory implements
      * Whether this factory should relax some rules when processing a given authority code.
      * See {@link #isLenient()} javadoc for a description of relaxed rules.
      *
-     * see #isLenient()
+     * @see #isLenient()
      */
     private volatile boolean isLenient;
 

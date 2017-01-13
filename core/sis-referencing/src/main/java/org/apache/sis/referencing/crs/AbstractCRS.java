@@ -84,8 +84,8 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * see AbstractCS
- * see org.apache.sis.referencing.datum.AbstractDatum
+ * @see AbstractCS
+ * @see org.apache.sis.referencing.datum.AbstractDatum
  */
 @XmlType(name = "AbstractCRSType", propOrder = {
     "domainOfValidity",
@@ -114,7 +114,7 @@ public class AbstractCRS extends AbstractReferenceSystem implements CoordinateRe
      * <p><b>Consider this field as final!</b>
      * This field is modified only at unmarshalling time by {@link #setCoordinateSystem(String, CoordinateSystem)}</p>
      *
-     * see #getCoordinateSystem()
+     * @see #getCoordinateSystem()
      */
     private CoordinateSystem coordinateSystem;
 
@@ -122,7 +122,7 @@ public class AbstractCRS extends AbstractReferenceSystem implements CoordinateRe
      * Other coordinate reference systems computed from this CRS by the application of an axes convention.
      * Created only when first needed.
      *
-     * see #forConvention(AxesConvention)
+     * @see #forConvention(AxesConvention)
      */
     private transient Map<AxesConvention,AbstractCRS> forConvention;
 
@@ -189,7 +189,7 @@ public class AbstractCRS extends AbstractReferenceSystem implements CoordinateRe
      *
      * @param crs The coordinate reference system to copy.
      *
-     * see #castOrCopy(CoordinateReferenceSystem)
+     * @see #castOrCopy(CoordinateReferenceSystem)
      */
     protected AbstractCRS(final CoordinateReferenceSystem crs) {
         super(crs);
@@ -324,7 +324,7 @@ public class AbstractCRS extends AbstractReferenceSystem implements CoordinateRe
      * @param  convention The axes convention for which a coordinate reference system is desired.
      * @return A coordinate reference system compatible with the given convention (may be {@code this}).
      *
-     * see AbstractCS#forConvention(AxesConvention)
+     * @see AbstractCS#forConvention(AxesConvention)
      */
     public synchronized AbstractCRS forConvention(final AxesConvention convention) {
         ensureNonNull("convention", convention);
@@ -414,8 +414,8 @@ public class AbstractCRS extends AbstractReferenceSystem implements CoordinateRe
      *
      * @return {@inheritDoc}
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
-     * see <a href="http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html">Legacy WKT 1</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html">WKT 2 specification</a>
+     * @see <a href="http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html">Legacy WKT 1</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {

@@ -43,7 +43,7 @@ public final class Region {
      * The size after reading only the sub-region at the given sub-sampling.
      * The length of this array is the hyper-rectangle dimension.
      *
-     * see #targetLength(int)
+     * @see #targetLength(int)
      */
     final int[] targetSize;
 

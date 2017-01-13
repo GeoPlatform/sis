@@ -42,7 +42,7 @@ import ucar.nc2.constants.CDM;
  * @version 0.8
  * @module
  *
- * see NetcdfStoreProvider
+ * @see NetcdfStoreProvider
  */
 public class NetcdfStore extends DataStore {
     /**

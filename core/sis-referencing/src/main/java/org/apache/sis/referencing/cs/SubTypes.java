@@ -53,7 +53,7 @@ final class SubTypes {
     /**
      * Returns a SIS implementation for the given coordinate system.
      *
-     * see AbstractCS#castOrCopy(CoordinateSystem)
+     * @see AbstractCS#castOrCopy(CoordinateSystem)
      */
     static AbstractCS castOrCopy(final CoordinateSystem object) {
         if (object instanceof AffineCS) {

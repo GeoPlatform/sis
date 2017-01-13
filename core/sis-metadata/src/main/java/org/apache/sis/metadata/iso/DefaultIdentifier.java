@@ -83,8 +83,8 @@ import org.opengis.util.InternationalString;
  * @version 0.8
  * @module
  *
- * see ImmutableIdentifier
- * see org.apache.sis.referencing.IdentifiedObjects#toURN(Class, Identifier)
+ * @see ImmutableIdentifier
+ * @see org.apache.sis.referencing.IdentifiedObjects#toURN(Class, Identifier)
  */
 @XmlType(name = "MD_Identifier_Type", propOrder = {
     "authority",
@@ -103,21 +103,21 @@ public class DefaultIdentifier extends ISOMetadata implements Identifier {
     /**
      * Person or party responsible for maintenance of the namespace.
      *
-     * see #getAuthority()
+     * @see #getAuthority()
      */
     private Citation authority;
 
     /**
      * Alphanumeric value identifying an instance in the namespace.
      *
-     * see #getCode()
+     * @see #getCode()
      */
     private String code;
 
     /**
      * Identifier or namespace in which the code is valid.
      *
-     * see #getCodeSpace()
+     * @see #getCodeSpace()
      */
     private String codeSpace;
 
@@ -126,14 +126,14 @@ public class DefaultIdentifier extends ISOMetadata implements Identifier {
      * This version is included only when the {@linkplain #getCode code} uses versions.
      * When appropriate, the edition is identified by the effective date, coded using ISO 8601 date format.
      *
-     * see #getVersion()
+     * @see #getVersion()
      */
     private String version;
 
     /**
      * Natural language description of the meaning of the code value.
      *
-     * see #getDescription()
+     * @see #getDescription()
      */
     private InternationalString description;
 
@@ -173,7 +173,7 @@ public class DefaultIdentifier extends ISOMetadata implements Identifier {
      * @param authority The the person or party responsible for maintenance of the namespace, or {@code null} if none.
      * @param code      The alphanumeric value identifying an instance in the namespace, or {@code null} if none.
      *
-     * see org.apache.sis.metadata.iso.citation.Citations#getUnicodeIdentifier(Citation)
+     * @see org.apache.sis.metadata.iso.citation.Citations#getUnicodeIdentifier(Citation)
      */
     public DefaultIdentifier(final Citation authority, final String code) {
         this.authority = authority;
@@ -188,7 +188,7 @@ public class DefaultIdentifier extends ISOMetadata implements Identifier {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Identifier)
+     * @see #castOrCopy(Identifier)
      */
     public DefaultIdentifier(final Identifier object) {
         super(object);

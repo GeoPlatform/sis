@@ -90,7 +90,7 @@ public final strictfp class HardCodedCS {
      * This axis order is the one of EPSG:6404.
      * Note that this is not a right-handed system.
      *
-     * see #SPHERICAL_ENGINEERING
+     * @see #SPHERICAL_ENGINEERING
      */
     public static final DefaultSphericalCS SPHERICAL = new DefaultSphericalCS(
             singletonMap(NAME_KEY, "Spherical"),

@@ -52,9 +52,9 @@ public class SimpleIdentifier implements Identifier, Deprecable, Serializable {
      * {@linkplain #code}, or {@code null} if none. It can be a bibliographical
      * reference to an international standard such as ISO 19115.
      *
-     * see #getAuthority()
-     * see #getCodeSpace()
-     * see #getVersion()
+     * @see #getAuthority()
+     * @see #getCodeSpace()
+     * @see #getVersion()
      */
     protected final Citation authority;
 
@@ -63,7 +63,7 @@ public class SimpleIdentifier implements Identifier, Deprecable, Serializable {
      * It can be for example the name of a class defined by the international standard
      * referenced by the {@linkplain #authority} citation.
      *
-     * see #getCode()
+     * @see #getCode()
      */
     protected final String code;
 

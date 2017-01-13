@@ -116,7 +116,7 @@ public final class IO extends Static {
      * @param  out The stream or buffer from which to get the content, or {@code null}.
      * @return The content of the given stream of buffer, or {@code null} if unavailable.
      *
-     * see #flush(Appendable)
+     * @see #flush(Appendable)
      */
     public static CharSequence content(Appendable out) {
         while (!(out instanceof CharSequence)) {

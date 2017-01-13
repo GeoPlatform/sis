@@ -134,7 +134,7 @@ public class FranceGeocentricInterpolation extends GeodeticOperation {
      * Name of the default grid file, as mentioned in the NTG_88 document.
      * We use the 5 first characters ({@code "gr3df"}) as a sentinel value for French grid file.
      *
-     * see #isRecognized(Path)
+     * @see #isRecognized(Path)
      */
     private static final String DEFAULT = "gr3df97a.txt";
 

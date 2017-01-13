@@ -321,7 +321,7 @@ public final strictfp class DefaultParameterDescriptorTest extends TestCase {
     /**
      * Tests WKT formatting of a parameter having an identifier.
      *
-     * see DefaultParameterDescriptorGroupTest#testIdentifiedParameterWKT()
+     * @see DefaultParameterDescriptorGroupTest#testIdentifiedParameterWKT()
      *
      * @since 0.6
      */

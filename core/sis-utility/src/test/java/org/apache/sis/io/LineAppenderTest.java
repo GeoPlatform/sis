@@ -81,7 +81,7 @@ public strictfp class LineAppenderTest extends AppenderTestCase {
      *
      * @throws IOException Should never happen, since we are writing in a {@link StringBuilder}.
      *
-     * see <a href="https://issues.apache.org/jira/browse/SIS-140">SIS-140</a>
+     * @see <a href="https://issues.apache.org/jira/browse/SIS-140">SIS-140</a>
      */
     @Test
     public void testInterleavedFlush() throws IOException {

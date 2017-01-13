@@ -58,7 +58,7 @@ import org.opengis.feature.PropertyType;
  * @version 0.7
  * @module
  *
- * see <a href="https://en.wikipedia.org/wiki/Compound_key">Compound key on Wikipedia</a>
+ * @see <a href="https://en.wikipedia.org/wiki/Compound_key">Compound key on Wikipedia</a>
  */
 final class StringJoinOperation extends AbstractOperation {
     /**
@@ -123,7 +123,7 @@ final class StringJoinOperation extends AbstractOperation {
      * It is caller's responsibility to ensure that {@code delimiter} and {@code singleAttributes} are not null.
      * This private constructor does not verify that condition on the assumption that the public API did.
      *
-     * see FeatureOperations#compound(Map, String, String, String, PropertyType...)
+     * @see FeatureOperations#compound(Map, String, String, String, PropertyType...)
      */
     @SuppressWarnings({"rawtypes", "unchecked"})                                        // Generic array creation.
     StringJoinOperation(final Map<String,?> identification, final String delimiter,

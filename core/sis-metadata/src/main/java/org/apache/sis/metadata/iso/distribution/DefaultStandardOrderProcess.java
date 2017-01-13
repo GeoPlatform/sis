@@ -121,7 +121,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(StandardOrderProcess)
+     * @see #castOrCopy(StandardOrderProcess)
      */
     public DefaultStandardOrderProcess(final StandardOrderProcess object) {
         super(object);
@@ -167,7 +167,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
      *
      * @return Fees and terms for retrieving the resource, or {@code null}.
      *
-     * see #getCurrency()
+     * @see #getCurrency()
      */
     @Override
     @XmlElement(name = "fees")
@@ -181,7 +181,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
      *
      * @param newValue The new fees.
      *
-     * see #setCurrency(Currency)
+     * @see #setCurrency(Currency)
      */
     public void setFees(final InternationalString newValue) {
         checkWritePermission();
@@ -201,7 +201,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
      *
      * @since 0.5
      *
-     * see #getFees()
+     * @see #getFees()
      */
     @Override
     public Currency getCurrency() {
@@ -217,7 +217,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
      *
      * @since 0.5
      *
-     * see #setFees(InternationalString)
+     * @see #setFees(InternationalString)
      */
     public void setCurrency(final Currency newValue) {
         checkWritePermission();
@@ -226,7 +226,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
     
     /**
 	 * Gets the currency. Used by JAXB. (used in ISO 19115-3 format)
-	 * see {@link #getCurrency}
+	 * @see {@link #getCurrency}
 	 */
 	@XmlElement(name = "currency")
 	private Currency getXmlCurrency() {
@@ -235,7 +235,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
 
 	/**
 	 * Sets the currency. Used by JAXB. (used in ISO 19115-3 format)
-	 * see {@link #setCurrency}
+	 * @see {@link #setCurrency}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlCurrency(final Currency newValue) {
@@ -312,7 +312,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
      *
      * @since 0.5
      *
-     * see org.apache.sis.util.iso.DefaultRecord#getRecordType()
+     * @see org.apache.sis.util.iso.DefaultRecord#getRecordType()
      */
     @Override
     public RecordType getOrderOptionType() {
@@ -333,7 +333,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
     
     /**
 	 * Gets the currency. Used by JAXB. (used in ISO 19115-3 format)
-	 * see {@link #getOrderOptionType}
+	 * @see {@link #getOrderOptionType}
 	 */
 	@XmlElement(name = "orderOptionType")
 	private RecordType getXmlOrderOptionType() {
@@ -342,7 +342,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
 
 	/**
 	 * Sets the currency. Used by JAXB. (used in ISO 19115-3 format)
-	 * see {@link #setOrderOptionType}
+	 * @see {@link #setOrderOptionType}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlOrderOptionType(final RecordType newValue) {
@@ -379,7 +379,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
     
     /**
 	 * Gets the currency. Used by JAXB. (used in ISO 19115-3 format)
-	 * see {@link #getOrderOptions}
+	 * @see {@link #getOrderOptions}
 	 */
 	@XmlElement(name = "orderOptions")
 	private Record getXmlOrderOptions() {
@@ -388,7 +388,7 @@ public class DefaultStandardOrderProcess extends ISOMetadata implements Standard
 
 	/**
 	 * Sets the currency. Used by JAXB. (used in ISO 19115-3 format)
-	 * see {@link #setOrderOptions}
+	 * @see {@link #setOrderOptions}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlOrderOptions(final Record newValue) {

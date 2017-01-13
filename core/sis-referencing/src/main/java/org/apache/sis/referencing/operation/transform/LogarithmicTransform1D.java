@@ -67,7 +67,7 @@ class LogarithmicTransform1D extends AbstractMathTransform1D implements Serializ
     /**
      * Constructs a new logarithmic transform.
      *
-     * see #create(double, double)
+     * @see #create(double, double)
      */
     LogarithmicTransform1D() {
     }
@@ -300,7 +300,7 @@ class LogarithmicTransform1D extends AbstractMathTransform1D implements Serializ
         /**
          * Creates a new instance with the given offset.
          *
-         * see #create(double)
+         * @see #create(double)
          */
         private Base10(final double offset) {
             this.offset = offset;

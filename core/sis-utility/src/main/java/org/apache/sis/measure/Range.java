@@ -88,8 +88,8 @@ import java.util.Objects;
  * @version 0.8
  * @module
  *
- * see RangeFormat
- * see org.apache.sis.util.collection.RangeSet
+ * @see RangeFormat
+ * @see org.apache.sis.util.collection.RangeSet
  */
 public class Range<E extends Comparable<? super E>> implements CheckedContainer<E>, Formattable, Emptiable, Serializable {
     /**
@@ -100,7 +100,7 @@ public class Range<E extends Comparable<? super E>> implements CheckedContainer<
     /**
      * The base type of elements in this range.
      *
-     * see #getElementType()
+     * @see #getElementType()
      */
     final Class<E> elementType;
 
@@ -502,7 +502,7 @@ public class Range<E extends Comparable<? super E>> implements CheckedContainer<
      * @param  position  the position of {@code value} relative to the inclusive values of the other range.
      * @return position (-, + or 0) of the inclusive values of this range compared to the other range.
      *
-     * see #contains(Range)
+     * @see #contains(Range)
      */
     private int compareMinTo(final E value, int position) {
         /*
@@ -647,8 +647,8 @@ public class Range<E extends Comparable<? super E>> implements CheckedContainer<
      * If this range is a {@link MeasurementRange}, then the {@linkplain Unit unit of measurement}
      * is appended to the above string representation except for empty ranges.
      *
-     * see RangeFormat
-     * see <a href="http://en.wikipedia.org/wiki/ISO_31-11">Wikipedia: ISO 31-11</a>
+     * @see RangeFormat
+     * @see <a href="http://en.wikipedia.org/wiki/ISO_31-11">Wikipedia: ISO 31-11</a>
      */
     @Override
     public String toString() {

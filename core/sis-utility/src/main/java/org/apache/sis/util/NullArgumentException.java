@@ -33,7 +33,7 @@ package org.apache.sis.util;
  * @version 0.3
  * @module
  *
- * see ArgumentChecks#ensureNonNull(String, Object)
+ * @see ArgumentChecks#ensureNonNull(String, Object)
  */
 public class NullArgumentException extends NullPointerException {
     /**

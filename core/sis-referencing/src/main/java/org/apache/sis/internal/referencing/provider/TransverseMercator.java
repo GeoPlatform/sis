@@ -39,7 +39,7 @@ import org.apache.sis.measure.Units;
  * @version 0.8
  * @module
  *
- * see <a href="http://www.remotesensing.org/geotiff/proj_list/transverse_mercator.html">Transverse Mercator on RemoteSensing.org</a>
+ * @see <a href="http://www.remotesensing.org/geotiff/proj_list/transverse_mercator.html">Transverse Mercator on RemoteSensing.org</a>
  */
 @XmlTransient
 public final class TransverseMercator extends AbstractMercator {
@@ -51,8 +51,8 @@ public final class TransverseMercator extends AbstractMercator {
     /**
      * Width of a Universal Transverse Mercator (UTM) zone, in degrees.
      *
-     * see #zone(double)
-     * see #centralMeridian(int)
+     * @see #zone(double)
+     * @see #centralMeridian(int)
      */
     private static final double ZONE_WIDTH = 6;
 

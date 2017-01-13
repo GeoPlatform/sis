@@ -60,14 +60,14 @@ public final class Characters extends Static {
     /**
      * The Unicode line separator (Unicode {@code 2028}, HTML {@code <br>}).
      *
-     * see Character#LINE_SEPARATOR
+     * @see Character#LINE_SEPARATOR
      */
     public static final char LINE_SEPARATOR = '\u2028';
 
     /**
      * The Unicode paragraph separator (Unicode {@code 2029}, HTML {@code <p>…</p>}).
      *
-     * see Character#PARAGRAPH_SEPARATOR
+     * @see Character#PARAGRAPH_SEPARATOR
      */
     public static final char PARAGRAPH_SEPARATOR = '\u2029';
 
@@ -89,7 +89,7 @@ public final class Characters extends Static {
      * @param  c  the code point to test.
      * @return {@code true} if the given code point is a valid WKT character.
      *
-     * see org.apache.sis.io.wkt.Transliterator
+     * @see org.apache.sis.io.wkt.Transliterator
      *
      * @since 0.6
      */
@@ -113,8 +113,8 @@ public final class Characters extends Static {
      * @param  c  the code point to test.
      * @return {@code true} if the given code point is a line or paragraph separator.
      *
-     * see #LINE_SEPARATOR
-     * see #PARAGRAPH_SEPARATOR
+     * @see #LINE_SEPARATOR
+     * @see #PARAGRAPH_SEPARATOR
      */
     public static boolean isLineOrParagraphSeparator(final int c) {
         switch (Character.getType(c)) {
@@ -310,9 +310,9 @@ public final class Characters extends Static {
      * @version 0.3
      * @module
      *
-     * see java.lang.Character.Subset
-     * see Character#getType(int)
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#139">WKT 2 specification §B.5</a>
+     * @see java.lang.Character.Subset
+     * @see Character#getType(int)
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#139">WKT 2 specification §B.5</a>
      */
     public static class Filter extends Character.Subset {
         /*
@@ -339,8 +339,8 @@ public final class Characters extends Static {
          * See the <cite>Relationship with international standards</cite> section in this class javadoc
          * for more information.
          *
-         * see org.apache.sis.referencing.AbstractIdentifiedObject#isHeuristicMatchForName(String)
-         * see org.apache.sis.metadata.iso.citation.Citations#identifierMatches(Citation, String)
+         * @see org.apache.sis.referencing.AbstractIdentifiedObject#isHeuristicMatchForName(String)
+         * @see org.apache.sis.metadata.iso.citation.Citations#identifierMatches(Citation, String)
          */
         public static final Filter LETTERS_AND_DIGITS = new LettersAndDigits();
 
@@ -396,7 +396,7 @@ public final class Characters extends Static {
          * @param  type  one of the {@link Character} constants.
          * @return {@code true} if this subset contains the characters of the given type.
          *
-         * see Character#getType(int)
+         * @see Character#getType(int)
          */
         public final boolean containsType(final int type) {
             return (type >= 0) && (type < Long.SIZE) && (types & (1L << type)) != 0;
@@ -408,10 +408,10 @@ public final class Characters extends Static {
          * @param  types  the character types, as {@link Character} constants.
          * @return the subset of Unicode characters of the given type.
          *
-         * see Character#LOWERCASE_LETTER
-         * see Character#UPPERCASE_LETTER
-         * see Character#DECIMAL_DIGIT_NUMBER
-         * see Character#SPACE_SEPARATOR
+         * @see Character#LOWERCASE_LETTER
+         * @see Character#UPPERCASE_LETTER
+         * @see Character#DECIMAL_DIGIT_NUMBER
+         * @see Character#SPACE_SEPARATOR
          */
         public static Filter forTypes(final byte... types) {
             long mask = 0;

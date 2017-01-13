@@ -136,7 +136,7 @@ class GeodeticObjectParser extends MathTransformParser implements Comparator<Coo
      *
      * <p>This flag is ignored during WKT 2 parsing.</p>
      *
-     * see Convention#WKT1_COMMON_UNITS
+     * @see Convention#WKT1_COMMON_UNITS
      */
     private final boolean usesCommonUnits;
 
@@ -146,7 +146,7 @@ class GeodeticObjectParser extends MathTransformParser implements Comparator<Coo
      *
      * <p>This flag is ignored during WKT 2 parsing.</p>
      *
-     * see Convention#WKT1_IGNORE_AXES
+     * @see Convention#WKT1_IGNORE_AXES
      */
     private final boolean ignoreAxes;
 
@@ -1156,7 +1156,7 @@ class GeodeticObjectParser extends MathTransformParser implements Comparator<Coo
      * @return the {@code "PrimeMeridian"} element as a {@link PrimeMeridian} object.
      * @throws ParseException if the {@code "PrimeMeridian"} element can not be parsed.
      *
-     * see org.apache.sis.referencing.datum.DefaultPrimeMeridian#formatTo(Formatter)
+     * @see org.apache.sis.referencing.datum.DefaultPrimeMeridian#formatTo(Formatter)
      */
     private PrimeMeridian parsePrimeMeridian(final int mode, final Element parent, final boolean isWKT1, Unit<Angle> angularUnit)
             throws ParseException
@@ -1228,7 +1228,7 @@ class GeodeticObjectParser extends MathTransformParser implements Comparator<Coo
      * @return the {@code "Ellipsoid"} element as an {@link Ellipsoid} object.
      * @throws ParseException if the {@code "Ellipsoid"} element can not be parsed.
      *
-     * see org.apache.sis.referencing.datum.DefaultEllipsoid#formatTo(Formatter)
+     * @see org.apache.sis.referencing.datum.DefaultEllipsoid#formatTo(Formatter)
      */
     private Ellipsoid parseEllipsoid(final int mode, final Element parent) throws ParseException {
         final Element element = parent.pullElement(mode, WKTKeywords.Ellipsoid, WKTKeywords.Spheroid);
@@ -1394,7 +1394,7 @@ class GeodeticObjectParser extends MathTransformParser implements Comparator<Coo
      * @return the {@code "Datum"} element as a {@link GeodeticDatum} object.
      * @throws ParseException if the {@code "Datum"} element can not be parsed.
      *
-     * see org.apache.sis.referencing.datum.DefaultGeodeticDatum#formatTo(Formatter)
+     * @see org.apache.sis.referencing.datum.DefaultGeodeticDatum#formatTo(Formatter)
      */
     private GeodeticDatum parseDatum(final int mode, final Element parent, PrimeMeridian meridian) throws ParseException {
         final Element element = parent.pullElement(mode, WKTKeywords.Datum, WKTKeywords.GeodeticDatum);
@@ -1706,8 +1706,8 @@ class GeodeticObjectParser extends MathTransformParser implements Comparator<Coo
      * @return the {@code "GeodeticCRS"} element as a {@link GeographicCRS} or {@link GeocentricCRS} object.
      * @throws ParseException if the {@code "GeodeticCRS"} element can not be parsed.
      *
-     * see org.apache.sis.referencing.crs.DefaultGeographicCRS#formatTo(Formatter)
-     * see org.apache.sis.referencing.crs.DefaultGeocentricCRS#formatTo(Formatter)
+     * @see org.apache.sis.referencing.crs.DefaultGeographicCRS#formatTo(Formatter)
+     * @see org.apache.sis.referencing.crs.DefaultGeocentricCRS#formatTo(Formatter)
      */
     private SingleCRS parseGeodeticCRS(final int mode, final Element parent, int dimension, String csType)
             throws ParseException

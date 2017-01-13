@@ -79,7 +79,7 @@ public class DefaultAlgorithm extends ISOMetadata implements Algorithm {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Algorithm)
+     * @see #castOrCopy(Algorithm)
      */
     public DefaultAlgorithm(final Algorithm object) {
         super(object);

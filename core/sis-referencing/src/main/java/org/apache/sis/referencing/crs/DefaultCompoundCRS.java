@@ -111,7 +111,7 @@ import org.apache.sis.io.wkt.Convention;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createCompoundCRS(String)
+ * @see org.apache.sis.referencing.factory.GeodeticAuthorityFactory#createCompoundCRS(String)
  */
 @XmlType(name = "CompoundCRSType")
 @XmlRootElement(name = "CompoundCRS")
@@ -184,7 +184,7 @@ public class DefaultCompoundCRS extends AbstractCRS implements CompoundCRS {
      * @param properties The properties to be given to the coordinate reference system.
      * @param components The sequence of coordinate reference systems making this compound CRS.
      *
-     * see org.apache.sis.referencing.factory.GeodeticObjectFactory#createCompoundCRS(Map, CoordinateReferenceSystem...)
+     * @see org.apache.sis.referencing.factory.GeodeticObjectFactory#createCompoundCRS(Map, CoordinateReferenceSystem...)
      */
     public DefaultCompoundCRS(final Map<String,?> properties, final CoordinateReferenceSystem... components) {
         super(properties, createCoordinateSystem(properties, components));
@@ -293,7 +293,7 @@ public class DefaultCompoundCRS extends AbstractCRS implements CompoundCRS {
      * Computes the {@link #components} and {@link #singles} fields from the given CRS list.
      * If the two lists have the same content, then the two fields will reference the same list.
      *
-     * see #getComponents()
+     * @see #getComponents()
      */
     @SuppressWarnings("SuspiciousToArrayCall")
     private void setComponents(final List<? extends CoordinateReferenceSystem> crs) {
@@ -311,7 +311,7 @@ public class DefaultCompoundCRS extends AbstractCRS implements CompoundCRS {
      *
      * @return The single coordinate reference systems as an unmodifiable list.
      *
-     * see org.apache.sis.referencing.CRS#getSingleComponents(CoordinateReferenceSystem)
+     * @see org.apache.sis.referencing.CRS#getSingleComponents(CoordinateReferenceSystem)
      */
     @SuppressWarnings("ReturnOfCollectionOrArrayField")
     public List<SingleCRS> getSingleComponents() {
@@ -325,7 +325,7 @@ public class DefaultCompoundCRS extends AbstractCRS implements CompoundCRS {
      * <p><strong>WARNING:</strong> this method is invoked by <em>before</em> the {@linkplain #components}
      * field is set. Do not use that field in this method.</p>
      *
-     * see #getSingleComponents()
+     * @see #getSingleComponents()
      */
     private boolean setSingleComponents(final List<? extends CoordinateReferenceSystem> crs) {
         final List<SingleCRS> flattened = new ArrayList<>(crs.size());
@@ -526,7 +526,7 @@ public class DefaultCompoundCRS extends AbstractCRS implements CompoundCRS {
      *
      * @return {@code "CompoundCRS"} (WKT 2) or {@code "Compd_CS"} (WKT 1).
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#110">WKT 2 specification §16</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#110">WKT 2 specification §16</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {

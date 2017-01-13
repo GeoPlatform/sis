@@ -57,7 +57,7 @@ public final strictfp class LambertConicConformalTest extends MapProjectionTestC
     /**
      * Verifies the value of the constant used in <cite>"Lambert Conic Conformal (2SP Belgium)"</cite> projection.
      *
-     * see #testLambertConicConformalBelgium()
+     * @see #testLambertConicConformalBelgium()
      */
     @Test
     public void verifyBelgeConstant() {
@@ -184,7 +184,7 @@ public final strictfp class LambertConicConformalTest extends MapProjectionTestC
      * @throws FactoryException if an error occurred while creating the map projection.
      * @throws TransformException if an error occurred while projecting a coordinate.
      *
-     * see org.opengis.test.referencing.ParameterizedTransformTest#testLambertConicConformal1SP()
+     * @see org.opengis.test.referencing.ParameterizedTransformTest#testLambertConicConformal1SP()
      */
     @Test
     @DependsOnMethod({"testSpecialLatitudes", "testDerivative"})
@@ -199,7 +199,7 @@ public final strictfp class LambertConicConformalTest extends MapProjectionTestC
      * @throws FactoryException if an error occurred while creating the map projection.
      * @throws TransformException if an error occurred while projecting a coordinate.
      *
-     * see org.opengis.test.referencing.ParameterizedTransformTest#testLambertConicConformal1SP()
+     * @see org.opengis.test.referencing.ParameterizedTransformTest#testLambertConicConformal1SP()
      */
     @Test
     @DependsOnMethod("testLambertConicConformal1SP")
@@ -214,7 +214,7 @@ public final strictfp class LambertConicConformalTest extends MapProjectionTestC
      * @throws FactoryException if an error occurred while creating the map projection.
      * @throws TransformException if an error occurred while projecting a coordinate.
      *
-     * see org.opengis.test.referencing.ParameterizedTransformTest#testLambertConicConformal1SP()
+     * @see org.opengis.test.referencing.ParameterizedTransformTest#testLambertConicConformal1SP()
      */
     @Test
     @DependsOnMethod({"testLambertConicConformal2SP", "verifyBelgeConstant"})
@@ -229,7 +229,7 @@ public final strictfp class LambertConicConformalTest extends MapProjectionTestC
      * @throws FactoryException if an error occurred while creating the map projection.
      * @throws TransformException if an error occurred while projecting a coordinate.
      *
-     * see org.opengis.test.referencing.ParameterizedTransformTest#testLambertConicConformalMichigan()
+     * @see org.opengis.test.referencing.ParameterizedTransformTest#testLambertConicConformalMichigan()
      */
     @Test
     @DependsOnMethod("testLambertConicConformal2SP")

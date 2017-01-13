@@ -32,7 +32,7 @@ import org.apache.sis.parameter.ParameterBuilder;
  * @version 0.8
  * @module
  *
- * see <a href="http://www.remotesensing.org/geotiff/proj_list/polar_stereographic.html">Polar Stereographic on RemoteSensing.org</a>
+ * @see <a href="http://www.remotesensing.org/geotiff/proj_list/polar_stereographic.html">Polar Stereographic on RemoteSensing.org</a>
  */
 @XmlTransient
 public final class PolarStereographicA extends AbstractStereographic {

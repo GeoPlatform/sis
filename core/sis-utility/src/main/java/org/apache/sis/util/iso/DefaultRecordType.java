@@ -92,9 +92,9 @@ import java.util.Objects;
  * @version 0.5
  * @module
  *
- * see DefaultRecord
- * see DefaultRecordSchema
- * see DefaultMemberName
+ * @see DefaultRecord
+ * @see DefaultRecordSchema
+ * @see DefaultMemberName
  */
 @XmlType(name = "RecordType")
 public class DefaultRecordType extends RecordDefinition implements RecordType, Serializable {
@@ -106,21 +106,21 @@ public class DefaultRecordType extends RecordDefinition implements RecordType, S
     /**
      * The name that identifies this record type.
      *
-     * see #getTypeName()
+     * @see #getTypeName()
      */
     private final TypeName typeName;
 
     /**
      * The schema that contains this record type.
      *
-     * see #getContainer()
+     * @see #getContainer()
      */
     private final RecordSchema container;
 
     /**
      * The type of each members.
      *
-     * see #getMemberTypes()
+     * @see #getMemberTypes()
      */
     private transient Type[] memberTypes;
 
@@ -149,7 +149,7 @@ public class DefaultRecordType extends RecordDefinition implements RecordType, S
      * @param container The schema that contains this record type.
      * @param members   The name and type of the members to be included in this record type.
      *
-     * see DefaultRecordSchema#createRecordType(CharSequence, Map)
+     * @see DefaultRecordSchema#createRecordType(CharSequence, Map)
      */
     public DefaultRecordType(final TypeName typeName, final RecordSchema container,
             final Map<? extends MemberName, ? extends Type> members)

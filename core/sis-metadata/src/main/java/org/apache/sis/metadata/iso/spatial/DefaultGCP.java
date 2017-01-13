@@ -79,7 +79,7 @@ public class DefaultGCP extends ISOMetadata implements GCP {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(GCP)
+     * @see #castOrCopy(GCP)
      */
     public DefaultGCP(final GCP object) {
         super(object);

@@ -174,8 +174,8 @@ public class SimpleMetadata implements Metadata, MetadataScope, DataIdentificati
      * The scope or type of resource for which metadata is provided.
      * This method returns {@code this} for allowing call to {@link #getResourceScope()}.
      *
-     * see #getResourceScope()
-     * see #getName()
+     * @see #getResourceScope()
+     * @see #getName()
      */
     @Override
     public Collection<MetadataScope> getMetadataScopes() {
@@ -337,16 +337,16 @@ public class SimpleMetadata implements Metadata, MetadataScope, DataIdentificati
      * This method returns {@code this} for allowing call to {@link #getCitation()}.
      * and other methods.
      *
-     * see #getCitation()
-     * see #getAbstract()
-     * see #getPointOfContacts()
-     * see #getSpatialRepresentationTypes()
-     * see #getSpatialResolutions()
-     * see #getTemporalResolutions()
-     * see #getTopicCategories()
-     * see #getExtents()
-     * see #getResourceFormats()
-     * see #getDescriptiveKeywords()
+     * @see #getCitation()
+     * @see #getAbstract()
+     * @see #getPointOfContacts()
+     * @see #getSpatialRepresentationTypes()
+     * @see #getSpatialResolutions()
+     * @see #getTemporalResolutions()
+     * @see #getTopicCategories()
+     * @see #getExtents()
+     * @see #getResourceFormats()
+     * @see #getDescriptiveKeywords()
      */
     @Override
     public Collection<DataIdentification> getIdentificationInfo() {

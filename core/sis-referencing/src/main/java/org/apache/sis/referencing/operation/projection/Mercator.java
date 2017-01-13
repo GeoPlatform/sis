@@ -73,8 +73,8 @@ import static org.apache.sis.internal.util.DoubleDouble.verbatim;
  * @version 0.6
  * @module
  *
- * see TransverseMercator
- * see ObliqueMercator
+ * @see TransverseMercator
+ * @see ObliqueMercator
  */
 public class Mercator extends ConformalProjection {
     /**
@@ -93,7 +93,7 @@ public class Mercator extends ConformalProjection {
      * <p><b>CONVENTION:</b> <strong>Spherical cases must be odd, all other cases must be even.</strong>
      * This allow us to perform quick checks for all spherical cases using {@code if ((type & SPHERICAL) != 0)}.</p>
      *
-     * see #getVariant(OperationMethod)
+     * @see #getVariant(OperationMethod)
      */
     private static final byte SPHERICAL = 1, PSEUDO = 3,            // Must be odd and SPHERICAL must be 1.
                               REGIONAL  = 2, MILLER = 4;            // Must be even.
@@ -121,7 +121,7 @@ public class Mercator extends ConformalProjection {
      *
      * Other cases may be added in the future.
      *
-     * see #getVariant(OperationMethod)
+     * @see #getVariant(OperationMethod)
      */
     private final byte variant;
 

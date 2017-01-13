@@ -40,7 +40,7 @@ import static org.apache.sis.internal.jaxb.XmlUtilities.getDatatypeFactory;
  * @version 0.4
  * @module
  *
- * see DateAdapter
+ * @see DateAdapter
  */
 public final class UniversalTimeAdapter extends XmlAdapter<XMLGregorianCalendar, Date> {
     /**

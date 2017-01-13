@@ -92,7 +92,7 @@ public class DefaultSeries extends ISOMetadata implements Series {
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Series)
+     * @see #castOrCopy(Series)
      */
     public DefaultSeries(final Series object) {
         super(object);

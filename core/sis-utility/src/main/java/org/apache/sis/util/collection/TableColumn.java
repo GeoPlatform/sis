@@ -136,8 +136,8 @@ public class TableColumn<V> implements CheckedContainer<V> {
      * The column {@linkplain #getHeader() header} is <cite>"Value"</cite> (eventually localized) and
      * the column elements can be instance of any kind of objects.
      *
-     * see #VALUE_AS_TEXT
-     * see #VALUE_AS_NUMBER
+     * @see #VALUE_AS_TEXT
+     * @see #VALUE_AS_NUMBER
      */
     public static final TableColumn<Object> VALUE = new Constant<>("VALUE",
             Object.class, Vocabulary.Keys.Value);

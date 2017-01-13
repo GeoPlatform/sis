@@ -92,7 +92,7 @@ public class CylindricalEqualArea extends EqualAreaProjection {
      *
      * Other cases may be added in the future.
      *
-     * see #getVariant(OperationMethod)
+     * @see #getVariant(OperationMethod)
      */
     private final byte variant;
 

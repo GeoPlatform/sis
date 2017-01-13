@@ -35,7 +35,7 @@ import org.apache.sis.measure.ValueRange;
  * @version 0.3
  * @module
  *
- * see PropertyInformation#getDomainValue()
+ * @see PropertyInformation#getDomainValue()
  */
 final class DomainRange<E extends Number & Comparable<? super E>> extends NumberRange<E>
         implements InternationalString

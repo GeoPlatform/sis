@@ -34,7 +34,7 @@ import org.apache.sis.util.iso.AbstractInternationalString;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.internal.referencing.provider.AbstractProvider#isInvertible()
+ * @see org.apache.sis.internal.referencing.provider.AbstractProvider#isInvertible()
  */
 public final class SignReversalComment extends AbstractInternationalString implements Serializable {
     /**

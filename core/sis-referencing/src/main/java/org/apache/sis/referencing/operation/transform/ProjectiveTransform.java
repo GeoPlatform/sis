@@ -38,7 +38,7 @@ import org.apache.sis.util.ArgumentChecks;
  * @version 0.7
  * @module
  *
- * see java.awt.geom.AffineTransform
+ * @see java.awt.geom.AffineTransform
  */
 class ProjectiveTransform extends AbstractLinearTransform implements ExtendedPrecisionMatrix {
     /**

@@ -41,8 +41,8 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
  * @version 0.3
  * @module
  *
- * see Marshaller#setAdapter(XmlAdapter)
- * see Unmarshaller#setAdapter(XmlAdapter)
+ * @see Marshaller#setAdapter(XmlAdapter)
+ * @see Unmarshaller#setAdapter(XmlAdapter)
  */
 public interface AdapterReplacement {
     /**

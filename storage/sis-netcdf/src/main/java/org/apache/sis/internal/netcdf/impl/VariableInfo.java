@@ -92,9 +92,9 @@ final class VariableInfo extends Variable {
      * If the value is a {@code String}, then leading and trailing spaces and control characters
      * should be trimmed by {@link String#trim()}.
      *
-     * see #stringValues(Object)
-     * see #numberValues(Object)
-     * see #booleanValue(Object)
+     * @see #stringValues(Object)
+     * @see #numberValues(Object)
+     * @see #booleanValue(Object)
      */
     private final Map<String,Object> attributes;
 
@@ -114,7 +114,7 @@ final class VariableInfo extends Variable {
      * with the name of all dimensions in the NetCDF file. This information is computed at construction time
      * because requested more than once.
      *
-     * see #isCoordinateSystemAxis()
+     * @see #isCoordinateSystemAxis()
      */
     private final boolean isCoordinateSystemAxis;
 
@@ -304,7 +304,7 @@ final class VariableInfo extends Variable {
      * Returns the attribute values as an array of {@link String}s, or an empty array if none.
      * The given argument is typically a value of the {@link #attributes} map.
      *
-     * see #getAttributeValues(String, boolean)
+     * @see #getAttributeValues(String, boolean)
      */
     static String[] stringValues(final Object value) {
         if (value == null) {
@@ -324,7 +324,7 @@ final class VariableInfo extends Variable {
      * Returns the attribute values as an array of {@link Number}, or an empty array if none.
      * The given argument is typically a value of the {@link #attributes} map.
      *
-     * see #getAttributeValues(String, boolean)
+     * @see #getAttributeValues(String, boolean)
      */
     @SuppressWarnings("ReturnOfCollectionOrArrayField")
     static Number[] numberValues(final Object value) {

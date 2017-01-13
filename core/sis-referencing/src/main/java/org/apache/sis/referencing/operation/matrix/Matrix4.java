@@ -35,9 +35,9 @@ import org.opengis.referencing.operation.Matrix;
  * @version 0.6
  * @module
  *
- * see Matrix1
- * see Matrix2
- * see Matrix3
+ * @see Matrix1
+ * @see Matrix2
+ * @see Matrix3
  */
 public final class Matrix4 extends MatrixSIS {
     /**
@@ -120,8 +120,8 @@ public final class Matrix4 extends MatrixSIS {
      * @param elements Elements of the matrix. Column indices vary fastest.
      * @throws IllegalArgumentException If the given array does not have the expected length.
      *
-     * see #setElements(double[])
-     * see Matrices#create(int, int, double[])
+     * @see #setElements(double[])
+     * @see Matrices#create(int, int, double[])
      */
     public Matrix4(final double[] elements) throws IllegalArgumentException {
         setElements(elements);

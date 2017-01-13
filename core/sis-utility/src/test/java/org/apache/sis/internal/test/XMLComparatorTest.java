@@ -79,7 +79,7 @@ public final strictfp class XMLComparatorTest extends TestCase {
     /**
      * Verifies that comparisons of XML documents compare the namespace URIs, not the prefixes.
      *
-     * see javax.xml.parsers.DocumentBuilderFactory#setNamespaceAware(boolean)
+     * @see javax.xml.parsers.DocumentBuilderFactory#setNamespaceAware(boolean)
      *
      * @throws Exception Shall never happen.
      */

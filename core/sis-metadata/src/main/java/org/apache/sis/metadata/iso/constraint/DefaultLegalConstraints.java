@@ -104,7 +104,7 @@ public class DefaultLegalConstraints extends DefaultConstraints implements Legal
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(LegalConstraints)
+     * @see #castOrCopy(LegalConstraints)
      */
     public DefaultLegalConstraints(final LegalConstraints object) {
         super(object);

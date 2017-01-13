@@ -65,7 +65,7 @@ import org.apache.sis.util.Classes;
  * @version 0.7
  * @module
  *
- * see org.apache.sis.internal.jaxb.AdapterReplacement
+ * @see org.apache.sis.internal.jaxb.AdapterReplacement
  */
 public class SC_VerticalCRS extends PropertyType<SC_VerticalCRS, VerticalCRS> {
     /**

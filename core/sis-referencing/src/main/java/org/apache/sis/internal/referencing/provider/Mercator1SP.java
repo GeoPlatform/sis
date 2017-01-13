@@ -34,7 +34,7 @@ import org.apache.sis.metadata.iso.citation.Citations;
  * @version 0.6
  * @module
  *
- * see <a href="http://www.remotesensing.org/geotiff/proj_list/mercator_1sp.html">Mercator 1SP on RemoteSensing.org</a>
+ * @see <a href="http://www.remotesensing.org/geotiff/proj_list/mercator_1sp.html">Mercator 1SP on RemoteSensing.org</a>
  */
 @XmlTransient
 public final class Mercator1SP extends AbstractMercator {

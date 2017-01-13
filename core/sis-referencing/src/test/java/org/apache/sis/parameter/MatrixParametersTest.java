@@ -37,7 +37,7 @@ public strictfp class MatrixParametersTest extends TensorParametersTest {
     /**
      * The expected parameter names according the EPSG convention for the matrix elements.
      *
-     * see TensorParametersTest#ELEMENT_NAMES
+     * @see TensorParametersTest#ELEMENT_NAMES
      */
     static final String[][] ALPHANUM_NAMES = {
         {"A0", "A1", "A2", "A3"},

@@ -128,8 +128,8 @@ import org.apache.sis.util.UnknownNameException;
  * @version 0.5
  * @module
  *
- * see DefaultMemberName
- * see DefaultNameFactory
+ * @see DefaultMemberName
+ * @see DefaultNameFactory
  */
 @XmlType(name = "TypeName_Type")
 @XmlRootElement(name = "TypeName")
@@ -148,8 +148,8 @@ public class DefaultTypeName extends DefaultLocalName implements TypeName {
      * This is necessary {@link DefaultNameFactory#pool} cache integrity. Users who want to explicitely
      * specify their own value class can override {@link #toClass()} instead.</p>
      *
-     * see #setValueClass(NameSpace, String, Class)
-     * see #toClass()
+     * @see #setValueClass(NameSpace, String, Class)
+     * @see #toClass()
      */
     private transient Class<?> valueClass;
 
@@ -160,7 +160,7 @@ public class DefaultTypeName extends DefaultLocalName implements TypeName {
      * @param scope  the scope of this name, or {@code null} for a global scope.
      * @param name   the local name (never {@code null}).
      *
-     * see DefaultNameFactory#createTypeName(NameSpace, CharSequence)
+     * @see DefaultNameFactory#createTypeName(NameSpace, CharSequence)
      */
     protected DefaultTypeName(final NameSpace scope, final CharSequence name) {
         super(scope, name);
@@ -239,8 +239,8 @@ public class DefaultTypeName extends DefaultLocalName implements TypeName {
      * @throws UnknownNameException if a mapping from this name to a Java class was expected to exist
      *         (typically because of the {@linkplain #scope() scope}) but the operation failed.
      *
-     * see Names#toClass(TypeName)
-     * see DefaultNameFactory#toTypeName(Class)
+     * @see Names#toClass(TypeName)
+     * @see DefaultNameFactory#toTypeName(Class)
      *
      * @since 0.5
      */

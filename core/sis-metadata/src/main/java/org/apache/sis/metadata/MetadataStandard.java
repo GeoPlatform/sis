@@ -94,7 +94,7 @@ import static org.apache.sis.util.ArgumentChecks.ensureNonNullElement;
  * @version 0.5
  * @module
  *
- * see AbstractMetadata
+ * @see AbstractMetadata
  */
 public class MetadataStandard implements Serializable {
     /**
@@ -160,7 +160,7 @@ public class MetadataStandard implements Serializable {
     /**
      * Bibliographical reference to the international standard.
      *
-     * see #getCitation()
+     * @see #getCitation()
      */
     final Citation citation;
 
@@ -485,7 +485,7 @@ public class MetadataStandard implements Serializable {
      * Puts every interfaces for the given type in the specified collection.
      * This method invokes itself recursively for scanning parent interfaces.
      *
-     * see Classes#getAllInterfaces(Class)
+     * @see Classes#getAllInterfaces(Class)
      */
     private void getInterfaces(final Class<?> type, final Collection<Class<?>> interfaces) {
         for (final Class<?> candidate : type.getInterfaces()) {
@@ -513,7 +513,7 @@ public class MetadataStandard implements Serializable {
      * @throws ClassCastException if the specified implementation class does
      *         not implement an interface of this standard.
      *
-     * see AbstractMetadata#getInterface()
+     * @see AbstractMetadata#getInterface()
      */
     @SuppressWarnings("unchecked")
     public <T> Class<? super T> getInterface(final Class<T> type) throws ClassCastException {
@@ -683,7 +683,7 @@ public class MetadataStandard implements Serializable {
      * @throws ClassCastException if the given type doesn't implement a metadata
      *         interface of the expected package.
      *
-     * see org.apache.sis.metadata.iso.DefaultExtendedElementInformation
+     * @see org.apache.sis.metadata.iso.DefaultExtendedElementInformation
      */
     public Map<String,ExtendedElementInformation> asInformationMap(Class<?> type,
             final KeyNamePolicy keyPolicy) throws ClassCastException
@@ -738,7 +738,7 @@ public class MetadataStandard implements Serializable {
      * @throws ClassCastException if the metadata object doesn't implement a metadata
      *         interface of the expected package.
      *
-     * see AbstractMetadata#asMap()
+     * @see AbstractMetadata#asMap()
      */
     public Map<String,Object> asValueMap(final Object metadata, final KeyNamePolicy keyPolicy,
             final ValueExistencePolicy valuePolicy) throws ClassCastException
@@ -811,7 +811,7 @@ public class MetadataStandard implements Serializable {
      * @throws ClassCastException if the metadata object doesn't implement a metadata
      *         interface of the expected package.
      *
-     * see AbstractMetadata#asTreeTable()
+     * @see AbstractMetadata#asTreeTable()
      */
     public TreeTable asTreeTable(final Object metadata, final ValueExistencePolicy valuePolicy)
             throws ClassCastException
@@ -828,7 +828,7 @@ public class MetadataStandard implements Serializable {
      * @throws ClassCastException if the specified implementation class do
      *         not implements a metadata interface of the expected package.
      *
-     * see ModifiableMetadata#freeze()
+     * @see ModifiableMetadata#freeze()
      */
     final void freeze(final Object metadata) throws ClassCastException {
         getAccessor(metadata.getClass(), true).freeze(metadata);
@@ -855,7 +855,7 @@ public class MetadataStandard implements Serializable {
      * @throws ClassCastException if at least one metadata object don't
      *         implements a metadata interface of the expected package.
      *
-     * see AbstractMetadata#equals(Object, ComparisonMode)
+     * @see AbstractMetadata#equals(Object, ComparisonMode)
      */
     public boolean equals(final Object metadata1, final Object metadata2,
             final ComparisonMode mode) throws ClassCastException
@@ -924,7 +924,7 @@ public class MetadataStandard implements Serializable {
      * @throws ClassCastException if the metadata object doesn't implement a metadata
      *         interface of the expected package.
      *
-     * see AbstractMetadata#hashCode()
+     * @see AbstractMetadata#hashCode()
      */
     public int hashCode(final Object metadata) throws ClassCastException {
         if (metadata != null) {

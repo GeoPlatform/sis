@@ -141,7 +141,7 @@ public interface LenientComparable {
      * @param  mode The strictness level of the comparison.
      * @return {@code true} if both objects are equal according the given comparison mode.
      *
-     * see Utilities#deepEquals(Object, Object, ComparisonMode)
+     * @see Utilities#deepEquals(Object, Object, ComparisonMode)
      */
     boolean equals(Object other, ComparisonMode mode);
 
@@ -173,7 +173,7 @@ public interface LenientComparable {
      * @param  other The object to compare to {@code this}.
      * @return {@code true} if both objects are strictly equal.
      *
-     * see ComparisonMode#STRICT
+     * @see ComparisonMode#STRICT
      */
     @Override
     boolean equals(Object other);

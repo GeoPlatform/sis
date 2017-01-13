@@ -70,14 +70,14 @@ public final class Modules {
     /**
      * The major version number of all Apache SIS modules.
      *
-     * see org.apache.sis.util.Version
+     * @see org.apache.sis.util.Version
      */
     public static final int MAJOR_VERSION = 0;
 
     /**
      * The minor version number of all Apache SIS modules.
      *
-     * see org.apache.sis.util.Version
+     * @see org.apache.sis.util.Version
      */
     public static final int MINOR_VERSION = 8;
 

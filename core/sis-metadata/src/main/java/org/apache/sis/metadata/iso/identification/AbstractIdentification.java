@@ -237,7 +237,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
      *
      * @param object The metadata to copy values from, or {@code null} if none.
      *
-     * see #castOrCopy(Identification)
+     * @see #castOrCopy(Identification)
      */
     public AbstractIdentification(final Identification object) {
         super(object);
@@ -411,7 +411,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
      *
      * @return Means of communication with person(s) and organizations(s) associated with the resource(s).
      *
-     * see org.apache.sis.metadata.iso.DefaultMetadata#getContacts()
+     * @see org.apache.sis.metadata.iso.DefaultMetadata#getContacts()
      */
     @Override
     @XmlElement(name = "pointOfContact")
@@ -453,7 +453,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     
     /**
    	 * Gets the spatial representation types for this identification (used in ISO 19115-3 format).
-   	 * see {@link #getSpatialRepresentationTypes}
+   	 * @see {@link #getSpatialRepresentationTypes}
    	 */
    	@XmlElement(name = "spatialRepresentationType")
    	private Collection<SpatialRepresentationType> getXmlSpatialRepresentationTypes() {
@@ -465,7 +465,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
    	
    	/**
    	 * Gets the spatial representation types for this identification (used in ISO 19139 format).
-   	 * see {@link #getSpatialRepresentationTypes}
+   	 * @see {@link #getSpatialRepresentationTypes}
    	 */
    	@XmlElement(name = "spatialRepresentationType")
    	private Collection<SpatialRepresentationType> getXmlSpatialRepresentationTypesLegacy() {
@@ -501,7 +501,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     
     /**
 	 * Gets the spatial resolutions for this identification (used in ISO 19115-3 format).
-	 * see {@link #getSpatialResolutions}
+	 * @see {@link #getSpatialResolutions}
 	 */
 	@XmlElement(name = "spatialResolution")
 	private Collection<Resolution> getXmlSpatialResolutions() {
@@ -513,7 +513,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
 	
 	/**
 	 * Gets the spatial resolutions for this identification (used in ISO 19139 format).
-	 * see {@link #getSpatialResolutions}
+	 * @see {@link #getSpatialResolutions}
 	 */
 	@XmlElement(name = "spatialResolution")
 	private Collection<Resolution> getXmlSpatialResolutionsLegacy() {
@@ -548,7 +548,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     
     /**
 	 * Gets the temporal resolution for this identification (used in ISO 19115-3 format).
-	 * see {@link #getTemporalResolutions}
+	 * @see {@link #getTemporalResolutions}
 	 */
     // TODO: Currently, the XmlJavaTypeAdapter used here just internally converts Duration objects
     // into PeriodDuration objects. Need to add support for IntervalLength in the future.
@@ -586,7 +586,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     
     /**
 	 * Gets the topic categories for this identification (used in ISO 19115-3 format).
-	 * see {@link #getTopicCategories}
+	 * @see {@link #getTopicCategories}
 	 */
 	@XmlElement(name = "topicCategory")
 	private Collection<TopicCategory> getXmlTopicCategories() {
@@ -621,7 +621,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     
     /**
    	 * Gets the character sets for this identification (used in ISO 19115-3 format).
-   	 * see {@link #getExtents}
+   	 * @see {@link #getExtents}
    	 */
    	@XmlElement(name = "extent")
    	private Collection<Extent> getXmlExtents() {
@@ -656,7 +656,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     
     /**
 	 * Gets the additional documentation for this identification (used in ISO 19115-3 format).
-	 * see {@link #getAdditionalDocumentations}
+	 * @see {@link #getAdditionalDocumentations}
 	 */
 	@XmlElement(name = "additionalDocumentation")
 	private Collection<Citation> getXmlAdditionalDocumentations() {
@@ -692,7 +692,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     
     /**
 	 * Gets the processing level for this identification (used in ISO 19115-3 format).
-	 * see {@link #getProcessingLevel}
+	 * @see {@link #getProcessingLevel}
 	 */
 	@XmlElement(name = "processingLevel")
 	private Identifier getXmlProcessingLevel() {
@@ -701,7 +701,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
 	
 	/**
 	 * Sets the processing level for this identification (used in ISO 19115-3 format).
-	 * see {@link #setProcessingLevel}
+	 * @see {@link #setProcessingLevel}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlProcessingLevel(final Identifier newValue) {
@@ -855,7 +855,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     
     /**
 	 * Gets the associated resources for this identification (used in ISO 19115-3 format).
-	 * see {@link #getAssociatedResources}
+	 * @see {@link #getAssociatedResources}
 	 */
 	@XmlElement(name = "associatedResource")
 	private Collection<AssociatedResource> getXmlAssociatedResources() {
@@ -904,7 +904,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
     
     /**
 	 * Gets the aggregation info for this identification (used in ISO 19139 format).
-	 * see {@link #getAggregationInfo}
+	 * @see {@link #getAggregationInfo}
 	 */
 	@XmlElement(name = "aggregationInfo")
 	@XmlJavaTypeAdapter(MD_AggregateInformation.class)
@@ -917,7 +917,7 @@ public class AbstractIdentification extends ISOMetadata implements Identificatio
 	
 	/**
 	 * Sets the aggregation info for this identification (used in ISO 19139 format).
-	 * see {@link #setAggregationInfo}
+	 * @see {@link #setAggregationInfo}
 	 */
 	@SuppressWarnings("unused")
 	private void setXmlAggregationInfo(final Collection<? extends AggregateInformation> newValues) {

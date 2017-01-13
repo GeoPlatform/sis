@@ -125,8 +125,8 @@ import java.util.Objects;
  * @version 0.7
  * @module
  *
- * see DefaultIdentifier
- * see org.apache.sis.referencing.IdentifiedObjects#toURN(Class, Identifier)
+ * @see DefaultIdentifier
+ * @see org.apache.sis.referencing.IdentifiedObjects#toURN(Class, Identifier)
  */
 @XmlType(name = "RS_Identifier_Type", propOrder = {
     "authority",
@@ -144,7 +144,7 @@ public class ImmutableIdentifier extends FormattableObject implements Identifier
     /**
      * The person or party responsible for maintenance of the namespace, or {@code null} if not available.
      *
-     * see #getAuthority()
+     * @see #getAuthority()
      */
     @XmlElement(required = true)
     private final Citation authority;
@@ -152,7 +152,7 @@ public class ImmutableIdentifier extends FormattableObject implements Identifier
     /**
      * Alphanumeric value identifying an instance in the namespace.
      *
-     * see #getCode()
+     * @see #getCode()
      */
     @XmlElement(required = true)
     private final String code;
@@ -161,7 +161,7 @@ public class ImmutableIdentifier extends FormattableObject implements Identifier
      * Identifier or namespace in which the code is valid, or {@code null} if not available.
      * This is often an abbreviation of the authority name.
      *
-     * see #getCodeSpace()
+     * @see #getCodeSpace()
      */
     @XmlElement(required = true)
     private final String codeSpace;
@@ -171,7 +171,7 @@ public class ImmutableIdentifier extends FormattableObject implements Identifier
      * This version is included only when the {@linkplain #getCode code} uses versions.
      * When appropriate, the edition is identified by the effective date, coded using ISO 8601 date format.
      *
-     * see #getVersion()
+     * @see #getVersion()
      */
     @XmlElement
     private final String version;
@@ -395,7 +395,7 @@ public class ImmutableIdentifier extends FormattableObject implements Identifier
      *
      * @return Value identifying an instance in the namespace (never {@code null}).
      *
-     * see org.apache.sis.referencing.NamedIdentifier#tip()
+     * @see org.apache.sis.referencing.NamedIdentifier#tip()
      */
     @Override
     public String getCode() {
@@ -410,8 +410,8 @@ public class ImmutableIdentifier extends FormattableObject implements Identifier
      *
      * @return Identifier or namespace in which the code is valid, or {@code null} if not available.
      *
-     * see org.apache.sis.referencing.NamedIdentifier#head()
-     * see org.apache.sis.referencing.NamedIdentifier#scope()
+     * @see org.apache.sis.referencing.NamedIdentifier#head()
+     * @see org.apache.sis.referencing.NamedIdentifier#scope()
      */
     @Override
     public String getCodeSpace() {
@@ -490,7 +490,7 @@ public class ImmutableIdentifier extends FormattableObject implements Identifier
      * @param  formatter The formatter where to format the inner content of this WKT element.
      * @return {@code "Id"} (WKT 2) or {@code "Authority"} (WKT 1).
      *
-     * see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#33">WKT 2 specification §7.3.4</a>
+     * @see <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#33">WKT 2 specification §7.3.4</a>
      */
     @Override
     protected String formatTo(final Formatter formatter) {
