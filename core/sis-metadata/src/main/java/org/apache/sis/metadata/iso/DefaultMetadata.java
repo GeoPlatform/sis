@@ -36,7 +36,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.sis.internal.jaxb.Context;
 import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.jaxb.code.PT_Locale;
-import org.apache.sis.internal.jaxb.metadata.CI_Responsibility;
+import org.apache.sis.internal.jaxb.metadata.CI_Date;
+import org.apache.sis.internal.jaxb.metadata.LI_Lineage;
 import org.apache.sis.internal.jaxb.metadata.MD_Identifier;
 import org.apache.sis.internal.jaxb.metadata.MD_MetadataScope;
 import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
@@ -47,7 +48,6 @@ import org.apache.sis.metadata.AbstractMetadata;
 import org.apache.sis.metadata.iso.citation.DefaultCitation;
 import org.apache.sis.metadata.iso.citation.DefaultCitationDate;
 import org.apache.sis.metadata.iso.citation.DefaultOnlineResource;
-import org.apache.sis.metadata.iso.citation.DefaultResponsibleParty;
 import org.apache.sis.metadata.iso.identification.AbstractIdentification;
 import org.apache.sis.metadata.iso.identification.DefaultDataIdentification;
 import org.apache.sis.util.iso.SimpleInternationalString;
@@ -108,39 +108,42 @@ import org.opengis.util.InternationalString;
  */
 @SuppressWarnings("deprecation")
 @XmlType(name = "MD_Metadata_Type", propOrder = {
-		"xmlMetadataIdentifier", 		// ISO 19115-3
-		"xmlFileIdentifier", 			// ISO 19139
-		"xmlDefaultLocale", 			// ISO 19115-3
-		"xmlLanguage", 					// ISO 19139
-		"xmlLanguageString",			// ISO 19139
-		"xmlCharacterSets",				// ISO 19139 TODO: (the ISO 19115-3 version may be broken)			
-		"xmlParentMetadata", 			// ISO 19115-3
-		"xmlParentIdentifier", 			// ISO 19139
-		"xmlMetadataScopes", 			// ISO 19115-3
-		"xmlHierarchyLevels", 			// ISO 19139
-		"xmlHierarchyLevelNames", 		// ISO 19139
-		"xmlContacts",					// ISO 19115-3
-		"xmlContactsOld",				// ISO 19139
-		"xmlDateInfo", 					// ISO 19115-3
-		"xmlDateStamp", 				// ISO 19139
-		"xmlMetadataStandards",			// ISO 19115-3
-		"xmlOtherLocales",				// ISO 19115-3
-		"xmlMetadataStandardName",		// ISO 19139
-		"xmlMetadataStandardVersion",	// ISO 19139
-		"dataSetUri",					// ISO 19139 (moved into identificationInfo)
-		"xmlLocales",					// ISO 19139
-		"spatialRepresentationInfo",	// ISO 191##
-		"referenceSystemInfo",			// ISO 191##
-		"metadataExtensionInfo",		// ISO 191##
-		"identificationInfo",			// ISO 191##
-		"contentInfo",					// ISO 191##
-		"distributionInfo",				// ISO 191##
-		"dataQualityInfo",
-		"portrayalCatalogueInfo",
-		"metadataConstraints",
-		"applicationSchemaInfo",
-		"metadataMaintenance",
-		"acquisitionInformation"
+		"xmlMetadataIdentifier", 			// ISO 19115-3
+		"xmlFileIdentifier", 				// ISO 19139
+		"xmlDefaultLocale", 				// ISO 19115-3
+		"xmlLanguage", 						// ISO 19139
+		"xmlLanguageString",				// ISO 19139
+		"xmlCharacterSets",					// ISO 19139 TODO: (the ISO 19115-3 version may be broken)			
+		"xmlParentMetadata", 				// ISO 19115-3
+		"xmlParentIdentifier", 				// ISO 19139
+		"xmlMetadataScopes", 				// ISO 19115-3
+		"xmlHierarchyLevels", 				// ISO 19139
+		"xmlHierarchyLevelNames", 			// ISO 19139
+		"xmlContacts",						// ISO 191##
+		"xmlDateInfo", 						// ISO 19115-3
+		"xmlDateStamp", 					// ISO 19139
+		"xmlMetadataStandards",				// ISO 19115-3
+		"xmlMetadataProfiles",				// ISO 19115-3
+		"xmlAlternativeMetadataReferences",	// ISO 19115-3
+		"xmlOtherLocales",					// ISO 19115-3
+		"xmlMetadataStandardName",			// ISO 19139
+		"xmlMetadataStandardVersion",		// ISO 19139
+		"xmlMetadataLinkages",				// ISO 19115-3
+		"xmlDataSetUri",					// ISO 19139 (moved into identificationInfo)
+		"xmlLocales",						// ISO 19139
+		"spatialRepresentationInfo",		// ISO 191##
+		"referenceSystemInfo",				// ISO 191##
+		"metadataExtensionInfo",			// ISO 191##
+		"identificationInfo",				// ISO 191##
+		"contentInfo",						// ISO 191##
+		"distributionInfo",					// ISO 191##
+		"dataQualityInfo",					// ISO 191##
+		"portrayalCatalogueInfo",			// ISO 191##
+		"metadataConstraints",				// ISO 191##
+		"applicationSchemaInfo",			// ISO 191##
+		"metadataMaintenance",				// ISO 191##
+		"acquisitionInformation",			// ISO 191##
+		"xmlResourceLineages"				// ISO 19115-3
 })
 @XmlRootElement(name = "MD_Metadata")
 @XmlSeeAlso(org.apache.sis.internal.jaxb.gmi.MI_Metadata.class)
@@ -184,7 +187,6 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 * Date(s) associated with the metadata.
 	 */
 	private Collection<CitationDate> dateInfo;
-	private Collection<DefaultCitationDate> dateInfoXml;
 
 	/**
 	 * Citation(s) for the standard(s) to which the metadata conform.
@@ -651,6 +653,9 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	@XmlElement(name = "locale")
 	@XmlJavaTypeAdapter(PT_Locale.class)
 	private Collection<Locale> getXmlLocales() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getLocales();
+		}
 		return MetadataInfo.is2014() ? new CheckedArrayList<>(Locale.class) : getLocales();
 	}
 
@@ -872,16 +877,10 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	@XmlElement(name = "metadataScope")
 	@XmlJavaTypeAdapter(MD_MetadataScope.class)
 	private Collection<MetadataScope> getXmlMetadataScopes() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getMetadataScopes();
+		}
 		return MetadataInfo.is2003() ? new CheckedArrayList<>(MetadataScope.class) : getMetadataScopes();
-	}
-
-	/**
-	 * Sets the metadata scopes for this record (used in ISO 19115-3 format).
-	 * @see {@link #setMetadataScopes}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlMetadataScopes(final Collection<? extends MetadataScope> newValues) {
-		setMetadataScopes(newValues);
 	}
 
 	/**
@@ -938,16 +937,10 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 */
 	@XmlElement(name = "hierarchyLevel")
 	private Collection<ScopeCode> getXmlHierarchyLevels() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getHierarchyLevels();
+		}
 		return MetadataInfo.is2014() ? new CheckedArrayList<>(ScopeCode.class) : getHierarchyLevels();
-	}
-
-	/**
-	 * Sets the hierarchy levels for this record (used in ISO 19139 format).
-	 * @see {@link #setHierarchyLevels}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlHierarchyLevels(final Collection<? extends ScopeCode> newValues) {
-		setHierarchyLevels(newValues);
 	}
 
 	/**
@@ -1005,16 +998,10 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 */
 	@XmlElement(name = "hierarchyLevelName")
 	private final Collection<String> getXmlHierarchyLevelNames() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getHierarchyLevelNames();
+		}
 		return MetadataInfo.is2014() ? new CheckedArrayList<>(String.class) : getHierarchyLevelNames();
-	}
-
-	/**
-	 * Sets the hierarchy level names for this record (used in ISO 19139 format).
-	 * @see {@link #setHierarchyLevels}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlHierarchyLevelNames(final Collection<? extends String> newValues) {
-		setHierarchyLevelNames(newValues);
 	}
 
 	/**
@@ -1041,34 +1028,11 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 * @see {@link #getContacts}
 	 */
 	@XmlElement(name = "contact", required = true)
-	@XmlJavaTypeAdapter(CI_Responsibility.class)
 	private final Collection<Responsibility> getXmlContacts() {
-		// If unmarshalling, only this get method will be called for the "contact" element
-		// and new Responsibility objects will be added to the returned Collection.
-		// As a result, we need to return the contacts collection no matter which
-		// standard is being unmarshalled.
 		if(MetadataInfo.isUnmarshalling()) {
 			return getContacts();
 		}
-		return MetadataInfo.is2003() ? new CheckedArrayList<>(Responsibility.class) : getContacts();
-	}
-	
-	/**
-	 * Gets the contacts for this record (used in ISO 19139 format).
-	 * @see {@link #getContacts}
-	 */
-	@XmlElement(name = "contact", required = true)
-	private final Collection<DefaultResponsibleParty> getXmlContactsOld() {
-		if(MetadataInfo.is2003()) {
-			if(contacts != null) {
-				Collection<DefaultResponsibleParty> parties = new ArrayList<DefaultResponsibleParty>();
-				for(Responsibility resp : contacts) {
-					parties.add(new DefaultResponsibleParty(resp));
-				}
-				return parties;
-			}
-		}
-		return new CheckedArrayList<>(DefaultResponsibleParty.class);
+		return getContacts();
 	}
 
 	/**
@@ -1082,19 +1046,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 */
 	@Override
 	public Collection<CitationDate> getDateInfo() {
-		// If unmarshalled data was ISO 19139
-		if(dateInfo != null) {
-			return dateInfo = nonNullCollection(dateInfo, CitationDate.class);
-		}
-		// If unmarshalled data was ISO 19115-3
-		else if(dateInfoXml != null) {
-			dateInfo = new ArrayList<CitationDate>();
-			for(DefaultCitationDate date : dateInfoXml) {
-				dateInfo.add(date);
-			}
-			return dateInfo;
-		}
-		return new CheckedArrayList<>(CitationDate.class);
+		return dateInfo = nonNullCollection(dateInfo, CitationDate.class);
 	}
 
 	/**
@@ -1106,13 +1058,7 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 * @since 0.5
 	 */
 	public void setDateInfo(final Collection<? extends CitationDate> newValues) {
-		// ISO 19139
 		dateInfo = writeCollection(newValues, dateInfo, CitationDate.class);
-		// ISO 19115-3
-		dateInfoXml = new ArrayList<DefaultCitationDate>();
-		for(CitationDate date : dateInfo) {
-			dateInfoXml.add(DefaultCitationDate.castOrCopy(date));
-		}
 	}
 
 	/**
@@ -1120,20 +1066,12 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 * @see {@link #getDateInfo}
 	 */
 	@XmlElement(name = "dateInfo", required = true)
-	private final Collection<DefaultCitationDate> getXmlDateInfo() {
-		if(dateInfoXml == null) {
-			dateInfoXml = new ArrayList<DefaultCitationDate>();
+	@XmlJavaTypeAdapter(CI_Date.class)
+	private final Collection<CitationDate> getXmlDateInfo() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getDateInfo();
 		}
-		return MetadataInfo.is2003() ? new CheckedArrayList<>(DefaultCitationDate.class) : dateInfoXml;
-	}
-
-	/**
-	 * Sets date info for this record (used in ISO 19115-3 format).
-	 * @see {@link #setDateInfo}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlDateInfo(final Collection<DefaultCitationDate> newValues) {
-		dateInfoXml = newValues;
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(CitationDate.class) : getDateInfo();
 	}
 
 	/**
@@ -1247,16 +1185,10 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 */
 	@XmlElement(name = "metadataStandard")
 	private final Collection<Citation> getXmlMetadataStandards() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getMetadataStandards();
+		}
 		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getMetadataStandards();
-	}
-
-	/**
-	 * Sets the metadata standards for this record (used in ISO 19115-3 format).
-	 * @see {@link #setMetadataStandards}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlMetadataStandards(final Collection<? extends Citation> newValues) {
-		setMetadataStandards(newValues);
 	}
 
 	/**
@@ -1285,6 +1217,18 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	public void setMetadataProfiles(final Collection<? extends Citation> newValues) {
 		metadataProfiles = writeCollection(newValues, metadataProfiles, Citation.class);
 	}
+	
+	/**
+	 * Gets the metadata profiles for this record (used in ISO 19115-3 format).
+	 * @see {@link #getMetadataProfiles}
+	 */
+	@XmlElement(name = "metadataProfile")
+	private final Collection<Citation> getXmlMetadataProfiles() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getMetadataProfiles();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getMetadataProfiles();
+	}
 
 	/**
 	 * Returns reference(s) to alternative metadata or metadata in a non-ISO standard for the same resource.
@@ -1307,6 +1251,18 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 */
 	public void setAlternativeMetadataReferences(final Collection<? extends Citation> newValues) {
 		alternativeMetadataReferences = writeCollection(newValues, alternativeMetadataReferences, Citation.class);
+	}
+	
+	/**
+	 * Gets the alternative metadata references for this record (used in ISO 19115-3 format).
+	 * @see {@link #getMetadataProfiles}
+	 */
+	@XmlElement(name = "alternativeMetadataReference")
+	private final Collection<Citation> getXmlAlternativeMetadataReferences() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getAlternativeMetadataReferences();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Citation.class) : getAlternativeMetadataReferences();
 	}
 
 	/**
@@ -1463,6 +1419,18 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	public void setMetadataLinkages(final Collection<? extends OnlineResource> newValues) {
 		metadataLinkages = writeCollection(newValues, metadataLinkages, OnlineResource.class);
 	}
+	
+	/**
+	 * Gets the metadata linkages for this record (used in ISO 19115-3 format).
+	 * @see {@link #getMetadataLinkages}
+	 */
+	@XmlElement(name = "metadataLinkage")
+	private final Collection<OnlineResource> getXmlMetadataLinkages() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getMetadataLinkages();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(OnlineResource.class) : getMetadataLinkages();
+	}
 
 	/**
 	 * Provides the URI of the dataset to which the metadata applies.
@@ -1474,7 +1442,6 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 */
 	@Override
 	@Deprecated
-	@XmlElement(name = "dataSetURI")
 	public String getDataSetUri() {
 		String linkage = null;
 		final Collection<Identification> info = getIdentificationInfo();
@@ -1538,6 +1505,25 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 		firstId.setCitation(citation);
 		info = OtherLocales.setFirst(info, firstId);
 		setIdentificationInfo(info);
+	}
+	
+	/**
+	 * Gets the dataset URI for this record (used in ISO 19139 format).
+	 * @see {@link #getDataSetUri}
+	 */
+	@XmlElement(name = "dataSetURI")
+	private String getXmlDataSetUri() {
+		return MetadataInfo.is2014() ? null : getDataSetUri();
+	}
+
+	/**
+	 * Sets the dataset URI for this record (used in ISO 19139 format).
+	 * @throws URISyntaxException 
+	 * @see {@link #setDataSetURI}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlDataSetUri(final String newValue) throws URISyntaxException {
+		setDataSetUri(newValue);
 	}
 
 	/**
@@ -1804,6 +1790,19 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	 */
 	public void setResourceLineages(final Collection<? extends Lineage> newValues) {
 		resourceLineages = writeCollection(newValues, resourceLineages, Lineage.class);
+	}
+	
+	/**
+	 * Gets the resource lineages for this record (used in ISO 19115-3 format).
+	 * @see {@link #getResourceLineages}
+	 */
+	@XmlElement(name = "resourceLineage")
+	@XmlJavaTypeAdapter(LI_Lineage.class)
+	private final Collection<Lineage> getXmlResourceLineages() {
+		if(MetadataInfo.isUnmarshalling()) {
+			return getResourceLineages();
+		}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(Lineage.class) : getResourceLineages();
 	}
 
 

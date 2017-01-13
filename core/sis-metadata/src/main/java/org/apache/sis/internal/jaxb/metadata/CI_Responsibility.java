@@ -85,7 +85,8 @@ public final class CI_Responsibility extends PropertyType<CI_Responsibility, Res
         if (MetadataInfo.is2003()) {
             return DefaultResponsibleParty.castOrCopy(metadata);
         } else {
-            return DefaultResponsibility.castOrCopy(metadata);
+        	// Need to build new DefaultResponsibility object here -- simply casting doesn't work.
+        	return new DefaultResponsibility(metadata);
         }
     }
 

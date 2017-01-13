@@ -208,6 +208,9 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
      */
     @XmlElement(name = "extent")
     private Collection<Extent> getXmlExtents() {
+    	if(MetadataInfo.isUnmarshalling()) {
+    		return getExtents();
+    	}
     	return MetadataInfo.is2003() ? new CheckedArrayList<>(Extent.class) : getExtents();
     }
     
@@ -245,6 +248,9 @@ public class DefaultResponsibility extends ISOMetadata implements Responsibility
      */
     @XmlElement(name = "party")
     private Collection<Party> getXmlParties() {
+    	if(MetadataInfo.isUnmarshalling()) {
+    		return getParties();
+    	}
     	return MetadataInfo.is2003() ? new CheckedArrayList<>(Party.class) : getParties();
     }
     

@@ -245,14 +245,6 @@
       </cit:party>
     </cit:CI_Responsibility>
   </mdb:contact>
-  <mdb:dateInfo>
-    <cit:date>
-      <gco:DateTime>2017-01-13T15:56:35.836+01:00</gco:DateTime>
-    </cit:date>
-    <cit:dateType>
-      <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
-    </cit:dateType>
-  </mdb:dateInfo>
   <mdb:metadataStandard>
     <cit:CI_Citation>
       <cit:title>

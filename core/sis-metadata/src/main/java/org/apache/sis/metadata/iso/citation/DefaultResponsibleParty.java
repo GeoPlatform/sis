@@ -16,22 +16,25 @@
  */
 package org.apache.sis.metadata.iso.citation;
 
-import java.util.Iterator;
 import java.util.Collection;
 import java.util.Collections;
-import javax.xml.bind.annotation.XmlType;
+import java.util.Iterator;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.apache.sis.util.iso.Types;
 import org.opengis.metadata.citation.Contact;
-import org.opengis.metadata.citation.Party;
 import org.opengis.metadata.citation.Individual;
 import org.opengis.metadata.citation.Organisation;
+import org.opengis.metadata.citation.Party;
 import org.opengis.metadata.citation.Responsibility;
 import org.opengis.metadata.citation.ResponsibleParty;
 import org.opengis.metadata.citation.Role;
 import org.opengis.util.InternationalString;
-import org.apache.sis.util.iso.Types;
-import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
 
 
 /**
@@ -42,19 +45,20 @@ import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
  *             to allow more flexible associations of individuals, organizations, and roles.
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @Deprecated
 @XmlType(name = "CI_ResponsibleParty_Type", propOrder = {
-    "individualName",
-    "organisationName",
-    "positionName",
-    "contactInfo",
-    "role"
+    "xmlIndividualName",		// ISO 19139
+    "xmlOrganisationName",		// ISO 19139
+    "xmlPositionName",			// ISO 19139
+    "xmlContactInfo",			// ISO 19139
+    "xmlRole"					// ISO 19139
 })
 @XmlRootElement(name = "CI_ResponsibleParty")
 public class DefaultResponsibleParty extends DefaultResponsibility implements ResponsibleParty {
@@ -213,7 +217,6 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
      */
     @Override
     @Deprecated
-    @XmlElement(name = "individualName")
     public String getIndividualName() {
         final InternationalString name = getIndividual(false);
         return (name != null) ? name.toString() : null;
@@ -237,6 +240,24 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
             getParties().add(new DefaultIndividual(newValue, null, null));
         }
     }
+    
+    /**
+	 * Gets the individual name (used in ISO 19139 format).
+	 * @see {@link #getIndividualName}
+	 */
+	@XmlElement(name = "individualName", required = true)
+	private final String getXmlIndividualName() {
+		return MetadataInfo.is2014() ? null : getIndividualName();
+	}
+
+	/**
+	 * Sets the individual name (used in ISO 19139 format).
+	 * @see {@link #setIndividualName}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlIndividualName(final String newValue) {
+		setIndividualName(newValue);
+	}
 
     /**
      * Returns the name of the responsible organization. Only one of
@@ -252,7 +273,6 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
      */
     @Override
     @Deprecated
-    @XmlElement(name = "organisationName", required = true)
     public InternationalString getOrganisationName() {
         return getName(getParties(), Organisation.class, false);
     }
@@ -275,6 +295,24 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
             getParties().add(new DefaultOrganisation(newValue, null, null, null));
         }
     }
+    
+    /**
+	 * Gets the organization name (used in ISO 19139 format).
+	 * @see {@link #getOrganisationName}
+	 */
+	@XmlElement(name = "organisationName", required = true)
+	private final InternationalString getXmlOrganisationName() {
+		return MetadataInfo.is2014() ? null : getOrganisationName();
+	}
+
+	/**
+	 * Sets the organization name (used in ISO 19139 format).
+	 * @see {@link #setOrganisationName}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlOrganisationName(final InternationalString newValue) {
+		setOrganisationName(newValue);
+	}
 
     /**
      * Returns the role or position of the responsible person Only one of
@@ -291,7 +329,6 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
      */
     @Override
     @Deprecated
-    @XmlElement(name = "positionName")
     public InternationalString getPositionName() {
         return getIndividual(true);
     }
@@ -314,6 +351,24 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
             getParties().add(new DefaultIndividual(null, newValue, null));
         }
     }
+    
+    /**
+	 * Gets the position name (used in ISO 19139 format).
+	 * @see {@link #getPositionName}
+	 */
+	@XmlElement(name = "positionName")
+	private final InternationalString getXmlPositionName() {
+		return MetadataInfo.is2014() ? null : getPositionName();
+	}
+
+	/**
+	 * Sets the position name (used in ISO 19139 format).
+	 * @see {@link #setPositionName}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlPositionName(final InternationalString newValue) {
+		setPositionName(newValue);
+	}
 
     /**
      * Returns the address of the responsible party.
@@ -327,7 +382,6 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
      */
     @Override
     @Deprecated
-    @XmlElement(name = "contactInfo")
     public Contact getContactInfo() {
         final Collection<Party> parties = getParties();
         if (parties != null) { // May be null on marshalling.
@@ -377,6 +431,24 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
             getParties().add(new DefaultIndividual(null, null, newValue));
         }
     }
+    
+    /**
+	 * Gets the contact info (used in ISO 19139 format).
+	 * @see {@link #getContactInfo}
+	 */
+	@XmlElement(name = "contactInfo")
+	private final Contact getXmlContactInfo() {
+		return MetadataInfo.is2014() ? null : getContactInfo();
+	}
+
+	/**
+	 * Sets the contact info (used in ISO 19139 format).
+	 * @see {@link #setContactInfo}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlContactInfo(final Contact newValue) {
+		setContactInfo(newValue);
+	}
 
     /**
      * Returns the function performed by the responsible party.
@@ -384,7 +456,6 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
      * @return Function performed by the responsible party.
     */
     @Override
-    @XmlElement(name = "role", required = true)
     public Role getRole() {
         return super.getRole();
     }
@@ -398,4 +469,22 @@ public class DefaultResponsibleParty extends DefaultResponsibility implements Re
     public void setRole(final Role newValue) {
         super.setRole(newValue);
     }
+    
+    /**
+	 * Gets the role (used in ISO 19139 format).
+	 * @see {@link #getRole}
+	 */
+	@XmlElement(name = "role", required = true)
+	private final Role getXmlRole() {
+		return MetadataInfo.is2014() ? null : getRole();
+	}
+
+	/**
+	 * Sets the role (used in ISO 19139 format).
+	 * @see {@link #setRole}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlRole(final Role newValue) {
+		setRole(newValue);
+	}
 }

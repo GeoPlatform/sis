@@ -11,7 +11,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.test.XMLTestCase;
 import org.apache.sis.util.logging.WarningListener;
 import org.apache.sis.xml.MarshallerPool;
@@ -50,6 +49,8 @@ public class UnmarshalDefaultMetadataTest extends XMLTestCase implements Warning
 
 	private final File noaaMetadata = new File("src/test/resources/org/apache/sis/metadata/iso/example_noaa_19139.xml");
 	private final File noaaOutput = new File("src/test/resources/org/apache/sis/metadata/iso/output_noaa_19139.xml");
+	private final File test19139 = new File("src/test/resources/org/apache/sis/metadata/iso/test19139.xml");
+	private final File test191153 = new File("src/test/resources/org/apache/sis/metadata/iso/test191153.xml");
 	private final File oldMetadata = new File("src/test/resources/org/apache/sis/metadata/iso/generated19139Metadata.xml");
 	private final File newMetadata = new File("src/test/resources/org/apache/sis/metadata/iso/generated19115Metadata.xml");
 	private final File newOutput = new File("src/test/resources/org/apache/sis/metadata/iso/unmarshalTestNewMetadata.xml");
@@ -106,6 +107,19 @@ public class UnmarshalDefaultMetadataTest extends XMLTestCase implements Warning
 		System.out.println("\n__MARSHALLING NOAA 19139__");
 		marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
 		marshaller.marshal(md, noaaOutput);
+	}
+	
+	@Test
+	public void test19139to191153() throws JAXBException, URISyntaxException {
+		// Read the ISO 19139 metadata.
+		System.out.println("\n__UNMARSHALLING EXAMPLE 19139__");
+		unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+		Metadata md = (Metadata) unmarshaller.unmarshal(test19139);
+
+		// Write it back to XML in 19115-3 format..
+		System.out.println("\n__MARSHALLING EXAMPLE 19115-3__");
+		marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19115_3);
+		marshaller.marshal(md, test191153);
 	}
 
 	@After
