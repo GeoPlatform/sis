@@ -28,6 +28,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.metadata.LegacyPropertyAdapter;
+import org.apache.sis.internal.util.CheckedArrayList;
 import org.apache.sis.measure.ValueRange;
 import org.apache.sis.util.iso.Types;
 import org.apache.sis.xml.Namespaces;
@@ -61,8 +62,8 @@ import org.opengis.util.InternationalString;
  */
 @XmlType(name = "MD_ExtendedElementInformation_Type", namespace = Namespaces.MEX, propOrder = {
     "name",
-    "shortName",
-    "domainCode",
+    "xmlShortName",			// ISO 19139
+    "xmlDomainCode",		// ISO 19139
     "definition",
     "obligation",
     "condition",
@@ -71,7 +72,8 @@ import org.opengis.util.InternationalString;
     "domainValue",
     "parentEntity",
     "rule",
-    "rationales",
+    "xmlRationale",			// ISO 19115-3
+    "xmlRationales",		// ISO 19139
     "sources"
 })
 @XmlRootElement(name = "MD_ExtendedElementInformation", namespace = Namespaces.MEX)
@@ -288,9 +290,8 @@ public class DefaultExtendedElementInformation extends ISOMetadata
      */
     @Override
     @Deprecated
-    @XmlElement(name = "shortName")
     public String getShortName()  {
-    	return MetadataInfo.is2014() ? null : shortName;
+    	return shortName;
     }
 
     /**
@@ -305,6 +306,24 @@ public class DefaultExtendedElementInformation extends ISOMetadata
         checkWritePermission();
         shortName = newValue;
     }
+    
+    /**
+	 * Gets short name (used in ISO 19139 format).
+	 * @see {@link #getShortName}
+	 */
+	@XmlElement(name = "shortName")
+	private String getXmlShortName() {
+		return MetadataInfo.is2014() ? null : getShortName();
+	}
+
+	/**
+	 * Sets short name (used in ISO 19139 format).
+	 * @see {@link #setShortName}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlShortName(final String newValue) {
+		setShortName(newValue);
+	}
 
     /**
      * Three digit code assigned to the extended element.
@@ -317,9 +336,8 @@ public class DefaultExtendedElementInformation extends ISOMetadata
      */
     @Override
     @Deprecated
-    @XmlElement(name = "domainCode")
     public Integer getDomainCode() {
-        return MetadataInfo.is2014() ? null : domainCode;
+        return domainCode;
     }
 
     /**
@@ -334,6 +352,24 @@ public class DefaultExtendedElementInformation extends ISOMetadata
         checkWritePermission();
         domainCode = newValue;
     }
+    
+    /**
+	 * Gets domain code (used in ISO 19139 format).
+	 * @see {@link #getDomainCode}
+	 */
+	@XmlElement(name = "domainCode")
+	private Integer getXmlDomainCode() {
+		return MetadataInfo.is2014() ? null : getDomainCode();
+	}
+
+	/**
+	 * Sets domain code (used in ISO 19139 format).
+	 * @see {@link #setDomainCode}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlDomainCode(final Integer newValue) {
+		setDomainCode(newValue);
+	}
 
     /**
      * Definition of the extended element.
@@ -540,6 +576,24 @@ public class DefaultExtendedElementInformation extends ISOMetadata
         checkWritePermission();
         rationale = newValue;
     }
+    
+    /**
+	 * Gets the rationale (used in ISO 19115-3 format).
+	 * @see {@link #getRationale}
+	 */
+	@XmlElement(name = "rationale")
+	private InternationalString getXmlRationale() {
+		return MetadataInfo.is2003() ? null : getRationale();
+	}
+
+	/**
+	 * Sets the rationale (used in ISO 19115-3 format).
+	 * @see {@link #setRationale}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlRationale(final InternationalString newValue) {
+		setRationale(newValue);
+	}
 
     /**
      * @deprecated As of ISO 19115:2014, replaced by {@link #getRationale()}.
@@ -548,7 +602,6 @@ public class DefaultExtendedElementInformation extends ISOMetadata
      */
     @Override
     @Deprecated
-    @XmlElement(name = "rationale")
     public Collection<InternationalString> getRationales() {
         return new AbstractSet<InternationalString>() {
             /** Returns 0 if empty, or 1 if a density has been specified. */
@@ -585,6 +638,18 @@ public class DefaultExtendedElementInformation extends ISOMetadata
         setRationale(LegacyPropertyAdapter.getSingleton(newValues, InternationalString.class,
                 null, DefaultExtendedElementInformation.class, "setRationales"));
     }
+    
+    /**
+   	 * Gets the rationales. (used in ISO 19139 format).
+   	 * @see {@link #getLevelDescription}
+   	 */
+   	@XmlElement(name = "rationale")
+   	private Collection<InternationalString> getXmlRationales() {
+   		if(MetadataInfo.isUnmarshalling()) {
+   			return getRationales();
+   		}
+   		return MetadataInfo.is2014() ? new CheckedArrayList<>(InternationalString.class) : getRationales();
+   	}
 
     /**
      * Name of the person or organization creating the extended element.

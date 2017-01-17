@@ -16,9 +16,11 @@
  */
 package org.apache.sis.metadata.iso;
 
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.opengis.metadata.ApplicationSchemaInformation;
 import org.opengis.metadata.citation.Citation;
 import org.opengis.metadata.citation.OnlineResource;
@@ -37,19 +39,20 @@ import org.opengis.metadata.citation.OnlineResource;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_ApplicationSchemaInformation_Type", propOrder = {
     "name",
     "schemaLanguage",
     "constraintLanguage",
-/// "schemaAscii",
-/// "graphicsFile",
-/// "softwareDevelopmentFile",
+	"schemaAscii",					// Was commented out in original SIS implementation, unsure why.
+	"xmlGraphicsFile",				// ISO 1915-3 (Should maybe work in both standards)
+	"xmlSoftwareDevelopmentFile",	// ISO 1915-3 (Should maybe work in both standards)
     "softwareDevelopmentFileFormat"
 })
 @XmlRootElement(name = "MD_ApplicationSchemaInformation")
@@ -234,7 +237,7 @@ public class DefaultApplicationSchemaInformation extends ISOMetadata
      * @return Application schema as an ASCII file, or {@code null}.
      */
     @Override
-/// @XmlElement(name = "schemaAscii")
+	@XmlElement(name = "schemaAscii")
     public CharSequence getSchemaAscii()  {
         return schemaAscii;
     }
@@ -269,6 +272,26 @@ public class DefaultApplicationSchemaInformation extends ISOMetadata
         checkWritePermission();
         graphicsFile = newValue;
     }
+    
+    /**
+	 * Gets graphics file (used in ISO 19115-3 format).
+	 * Implemented to write only to ISO 19115-3 since original SIS implementation did not use this property.
+	 * @see {@link #getGraphicsFile}
+	 */
+	@XmlElement(name = "graphicsFile")
+	private OnlineResource getXmlGraphicsFile() {
+		return MetadataInfo.is2003() ? null : getGraphicsFile();
+	}
+
+	/**
+	 * Sets graphics file (used in ISO 19115-3 format).
+	 * Implemented to write only to ISO 19115-3 since original SIS implementation did not use this property.
+	 * @see {@link #setGraphicsFile}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlGraphicsFile(final OnlineResource newValue) {
+		setGraphicsFile(newValue);
+	}
 
     /**
      * Full application schema given as a software development file.
@@ -290,6 +313,26 @@ public class DefaultApplicationSchemaInformation extends ISOMetadata
         checkWritePermission();
         softwareDevelopmentFile = newValue;
     }
+    
+    /**
+	 * Gets software development file (used in ISO 19115-3 format).
+	 * Implemented to write only to ISO 19115-3 since original SIS implementation did not use this property.
+	 * @see {@link #getSoftwareDevelopmentFile}
+	 */
+	@XmlElement(name = "softwareDevelopmentFile")
+	private OnlineResource getXmlSoftwareDevelopmentFile() {
+		return MetadataInfo.is2003() ? null : getSoftwareDevelopmentFile();
+	}
+
+	/**
+	 * Sets software development file (used in ISO 19115-3 format).
+	 * Implemented to write only to ISO 19115-3 since original SIS implementation did not use this property.
+	 * @see {@link #setSoftwareDevelopmentFile}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlSoftwareDevelopmentFile(final OnlineResource newValue) {
+		setSoftwareDevelopmentFile(newValue);
+	}
 
     /**
      * Software dependent format used for the application schema software dependent file.

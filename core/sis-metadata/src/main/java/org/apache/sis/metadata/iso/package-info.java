@@ -123,6 +123,7 @@
 
     // Java types, primitive types and basic OGC types handling
     @XmlJavaTypeAdapter(LocaleAdapter.class),
+    @XmlJavaTypeAdapter(CharSequenceAdapter.class),
     @XmlJavaTypeAdapter(StringAdapter.class),
     @XmlJavaTypeAdapter(InternationalStringAdapter.class),
     @XmlJavaTypeAdapter(GO_DateTime.class),

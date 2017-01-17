@@ -588,6 +588,7 @@ georeferencedParameters|MI_Georeferenceable|http://standards.iso.org/iso/19115/-
 graphicOverview|MD_DataIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 graphicOverview|MD_Identification|http://standards.iso.org/iso/19115/-3/mri/1.0
 graphicOverview|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
+graphicsFile|MD_ApplicationSchemaInformation|http://standards.iso.org/iso/19115/-3/mdb/1.0
 graphic|CI_Citation|http://standards.iso.org/iso/19115/-3/cit/1.0
 graphic|MD_Constraints|http://standards.iso.org/iso/19115/-3/mco/1.0
 graphic|MD_LegalConstraints|http://standards.iso.org/iso/19115/-3/mco/1.0
@@ -993,6 +994,7 @@ scaleFactor|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 scaleFactor|MD_SampleDimension|http://standards.iso.org/iso/19115/-3/mrc/1.0
 scaleFactor|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 scanningResolution|LE_NominalResolution|http://www.isotc211.org/2005/gmi
+schemaAscii|MD_ApplicationSchemaInformation|http://standards.iso.org/iso/19115/-3/mdb/1.0
 schemaLanguage|MD_ApplicationSchemaInformation|http://standards.iso.org/iso/19115/-3/mdb/1.0
 scope|DQ_DataQuality|http://standards.iso.org/iso/19157/-2/dqc/1.0
 scope|LE_ProcessStep|http://standards.iso.org/iso/19115/-3/mrl/1.0
@@ -1013,6 +1015,7 @@ serviceType|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/srv/2
 shortName|MD_ExtendedElementInformation|http://standards.iso.org/iso/19115/-3/mex/1.0
 significantEvent|MI_Operation|http://standards.iso.org/iso/19115/-3/mac/1.0
 softwareDevelopmentFileFormat|MD_ApplicationSchemaInformation|http://standards.iso.org/iso/19115/-3/mdb/1.0
+softwareDevelopmentFile|MD_ApplicationSchemaInformation|http://standards.iso.org/iso/19115/-3/mdb/1.0
 softwareReference|LE_Processing|http://www.isotc211.org/2005/gmi
 sourceCitation|LE_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 sourceCitation|LI_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
