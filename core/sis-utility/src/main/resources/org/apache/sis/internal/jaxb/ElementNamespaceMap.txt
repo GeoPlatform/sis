@@ -246,6 +246,8 @@ attributeGroup|MD_CoverageDescription|http://standards.iso.org/iso/19115/-3/mrc/
 attributeGroup|MD_ImageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 attributeGroup|MI_CoverageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 attributeGroup|MI_ImageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
+attributeInstances|MD_ScopeDescription|http://standards.iso.org/iso/19115/-3/mmi/1.0
+attributes|MD_ScopeDescription|http://standards.iso.org/iso/19115/-3/mmi/1.0
 attribute|MD_AttributeGroup|http://standards.iso.org/iso/19115/-3/mrc/1.0
 authority|MD_Identifier|http://standards.iso.org/iso/19115/-3/mcc/1.0
 authority|RS_Identifier|http://standards.iso.org/iso/19115/-3/mdb/1.0
@@ -429,8 +431,10 @@ descriptor|MD_SampleDimension|http://standards.iso.org/iso/19115/-3/mrc/1.0
 descriptor|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 detectedPolarization|MD_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
 detectedPolarization|MI_Band|http://standards.iso.org/iso/19115/-3/mrc/1.0
+dimensionDescription|MD_Dimension|http://standards.iso.org/iso/19115/-3/msr/1.0
 dimensionName|MD_Dimension|http://standards.iso.org/iso/19115/-3/msr/1.0
 dimensionSize|MD_Dimension|http://standards.iso.org/iso/19115/-3/msr/1.0
+dimensionTitle|MD_Dimension|http://standards.iso.org/iso/19115/-3/msr/1.0
 dimension|MD_CoverageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 dimension|MD_ImageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 dimension|MI_CoverageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
@@ -550,10 +554,12 @@ extent|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 facsimile|CI_Telephone|http://standards.iso.org/iso/19115/-3/cit/1.0
 featureCatalogueCitation|MD_FeatureCatalogueDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 featureInstanceCount|MD_FeatureTypeInfo|http://standards.iso.org/iso/19115/-3/mrc/1.0
+featureInstances|MD_ScopeDescription|http://standards.iso.org/iso/19115/-3/mmi/1.0
 featureTypeInfo|MD_FeatureCatalogueDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 featureTypeName|MD_FeatureTypeInfo|http://standards.iso.org/iso/19115/-3/mrc/1.0
 featureTypes|MD_FeatureCatalogueDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 featureType|MX_DataFile|http://standards.iso.org/iso/19115/-3/gcx/1.0
+features|MD_ScopeDescription|http://standards.iso.org/iso/19115/-3/mmi/1.0
 fees|MD_StandardOrderProcess|http://standards.iso.org/iso/19115/-3/mrd/1.0
 fileDecompressionTechnique|MD_Format|http://standards.iso.org/iso/19115/-3/mrd/1.0
 fileDescription|MD_BrowseGraphic|http://standards.iso.org/iso/19115/-3/mcc/1.0
@@ -577,6 +583,8 @@ geolocationInformation|MI_Georeferenceable|http://standards.iso.org/iso/19115/-3
 geometricObjectCount|MD_GeometricObjects|http://standards.iso.org/iso/19115/-3/msr/1.0
 geometricObjectType|MD_GeometricObjects|http://standards.iso.org/iso/19115/-3/msr/1.0
 geometricObjects|MD_VectorSpatialRepresentation|http://standards.iso.org/iso/19115/-3/msr/1.0
+georeferencedParameters|MD_Georeferenceable|http://standards.iso.org/iso/19115/-3/msr/1.0
+georeferencedParameters|MI_Georeferenceable|http://standards.iso.org/iso/19115/-3/msr/1.0
 graphicOverview|MD_DataIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 graphicOverview|MD_Identification|http://standards.iso.org/iso/19115/-3/mri/1.0
 graphicOverview|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
@@ -872,7 +880,7 @@ priority|MI_Requirement|http://standards.iso.org/iso/19115/-3/mac/1.0
 procedureDescription|LE_Processing|http://www.isotc211.org/2005/gmi
 processStep|LI_Lineage|http://standards.iso.org/iso/19115/-3/mrl/1.0
 processedLevel|LE_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
-processedLevel|LI_Source|http://www.isotc211.org/2005/gmi
+processedLevel|LI_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 processingInformation|LE_ProcessStep|http://standards.iso.org/iso/19115/-3/mrl/1.0
 processingInformation|LI_ProcessStep|http://www.isotc211.org/2005/gmi
 processingLevelCode|MD_CoverageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
@@ -924,7 +932,7 @@ requestedDateOfCollection|MI_RequestedDate|http://standards.iso.org/iso/19115/-3
 requestedDate|MI_Requirement|http://standards.iso.org/iso/19115/-3/mac/1.0
 requestor|MI_Requirement|http://standards.iso.org/iso/19115/-3/mac/1.0
 resolution|LE_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
-resolution|LI_Source|http://www.isotc211.org/2005/gmi
+resolution|LI_Source|http://standards.iso.org/iso/19115/-3/mrl/1.0
 resolution|MD_Dimension|http://standards.iso.org/iso/19115/-3/msr/1.0
 resourceConstraints|MD_DataIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 resourceConstraints|MD_Identification|http://standards.iso.org/iso/19115/-3/mri/1.0
@@ -1108,6 +1116,7 @@ userNote|MD_SecurityConstraints|http://standards.iso.org/iso/19115/-3/mco/1.0
 valueType|DQ_QuantitativeResult|http://standards.iso.org/iso/19157/-2/dqc/1.0
 valueType|SV_Parameter|http://standards.iso.org/iso/19115/-3/srv/2.0
 valueUnit|DQ_QuantitativeResult|http://standards.iso.org/iso/19157/-2/dqc/1.0
+value|DQ_QuantitativeResult|http://standards.iso.org/iso/19157/-2/dqc/1.0
 version|MD_Format|http://standards.iso.org/iso/19115/-3/mrd/1.0
 version|MD_Identifier|http://standards.iso.org/iso/19115/-3/mcc/1.0
 version|RS_Identifier|http://standards.iso.org/iso/19115/-3/mdb/1.0

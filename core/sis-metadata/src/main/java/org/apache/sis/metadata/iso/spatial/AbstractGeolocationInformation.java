@@ -17,15 +17,19 @@
 package org.apache.sis.metadata.iso.spatial;
 
 import java.util.Collection;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.jaxb.MetadataInfo;
+import org.apache.sis.internal.util.CheckedArrayList;
+import org.apache.sis.metadata.iso.ISOMetadata;
+import org.apache.sis.xml.Namespaces;
 import org.opengis.metadata.quality.DataQuality;
 import org.opengis.metadata.spatial.GCPCollection;
 import org.opengis.metadata.spatial.GeolocationInformation;
-import org.apache.sis.metadata.iso.ISOMetadata;
-import org.apache.sis.xml.Namespaces;
 
 
 /**
@@ -40,13 +44,17 @@ import org.apache.sis.xml.Namespaces;
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
  *
- * @author  Cédric Briançon (Geomatys)
+ * @author  Cédric Briançon 	(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.3
+ * @version 0.8
  * @module
  */
-@XmlType(name = "AbstractMI_GeolocationInformation_Type")
+@XmlType(name = "AbstractMI_GeolocationInformation_Type", propOrder = {
+	    "xmlQualityInfo",		// ISO 19115-3
+	    "xmlQualityInfoLegacy"	// ISO 19139
+	})
 @XmlRootElement(name = "MI_GeolocationInformation", namespace = Namespaces.GMI)
 @XmlSeeAlso(DefaultGCPCollection.class)
 public class AbstractGeolocationInformation extends ISOMetadata implements GeolocationInformation {
@@ -119,7 +127,7 @@ public class AbstractGeolocationInformation extends ISOMetadata implements Geolo
      * @return An overall assessment of quality of geolocation information.
      */
     @Override
-    @XmlElement(name = "qualityInfo", namespace = Namespaces.GMI)
+/// @XmlElement(name = "qualityInfo", namespace = Namespaces.GMI)
     public Collection<DataQuality> getQualityInfo() {
         return qualityInfo = nonNullCollection(qualityInfo, DataQuality.class);
     }
@@ -132,4 +140,28 @@ public class AbstractGeolocationInformation extends ISOMetadata implements Geolo
     public void setQualityInfo(Collection<? extends DataQuality> newValues) {
         qualityInfo = writeCollection(newValues, qualityInfo, DataQuality.class);
     }
+    
+    /**
+	 * Gets the qualityInfo. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getQualityInfo}
+	 */
+    @XmlElement(name = "qualityInfo")
+	private Collection<DataQuality> getXmlQualityInfo() {
+    	if(MetadataInfo.isUnmarshalling()) {
+    		return getQualityInfo();
+    	}
+		return MetadataInfo.is2003() ? new CheckedArrayList<>(DataQuality.class) : getQualityInfo();
+	}
+	
+	/**
+	 * Gets the qualityInfo. Used by JAXB (ISO 19139 format).
+	 * @see {@link #getQualityInfo}
+	 */
+    @XmlElement(name = "qualityInfo", namespace = Namespaces.GMI)
+	private Collection<DataQuality> getXmlQualityInfoLegacy() {
+    	if(MetadataInfo.isUnmarshalling()) {
+    		return getQualityInfo();
+    	}
+		return MetadataInfo.is2014() ? new CheckedArrayList<>(DataQuality.class) : getQualityInfo();
+	}
 }

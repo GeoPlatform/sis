@@ -1,1062 +1,991 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<gmi:MI_Metadata xmlns:dqc="http://standards.iso.org/iso/19157/-2/dqc/1.0" xmlns:gmw="http://standards.iso.org/iso/19115/-3/gmw/1.0" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:mrl="http://standards.iso.org/iso/19115/-3/mrl/1.0" xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0" xmlns:gmi="http://www.isotc211.org/2005/gmi" xmlns:srv="http://standards.iso.org/iso/19115/-3/srv/2.0" xmlns:gex="http://standards.iso.org/iso/19115/-3/gex/1.0" xmlns:mmi="http://standards.iso.org/iso/19115/-3/mmi/1.0" xmlns:fcc="http://standards.iso.org/19110/fcc/1.0" xmlns:mac="http://standards.iso.org/iso/19115/-3/mac/1.0" xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0" xmlns:rce="http://standards.iso.org/iso/19111/rce/1.0" xmlns:mri="http://standards.iso.org/iso/19115/-3/mri/1.0" xmlns:mrd="http://standards.iso.org/iso/19115/-3/mrd/1.0" xmlns:cit="http://standards.iso.org/iso/19115/-3/cit/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mco="http://standards.iso.org/iso/19115/-3/mco/1.0" xmlns:mrs="http://standards.iso.org/iso/19115/-3/mrs/1.0" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:mrc="http://standards.iso.org/iso/19115/-3/mrc/1.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:lan="http://standards.iso.org/iso/19115/-3/lan/1.0" xmlns:msr="http://standards.iso.org/iso/19115/-3/msr/1.0" xmlns:mdb="http://standards.iso.org/iso/19115/-3/mdb/1.0" xmlns:gcx="http://standards.iso.org/iso/19115/-3/gcx/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mex="http://standards.iso.org/iso/19115/-3/mex/1.0">
-  <mdb:defaultLocale>
-    <lan:PT_Locale>
-      <lan:language>
-        <lan:LanguageCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#LanguageCode" codeListValue="eng" codeSpace="eng">English</lan:LanguageCode>
-      </lan:language>
-      <lan:country>
-        <lan:CountryCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#Country" codeListValue="US" codeSpace="eng">United States</lan:CountryCode>
-      </lan:country>
-      <lan:characterEncoding>
-        <lan:MD_CharacterSetCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="eng">UTF-8</lan:MD_CharacterSetCode>
-      </lan:characterEncoding>
-    </lan:PT_Locale>
-  </mdb:defaultLocale>
-  <mdb:metadataScope>
-    <mdb:MD_MetadataScope>
-      <mdb:resourceScope>
-        <mcc:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="eng">Dataset</mcc:MD_ScopeCode>
-      </mdb:resourceScope>
-    </mdb:MD_MetadataScope>
-  </mdb:metadataScope>
-  <mdb:contact>
-    <cit:CI_Responsibility>
-      <cit:role>
-        <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</cit:CI_RoleCode>
-      </cit:role>
-      <cit:party>
-        <cit:CI_Individual>
-          <cit:name>
-            <gco:CharacterString>ESI Manager</gco:CharacterString>
-          </cit:name>
-          <cit:contactInfo>
-            <cit:CI_Contact>
-              <cit:phone>
-<cit:CI_Telephone>
-  <cit:number>
-    <gco:CharacterString>206-526-6944</gco:CharacterString>
-  </cit:number>
-  <cit:numberType>
-    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice" codeSpace="eng">Voice</cit:CI_TelephoneTypeCode>
-  </cit:numberType>
-</cit:CI_Telephone>
-              </cit:phone>
-              <cit:phone>
-<cit:CI_Telephone>
-  <cit:number>
-    <gco:CharacterString>206-526-6329</gco:CharacterString>
-  </cit:number>
-  <cit:numberType>
-    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="facsimile" codeSpace="eng">Facsimile</cit:CI_TelephoneTypeCode>
-  </cit:numberType>
-</cit:CI_Telephone>
-              </cit:phone>
-              <cit:address>
-<cit:CI_Address>
-  <cit:deliveryPoint>
-    <gco:CharacterString>7600 Sand Point Way NE</gco:CharacterString>
-  </cit:deliveryPoint>
-  <cit:city>
-    <gco:CharacterString>Seattle</gco:CharacterString>
-  </cit:city>
-  <cit:administrativeArea>
-    <gco:CharacterString>WA</gco:CharacterString>
-  </cit:administrativeArea>
-  <cit:postalCode>
-    <gco:CharacterString>98115-6349</gco:CharacterString>
-  </cit:postalCode>
-  <cit:country>
-    <gco:CharacterString>USA</gco:CharacterString>
-  </cit:country>
-  <cit:electronicMailAddress>
-    <gco:CharacterString>orr.esi@noaa.gov</gco:CharacterString>
-  </cit:electronicMailAddress>
-</cit:CI_Address>
-              </cit:address>
-            </cit:CI_Contact>
-          </cit:contactInfo>
-          <cit:positionName>
-            <gco:CharacterString>GIS Manager</gco:CharacterString>
-          </cit:positionName>
-        </cit:CI_Individual>
-      </cit:party>
-      <cit:party>
-        <cit:CI_Organisation>
-          <cit:name>
-            <gco:CharacterString>National Oceanic and Atmospheric Administration
-					(NOAA), National Ocean Service (NOS), Office of Response and
-					Restoration (ORR), Emergency Response Division (ERD)</gco:CharacterString>
-          </cit:name>
-        </cit:CI_Organisation>
-      </cit:party>
-    </cit:CI_Responsibility>
-  </mdb:contact>
-  <mdb:dateInfo>
-    <cit:CI_Date>
-      <cit:date>
-        <gco:Date>2013-05-16</gco:Date>
-      </cit:date>
-      <cit:dateType>
-        <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
-      </cit:dateType>
-    </cit:CI_Date>
-  </mdb:dateInfo>
-  <mdb:metadataStandard>
-    <cit:CI_Citation>
-      <cit:title>
-        <gco:CharacterString>ISO 19115-2 Geographic Information - Metadata -
-			Part 2: Extensions for Imagery and Gridded Data</gco:CharacterString>
-      </cit:title>
-      <cit:edition>
-        <gco:CharacterString>ISO 19115-2:2009(E)</gco:CharacterString>
-      </cit:edition>
-    </cit:CI_Citation>
-  </mdb:metadataStandard>
-  <mdb:referenceSystemInfo xlink:href="http://www.ngdc.noaa.gov/docucomp/65f8b220-95ed-11e0-aa80-0800200c9a66"/>
-  <mdb:identificationInfo>
-    <mri:MD_DataIdentification>
-      <mri:citation>
-        <cit:CI_Citation>
-          <cit:title>
-            <gco:CharacterString>Environmental Sensitivity Index (ESI)
-							Threatened and Endangered Species REST Services</gco:CharacterString>
-          </cit:title>
-          <cit:date>
+    <gmi:MI_Metadata xmlns:dqc="http://standards.iso.org/iso/19157/-2/dqc/1.0" xmlns:gmw="http://standards.iso.org/iso/19115/-3/gmw/1.0" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:mrl="http://standards.iso.org/iso/19115/-3/mrl/1.0" xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0" xmlns:gmi="http://www.isotc211.org/2005/gmi" xmlns:srv="http://standards.iso.org/iso/19115/-3/srv/2.0" xmlns:gex="http://standards.iso.org/iso/19115/-3/gex/1.0" xmlns:mmi="http://standards.iso.org/iso/19115/-3/mmi/1.0" xmlns:fcc="http://standards.iso.org/19110/fcc/1.0" xmlns:mac="http://standards.iso.org/iso/19115/-3/mac/1.0" xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0" xmlns:rce="http://standards.iso.org/iso/19111/rce/1.0" xmlns:mri="http://standards.iso.org/iso/19115/-3/mri/1.0" xmlns:mrd="http://standards.iso.org/iso/19115/-3/mrd/1.0" xmlns:cit="http://standards.iso.org/iso/19115/-3/cit/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mco="http://standards.iso.org/iso/19115/-3/mco/1.0" xmlns:mrs="http://standards.iso.org/iso/19115/-3/mrs/1.0" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:mrc="http://standards.iso.org/iso/19115/-3/mrc/1.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:lan="http://standards.iso.org/iso/19115/-3/lan/1.0" xmlns:msr="http://standards.iso.org/iso/19115/-3/msr/1.0" xmlns:mdb="http://standards.iso.org/iso/19115/-3/mdb/1.0" xmlns:gcx="http://standards.iso.org/iso/19115/-3/gcx/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mex="http://standards.iso.org/iso/19115/-3/mex/1.0">
+        <mdb:defaultLocale>
+            <lan:PT_Locale>
+                <lan:language>
+                    <lan:LanguageCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#LanguageCode" codeListValue="eng" codeSpace="eng">English</lan:LanguageCode>
+                </lan:language>
+                <lan:country>
+                    <lan:CountryCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#Country" codeListValue="US" codeSpace="eng">United States</lan:CountryCode>
+                </lan:country>
+                <lan:characterEncoding>
+                    <lan:MD_CharacterSetCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="eng">UTF-8</lan:MD_CharacterSetCode>
+                </lan:characterEncoding>
+            </lan:PT_Locale>
+        </mdb:defaultLocale>
+        <mdb:metadataScope>
+            <mdb:MD_MetadataScope>
+                <mdb:resourceScope>
+                    <mcc:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="eng">Dataset</mcc:MD_ScopeCode>
+                </mdb:resourceScope>
+            </mdb:MD_MetadataScope>
+        </mdb:metadataScope>
+        <mdb:contact>
+            <cit:CI_Responsibility>
+                <cit:role>
+                    <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</cit:CI_RoleCode>
+                </cit:role>
+                <cit:party>
+                    <cit:CI_Individual>
+                        <cit:name>
+                            <gco:CharacterString>ESI Manager</gco:CharacterString>
+                        </cit:name>
+                        <cit:contactInfo>
+                            <cit:CI_Contact>
+                                <cit:phone>
+                                    <cit:CI_Telephone>
+                                        <cit:number>
+                                            <gco:CharacterString>206-526-6944</gco:CharacterString>
+                                        </cit:number>
+                                        <cit:numberType>
+                                            <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice" codeSpace="eng">Voice</cit:CI_TelephoneTypeCode>
+                                        </cit:numberType>
+                                    </cit:CI_Telephone>
+                                </cit:phone>
+                                <cit:phone>
+                                    <cit:CI_Telephone>
+                                        <cit:number>
+                                            <gco:CharacterString>206-526-6329</gco:CharacterString>
+                                        </cit:number>
+                                        <cit:numberType>
+                                            <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="facsimile" codeSpace="eng">Facsimile</cit:CI_TelephoneTypeCode>
+                                        </cit:numberType>
+                                    </cit:CI_Telephone>
+                                </cit:phone>
+                                <cit:address>
+                                    <cit:CI_Address>
+                                        <cit:deliveryPoint>
+                                            <gco:CharacterString>7600 Sand Point Way NE</gco:CharacterString>
+                                        </cit:deliveryPoint>
+                                        <cit:city>
+                                            <gco:CharacterString>Seattle</gco:CharacterString>
+                                        </cit:city>
+                                        <cit:administrativeArea>
+                                            <gco:CharacterString>WA</gco:CharacterString>
+                                        </cit:administrativeArea>
+                                        <cit:postalCode>
+                                            <gco:CharacterString>98115-6349</gco:CharacterString>
+                                        </cit:postalCode>
+                                        <cit:country>
+                                            <gco:CharacterString>USA</gco:CharacterString>
+                                        </cit:country>
+                                        <cit:electronicMailAddress>
+                                            <gco:CharacterString>orr.esi@noaa.gov</gco:CharacterString>
+                                        </cit:electronicMailAddress>
+                                    </cit:CI_Address>
+                                </cit:address>
+                            </cit:CI_Contact>
+                        </cit:contactInfo>
+                        <cit:positionName>
+                            <gco:CharacterString>GIS Manager</gco:CharacterString>
+                        </cit:positionName>
+                    </cit:CI_Individual>
+                </cit:party>
+                <cit:party>
+                    <cit:CI_Organisation>
+                        <cit:name>
+                            <gco:CharacterString>National Oceanic and Atmospheric Administration (NOAA), National Ocean Service (NOS), Office of Response and Restoration (ORR), Emergency Response Division (ERD)</gco:CharacterString>
+                        </cit:name>
+                    </cit:CI_Organisation>
+                </cit:party>
+            </cit:CI_Responsibility>
+        </mdb:contact>
+        <mdb:dateInfo>
             <cit:CI_Date>
-              <cit:date>
-<gco:Date>2013-01-01</gco:Date>
-              </cit:date>
-              <cit:dateType>
-<cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication" codeSpace="eng">Publication</cit:CI_DateTypeCode>
-              </cit:dateType>
+                <cit:date>
+                    <gco:Date>2013-05-16</gco:Date>
+                </cit:date>
+                <cit:dateType>
+                    <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation" codeSpace="eng">Creation</cit:CI_DateTypeCode>
+                </cit:dateType>
             </cit:CI_Date>
-          </cit:date>
-          <cit:citedResponsibleParty>
-            <cit:CI_Responsibility>
-              <cit:role>
-<cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</cit:CI_RoleCode>
-              </cit:role>
-              <cit:party>
-<cit:CI_Organisation>
-  <cit:name>
-    <gco:CharacterString>National Oceanic and Atmospheric
-									Administration (NOAA), National Ocean Service, Office of
-									Response and Restoration, Emergency Response Division (formerly
-									Hazardous Materials Response Division), Seattle, Washington.</gco:CharacterString>
-  </cit:name>
-  <cit:contactInfo>
-    <cit:CI_Contact>
-      <cit:address>
-        <cit:CI_Address>
-          <cit:city>
-            <gco:CharacterString>Seattle</gco:CharacterString>
-          </cit:city>
-          <cit:administrativeArea>
-            <gco:CharacterString>Washington</gco:CharacterString>
-          </cit:administrativeArea>
-        </cit:CI_Address>
-      </cit:address>
-    </cit:CI_Contact>
-  </cit:contactInfo>
-</cit:CI_Organisation>
-              </cit:party>
-            </cit:CI_Responsibility>
-          </cit:citedResponsibleParty>
-          <cit:citedResponsibleParty>
-            <cit:CI_Responsibility>
-              <cit:role>
-<cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="originator" codeSpace="eng">Originator</cit:CI_RoleCode>
-              </cit:role>
-              <cit:party>
-<cit:CI_Organisation>
-  <cit:name>
-    <gco:CharacterString>National Oceanic and Atmospheric
-									Administration (NOAA), National Ocean Service, Office of
-									Response and Restoration (ORR), Emergency Response Division
-									(ERD)</gco:CharacterString>
-  </cit:name>
-</cit:CI_Organisation>
-              </cit:party>
-            </cit:CI_Responsibility>
-          </cit:citedResponsibleParty>
-          <cit:citedResponsibleParty>
-            <cit:CI_Responsibility>
-              <cit:party>
-<cit:CI_Individual>
-  <cit:contactInfo>
-    <cit:CI_Contact>
-      <cit:onlineResource>
-        <cit:CI_OnlineResource>
-          <cit:linkage>
-            <gco:CharacterString>http://response.restoration.noaa.gov/esi</gco:CharacterString>
-          </cit:linkage>
-        </cit:CI_OnlineResource>
-      </cit:onlineResource>
-    </cit:CI_Contact>
-  </cit:contactInfo>
-</cit:CI_Individual>
-              </cit:party>
-            </cit:CI_Responsibility>
-          </cit:citedResponsibleParty>
-        </cit:CI_Citation>
-      </mri:citation>
-      <mri:abstract>
-        <gco:CharacterString>Environmental Sensitivity Index (ESI) data
-					characterize the marine and coastal environments and wildlife based
-					on sensitivity to spilled oil. Coastal species that are listed as
-					threatened, endangered, or as a species of concern, by either
-					federal or state governments, are a primary focus. A subset of the
-					ESI data, the ESI Threatened and Endangered Species (T&amp;E)
-					databases focus strictly on these species. Species are mapped
-					individually. In addition to showing spatial extent, each species
-					polygon, point, or line has attributes describing abundance,
-					seasonality, threatened/endangered status, and life history. Both
-					the state and federal status is provided, along with the year the
-					ESI data were published. This is important, as the status of a
-					species can vary over time. As always, the ESI data are a snapshot
-					in time. The biology layers focus on threatened/endangered status,
-					areas of high concentration, and areas where sensitive life stages
-					may occur. Supporting data tables provide
-					species-/location-specific abundance, seasonality, status, life
-					history, and source information. Human-use resources mapped include
-					managed areas (parks, refuges, critical habitats, etc.) and
-					resources that may be impacted by oiling and/or cleanup, such as
-					beaches, archaeological sites, marinas, etc. ESIs are available for
-					the majority of the US coastline, as well as the US territories.
-					ESI data are available as PDF maps, as well as in a variety of GIS
-					formats. For more information, go to
-					http://response.restoration.noaa.gov/esi . To download complete ESI
-					data sets, go to http://response.restoration.noaa.gov/esi_download
-					.</gco:CharacterString>
-      </mri:abstract>
-      <mri:purpose>
-        <gco:CharacterString>The T&amp;E geodatabase comprise a subset of
-					the original ESI data. They focus on the coastal species and
-					habitats that are federally and/or state listed as endangered,
-					threatened, protected, or as a species of concern. The T&amp;E
-					databases offer a more directed option for accessing some of the
-					most critical biological information for a region.</gco:CharacterString>
-      </mri:purpose>
-      <mri:status>
-        <mdb:MD_ProgressCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ProgressCode" codeListValue="completed" codeSpace="eng">Completed</mdb:MD_ProgressCode>
-      </mri:status>
-      <mri:pointOfContact>
-        <cit:CI_Responsibility>
-          <cit:role>
-            <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</cit:CI_RoleCode>
-          </cit:role>
-          <cit:party>
-            <cit:CI_Individual>
-              <cit:name>
-<gco:CharacterString>ESI Manager</gco:CharacterString>
-              </cit:name>
-              <cit:contactInfo>
-<cit:CI_Contact>
-  <cit:phone>
-    <cit:CI_Telephone>
-      <cit:number>
-        <gco:CharacterString>206-526-6944</gco:CharacterString>
-      </cit:number>
-      <cit:numberType>
-        <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice" codeSpace="eng">Voice</cit:CI_TelephoneTypeCode>
-      </cit:numberType>
-    </cit:CI_Telephone>
-  </cit:phone>
-  <cit:phone>
-    <cit:CI_Telephone>
-      <cit:number>
-        <gco:CharacterString>206-526-6329</gco:CharacterString>
-      </cit:number>
-      <cit:numberType>
-        <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="facsimile" codeSpace="eng">Facsimile</cit:CI_TelephoneTypeCode>
-      </cit:numberType>
-    </cit:CI_Telephone>
-  </cit:phone>
-  <cit:address>
-    <cit:CI_Address>
-      <cit:deliveryPoint>
-        <gco:CharacterString>7600 Sand Point Way NE</gco:CharacterString>
-      </cit:deliveryPoint>
-      <cit:city>
-        <gco:CharacterString>Seattle</gco:CharacterString>
-      </cit:city>
-      <cit:administrativeArea>
-        <gco:CharacterString>WA</gco:CharacterString>
-      </cit:administrativeArea>
-      <cit:postalCode>
-        <gco:CharacterString>98115-6349</gco:CharacterString>
-      </cit:postalCode>
-      <cit:country>
-        <gco:CharacterString>USA</gco:CharacterString>
-      </cit:country>
-      <cit:electronicMailAddress>
-        <gco:CharacterString>orr.esi@noaa.gov</gco:CharacterString>
-      </cit:electronicMailAddress>
-    </cit:CI_Address>
-  </cit:address>
-</cit:CI_Contact>
-              </cit:contactInfo>
-              <cit:positionName>
-<gco:CharacterString>GIS Manager</gco:CharacterString>
-              </cit:positionName>
-            </cit:CI_Individual>
-          </cit:party>
-          <cit:party>
-            <cit:CI_Organisation>
-              <cit:name>
-<gco:CharacterString>National Oceanic and Atmospheric
-							Administration (NOAA), National Ocean Service (NOS), Office of
-							Response and Restoration (ORR), Emergency Response Division (ERD)</gco:CharacterString>
-              </cit:name>
-            </cit:CI_Organisation>
-          </cit:party>
-        </cit:CI_Responsibility>
-      </mri:pointOfContact>
-      <mri:topicCategory>
-        <mdb:MD_TopicCategoryCode>biota</mdb:MD_TopicCategoryCode>
-      </mri:topicCategory>
-      <mri:topicCategory>
-        <mdb:MD_TopicCategoryCode>environment</mdb:MD_TopicCategoryCode>
-      </mri:topicCategory>
-      <mri:extent>
-        <gex:EX_Extent id="boundingExtent">
-          <gex:geographicElement>
-            <gex:EX_GeographicBoundingBox id="boundingGeographicBoundingBox">
-              <gex:westBoundLongitude>
-<gco:Decimal>-180.0</gco:Decimal>
-              </gex:westBoundLongitude>
-              <gex:eastBoundLongitude>
-<gco:Decimal>180.0</gco:Decimal>
-              </gex:eastBoundLongitude>
-              <gex:southBoundLatitude>
-<gco:Decimal>-14.72</gco:Decimal>
-              </gex:southBoundLatitude>
-              <gex:northBoundLatitude>
-<gco:Decimal>72.0</gco:Decimal>
-              </gex:northBoundLatitude>
-            </gex:EX_GeographicBoundingBox>
-          </gex:geographicElement>
-          <gex:temporalElement>
-            <gex:EX_TemporalExtent id="boundingTemporalExtent"/>
-          </gex:temporalElement>
-        </gex:EX_Extent>
-      </mri:extent>
-      <mri:resourceMaintenance>
-        <mmi:MD_MaintenanceInformation>
-          <mmi:maintenanceAndUpdateFrequency>
-            <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="notPlanned" codeSpace="eng">Not planned</mmi:MD_MaintenanceFrequencyCode>
-          </mmi:maintenanceAndUpdateFrequency>
-        </mmi:MD_MaintenanceInformation>
-      </mri:resourceMaintenance>
-      <mri:descriptiveKeywords>
-        <mri:MD_Keywords>
-          <mri:keyword>
-            <gco:CharacterString>Environmental Monitoring</gco:CharacterString>
-          </mri:keyword>
-          <mri:type>
-            <mdb:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme" codeSpace="eng">Theme</mdb:MD_KeywordTypeCode>
-          </mri:type>
-          <mri:thesaurusName>
+        </mdb:dateInfo>
+        <mdb:metadataStandard>
             <cit:CI_Citation>
-              <cit:title>
-<gco:CharacterString>NOS Data Explorer Topic Category</gco:CharacterString>
-              </cit:title>
-              <cit:date gco:nilReason="unknown"/>
+                <cit:title>
+                    <gco:CharacterString>ISO 19115-2 Geographic Information - Metadata - Part 2: Extensions for Imagery and Gridded Data</gco:CharacterString>
+                </cit:title>
+                <cit:edition>
+                    <gco:CharacterString>ISO 19115-2:2009(E)</gco:CharacterString>
+                </cit:edition>
             </cit:CI_Citation>
-          </mri:thesaurusName>
-        </mri:MD_Keywords>
-      </mri:descriptiveKeywords>
-      <mri:descriptiveKeywords>
-        <mri:MD_Keywords>
-          <mri:keyword>
-            <gco:CharacterString>Amphibians</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Benthic habitats</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Birds</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Coastal resources</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Coastal Zone Management</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Environmental Sensitivity Index (ESI)</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Environmental Vulnerability Index (EVI)</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Fish</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Habitats</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Invertebrates</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Marine mammals</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Nests</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Threatened</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Endangered</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>T&amp;E</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Species of concern</gco:CharacterString>
-          </mri:keyword>
-          <mri:type>
-            <mdb:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme" codeSpace="eng">Theme</mdb:MD_KeywordTypeCode>
-          </mri:type>
-          <mri:thesaurusName>
-            <cit:CI_Citation>
-              <cit:title>
-<gco:CharacterString>None</gco:CharacterString>
-              </cit:title>
-              <cit:date gco:nilReason="unknown"/>
-            </cit:CI_Citation>
-          </mri:thesaurusName>
-        </mri:MD_Keywords>
-      </mri:descriptiveKeywords>
-      <mri:descriptiveKeywords>
-        <mri:MD_Keywords>
-          <mri:keyword>
-            <gco:CharacterString>Alabama ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Aleutian Islands Alaska ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>American Samoa ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>American Samoa shorelines</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Bristol Bay Alaska ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Central California ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Columbia River ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Cook Inlet Alaska ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Delaware, New Jersey, Pennsylvania ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Florida ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Georgia ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Great Lakes ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Guam and Northern Mariana Islands ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Hawaii ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Hudson River ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Kodiak Alaska ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Louisiana ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Maine EVI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Maryland ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Massachusetts ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Mississippi ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>New Hampshire ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>North Carolina ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>North Slope Alaska ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>North Slope Alaska Summary Maps ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Northern California ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Northwest Arctic Alaska ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Prince William Sound Alaska ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Puerto Rico ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Puerto Rico shorelines</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Rhode Island, Connecticut, New York, and New
-							Jersey ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>San Francisco Bay California ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>South Carolina ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Southeast Alaska ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Southern California ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Texas Upper Coast ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>U.S. Exclusive Economic Zone</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>U.S. shorelines</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Virgin Islands ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Virginia ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Washington Puget Sound ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:keyword>
-            <gco:CharacterString>Western Alaska ESI</gco:CharacterString>
-          </mri:keyword>
-          <mri:type>
-            <mdb:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="place" codeSpace="eng">Place</mdb:MD_KeywordTypeCode>
-          </mri:type>
-          <mri:thesaurusName>
-            <cit:CI_Citation>
-              <cit:title>
-<gco:CharacterString>None</gco:CharacterString>
-              </cit:title>
-              <cit:date gco:nilReason="unknown"/>
-            </cit:CI_Citation>
-          </mri:thesaurusName>
-        </mri:MD_Keywords>
-      </mri:descriptiveKeywords>
-      <mri:resourceConstraints>
-        <mco:MD_Constraints>
-          <mco:useLimitation>
-            <gco:CharacterString>These data represent a snapshot in time and
-							are not intended to include all biological resources present in
-							an area. They should be used for a first assessment only. The
-							data providers (listed in the original, atlas- specific metadata)
-							are the experts with regard to individual resources. They should
-							be contacted if you require more current and/or in-depth
-							information about a particular resource.</gco:CharacterString>
-          </mco:useLimitation>
-        </mco:MD_Constraints>
-      </mri:resourceConstraints>
-      <mri:resourceConstraints>
-        <mco:MD_LegalConstraints>
-          <mco:useConstraints>
-            <mdb:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" codeSpace="eng">Other restrictions</mdb:MD_RestrictionCode>
-          </mco:useConstraints>
-          <mco:otherConstraints>
-            <gco:CharacterString>Use Constraints: DO NOT USE MAPS FOR
-							NAVIGATIONAL PURPOSES. Besides the above warning, there are no
-							use constraints on these data. Note that the ESI database should
-							not be used to the exclusion of other pertinent data or
-							information held by state or federal agencies or other
-							organizations. Likewise, information contained in the database
-							cannot be used in place of consultations with environmental,
-							natural resource, and cultural resource agencies, or in place of
-							field surveys. Recognize that the information contained in the
-							ESI database represents known concentration areas or occurrences
-							of natural, cultural, and human-use resources, but does not
-							necessarily represent the full distribution or range of each
-							species or resource. This is particularly important to recognize
-							when considering potential impacts to protected resources, such
-							as endangered species, wetlands, etc. Acknowledgment of the
-							originators, publishers, contributors, and sources listed would
-							be appreciated in products derived from these data.</gco:CharacterString>
-          </mco:otherConstraints>
-        </mco:MD_LegalConstraints>
-      </mri:resourceConstraints>
-      <mri:resourceConstraints>
-        <mco:MD_LegalConstraints>
-          <mco:accessConstraints>
-            <mdb:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" codeSpace="eng">Other restrictions</mdb:MD_RestrictionCode>
-          </mco:accessConstraints>
-          <mco:otherConstraints>
-            <gco:CharacterString>Access Constraints: None</gco:CharacterString>
-          </mco:otherConstraints>
-        </mco:MD_LegalConstraints>
-      </mri:resourceConstraints>
-      <mri:defaultLocale>
-        <lan:PT_Locale>
-          <lan:language>
-            <lan:LanguageCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#LanguageCode" codeListValue="eng" codeSpace="eng">English</lan:LanguageCode>
-          </lan:language>
-          <lan:country>
-            <lan:CountryCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#Country" codeListValue="US" codeSpace="eng">United States</lan:CountryCode>
-          </lan:country>
-          <lan:characterEncoding>
-            <lan:MD_CharacterSetCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="eng">UTF-8</lan:MD_CharacterSetCode>
-          </lan:characterEncoding>
-        </lan:PT_Locale>
-      </mri:defaultLocale>
-    </mri:MD_DataIdentification>
-  </mdb:identificationInfo>
-  <mdb:distributionInfo>
-    <mrd:MD_Distribution>
-      <mrd:distributionFormat>
-        <mrd:MD_Format>
-          <mrd:formatSpecificationCitation>
-            <cit:CI_Citation>
-              <cit:alternateTitle>
-<gco:CharacterString>REST Service</gco:CharacterString>
-              </cit:alternateTitle>
-            </cit:CI_Citation>
-          </mrd:formatSpecificationCitation>
-        </mrd:MD_Format>
-      </mrd:distributionFormat>
-      <mrd:distributor>
-        <mrd:MD_Distributor>
-          <mrd:distributorContact>
-            <cit:CI_Responsibility>
-              <cit:role>
-<cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="distributor" codeSpace="eng">Distributor</cit:CI_RoleCode>
-              </cit:role>
-              <cit:party>
-<cit:CI_Individual>
-  <cit:name>
-    <gco:CharacterString>ESI Manager</gco:CharacterString>
-  </cit:name>
-  <cit:contactInfo>
-    <cit:CI_Contact>
-      <cit:phone>
-        <cit:CI_Telephone>
-          <cit:number>
-            <gco:CharacterString>206-526-6944</gco:CharacterString>
-          </cit:number>
-          <cit:numberType>
-            <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice" codeSpace="eng">Voice</cit:CI_TelephoneTypeCode>
-          </cit:numberType>
-        </cit:CI_Telephone>
-      </cit:phone>
-      <cit:phone>
-        <cit:CI_Telephone>
-          <cit:number>
-            <gco:CharacterString>206-526-6329</gco:CharacterString>
-          </cit:number>
-          <cit:numberType>
-            <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="facsimile" codeSpace="eng">Facsimile</cit:CI_TelephoneTypeCode>
-          </cit:numberType>
-        </cit:CI_Telephone>
-      </cit:phone>
-      <cit:address>
-        <cit:CI_Address>
-          <cit:deliveryPoint>
-            <gco:CharacterString>7600 Sand Point Way NE</gco:CharacterString>
-          </cit:deliveryPoint>
-          <cit:city>
-            <gco:CharacterString>Seattle</gco:CharacterString>
-          </cit:city>
-          <cit:administrativeArea>
-            <gco:CharacterString>WA</gco:CharacterString>
-          </cit:administrativeArea>
-          <cit:postalCode>
-            <gco:CharacterString>98115-6349</gco:CharacterString>
-          </cit:postalCode>
-          <cit:country>
-            <gco:CharacterString>USA</gco:CharacterString>
-          </cit:country>
-          <cit:electronicMailAddress>
-            <gco:CharacterString>orr.esi@noaa.gov</gco:CharacterString>
-          </cit:electronicMailAddress>
-        </cit:CI_Address>
-      </cit:address>
-    </cit:CI_Contact>
-  </cit:contactInfo>
-  <cit:positionName>
-    <gco:CharacterString>GIS Manager</gco:CharacterString>
-  </cit:positionName>
-</cit:CI_Individual>
-              </cit:party>
-              <cit:party>
-<cit:CI_Organisation>
-  <cit:name>
-    <gco:CharacterString>National Oceanic and Atmospheric
-									Administration (NOAA), National Ocean Service (NOS), Office of
-									Response and Restoration (ORR), Emergency Response Division
-									(ERD)</gco:CharacterString>
-  </cit:name>
-</cit:CI_Organisation>
-              </cit:party>
-            </cit:CI_Responsibility>
-          </mrd:distributorContact>
-          <mrd:distributionOrderProcess>
-            <mrd:MD_StandardOrderProcess>
-              <mrd:fees>
-<gco:CharacterString>None</gco:CharacterString>
-              </mrd:fees>
-            </mrd:MD_StandardOrderProcess>
-          </mrd:distributionOrderProcess>
-        </mrd:MD_Distributor>
-      </mrd:distributor>
-      <mrd:transferOptions>
-        <mrd:MD_DigitalTransferOptions>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Alabama_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Aleutians_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_AmericanSamoa_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_BristolBay_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_CentralCalifornia_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_ColumbiaRiver_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_CookInlet_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_DelawareBay_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_FloridaPanhandle_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_FloridaPeninsular_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Georgia_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Guam_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Hawaii_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_HudsonRiver_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Kodiak_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_LongIsland_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Louisiana_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Maryland_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Mississippi_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_NorthCarolina_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_NorthernCalifornia_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_NorthSlope_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_NorthwestArctic_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_PrinceWilliamSound_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_PuertoRico_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_PugetSound_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_SanFrancisco_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_SouthCarolina_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_SoutheastAlaska_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_SouthernCalifornia_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Virginia_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_VirginIslands_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-          <mrd:onLine>
-            <cit:CI_OnlineResource>
-              <cit:linkage>
-<gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_WesternAlaska_TandE_Data/MapServer</gco:CharacterString>
-              </cit:linkage>
-            </cit:CI_OnlineResource>
-          </mrd:onLine>
-        </mrd:MD_DigitalTransferOptions>
-      </mrd:transferOptions>
-    </mrd:MD_Distribution>
-  </mdb:distributionInfo>
-  <mdb:metadataMaintenance>
-    <mmi:MD_MaintenanceInformation>
-      <mmi:maintenanceAndUpdateFrequency>
-        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="annually" codeSpace="eng">Annually</mmi:MD_MaintenanceFrequencyCode>
-      </mmi:maintenanceAndUpdateFrequency>
-      <mmi:maintenanceNote>
-        <gco:CharacterString>This metadata was automatically generated from
-					the FGDC Content Standard for Digital Geospatial Metadata standard
-					(version FGDC-STD-001-1998) using the 2015-07-24 version of the
-					FGDC RSE to ISO 19115-2 transform.</gco:CharacterString>
-      </mmi:maintenanceNote>
-      <mmi:maintenanceNote>
-        <gco:CharacterString>Translated from FGDC
-					2015-09-11T06:09:00.188-04:00</gco:CharacterString>
-      </mmi:maintenanceNote>
-      <mmi:contact>
-        <cit:CI_Responsibility>
-          <cit:role>
-            <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</cit:CI_RoleCode>
-          </cit:role>
-          <cit:party>
-            <cit:CI_Individual>
-              <cit:name>
-<gco:CharacterString>ESI Manager</gco:CharacterString>
-              </cit:name>
-              <cit:contactInfo>
-<cit:CI_Contact>
-  <cit:phone>
-    <cit:CI_Telephone>
-      <cit:number>
-        <gco:CharacterString>206-526-6944</gco:CharacterString>
-      </cit:number>
-      <cit:numberType>
-        <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice" codeSpace="eng">Voice</cit:CI_TelephoneTypeCode>
-      </cit:numberType>
-    </cit:CI_Telephone>
-  </cit:phone>
-  <cit:phone>
-    <cit:CI_Telephone>
-      <cit:number>
-        <gco:CharacterString>206-526-6329</gco:CharacterString>
-      </cit:number>
-      <cit:numberType>
-        <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="facsimile" codeSpace="eng">Facsimile</cit:CI_TelephoneTypeCode>
-      </cit:numberType>
-    </cit:CI_Telephone>
-  </cit:phone>
-  <cit:address>
-    <cit:CI_Address>
-      <cit:deliveryPoint>
-        <gco:CharacterString>7600 Sand Point Way NE</gco:CharacterString>
-      </cit:deliveryPoint>
-      <cit:city>
-        <gco:CharacterString>Seattle</gco:CharacterString>
-      </cit:city>
-      <cit:administrativeArea>
-        <gco:CharacterString>WA</gco:CharacterString>
-      </cit:administrativeArea>
-      <cit:postalCode>
-        <gco:CharacterString>98115-6349</gco:CharacterString>
-      </cit:postalCode>
-      <cit:country>
-        <gco:CharacterString>USA</gco:CharacterString>
-      </cit:country>
-      <cit:electronicMailAddress>
-        <gco:CharacterString>orr.esi@noaa.gov</gco:CharacterString>
-      </cit:electronicMailAddress>
-    </cit:CI_Address>
-  </cit:address>
-</cit:CI_Contact>
-              </cit:contactInfo>
-              <cit:positionName>
-<gco:CharacterString>GIS Manager</gco:CharacterString>
-              </cit:positionName>
-            </cit:CI_Individual>
-          </cit:party>
-          <cit:party>
-            <cit:CI_Organisation>
-              <cit:name>
-<gco:CharacterString>National Oceanic and Atmospheric
-							Administration (NOAA), National Ocean Service (NOS), Office of
-							Response and Restoration (ORR), Emergency Response Division (ERD)</gco:CharacterString>
-              </cit:name>
-            </cit:CI_Organisation>
-          </cit:party>
-        </cit:CI_Responsibility>
-      </mmi:contact>
-    </mmi:MD_MaintenanceInformation>
-  </mdb:metadataMaintenance>
-</gmi:MI_Metadata>
+        </mdb:metadataStandard>
+        <mdb:referenceSystemInfo xlink:href="http://www.ngdc.noaa.gov/docucomp/65f8b220-95ed-11e0-aa80-0800200c9a66" />
+        <mdb:identificationInfo>
+            <mri:MD_DataIdentification>
+                <mri:citation>
+                    <cit:CI_Citation>
+                        <cit:title>
+                            <gco:CharacterString>Environmental Sensitivity Index (ESI) Threatened and Endangered Species REST Services</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                            <cit:CI_Date>
+                                <cit:date>
+                                    <gco:Date>2013-01-01</gco:Date>
+                                </cit:date>
+                                <cit:dateType>
+                                    <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication" codeSpace="eng">Publication</cit:CI_DateTypeCode>
+                                </cit:dateType>
+                            </cit:CI_Date>
+                        </cit:date>
+                        <cit:citedResponsibleParty>
+                            <cit:CI_Responsibility>
+                                <cit:role>
+                                    <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="eng">Publisher</cit:CI_RoleCode>
+                                </cit:role>
+                                <cit:party>
+                                    <cit:CI_Organisation>
+                                        <cit:name>
+                                            <gco:CharacterString>National Oceanic and Atmospheric Administration (NOAA), National Ocean Service, Office of Response and Restoration, Emergency Response Division (formerly Hazardous Materials Response Division), Seattle, Washington.</gco:CharacterString>
+                                        </cit:name>
+                                        <cit:contactInfo>
+                                            <cit:CI_Contact>
+                                                <cit:address>
+                                                    <cit:CI_Address>
+                                                        <cit:city>
+                                                            <gco:CharacterString>Seattle</gco:CharacterString>
+                                                        </cit:city>
+                                                        <cit:administrativeArea>
+                                                            <gco:CharacterString>Washington</gco:CharacterString>
+                                                        </cit:administrativeArea>
+                                                    </cit:CI_Address>
+                                                </cit:address>
+                                            </cit:CI_Contact>
+                                        </cit:contactInfo>
+                                    </cit:CI_Organisation>
+                                </cit:party>
+                            </cit:CI_Responsibility>
+                        </cit:citedResponsibleParty>
+                        <cit:citedResponsibleParty>
+                            <cit:CI_Responsibility>
+                                <cit:role>
+                                    <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="originator" codeSpace="eng">Originator</cit:CI_RoleCode>
+                                </cit:role>
+                                <cit:party>
+                                    <cit:CI_Organisation>
+                                        <cit:name>
+                                            <gco:CharacterString>National Oceanic and Atmospheric Administration (NOAA), National Ocean Service, Office of Response and Restoration (ORR), Emergency Response Division (ERD)
+                                            </gco:CharacterString>
+                                        </cit:name>
+                                    </cit:CI_Organisation>
+                                </cit:party>
+                            </cit:CI_Responsibility>
+                        </cit:citedResponsibleParty>
+                        <cit:citedResponsibleParty>
+                            <cit:CI_Responsibility>
+                                <cit:party>
+                                    <cit:CI_Individual>
+                                        <cit:contactInfo>
+                                            <cit:CI_Contact>
+                                                <cit:onlineResource>
+                                                    <cit:CI_OnlineResource>
+                                                        <cit:linkage>
+                                                            <gco:CharacterString>http://response.restoration.noaa.gov/esi</gco:CharacterString>
+                                                        </cit:linkage>
+                                                    </cit:CI_OnlineResource>
+                                                </cit:onlineResource>
+                                            </cit:CI_Contact>
+                                        </cit:contactInfo>
+                                    </cit:CI_Individual>
+                                </cit:party>
+                            </cit:CI_Responsibility>
+                        </cit:citedResponsibleParty>
+                    </cit:CI_Citation>
+                </mri:citation>
+                <mri:abstract>
+                    <gco:CharacterString>Environmental Sensitivity Index (ESI) data characterize the marine and coastal environments and wildlife based on sensitivity to spilled oil. Coastal species that are listed as threatened, endangered, or as a species of concern, by either federal or state governments, are a primary focus. A subset of the ESI data, the ESI Threatened and Endangered Species (T&amp;E) databases focus strictly on these species. Species are mapped individually. In addition to showing spatial extent, each species polygon, point, or line has attributes describing abundance, seasonality, threatened/endangered status, and life history. Both the state and federal status is provided, along with the year the ESI data were published. This is important, as the status of a species can vary over time. As always, the ESI data are a snapshot in time. The biology layers focus on threatened/endangered status, areas of high concentration, and areas where sensitive life stages may occur. Supporting data tables provide species-/location-specific abundance, seasonality, status, life history, and source information. Human-use resources mapped include managed areas (parks, refuges, critical habitats, etc.) and resources that may be impacted by oiling and/or cleanup, such as beaches, archaeological sites, marinas, etc. ESIs are available for the majority of the US coastline, as well as the US territories. ESI data are available as PDF maps, as well as in a variety of GIS formats. For more information, go to http://response.restoration.noaa.gov/esi . To download complete ESI data sets, go to http://response.restoration.noaa.gov/esi_download .
+                    </gco:CharacterString>
+                </mri:abstract>
+                <mri:purpose>
+                    <gco:CharacterString>The T&amp;E geodatabase comprise a subset of the original ESI data. They focus on the coastal species and habitats that are federally and/or state listed as endangered, threatened, protected, or as a species of concern. The T&amp;E databases offer a more directed option for accessing some of the most critical biological information for a region.</gco:CharacterString>
+                </mri:purpose>
+                <mri:status>
+                    <mdb:MD_ProgressCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ProgressCode" codeListValue="completed" codeSpace="eng">Completed</mdb:MD_ProgressCode>
+                </mri:status>
+                <mri:pointOfContact>
+                    <cit:CI_Responsibility>
+                        <cit:role>
+                            <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</cit:CI_RoleCode>
+                        </cit:role>
+                        <cit:party>
+                            <cit:CI_Individual>
+                                <cit:name>
+                                    <gco:CharacterString>ESI Manager</gco:CharacterString>
+                                </cit:name>
+                                <cit:contactInfo>
+                                    <cit:CI_Contact>
+                                        <cit:phone>
+                                            <cit:CI_Telephone>
+                                                <cit:number>
+                                                    <gco:CharacterString>206-526-6944</gco:CharacterString>
+                                                </cit:number>
+                                                <cit:numberType>
+                                                    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice" codeSpace="eng">Voice</cit:CI_TelephoneTypeCode>
+                                                </cit:numberType>
+                                            </cit:CI_Telephone>
+                                        </cit:phone>
+                                        <cit:phone>
+                                            <cit:CI_Telephone>
+                                                <cit:number>
+                                                    <gco:CharacterString>206-526-6329</gco:CharacterString>
+                                                </cit:number>
+                                                <cit:numberType>
+                                                    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="facsimile" codeSpace="eng">Facsimile</cit:CI_TelephoneTypeCode>
+                                                </cit:numberType>
+                                            </cit:CI_Telephone>
+                                        </cit:phone>
+                                        <cit:address>
+                                            <cit:CI_Address>
+                                                <cit:deliveryPoint>
+                                                    <gco:CharacterString>7600 Sand Point Way NE</gco:CharacterString>
+                                                </cit:deliveryPoint>
+                                                <cit:city>
+                                                    <gco:CharacterString>Seattle</gco:CharacterString>
+                                                </cit:city>
+                                                <cit:administrativeArea>
+                                                    <gco:CharacterString>WA</gco:CharacterString>
+                                                </cit:administrativeArea>
+                                                <cit:postalCode>
+                                                    <gco:CharacterString>98115-6349</gco:CharacterString>
+                                                </cit:postalCode>
+                                                <cit:country>
+                                                    <gco:CharacterString>USA</gco:CharacterString>
+                                                </cit:country>
+                                                <cit:electronicMailAddress>
+                                                    <gco:CharacterString>orr.esi@noaa.gov</gco:CharacterString>
+                                                </cit:electronicMailAddress>
+                                            </cit:CI_Address>
+                                        </cit:address>
+                                    </cit:CI_Contact>
+                                </cit:contactInfo>
+                                <cit:positionName>
+                                    <gco:CharacterString>GIS Manager</gco:CharacterString>
+                                </cit:positionName>
+                            </cit:CI_Individual>
+                        </cit:party>
+                        <cit:party>
+                            <cit:CI_Organisation>
+                                <cit:name>
+                                    <gco:CharacterString>National Oceanic and Atmospheric Administration (NOAA), National Ocean Service (NOS), Office of Response and Restoration (ORR), Emergency Response Division (ERD)</gco:CharacterString>
+                                </cit:name>
+                            </cit:CI_Organisation>
+                        </cit:party>
+                    </cit:CI_Responsibility>
+                </mri:pointOfContact>
+                <mri:topicCategory>
+                    <mdb:MD_TopicCategoryCode>biota</mdb:MD_TopicCategoryCode>
+                </mri:topicCategory>
+                <mri:topicCategory>
+                    <mdb:MD_TopicCategoryCode>environment</mdb:MD_TopicCategoryCode>
+                </mri:topicCategory>
+                <mri:extent>
+                    <gex:EX_Extent id="boundingExtent">
+                        <gex:geographicElement>
+                            <gex:EX_GeographicBoundingBox id="boundingGeographicBoundingBox">
+                                <gex:westBoundLongitude>
+                                    <gco:Decimal>-180.0</gco:Decimal>
+                                </gex:westBoundLongitude>
+                                <gex:eastBoundLongitude>
+                                    <gco:Decimal>180.0</gco:Decimal>
+                                </gex:eastBoundLongitude>
+                                <gex:southBoundLatitude>
+                                    <gco:Decimal>-14.72</gco:Decimal>
+                                </gex:southBoundLatitude>
+                                <gex:northBoundLatitude>
+                                    <gco:Decimal>72.0</gco:Decimal>
+                                </gex:northBoundLatitude>
+                            </gex:EX_GeographicBoundingBox>
+                        </gex:geographicElement>
+                        <gex:temporalElement>
+                            <gex:EX_TemporalExtent id="boundingTemporalExtent" />
+                        </gex:temporalElement>
+                    </gex:EX_Extent>
+                </mri:extent>
+                <mri:resourceMaintenance>
+                    <mmi:MD_MaintenanceInformation>
+                        <mmi:maintenanceAndUpdateFrequency>
+                            <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="notPlanned" codeSpace="eng">Not planned</mmi:MD_MaintenanceFrequencyCode>
+                        </mmi:maintenanceAndUpdateFrequency>
+                    </mmi:MD_MaintenanceInformation>
+                </mri:resourceMaintenance>
+                <mri:descriptiveKeywords>
+                    <mri:MD_Keywords>
+                        <mri:keyword>
+                            <gco:CharacterString>Environmental Monitoring</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:type>
+                            <mdb:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme" codeSpace="eng">Theme</mdb:MD_KeywordTypeCode>
+                        </mri:type>
+                        <mri:thesaurusName>
+                            <cit:CI_Citation>
+                                <cit:title>
+                                    <gco:CharacterString>NOS Data Explorer Topic Category</gco:CharacterString>
+                                </cit:title>
+                                <cit:date gco:nilReason="unknown" />
+                            </cit:CI_Citation>
+                        </mri:thesaurusName>
+                    </mri:MD_Keywords>
+                </mri:descriptiveKeywords>
+                <mri:descriptiveKeywords>
+                    <mri:MD_Keywords>
+                        <mri:keyword>
+                            <gco:CharacterString>Amphibians</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Benthic habitats</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Birds</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Coastal resources</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Coastal Zone Management</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Environmental Sensitivity Index (ESI)</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Environmental Vulnerability Index (EVI)</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Fish</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Habitats</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Invertebrates</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Marine mammals</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Nests</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Threatened</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Endangered</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>T&amp;E</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Species of concern</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:type>
+                            <mdb:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme" codeSpace="eng">Theme</mdb:MD_KeywordTypeCode>
+                        </mri:type>
+                        <mri:thesaurusName>
+                            <cit:CI_Citation>
+                                <cit:title>
+                                    <gco:CharacterString>None</gco:CharacterString>
+                                </cit:title>
+                                <cit:date gco:nilReason="unknown" />
+                            </cit:CI_Citation>
+                        </mri:thesaurusName>
+                    </mri:MD_Keywords>
+                </mri:descriptiveKeywords>
+                <mri:descriptiveKeywords>
+                    <mri:MD_Keywords>
+                        <mri:keyword>
+                            <gco:CharacterString>Alabama ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Aleutian Islands Alaska ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>American Samoa ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>American Samoa shorelines</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Bristol Bay Alaska ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Central California ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Columbia River ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Cook Inlet Alaska ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Delaware, New Jersey, Pennsylvania ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Florida ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Georgia ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Great Lakes ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Guam and Northern Mariana Islands ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Hawaii ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Hudson River ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Kodiak Alaska ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Louisiana ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Maine EVI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Maryland ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Massachusetts ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Mississippi ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>New Hampshire ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>North Carolina ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>North Slope Alaska ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>North Slope Alaska Summary Maps ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Northern California ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Northwest Arctic Alaska ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Prince William Sound Alaska ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Puerto Rico ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Puerto Rico shorelines</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Rhode Island, Connecticut, New York, and New Jersey ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>San Francisco Bay California ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>South Carolina ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Southeast Alaska ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Southern California ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Texas Upper Coast ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>U.S. Exclusive Economic Zone</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>U.S. shorelines</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Virgin Islands ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Virginia ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Washington Puget Sound ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:keyword>
+                            <gco:CharacterString>Western Alaska ESI</gco:CharacterString>
+                        </mri:keyword>
+                        <mri:type>
+                            <mdb:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="place" codeSpace="eng">Place</mdb:MD_KeywordTypeCode>
+                        </mri:type>
+                        <mri:thesaurusName>
+                            <cit:CI_Citation>
+                                <cit:title>
+                                    <gco:CharacterString>None</gco:CharacterString>
+                                </cit:title>
+                                <cit:date gco:nilReason="unknown" />
+                            </cit:CI_Citation>
+                        </mri:thesaurusName>
+                    </mri:MD_Keywords>
+                </mri:descriptiveKeywords>
+                <mri:resourceConstraints>
+                    <mco:MD_Constraints>
+                        <mco:useLimitation>
+                            <gco:CharacterString>These data represent a snapshot in time and are not intended to include all biological resources present in an area. They should be used for a first assessment only. The data providers (listed in the original, atlas- specific metadata) are the experts with regard to individual resources. They should be contacted if you require more current and/or in-depth information about a particular resource.</gco:CharacterString>
+                        </mco:useLimitation>
+                    </mco:MD_Constraints>
+                </mri:resourceConstraints>
+                <mri:resourceConstraints>
+                    <mco:MD_LegalConstraints>
+                        <mco:useConstraints>
+                            <mdb:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" codeSpace="eng">Other restrictions</mdb:MD_RestrictionCode>
+                        </mco:useConstraints>
+                        <mco:otherConstraints>
+                            <gco:CharacterString>Use Constraints: DO NOT USE MAPS FOR NAVIGATIONAL PURPOSES. Besides the above warning, there are no use constraints on these data. Note that the ESI database should not be used to the exclusion of other pertinent data or information held by state or federal agencies or other organizations. Likewise, information contained in the database cannot be used in place of consultations with environmental, natural resource, and cultural resource agencies, or in place of field surveys. Recognize that the information contained in the ESI database represents known concentration areas or occurrences of natural, cultural, and human-use resources, but does not necessarily represent the full distribution or range of each species or resource. This is particularly important to recognize when considering potential impacts to protected resources, such as endangered species, wetlands, etc. Acknowledgment of the originators, publishers, contributors, and sources listed would be appreciated in products derived from these data.</gco:CharacterString>
+                        </mco:otherConstraints>
+                    </mco:MD_LegalConstraints>
+                </mri:resourceConstraints>
+                <mri:resourceConstraints>
+                    <mco:MD_LegalConstraints>
+                        <mco:accessConstraints>
+                            <mdb:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" codeSpace="eng">Other restrictions</mdb:MD_RestrictionCode>
+                        </mco:accessConstraints>
+                        <mco:otherConstraints>
+                            <gco:CharacterString>Access Constraints: None</gco:CharacterString>
+                        </mco:otherConstraints>
+                    </mco:MD_LegalConstraints>
+                </mri:resourceConstraints>
+                <mri:defaultLocale>
+                    <lan:PT_Locale>
+                        <lan:language>
+                            <lan:LanguageCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#LanguageCode" codeListValue="eng" codeSpace="eng">English</lan:LanguageCode>
+                        </lan:language>
+                        <lan:country>
+                            <lan:CountryCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#Country" codeListValue="US" codeSpace="eng">United States</lan:CountryCode>
+                        </lan:country>
+                        <lan:characterEncoding>
+                            <lan:MD_CharacterSetCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="eng">UTF-8</lan:MD_CharacterSetCode>
+                        </lan:characterEncoding>
+                    </lan:PT_Locale>
+                </mri:defaultLocale>
+            </mri:MD_DataIdentification>
+        </mdb:identificationInfo>
+        <mdb:distributionInfo>
+            <mrd:MD_Distribution>
+                <mrd:distributionFormat>
+                    <mrd:MD_Format>
+                        <mrd:formatSpecificationCitation>
+                            <cit:CI_Citation>
+                                <cit:alternateTitle>
+                                    <gco:CharacterString>REST Service</gco:CharacterString>
+                                </cit:alternateTitle>
+                            </cit:CI_Citation>
+                        </mrd:formatSpecificationCitation>
+                    </mrd:MD_Format>
+                </mrd:distributionFormat>
+                <mrd:distributor>
+                    <mrd:MD_Distributor>
+                        <mrd:distributorContact>
+                            <cit:CI_Responsibility>
+                                <cit:role>
+                                    <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="distributor" codeSpace="eng">Distributor</cit:CI_RoleCode>
+                                </cit:role>
+                                <cit:party>
+                                    <cit:CI_Individual>
+                                        <cit:name>
+                                            <gco:CharacterString>ESI Manager</gco:CharacterString>
+                                        </cit:name>
+                                        <cit:contactInfo>
+                                            <cit:CI_Contact>
+                                                <cit:phone>
+                                                    <cit:CI_Telephone>
+                                                        <cit:number>
+                                                            <gco:CharacterString>206-526-6944</gco:CharacterString>
+                                                        </cit:number>
+                                                        <cit:numberType>
+                                                            <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice" codeSpace="eng">Voice</cit:CI_TelephoneTypeCode>
+                                                        </cit:numberType>
+                                                    </cit:CI_Telephone>
+                                                </cit:phone>
+                                                <cit:phone>
+                                                    <cit:CI_Telephone>
+                                                        <cit:number>
+                                                            <gco:CharacterString>206-526-6329</gco:CharacterString>
+                                                        </cit:number>
+                                                        <cit:numberType>
+                                                            <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="facsimile" codeSpace="eng">Facsimile</cit:CI_TelephoneTypeCode>
+                                                        </cit:numberType>
+                                                    </cit:CI_Telephone>
+                                                </cit:phone>
+                                                <cit:address>
+                                                    <cit:CI_Address>
+                                                        <cit:deliveryPoint>
+                                                            <gco:CharacterString>7600 Sand Point Way NE</gco:CharacterString>
+                                                        </cit:deliveryPoint>
+                                                        <cit:city>
+                                                            <gco:CharacterString>Seattle</gco:CharacterString>
+                                                        </cit:city>
+                                                        <cit:administrativeArea>
+                                                            <gco:CharacterString>WA</gco:CharacterString>
+                                                        </cit:administrativeArea>
+                                                        <cit:postalCode>
+                                                            <gco:CharacterString>98115-6349</gco:CharacterString>
+                                                        </cit:postalCode>
+                                                        <cit:country>
+                                                            <gco:CharacterString>USA</gco:CharacterString>
+                                                        </cit:country>
+                                                        <cit:electronicMailAddress>
+                                                            <gco:CharacterString>orr.esi@noaa.gov</gco:CharacterString>
+                                                        </cit:electronicMailAddress>
+                                                    </cit:CI_Address>
+                                                </cit:address>
+                                            </cit:CI_Contact>
+                                        </cit:contactInfo>
+                                        <cit:positionName>
+                                            <gco:CharacterString>GIS Manager</gco:CharacterString>
+                                        </cit:positionName>
+                                    </cit:CI_Individual>
+                                </cit:party>
+                                <cit:party>
+                                    <cit:CI_Organisation>
+                                        <cit:name>
+                                            <gco:CharacterString>National Oceanic and Atmospheric Administration (NOAA), National Ocean Service (NOS), Office of Response and Restoration (ORR), Emergency Response Division (ERD)
+                                            </gco:CharacterString>
+                                        </cit:name>
+                                    </cit:CI_Organisation>
+                                </cit:party>
+                            </cit:CI_Responsibility>
+                        </mrd:distributorContact>
+                        <mrd:distributionOrderProcess>
+                            <mrd:MD_StandardOrderProcess>
+                                <mrd:fees>
+                                    <gco:CharacterString>None</gco:CharacterString>
+                                </mrd:fees>
+                            </mrd:MD_StandardOrderProcess>
+                        </mrd:distributionOrderProcess>
+                    </mrd:MD_Distributor>
+                </mrd:distributor>
+                <mrd:transferOptions>
+                    <mrd:MD_DigitalTransferOptions>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Alabama_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Aleutians_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_AmericanSamoa_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_BristolBay_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_CentralCalifornia_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_ColumbiaRiver_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_CookInlet_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_DelawareBay_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_FloridaPanhandle_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_FloridaPeninsular_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Georgia_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Guam_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Hawaii_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_HudsonRiver_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Kodiak_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_LongIsland_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Louisiana_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Maryland_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Mississippi_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_NorthCarolina_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_NorthernCalifornia_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_NorthSlope_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_NorthwestArctic_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_PrinceWilliamSound_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_PuertoRico_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_PugetSound_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_SanFrancisco_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_SouthCarolina_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_SoutheastAlaska_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_SouthernCalifornia_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_Virginia_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_VirginIslands_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                        <mrd:onLine>
+                            <cit:CI_OnlineResource>
+                                <cit:linkage>
+                                    <gco:CharacterString>http://egisws02.nos.noaa.gov/ArcGIS/rest/services/ESI/ESI_WesternAlaska_TandE_Data/MapServer</gco:CharacterString>
+                                </cit:linkage>
+                            </cit:CI_OnlineResource>
+                        </mrd:onLine>
+                    </mrd:MD_DigitalTransferOptions>
+                </mrd:transferOptions>
+            </mrd:MD_Distribution>
+        </mdb:distributionInfo>
+        <mdb:metadataMaintenance>
+            <mmi:MD_MaintenanceInformation>
+                <mmi:maintenanceAndUpdateFrequency>
+                    <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="annually" codeSpace="eng">Annually</mmi:MD_MaintenanceFrequencyCode>
+                </mmi:maintenanceAndUpdateFrequency>
+                <mmi:maintenanceNote>
+                    <gco:CharacterString>This metadata was automatically generated from the FGDC Content Standard for Digital Geospatial Metadata standard (version FGDC-STD-001-1998) using the 2015-07-24 version of the FGDC RSE to ISO 19115-2 transform.</gco:CharacterString>
+                </mmi:maintenanceNote>
+                <mmi:maintenanceNote>
+                    <gco:CharacterString>Translated from FGDC 2015-09-11T06:09:00.188-04:00
+                    </gco:CharacterString>
+                </mmi:maintenanceNote>
+                <mmi:contact>
+                    <cit:CI_Responsibility>
+                        <cit:role>
+                            <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="eng">Point of contact</cit:CI_RoleCode>
+                        </cit:role>
+                        <cit:party>
+                            <cit:CI_Individual>
+                                <cit:name>
+                                    <gco:CharacterString>ESI Manager</gco:CharacterString>
+                                </cit:name>
+                                <cit:contactInfo>
+                                    <cit:CI_Contact>
+                                        <cit:phone>
+                                            <cit:CI_Telephone>
+                                                <cit:number>
+                                                    <gco:CharacterString>206-526-6944</gco:CharacterString>
+                                                </cit:number>
+                                                <cit:numberType>
+                                                    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice" codeSpace="eng">Voice</cit:CI_TelephoneTypeCode>
+                                                </cit:numberType>
+                                            </cit:CI_Telephone>
+                                        </cit:phone>
+                                        <cit:phone>
+                                            <cit:CI_Telephone>
+                                                <cit:number>
+                                                    <gco:CharacterString>206-526-6329</gco:CharacterString>
+                                                </cit:number>
+                                                <cit:numberType>
+                                                    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="facsimile" codeSpace="eng">Facsimile</cit:CI_TelephoneTypeCode>
+                                                </cit:numberType>
+                                            </cit:CI_Telephone>
+                                        </cit:phone>
+                                        <cit:address>
+                                            <cit:CI_Address>
+                                                <cit:deliveryPoint>
+                                                    <gco:CharacterString>7600 Sand Point Way NE</gco:CharacterString>
+                                                </cit:deliveryPoint>
+                                                <cit:city>
+                                                    <gco:CharacterString>Seattle</gco:CharacterString>
+                                                </cit:city>
+                                                <cit:administrativeArea>
+                                                    <gco:CharacterString>WA</gco:CharacterString>
+                                                </cit:administrativeArea>
+                                                <cit:postalCode>
+                                                    <gco:CharacterString>98115-6349</gco:CharacterString>
+                                                </cit:postalCode>
+                                                <cit:country>
+                                                    <gco:CharacterString>USA</gco:CharacterString>
+                                                </cit:country>
+                                                <cit:electronicMailAddress>
+                                                    <gco:CharacterString>orr.esi@noaa.gov</gco:CharacterString>
+                                                </cit:electronicMailAddress>
+                                            </cit:CI_Address>
+                                        </cit:address>
+                                    </cit:CI_Contact>
+                                </cit:contactInfo>
+                                <cit:positionName>
+                                    <gco:CharacterString>GIS Manager</gco:CharacterString>
+                                </cit:positionName>
+                            </cit:CI_Individual>
+                        </cit:party>
+                        <cit:party>
+                            <cit:CI_Organisation>
+                                <cit:name>
+                                    <gco:CharacterString>National Oceanic and Atmospheric Administration (NOAA), National Ocean Service (NOS), Office of Response and Restoration (ORR), Emergency Response Division (ERD)</gco:CharacterString>
+                                </cit:name>
+                            </cit:CI_Organisation>
+                        </cit:party>
+                    </cit:CI_Responsibility>
+                </mmi:contact>
+            </mmi:MD_MaintenanceInformation>
+        </mdb:metadataMaintenance>
+    </gmi:MI_Metadata>

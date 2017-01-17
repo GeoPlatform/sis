@@ -60,10 +60,10 @@ import org.opengis.util.InternationalString;
 @XmlType(name = "MD_Dimension_Type", propOrder = {
     "dimensionName",
     "dimensionSize",
-    "resolutionMeasure",
-    "xmlResolution"
-/// "dimensionTitle",
-/// "dimensionDescription"
+    "resolutionMeasure",		// ISO 19115-3 (Measure)
+    "xmlResolutionLegacy",		// ISO 19139 (Double)
+	"xmlDimensionTitle",		// ISO 19115-3
+	"xmlDimensionDescription"	// ISO 19115-3
 })
 @XmlRootElement(name = "MD_Dimension")
 public class DefaultDimension extends ISOMetadata implements Dimension {
@@ -256,7 +256,7 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
     @ValueRange(minimum=0, isMinIncluded=false)
     @XmlJavaTypeAdapter(GO_Measure19139.class)
     @XmlElement(name = "resolution")
-	private Double getXmlResolution() {
+	private Double getXmlResolutionLegacy() {
 		return MetadataInfo.is2014() ? null : getResolution();
 	}
 
@@ -265,7 +265,7 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
 	 * @see {@link #setResolution}
 	 */
     @SuppressWarnings("unused")
-	private void setXmlResolution(final Double newValue) {
+	private void setXmlResolutionLegacy(final Double newValue) {
 		setResolution(newValue);
 	}
     
@@ -302,7 +302,6 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "dimensionTitle")
     public InternationalString getDimensionTitle() {
         return dimensionTitle;
     }
@@ -318,6 +317,24 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
         checkWritePermission();
         dimensionTitle = newValue;
     }
+    
+    /**
+	 * Gets the dimension title. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getDimensionTitle}
+	 */
+    @XmlElement(name = "dimensionTitle")
+	private InternationalString getXmlDimensionTitle() {
+		return MetadataInfo.is2003() ? null : getDimensionTitle();
+	}
+
+	/**
+	 * Sets the dimension title. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #setDimensionTitle}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlScaleDenominator(final InternationalString newValue) {
+		setDimensionTitle(newValue);
+	}
 
     /**
      * Return the axis dimension description.
@@ -327,7 +344,6 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
      * @since 0.5
      */
     @Override
-/// @XmlElement(name = "dimensionDescription")
     public InternationalString getDimensionDescription() {
         return dimensionDescription;
     }
@@ -343,4 +359,22 @@ public class DefaultDimension extends ISOMetadata implements Dimension {
         checkWritePermission();
         dimensionDescription = newValue;
     }
+    
+    /**
+	 * Gets the dimension description. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #getDimensionDescription}
+	 */
+    @XmlElement(name = "dimensionDescription")
+	private InternationalString getXmlDimensionDescription() {
+		return MetadataInfo.is2003() ? null : getDimensionDescription();
+	}
+
+	/**
+	 * Sets the dimension description. Used by JAXB (ISO 19115-3 format).
+	 * @see {@link #setDimensionDescription}
+	 */
+	@SuppressWarnings("unused")
+	private void setXmlDimensionDescription(final InternationalString newValue) {
+		setDimensionDescription(newValue);
+	}
 }

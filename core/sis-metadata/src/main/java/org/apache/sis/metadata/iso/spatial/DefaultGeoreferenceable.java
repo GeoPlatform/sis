@@ -44,16 +44,18 @@ import org.apache.sis.xml.Namespaces;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.3
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_Georeferenceable_Type", propOrder = {
     "controlPointAvailable",
     "orientationParameterAvailable",
     "orientationParameterDescription",
+    "georeferencedParameters",			// Uses untested GO_Record adapter.
     "parameterCitations",
     "geolocationInformation"
 })
@@ -232,7 +234,7 @@ public class DefaultGeoreferenceable extends DefaultGridSpatialRepresentation im
      * @return Terms which support grid data georeferencing, or {@code null}.
      */
     @Override
-/// @XmlElement(name = "georeferencedParameters", required = true)
+	@XmlElement(name = "georeferencedParameters", required = true)
     public Record getGeoreferencedParameters() {
         return georeferencedParameters;
     }
