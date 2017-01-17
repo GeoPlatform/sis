@@ -144,20 +144,41 @@
     @XmlJavaTypeAdapter(StringAdapter.class),
     @XmlJavaTypeAdapter(InternationalStringAdapter.class),
     @XmlJavaTypeAdapter(GO_DateTime.class),
+    @XmlJavaTypeAdapter(GO_Record.class),
     @XmlJavaTypeAdapter(GO_RecordType.class),
     @XmlJavaTypeAdapter(GO_Boolean.class), @XmlJavaTypeAdapter(type=boolean.class, value=GO_Boolean.class)
 })
 package org.apache.sis.metadata.iso.quality;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlNs;
 import javax.xml.bind.annotation.XmlNsForm;
 import javax.xml.bind.annotation.XmlSchema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;
-import org.apache.sis.xml.Namespaces;
+
 import org.apache.sis.internal.jaxb.Schemas;
-import org.apache.sis.internal.jaxb.gco.*;
-import org.apache.sis.internal.jaxb.code.*;
-import org.apache.sis.internal.jaxb.metadata.*;
+import org.apache.sis.internal.jaxb.code.DQ_EvaluationMethodTypeCode;
+import org.apache.sis.internal.jaxb.code.MD_ScopeCode;
+import org.apache.sis.internal.jaxb.code.MD_SpatialRepresentationTypeCode;
+import org.apache.sis.internal.jaxb.gco.GO_Boolean;
+import org.apache.sis.internal.jaxb.gco.GO_DateTime;
+import org.apache.sis.internal.jaxb.gco.GO_Record;
+import org.apache.sis.internal.jaxb.gco.GO_RecordType;
+import org.apache.sis.internal.jaxb.gco.InternationalStringAdapter;
+import org.apache.sis.internal.jaxb.gco.StringAdapter;
+import org.apache.sis.internal.jaxb.gco.UnitAdapter;
+import org.apache.sis.internal.jaxb.metadata.CI_Citation;
+import org.apache.sis.internal.jaxb.metadata.DQ_Element;
+import org.apache.sis.internal.jaxb.metadata.DQ_Result;
+import org.apache.sis.internal.jaxb.metadata.EX_Extent;
+import org.apache.sis.internal.jaxb.metadata.LI_Lineage;
+import org.apache.sis.internal.jaxb.metadata.MD_ContentInformation;
+import org.apache.sis.internal.jaxb.metadata.MD_Format;
+import org.apache.sis.internal.jaxb.metadata.MD_Identifier;
+import org.apache.sis.internal.jaxb.metadata.MD_Scope;
+import org.apache.sis.internal.jaxb.metadata.MD_ScopeDescription;
+import org.apache.sis.internal.jaxb.metadata.MD_SpatialRepresentation;
+import org.apache.sis.internal.jaxb.metadata.MX_DataFile;
+import org.apache.sis.xml.Namespaces;

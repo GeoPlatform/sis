@@ -53,12 +53,13 @@ import org.apache.sis.internal.util.CheckedArrayList;
  * </ul>
  *
  * @author  Martin Desruisseaux (IRD, Geomatys)
- * @author  Touraïvane (IRD)
- * @author  Cédric Briançon (Geomatys)
- * @author  Guilhem Legal (Geomatys)
- * @author  Rémi Maréchal (Geomatys)
+ * @author  Touraïvane 			(IRD)
+ * @author  Cédric Briançon 	(Geomatys)
+ * @author  Guilhem Legal 		(Geomatys)
+ * @author  Rémi Maréchal 		(Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @XmlType(name = "MD_MaintenanceInformation_Type", propOrder = {

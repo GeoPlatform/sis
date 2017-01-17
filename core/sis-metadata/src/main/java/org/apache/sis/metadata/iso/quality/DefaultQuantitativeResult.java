@@ -46,6 +46,7 @@ import org.opengis.util.RecordType;
  * @module
  */
 @XmlType(name = "DQ_QuantitativeResult_Type", propOrder = {
+	"values",
     "valueType",
     "valueUnit",
     "errorStatistic"
@@ -133,7 +134,7 @@ public class DefaultQuantitativeResult extends AbstractResult implements Quantit
      * @return Quantitative value or values.
      */
     @Override
-//  @XmlElement(name = "value", required = true) // TODO
+	@XmlElement(name = "value", required = true)
     public List<Record> getValues() {
         return values = nonNullList(values, Record.class);
     }
