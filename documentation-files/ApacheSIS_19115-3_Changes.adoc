@@ -6,7 +6,6 @@
 *   Attributes do not always map to the corresponding XML elements as expected. Sometimes Apache just "drops" them, but I am unclear on how these attributes are handled internally. Need to ask Martin about that.
 *   Elements with the deprecated GMI namespace will generally still marshal into ISO 19115-3 with that namespace (a few cases of this have been fixed, see **DefaultSource** for some examples).
 *   Related to the above, deprecated elements with the **MI_** prefix (which should generally now have the prefix **MD_**) still retain their old names. This could be fixed relatively easily in the **FilteredStreamReader** class, but it would break compatibility with those classes for reading from ISO 19139 and then writing back to ISO 19139.
-*   Packages **org.apache.sis.metadata.iso**, **org.apache.sis.metadata.iso.quality** and **org.apache.sis.metadata.iso.spatial** have not been completely mapped to ISO 19115-3.
 
 === Potential Issues
 
@@ -1743,6 +1742,102 @@ See xref:metadataStandardName[metadataStandardName] ISO 19115-3 XML example.
 |
 *   Namespace is now "mrl" from "gmi"
 *   Changed namespace of all attributes from "gmi" to "mrl" when marshalling ISO 19115-3. _LE_ProcessStepReport_ namespace remains unchanged at "gmi". Unsure how to proceed in fixing this for one standard without breaking the other.
+|
+[source,xml]
+----
+
+----
+|
+[source,xml]
+----
+
+----
+
+
+
+| [[MI_GeolocationInformation]] MI_GeolocationInformation
+|
+*   AbstractGeolocationInformation
+|
+*   Changed namespace of all attributes from "gmi" to "msr" when marshalling ISO 19115-3. MI_GeolocationInformation namespace remains unchanged at "gmi". Unsure how to proceed in fixing this for one standard without breaking the other.
+|
+[source,xml]
+----
+
+----
+|
+[source,xml]
+----
+
+----
+
+
+
+| [[MD_Dimension]] MD_Dimension
+|
+*   DefaultDimension
+|
+*   Namespace is now "msr" from "gmd"
+*   _resolution_ element is now represented by a Measure object rather than a Double.
+*   New elements _dimensionTitle_ and _dimensionDescription_
+|
+[source,xml]
+----
+
+----
+|
+[source,xml]
+----
+
+----
+
+
+
+| [[MD_ApplicationSchemaInformation]] MD_ApplicationSchemaInformation
+|
+*   DefaultApplicationSchemaInformation
+|
+*   Namespace is now "mdb" from "gmd"
+*   _schemaAscii_ element implement for both ISO standards - was commented out before
+*   _graphicsFile_ and _softwareDevelopmentFile_ elements implemented for ISO 19115-3. Unsure if these should also work with ISO 19139. SIS did not have them implemented by default.
+|
+[source,xml]
+----
+
+----
+|
+[source,xml]
+----
+
+----
+
+
+
+| [[MD_ExtendedElementInformation]] MD_ExtendedElementInformation
+|
+*   DefaultExtendedElementInformation
+|
+*   Namespace is now "mex" from "gmd"
+*   _shortName_ and _domainCode_ elements deprecated (not mapped anywhere else for now)
+*   _rationale_ element now supports only a single value rather than a collection
+|
+[source,xml]
+----
+
+----
+|
+[source,xml]
+----
+
+----
+
+
+
+| [[MD_MetadataExtensionInformation]] MD_MetadataExtensionInformation
+|
+*   DefaultMetadataExtensionInformation
+|
+*   Namespace is now "mex" from "gmd"
 |
 [source,xml]
 ----

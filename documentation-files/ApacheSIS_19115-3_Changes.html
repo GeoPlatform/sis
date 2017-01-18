@@ -439,9 +439,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p>Related to the above, deprecated elements with the <strong>MI_</strong> prefix (which should generally now have the prefix <strong>MD_</strong>) still retain their old names. This could be fixed relatively easily in the <strong>FilteredStreamReader</strong> class, but it would break compatibility with those classes for reading from ISO 19139 and then writing back to ISO 19139.</p>
 </li>
-<li>
-<p>Packages <strong>org.apache.sis.metadata.iso</strong>, <strong>org.apache.sis.metadata.iso.quality</strong> and <strong>org.apache.sis.metadata.iso.spatial</strong> have not been completely mapped to ISO 19115-3.</p>
-</li>
 </ul>
 </div>
 </div>
@@ -2850,13 +2847,166 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><a id="MI_GeolocationInformation"></a> MI_GeolocationInformation</em></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>AbstractGeolocationInformation</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Changed namespace of all attributes from "gmi" to "msr" when marshalling ISO 19115-3. MI_GeolocationInformation namespace remains unchanged at "gmi". Unsure how to proceed in fixing this for one standard without breaking the other.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml" data-lang="xml"></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml" data-lang="xml"></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><a id="MD_Dimension"></a> MD_Dimension</em></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>DefaultDimension</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Namespace is now "msr" from "gmd"</p>
+</li>
+<li>
+<p><em>resolution</em> element is now represented by a Measure object rather than a Double.</p>
+</li>
+<li>
+<p>New elements <em>dimensionTitle</em> and <em>dimensionDescription</em></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml" data-lang="xml"></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml" data-lang="xml"></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><a id="MD_ApplicationSchemaInformation"></a> MD_ApplicationSchemaInformation</em></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>DefaultApplicationSchemaInformation</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Namespace is now "mdb" from "gmd"</p>
+</li>
+<li>
+<p><em>schemaAscii</em> element implement for both ISO standards - was commented out before</p>
+</li>
+<li>
+<p><em>graphicsFile</em> and <em>softwareDevelopmentFile</em> elements implemented for ISO 19115-3. Unsure if these should also work with ISO 19139. SIS did not have them implemented by default.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml" data-lang="xml"></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml" data-lang="xml"></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><a id="MD_ExtendedElementInformation"></a> MD_ExtendedElementInformation</em></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>DefaultExtendedElementInformation</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Namespace is now "mex" from "gmd"</p>
+</li>
+<li>
+<p><em>shortName</em> and <em>domainCode</em> elements deprecated (not mapped anywhere else for now)</p>
+</li>
+<li>
+<p><em>rationale</em> element now supports only a single value rather than a collection</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml" data-lang="xml"></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml" data-lang="xml"></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><a id="MD_MetadataExtensionInformation"></a> MD_MetadataExtensionInformation</em></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>DefaultMetadataExtensionInformation</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Namespace is now "mex" from "gmd"</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml" data-lang="xml"></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml" data-lang="xml"></code></pre>
+</div>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-01-13 16:38:29 EST
+Last updated 2017-01-18 17:29:35 EST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
