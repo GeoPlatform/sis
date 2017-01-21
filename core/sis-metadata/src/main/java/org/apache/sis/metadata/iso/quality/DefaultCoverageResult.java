@@ -39,6 +39,8 @@ import org.apache.sis.xml.Namespaces;
  *       Serialization support is appropriate for short term storage or RMI between applications running the
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
+ * 
+ * @todo Namespace was "gmi"
  *
  * @author  Cédric Briançon (Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
@@ -53,7 +55,7 @@ import org.apache.sis.xml.Namespaces;
     "resultFormat",
     "resultFile"
 })
-@XmlRootElement(name = "QE_CoverageResult", namespace = Namespaces.GMI)
+@XmlRootElement(name = "QE_CoverageResult", namespace = Namespaces.MDS)
 public class DefaultCoverageResult extends AbstractResult implements CoverageResult {
     /**
      * Serial number for inter-operability with different versions.
@@ -139,11 +141,13 @@ public class DefaultCoverageResult extends AbstractResult implements CoverageRes
 
     /**
      * Returns the method used to spatially represent the coverage result.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Spatial representation of the coverage result, or {@code null}.
      */
     @Override
-    @XmlElement(name = "spatialRepresentationType", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "spatialRepresentationType", namespace = Namespaces.MDS, required = true)
     public SpatialRepresentationType getSpatialRepresentationType() {
         return spatialRepresentationType;
     }
@@ -160,11 +164,13 @@ public class DefaultCoverageResult extends AbstractResult implements CoverageRes
 
     /**
      * Returns the digital representation of data quality measures composing the coverage result.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Digital representation of data quality measures composing the coverage result, or {@code null}.
      */
     @Override
-    @XmlElement(name = "resultSpatialRepresentation", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "resultSpatialRepresentation", namespace = Namespaces.MDS, required = true)
     public SpatialRepresentation getResultSpatialRepresentation() {
         return resultSpatialRepresentation;
     }
@@ -182,11 +188,13 @@ public class DefaultCoverageResult extends AbstractResult implements CoverageRes
     /**
      * Returns the description of the content of the result coverage, i.e. semantic definition
      * of the data quality measures.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Description of the content of the result coverage, or {@code null}.
      */
     @Override
-    @XmlElement(name = "resultContentDescription", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "resultContentDescription", namespace = Namespaces.MDS, required = true)
     public CoverageDescription getResultContentDescription() {
         return resultContentDescription;
     }
@@ -204,11 +212,13 @@ public class DefaultCoverageResult extends AbstractResult implements CoverageRes
 
     /**
      * Returns the information about the format of the result coverage data.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Format of the result coverage data, or {@code null}.
      */
     @Override
-    @XmlElement(name = "resultFormat", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "resultFormat", namespace = Namespaces.MDS, required = true)
     public Format getResultFormat() {
         return resultFormat;
     }

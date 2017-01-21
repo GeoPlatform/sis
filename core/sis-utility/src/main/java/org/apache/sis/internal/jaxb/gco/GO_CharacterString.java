@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.namespace.QName;
 
 import org.apache.sis.internal.jaxb.Context;
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.internal.jaxb.gmd.CodeListUID;
 import org.apache.sis.internal.jaxb.gmx.Anchor;
 import org.apache.sis.internal.jaxb.gmx.FileName;
@@ -257,7 +258,7 @@ public class GO_CharacterString {
         if (name.startsWith("MD_") || name.startsWith("CI_") || name.startsWith("DS_")) {
             namespace = Namespaces.GMD;
         } else if (name.startsWith("MI_")) {
-            namespace = Namespaces.GMI;
+            namespace = LegacyNamespaces.GMI;
         } else if (name.startsWith("SV_") || name.equals("DCPList")) {
             namespace = Namespaces.SRV;
         } else if (name.startsWith("CS_") || name.startsWith("CD_") || name.startsWith("SC_")) {

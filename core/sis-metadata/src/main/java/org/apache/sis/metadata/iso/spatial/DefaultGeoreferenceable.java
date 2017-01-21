@@ -271,11 +271,13 @@ public class DefaultGeoreferenceable extends DefaultGridSpatialRepresentation im
 
     /**
      * Returns the information that can be used to geolocate the data.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return A geolocalisation of the data.
      */
     @Override
-    @XmlElement(name = "geolocationInformation", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "geolocationInformation", namespace = Namespaces.MDS, required = true)
     public Collection<GeolocationInformation> getGeolocationInformation() {
         return geolocationInformation = nonNullCollection(geolocationInformation, GeolocationInformation.class);
     }

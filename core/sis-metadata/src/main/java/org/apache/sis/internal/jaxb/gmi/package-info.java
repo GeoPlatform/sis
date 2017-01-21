@@ -36,8 +36,8 @@
  * @version 0.3
  * @module
  */
-@XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.GMI, xmlns = {
-    @XmlNs(prefix = "gmi", namespaceURI = Namespaces.GMI),
+@XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.MDS, xmlns = {
+    @XmlNs(prefix = "gmi", namespaceURI = Namespaces.MDS),
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO)
 })
 @XmlAccessorType(XmlAccessType.NONE)

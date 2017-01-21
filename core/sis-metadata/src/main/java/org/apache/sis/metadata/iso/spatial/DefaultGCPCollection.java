@@ -38,6 +38,8 @@ import org.apache.sis.xml.Namespaces;
  *       Serialization support is appropriate for short term storage or RMI between applications running the
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
+ * 
+ * @todo Namespace was "gmi"
  *
  * @author  Cédric Briançon (Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
@@ -51,7 +53,7 @@ import org.apache.sis.xml.Namespaces;
     "coordinateReferenceSystem",
     "GCPs"
 })
-@XmlRootElement(name = "MI_GCPCollection", namespace = Namespaces.GMI)
+@XmlRootElement(name = "MI_GCPCollection", namespace = Namespaces.MDS)
 public class DefaultGCPCollection extends AbstractGeolocationInformation implements GCPCollection {
     /**
      * Serial number for inter-operability with different versions.
@@ -130,11 +132,13 @@ public class DefaultGCPCollection extends AbstractGeolocationInformation impleme
 
     /**
      * Returns the identifier of the GCP collection.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return The identifier, or {@code null}.
      */
     @Override
-    @XmlElement(name = "collectionIdentification", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "collectionIdentification", namespace = Namespaces.MDS, required = true)
     public Integer getCollectionIdentification() {
         return collectionIdentification;
     }
@@ -151,11 +155,13 @@ public class DefaultGCPCollection extends AbstractGeolocationInformation impleme
 
     /**
      * Returns the name of the GCP collection.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Name of the GCP collection, or {@code null}.
      */
     @Override
-    @XmlElement(name = "collectionName", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "collectionName", namespace = Namespaces.MDS, required = true)
     public InternationalString getCollectionName() {
         return collectionName;
     }
@@ -172,11 +178,13 @@ public class DefaultGCPCollection extends AbstractGeolocationInformation impleme
 
     /**
      * Returns the coordinate system in which the ground control points are defined.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Coordinate system in which the ground control points are defined, or {@code null}.
      */
     @Override
-    @XmlElement(name = "coordinateReferenceSystem", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "coordinateReferenceSystem", namespace = Namespaces.MDS, required = true)
     public ReferenceSystem getCoordinateReferenceSystem() {
         return coordinateReferenceSystem;
     }
@@ -193,11 +201,13 @@ public class DefaultGCPCollection extends AbstractGeolocationInformation impleme
 
     /**
      * Returns the ground control point(s) used in the collection.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Ground control point(s).
      */
     @Override
-    @XmlElement(name = "gcp", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "gcp", namespace = Namespaces.MDS, required = true)
     public Collection<GCP> getGCPs() {
         return GCPs = nonNullCollection(GCPs, GCP.class);
     }

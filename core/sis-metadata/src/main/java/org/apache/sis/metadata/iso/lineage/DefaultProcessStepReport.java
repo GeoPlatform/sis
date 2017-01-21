@@ -55,9 +55,9 @@ import org.opengis.util.InternationalString;
     "xmlFileType",			// ISO 19115-3
     "xmlFileTypeLegacy"		// ISO 19139
 })
-// Namespace should be GMI in ISO 19139, but namespace needs to be a constant so no way to switch on the fly.
-// TODO: GMI namespace doesn't exist in ISO 19115-3. Resolve this issue.
-@XmlRootElement(name = "LE_ProcessStepReport", namespace = Namespaces.GMI)
+// Namespace should be MDS in ISO 19139, but namespace needs to be a constant so no way to switch on the fly.
+// TODO: MDS namespace doesn't exist in ISO 19115-3. Resolve this issue.
+@XmlRootElement(name = "LE_ProcessStepReport", namespace = Namespaces.MDS)
 public class DefaultProcessStepReport extends ISOMetadata implements ProcessStepReport {
     /**
      * Serial number for inter-operability with different versions.
@@ -170,7 +170,7 @@ public class DefaultProcessStepReport extends ISOMetadata implements ProcessStep
 	 * Gets the name. Used by JAXB (ISO 19139 format).
 	 * @see {@link #getName}
 	 */
-    @XmlElement(name = "name", namespace = Namespaces.GMI)
+    @XmlElement(name = "name", namespace = Namespaces.MDS)
 	private InternationalString getXmlNameLegacy() {
 		return MetadataInfo.is2014() ? null : getName();
 	}
@@ -217,7 +217,7 @@ public class DefaultProcessStepReport extends ISOMetadata implements ProcessStep
 	 * Gets the description. Used by JAXB (ISO 19139 format).
 	 * @see {@link #getDescription}
 	 */
-    @XmlElement(name = "description", namespace = Namespaces.GMI)
+    @XmlElement(name = "description", namespace = Namespaces.MDS)
 	private InternationalString getXmlDescriptionLegacy() {
 		return MetadataInfo.is2014() ? null : getDescription();
 	}
@@ -264,7 +264,7 @@ public class DefaultProcessStepReport extends ISOMetadata implements ProcessStep
 	 * Gets the fileType. Used by JAXB (ISO 19139 format).
 	 * @see {@link #getFileType}
 	 */
-    @XmlElement(name = "fileType", namespace = Namespaces.GMI)
+    @XmlElement(name = "fileType", namespace = Namespaces.MDS)
 	private InternationalString getXmlFileTypeLegacy() {
 		return MetadataInfo.is2014() ? null : getFileType();
 	}

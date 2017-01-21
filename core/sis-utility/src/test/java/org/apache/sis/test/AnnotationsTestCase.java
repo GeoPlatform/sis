@@ -235,7 +235,7 @@ public abstract strictfp class AnnotationsTestCase extends TestCase {
     protected String getExpectedNamespace(final Class<?> impl, final Specification specification) {
         switch (specification) {
             case ISO_19115:   return Namespaces.GMD;
-            case ISO_19115_2: return Namespaces.GMI;
+            case ISO_19115_2: return LegacyNamespaces.GMI;
             case ISO_19139:   return LegacyNamespaces.GMX;
             case ISO_19108:   return Namespaces.GMD;
             default: throw new IllegalArgumentException(specification.toString());

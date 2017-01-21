@@ -431,13 +431,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>TemporalExtent element does not map properly, and causes a warning in SIS</p>
 </li>
 <li>
-<p>Attributes do not always map to the corresponding XML elements as expected. Sometimes Apache just "drops" them, but I am unclear on how these attributes are handled internally. Need to ask Martin about that.</p>
+<p>Attributes do not always map to the corresponding XML elements as expected. Sometimes Apache just "drops" them.</p>
 </li>
 <li>
-<p>Elements with the deprecated GMI namespace will generally still marshal into ISO 19115-3 with that namespace (a few cases of this have been fixed, see <strong>DefaultSource</strong> for some examples).</p>
+<p>Elements with the deprecated GMI namespace will use the new MDS namespace when marshalling to ISO 19115-3. There is no definitive answer as to whether this is correct until ISO 19115-4 is released. The decision to use the MDS namespace was made based on information gathered from page 8 of the ISO 19115-3 specification.</p>
 </li>
 <li>
-<p>Related to the above, deprecated elements with the <strong>MI_</strong> prefix (which should generally now have the prefix <strong>MD_</strong>) still retain their old names. This could be fixed relatively easily in the <strong>FilteredStreamReader</strong> class, but it would break compatibility with those classes for reading from ISO 19139 and then writing back to ISO 19139.</p>
+<p>Related to the above, deprecated elements with the <strong>MI_</strong> prefix (which should generally now have the prefix <strong>MD_</strong>) still retain their old names. This could be fixed relatively easily in the <strong>FilteredStreamReader</strong> class, but I have decided to leave the element names as is until ISO 19115-4 is released.</p>
 </li>
 </ul>
 </div>
@@ -458,6 +458,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul>
 <li>
 <p>For an example of a unit test for ISO 19115-3 metadata, see <strong>org.apache.sis.metadata.iso.citation.DefaultCitationTest</strong>. For the corresponding ISO 19139 test, see <strong>org.apache.sis.metadata.iso.citation.DefaultCitationLegacy</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueother-important-information"><a class="anchor" href="#trueother-important-information"></a>Other Important Information</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Whenever updates are made to the Apache SIS ISO metadata model, it is imperative to run <strong>ElementNamespaceWriter</strong> in <strong>org.apache.sis.internal.jaxb</strong>. After doing this, copy the <strong>ElementNamespaceMap.txt</strong> file from <em>src/main/resources</em> in the <strong>sis-metadata</strong> package into the <em>src/main/resources</em> folder in the <strong>sis-utility</strong> package. Otherwise, unmarshalling and marshalling amy not work properly.</p>
 </li>
 </ul>
 </div>
@@ -3006,7 +3016,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-01-18 17:29:35 EST
+Last updated 2017-01-21 15:25:34 EST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

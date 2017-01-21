@@ -77,6 +77,14 @@ public final class LegacyNamespaces {
     
     /**
 	 * The <code>{@value}</code> URL, used in ISO 19139.
+	 * The usual prefix for this namespace is {@code "gmi"}.
+	 *
+	 * @category ISO
+	 */
+	public static final String GMI = "http://www.isotc211.org/2005/gmi";
+    
+    /**
+	 * The <code>{@value}</code> URL, used in ISO 19139.
 	 * The usual prefix for this namespace is {@code "gts"}.
 	 *
 	 * @category ISO

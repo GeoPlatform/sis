@@ -73,7 +73,7 @@ public final class MI_PriorityCode extends CodeListAdapter<MI_PriorityCode, Prio
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MI_PriorityCode", namespace = Namespaces.GMI)
+    @XmlElement(name = "MI_PriorityCode", namespace = Namespaces.MDS)
     public CodeListUID getElement() {
         return identifier;
     }

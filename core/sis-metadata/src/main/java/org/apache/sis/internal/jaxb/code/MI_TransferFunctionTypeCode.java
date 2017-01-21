@@ -75,7 +75,7 @@ public final class MI_TransferFunctionTypeCode
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MI_TransferFunctionTypeCode", namespace = Namespaces.GMI)
+    @XmlElement(name = "MI_TransferFunctionTypeCode", namespace = Namespaces.MDS)
     public CodeListUID getElement() {
         return identifier;
     }

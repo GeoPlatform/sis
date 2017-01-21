@@ -73,7 +73,7 @@ public final class MI_OperationTypeCode extends CodeListAdapter<MI_OperationType
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MI_OperationTypeCode", namespace = Namespaces.GMI)
+    @XmlElement(name = "MI_OperationTypeCode", namespace = Namespaces.MDS)
     public CodeListUID getElement() {
         return identifier;
     }

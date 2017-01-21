@@ -33,6 +33,8 @@ import org.apache.sis.xml.Namespaces;
  *       Serialization support is appropriate for short term storage or RMI between applications running the
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
+ * 
+ * @todo Namespace was "gmi"
  *
  * @author  Cédric Briançon (Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
@@ -41,7 +43,7 @@ import org.apache.sis.xml.Namespaces;
  * @module
  */
 @XmlType(name = "QE_Usability_Type")
-@XmlRootElement(name = "QE_Usability", namespace = Namespaces.GMI)
+@XmlRootElement(name = "QE_Usability", namespace = Namespaces.MDS)
 public class DefaultUsability extends AbstractElement implements Usability {
     /**
      * Serial number for inter-operability with different versions.

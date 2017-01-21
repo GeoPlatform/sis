@@ -47,10 +47,10 @@ import org.apache.sis.xml.Namespaces;
  */
 @XmlType(name = "MI_RangeElementDescription_Type", propOrder = {
     "name",
-    "definition"/*,
-    "rangeElements"*/ // TODO: not yet supported.
+    "definition",
+    "rangeElements"
 })
-@XmlRootElement(name = "MI_RangeElementDescription", namespace = Namespaces.GMI)
+@XmlRootElement(name = "MI_RangeElementDescription", namespace = Namespaces.MDS)
 public class DefaultRangeElementDescription extends ISOMetadata implements RangeElementDescription {
     /**
      * Serial number for inter-operability with different versions.
@@ -127,7 +127,7 @@ public class DefaultRangeElementDescription extends ISOMetadata implements Range
      * @return Designation associated with a set of range elements, or {@code null}.
      */
     @Override
-    @XmlElement(name = "name", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "name", namespace = Namespaces.MDS, required = true)
     public InternationalString getName() {
         return name;
     }
@@ -148,7 +148,7 @@ public class DefaultRangeElementDescription extends ISOMetadata implements Range
      * @return Description of a set of specific range elements, or {@code null}.
      */
     @Override
-    @XmlElement(name = "definition", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "definition", namespace = Namespaces.MDS, required = true)
     public InternationalString getDefinition() {
         return definition;
     }
@@ -172,7 +172,7 @@ public class DefaultRangeElementDescription extends ISOMetadata implements Range
      * @todo implements {@link Record} in order to use the annotation.
      */
     @Override
-    //@XmlElement(name = "rangeElement", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "rangeElement", namespace = Namespaces.MDS, required = true)
     public Collection<Record> getRangeElements() {
         return rangeElements = nonNullCollection(rangeElements, Record.class);
     }

@@ -75,6 +75,8 @@ public final class Namespaces extends Static {
 	 */
 	private Namespaces() {
 	}
+	
+	// TODO: Remove
 
 	/* --------------------------------------------- */
 	/* Namespaces added for ISO 19115-3 integration. */
@@ -366,14 +368,6 @@ public final class Namespaces extends Static {
 	 * @category ISO
 	 */
 	public static final String GMD = "http://www.isotc211.org/2005/gmd";
-
-	/**
-	 * The <code>{@value}</code> URL, used in ISO 19139.
-	 * The usual prefix for this namespace is {@code "gmi"}.
-	 *
-	 * @category ISO
-	 */
-	public static final String GMI = "http://www.isotc211.org/2005/gmi";
 	
 
 	/**

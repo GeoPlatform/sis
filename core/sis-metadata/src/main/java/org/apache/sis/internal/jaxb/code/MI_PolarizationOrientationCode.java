@@ -76,7 +76,7 @@ public final class MI_PolarizationOrientationCode
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MI_PolarizationOrientationCode", namespace = Namespaces.GMI)
+    @XmlElement(name = "MI_PolarizationOrientationCode", namespace = Namespaces.MDS)
     public CodeListUID getElement() {
         return identifier;
     }

@@ -37,6 +37,8 @@ import org.apache.sis.xml.Namespaces;
  *       Serialization support is appropriate for short term storage or RMI between applications running the
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
+ * 
+ * @todo Namespace was "gmi"
  *
  * @author  Cédric Briançon (Geomatys)
  * @author  Guilhem Legal (Geomatys)
@@ -49,7 +51,7 @@ import org.apache.sis.xml.Namespaces;
     "citation",
     "description"
 })
-@XmlRootElement(name = "LE_Algorithm", namespace = Namespaces.GMI)
+@XmlRootElement(name = "LE_Algorithm", namespace = Namespaces.MDS)
 public class DefaultAlgorithm extends ISOMetadata implements Algorithm {
     /**
      * Serial number for inter-operability with different versions.
@@ -116,11 +118,13 @@ public class DefaultAlgorithm extends ISOMetadata implements Algorithm {
 
     /**
      * Returns the information identifying the algorithm and version or date.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Algorithm and version or date, or {@code null}.
      */
     @Override
-    @XmlElement(name = "citation", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "citation", namespace = Namespaces.MDS, required = true)
     public Citation getCitation() {
         return citation;
     }
@@ -137,11 +141,13 @@ public class DefaultAlgorithm extends ISOMetadata implements Algorithm {
 
     /**
      * Returns the information describing the algorithm used to generate the data.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Algorithm used to generate the data, or {@code null}.
      */
     @Override
-    @XmlElement(name = "description", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "description", namespace = Namespaces.MDS, required = true)
     public InternationalString getDescription() {
         return description;
     }

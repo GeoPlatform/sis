@@ -38,6 +38,8 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
  *       Serialization support is appropriate for short term storage or RMI between applications running the
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
+ * 
+ * @todo Namespace was "gmi"
  *
  * @author  Cédric Briançon (Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
@@ -49,7 +51,7 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
     "scanningResolution",
     "groundResolution"
 })
-@XmlRootElement(name = "LE_NominalResolution", namespace = Namespaces.GMI)
+@XmlRootElement(name = "LE_NominalResolution", namespace = Namespaces.MDS)
 public class DefaultNominalResolution extends ISOMetadata implements NominalResolution {
     /**
      * Serial number for inter-operability with different versions.
@@ -126,12 +128,14 @@ public class DefaultNominalResolution extends ISOMetadata implements NominalReso
     /**
      * Returns the distance between consistent parts of (centre, left side, right side)
      * adjacent pixels in the scan plane.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Distance between consistent parts of adjacent pixels in the scan plane, or {@code null}.
      */
     @Override
     @ValueRange(minimum=0, isMinIncluded=false)
-    @XmlElement(name = "scanningResolution", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "scanningResolution", namespace = Namespaces.MDS, required = true)
     public Double getScanningResolution() {
         return scanningResolution;
     }
@@ -153,12 +157,14 @@ public class DefaultNominalResolution extends ISOMetadata implements NominalReso
     /**
      * Returns the distance between consistent parts of (centre, left side, right side) adjacent
      * pixels in the object space.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Distance between consistent parts of adjacent pixels in the object space, or {@code null}.
      */
     @Override
     @ValueRange(minimum=0, isMinIncluded=false)
-    @XmlElement(name = "groundResolution", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "groundResolution", namespace = Namespaces.MDS, required = true)
     public Double getGroundResolution() {
         return groundResolution;
     }

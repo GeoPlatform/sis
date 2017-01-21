@@ -16,16 +16,19 @@
  */
 package org.apache.sis.metadata.iso.lineage;
 
+import static org.apache.sis.test.Assert.assertXmlEquals;
+
 import java.util.Arrays;
+
 import javax.xml.bind.JAXBException;
-import org.apache.sis.util.iso.SimpleInternationalString;
+
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.metadata.iso.DefaultIdentifier;
 import org.apache.sis.test.XMLTestCase;
+import org.apache.sis.util.iso.SimpleInternationalString;
 import org.apache.sis.xml.Namespaces;
 import org.apache.sis.xml.XML;
 import org.junit.Test;
-
-import static org.apache.sis.test.Assert.*;
 
 
 /**
@@ -73,7 +76,7 @@ public final strictfp class DefaultLineageTest extends XMLTestCase {
         actual = XML.marshal(lineage);
         assertXmlEquals(
             "<gmd:LI_Lineage xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                           " xmlns:gmi=\"" + Namespaces.GMI + '"' +
+                           " xmlns:gmi=\"" + LegacyNamespaces.GMI + '"' +
                            " xmlns:gco=\"" + Namespaces.GCO + "\">\n" +
             "  <gmd:source>\n" +
             "    <gmi:LE_Source>\n" +

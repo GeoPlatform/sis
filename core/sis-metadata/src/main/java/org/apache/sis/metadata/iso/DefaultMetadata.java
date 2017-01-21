@@ -1730,11 +1730,13 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 
 	/**
 	 * Returns information about the acquisition of the data.
+	 * 
+	 * @todo Namespace was "gmi"
 	 *
 	 * @return The acquisition of data.
 	 */
 	@Override
-	@XmlElement(name = "acquisitionInformation", namespace = Namespaces.GMI)
+	@XmlElement(name = "acquisitionInformation", namespace = Namespaces.MDS)
 	public Collection<AcquisitionInformation> getAcquisitionInformation() {
 		return acquisitionInformation = nonNullCollection(acquisitionInformation, AcquisitionInformation.class);
 	}

@@ -73,7 +73,7 @@ public final class MI_ContextCode extends CodeListAdapter<MI_ContextCode, Contex
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MI_ContextCode", namespace = Namespaces.GMI)
+    @XmlElement(name = "MI_ContextCode", namespace = Namespaces.MDS)
     public CodeListUID getElement() {
         return identifier;
     }

@@ -73,7 +73,7 @@ public final class MI_BandDefinition extends CodeListAdapter<MI_BandDefinition, 
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MI_BandDefinition", namespace = Namespaces.GMI)
+    @XmlElement(name = "MI_BandDefinition", namespace = Namespaces.MDS)
     public CodeListUID getElement() {
         return identifier;
     }

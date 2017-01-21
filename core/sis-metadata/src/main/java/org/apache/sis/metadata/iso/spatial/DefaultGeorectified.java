@@ -364,11 +364,13 @@ public class DefaultGeorectified extends DefaultGridSpatialRepresentation implem
 
     /**
      * Returns the geographic references used to validate georectification of the data.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Geographic references used to validate georectification.
      */
     @Override
-    @XmlElement(name = "checkPoint", namespace = Namespaces.GMI)
+    @XmlElement(name = "checkPoint", namespace = Namespaces.MDS)
     public Collection<GCP> getCheckPoints() {
         return checkPoints = nonNullCollection(checkPoints, GCP.class);
     }

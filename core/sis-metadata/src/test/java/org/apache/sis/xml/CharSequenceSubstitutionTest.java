@@ -16,19 +16,25 @@
  */
 package org.apache.sis.xml;
 
+import static org.apache.sis.test.Assert.assertXmlEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.opengis.test.Assert.assertInstanceOf;
+
 import javax.xml.bind.JAXBException;
-import org.opengis.metadata.citation.Address;
-import org.opengis.metadata.Identifier;
-import org.opengis.metadata.acquisition.Instrument;
-import org.opengis.metadata.identification.DataIdentification;
-import org.opengis.metadata.identification.InitiativeType;
+
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.internal.metadata.SensorType;
-import org.apache.sis.util.iso.Types;
 import org.apache.sis.test.DependsOnMethod;
 import org.apache.sis.test.XMLTestCase;
+import org.apache.sis.util.iso.Types;
 import org.junit.Test;
-
-import static org.apache.sis.test.Assert.*;
+import org.opengis.metadata.Identifier;
+import org.opengis.metadata.acquisition.Instrument;
+import org.opengis.metadata.citation.Address;
+import org.opengis.metadata.identification.DataIdentification;
+import org.opengis.metadata.identification.InitiativeType;
 
 
 /**
@@ -152,7 +158,7 @@ public final strictfp class CharSequenceSubstitutionTest extends XMLTestCase {
     public void testSensorCode() throws JAXBException {
         final String expected =
                 "<gmi:MI_Instrument xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                                  " xmlns:gmi=\"" + Namespaces.GMI + "\">\n" +
+                                  " xmlns:gmi=\"" + LegacyNamespaces.GMI + "\">\n" +
                 "  <gmi:type>\n" +
                 "    <gmi:MI_SensorTypeCode\n" +
                 "        codeList=\"http://navigator.eumetsat.int/metadata_schema/eum/resources/Codelist/eum_gmxCodelists.xml#CI_SensorTypeCode\"\n" +

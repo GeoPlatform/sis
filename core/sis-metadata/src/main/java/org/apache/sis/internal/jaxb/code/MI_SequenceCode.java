@@ -73,7 +73,7 @@ public final class MI_SequenceCode extends CodeListAdapter<MI_SequenceCode, Sequ
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MI_SequenceCode", namespace = Namespaces.GMI)
+    @XmlElement(name = "MI_SequenceCode", namespace = Namespaces.MDS)
     public CodeListUID getElement() {
         return identifier;
     }

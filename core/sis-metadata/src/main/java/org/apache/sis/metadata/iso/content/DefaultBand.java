@@ -63,16 +63,11 @@ import static org.apache.sis.internal.metadata.MetadataUtilities.ensurePositive;
     "toneGradation",
     "scaleFactor",
     "offset",
-    "xmlBandBoundaryDefinition",			// ISO 19115-3 This and the following properties have a get/set pair
-    "xmlBandBoundaryDefinitionLegacy",		// ISO 19139   for each ISO standard due to differing namespace requirements.
-    "xmlNominalSpatialResolution",			// ISO 19115-3
-    "xmlNominalSpatialResolutionLegacy",	// ISO 19139
-    "xmlTransferFunctionType",				// ISO 19115-3
-    "xmlTransferFunctionTypeLegacy",		// ISO 19139
-    "xmlTransmittedPolarization",			// ISO 19115-3
-    "xmlTransmittedPolarizationLegacy",		// ISO 19139
-    "xmlDetectedPolarization",				// ISO 19115-3
-    "xmlDetectedPolarizationLegacy"			// ISO 19139
+    "bandBoundaryDefinition",
+    "nominalSpatialResolution",	
+    "transferFunctionType",		
+    "transmittedPolarization",	
+    "detectedPolarization",		
 })
 @XmlRootElement(name = "MD_Band")
 @XmlSeeAlso(org.apache.sis.internal.jaxb.gmi.MI_Band.class)
@@ -329,7 +324,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
      * @return Criterion for defining maximum and minimum wavelengths, or {@code null}.
      */
     @Override
-    //@XmlElement(name = "bandBoundaryDefinition", namespace = Namespaces.GMI)
+    @XmlElement(name = "bandBoundaryDefinition", namespace = Namespaces.MDS)
     public BandDefinition getBandBoundaryDefinition() {
         return bandBoundaryDefinition;
     }
@@ -343,42 +338,6 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
         checkWritePermission();
         bandBoundaryDefinition = newValue;
     }
-    
-    /**
-	 * Gets the boundary definition. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getBandBoundaryDefinition}
-	 */
-	@XmlElement(name = "bandBoundaryDefinition")
-	private BandDefinition getXmlBandBoundaryDefinition() {
-		return MetadataInfo.is2003() ? null : getBandBoundaryDefinition();
-	}
-
-	/**
-	 * Sets the boundary definition. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setBandBoundaryDefinition}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlBandBoundaryDefinition(final BandDefinition newValue) {
-		setBandBoundaryDefinition(newValue);
-	}
-	
-	/**
-	 * Gets the boundary definition. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #getBandBoundaryDefinition}
-	 */
-	@XmlElement(name = "bandBoundaryDefinition", namespace = Namespaces.GMI)
-	private BandDefinition getXmlBandBoundaryDefinitionLegacy() {
-		return MetadataInfo.is2014() ? null : getBandBoundaryDefinition();
-	}
-
-	/**
-	 * Sets the boundary definition. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #setBandBoundaryDefinition}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlBandBoundaryDefinitionLegacy(final BandDefinition newValue) {
-		setBandBoundaryDefinition(newValue);
-	}
 
     /**
      * Returns the wavelength at which the response is the highest.
@@ -487,7 +446,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
      */
     @Override
     @ValueRange(minimum = 0, isMinIncluded = false)
-    //@XmlElement(name = "nominalSpatialResolution", namespace = Namespaces.GMI)
+    @XmlElement(name = "nominalSpatialResolution", namespace = Namespaces.MDS)
     public Double getNominalSpatialResolution() {
         return super.getNominalSpatialResolution();
     }
@@ -499,48 +458,12 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
     public void setNominalSpatialResolution(final Double newValue) {
         super.setNominalSpatialResolution(newValue);
     }
-    
-    /**
-	 * Gets the nominal spatial resolution. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getNominalSpatialResolution}
-	 */
-	@XmlElement(name = "nominalSpatialResolution")
-	private Double getXmlNominalSpatialResolution() {
-		return MetadataInfo.is2003() ? null : getNominalSpatialResolution();
-	}
-
-	/**
-	 * Sets the nominal spatial resolution. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setNominalSpatialResolution}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlNominalSpatialResolution(final Double newValue) {
-		setNominalSpatialResolution(newValue);
-	}
-	
-	/**
-	 * Gets the nominal spatial resolution. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #getNominalSpatialResolution}
-	 */
-	@XmlElement(name = "nominalSpatialResolution", namespace = Namespaces.GMI)
-	private Double getXmlNominalSpatialResolutionLegacy() {
-		return MetadataInfo.is2014() ? null : getNominalSpatialResolution();
-	}
-
-	/**
-	 * Sets the nominal spatial resolution. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #setNominalSpatialResolution}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlNominalSpatialResolutionLegacy(final Double newValue) {
-		setNominalSpatialResolution(newValue);
-	}
 
     /**
      * {@inheritDoc}
      */
     @Override
-    //@XmlElement(name = "transferFunctionType", namespace = Namespaces.GMI)
+    @XmlElement(name = "transferFunctionType", namespace = Namespaces.MDS)
     public TransferFunctionType getTransferFunctionType() {
         return super.getTransferFunctionType();
     }
@@ -552,42 +475,6 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
     public void setTransferFunctionType(final TransferFunctionType newValue) {
         super.setTransferFunctionType(newValue);
     }
-    
-    /**
-	 * Gets the transfer function type. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getTransferFunctionType}
-	 */
-	@XmlElement(name = "transferFunctionType")
-	private TransferFunctionType getXmlTransferFunctionType() {
-		return MetadataInfo.is2003() ? null : getTransferFunctionType();
-	}
-
-	/**
-	 * Sets the transfer function type. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setTransferFunctionType}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlTransferFunctionType(final TransferFunctionType newValue) {
-		setTransferFunctionType(newValue);
-	}
-	
-	/**
-	 * Gets the transfer function type. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #getTransferFunctionType}
-	 */
-	@XmlElement(name = "transferFunctionType", namespace = Namespaces.GMI)
-	private TransferFunctionType getXmlTransferFunctionTypeLegacy() {
-		return MetadataInfo.is2014() ? null : getTransferFunctionType();
-	}
-
-	/**
-	 * Sets the transfer function type. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #setTransferFunctionType}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlTransferFunctionTypeLegacy(final TransferFunctionType newValue) {
-		setTransferFunctionType(newValue);
-	}
 
     /**
      * Returns the polarization of the radiation transmitted.
@@ -595,7 +482,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
      * @return Polarization of the radiation transmitted, or {@code null}.
      */
     @Override
-    //@XmlElement(name = "transmittedPolarization", namespace = Namespaces.GMI)
+    @XmlElement(name = "transmittedPolarization", namespace = Namespaces.MDS)
     public PolarizationOrientation getTransmittedPolarization() {
         return transmittedPolarization;
     }
@@ -609,42 +496,6 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
         checkWritePermission();
         transmittedPolarization = newValue;
     }
-    
-    /**
-	 * Gets the transmitted polarization. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getTransmittedPolarization}
-	 */
-	@XmlElement(name = "transmittedPolarization")
-	private PolarizationOrientation getXmlTransmittedPolarization() {
-		return MetadataInfo.is2003() ? null : getTransmittedPolarization();
-	}
-
-	/**
-	 * Sets the transmitted polarization. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setTransmittedPolarization}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlTransmittedPolarization(final PolarizationOrientation newValue) {
-		setTransmittedPolarization(newValue);
-	}
-	
-	/**
-	 * Gets the transmitted polarization. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #getTransmittedPolarization}
-	 */
-	@XmlElement(name = "transmittedPolarization", namespace = Namespaces.GMI)
-	private PolarizationOrientation getXmlTransmittedPolarizationLegacy() {
-		return MetadataInfo.is2014() ? null : getTransmittedPolarization();
-	}
-
-	/**
-	 * Sets the transmitted polarization. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #setTransmittedPolarization}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlTransmittedPolarizationLegacy(final PolarizationOrientation newValue) {
-		setTransmittedPolarization(newValue);
-	}
 
     /**
      * Returns polarization of the radiation detected.
@@ -652,7 +503,7 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
      * @return Polarization of the radiation detected, or {@code null}.
      */
     @Override
-    //@XmlElement(name = "detectedPolarization", namespace = Namespaces.GMI)
+    @XmlElement(name = "detectedPolarization", namespace = Namespaces.MDS)
     public PolarizationOrientation getDetectedPolarization() {
         return detectedPolarization;
     }
@@ -666,40 +517,4 @@ public class DefaultBand extends DefaultSampleDimension implements Band {
         checkWritePermission();
         detectedPolarization = newValue;
     }
-    
-    /**
-	 * Gets the detected polarization. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #getDetectedPolarization}
-	 */
-	@XmlElement(name = "detectedPolarization")
-	private PolarizationOrientation getXmlDetectedPolarization() {
-		return MetadataInfo.is2003() ? null : getDetectedPolarization();
-	}
-
-	/**
-	 * Sets the detected polarization. Used by JAXB. (used in ISO 19115-3 format).
-	 * @see {@link #setDetectedPolarization}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlDetectedPolarization(final PolarizationOrientation newValue) {
-		setDetectedPolarization(newValue);
-	}
-	
-	/**
-	 * Gets the detected polarization. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #getDetectedPolarization}
-	 */
-	@XmlElement(name = "detectedPolarization", namespace = Namespaces.GMI)
-	private PolarizationOrientation getXmlDetectedPolarizationLegacy() {
-		return MetadataInfo.is2014() ? null : getDetectedPolarization();
-	}
-
-	/**
-	 * Sets the detected polarization. Used by JAXB. (used in ISO 19139 format).
-	 * @see {@link #setDetectedPolarization}
-	 */
-	@SuppressWarnings("unused")
-	private void setXmlDetectedPolarizationLegacy(final PolarizationOrientation newValue) {
-		setDetectedPolarization(newValue);
-	}
 }

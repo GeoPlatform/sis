@@ -579,7 +579,7 @@ public class DefaultSource extends ISOMetadata implements Source {
 	 * Gets the processedLevel. Used by JAXB (ISO 19139 format).
 	 * @see {@link #getProcessedLevel}
 	 */
-    @XmlElement(name = "processedLevel", namespace = Namespaces.GMI)
+    @XmlElement(name = "processedLevel", namespace = Namespaces.MDS)
 	private Identifier getXmlProcessedLevelLegacy() {
 		return MetadataInfo.is2014() ? null : getProcessedLevel();
 	}
@@ -626,7 +626,7 @@ public class DefaultSource extends ISOMetadata implements Source {
 	 * Gets the resolution. Used by JAXB (ISO 19139 format).
 	 * @see {@link #getResolution}
 	 */
-    @XmlElement(name = "resolution", namespace = Namespaces.GMI)
+    @XmlElement(name = "resolution", namespace = Namespaces.MDS)
 	private NominalResolution getXmlResolutionLegacy() {
 		return MetadataInfo.is2014() ? null : getResolution();
 	}

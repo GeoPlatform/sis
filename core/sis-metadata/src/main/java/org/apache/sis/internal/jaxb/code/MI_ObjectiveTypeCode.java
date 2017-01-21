@@ -73,7 +73,7 @@ public final class MI_ObjectiveTypeCode extends CodeListAdapter<MI_ObjectiveType
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MI_ObjectiveTypeCode", namespace = Namespaces.GMI)
+    @XmlElement(name = "MI_ObjectiveTypeCode", namespace = Namespaces.MDS)
     public CodeListUID getElement() {
         return identifier;
     }

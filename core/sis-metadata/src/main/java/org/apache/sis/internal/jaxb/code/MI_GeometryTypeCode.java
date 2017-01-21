@@ -73,7 +73,7 @@ public final class MI_GeometryTypeCode extends CodeListAdapter<MI_GeometryTypeCo
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MI_GeometryTypeCode", namespace = Namespaces.GMI)
+    @XmlElement(name = "MI_GeometryTypeCode", namespace = Namespaces.MDS)
     public CodeListUID getElement() {
         return identifier;
     }

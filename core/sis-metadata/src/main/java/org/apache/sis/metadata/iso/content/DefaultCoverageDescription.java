@@ -64,8 +64,7 @@ import org.opengis.util.RecordType;
     "xmlAttributeGroups",				// ISO 19115-3
     "xmlContentType",					// ISO 19139
     "xmlDimensions",					// ISO 19139
-    "xmlRangeElementDescriptions",		// ISO 19115-3
-    "xmlRangeElementDescriptionsLegacy"	// ISO 19139 (GMI namespace)
+    "rangeElementDescriptions"
 })
 @XmlRootElement(name = "MD_CoverageDescription")
 @XmlSeeAlso({
@@ -402,7 +401,7 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
      * @return description of the specific range elements of a coverage.
      */
     @Override
-    //@XmlElement(name = "rangeElementDescription", namespace = Namespaces.GMI)
+    @XmlElement(name = "rangeElementDescription", namespace = Namespaces.MDS)
     public Collection<RangeElementDescription> getRangeElementDescriptions() {
         return rangeElementDescriptions = nonNullCollection(rangeElementDescriptions, RangeElementDescription.class);
     }
@@ -415,28 +414,4 @@ public class DefaultCoverageDescription extends AbstractContentInformation imple
     public void setRangeElementDescriptions(final Collection<? extends RangeElementDescription> newValues) {
         rangeElementDescriptions = writeCollection(newValues, rangeElementDescriptions, RangeElementDescription.class);
     }
-    
-    /**
-	 * Gets the range element descriptions for this coverage description (used in ISO 19115-3 format).
-	 * @see {@link #getRangeElementDescriptions}
-	 */
-	@XmlElement(name = "rangeElementDescription")
-	private Collection<RangeElementDescription> getXmlRangeElementDescriptions() {
-		if(MetadataInfo.isUnmarshalling()) {
-			return getRangeElementDescriptions();
-		}
-		return MetadataInfo.is2003() ? new CheckedArrayList<>(RangeElementDescription.class) : getRangeElementDescriptions();
-	}
-	
-	/**
-	 * Gets the range element descriptions for this coverage description (used in ISO 19139 format).
-	 * @see {@link #getRangeElementDescriptions}
-	 */
-	@XmlElement(name = "rangeElementDescription", namespace = Namespaces.GMI)
-	private Collection<RangeElementDescription> getXmlRangeElementDescriptionsLegacy() {
-		if(MetadataInfo.isUnmarshalling()) {
-			return getRangeElementDescriptions();
-		}
-		return MetadataInfo.is2014() ? new CheckedArrayList<>(RangeElementDescription.class) : getRangeElementDescriptions();
-	}
 }

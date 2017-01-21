@@ -61,7 +61,6 @@ enum NamespaceFilter {
 	MRL(Namespaces.MRL, Namespaces.GMD),
 	MRS(Namespaces.MRS, Namespaces.GMD),
 	MSR(Namespaces.MSR, Namespaces.GMD),
-	MDS(Namespaces.MDS, Namespaces.GMD),
 	MD1(Namespaces.MD1, Namespaces.GMD),
 	MDA(Namespaces.MDA, Namespaces.GMD),
 	MDT(Namespaces.MDT, Namespaces.GMD),
@@ -72,6 +71,7 @@ enum NamespaceFilter {
 	DQC(Namespaces.DQC, Namespaces.GMD),
 	MDB(Namespaces.MDB, Namespaces.GMD),
 	GEX(Namespaces.GEX, Namespaces.GMD),
+	MDS(Namespaces.MDS, LegacyNamespaces.GMI),
 	GCX(Namespaces.GCX, LegacyNamespaces.GMX),
 	GCO(Namespaces.GCO, LegacyNamespaces.GCO),
 	SRV(Namespaces.SRV, LegacyNamespaces.SRV);

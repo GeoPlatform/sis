@@ -43,6 +43,8 @@ import org.opengis.metadata.spatial.GeolocationInformation;
  *       Serialization support is appropriate for short term storage or RMI between applications running the
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
+ * 
+ * @todo Namespace was "gmi"
  *
  * @author  Cédric Briançon 	(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
@@ -55,7 +57,7 @@ import org.opengis.metadata.spatial.GeolocationInformation;
 	    "xmlQualityInfo",		// ISO 19115-3
 	    "xmlQualityInfoLegacy"	// ISO 19139
 	})
-@XmlRootElement(name = "MI_GeolocationInformation", namespace = Namespaces.GMI)
+@XmlRootElement(name = "MI_GeolocationInformation", namespace = Namespaces.MDS)
 @XmlSeeAlso(DefaultGCPCollection.class)
 public class AbstractGeolocationInformation extends ISOMetadata implements GeolocationInformation {
     /**
@@ -155,9 +157,10 @@ public class AbstractGeolocationInformation extends ISOMetadata implements Geolo
 	
 	/**
 	 * Gets the qualityInfo. Used by JAXB (ISO 19139 format).
+	 * @todo Namespace was "gmi"
 	 * @see {@link #getQualityInfo}
 	 */
-    @XmlElement(name = "qualityInfo", namespace = Namespaces.GMI)
+    @XmlElement(name = "qualityInfo", namespace = Namespaces.MDS)
 	private Collection<DataQuality> getXmlQualityInfoLegacy() {
     	if(MetadataInfo.isUnmarshalling()) {
     		return getQualityInfo();

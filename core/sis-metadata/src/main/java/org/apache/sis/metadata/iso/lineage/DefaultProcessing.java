@@ -41,6 +41,8 @@ import org.apache.sis.internal.jaxb.NonMarshalledAuthority;
  *       Serialization support is appropriate for short term storage or RMI between applications running the
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
+ * 
+ * @todo Namespace was "gmi"
  *
  * @author  Cédric Briançon (Geomatys)
  * @author  Guilhem Legal (Geomatys)
@@ -57,7 +59,7 @@ import org.apache.sis.internal.jaxb.NonMarshalledAuthority;
     "runTimeParameters",
     "algorithms"
 })
-@XmlRootElement(name = "LE_Processing", namespace = Namespaces.GMI)
+@XmlRootElement(name = "LE_Processing", namespace = Namespaces.MDS)
 public class DefaultProcessing extends ISOMetadata implements Processing {
     /**
      * Serial number for inter-operability with different versions.
@@ -148,7 +150,7 @@ public class DefaultProcessing extends ISOMetadata implements Processing {
      * @return Identifier of the processing package that produced the data, or {@code null}.
      */
     @Override
-    @XmlElement(name = "identifier", namespace = Namespaces.GMI, required = true)
+    @XmlElement(name = "identifier", namespace = Namespaces.MDS, required = true)
     public Identifier getIdentifier() {
         return NonMarshalledAuthority.getMarshallable(identifiers);
     }
@@ -170,7 +172,7 @@ public class DefaultProcessing extends ISOMetadata implements Processing {
      * @return Document describing processing software.
      */
     @Override
-    @XmlElement(name = "softwareReference", namespace = Namespaces.GMI)
+    @XmlElement(name = "softwareReference", namespace = Namespaces.MDS)
     public Collection<Citation> getSoftwareReferences() {
         return softwareReferences = nonNullCollection(softwareReferences, Citation.class);
     }
@@ -190,7 +192,7 @@ public class DefaultProcessing extends ISOMetadata implements Processing {
      * @return Processing procedures, or {@code null}.
      */
     @Override
-    @XmlElement(name = "procedureDescription", namespace = Namespaces.GMI)
+    @XmlElement(name = "procedureDescription", namespace = Namespaces.MDS)
     public InternationalString getProcedureDescription() {
         return procedureDescription;
     }
@@ -211,7 +213,7 @@ public class DefaultProcessing extends ISOMetadata implements Processing {
      * @return Documentation describing the processing.
      */
     @Override
-    @XmlElement(name = "documentation", namespace = Namespaces.GMI)
+    @XmlElement(name = "documentation", namespace = Namespaces.MDS)
     public Collection<Citation> getDocumentations() {
         return documentations = nonNullCollection(documentations, Citation.class);
     }
@@ -231,7 +233,7 @@ public class DefaultProcessing extends ISOMetadata implements Processing {
      * @return Parameters to control the processing operations, or {@code null}.
      */
     @Override
-    @XmlElement(name = "runTimeParameters", namespace = Namespaces.GMI)
+    @XmlElement(name = "runTimeParameters", namespace = Namespaces.MDS)
     public InternationalString getRunTimeParameters() {
         return runTimeParameters;
     }
@@ -253,7 +255,7 @@ public class DefaultProcessing extends ISOMetadata implements Processing {
      * @return Methodology by which geographic information was derived from the instrument readings.
      */
     @Override
-    @XmlElement(name = "algorithm", namespace = Namespaces.GMI)
+    @XmlElement(name = "algorithm", namespace = Namespaces.MDS)
     public Collection<Algorithm> getAlgorithms() {
         return algorithms = nonNullCollection(algorithms, Algorithm.class);
     }

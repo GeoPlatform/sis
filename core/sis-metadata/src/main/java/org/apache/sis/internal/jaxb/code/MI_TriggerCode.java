@@ -73,7 +73,7 @@ public final class MI_TriggerCode extends CodeListAdapter<MI_TriggerCode, Trigge
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MI_TriggerCode", namespace = Namespaces.GMI)
+    @XmlElement(name = "MI_TriggerCode", namespace = Namespaces.MDS)
     public CodeListUID getElement() {
         return identifier;
     }

@@ -39,6 +39,8 @@ import org.apache.sis.xml.Namespaces;
  *       same version of Apache SIS. For long term storage, use {@link org.apache.sis.xml.XML} instead.</li>
  * </ul>
  *
+ * @todo Namespace was "gmi"
+ *
  * @author  Cédric Briançon (Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
  * @since   0.3
@@ -49,7 +51,7 @@ import org.apache.sis.xml.Namespaces;
     //"geographicCoordinates",
     "accuracyReports"
 })
-@XmlRootElement(name = "MI_GCP", namespace = Namespaces.GMI)
+@XmlRootElement(name = "MI_GCP", namespace = Namespaces.MDS)
 public class DefaultGCP extends ISOMetadata implements GCP {
     /**
      * Serial number for inter-operability with different versions.
@@ -139,11 +141,13 @@ public class DefaultGCP extends ISOMetadata implements GCP {
 
     /**
      * Returns the accuracy of a ground control point.
+     * 
+     * @todo Namespace was "gmi"
      *
      * @return Accuracy of a ground control point.
      */
     @Override
-    @XmlElement(name = "accuracyReport", namespace = Namespaces.GMI)
+    @XmlElement(name = "accuracyReport", namespace = Namespaces.MDS)
     public Collection<Element> getAccuracyReports() {
         return accuracyReports = nonNullCollection(accuracyReports, Element.class);
     }
