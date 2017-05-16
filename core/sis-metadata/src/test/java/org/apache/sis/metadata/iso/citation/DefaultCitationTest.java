@@ -73,6 +73,7 @@ public final strictfp class DefaultCitationTest extends XMLTestCase {
         ));
         c.getDates().add(new DefaultCitationDate(TestUtilities.date("2015-10-17 00:00:00"), DateType.ADOPTED));
         // Check that XML file built by the marshaller is the same as the example file.
+        // The addition of the argument "Namespaces.ISO_19115_3" is the primary change from the ISO 19139 test.
         assertMarshalEqualsFile(XML_FILE, c, Namespaces.ISO_19115_3, "xlmns:*", "xsi:schemaLocation");
     }
 

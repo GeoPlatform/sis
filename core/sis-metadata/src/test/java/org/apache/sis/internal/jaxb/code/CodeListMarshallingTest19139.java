@@ -44,23 +44,24 @@ import org.opengis.metadata.citation.Role;
  * Tests the XML marshaling of {@code CodeList}.
  *
  * @author  Martin Desruisseaux (Geomatys)
- * @author  Guilhem Legal (Geomatys)
+ * @author  Guilhem Legal 		(Geomatys)
+ * @author	Cullen Rombach 		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  *
  * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-121">GEOTK-121</a>
  */
-public final strictfp class CodeListMarshallingTest extends XMLTestCase {
+public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
     /**
      * Returns a XML string to use for testing purpose.
      *
      * @param baseURL The base URL of XML schemas.
      */
-    private static String getResponsiblePartyXML(final String baseURL) {
+    public static String getResponsiblePartyXML(final String baseURL, final String codelistsPath) {
         return "<gmd:CI_ResponsibleParty xmlns:gmd=\"" + Namespaces.GMD + "\">\n" +
                "  <gmd:role>\n" +
-               "    <gmd:CI_RoleCode codeList=\"" + baseURL + Schemas.CODELISTS_PATH + "#CI_RoleCode\"" +
+               "    <gmd:CI_RoleCode codeList=\"" + baseURL + codelistsPath + "#CI_RoleCode\"" +
                     " codeListValue=\"principalInvestigator\">" + "Principal investigator</gmd:CI_RoleCode>\n" +
                "  </gmd:role>\n" +
                "</gmd:CI_ResponsibleParty>";
@@ -71,10 +72,10 @@ public final strictfp class CodeListMarshallingTest extends XMLTestCase {
      *
      * @param baseURL The base URL of XML schemas.
      */
-    private static String getCitationXML(final String baseURL, final String language, final String value) {
+    public static String getCitationXML(final String baseURL, final String codelistsPath, final String language, final String value) {
         return "<gmd:CI_Date xmlns:gmd=\"" + Namespaces.GMD + "\">\n" +
                "  <gmd:dateType>\n" +
-               "    <gmd:CI_DateTypeCode codeList=\"" + baseURL + Schemas.CODELISTS_PATH + "#CI_DateTypeCode\"" +
+               "    <gmd:CI_DateTypeCode codeList=\"" + baseURL + codelistsPath + "#CI_DateTypeCode\"" +
                     " codeListValue=\"creation\" codeSpace=\"" + language + "\">" + value + "</gmd:CI_DateTypeCode>\n" +
                "  </gmd:dateType>\n" +
                "</gmd:CI_Date>";
@@ -87,7 +88,7 @@ public final strictfp class CodeListMarshallingTest extends XMLTestCase {
      */
     @Test
     public void testDefaultURL() throws JAXBException {
-        final String expected = getResponsiblePartyXML(Schemas.METADATA_ROOT);
+        final String expected = getResponsiblePartyXML(Schemas.METADATA_ROOT, Schemas.CODELISTS_PATH);
         final Responsibility rp = (Responsibility) XML.unmarshal(expected);
         assertEquals(Role.PRINCIPAL_INVESTIGATOR, rp.getRole());
         /*
@@ -105,7 +106,7 @@ public final strictfp class CodeListMarshallingTest extends XMLTestCase {
      */
     @Test
     public void testISO_URL() throws JAXBException {
-        final String expected = getResponsiblePartyXML(Schemas.ISO_19139_ROOT);
+        final String expected = getResponsiblePartyXML(Schemas.ISO_19139_ROOT, Schemas.CODELISTS_PATH);
         final Responsibility rp = (Responsibility) XML.unmarshal(expected);
         assertEquals(Role.PRINCIPAL_INVESTIGATOR, rp.getRole());
 
@@ -131,7 +132,7 @@ public final strictfp class CodeListMarshallingTest extends XMLTestCase {
          * First, test using the French locale.
          */
         marshaller.setProperty(XML.LOCALE, Locale.FRENCH);
-        String expected = getCitationXML(Schemas.METADATA_ROOT, "fra", "Création");
+        String expected = getCitationXML(Schemas.METADATA_ROOT, Schemas.CODELISTS_PATH, "fra", "Création");
         CitationDate ci = (CitationDate) XML.unmarshal(expected);
         assertEquals(DateType.CREATION, ci.getDateType());
         String actual = marshal(marshaller, ci);
@@ -140,7 +141,7 @@ public final strictfp class CodeListMarshallingTest extends XMLTestCase {
          * Tests again using the English locale.
          */
         marshaller.setProperty(XML.LOCALE, Locale.ENGLISH);
-        expected = getCitationXML(Schemas.METADATA_ROOT, "eng", "Creation");
+        expected = getCitationXML(Schemas.METADATA_ROOT, Schemas.CODELISTS_PATH, "eng", "Creation");
         ci = (CitationDate) XML.unmarshal(expected);
         assertEquals(DateType.CREATION, ci.getDateType());
         actual = marshal(marshaller, ci);
