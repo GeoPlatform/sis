@@ -27,12 +27,11 @@ import javax.xml.bind.Marshaller;
 
 import org.apache.sis.internal.jaxb.Schemas;
 import org.apache.sis.metadata.iso.citation.DefaultCitation;
-import org.apache.sis.test.ISOConverter;
+import org.apache.sis.test.ISOTestUtils;
 import org.apache.sis.test.XMLTestCase;
 import org.apache.sis.xml.MarshallerPool;
 import org.apache.sis.xml.Namespaces;
 import org.apache.sis.xml.XML;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.opengis.metadata.citation.CitationDate;
 import org.opengis.metadata.citation.DateType;
@@ -50,15 +49,14 @@ import org.opengis.metadata.citation.Role;
  * @module
  */
 public final strictfp class CodeListMarshallingTest191153 extends XMLTestCase {
-	
-	private static ISOConverter converter;
-	
+
 	/**
-	 * Instantiate the ISOConverter object used to convert XML strings before any tests are run.
+	 * Returns a XML string to use for testing purpose.
+	 *
+	 * @param baseURL The base URL of XML schemas.
 	 */
-	@BeforeClass
-	public static void setUp() {
-		converter = new ISOConverter();
+	private String getResponsiblePartyXML(final String baseURL, final String codelistPath) {
+		return ISOTestUtils.from19139(CodeListMarshallingTest19139.getResponsiblePartyXML(baseURL, codelistPath));
 	}
 
 	/**
@@ -66,17 +64,8 @@ public final strictfp class CodeListMarshallingTest191153 extends XMLTestCase {
 	 *
 	 * @param baseURL The base URL of XML schemas.
 	 */
-	private static String getResponsiblePartyXML191153(final String baseURL, final String codelistPath) {
-		return converter.to191153(CodeListMarshallingTest19139.getResponsiblePartyXML(baseURL, codelistPath));
-	}
-
-	/**
-	 * Returns a XML string to use for testing purpose.
-	 *
-	 * @param baseURL The base URL of XML schemas.
-	 */
-	private static String getCitationXML191153(final String baseURL, final String codelistPath, final String language, final String value) {
-		return converter.to191153(CodeListMarshallingTest19139.getCitationXML(baseURL, codelistPath, language, value));
+	private String getCitationXML(final String baseURL, final String codelistPath, final String language, final String value) {
+		return ISOTestUtils.from19139(CodeListMarshallingTest19139.getCitationXML(baseURL, codelistPath, language, value));
 	}
 
 	/**
@@ -86,8 +75,7 @@ public final strictfp class CodeListMarshallingTest191153 extends XMLTestCase {
 	 */
 	@Test
 	public void testDefaultURL() throws JAXBException {
-		final String expected = getResponsiblePartyXML191153(Schemas.METADATA_ROOT_NEW, Schemas.CODELISTS_PATH_NEW);
-		System.out.println("\n  EXPECTED \n" + expected);
+		final String expected = getResponsiblePartyXML(Schemas.METADATA_ROOT_NEW, Schemas.CODELISTS_PATH_NEW);
 		final Responsibility rp = (Responsibility) XML.unmarshal(expected, Namespaces.ISO_19115_3);
 		assertEquals(Role.PRINCIPAL_INVESTIGATOR, rp.getRole());
 		/*
@@ -95,7 +83,6 @@ public final strictfp class CodeListMarshallingTest191153 extends XMLTestCase {
 		 * our own MarshallerPool.
 		 */
 		final String actual = XML.marshal(rp, Namespaces.ISO_19115_3);
-		System.out.println("\n  ACTUAL \n" + actual);
 		assertXmlEquals(expected, actual, "xmlns:*");
 	}
 
@@ -112,7 +99,8 @@ public final strictfp class CodeListMarshallingTest191153 extends XMLTestCase {
 		 * First, test using the French locale.
 		 */
 		marshaller.setProperty(XML.LOCALE, Locale.FRENCH);
-		String expected = getCitationXML191153(Schemas.METADATA_ROOT_NEW, Schemas.CODELISTS_PATH_NEW, "fra", "Création");
+		String expected19139 = CodeListMarshallingTest19139.getCitationXML(Schemas.METADATA_ROOT_NEW, Schemas.CODELISTS_PATH_NEW, "fra", "Création");
+		String expected = ISOTestUtils.from19139(expected19139, marshaller);
 		CitationDate ci = (CitationDate) XML.unmarshal(expected, Namespaces.ISO_19115_3);
 		assertEquals(DateType.CREATION, ci.getDateType());
 		String actual = marshal(marshaller, ci, Namespaces.ISO_19115_3);
@@ -121,7 +109,7 @@ public final strictfp class CodeListMarshallingTest191153 extends XMLTestCase {
 		 * Tests again using the English locale.
 		 */
 		marshaller.setProperty(XML.LOCALE, Locale.ENGLISH);
-		expected = getCitationXML191153(Schemas.METADATA_ROOT_NEW, Schemas.CODELISTS_PATH_NEW, "eng", "Creation");
+		expected = getCitationXML(Schemas.METADATA_ROOT_NEW, Schemas.CODELISTS_PATH_NEW, "eng", "Creation");
 		ci = (CitationDate) XML.unmarshal(expected, Namespaces.ISO_19115_3);
 		assertEquals(DateType.CREATION, ci.getDateType());
 		actual = marshal(marshaller, ci, Namespaces.ISO_19115_3);
@@ -154,6 +142,6 @@ public final strictfp class CodeListMarshallingTest191153 extends XMLTestCase {
 						"    <gmd:CI_PresentationFormCode codeListValue=\"test\">Test</gmd:CI_PresentationFormCode>\n" +
 						"  </gmd:presentationForm>\n" +
 						"</gmd:CI_Citation>\n";
-		assertXmlEquals(converter.to191153(oldXML), xml, "xmlns:*", "codeList", "codeSpace");
+		assertXmlEquals(ISOTestUtils.from19139(oldXML), xml, "xmlns:*", "codeList", "codeSpace");
 	}
 }
