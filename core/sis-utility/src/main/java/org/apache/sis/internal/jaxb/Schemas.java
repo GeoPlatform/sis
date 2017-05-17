@@ -55,12 +55,12 @@ public final class Schemas {
     /**
      * The XSD definition for 193139 metadata objects.
      */
-    public static final String METADATA_XSD_BASE = "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd";
+    public static final String METADATA_XSD_BASE_19139 = "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd";
     
     /**
      * The XSD definition for the root of ISO 19115-3 metadata objects.
      */
-    public static final String METADATA_XSD_BASE_NEW = "http://standards.iso.org/iso/19115/-3/mdb/1.0/mdb.xsd";
+    public static final String METADATA_XSD_BASE_191153 = "http://standards.iso.org/iso/19115/-3/mdb/1.0/mdb.xsd";
     
     /**
      * The XSD definition for the spatial section of ISO 19115-3 metadata objects.
@@ -118,20 +118,19 @@ public final class Schemas {
     public static final String METADATA_XSD_ACQUISITION = "http://standards.iso.org/iso/19115/-3/mac/1.0/mac.xsd";
 
     /**
-     * The root directory of OGC metadata schemas.
+     * The root directory of OGC metadata schemas for ISO 19139.
      * This is the schema used by default in Apache SIS.
      */
-    public static final String METADATA_ROOT = "http://schemas.opengis.net/iso/19139/20070417/";
+    public static final String METADATA_ROOT_19139 = "http://schemas.opengis.net/iso/19139/20070417/";
     
     /**
-     * The root directory of OGC metadata schemas.
-     * This is the schema used by default in Apache SIS.
+     * The root directory of OGC metadata schemas for ISO 19115.
      */
-    public static final String METADATA_ROOT_NEW = "http://standards.iso.org/iso/19115/";
+    public static final String METADATA_ROOT_191153 = "http://standards.iso.org/iso/19115/";
 
     /**
      * The root directory of ISO 19139 metadata schemas.
-     * This is sometime used as an alternative to {@link #METADATA_ROOT_LEGACY}.
+     * This is sometime used as an alternative to {@link #METADATA_ROOT_19139}.
      */
     public static final String ISO_19139_ROOT = "http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/";
 
@@ -144,17 +143,17 @@ public final class Schemas {
      *
      * @see <a href="https://issues.apache.org/jira/browse/SIS-154">SIS-154</a>
      */
-    public static final String CODELISTS_PATH = "resources/Codelist/gmxCodelists.xml";
+    public static final String CODELISTS_PATH_19139 = "resources/Codelist/gmxCodelists.xml";
     
     /**
-     * The string to append to {@link #METADATA_ROOT} for obtaining the path to the definitions of code lists.
+     * The string to append to {@link #METADATA_ROOT_19139} for obtaining the path to the definitions of code lists.
      *
      * @see <a href="https://issues.apache.org/jira/browse/SIS-154">SIS-154</a>
      */
-    public static final String CODELISTS_PATH_NEW = "resources/Codelist/cat/codelists.xml";
+    public static final String CODELISTS_PATH_191153 = "resources/Codelist/cat/codelists.xml";
 
     /**
-     * The string to append to {@link #METADATA_ROOT} or {@link #ISO_19139_ROOT} for obtaining the path
+     * The string to append to {@link #METADATA_ROOT_19139} or {@link #ISO_19139_ROOT} for obtaining the path
      * to the definitions of units of measurement.
      *
      * <p>A localized version of this file exists also with the {@code "ML_gmxUom.xml"} filename

@@ -16,58 +16,74 @@
  */
 package org.apache.sis.metadata;
 
-import java.util.Set;
-import java.util.List;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Locale;
-import java.util.Date;
-import java.nio.charset.Charset;
+import static java.util.Collections.singleton;
+import static org.apache.sis.metadata.PropertyAccessor.APPEND;
+import static org.apache.sis.metadata.PropertyAccessor.RETURN_NULL;
+import static org.apache.sis.metadata.PropertyAccessor.RETURN_PREVIOUS;
+import static org.apache.sis.test.MetadataAssert.assertTitleEquals;
+import static org.apache.sis.test.TestUtilities.getSingleton;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.opengis.test.Assert.assertInstanceOf;
 
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+
+import org.apache.sis.metadata.iso.citation.DefaultCitation;
+import org.apache.sis.metadata.iso.citation.HardCodedCitations;
+import org.apache.sis.metadata.iso.content.DefaultCoverageDescription;
+import org.apache.sis.metadata.iso.identification.DefaultDataIdentification;
+import org.apache.sis.test.DependsOn;
+import org.apache.sis.test.DependsOnMethod;
+import org.apache.sis.test.TestCase;
+import org.apache.sis.util.ComparisonMode;
+import org.apache.sis.util.iso.SimpleInternationalString;
+import org.junit.Test;
 import org.opengis.metadata.Identifier;
-import org.opengis.metadata.extent.Extent;
-import org.opengis.metadata.citation.Series;
 import org.opengis.metadata.citation.Citation;
 import org.opengis.metadata.citation.CitationDate;
 import org.opengis.metadata.citation.OnlineResource;
 import org.opengis.metadata.citation.PresentationForm;
 import org.opengis.metadata.citation.Responsibility;
-import org.opengis.metadata.distribution.Format;
+import org.opengis.metadata.citation.Series;
 import org.opengis.metadata.constraint.Constraints;
 import org.opengis.metadata.content.AttributeGroup;
 import org.opengis.metadata.content.CoverageContentType;
 import org.opengis.metadata.content.CoverageDescription;
-import org.opengis.metadata.identification.*; // Really using almost everything.
+import org.opengis.metadata.distribution.Format;
+import org.opengis.metadata.extent.Extent;
+// Really using almost everything.
+import org.opengis.metadata.identification.AssociatedResource;
+import org.opengis.metadata.identification.BrowseGraphic;
+import org.opengis.metadata.identification.DataIdentification;
+import org.opengis.metadata.identification.Identification;
+import org.opengis.metadata.identification.Keywords;
+import org.opengis.metadata.identification.Progress;
+import org.opengis.metadata.identification.Resolution;
+import org.opengis.metadata.identification.TopicCategory;
+import org.opengis.metadata.identification.Usage;
 import org.opengis.metadata.maintenance.MaintenanceInformation;
 import org.opengis.metadata.spatial.SpatialRepresentationType;
 import org.opengis.referencing.IdentifiedObject;
 import org.opengis.referencing.ReferenceSystem;
 import org.opengis.referencing.crs.GeodeticCRS;
 import org.opengis.referencing.crs.GeographicCRS;
-import org.opengis.referencing.datum.GeodeticDatum;
 import org.opengis.referencing.cs.EllipsoidalCS;
-import org.opengis.util.InternationalString;
-import org.opengis.util.GenericName;
+import org.opengis.referencing.datum.GeodeticDatum;
 import org.opengis.temporal.Duration;
-
-import org.apache.sis.util.ComparisonMode;
-import org.apache.sis.util.iso.SimpleInternationalString;
-import org.apache.sis.metadata.iso.citation.DefaultCitation;
-import org.apache.sis.metadata.iso.citation.HardCodedCitations;
-import org.apache.sis.metadata.iso.content.DefaultCoverageDescription;
-import org.apache.sis.metadata.iso.identification.DefaultDataIdentification;
-import org.apache.sis.test.DependsOnMethod;
-import org.apache.sis.test.DependsOn;
-import org.apache.sis.test.TestCase;
-import org.junit.Test;
-
-import static java.util.Collections.singleton;
-import static org.apache.sis.test.MetadataAssert.*;
-import static org.apache.sis.test.TestUtilities.getSingleton;
-import static org.apache.sis.metadata.PropertyAccessor.APPEND;
-import static org.apache.sis.metadata.PropertyAccessor.RETURN_NULL;
-import static org.apache.sis.metadata.PropertyAccessor.RETURN_PREVIOUS;
+import org.opengis.util.GenericName;
+import org.opengis.util.InternationalString;
 
 
 /**

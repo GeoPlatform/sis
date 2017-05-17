@@ -40,8 +40,9 @@ import static org.opengis.metadata.Identifier.*;
  * Tests {@link ImmutableIdentifier}.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.6
+ * @version 0.8
  * @module
  */
 @DependsOn({
@@ -164,14 +165,25 @@ public final strictfp class ImmutableIdentifierTest extends TestCase {
     }
 
     /**
-     * Test XML marshalling.
+     * Test XML marshalling for ISO 19139.
      *
      * @throws JAXBException Should never happen.
      */
     @Test
-    public void testMarshal() throws JAXBException {
+    public void testMarshal19139() throws JAXBException {
         final ImmutableIdentifier identifier = new ImmutableIdentifier(new DefaultCitation("EPSG"), null, "4326");
-        new DefaultIdentifierTest().testMarshal("RS_Identifier", identifier);
+        new DefaultIdentifierTest().testMarshal19139("RS_Identifier", identifier);
+    }
+    
+    /**
+     * Test XML marshalling for ISO 19139.
+     *
+     * @throws JAXBException Should never happen.
+     */
+    @Test
+    public void testMarshal191153() throws JAXBException {
+        final ImmutableIdentifier identifier = new ImmutableIdentifier(new DefaultCitation("EPSG"), null, "4326");
+        new DefaultIdentifierTest().testMarshal191153("RS_Identifier", identifier);
     }
 
     /**

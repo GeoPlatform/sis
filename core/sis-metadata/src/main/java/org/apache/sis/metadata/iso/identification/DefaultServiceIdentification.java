@@ -66,8 +66,8 @@ import org.opengis.util.GenericName;
 	"accessProperties",
 //	"restrictions",			// ISO 19139 (equivalent to resourceConstraints) -- not implemented by SIS for some reason. TODO
 	"xmlExtent",			// ISO 19139
-    "couplingType",
     "coupledResources",
+    "couplingType",
 	"xmlOperatedDatasets",	// ISO 19115-3
 	"xmlProfiles",			// ISO 19115-3
 	"xmlServiceStandards",	// ISO 19115-3

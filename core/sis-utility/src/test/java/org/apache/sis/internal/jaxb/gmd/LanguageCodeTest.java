@@ -69,7 +69,7 @@ public final strictfp class LanguageCodeTest extends XMLTestCase {
      * XML fragment using the {@code <gmd:LanguageCode>} construct with attributes.
      */
     private static final String LANGUAGE_CODE = "<gmd:LanguageCode" +
-            " codeList=\"" + Schemas.METADATA_ROOT + Schemas.CODELISTS_PATH + "#LanguageCode\"" +
+            " codeList=\"" + Schemas.METADATA_ROOT_19139 + Schemas.CODELISTS_PATH_19139 + "#LanguageCode\"" +
             " codeListValue=\"jpn\">Japanese</gmd:LanguageCode>";
 
     /**

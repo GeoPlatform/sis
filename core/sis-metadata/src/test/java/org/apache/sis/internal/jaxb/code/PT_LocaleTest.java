@@ -16,31 +16,37 @@
  */
 package org.apache.sis.internal.jaxb.code;
 
+import static org.apache.sis.test.Assert.assertXmlEquals;
+import static org.junit.Assert.assertArrayEquals;
+
 import java.util.Arrays;
 import java.util.Locale;
-import javax.xml.bind.JAXBException;
-import org.apache.sis.metadata.iso.DefaultMetadata;
-import org.apache.sis.internal.jaxb.Schemas;
-import org.apache.sis.xml.Namespaces;
-import org.apache.sis.test.XMLTestCase;
-import org.junit.Test;
 
-import static org.apache.sis.test.Assert.*;
+import javax.xml.bind.JAXBException;
+
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
+import org.apache.sis.internal.jaxb.Schemas;
+import org.apache.sis.metadata.iso.DefaultMetadata;
+import org.apache.sis.test.ISOTestUtils;
+import org.apache.sis.test.XMLTestCase;
+import org.apache.sis.xml.Namespaces;
+import org.junit.Test;
 
 
 /**
  * Tests the XML marshaling of {@link PT_Locale}.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.4
- * @version 0.4
+ * @version 0.8
  * @module
  */
 public final strictfp class PT_LocaleTest extends XMLTestCase {
     /**
      * The path to the {@code gmxCodelists.xml} path.
      */
-    private static final String CODELISTS_PATH = Schemas.METADATA_ROOT + Schemas.CODELISTS_PATH;
+    private static final String CODELISTS_PATH = Schemas.METADATA_ROOT_19139 + Schemas.CODELISTS_PATH_19139;
 
     /**
      * The {@code <gmd:characterEncoding>} element to be repeated for every locale. This element is not
@@ -69,9 +75,9 @@ public final strictfp class PT_LocaleTest extends XMLTestCase {
      * XML representation of the {@link #LOCALES} list.
      */
     private static final String XML =
-            "<gmd:MD_Metadata xmlns:gmd=\"" + Namespaces.GMD + "\">\n" +
+            "<gmd:MD_Metadata xmlns:gmd=\"" + Namespaces.GMD + "\" xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
             "  <gmd:language>\n" +
-            "    <gmd:LanguageCode codeList=\"http://schemas.opengis.net/iso/19139/20070417/resources/Codelist/gmxCodelists.xml#LanguageCode\" codeListValue=\"eng\" codeSpace=\"eng\">English</gmd:LanguageCode>\n" +
+            "    <gco:CharacterString>eng;</gco:CharacterString>\n" +
             "  </gmd:language>\n" +
             "  <gmd:locale>\n" +
             "    <gmd:PT_Locale>\n" +
@@ -113,25 +119,50 @@ public final strictfp class PT_LocaleTest extends XMLTestCase {
             "</gmd:MD_Metadata>";
 
     /**
-     * Tests marshalling of a few locales.
+     * Tests marshalling of a few locales for ISO 19139.
      *
      * @throws JAXBException Should never happen.
      */
     @Test
-    public void testMarshalling() throws JAXBException {
+    public void testMarshalling19139() throws JAXBException {
         final DefaultMetadata metadata = new DefaultMetadata();
         metadata.setLanguages(Arrays.asList(LOCALES));
         assertXmlEquals(XML, marshal(metadata), "xlmns:*");
     }
 
     /**
-     * Tests unmarshalling of a few locales.
+     * Tests unmarshalling of a few locales for ISO 19139.
      *
      * @throws JAXBException Should never happen.
      */
     @Test
-    public void testUnmarshalling() throws JAXBException {
+    public void testUnmarshalling19139() throws JAXBException {
         final DefaultMetadata metadata = unmarshal(DefaultMetadata.class, XML);
         assertArrayEquals(LOCALES, metadata.getLanguages().toArray());
     }
+    
+    /**
+     * Tests marshalling of a few locales for ISO 19115-3.
+     *
+     * @throws JAXBException Should never happen.
+     */
+    @Test
+    public void testMarshalling191153() throws JAXBException {
+        final DefaultMetadata metadata = new DefaultMetadata();
+        metadata.setLanguages(Arrays.asList(LOCALES));
+        assertXmlEquals(ISOTestUtils.from19139(XML), marshal(metadata, Namespaces.ISO_19115_3), "xlmns:*");
+    }
+    
+    /**
+     * Tests unmarshalling of a few locales for ISO 19115-3.
+     *
+     * @throws JAXBException Should never happen.
+     */
+    @Test
+    public void testUnmarshalling191153() throws JAXBException {
+        final DefaultMetadata metadata = unmarshal(DefaultMetadata.class, ISOTestUtils.from19139(XML), Namespaces.ISO_19115_3);
+        assertArrayEquals(LOCALES, metadata.getLanguages().toArray());
+    }
+    
+    
 }

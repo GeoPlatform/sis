@@ -21,7 +21,6 @@ import java.io.StringWriter;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import org.apache.sis.util.ArgumentChecks;
 import org.apache.sis.xml.Namespaces;
 import org.apache.sis.xml.XML;
 

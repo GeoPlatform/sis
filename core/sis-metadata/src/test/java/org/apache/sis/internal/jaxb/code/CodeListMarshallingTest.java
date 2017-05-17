@@ -28,6 +28,7 @@ import javax.xml.bind.Marshaller;
 
 import org.apache.sis.internal.jaxb.Schemas;
 import org.apache.sis.metadata.iso.citation.DefaultCitation;
+import org.apache.sis.test.ISOTestUtils;
 import org.apache.sis.test.XMLTestCase;
 import org.apache.sis.xml.MarshallerPool;
 import org.apache.sis.xml.Namespaces;
@@ -52,13 +53,13 @@ import org.opengis.metadata.citation.Role;
  *
  * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-121">GEOTK-121</a>
  */
-public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
+public strictfp class CodeListMarshallingTest extends XMLTestCase {
     /**
-     * Returns a XML string to use for testing purpose.
+     * Returns a XML string in 19139 to use for testing purpose.
      *
      * @param baseURL The base URL of XML schemas.
      */
-    public static String getResponsiblePartyXML(final String baseURL, final String codelistsPath) {
+    private static String getResponsiblePartyXML(final String baseURL, final String codelistsPath) {
         return "<gmd:CI_ResponsibleParty xmlns:gmd=\"" + Namespaces.GMD + "\">\n" +
                "  <gmd:role>\n" +
                "    <gmd:CI_RoleCode codeList=\"" + baseURL + codelistsPath + "#CI_RoleCode\"" +
@@ -68,11 +69,11 @@ public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
     }
 
     /**
-     * Returns a XML string to use for testing purpose.
+     * Returns a XML string in 19139 to use for testing purpose.
      *
      * @param baseURL The base URL of XML schemas.
      */
-    public static String getCitationXML(final String baseURL, final String codelistsPath, final String language, final String value) {
+    private static String getCitationXML(final String baseURL, final String codelistsPath, final String language, final String value) {
         return "<gmd:CI_Date xmlns:gmd=\"" + Namespaces.GMD + "\">\n" +
                "  <gmd:dateType>\n" +
                "    <gmd:CI_DateTypeCode codeList=\"" + baseURL + codelistsPath + "#CI_DateTypeCode\"" +
@@ -80,6 +81,25 @@ public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
                "  </gmd:dateType>\n" +
                "</gmd:CI_Date>";
     }
+    
+    /**
+	 * Returns a XML string in 19115-3 to use for testing purpose.
+	 *
+	 * @param baseURL The base URL of XML schemas.
+	 */
+	private String getResponsiblePartyXML191153(final String baseURL, final String codelistPath) {
+		return ISOTestUtils.from19139(CodeListMarshallingTest.getResponsiblePartyXML(baseURL, codelistPath));
+	}
+
+	/**
+	 * Returns a XML string in 19115-3 to use for testing purpose.
+	 *
+	 * @param baseURL The base URL of XML schemas.
+	 */
+	private String getCitationXML191153(final String baseURL, final String codelistPath, final String language, final String value) {
+		return ISOTestUtils.from19139(CodeListMarshallingTest.getCitationXML(baseURL, codelistPath, language, value));
+	}
+
 
     /**
      * Tests marshaling using the default URL.
@@ -87,8 +107,8 @@ public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
      * @throws JAXBException If an error occurred while marshaling the XML.
      */
     @Test
-    public void testDefaultURL() throws JAXBException {
-        final String expected = getResponsiblePartyXML(Schemas.METADATA_ROOT, Schemas.CODELISTS_PATH);
+    public void testDefaultURL19139() throws JAXBException {
+        final String expected = getResponsiblePartyXML(Schemas.METADATA_ROOT_19139, Schemas.CODELISTS_PATH_19139);
         final Responsibility rp = (Responsibility) XML.unmarshal(expected);
         assertEquals(Role.PRINCIPAL_INVESTIGATOR, rp.getRole());
         /*
@@ -98,6 +118,24 @@ public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
         final String actual = XML.marshal(rp);
         assertXmlEquals(expected, actual, "xmlns:*");
     }
+    
+    /**
+	 * Tests marshaling using the default URL.
+	 *
+	 * @throws JAXBException If an error occurred while marshaling the XML.
+	 */
+	@Test
+	public void testDefaultURL191153() throws JAXBException {
+		final String expected = getResponsiblePartyXML191153(Schemas.METADATA_ROOT_191153, Schemas.CODELISTS_PATH_191153);
+		final Responsibility rp = (Responsibility) XML.unmarshal(expected, Namespaces.ISO_19115_3);
+		assertEquals(Role.PRINCIPAL_INVESTIGATOR, rp.getRole());
+		/*
+		 * Use the convenience method in order to avoid the effort of creating
+		 * our own MarshallerPool.
+		 */
+		final String actual = XML.marshal(rp, Namespaces.ISO_19115_3);
+		assertXmlEquals(expected, actual, "xmlns:*");
+	}
 
     /**
      * Tests marshaling using the ISO URL.
@@ -105,8 +143,8 @@ public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
      * @throws JAXBException If an error occurred while marshaling the XML.
      */
     @Test
-    public void testISO_URL() throws JAXBException {
-        final String expected = getResponsiblePartyXML(Schemas.ISO_19139_ROOT, Schemas.CODELISTS_PATH);
+    public void testISO_URL19139() throws JAXBException {
+        final String expected = getResponsiblePartyXML(Schemas.ISO_19139_ROOT, Schemas.CODELISTS_PATH_19139);
         final Responsibility rp = (Responsibility) XML.unmarshal(expected);
         assertEquals(Role.PRINCIPAL_INVESTIGATOR, rp.getRole());
 
@@ -125,14 +163,14 @@ public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
      * @throws JAXBException If an error occurred while marshaling the XML.
      */
     @Test
-    public void testLocalization() throws JAXBException {
+    public void testLocalization19139() throws JAXBException {
         final MarshallerPool pool = getMarshallerPool();
         final Marshaller marshaller = pool.acquireMarshaller();
         /*
          * First, test using the French locale.
          */
         marshaller.setProperty(XML.LOCALE, Locale.FRENCH);
-        String expected = getCitationXML(Schemas.METADATA_ROOT, Schemas.CODELISTS_PATH, "fra", "Création");
+        String expected = getCitationXML(Schemas.METADATA_ROOT_19139, Schemas.CODELISTS_PATH_19139, "fra", "Création");
         CitationDate ci = (CitationDate) XML.unmarshal(expected);
         assertEquals(DateType.CREATION, ci.getDateType());
         String actual = marshal(marshaller, ci);
@@ -141,7 +179,7 @@ public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
          * Tests again using the English locale.
          */
         marshaller.setProperty(XML.LOCALE, Locale.ENGLISH);
-        expected = getCitationXML(Schemas.METADATA_ROOT, Schemas.CODELISTS_PATH, "eng", "Creation");
+        expected = getCitationXML(Schemas.METADATA_ROOT_19139, Schemas.CODELISTS_PATH_19139, "eng", "Creation");
         ci = (CitationDate) XML.unmarshal(expected);
         assertEquals(DateType.CREATION, ci.getDateType());
         actual = marshal(marshaller, ci);
@@ -149,6 +187,38 @@ public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
 
         pool.recycle(marshaller);
     }
+    
+    /**
+	 * Tests a code list localization.
+	 *
+	 * @throws JAXBException If an error occurred while marshaling the XML.
+	 */
+	@Test
+	public void testLocalization191153() throws JAXBException {
+		final MarshallerPool pool = getMarshallerPool();
+		final Marshaller marshaller = pool.acquireMarshaller();
+		/*
+		 * First, test using the French locale.
+		 */
+		marshaller.setProperty(XML.LOCALE, Locale.FRENCH);
+		String expected19139 = CodeListMarshallingTest.getCitationXML(Schemas.METADATA_ROOT_191153, Schemas.CODELISTS_PATH_191153, "fra", "Création");
+		String expected = ISOTestUtils.from19139(expected19139, marshaller);
+		CitationDate ci = (CitationDate) XML.unmarshal(expected, Namespaces.ISO_19115_3);
+		assertEquals(DateType.CREATION, ci.getDateType());
+		String actual = marshal(marshaller, ci, Namespaces.ISO_19115_3);
+		assertXmlEquals(expected, actual, "xmlns:*");
+		/*
+		 * Tests again using the English locale.
+		 */
+		marshaller.setProperty(XML.LOCALE, Locale.ENGLISH);
+		expected = getCitationXML191153(Schemas.METADATA_ROOT_191153, Schemas.CODELISTS_PATH_191153, "eng", "Creation");
+		ci = (CitationDate) XML.unmarshal(expected, Namespaces.ISO_19115_3);
+		assertEquals(DateType.CREATION, ci.getDateType());
+		actual = marshal(marshaller, ci, Namespaces.ISO_19115_3);
+		assertXmlEquals(expected, actual, "xmlns:*");
+
+		pool.recycle(marshaller);
+	}
 
     /**
      * Tests marshaling of a code list which is not in the list of standard codes.
@@ -156,7 +226,7 @@ public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
      * @throws JAXBException If an error occurred while marshaling the XML.
      */
     @Test
-    public void testExtraCodes() throws JAXBException {
+    public void testExtraCodes19139() throws JAXBException {
         final DefaultCitation id = new DefaultCitation();
         id.setPresentationForms(Arrays.asList(
                 PresentationForm.valueOf("IMAGE_DIGITAL"), // Existing code with UML id="imageDigital"
@@ -176,4 +246,31 @@ public strictfp class CodeListMarshallingTest19139 extends XMLTestCase {
                 "</gmd:CI_Citation>\n",
                 xml, "xmlns:*", "codeList", "codeSpace");
     }
+    
+    /**
+	 * Tests marshaling of a code list which is not in the list of standard codes.
+	 *
+	 * @throws JAXBException If an error occurred while marshaling the XML.
+	 */
+	@Test
+	public void testExtraCodes191153() throws JAXBException {
+		final DefaultCitation id = new DefaultCitation();
+		id.setPresentationForms(Arrays.asList(
+				PresentationForm.valueOf("IMAGE_DIGITAL"), // Existing code with UML id="imageDigital"
+				PresentationForm.valueOf("test")));        // New code
+
+		final String xml = marshal(id, Namespaces.ISO_19115_3);
+
+		// "IMAGE_DIGITAL" is marshalled as "imageDigital" because is contains a UML id, which is lower-case.
+		String oldXML = 
+				"<gmd:CI_Citation xmlns:gmd=\"" + Namespaces.GMD + "\">\n" +
+						"  <gmd:presentationForm>\n" +
+						"    <gmd:CI_PresentationFormCode codeListValue=\"imageDigital\">Image digital</gmd:CI_PresentationFormCode>\n" +
+						"  </gmd:presentationForm>\n" +
+						"  <gmd:presentationForm>\n" +
+						"    <gmd:CI_PresentationFormCode codeListValue=\"test\">Test</gmd:CI_PresentationFormCode>\n" +
+						"  </gmd:presentationForm>\n" +
+						"</gmd:CI_Citation>\n";
+		assertXmlEquals(ISOTestUtils.from19139(oldXML), xml, "xmlns:*", "codeList", "codeSpace");
+	}
 }

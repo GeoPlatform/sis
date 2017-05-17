@@ -604,8 +604,12 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 	@XmlElement(name = "language")
 	private String getXmlLanguageString() {
 		Locale language = getLanguage();
-		String lang = language.getISO3Language();
-		String country = language.getISO3Country();
+		String lang = "";
+		String country = "";
+		if(language != null) {
+			lang = language.getISO3Language();
+			country = language.getISO3Country();
+		}
 		String formattedOutput = lang + "; " + country;
 		return MetadataInfo.is2014() ? null : formattedOutput;
 	}

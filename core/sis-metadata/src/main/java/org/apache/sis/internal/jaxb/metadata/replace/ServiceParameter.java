@@ -16,34 +16,35 @@
  */
 package org.apache.sis.internal.jaxb.metadata.replace;
 
-import java.util.Set;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import javax.measure.Unit;
-import org.opengis.util.TypeName;
-import org.opengis.util.MemberName;
-import org.opengis.util.GenericName;
-import org.opengis.util.InternationalString;
-import org.opengis.metadata.Identifier;
-import org.opengis.parameter.ParameterValue;
-import org.opengis.parameter.ParameterDirection;
-import org.opengis.parameter.ParameterDescriptor;
-import org.apache.sis.internal.simple.SimpleIdentifiedObject;
-import org.apache.sis.internal.jaxb.metadata.direct.GO_MemberName;
-import org.apache.sis.internal.metadata.ReferencingServices;
-import org.apache.sis.internal.metadata.NameToIdentifier;
-import org.apache.sis.util.ComparisonMode;
-import org.apache.sis.util.iso.Names;
-import org.apache.sis.xml.Namespaces;
-
-import static org.apache.sis.util.Utilities.deepEquals;
-import static org.apache.sis.internal.util.CollectionsExt.nonNull;
 import static org.apache.sis.internal.jaxb.gco.PropertyType.LEGACY_XML;
+import static org.apache.sis.internal.util.CollectionsExt.nonNull;
+import static org.apache.sis.util.Utilities.deepEquals;
 
 // Branch-dependent imports
 import java.util.Objects;
+import java.util.Set;
+
+import javax.measure.Unit;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.apache.sis.internal.jaxb.metadata.direct.GO_MemberName;
+import org.apache.sis.internal.metadata.NameToIdentifier;
+import org.apache.sis.internal.metadata.ReferencingServices;
+import org.apache.sis.internal.simple.SimpleIdentifiedObject;
+import org.apache.sis.util.ComparisonMode;
+import org.apache.sis.util.iso.Names;
+import org.apache.sis.xml.Namespaces;
+import org.opengis.metadata.Identifier;
+import org.opengis.parameter.ParameterDescriptor;
+import org.opengis.parameter.ParameterDirection;
+import org.opengis.parameter.ParameterValue;
+import org.opengis.util.GenericName;
+import org.opengis.util.InternationalString;
+import org.opengis.util.MemberName;
+import org.opengis.util.TypeName;
 
 
 /**

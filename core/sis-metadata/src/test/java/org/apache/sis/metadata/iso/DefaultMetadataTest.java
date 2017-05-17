@@ -16,33 +16,43 @@
  */
 package org.apache.sis.metadata.iso;
 
-import java.util.Date;
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Collection;
-import java.util.logging.LogRecord;
+import static org.apache.sis.test.MetadataAssert.assertTitleEquals;
+import static org.apache.sis.test.TestUtilities.date;
+import static org.apache.sis.test.TestUtilities.getSingleton;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.net.URISyntaxException;
-import javax.xml.bind.Unmarshaller;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.logging.LogRecord;
+
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
+import org.apache.sis.metadata.iso.citation.DefaultCitation;
+import org.apache.sis.metadata.iso.citation.DefaultCitationDate;
+import org.apache.sis.test.DependsOn;
+import org.apache.sis.test.XMLTestCase;
+import org.apache.sis.util.Version;
+import org.apache.sis.util.iso.SimpleInternationalString;
+import org.apache.sis.util.logging.WarningListener;
+import org.apache.sis.xml.MarshallerPool;
+import org.apache.sis.xml.Namespaces;
+import org.apache.sis.xml.XML;
+import org.junit.Test;
 import org.opengis.metadata.MetadataScope;
 import org.opengis.metadata.citation.Citation;
 import org.opengis.metadata.citation.DateType;
 import org.opengis.metadata.maintenance.ScopeCode;
-import org.apache.sis.xml.XML;
-import org.apache.sis.xml.Namespaces;
-import org.apache.sis.xml.MarshallerPool;
-import org.apache.sis.util.logging.WarningListener;
-import org.apache.sis.util.iso.SimpleInternationalString;
-import org.apache.sis.metadata.iso.citation.DefaultCitation;
-import org.apache.sis.metadata.iso.citation.DefaultCitationDate;
-import org.apache.sis.test.XMLTestCase;
-import org.apache.sis.test.DependsOn;
-import org.junit.Test;
-
-import static org.apache.sis.test.MetadataAssert.*;
-import static org.apache.sis.test.TestUtilities.date;
-import static org.apache.sis.test.TestUtilities.getSingleton;
 
 
 /**
@@ -51,10 +61,11 @@ import static org.apache.sis.test.TestUtilities.getSingleton;
  * <p><b>Note:</b> a metadata object with CRS information is tested by a different
  * {@code org.apache.sis.test.integration.DefaultMetadataTest} class in the {@code sis-referencing} module.</p>
  *
- * @author  Cédric Briançon (Geomatys)
+ * @author  Cédric Briançon 	(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @DependsOn(org.apache.sis.internal.metadata.OtherLocalesTest.class)
@@ -107,6 +118,19 @@ public final strictfp class DefaultMetadataTest extends XMLTestCase implements W
         pool.recycle(unmarshaller);
         return (DefaultMetadata) c;
     }
+    
+    /**
+     * Unmarshalls the given XML fragment (takes ISO standard version as an argument).
+     */
+    private DefaultMetadata unmarshal(final String xml, final Version version) throws JAXBException {
+        final MarshallerPool pool = getMarshallerPool();
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        unmarshaller.setProperty(XML.WARNING_LISTENER, this);
+        unmarshaller.setProperty(XML.METADATA_VERSION, version);
+        final Object c = unmarshal(unmarshaller, xml);
+        pool.recycle(unmarshaller);
+        return (DefaultMetadata) c;
+    }
 
     /**
      * Tests unmarshalling of a metadata having a collection that contains no element.
@@ -117,11 +141,31 @@ public final strictfp class DefaultMetadataTest extends XMLTestCase implements W
      * @see <a href="https://issues.apache.org/jira/browse/SIS-139">SIS-139</a>
      */
     @Test
-    public void testEmptyCollection() throws JAXBException {
+    public void testEmptyCollection191153() throws JAXBException {
         final DefaultMetadata metadata = unmarshal(
                 "<mdb:MD_Metadata xmlns:mdb=\"" + Namespaces.MDB + "\">\n" +
                 "  <mdb:contact/>\n" +
-                "</mdb:MD_Metadata>");
+                "</mdb:MD_Metadata>", Namespaces.ISO_19115_3);
+        /*
+         * Verify metadata property.
+         */
+        assertTrue(metadata.getContacts().isEmpty());
+        /*
+         * Verify warning message emitted during unmarshalling.
+         */
+        assertEquals("warning", "NullCollectionElement_1", resourceKey);
+        assertArrayEquals("warning", new String[] {"CheckedArrayList<Responsibility>"}, parameters);
+    }
+    
+    /**
+     * @see testEmptyCollection191153()
+     */
+    @Test
+    public void testEmptyCollection19139() throws JAXBException {
+        final DefaultMetadata metadata = unmarshal(
+                "<gmd:MD_Metadata xmlns:gmd=\"" + Namespaces.GMD + "\">\n" +
+                "  <gmd:contact/>\n" +
+                "</gmd:MD_Metadata>");
         /*
          * Verify metadata property.
          */

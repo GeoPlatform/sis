@@ -16,25 +16,43 @@
  */
 package org.apache.sis.metadata.iso.identification;
 
-import javax.xml.bind.JAXBException;
-import org.apache.sis.xml.XML;
-import org.apache.sis.xml.Namespaces;
-import org.apache.sis.xml.IdentifierSpace;
-import org.apache.sis.test.TestCase;
-import org.junit.Test;
+import static org.apache.sis.test.Assert.assertXmlEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
-import static org.apache.sis.test.Assert.*;
+import javax.xml.bind.JAXBException;
+
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
+import org.apache.sis.test.ISOTestUtils;
+import org.apache.sis.test.TestCase;
+import org.apache.sis.xml.IdentifierSpace;
+import org.apache.sis.xml.Namespaces;
+import org.apache.sis.xml.XML;
+import org.junit.Test;
 
 
 /**
  * Tests {@link DefaultRepresentativeFraction}.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.4
- * @version 0.7
- * @module
+ * @version 0.8
  */
 public final strictfp class DefaultRepresentativeFractionTest extends TestCase {
+	
+	private static String getIdentifiersXML() {
+		return "<gmd:MD_RepresentativeFraction xmlns:gmd=\"" + Namespaces.GMD + '"' +
+                                              " xmlns:gco=\"" + LegacyNamespaces.GCO + '"' +
+                                              " id=\"scale\">\n" +
+                "  <gmd:denominator>\n" +
+                "    <gco:Integer>8</gco:Integer>\n" +
+                "  </gmd:denominator>\n" +
+                "</gmd:MD_RepresentativeFraction>";
+	}
+	
     /**
      * Test {@link DefaultRepresentativeFraction#setScale(double)}.
      */
@@ -51,26 +69,38 @@ public final strictfp class DefaultRepresentativeFractionTest extends TestCase {
 
     /**
      * Tests XML marshalling of identifiers.
+     * ISO 19139.
      *
      * @throws JAXBException Should never happen.
      */
     @Test
-    public void testIdentifiers() throws JAXBException {
+    public void testIdentifiers19139() throws JAXBException {
         final DefaultRepresentativeFraction fraction = new DefaultRepresentativeFraction(8);
         fraction.getIdentifierMap().putSpecialized(IdentifierSpace.ID, "scale");
         final String xml = XML.marshal(fraction);
-        assertXmlEquals(
-                "<gmd:MD_RepresentativeFraction xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                                              " xmlns:gco=\"" + Namespaces.GCO + '"' +
-                                              " id=\"scale\">\n" +
-                "  <gmd:denominator>\n" +
-                "    <gco:Integer>8</gco:Integer>\n" +
-                "  </gmd:denominator>\n" +
-                "</gmd:MD_RepresentativeFraction>", xml, "xmlns:*");
+        assertXmlEquals(getIdentifiersXML(), xml, "xmlns:*");
         /*
          * Unmarshal the element back to a Java object and compare to the original.
          */
         assertEquals(fraction, XML.unmarshal(xml));
+    }
+    
+    /**
+     * Tests XML marshalling of identifiers.
+     * ISO 19115-3.
+     *
+     * @throws JAXBException Should never happen.
+     */
+    @Test
+    public void testIdentifiers191153() throws JAXBException {
+        final DefaultRepresentativeFraction fraction = new DefaultRepresentativeFraction(8);
+        fraction.getIdentifierMap().putSpecialized(IdentifierSpace.ID, "scale");
+        final String xml = XML.marshal(fraction, Namespaces.ISO_19115_3);
+        assertXmlEquals(ISOTestUtils.from19139(getIdentifiersXML()), xml, "xmlns:*");
+        /*
+         * Unmarshal the element back to a Java object and compare to the original.
+         */
+        assertEquals(fraction, XML.unmarshal(xml, Namespaces.ISO_19115_3));
     }
 
     /**

@@ -49,7 +49,7 @@ import static org.apache.sis.test.MetadataAssert.*;
  */
 @DependsOn({
     org.apache.sis.metadata.ValueMapTest.class,
-    org.apache.sis.metadata.iso.citation.DefaultCitationTestLegacy.class,
+    org.apache.sis.metadata.iso.citation.DefaultCitationTest.class,
     org.apache.sis.metadata.iso.citation.DefaultCitationDateTest.class,
     org.apache.sis.metadata.iso.extent.DefaultGeographicBoundingBoxTest.class,
     DefaultKeywordsTest.class

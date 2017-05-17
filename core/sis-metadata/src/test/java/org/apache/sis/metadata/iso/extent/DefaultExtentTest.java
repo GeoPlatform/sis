@@ -16,26 +16,37 @@
  */
 package org.apache.sis.metadata.iso.extent;
 
-import java.net.URL;
+import static org.apache.sis.test.Assert.assertXmlEquals;
+import static org.apache.sis.test.TestUtilities.date;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import javax.xml.bind.JAXBException;
-import org.apache.sis.xml.IdentifierSpace;
-import org.apache.sis.test.XMLTestCase;
+
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.test.DependsOn;
+import org.apache.sis.test.ISOTestUtils;
+import org.apache.sis.test.XMLTestCase;
+import org.apache.sis.xml.IdentifierSpace;
 import org.apache.sis.xml.Namespaces;
 import org.junit.Test;
-
-import static org.apache.sis.test.Assert.*;
-import static org.apache.sis.test.TestUtilities.date;
 
 
 /**
  * Tests {@link DefaultExtent}.
  *
- * @author  Cédric Briançon (Geomatys)
+ * @author  Cédric Briançon 	(Geomatys)
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.6
+ * @version 0.8
  * @module
  */
 @DependsOn(DefaultGeographicBoundingBoxTest.class)
@@ -68,7 +79,7 @@ public final strictfp class DefaultExtentTest extends XMLTestCase {
      * @throws JAXBException If an error occurred during the during marshalling / unmarshalling processes.
      */
     @Test
-    public void testXML() throws IOException, JAXBException {
+    public void testXML19139() throws IOException, JAXBException {
         final DefaultGeographicBoundingBox bbox = new DefaultGeographicBoundingBox(-99, -79, 14.9844, 31);
         bbox.getIdentifierMap().put(IdentifierSpace.ID, "bbox");
         final DefaultTemporalExtent temporal = new DefaultTemporalExtent();
@@ -88,6 +99,39 @@ public final strictfp class DefaultExtentTest extends XMLTestCase {
          */
         assertEquals(extent, unmarshal(DefaultExtent.class, xml));
     }
+    
+    /**
+     * @see testXML19139. This is the ISO 19115-3 version.
+     * @throws IOException
+     * @throws JAXBException
+     * @throws URISyntaxException 
+     */
+    @Test
+    public void testXML191153() throws IOException, JAXBException, URISyntaxException {
+        final DefaultGeographicBoundingBox bbox = new DefaultGeographicBoundingBox(-99, -79, 14.9844, 31);
+        bbox.getIdentifierMap().put(IdentifierSpace.ID, "bbox");
+        final DefaultTemporalExtent temporal = new DefaultTemporalExtent();
+        if (PENDING_FUTURE_SIS_VERSION) {
+            // This block needs sis-temporal module.
+            temporal.setBounds(date("2010-01-27 13:26:10"), date("2010-08-27 13:26:10"));
+        }
+        final DefaultExtent extent = new DefaultExtent(null, bbox, null, temporal);
+        /*
+         * XML marshalling, and compare with the content of "ProcessStep.xml" file.
+         */
+        final String xml = marshal(extent, Namespaces.ISO_19115_3);
+        assertTrue(xml.startsWith("<?xml"));
+        
+        // Need to extract the string from the accessed resource in order to convert it to ISO 19115-3.
+        String contents = new String(Files.readAllBytes(Paths.get(getResource("Extent.xml").toURI())));
+        String contents191153 = ISOTestUtils.from19139(contents);
+        
+        assertXmlEquals(contents191153, xml, "xmlns:*", "xsi:schemaLocation");
+        /*
+         * Final comparison: ensure that we didn't lose any information.
+         */
+        assertEquals(extent, unmarshal(DefaultExtent.class, xml));
+    }
 
     /**
      * Tests XML marshalling of the {@link Extents#WORLD} constant, which is a {@code DefaultExtent} instance.
@@ -97,10 +141,24 @@ public final strictfp class DefaultExtentTest extends XMLTestCase {
      * @since 0.6
      */
     @Test
-    public void testWorldConstant() throws JAXBException {
+    public void testWorldConstant19139() throws JAXBException {
         final String xml = marshal(Extents.WORLD);
-        assertXmlEquals("<gmd:EX_Extent" +
-                " xmlns:gco=\"" + Namespaces.GCO + '"' +
+        assertXmlEquals(getWorldConstantXML(), xml, "xmlns:*", "xsi:schemaLocation");
+    }
+    
+   	/**
+   	 * @see testWorldConstant19139. This is the ISO 19115-3 version.
+   	 * @throws JAXBException
+   	 */
+    @Test
+    public void testWorldConstant191153() throws JAXBException {
+        final String xml = marshal(Extents.WORLD, Namespaces.ISO_19115_3);
+        assertXmlEquals(ISOTestUtils.from19139(getWorldConstantXML()), xml, "xmlns:*", "xsi:schemaLocation");
+    }
+    
+    private static String getWorldConstantXML() {
+    	return "<gmd:EX_Extent" +
+                " xmlns:gco=\"" + LegacyNamespaces.GCO + '"' +
                 " xmlns:gmd=\"" + Namespaces.GMD + "\">\n" +
                 "  <gmd:description>\n" +
                 "    <gco:CharacterString>World</gco:CharacterString>\n" +
@@ -114,7 +172,6 @@ public final strictfp class DefaultExtentTest extends XMLTestCase {
                 "      <gmd:northBoundLatitude><gco:Decimal>   90 </gco:Decimal></gmd:northBoundLatitude>\n" +
                 "    </gmd:EX_GeographicBoundingBox>\n" +
                 "  </gmd:geographicElement>\n" +
-                "</gmd:EX_Extent>",
-                xml, "xmlns:*", "xsi:schemaLocation");
+                "</gmd:EX_Extent>";
     }
 }

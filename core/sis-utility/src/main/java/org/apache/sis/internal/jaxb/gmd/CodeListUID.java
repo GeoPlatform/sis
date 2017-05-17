@@ -68,13 +68,13 @@ public final class CodeListUID {
 	 */
 	private static String schema(final Context context, final String identifier) {
 		if(MetadataInfo.is2014()) {
-			return Context.schema(context, "mdb", Schemas.METADATA_ROOT_NEW)
-					.append(Schemas.CODELISTS_PATH_NEW) // Future SIS version may switch between localized/unlocalized file.
+			return Context.schema(context, "mdb", Schemas.METADATA_ROOT_191153)
+					.append(Schemas.CODELISTS_PATH_191153) // Future SIS version may switch between localized/unlocalized file.
 					.append('#').append(identifier).toString();
 		}
 		else { // MetadataInfo.is2003()
-			return Context.schema(context, "gmd", Schemas.METADATA_ROOT)
-					.append(Schemas.CODELISTS_PATH) // Future SIS version may switch between localized/unlocalized file.
+			return Context.schema(context, "gmd", Schemas.METADATA_ROOT_19139)
+					.append(Schemas.CODELISTS_PATH_19139) // Future SIS version may switch between localized/unlocalized file.
 					.append('#').append(identifier).toString();
 		}
 	}

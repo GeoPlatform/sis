@@ -88,7 +88,7 @@
  * @version 0.8
  * @module
  */
-@XmlSchema(location = Schemas.METADATA_XSD_BASE, elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.MDB, xmlns = {
+@XmlSchema(location = Schemas.METADATA_XSD_BASE_19139, elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.MDB, xmlns = {
     @XmlNs(prefix = "cit", namespaceURI = Namespaces.CIT),
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
     @XmlNs(prefix = "lan", namespaceURI = Namespaces.LAN),
