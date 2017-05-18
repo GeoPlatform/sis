@@ -606,11 +606,17 @@ public class DefaultMetadata extends ISOMetadata implements Metadata {
 		Locale language = getLanguage();
 		String lang = "";
 		String country = "";
+		// Get the language and country codes.
 		if(language != null) {
 			lang = language.getISO3Language();
 			country = language.getISO3Country();
 		}
-		String formattedOutput = lang + "; " + country;
+		// Format them into a string (if they exist).
+		String formattedOutput = null;
+		if(!lang.equals("") || !country.equals("")) {
+			formattedOutput = lang + "; " + country;
+		}
+		// Return the formatted output, or null if ISO 19115-3.
 		return MetadataInfo.is2014() ? null : formattedOutput;
 	}
 

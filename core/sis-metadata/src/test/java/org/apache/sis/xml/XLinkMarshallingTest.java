@@ -16,29 +16,37 @@
  */
 package org.apache.sis.xml;
 
-import java.util.Collections;
+import static org.apache.sis.test.Assert.assertXmlEquals;
+import static org.apache.sis.test.TestUtilities.getSingleton;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.opengis.test.Assert.assertInstanceOf;
+
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Collections;
+
 import javax.xml.bind.JAXBException;
-import org.opengis.metadata.identification.Identification;
+
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.metadata.iso.DefaultMetadata;
 import org.apache.sis.metadata.iso.identification.DefaultDataIdentification;
-import org.apache.sis.util.iso.SimpleInternationalString;
-import org.apache.sis.util.ComparisonMode;
 import org.apache.sis.test.DependsOn;
+import org.apache.sis.test.ISOTestUtils;
 import org.apache.sis.test.XMLTestCase;
+import org.apache.sis.util.ComparisonMode;
+import org.apache.sis.util.iso.SimpleInternationalString;
 import org.junit.Test;
-
-import static org.apache.sis.test.Assert.*;
-import static org.apache.sis.test.TestUtilities.getSingleton;
+import org.opengis.metadata.identification.Identification;
 
 
 /**
  * Tests the XML marshalling of object having {@code xlink} attribute.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.4
- * @version 0.4
+ * @version 0.8
  * @module
  *
  * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-165">GEOTK-165</a>
@@ -59,7 +67,7 @@ public final strictfp class XLinkMarshallingTest extends XMLTestCase {
      */
     private static final String LINK_WITH_ELEMENT_XML =
             "<gmd:MD_Metadata xmlns:gmd=\""   + Namespaces.GMD + '"' +
-                            " xmlns:gco=\""   + Namespaces.GCO + '"' +
+                            " xmlns:gco=\""   + LegacyNamespaces.GCO + '"' +
                             " xmlns:xlink=\"" + Namespaces.XLINK + "\">\n" +
             "  <gmd:identificationInfo xlink:href=\"http://test.net\">\n" +
             "    <gmd:MD_DataIdentification>\n" +
@@ -98,7 +106,7 @@ public final strictfp class XLinkMarshallingTest extends XMLTestCase {
      * @throws URISyntaxException Should never happen.
      */
     @Test
-    public void testLinkOnly() throws JAXBException, URISyntaxException {
+    public void testLinkOnly19139() throws JAXBException, URISyntaxException {
         final XLink xlink = new XLink();
         xlink.setHRef(new URI("http://test.net"));
         final DefaultDataIdentification identification = new DefaultDataIdentification();
@@ -108,6 +116,27 @@ public final strictfp class XLinkMarshallingTest extends XMLTestCase {
 
         assertXmlEquals(LINK_ONLY_XML, XML.marshal(metadata), "xmlns:*");
         verify(true, unmarshal(DefaultMetadata.class, LINK_ONLY_XML));
+    }
+    
+    /**
+     * @see testLinkOnly19139. This is the ISO 19115-3 version.
+     * @throws JAXBException
+     * @throws URISyntaxException
+     */
+    @Test
+    public void testLinkOnly191153() throws JAXBException, URISyntaxException {
+        final XLink xlink = new XLink();
+        xlink.setHRef(new URI("http://test.net"));
+        final DefaultDataIdentification identification = new DefaultDataIdentification();
+        identification.getIdentifierMap().putSpecialized(IdentifierSpace.XLINK, xlink);
+        final DefaultMetadata metadata = new DefaultMetadata();
+        metadata.setIdentificationInfo(Collections.singleton(identification));
+        
+        // Convert test XML to ISO 19115-3.
+        String linkOnlyXml = ISOTestUtils.from19139(LINK_ONLY_XML);
+
+        assertXmlEquals(linkOnlyXml, XML.marshal(metadata, Namespaces.ISO_19115_3), "xmlns:*");
+        verify(true, unmarshal(DefaultMetadata.class, linkOnlyXml, Namespaces.ISO_19115_3));
     }
 
     /**
@@ -130,7 +159,7 @@ public final strictfp class XLinkMarshallingTest extends XMLTestCase {
      * @throws URISyntaxException Should never happen.
      */
     @Test
-    public void testWithElement() throws JAXBException, URISyntaxException {
+    public void testWithElement19139() throws JAXBException, URISyntaxException {
         final XLink xlink = new XLink();
         xlink.setHRef(new URI("http://test.net"));
         final DefaultDataIdentification identification = new DefaultDataIdentification();
@@ -141,6 +170,30 @@ public final strictfp class XLinkMarshallingTest extends XMLTestCase {
 
         assertXmlEquals(LINK_WITH_ELEMENT_XML, XML.marshal(metadata), "xmlns:*");
         final DefaultMetadata unmarshal = unmarshal(DefaultMetadata.class, LINK_WITH_ELEMENT_XML);
+        verify(false, unmarshal);
+        assertTrue(metadata.equals(unmarshal, ComparisonMode.DEBUG));
+    }
+    
+    /**
+     * @see testWithElement19139. This is the ISO 19115-3 version.
+     * @throws JAXBException
+     * @throws URISyntaxException
+     */
+    @Test
+    public void testWithElement191153() throws JAXBException, URISyntaxException {
+        final XLink xlink = new XLink();
+        xlink.setHRef(new URI("http://test.net"));
+        final DefaultDataIdentification identification = new DefaultDataIdentification();
+        identification.getIdentifierMap().putSpecialized(IdentifierSpace.XLINK, xlink);
+        identification.setAbstract(new SimpleInternationalString("This is a test."));
+        final DefaultMetadata metadata = new DefaultMetadata();
+        metadata.setIdentificationInfo(Collections.singleton(identification));
+        
+        // Generate ISO 19115-3 version of LINK_WITH_ELEMENT_XML.
+        String linkWithElementXml = ISOTestUtils.from19139(LINK_WITH_ELEMENT_XML);
+
+        assertXmlEquals(linkWithElementXml, XML.marshal(metadata, Namespaces.ISO_19115_3), "xmlns:*");
+        final DefaultMetadata unmarshal = unmarshal(DefaultMetadata.class, linkWithElementXml, Namespaces.ISO_19115_3);
         verify(false, unmarshal);
         assertTrue(metadata.equals(unmarshal, ComparisonMode.DEBUG));
     }

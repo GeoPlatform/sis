@@ -24,6 +24,7 @@ import javax.xml.bind.JAXBException;
 
 import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.metadata.iso.DefaultIdentifier;
+import org.apache.sis.test.ISOTestUtils;
 import org.apache.sis.test.XMLTestCase;
 import org.apache.sis.util.iso.SimpleInternationalString;
 import org.apache.sis.xml.Namespaces;
@@ -41,57 +42,90 @@ import org.junit.Test;
  * @module
  */
 public final strictfp class DefaultLineageTest extends XMLTestCase {
-    /**
-     * Tests the marshalling of an {@code "gmd:LI_Source"} element, which shall become
-     * {@code "gmi:LE_Source"} when some ISO 19115-2 properties are defined.
-     *
-     * @throws JAXBException If an error occurred while marshalling the XML.
-     */
-    @Test
-    public void testSource() throws JAXBException {
-        final DefaultLineage lineage = new DefaultLineage();
-        final DefaultSource source = new DefaultSource();
-        source.setDescription(new SimpleInternationalString("Description of source data level."));
-        lineage.setSources(Arrays.asList(source));
-        /*
-         * If this simpler case, only ISO 19115 elements are defined (no ISO 19115-2).
-         * Consequently the XML name shall be "gmd:LI_Source".
-         */
-        String actual = XML.marshal(lineage);
-        assertXmlEquals(
-            "<gmd:LI_Lineage xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                           " xmlns:gco=\"" + Namespaces.GCO + "\">\n" +
-            "  <gmd:source>\n" +
-            "    <gmd:LI_Source>\n" +
-            "      <gmd:description>\n" +
-            "        <gco:CharacterString>Description of source data level.</gco:CharacterString>\n" +
-            "      </gmd:description>\n" +
-            "    </gmd:LI_Source>\n" +
-            "  </gmd:source>\n" +
-            "</gmd:LI_Lineage>", actual, "xmlns:*");
-        /*
-         * Now add a ISO 19115-2 specific property. The XML name shall become "gmi:LE_Source".
-         */
-        source.setProcessedLevel(new DefaultIdentifier("DummyLevel"));
-        actual = XML.marshal(lineage);
-        assertXmlEquals(
-            "<gmd:LI_Lineage xmlns:gmd=\"" + Namespaces.GMD + '"' +
-                           " xmlns:gmi=\"" + LegacyNamespaces.GMI + '"' +
-                           " xmlns:gco=\"" + Namespaces.GCO + "\">\n" +
-            "  <gmd:source>\n" +
-            "    <gmi:LE_Source>\n" +
-            "      <gmd:description>\n" +
-            "        <gco:CharacterString>Description of source data level.</gco:CharacterString>\n" +
-            "      </gmd:description>\n" +
-            "      <gmi:processedLevel>\n" +
-            "        <gmd:MD_Identifier>\n" +
-            "          <gmd:code>\n" +
-            "            <gco:CharacterString>DummyLevel</gco:CharacterString>\n" +
-            "          </gmd:code>\n" +
-            "        </gmd:MD_Identifier>\n" +
-            "      </gmi:processedLevel>\n" +
-            "    </gmi:LE_Source>\n" +
-            "  </gmd:source>\n" +
-            "</gmd:LI_Lineage>", actual, "xmlns:*");
-    }
+
+	private static String getLineageXML() {
+		return "<gmd:LI_Lineage xmlns:gmd=\"" + Namespaces.GMD + '"' +
+				" xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
+				"  <gmd:source>\n" +
+				"    <gmd:LI_Source>\n" +
+				"      <gmd:description>\n" +
+				"        <gco:CharacterString>Description of source data level.</gco:CharacterString>\n" +
+				"      </gmd:description>\n" +
+				"    </gmd:LI_Source>\n" +
+				"  </gmd:source>\n" +
+				"</gmd:LI_Lineage>";
+	}
+
+	private static String getSourceXML() {
+		return "<gmd:LI_Lineage xmlns:gmd=\"" + Namespaces.GMD + '"' +
+				" xmlns:gmi=\"" + LegacyNamespaces.GMI + '"' +
+				" xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
+				"  <gmd:source>\n" +
+				"    <gmi:LE_Source>\n" +
+				"      <gmd:description>\n" +
+				"        <gco:CharacterString>Description of source data level.</gco:CharacterString>\n" +
+				"      </gmd:description>\n" +
+				"      <gmi:processedLevel>\n" +
+				"        <gmd:MD_Identifier>\n" +
+				"          <gmd:code>\n" +
+				"            <gco:CharacterString>DummyLevel</gco:CharacterString>\n" +
+				"          </gmd:code>\n" +
+				"        </gmd:MD_Identifier>\n" +
+				"      </gmi:processedLevel>\n" +
+				"    </gmi:LE_Source>\n" +
+				"  </gmd:source>\n" +
+				"</gmd:LI_Lineage>";
+	}
+
+	/**
+	 * Tests the marshalling of an {@code "gmd:LI_Source"} element, which shall become
+	 * {@code "gmi:LE_Source"} when some ISO 19115-2 properties are defined.
+	 *
+	 * @throws JAXBException If an error occurred while marshalling the XML.
+	 */
+	@Test
+	public void testSource19139() throws JAXBException {
+		final DefaultLineage lineage = new DefaultLineage();
+		final DefaultSource source = new DefaultSource();
+		source.setDescription(new SimpleInternationalString("Description of source data level."));
+		lineage.setSources(Arrays.asList(source));
+		/*
+		 * If this simpler case, only ISO 19115 elements are defined (no ISO 19115-2).
+		 * Consequently the XML name shall be "gmd:LI_Source".
+		 */
+		String actual = XML.marshal(lineage);
+		assertXmlEquals(getLineageXML(), actual, "xmlns:*");
+		/*
+		 * Now add a ISO 19115-2 specific property. The XML name shall become "gmi:LE_Source".
+		 */
+		source.setProcessedLevel(new DefaultIdentifier("DummyLevel"));
+		actual = XML.marshal(lineage);
+		assertXmlEquals(getSourceXML(), actual, "xmlns:*");
+	}
+
+	/**
+	 * Tests the marshalling of an {@code "gmd:LI_Source"} element, which shall become
+	 * {@code "gmi:LE_Source"} when some ISO 19115-2 properties are defined.
+	 *
+	 * @throws JAXBException If an error occurred while marshalling the XML.
+	 */
+	@Test
+	public void testSource191153() throws JAXBException {
+		final DefaultLineage lineage = new DefaultLineage();
+		final DefaultSource source = new DefaultSource();
+		source.setDescription(new SimpleInternationalString("Description of source data level."));
+		lineage.setSources(Arrays.asList(source));
+		/*
+		 * If this simpler case, only ISO 19115 elements are defined (no ISO 19115-2).
+		 * Consequently the XML name shall be "gmd:LI_Source".
+		 */
+		String actual = XML.marshal(lineage, Namespaces.ISO_19115_3);
+		assertXmlEquals(ISOTestUtils.from19139(getLineageXML()), actual, "xmlns:*");
+		/*
+		 * Now add a ISO 19115-2 specific property. The XML name shall become "gmi:LE_Source".
+		 */
+		source.setProcessedLevel(new DefaultIdentifier("DummyLevel"));
+		actual = XML.marshal(lineage, Namespaces.ISO_19115_3);
+		assertXmlEquals(ISOTestUtils.from19139(getSourceXML()), actual, "xmlns:*");
+	}
 }

@@ -16,33 +16,35 @@
  */
 package org.apache.sis.metadata.iso.quality;
 
+import static org.apache.sis.util.collection.Containers.isNullOrEmpty;
+
+import java.io.Serializable;
+import java.util.AbstractList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.Collection;
-import java.util.AbstractList;
-import java.io.Serializable;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
-import org.opengis.metadata.Identifier;
-import org.opengis.metadata.citation.Citation;
-import org.opengis.metadata.quality.Result;
-import org.opengis.metadata.quality.Element;
-import org.opengis.metadata.quality.Usability;
-import org.opengis.metadata.quality.Completeness;
-import org.opengis.metadata.quality.TemporalAccuracy;
-import org.opengis.metadata.quality.ThematicAccuracy;
-import org.opengis.metadata.quality.PositionalAccuracy;
-import org.opengis.metadata.quality.LogicalConsistency;
-import org.opengis.metadata.quality.EvaluationMethodType;
-import org.opengis.util.InternationalString;
-import org.apache.sis.metadata.iso.ISOMetadata;
+import javax.xml.bind.annotation.XmlType;
+
 import org.apache.sis.internal.system.Semaphores;
+import org.apache.sis.metadata.iso.ISOMetadata;
 import org.apache.sis.util.collection.CheckedContainer;
 import org.apache.sis.util.resources.Errors;
-
-import static org.apache.sis.util.collection.Containers.isNullOrEmpty;
+import org.opengis.metadata.Identifier;
+import org.opengis.metadata.citation.Citation;
+import org.opengis.metadata.quality.Completeness;
+import org.opengis.metadata.quality.Element;
+import org.opengis.metadata.quality.EvaluationMethodType;
+import org.opengis.metadata.quality.LogicalConsistency;
+import org.opengis.metadata.quality.PositionalAccuracy;
+import org.opengis.metadata.quality.Result;
+import org.opengis.metadata.quality.TemporalAccuracy;
+import org.opengis.metadata.quality.ThematicAccuracy;
+import org.opengis.metadata.quality.Usability;
+import org.opengis.util.InternationalString;
 
 
 /**

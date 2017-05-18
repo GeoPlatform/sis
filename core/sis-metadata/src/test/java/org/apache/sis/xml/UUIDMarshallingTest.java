@@ -16,24 +16,35 @@
  */
 package org.apache.sis.xml;
 
+import static org.apache.sis.test.Assert.assertXmlEquals;
+import static org.apache.sis.test.MetadataAssert.assertTitleEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.opengis.test.Assert.assertInstanceOf;
+
 import java.lang.reflect.Proxy;
+
 import javax.xml.bind.JAXBException;
-import org.opengis.metadata.citation.Series;
-import org.opengis.metadata.citation.Citation;
-import org.apache.sis.test.DependsOnMethod;
+
+import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.test.DependsOn;
+import org.apache.sis.test.DependsOnMethod;
+import org.apache.sis.test.ISOTestUtils;
 import org.apache.sis.test.XMLTestCase;
 import org.junit.Test;
-
-import static org.apache.sis.test.MetadataAssert.*;
+import org.opengis.metadata.citation.Citation;
+import org.opengis.metadata.citation.Series;
 
 
 /**
  * Tests the XML marshalling of object having {@code uuid} or {@code uuidref} attributes.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.4
+ * @version 0.8
  * @module
  *
  * @see <a href="http://jira.geotoolkit.org/browse/GEOTK-165">GEOTK-165</a>
@@ -50,7 +61,7 @@ public final strictfp class UUIDMarshallingTest extends XMLTestCase {
      */
     private static final String IDENTIFIED_XML =
             "<gmd:CI_Citation xmlns:gmd=\""   + Namespaces.GMD + '"' +
-                            " xmlns:gco=\""   + Namespaces.GCO + "\">\n" +
+                            " xmlns:gco=\""   + LegacyNamespaces.GCO + "\">\n" +
             "  <gmd:title>\n" +
             "    <gco:CharacterString>My data</gco:CharacterString>\n" +
             "  </gmd:title>\n" +
@@ -69,7 +80,7 @@ public final strictfp class UUIDMarshallingTest extends XMLTestCase {
      */
     private static final String REFERENCED_XML_WITH_BODY =
             "<gmd:CI_Citation xmlns:gmd=\""   + Namespaces.GMD + '"' +
-                            " xmlns:gco=\""   + Namespaces.GCO + "\">\n" +
+                            " xmlns:gco=\""   + LegacyNamespaces.GCO + "\">\n" +
             "  <gmd:title>\n" +
             "    <gco:CharacterString>My data</gco:CharacterString>\n" +
             "  </gmd:title>\n" +
@@ -87,7 +98,7 @@ public final strictfp class UUIDMarshallingTest extends XMLTestCase {
      */
     private static final String REFERENCED_XML =
             "<gmd:CI_Citation xmlns:gmd=\""   + Namespaces.GMD + '"' +
-                            " xmlns:gco=\""   + Namespaces.GCO + "\">\n" +
+                            " xmlns:gco=\""   + LegacyNamespaces.GCO + "\">\n" +
             "  <gmd:title>\n" +
             "    <gco:CharacterString>My data</gco:CharacterString>\n" +
             "  </gmd:title>\n" +
@@ -120,7 +131,7 @@ public final strictfp class UUIDMarshallingTest extends XMLTestCase {
      * @throws JAXBException Should never happen.
      */
     @Test
-    public void testIdentification() throws JAXBException {
+    public void testIdentification19139() throws JAXBException {
         final Citation citation = (Citation) XML.unmarshal(IDENTIFIED_XML);
         assertTitleEquals("Citation", "My data", citation);
         /*
@@ -141,6 +152,35 @@ public final strictfp class UUIDMarshallingTest extends XMLTestCase {
         final String actual = XML.marshal(citation);
         assertXmlEquals(IDENTIFIED_XML, actual, "xmlns:*");
         assertEquals(citation, XML.unmarshal(actual));
+    }
+    
+    /**
+     * @see testIdentification19139. This is the ISO 19115-3 version.
+     * @throws JAXBException
+     */
+    @Test
+    public void testIdentification191153() throws JAXBException {
+    	final String IDENTIFIED_XML_19115_3 = ISOTestUtils.from19139(IDENTIFIED_XML);
+        final Citation citation = (Citation) XML.unmarshal(IDENTIFIED_XML_19115_3, Namespaces.ISO_19115_3);
+        assertTitleEquals("Citation", "My data", citation);
+        /*
+         * Programmatic verification of the Series properties,
+         * which is the main object of interest in this test.
+         */
+        final Series series = citation.getSeries();
+        assertFalse("Unexpected proxy", Proxy.isProxyClass(series.getClass()));
+        assertInstanceOf("Expected IdentifiedObject", IdentifiedObject.class, series);
+        final IdentifierMap map = ((IdentifiedObject) series).getIdentifierMap();
+        assertEquals("series", "My aggregate dataset",  series.getName().toString());
+        assertNull  ("href", map.get(IdentifierSpace.HREF));
+        assertEquals(UUID_VALUE, String.valueOf(map.get(IdentifierSpace.UUID)));
+        /*
+         * Marshal the object back to XML and compare with the original string
+         * supplied to this method.
+         */
+        final String actual = XML.marshal(citation, Namespaces.ISO_19115_3);
+        assertXmlEquals(IDENTIFIED_XML_19115_3, actual, "xmlns:*");
+        assertEquals(citation, XML.unmarshal(actual, Namespaces.ISO_19115_3));
     }
 
     /**
@@ -171,7 +211,7 @@ public final strictfp class UUIDMarshallingTest extends XMLTestCase {
      * @throws JAXBException Should never happen.
      */
     @Test
-    public void testReference() throws JAXBException {
+    public void testReference19139() throws JAXBException {
         final Citation citation = (Citation) XML.unmarshal(REFERENCED_XML_WITH_BODY);
         assertTitleEquals("Citation.title", "My data", citation);
         /*
@@ -195,6 +235,37 @@ public final strictfp class UUIDMarshallingTest extends XMLTestCase {
         assertXmlEquals(IDENTIFIED_XML, actual, "xmlns:*");
         assertEquals(citation, XML.unmarshal(actual));
     }
+    
+    /**
+     * @see testReference19139. This is the ISO 19115-3 version.
+     * @throws JAXBException
+     */
+    @Test
+    public void testReference191153() throws JAXBException {
+    	final String REFERENCED_XML_WITH_BODY_19115_3 = ISOTestUtils.from19139(REFERENCED_XML_WITH_BODY);
+        final Citation citation = (Citation) XML.unmarshal(REFERENCED_XML_WITH_BODY_19115_3, Namespaces.ISO_19115_3);
+        assertTitleEquals("Citation.title", "My data", citation);
+        /*
+         * Programmatic verification of the Series properties,
+         * which is the main object of interest in this test.
+         */
+        final Series series = citation.getSeries();
+        assertInstanceOf("Citation.series", IdentifiedObject.class, series);
+        assertFalse     ("Citation.series.isProxy", Proxy.isProxyClass(series.getClass()));
+        assertEquals    ("Citation.series.name", "My aggregate dataset", series.getName().toString());
+        final IdentifierMap map = ((IdentifiedObject) series).getIdentifierMap();
+        assertNull  ("href",             map.get(IdentifierSpace.HREF));
+        assertEquals("uuid", UUID_VALUE, map.get(IdentifierSpace.UUID));
+        /*
+         * Marshal the object back to XML and compare with the expected result. The result shall be
+         * slightly different than the original XML, since the UUID in the <gmd:series> element shall
+         * move to the <gmd:CI_Series> element. This is the expected behavior because we have a fully
+         * constructed object, not a reference to an object defined elsewhere.
+         */
+        final String actual = XML.marshal(citation, Namespaces.ISO_19115_3);
+        assertXmlEquals(ISOTestUtils.from19139(IDENTIFIED_XML), actual, "xmlns:*");
+        assertEquals(citation, XML.unmarshal(actual, Namespaces.ISO_19115_3));
+    }
 
     /**
      * The same test than {@link #testReference()}, except that the {@code <gmd:CI_Series>} element is empty.
@@ -203,8 +274,8 @@ public final strictfp class UUIDMarshallingTest extends XMLTestCase {
      * @throws JAXBException Should never happen.
      */
     @Test
-    @DependsOnMethod("testReference")
-    public void testReferenceInEmptyObject() throws JAXBException {
+    @DependsOnMethod("testReference19139")
+    public void testReferenceInEmptyObject19139() throws JAXBException {
         final Citation citation = (Citation) XML.unmarshal(REFERENCED_XML);
         assertTitleEquals("Citation.title", "My data", citation);
         /*
@@ -226,5 +297,36 @@ public final strictfp class UUIDMarshallingTest extends XMLTestCase {
         final String actual = XML.marshal(citation);
         assertXmlEquals(REFERENCED_XML, actual, "xmlns:*");
         assertEquals(citation, XML.unmarshal(actual));
+    }
+    
+    /**
+     * @see testReferenceInEmptyObject19139. This is the ISO 19115-3 version.
+     * @throws JAXBException
+     */
+    @Test
+    @DependsOnMethod("testReference191153")
+    public void testReferenceInEmptyObject191153() throws JAXBException {
+    	final String REFERENCED_XML_19115_3 = ISOTestUtils.from19139(REFERENCED_XML);
+        final Citation citation = (Citation) XML.unmarshal(REFERENCED_XML_19115_3, Namespaces.ISO_19115_3);
+        assertTitleEquals("Citation.title", "My data", citation);
+        /*
+         * Programmatic verification of the Series properties,
+         * which is the main object of interest in this test.
+         */
+        final Series series = citation.getSeries();
+        assertInstanceOf("Citation.series", IdentifiedObject.class, series);
+        assertNull      ("Citation.series.name", series.getName());
+        assertTrue      ("Citation.series.isProxy", Proxy.isProxyClass(series.getClass()));
+        assertInstanceOf("Citation.series", NilObject.class, series);
+        assertEquals    ("Series[{gco:uuid=“" + UUID_VALUE + "”}]", series.toString());
+        final IdentifierMap map = ((IdentifiedObject) series).getIdentifierMap();
+        assertNull  ("href",             map.get(IdentifierSpace.HREF));
+        assertEquals("uuid", UUID_VALUE, map.get(IdentifierSpace.UUID));
+        /*
+         * Marshal the object back to XML and compare with the expected result.
+         */
+        final String actual = XML.marshal(citation, Namespaces.ISO_19115_3);
+        assertXmlEquals(REFERENCED_XML_19115_3, actual, "xmlns:*");
+        assertEquals(citation, XML.unmarshal(actual, Namespaces.ISO_19115_3));
     }
 }

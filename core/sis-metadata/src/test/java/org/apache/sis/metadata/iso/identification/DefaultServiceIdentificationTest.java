@@ -17,15 +17,15 @@
 package org.apache.sis.metadata.iso.identification;
 
 import static java.util.Collections.singleton;
-import static org.apache.sis.test.Assert.assertXmlEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import javax.xml.bind.JAXBException;
 
 import org.apache.sis.internal.system.DefaultFactories;
-import org.apache.sis.metadata.iso.extent.DefaultExtentTest;
 import org.apache.sis.test.DependsOn;
 import org.apache.sis.test.XMLTestCase;
+import org.apache.sis.util.ComparisonMode;
 import org.apache.sis.xml.Namespaces;
 import org.apache.sis.xml.NilReason;
 import org.apache.sis.xml.XML;
@@ -110,6 +110,7 @@ public final strictfp class DefaultServiceIdentificationTest extends XMLTestCase
 	@Test
 	public void testUnmarshal19139() throws JAXBException {
 		DefaultServiceIdentification dsi = unmarshalFile(DefaultServiceIdentification.class, XML_FILE);
+		assertTrue(create().equals(dsi, ComparisonMode.DEBUG));
 		/* There are some problems with the following original assert statement that have to do with
 		 * DefaultLocalName throwing NullPointerExceptions:
 		 * 
