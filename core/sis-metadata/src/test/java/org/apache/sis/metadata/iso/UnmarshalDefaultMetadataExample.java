@@ -21,7 +21,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.opengis.metadata.Metadata;
 
-public class UnmarshalDefaultMetadataTest extends XMLTestCase implements WarningListener<Object> {
+public class UnmarshalDefaultMetadataExample extends XMLTestCase implements WarningListener<Object> {
 	/**
 	 * The unmarshaller used to handle unmarshalling the metadata XML.
 	 */

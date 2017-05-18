@@ -150,18 +150,18 @@ public final strictfp class DefaultDataIdentificationTest extends TestCase {
                 "  │       └─Title…………………………………………… GCMD Science Keywords\n" +
                 "  ├─Resource constraints\n" +
                 "  │   └─Use limitation……………………………… Freely available\n" +
-                "  ├─Spatial representation type……… Grid\n" +
                 "  ├─Language (1 of 2)………………………………… en_US\n" +
                 "  ├─Language (2 of 2)………………………………… en\n" +
                 "  ├─Character set…………………………………………… US-ASCII\n" +
-                "  └─Extent\n" +
-                "      ├─Description……………………………………… World\n" +
-                "      └─Geographic element\n" +
-                "          ├─West bound longitude…… 180°W\n" +
-                "          ├─East bound longitude…… 180°E\n" +
-                "          ├─South bound latitude…… 90°S\n" +
-                "          ├─North bound latitude…… 90°N\n" +
-                "          └─Extent type code……………… true\n",
+                "  ├─Extent\n" +
+                "  │   ├─Description……………………………………… World\n" +
+                "  │   └─Geographic element\n" +
+                "  │       ├─West bound longitude…… 180°W\n" +
+                "  │       ├─East bound longitude…… 180°E\n" +
+                "  │       ├─South bound latitude…… 90°S\n" +
+                "  │       ├─North bound latitude…… 90°N\n" +
+                "  │       └─Extent type code……………… true\n" +
+                "  └─Spatial representation type……… Grid\n",
             TestUtilities.formatNameAndValue(create().asTreeTable()));
     }
 

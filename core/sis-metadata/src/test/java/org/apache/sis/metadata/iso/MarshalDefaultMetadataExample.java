@@ -132,7 +132,7 @@ import org.opengis.util.RecordType;
  * 
  * @author Cullen Rombach (Image Matters)
  */
-public class MarshalDefaultMetadataTest extends XMLTestCase implements WarningListener<Object> {
+public class MarshalDefaultMetadataExample extends XMLTestCase implements WarningListener<Object> {
 
 	/**
 	 * The marshaller used to handle marshalling the created DefaultMetadata object.

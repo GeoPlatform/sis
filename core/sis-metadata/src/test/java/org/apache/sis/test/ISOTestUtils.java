@@ -83,8 +83,6 @@ public final class ISOTestUtils extends XMLTestCase {
 	        marshaller.marshal(metadata, buffer);
 			final String xml191153 = buffer.toString();
 			
-			System.out.println(xml191153);
-			
 			// Return the result.
 			return xml191153;
 			

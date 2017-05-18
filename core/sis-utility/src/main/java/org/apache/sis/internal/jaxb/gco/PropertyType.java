@@ -123,7 +123,7 @@ public abstract class PropertyType<ValueType extends PropertyType<ValueType,Boun
     /**
      * {@code true} if marshalling an XML based on ISO 19115:2003 model.
      */
-    public static final boolean LEGACY_XML = MetadataInfo.is2003();
+    public static boolean LEGACY_XML = MetadataInfo.is2003();
 
     /**
      * The wrapped GeoAPI metadata instance, or {@code null} if the metadata shall not be marshalled.
