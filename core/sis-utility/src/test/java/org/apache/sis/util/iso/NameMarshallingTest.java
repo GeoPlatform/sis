@@ -28,11 +28,12 @@ import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.internal.system.DefaultFactories;
 import org.apache.sis.test.DependsOn;
 import org.apache.sis.test.DependsOnMethod;
+import org.apache.sis.test.ISOTestUtils;
 import org.apache.sis.test.XMLTestCase;
 import org.apache.sis.test.mock.IdentifiedObjectMock;
+import org.apache.sis.util.Version;
 import org.apache.sis.xml.MarshallerPool;
 import org.apache.sis.xml.Namespaces;
-import org.apache.sis.xml.XML;
 import org.junit.AfterClass;
 import org.junit.Test;
 import org.opengis.util.GenericName;
@@ -46,167 +47,309 @@ import org.opengis.util.TypeName;
  * Tests the XML marshalling of generic names.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.5
+ * @version 0.8
  * @module
  */
 @DependsOn(DefaultNameFactoryTest.class)
 public final strictfp class NameMarshallingTest extends XMLTestCase {
-    /**
-     * A poll of configured {@link Marshaller} and {@link Unmarshaller}, created when first needed.
-     *
-     * @see #disposeMarshallerPool()
-     */
-    private static MarshallerPool pool;
+	/**
+	 * A pool of configured {@link Marshaller} and {@link Unmarshaller}, created when first needed.
+	 *
+	 * @see #disposeMarshallerPool()
+	 */
+	private static MarshallerPool pool;
 
-    /**
-     * Returns the XML representation of the given name, wrapped
-     * in a mock {@code <gml:IO_IdentifiedObject>} element.
-     */
-    private String marshal(final GenericName name) throws JAXBException {
-        if (pool == null) {
-            pool = new MarshallerPool(JAXBContext.newInstance(IdentifiedObjectMock.class), null);
-        }
-        final Marshaller marshaller = pool.acquireMarshaller();
-        final String xml = marshal(marshaller, new IdentifiedObjectMock(null, name));
-        pool.recycle(marshaller);
-        return xml;
-    }
+	private static String localNameXML = "<gml:IO_IdentifiedObject xmlns:gml=\"" + Namespaces.GML + '"' +
+			" xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
+			"  <gml:alias>\n" +
+			"    <gco:LocalName>An ordinary local name</gco:LocalName>\n" +
+			"  </gml:alias>\n" +
+			"</gml:IO_IdentifiedObject>\n";
 
-    /**
-     * Converse of {@link #marshal(GenericName)}.
-     */
-    private GenericName unmarshal(final String xml) throws JAXBException {
-        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
-        unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
-        final Object value = unmarshal(unmarshaller, xml);
-        pool.recycle(unmarshaller);
-        return ((IdentifiedObjectMock) value).alias;
-    }
+	private static String localNameWithAmpXML = "<gml:IO_IdentifiedObject xmlns:gml=\"" + Namespaces.GML + '"' +
+			" xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
+			"  <gml:alias>\n" +
+			"    <gco:LocalName>A name with &amp; and &gt; and &lt;.</gco:LocalName>\n" +
+			"  </gml:alias>\n" +
+			"</gml:IO_IdentifiedObject>\n";
 
-    /**
-     * Tests XML of a {@link LocalName}.
-     *
-     * @throws JAXBException Should not happen.
-     */
-    @Test
-    public void testLocalName() throws JAXBException {
-        final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
-        final LocalName name = factory.createLocalName(null, "An ordinary local name");
-        assertEquals("An ordinary local name", name.toString());
-        final String expected =
-                "<gml:IO_IdentifiedObject xmlns:gml=\"" + Namespaces.GML + '"' +
-                                        " xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
-                "  <gml:alias>\n" +
-                "    <gco:LocalName>An ordinary local name</gco:LocalName>\n" +
-                "  </gml:alias>\n" +
-                "</gml:IO_IdentifiedObject>\n";
-        final String actual = marshal(name);
-        assertXmlEquals(expected, actual, "xmlns:*");
-        assertEquals(name, unmarshal(expected));
-    }
+	private static String localNameWithScopeXML = "<gml:IO_IdentifiedObject xmlns:gml=\"" + Namespaces.GML + '"' +
+			" xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
+			"  <gml:alias>\n" +
+			"    <gco:LocalName codeSpace=\"A code space\">A name in a scope</gco:LocalName>\n" +
+			"  </gml:alias>\n" +
+			"</gml:IO_IdentifiedObject>\n";
 
-    /**
-     * Tests XML of a {@link LocalName} with {@code &} symbol.
-     *
-     * @throws JAXBException Should not happen.
-     */
-    @Test
-    @DependsOnMethod("testLocalName")
-    public void testLocalNameWithAmp() throws JAXBException {
-        final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
-        final LocalName name = factory.createLocalName(null, "A name with & and > and <.");
-        assertEquals("A name with & and > and <.", name.toString());
-        final String expected =
-                "<gml:IO_IdentifiedObject xmlns:gml=\"" + Namespaces.GML + '"' +
-                                        " xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
-                "  <gml:alias>\n" +
-                "    <gco:LocalName>A name with &amp; and &gt; and &lt;.</gco:LocalName>\n" +
-                "  </gml:alias>\n" +
-                "</gml:IO_IdentifiedObject>\n";
-        final String actual = marshal(name);
-        assertXmlEquals(expected, actual, "xmlns:*");
-        assertEquals(name, unmarshal(expected));
-    }
+	private static String typeNameXML = "<gml:IO_IdentifiedObject xmlns:gml=\"" + Namespaces.GML + '"' +
+			" xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
+			"  <gml:alias>\n" +
+			"    <gco:TypeName>\n" +
+			"      <gco:aName>\n" +
+			"        <gco:CharacterString>An other local name</gco:CharacterString>\n" +
+			"      </gco:aName>\n" +
+			"    </gco:TypeName>\n" +
+			"  </gml:alias>\n" +
+			"</gml:IO_IdentifiedObject>\n";
 
-    /**
-     * Tests XML of a {@link LocalName} with a scope.
-     *
-     * @throws JAXBException Should not happen.
-     */
-    @Test
-    @DependsOnMethod("testLocalName")
-    public void testLocalNameWithScope() throws JAXBException {
-        final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
-        final NameSpace scope = factory.createNameSpace(factory.createLocalName(null, "A code space"), null);
-        final LocalName name = factory.createLocalName(scope, "A name in a scope");
-        assertEquals("A name in a scope", name.toString());
-        final String expected =
-                "<gml:IO_IdentifiedObject xmlns:gml=\"" + Namespaces.GML + '"' +
-                                        " xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
-                "  <gml:alias>\n" +
-                "    <gco:LocalName codeSpace=\"A code space\">A name in a scope</gco:LocalName>\n" +
-                "  </gml:alias>\n" +
-                "</gml:IO_IdentifiedObject>\n";
-        final String actual = marshal(name);
-        assertXmlEquals(expected, actual, "xmlns:*");
-        assertEquals(name, unmarshal(expected));
-    }
+	private static String scopedNameXML = "<gml:IO_IdentifiedObject xmlns:gml=\"" + Namespaces.GML + '"' +
+			" xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
+			"  <gml:alias>\n" +
+			"    <gco:ScopedName>myScope:myName</gco:ScopedName>\n" +
+			"  </gml:alias>\n" +
+			"</gml:IO_IdentifiedObject>\n";
 
-    /**
-     * Tests XML of a {@link TypeName}.
-     *
-     * @throws JAXBException Should not happen.
-     */
-    @Test
-    public void testTypeName() throws JAXBException {
-        final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
-        final TypeName name = factory.createTypeName(null, "An other local name");
-        assertEquals("An other local name", name.toString());
-        final String expected =
-                "<gml:IO_IdentifiedObject xmlns:gml=\"" + Namespaces.GML + '"' +
-                                        " xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
-                "  <gml:alias>\n" +
-                "    <gco:TypeName>\n" +
-                "      <gco:aName>\n" +
-                "        <gco:CharacterString>An other local name</gco:CharacterString>\n" +
-                "      </gco:aName>\n" +
-                "    </gco:TypeName>\n" +
-                "  </gml:alias>\n" +
-                "</gml:IO_IdentifiedObject>\n";
-        final String actual = marshal(name);
-        assertXmlEquals(expected, actual, "xmlns:*");
-        assertEquals(name, unmarshal(expected));
-    }
+	/**
+	 * Returns the XML representation of the given name, wrapped
+	 * in a mock {@code <gml:IO_IdentifiedObject>} element.
+	 */
+	private String marshal(final GenericName name) throws JAXBException {
+		if (pool == null) {
+			pool = new MarshallerPool(JAXBContext.newInstance(IdentifiedObjectMock.class), null);
+		}
+		final Marshaller marshaller = pool.acquireMarshaller();
+		final String xml = marshal(marshaller, new IdentifiedObjectMock(null, name));
+		pool.recycle(marshaller);
+		return xml;
+	}
 
-    /**
-     * Tests XML of a {@link org.opengis.util.ScopedName}.
-     *
-     * @throws JAXBException Should not happen.
-     */
-    @Test
-    public void testScopedName() throws JAXBException {
-        final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
-        final GenericName name = factory.createGenericName(null, "myScope","myName");
-        assertEquals("myScope:myName", name.toString());
-        final String expected =
-                "<gml:IO_IdentifiedObject xmlns:gml=\"" + Namespaces.GML + '"' +
-                                        " xmlns:gco=\"" + LegacyNamespaces.GCO + "\">\n" +
-                "  <gml:alias>\n" +
-                "    <gco:ScopedName>myScope:myName</gco:ScopedName>\n" +
-                "  </gml:alias>\n" +
-                "</gml:IO_IdentifiedObject>\n";
-        final String actual = marshal(name);
-        assertXmlEquals(expected, actual, "xmlns:*");
-        assertEquals(name, unmarshal(expected));
-    }
+	/**
+	 * Returns the XML representation of the given name, wrapped
+	 * in a mock {@code <gml:IO_IdentifiedObject>} element.
+	 */
+	private String marshal(final GenericName name, Version metadataVersion) throws JAXBException {
+		if (pool == null) {
+			pool = new MarshallerPool(JAXBContext.newInstance(IdentifiedObjectMock.class), null);
+		}
+		final Marshaller marshaller = pool.acquireMarshaller();
+		final String xml = marshal(marshaller, new IdentifiedObjectMock(null, name), metadataVersion);
+		pool.recycle(marshaller);
+		return xml;
+	}
 
-    /**
-     * Invoked by JUnit after the execution of every tests in order to dispose
-     * the {@link MarshallerPool} instance used internally by this class.
-     */
-    @AfterClass
-    public static void disposeMarshallerPool() {
-        pool = null;
-    }
+	/**
+	 * Converse of {@link #marshal(GenericName)}.
+	 */
+	private GenericName unmarshal(final String xml) throws JAXBException {
+		final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+		final Object value = unmarshal(unmarshaller, xml);
+		pool.recycle(unmarshaller);
+		return ((IdentifiedObjectMock) value).alias;
+	}
+
+	/**
+	 * Converse of {@link #marshal(GenericName)}.
+	 */
+	private GenericName unmarshal(final String xml, Version metadataVersion) throws JAXBException {
+		final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+		final Object value = unmarshal(unmarshaller, xml, metadataVersion);
+		pool.recycle(unmarshaller);
+		return ((IdentifiedObjectMock) value).alias;
+	}
+
+	/**
+	 * Tests XML of a {@link LocalName}.
+	 *
+	 * @throws JAXBException Should not happen.
+	 */
+	@Test
+	public void testLocalName19139() throws JAXBException {
+		final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
+		final LocalName name = factory.createLocalName(null, "An ordinary local name");
+		assertEquals("An ordinary local name", name.toString());
+		final String expected = localNameXML;
+
+		final String actual = marshal(name);
+		assertXmlEquals(expected, actual, "xmlns:*");
+		assertEquals(name, unmarshal(expected));
+	}
+
+	/**
+	 * @see testLocalName19139(). This is the ISO 19115-3 version.
+	 * @throws JAXBException
+	 */
+	@Test
+	public void testLocalName191153() throws JAXBException {
+		final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
+		final LocalName name = factory.createLocalName(null, "An ordinary local name");
+		assertEquals("An ordinary local name", name.toString());
+
+		// Convert the hard-coded XML to ISO 19115-3.
+		Marshaller marshaller = pool.acquireMarshaller();
+		Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+		final String expected = ISOTestUtils.from19139(localNameXML, unmarshaller, marshaller);
+		pool.recycle(marshaller);
+		pool.recycle(unmarshaller);
+
+		final String actual = marshal(name, Namespaces.ISO_19115_3);
+		assertXmlEquals(expected, actual, "xmlns:*");
+		assertEquals(name, unmarshal(expected, Namespaces.ISO_19115_3));
+	}
+
+	/**
+	 * Tests XML of a {@link LocalName} with {@code &} symbol.
+	 *
+	 * @throws JAXBException Should not happen.
+	 */
+	@Test
+	@DependsOnMethod("testLocalName19139")
+	public void testLocalNameWithAmp19139() throws JAXBException {
+		final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
+		final LocalName name = factory.createLocalName(null, "A name with & and > and <.");
+		assertEquals("A name with & and > and <.", name.toString());
+		final String expected = localNameWithAmpXML;
+		final String actual = marshal(name);
+		assertXmlEquals(expected, actual, "xmlns:*");
+		assertEquals(name, unmarshal(expected));
+	}
+
+	/**
+	 * @see testLocalNameWithAmp19139(). This is the ISO 19115-3 version.
+	 * @throws JAXBException
+	 */
+	@Test
+	@DependsOnMethod("testLocalName191153")
+	public void testLocalNameWithAmp191153() throws JAXBException {
+		final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
+		final LocalName name = factory.createLocalName(null, "A name with & and > and <.");
+		assertEquals("A name with & and > and <.", name.toString());
+
+		// Convert the hard-coded XML to ISO 19115-3.
+		Marshaller marshaller = pool.acquireMarshaller();
+		Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+		final String expected = ISOTestUtils.from19139(localNameWithAmpXML, unmarshaller, marshaller);
+		pool.recycle(marshaller);
+		pool.recycle(unmarshaller);
+
+		final String actual = marshal(name, Namespaces.ISO_19115_3);
+		assertXmlEquals(expected, actual, "xmlns:*");
+		assertEquals(name, unmarshal(expected, Namespaces.ISO_19115_3));
+	}
+
+	/**
+	 * Tests XML of a {@link LocalName} with a scope.
+	 *
+	 * @throws JAXBException Should not happen.
+	 */
+	@Test
+	@DependsOnMethod("testLocalName19139")
+	public void testLocalNameWithScope19139() throws JAXBException {
+		final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
+		final NameSpace scope = factory.createNameSpace(factory.createLocalName(null, "A code space"), null);
+		final LocalName name = factory.createLocalName(scope, "A name in a scope");
+		assertEquals("A name in a scope", name.toString());
+		final String expected = localNameWithScopeXML;
+		final String actual = marshal(name);
+		assertXmlEquals(expected, actual, "xmlns:*");
+		assertEquals(name, unmarshal(expected));
+	}
+
+	/**
+	 * @see testLocalNameWithScope19139(). This is the ISO 19115-3 version.
+	 * @throws JAXBException
+	 */
+	@Test
+	@DependsOnMethod("testLocalName191153")
+	public void testLocalNameWithScope191153() throws JAXBException {
+		final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
+		final NameSpace scope = factory.createNameSpace(factory.createLocalName(null, "A code space"), null);
+		final LocalName name = factory.createLocalName(scope, "A name in a scope");
+		assertEquals("A name in a scope", name.toString());
+
+		// Convert the hard-coded XML to ISO 19115-3.
+		Marshaller marshaller = pool.acquireMarshaller();
+		Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+		final String expected = ISOTestUtils.from19139(localNameWithScopeXML, unmarshaller, marshaller);
+		pool.recycle(marshaller);
+		pool.recycle(unmarshaller);
+
+		final String actual = marshal(name, Namespaces.ISO_19115_3);
+		assertXmlEquals(expected, actual, "xmlns:*");
+		assertEquals(name, unmarshal(expected, Namespaces.ISO_19115_3));
+	}
+
+	/**
+	 * Tests XML of a {@link TypeName}.
+	 *
+	 * @throws JAXBException Should not happen.
+	 */
+	@Test
+	public void testTypeName19139() throws JAXBException {
+		final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
+		final TypeName name = factory.createTypeName(null, "An other local name");
+		assertEquals("An other local name", name.toString());
+		final String expected = typeNameXML;
+		final String actual = marshal(name);
+		assertXmlEquals(expected, actual, "xmlns:*");
+		assertEquals(name, unmarshal(expected));
+	}
+
+
+	/**
+	 * @see testTypeName19139(). This is the ISO 19115-3 version.
+	 * @throws JAXBException
+	 */
+	@Test
+	public void testTypeName191153() throws JAXBException {
+		final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
+		final TypeName name = factory.createTypeName(null, "An other local name");
+		assertEquals("An other local name", name.toString());
+
+		// Convert the hard-coded XML to ISO 19115-3.
+		GenericName expectedObject = (GenericName) unmarshal(typeNameXML);
+		String expected = marshal(expectedObject, Namespaces.ISO_19115_3);
+
+		final String actual = marshal(name, Namespaces.ISO_19115_3);
+		
+		assertXmlEquals(expected, actual, "xmlns:*");
+		assertEquals(name, unmarshal(expected, Namespaces.ISO_19115_3));
+	}
+
+	/**
+	 * Tests XML of a {@link org.opengis.util.ScopedName}.
+	 *
+	 * @throws JAXBException Should not happen.
+	 */
+	@Test
+	public void testScopedName19139() throws JAXBException {
+		final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
+		final GenericName name = factory.createGenericName(null, "myScope","myName");
+		assertEquals("myScope:myName", name.toString());
+		final String expected = scopedNameXML;
+		final String actual = marshal(name);
+		assertXmlEquals(expected, actual, "xmlns:*");
+		assertEquals(name, unmarshal(expected));
+	}
+
+	/**
+	 * @see testScopedName19139(). This is the ISO 19115-3 version.
+	 * @throws JAXBException
+	 */
+	@Test
+	public void testScopedName191153() throws JAXBException {
+		final NameFactory factory = DefaultFactories.forBuildin(NameFactory.class);
+		final GenericName name = factory.createGenericName(null, "myScope","myName");
+		assertEquals("myScope:myName", name.toString());
+
+		// Convert the hard-coded XML to ISO 19115-3.
+		Marshaller marshaller = pool.acquireMarshaller();
+		Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+		final String expected = ISOTestUtils.from19139(scopedNameXML, unmarshaller, marshaller);
+		pool.recycle(marshaller);
+		pool.recycle(unmarshaller);
+
+		final String actual = marshal(name, Namespaces.ISO_19115_3);
+		assertXmlEquals(expected, actual, "xmlns:*");
+		assertEquals(name, unmarshal(expected, Namespaces.ISO_19115_3));
+	}
+
+	/**
+	 * Invoked by JUnit after the execution of every tests in order to dispose
+	 * the {@link MarshallerPool} instance used internally by this class.
+	 */
+	@AfterClass
+	public static void disposeMarshallerPool() {
+		pool = null;
+	}
 }

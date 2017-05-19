@@ -341,12 +341,14 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 				}
 			}
 		}
-		// If we are unmarshalling ISO 19139, default to the MDB namespace in case the element name
-		// isn't mapped.
+		
+		// If we are unmarshalling ISO 19139, default to the given namespace.
+		// This assumes the given namespace is correct, and that the element is just missing from the mapping for some reason.
 		else if(elementNamespaceMap != null) {
-			return Namespaces.MDB;
+			return super.getNamespaceURI();
 		}
 
+		// This is a fallback that probably shouldn't happen.
 		return toImpl(super.getNamespaceURI());
 	}
 

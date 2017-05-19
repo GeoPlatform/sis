@@ -16,10 +16,13 @@
  */
 package org.apache.sis.test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.StringWriter;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
 import org.apache.sis.xml.Namespaces;
 import org.apache.sis.xml.XML;
@@ -75,6 +78,39 @@ public final class ISOTestUtils extends XMLTestCase {
 		try {
 			// Unmarshal the ISO 19139 XML to a Java object.
 			Object metadata = XML.unmarshal(xml19139);
+			
+			// Marshal the Java object to ISO 19115-3 XML.
+	        StringWriter buffer = new StringWriter();
+	        buffer.getBuffer().setLength(0);
+	        marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19115_3);
+	        marshaller.marshal(metadata, buffer);
+			final String xml191153 = buffer.toString();
+			
+			// Return the result.
+			return xml191153;
+			
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	/** Convert the given ISO 19139 XML string to an ISO 19115-3 XML string using the given Marshaller
+	 * and Unmarshaller.
+	 * This is primarily used to preserve properties set on the (Un)Marshaller, such as a Locale.
+	 * @param xml19139 A snippet of ISO 19139 XML as a string.
+	 * @param marshaller The Marshaller to use.
+	 * @param unmarshaller The Unmarshaller to use.
+	 * @return The ISO 19115-3 XML equivalent of the input XML as a string.
+	 */
+	public static String from19139(String xml19139,  Unmarshaller unmarshaller, Marshaller marshaller){
+		try {
+			// Unmarshal the ISO 19139 XML to a Java object.
+			InputStream is = new ByteArrayInputStream(xml19139.getBytes());
+			unmarshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+			Object metadata = unmarshaller.unmarshal(is);
 			
 			// Marshal the Java object to ISO 19115-3 XML.
 	        StringWriter buffer = new StringWriter();

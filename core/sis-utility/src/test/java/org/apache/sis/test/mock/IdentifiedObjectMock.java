@@ -16,20 +16,22 @@
  */
 package org.apache.sis.test.mock;
 
-import java.util.Arrays;
-import java.util.Set;
-import java.util.Collection;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Set;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.opengis.util.GenericName;
-import org.opengis.util.InternationalString;
+
+import org.apache.sis.internal.jaxb.gco.GO_GenericName;
+import org.apache.sis.internal.util.CollectionsExt;
 import org.opengis.metadata.Identifier;
 import org.opengis.metadata.citation.Citation;
 import org.opengis.referencing.IdentifiedObject;
-import org.apache.sis.internal.util.CollectionsExt;
-import org.apache.sis.internal.jaxb.gco.GO_GenericName;
+import org.opengis.util.GenericName;
+import org.opengis.util.InternationalString;
 
 
 /**

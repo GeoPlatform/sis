@@ -35,6 +35,7 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.sis.internal.jaxb.LegacyNamespaces;
 import org.apache.sis.internal.jaxb.Schemas;
 import org.apache.sis.test.DependsOnMethod;
+import org.apache.sis.test.ISOTestUtils;
 import org.apache.sis.test.XMLTestCase;
 import org.apache.sis.test.mock.MetadataMock;
 import org.apache.sis.xml.MarshallerPool;
@@ -50,8 +51,9 @@ import org.opengis.metadata.Metadata;
  * Tests the XML marshaling of {@code Locale} when used for a language.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.4
+ * @version 0.8
  * @module
  */
 public final strictfp class LanguageCodeTest extends XMLTestCase {
@@ -128,18 +130,40 @@ public final strictfp class LanguageCodeTest extends XMLTestCase {
 
     /**
      * Tests marshalling of {@code <gmd:LanguageCode>}.
-     * The result shall be as documented in {@link #testLanguageCode()}.
+     * The result shall be as documented in {@link #testLanguageCode19139()}.
+     * ISO 19139.
      *
      * @throws JAXBException Should never happen.
      *
-     * @see #testMarshallCharacterString()
+     * @see #testMarshallCharacterString19139()
      */
     @Test
-    public void testMarshallLanguageCode() throws JAXBException {
+    public void testMarshallLanguageCode19139() throws JAXBException {
         final MetadataMock metadata = new MetadataMock(Locale.JAPANESE);
         final Marshaller marshaller = pool.acquireMarshaller();
         assertNull(marshaller.getProperty(XML.STRING_SUBSTITUTES));
         assertXmlEquals(getMetadataXML(LANGUAGE_CODE), marshal(marshaller, metadata), "xmlns:*");
+        pool.recycle(marshaller);
+    }
+    
+    /**
+     * Tests marshalling of {@code <gmd:LanguageCode>}.
+     * The result shall be as documented in {@link #testLanguageCode191153()}.
+     * ISO 191153.
+     *
+     * @throws JAXBException Should never happen.
+     *
+     * @see #testMarshallCharacterString191153()
+     */
+    @Test
+    public void testMarshallLanguageCode191153() throws JAXBException {
+        final MetadataMock metadata = new MetadataMock(Locale.JAPANESE);
+        final Marshaller marshaller = pool.acquireMarshaller();
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        assertNull(marshaller.getProperty(XML.STRING_SUBSTITUTES));
+        assertXmlEquals(ISOTestUtils.from19139(getMetadataXML(LANGUAGE_CODE), unmarshaller, marshaller),
+        		marshal(marshaller, metadata, Namespaces.ISO_19115_3), "xmlns:*");
+        pool.recycle(unmarshaller);
         pool.recycle(marshaller);
     }
 
@@ -159,11 +183,27 @@ public final strictfp class LanguageCodeTest extends XMLTestCase {
      * @see #testMarshallLanguageCode()
      */
     @Test
-    public void testLanguageCode() throws JAXBException {
+    public void testLanguageCode19139() throws JAXBException {
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
         final String xml = getMetadataXML(LANGUAGE_CODE);
         final Metadata metadata = (Metadata) unmarshal(unmarshaller, xml);
         assertEquals(Locale.JAPANESE, getSingleton(metadata.getLanguages()));
+        pool.recycle(unmarshaller);
+    }
+    
+    /**
+     * @see testLanguageCode19139(). This is the ISO 19115-3 version.
+     * @throws JAXBException
+     */
+    @Test
+    public void testLanguageCode191153() throws JAXBException {
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        final Marshaller marshaller = pool.acquireMarshaller();
+        final String xml = ISOTestUtils.from19139(getMetadataXML(LANGUAGE_CODE), unmarshaller, marshaller);
+        final Metadata metadata = (Metadata) unmarshal(unmarshaller, xml, Namespaces.ISO_19115_3);
+        assertEquals(Locale.JAPANESE, getSingleton(metadata.getLanguages()));
+        pool.recycle(unmarshaller);
+        pool.recycle(marshaller);
     }
 
     /**
@@ -181,13 +221,29 @@ public final strictfp class LanguageCodeTest extends XMLTestCase {
      * @throws JAXBException Should never happen.
      */
     @Test
-    @DependsOnMethod("testLanguageCode")
-    public void testLanguageCodeWithoutAttributes() throws JAXBException {
+    @DependsOnMethod("testLanguageCode19139")
+    public void testLanguageCodeWithoutAttributes19139() throws JAXBException {
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
         final String xml = getMetadataXML(LANGUAGE_CODE_WITHOUT_ATTRIBUTE);
         final Metadata metadata = (Metadata) unmarshal(unmarshaller, xml);
         assertEquals(Locale.JAPANESE, getSingleton(metadata.getLanguages()));
         pool.recycle(unmarshaller);
+    }
+    
+    /**
+     * @see testLanguageCodeWithoutAttributes19139(). This is the ISO 19115-3 version.
+     * @throws JAXBException
+     */
+    @Test
+    @DependsOnMethod("testLanguageCode191153")
+    public void testLanguageCodeWithoutAttributes191153() throws JAXBException {
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        final Marshaller marshaller = pool.acquireMarshaller();
+        final String xml = ISOTestUtils.from19139(getMetadataXML(LANGUAGE_CODE_WITHOUT_ATTRIBUTE), unmarshaller, marshaller);
+        final Metadata metadata = (Metadata) unmarshal(unmarshaller, xml, Namespaces.ISO_19115_3);
+        assertEquals(Locale.JAPANESE, getSingleton(metadata.getLanguages()));
+        pool.recycle(unmarshaller);
+        pool.recycle(marshaller);
     }
 
     /**
@@ -199,13 +255,30 @@ public final strictfp class LanguageCodeTest extends XMLTestCase {
      * @see #testMarshallLanguageCode()
      */
     @Test
-    public void testMarshallCharacterString() throws JAXBException {
+    public void testMarshallCharacterString19139() throws JAXBException {
         final MetadataMock metadata = new MetadataMock(Locale.JAPANESE);
         final Marshaller marshaller = pool.acquireMarshaller();
         marshaller.setProperty(XML.STRING_SUBSTITUTES, new String[] {"dummy","language","foo"});
         assertArrayEquals(new String[] {"language"}, (String[]) marshaller.getProperty(XML.STRING_SUBSTITUTES));
         assertXmlEquals(getMetadataXML(CHARACTER_STRING), marshal(marshaller, metadata), "xmlns:*");
         pool.recycle(marshaller);
+    }
+    
+    /**
+     * @see testMarshallCharacterString19139(). This is the ISO 19115-3 version.
+     * @throws JAXBException
+     */
+    @Test
+    public void testMarshallCharacterString191153() throws JAXBException {
+        final MetadataMock metadata = new MetadataMock(Locale.JAPANESE);
+        final Marshaller marshaller = pool.acquireMarshaller();
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        marshaller.setProperty(XML.STRING_SUBSTITUTES, new String[] {"dummy","language","foo"});
+        assertArrayEquals(new String[] {"language"}, (String[]) marshaller.getProperty(XML.STRING_SUBSTITUTES));
+        String xml = ISOTestUtils.from19139(getMetadataXML(CHARACTER_STRING), unmarshaller, marshaller);
+        assertXmlEquals(xml, marshal(marshaller, metadata, Namespaces.ISO_19115_3), "xmlns:*");
+        pool.recycle(marshaller);
+        pool.recycle(unmarshaller);
     }
 
     /**
@@ -223,11 +296,26 @@ public final strictfp class LanguageCodeTest extends XMLTestCase {
      * @throws JAXBException Should never happen.
      */
     @Test
-    public void testCharacterString() throws JAXBException {
+    public void testCharacterString19139() throws JAXBException {
         final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
         final String xml = getMetadataXML(CHARACTER_STRING);
         final Metadata metadata = (Metadata) unmarshal(unmarshaller, xml);
         assertEquals(Locale.JAPANESE, getSingleton(metadata.getLanguages()));
         pool.recycle(unmarshaller);
+    }
+    
+    /**
+     * @see testCharacterString19139(). This is the ISO 19115-3 version.
+     * @throws JAXBException
+     */
+    @Test
+    public void testCharacterString191153() throws JAXBException {
+        final Unmarshaller unmarshaller = pool.acquireUnmarshaller();
+        final Marshaller marshaller = pool.acquireMarshaller();
+        final String xml = ISOTestUtils.from19139(getMetadataXML(CHARACTER_STRING), unmarshaller, marshaller);
+        final Metadata metadata = (Metadata) unmarshal(unmarshaller, xml, Namespaces.ISO_19115_3);
+        assertEquals(Locale.JAPANESE, getSingleton(metadata.getLanguages()));
+        pool.recycle(unmarshaller);
+        pool.recycle(marshaller);
     }
 }

@@ -27,13 +27,14 @@
  * in any future version without notice.</p>
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.3
+ * @version 0.8
  * @module
  */
 @XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.GML, xmlns = {
     @XmlNs(prefix = "gml", namespaceURI = Namespaces.GML),
-    @XmlNs(prefix = "gmd", namespaceURI = Namespaces.GMD),
+    @XmlNs(prefix = "mdb", namespaceURI = Namespaces.MDB),
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO)
 })
 @XmlAccessorType(XmlAccessType.NONE)

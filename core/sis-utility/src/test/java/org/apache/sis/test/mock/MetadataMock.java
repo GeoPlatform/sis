@@ -32,16 +32,17 @@ import org.apache.sis.xml.Namespaces;
  * A dummy implementation of {@link Metadata} with minimal XML (un)marshalling capability.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.4
- * @version 0.5
+ * @version 0.8
  * @module
  */
-@XmlRootElement(name = "MD_Metadata", namespace = Namespaces.GMD)
+@XmlRootElement(name = "MD_Metadata", namespace = Namespaces.MDB)
 public final strictfp class MetadataMock extends SimpleMetadata {
     /**
      * The language used for documenting metadata.
      */
-    @XmlElement(namespace = Namespaces.GMD)
+    @XmlElement(namespace = Namespaces.MDB)
     @XmlJavaTypeAdapter(LocaleAdapter.class)
     public Locale language;
 
