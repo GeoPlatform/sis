@@ -84,10 +84,33 @@ public class ElementNamespaceMapWriter {
 	 * @throws ClassNotFoundException
 	 */
 	private static void mapElements(Reflections reflections) throws ClassNotFoundException {
-		// Loop through all the classes in org.apache.sis.metadata.iso with @XmlRootElement annotation.
-		// This should cover all the classes that are used
+		// Loop through all the classes with @XmlRootElement annotation.
 		for(Class clazz : reflections.getTypesAnnotatedWith(XmlRootElement.class)) {
 			XmlRootElement rootElement = (XmlRootElement) clazz.getAnnotation(XmlRootElement.class);
+			if(rootElement != null) {
+				// If the found namespace is "##default", replace it.
+				String namespace = rootElement.namespace();
+				if(namespace.equals("##default")) {
+					namespace = findBestNamespace(clazz);
+				}
+
+				// Find the name of the element.
+				String name = rootElement.name();
+				// If the found name is "##default", replace it.
+				if(name.equals("##default")) {
+					name = clazz.getSimpleName();
+				}
+				// Append "|" to name for ease of reading in FilteredStreamReader.
+				name += "|";
+
+				// Store the name + namespace combination as a key/value pair.
+				elementNamespaceMap.put(name, namespace);
+			}
+		}
+
+		// Loop through all the classes with @XmlType annotation.
+		for(Class clazz : reflections.getTypesAnnotatedWith(XmlType.class)) {
+			XmlType rootElement = (XmlType) clazz.getAnnotation(XmlType.class);
 			if(rootElement != null) {
 				// If the found namespace is "##default", replace it.
 				String namespace = rootElement.namespace();

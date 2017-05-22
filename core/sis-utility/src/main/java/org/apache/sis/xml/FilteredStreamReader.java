@@ -26,6 +26,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.xml.bind.DatatypeConverter;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamConstants;
@@ -309,7 +310,6 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 		else {
 			super.require(type, toView(namespaceURI), localName);
 		}
-		// Note: Never called in testing.
 	}
 
 	/** Returns the context of the underlying reader wrapped in a filter that converts the namespaces on the fly. */
@@ -323,7 +323,6 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	@Override
 	public QName getName() {
 		return toImpl(super.getName());
-		// Note: Never called in testing.
 	}
 
 	/** Replaces the local name if necessary for mapping purposes */
@@ -347,12 +346,12 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 		if(getEventType() == XMLStreamConstants.START_ELEMENT || getEventType() == XMLStreamConstants.END_ELEMENT) {
 			// Get the local name of this element.
 			String name = getName().getLocalPart();
-			
+
 			// If the current element is a start element, add it to the list.
 			if(getEventType() == XMLStreamConstants.START_ELEMENT) {
 				elements.add(new CloseableElement(name));
 			}
-			
+
 			// If the element is an end element, close the last instance of that element.
 			else if(getEventType() == XMLStreamConstants.END_ELEMENT) {
 				// Loop through the list of elements.
@@ -409,8 +408,19 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 		// Store the attribute value given by the XML.
 		String value = super.getAttributeValue(index);
 
-		if(value.equals("gmd:PT_FreeText_PropertyType")) {
-			value = "lan:PT_FreeText_PropertyType";
+		// Try to parse the value as a QName.
+		try {
+			// Parse the value of the attribute as a QName.
+			QName qname = DatatypeConverter.parseQName(value, this.getNamespaceContext());
+			// If the Qname is valid, convert it to an ISO 19139 QName and replace the old value with the newly generated one.
+			if(!qname.getPrefix().equals("") && !qname.getNamespaceURI().equals("")) {
+				String newLocalName = qname.getLocalPart();
+				String newURI = getMappedNamespace(newLocalName, qname.getNamespaceURI());
+				String newPrefix = Namespaces.getPreferredPrefix(newURI, "");
+				value = newPrefix + ":" + newLocalName;
+			}
+		} catch (IllegalArgumentException e) {
+			// Do nothing. This just means the value isn't a valid QName.
 		}
 
 		return value;

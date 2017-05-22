@@ -16,8 +16,9 @@
  */
 package org.apache.sis.xml;
 
-import java.util.Map;
 import java.util.Iterator;
+import java.util.Map;
+
 import javax.xml.namespace.NamespaceContext;
 
 
@@ -59,92 +60,95 @@ import javax.xml.namespace.NamespaceContext;
  * @see <a href="http://issues.apache.org/jira/browse/SIS-152">SIS-152</a>
  */
 final class FilteredNamespaces implements NamespaceContext {
-    /**
-     * The context to wrap, given by {@link FilteredStreamReader} or {@link FilteredStreamWriter}.
-     *
-     * @see javax.xml.stream.XMLStreamReader#getNamespaceContext()
-     * @see javax.xml.stream.XMLStreamWriter#getNamespaceContext()
-     */
-    private final NamespaceContext context;
+	/**
+	 * The context to wrap, given by {@link FilteredStreamReader} or {@link FilteredStreamWriter}.
+	 *
+	 * @see javax.xml.stream.XMLStreamReader#getNamespaceContext()
+	 * @see javax.xml.stream.XMLStreamWriter#getNamespaceContext()
+	 */
+	private final NamespaceContext context;
 
-    /**
-     * The URI replacements to apply when going from the wrapped context to the filtered context.
-     *
-     * @see FilterVersion#toView
-     */
-    private final Map<String,String> toView;
+	/**
+	 * The URI replacements to apply when going from the wrapped context to the filtered context.
+	 *
+	 * @see FilterVersion#toView
+	 */
+	private final Map<String,String> toView;
 
-    /**
-     * The URI replacements to apply when going from the filtered context to the wrapped context.
-     * This map is the converse of {@link #toView}.
-     *
-     * @see FilterVersion#toImpl
-     */
-    private final Map<String,String> toImpl;
+	/**
+	 * The URI replacements to apply when going from the filtered context to the wrapped context.
+	 * This map is the converse of {@link #toView}.
+	 *
+	 * @see FilterVersion#toImpl
+	 */
+	private final Map<String,String> toImpl;
 
-    /**
-     * Creates a new namespaces filter for the given target version.
-     */
-    FilteredNamespaces(final NamespaceContext context, final FilterVersion version, final boolean inverse) {
-        this.context = context;
-        if (!inverse) {
-            toView = version.toView;
-            toImpl = version.toImpl;
-        } else {
-            toView = version.toImpl;
-            toImpl = version.toView;
-        }
-    }
+	/**
+	 * Creates a new namespaces filter for the given target version.
+	 */
+	FilteredNamespaces(final NamespaceContext context, final FilterVersion version, final boolean inverse) {
+		this.context = context;
+		if (!inverse) {
+			toView = version.toView;
+			toImpl = version.toImpl;
+		} else {
+			toView = version.toImpl;
+			toImpl = version.toView;
+		}
+	}
 
-    /**
-     * Wraps this {@code FilteredNamespaces} in a new instance performing the inverse of the replacements
-     * specified by the given version.
-     */
-    NamespaceContext inverse(final FilterVersion version) {
-        if (toView == version.toView && toImpl == version.toImpl) {
-            return this;
-        }
-        return new FilteredNamespaces(this, version, true);
-    }
+	/**
+	 * Wraps this {@code FilteredNamespaces} in a new instance performing the inverse of the replacements
+	 * specified by the given version.
+	 */
+	NamespaceContext inverse(final FilterVersion version) {
+		if (toView == version.toView && toImpl == version.toImpl) {
+			return this;
+		}
+		return new FilteredNamespaces(this, version, true);
+	}
 
-    /**
-     * Returns the URI to make visible to the user of this filter.
-     */
-    private String toView(final String uri) {
-        final String replacement = toView.get(uri);
-        return (replacement != null) ? replacement : uri;
-    }
+	/**
+	 * Returns the URI to make visible to the user of this filter.
+	 */
+	private String toView(final String uri) {
+		final String replacement = toView.get(uri);
+		return (replacement != null) ? replacement : uri;
+	}
 
-    /**
-     * Returns the URI used by the {@linkplain #context}.
-     */
-    private String toImpl(final String uri) {
-        final String replacement = toImpl.get(uri);
-        return (replacement != null) ? replacement : uri;
-    }
+	/**
+	 * Returns the URI used by the {@linkplain #context}.
+	 */
+	private String toImpl(final String uri) {
+		final String replacement = toImpl.get(uri);
+		return (replacement != null) ? replacement : uri;
+	}
 
-    /**
-     * Returns the namespace for the given prefix.
-     */
-    @Override
-    public String getNamespaceURI(final String prefix) {
-        return toView(context.getNamespaceURI(prefix));
-    }
+	/**
+	 * Returns the namespace for the given prefix.
+	 */
+	@Override
+	public String getNamespaceURI(final String prefix) {
+		if(prefix.equals(Namespaces.getPreferredPrefix(Namespaces.LAN, "lan"))) {
+			return Namespaces.LAN;
+		}
+		return toView(context.getNamespaceURI(prefix));
+	}
 
-    /**
-     * Returns the prefix for the given namespace.
-     */
-    @Override
-    public String getPrefix(final String namespaceURI) {
-        return context.getPrefix(toImpl(namespaceURI));
-    }
+	/**
+	 * Returns the prefix for the given namespace.
+	 */
+	@Override
+	public String getPrefix(final String namespaceURI) {
+		return context.getPrefix(toImpl(namespaceURI));
+	}
 
-    /**
-     * Returns all prefixes for the given namespace.
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public Iterator<String> getPrefixes(final String namespaceURI) {
-        return context.getPrefixes(toImpl(namespaceURI));
-    }
+	/**
+	 * Returns all prefixes for the given namespace.
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Iterator<String> getPrefixes(final String namespaceURI) {
+		return context.getPrefixes(toImpl(namespaceURI));
+	}
 }
