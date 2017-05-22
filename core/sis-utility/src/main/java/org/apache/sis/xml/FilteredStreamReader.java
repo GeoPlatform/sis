@@ -37,7 +37,7 @@ import javax.xml.stream.util.StreamReaderDelegate;
 /**
  * A filter replacing the namespaces found in a XML document by the namespaces expected by SIS at unmarshalling time.
  * This class forwards every method calls to the wrapped {@link XMLStreamReader}, with all {@code namespaceURI}
- * arguments filtered before to be delegated.
+ * arguments filtered before being delegated.
  *
  * See {@link FilteredNamespaces} for more information.
  *
@@ -213,6 +213,38 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	}
 
 	/**
+	 * Return the namespace mapped to the given name in the context of the current part of the XML document being read.
+	 * @param name The element or attribute name currently being read.
+	 * @return The ISO 19115-3 namespace URI for the element or attribute in the current context.
+	 */
+	private String getMappedNamespace(String name, String previousNamespace) {
+		// Store the namespace that will be returned.
+		String namespace = previousNamespace;
+
+		if(inMap(name)) {
+			// If the element is a root element, return the associated namespace.
+			if(getParents(name) == null) {
+				namespace = getNamespace(name, null);
+			}
+
+			// If the element is not a root element, we need to backtrack until we find
+			// the latest possible parent element. Then, we use the namespace associated with that parent.
+			else {
+				Collection<String> parents = getParents(name);
+				for(int ndx = elements.size()-1; ndx >= 0; ndx--) {
+					if(elements.get(ndx).isOpen() && parents.contains(elements.get(ndx).getName())) {
+						String parentName = elements.get(ndx).getName();
+						namespace = getNamespace(name, parentName);
+					}
+				}
+			}
+		}
+
+		// Return the calculated namespace.
+		return toImpl(namespace);
+	}
+
+	/**
 	 * Returns true if the element name needs replacement, false otherwise.
 	 * @param element
 	 */
@@ -241,17 +273,29 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	 */
 	private QName toImpl(QName name) {
 		final String namespaceURI = name.getNamespaceURI();
-		final String replacement;
-		if(inMap(name.getLocalPart())) {
-			// TODO: Update this
-			replacement = elementNamespaceMap.get(name.getLocalPart());
+		String replacementURI = name.getNamespaceURI();
+		String localName = name.getLocalPart();
+
+		// Check if a hard-coded name replacement is necessary here.
+		if(needsNameReplacement(localName)) {
+			localName = localNameMap.get(localName);
 		}
+
+		// If the local name is in the element-namespace map, get the associated URI in context.
+		if(inMap(localName)) {
+			replacementURI = getMappedNamespace(localName, name.getNamespaceURI());
+		}
+		// If it's not in the map, fall back to the simpler toImpl()
 		else {
-			replacement = toImpl(namespaceURI);
+			replacementURI = toImpl(namespaceURI);
 		}
-		if (!replacement.equals(namespaceURI)) {
-			name = new QName(replacement, name.getLocalPart(), name.getPrefix());
+
+		// If the URI has been changed, create a new QName.
+		if (!replacementURI.equals(namespaceURI) || !localName.equals(name.getLocalPart())) {
+			name = new QName(replacementURI, localName, name.getPrefix());
 		}
+
+		// Return the new QName.
 		return name;
 	}
 
@@ -259,18 +303,20 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	@Override
 	public void require(final int type, final String namespaceURI, final String localName) throws XMLStreamException {
 		if(inMap(localName)) {
-			super.require(type, elementNamespaceMap.get(localName), localName);
+			super.require(type, getMappedNamespace(localName, namespaceURI), localName);
 		}
+		// If the localName isn't in the element-namespace map, fall back to toView().
 		else {
 			super.require(type, toView(namespaceURI), localName);
 		}
 		// Note: Never called in testing.
 	}
 
-	/** Returns the context of the underlying reader wrapped in a filter that convert the namespaces on the fly. */
+	/** Returns the context of the underlying reader wrapped in a filter that converts the namespaces on the fly. */
 	@Override
 	public NamespaceContext getNamespaceContext() {
-		return new FilteredNamespaces(super.getNamespaceContext(), version, true);
+		NamespaceContext context = new FilteredNamespaces(super.getNamespaceContext(), version, true);
+		return context;
 	}
 
 	/** Forwards the call, then replaces the namespace URI if needed. */
@@ -287,69 +333,55 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 		if(needsNameReplacement(localName)) {
 			return localNameMap.get(localName);
 		}
-		return super.getLocalName();
+		return localName;
 	}
 
 	/** Forwards the call, then replaces the namespace URI if needed. */
 	@Override
 	public QName getAttributeName(final int index) {
 		return toImpl(super.getAttributeName(index));
-		// Note: Never called in testing.
+	}
+
+	@Override
+	public int next() throws XMLStreamException {
+		if(getEventType() == XMLStreamConstants.START_ELEMENT || getEventType() == XMLStreamConstants.END_ELEMENT) {
+			// Get the local name of this element.
+			String name = getName().getLocalPart();
+			
+			// If the current element is a start element, add it to the list.
+			if(getEventType() == XMLStreamConstants.START_ELEMENT) {
+				elements.add(new CloseableElement(name));
+			}
+			
+			// If the element is an end element, close the last instance of that element.
+			else if(getEventType() == XMLStreamConstants.END_ELEMENT) {
+				// Loop through the list of elements.
+				for(int ndx = elements.size()-1; ndx >= 0; ndx--) {
+					// If this is an end element, close the last open one with a matching name.
+					String elementName = elements.get(ndx).getName();
+					if(elementName.equals(getLocalName()) && elements.get(ndx).isOpen()) {
+						elements.get(ndx).close();
+					}
+				}
+			}
+		}
+
+		return super.next();
 	}
 
 	/** Forwards the call, then replaces the returned URI if needed. */
 	@Override
 	public String getNamespaceURI() {
 		// Get the local name of this element.
-		String name = super.getName().getLocalPart();
-
-		// If the current element is a start element, add it to the list.
-		if(super.getEventType() == XMLStreamConstants.START_ELEMENT) {
-			elements.add(new CloseableElement(name));
-		}
-		// If the element is an end element, close the last instance of that element.
-		else if(super.getEventType() == XMLStreamConstants.END_ELEMENT) {
-			// Loop through the list of elements.
-			for(int ndx = elements.size()-1; ndx >= 0; ndx--) {
-				// If this is an end element, close the last open one with a matching name.
-				String elementName = elements.get(ndx).getName();
-				if(elementName.equals(super.getLocalName()) && elements.get(ndx).isOpen()) {
-					elements.get(ndx).close();
-				}
-			}
-		}
+		String name = getName().getLocalPart();
 
 		// If the name needs a replacement, do so.
 		if(needsNameReplacement(name)) {
 			name = localNameMap.get(name);
 		}
-		// Check if the element needs to be mapped to an ISO 19139 namespace.
-		if(inMap(name)) {
-			// If the element is a root element, return the associated namespace.
-			if(getParents(name) == null) {
-				return getNamespace(name, null);
-			}
-			// If the element is not a root element, we need to backtrack until we find
-			// the latest possible parent element. Then, we use the namespace associated with that parent.
-			else {
-				Collection<String> parents = getParents(name);
-				for(int ndx = elements.size()-1; ndx >= 0; ndx--) {
-					if(elements.get(ndx).isOpen() && parents.contains(elements.get(ndx).getName())) {
-						String parentName = elements.get(ndx).getName();
-						return getNamespace(name, parentName);
-					}
-				}
-			}
-		}
-		
-		// If we are unmarshalling ISO 19139, default to the given namespace.
-		// This assumes the given namespace is correct, and that the element is just missing from the mapping for some reason.
-		else if(elementNamespaceMap != null) {
-			return super.getNamespaceURI();
-		}
 
-		// This is a fallback that probably shouldn't happen.
-		return toImpl(super.getNamespaceURI());
+		// Return the ISO 19115-3 namespace.
+		return getMappedNamespace(name, super.getNamespaceURI());
 	}
 
 	/** Forwards the call, then replaces the returned URI if needed. */
@@ -364,25 +396,24 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	@Override
 	public String getNamespaceURI(final String prefix) {
 		return toImpl(super.getNamespaceURI(prefix));
-		// NOTE: Never called in testing.
 	}
 
 	/** Forwards the call, then replaces the returned URI if needed. */
 	@Override
 	public String getAttributeNamespace(final int index) {
-		String localName = super.getAttributeLocalName(index);
-		return inMap(localName) ? elementNamespaceMap.get(localName) : toImpl(super.getAttributeNamespace(index));
-		// NOTE: Called for each attribute (ex. "uom" in testing)
+		return toImpl(super.getAttributeNamespace(index));
 	}
 
-	/** Replaces the given URI if needed, then forwards the call. */
 	@Override
-	public String getAttributeValue(final String namespaceUri, final String localName) {
-		if(inMap(localName)) {
-			return super.getAttributeValue(elementNamespaceMap.get(localName), localName);
+	public String getAttributeValue(int index) {
+		// Store the attribute value given by the XML.
+		String value = super.getAttributeValue(index);
+
+		if(value.equals("gmd:PT_FreeText_PropertyType")) {
+			value = "lan:PT_FreeText_PropertyType";
 		}
-		return super.getAttributeValue(toView(namespaceUri), localName);
-		// NOTE: Never called in testing.
+
+		return value;
 	}
 
 	/**

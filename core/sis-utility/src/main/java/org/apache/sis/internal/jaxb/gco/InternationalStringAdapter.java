@@ -17,8 +17,9 @@
 package org.apache.sis.internal.jaxb.gco;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
-import org.opengis.util.InternationalString;
+
 import org.apache.sis.util.iso.SimpleInternationalString;
+import org.opengis.util.InternationalString;
 
 
 /**

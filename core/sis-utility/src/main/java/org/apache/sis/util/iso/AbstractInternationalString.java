@@ -21,11 +21,8 @@ import java.util.FormattableFlags;
 import java.util.Formatter;
 import java.util.Locale;
 
-import javax.xml.bind.annotation.XmlType;
-
 import org.apache.sis.internal.util.Utilities;
 import org.apache.sis.util.CharSequences;
-import org.apache.sis.xml.Namespaces;
 import org.opengis.util.ControlledVocabulary;
 import org.opengis.util.InternationalString;
 

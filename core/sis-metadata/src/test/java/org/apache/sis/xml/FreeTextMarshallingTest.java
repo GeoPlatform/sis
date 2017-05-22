@@ -24,6 +24,8 @@ import java.util.Locale;
 import javax.xml.bind.JAXBException;
 
 import org.apache.sis.internal.jaxb.LegacyNamespaces;
+import org.apache.sis.test.DependsOnMethod;
+import org.apache.sis.test.ISOTestUtils;
 import org.apache.sis.test.XMLTestCase;
 import org.apache.sis.util.iso.DefaultInternationalString;
 import org.junit.Test;
@@ -99,10 +101,25 @@ public final strictfp class FreeTextMarshallingTest extends XMLTestCase {
 	@Test
 	public void testStandard19139() throws JAXBException {
 		final String expected = getStandardXML();
-
+		
 		final Citation citation = (Citation) XML.unmarshal(expected);
 		assertEquals(getExpectedI18N(), citation.getTitle());
 		final String actual = XML.marshal(citation);
+		assertXmlEquals(expected, actual, "xmlns:*");
+	}
+	
+	/**
+	 * @see testStandard19139(). This is the ISO 19115-3 version.
+	 * @throws JAXBException
+	 */
+	@Test
+	@DependsOnMethod("testStandard19139")
+	public void testStandard191153() throws JAXBException {
+		final String expected = ISOTestUtils.from19139(getStandardXML());
+		
+		final Citation citation = (Citation) XML.unmarshal(expected, Namespaces.ISO_19115_3);
+		assertEquals(getExpectedI18N(), citation.getTitle());
+		final String actual = XML.marshal(citation, Namespaces.ISO_19115_3);
 		assertXmlEquals(expected, actual, "xmlns:*");
 	}
 
@@ -119,6 +136,19 @@ public final strictfp class FreeTextMarshallingTest extends XMLTestCase {
 		final String legacy = getLegacyXML();
 
 		final Citation citation = (Citation) XML.unmarshal(legacy);
+		assertEquals(getExpectedI18N(), citation.getTitle());
+	}
+	
+	/**
+	 * @see test19139(). This is the ISO 19115-3 version.
+	 * @throws JAXBException
+	 */
+	@Test
+	@DependsOnMethod("testLegacy19139")
+	public void testLegacy191153() throws JAXBException {
+		final String legacy = ISOTestUtils.from19139(getLegacyXML());
+
+		final Citation citation = (Citation) XML.unmarshal(legacy, Namespaces.ISO_19115_3);
 		assertEquals(getExpectedI18N(), citation.getTitle());
 	}
 }

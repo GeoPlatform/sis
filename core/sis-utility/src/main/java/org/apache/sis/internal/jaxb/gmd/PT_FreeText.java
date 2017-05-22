@@ -16,19 +16,20 @@
  */
 package org.apache.sis.internal.jaxb.gmd;
 
-import java.util.Set;
 import java.util.Locale;
-import javax.xml.bind.annotation.XmlType;
+import java.util.Set;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlType;
 
-import org.opengis.util.InternationalString;
 import org.apache.sis.internal.jaxb.Context;
 import org.apache.sis.internal.jaxb.gco.GO_CharacterString;
+import org.apache.sis.util.ArraysExt;
 import org.apache.sis.util.iso.DefaultInternationalString;
 import org.apache.sis.util.iso.SimpleInternationalString;
 import org.apache.sis.xml.Namespaces;
-import org.apache.sis.util.ArraysExt;
+import org.opengis.util.InternationalString;
 
 
 /**

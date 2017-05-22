@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchema;
@@ -65,11 +66,11 @@ public class ElementNamespaceMapWriter {
 		// Initialize the map.
 		elementNamespaceMap = new TreeMap<String,String>();
 
-		// Instantiate Reflections object for scanning classes in org.apache.sis.metadata.iso
+		// Instantiate Reflections object for scanning classes in org.apache.sis.metadata.iso and org.apache.sis.internal.jaxb
 		Configuration isoConfig = new ConfigurationBuilder()
 				.setScanners(new SubTypesScanner(false), new TypeAnnotationsScanner(), new MethodAnnotationsScanner(), new FieldAnnotationsScanner())
 				.setUrls(ClasspathHelper.forPackage("org.apache.sis"))
-				.filterInputsBy(new FilterBuilder().includePackage("org.apache.sis.metadata.iso").includePackage("org.apache.sis.internal.jaxb"));
+				.filterInputsBy(new FilterBuilder().includePackage("org.apache.sis.metadata.iso").includePackage("org.apache.sis.util.iso").includePackage("org.apache.sis.internal.jaxb"));
 		Reflections reflections = new Reflections(isoConfig);
 
 		mapElements(reflections);
@@ -188,6 +189,12 @@ public class ElementNamespaceMapWriter {
 				else if(declaringClass.getSimpleName().equals("Wrapper") && declaringClass.getEnclosingClass() != null) {
 					name += declaringClass.getEnclosingClass().getSimpleName();
 				}
+				// If the parent class does not have a root element annotation, it might be a wrapper. Check if that is the case.
+				// If it is, add the wrapper at this element's parent.
+				else if(field.getAnnotation(XmlElementWrapper.class) != null) {
+					XmlElementWrapper wrapper = field.getAnnotation(XmlElementWrapper.class);
+					name += wrapper.name();
+				}
 
 				// Store the name + namespace combination as a key/value pair.
 				elementNamespaceMap.put(name, namespace);
@@ -229,6 +236,42 @@ public class ElementNamespaceMapWriter {
 					// Store the name + namespace combination as a key/value pair.
 					elementNamespaceMap.put(name, namespace);
 				}
+			}
+		}
+
+		// Loop through all fields annotated with @XmlElementWrapper.
+		for(Field field : reflections.getFieldsAnnotatedWith(XmlElementWrapper.class)) {
+			XmlElementWrapper element = (XmlElementWrapper) field.getAnnotation(XmlElementWrapper.class);
+			if(element != null) {
+				// Replace all "##default" namespaces with the namespace in the
+				// package-info.java file in the method's package.
+				String namespace = element.namespace();
+				if(namespace.equals("##default")) {
+					namespace = findBestNamespace(field);
+				}
+
+				// Get the name of the element.
+				String name = element.name();
+				// Fix the name if it is "##default".
+				if(name.equals("##default")) {
+					name = field.getName();
+				}
+				// Append "|" to name for ease of reading in FilteredStreamReader.
+				name += "|";
+
+				// Add the declaring class to the name for distinguishing between elements with the same name.
+				Class declaringClass = field.getDeclaringClass();
+				XmlRootElement rootElement = (XmlRootElement) declaringClass.getAnnotation(XmlRootElement.class);
+				if(rootElement != null && rootElement.name() != null && !(rootElement.name().equals("##default"))) {
+					name += rootElement.name();
+				}
+				// This situation can occur in wrapper classes.
+				else if(declaringClass.getSimpleName().equals("Wrapper") && declaringClass.getEnclosingClass() != null) {
+					name += declaringClass.getEnclosingClass().getSimpleName();
+				}
+
+				// Store the name + namespace combination as a key/value pair.
+				elementNamespaceMap.put(name, namespace);
 			}
 		}
 	}
@@ -332,6 +375,8 @@ public class ElementNamespaceMapWriter {
 	public static void main(String args[]) throws ClassNotFoundException, IOException {
 		getElementNamespaceMap();
 		writeToFile();
+		System.out.println("Element-Namespace Map Generated.\n\nNOTE: Remember to copy the generated file to the following location in the sis-utility project:\n" +
+				"src/main/resources/org/apache/sis/internal/jaxb\n");
 	}
 
 }

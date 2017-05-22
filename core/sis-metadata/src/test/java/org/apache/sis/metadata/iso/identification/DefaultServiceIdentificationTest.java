@@ -111,15 +111,5 @@ public final strictfp class DefaultServiceIdentificationTest extends XMLTestCase
 	public void testUnmarshal19139() throws JAXBException {
 		DefaultServiceIdentification dsi = unmarshalFile(DefaultServiceIdentification.class, XML_FILE);
 		assertTrue(create().equals(dsi, ComparisonMode.DEBUG));
-		/* There are some problems with the following original assert statement that have to do with
-		 * DefaultLocalName throwing NullPointerExceptions:
-		 * 
-		 * assertTrue(create().equals(dsi, ComparisonMode.DEBUG));
-		 * 
-		 * As a replacement, This test now compares XML that has been marshalled from the dsi object
-		 * to XML that is directly from the file.
-		 */
-		//String xmlMarshalled = XML.marshal(dsi);
-		//assertXmlEquals(DefaultExtentTest.getResource(XML_FILE), xmlMarshalled, "xmlns:*", "xsi:schemaLocation");
 	}
 }

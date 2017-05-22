@@ -26,7 +26,7 @@ import java.util.Map;
  * See {@link FilteredNamespaces} for more information.
  *
  * @author  Cullen Rombach		(Image Matters)
- * @since   0.4
+ * @since 0.8
  * @version 0.8
  * @module
  */

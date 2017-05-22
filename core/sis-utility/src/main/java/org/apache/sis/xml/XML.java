@@ -16,36 +16,37 @@
  */
 package org.apache.sis.xml;
 
-import java.util.Map;
-import java.util.Locale;
-import java.util.TimeZone;
-import java.util.logging.LogRecord; // For javadoc
-import java.net.URL;
+import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.JAXBException;
-import javax.xml.transform.Source;
-import javax.xml.transform.Result;
-import org.apache.sis.util.Static;
-import org.apache.sis.util.Version;
-import org.apache.sis.util.resources.Errors;
-import org.apache.sis.util.logging.WarningListener;
-import org.apache.sis.internal.system.Modules;
-import org.apache.sis.internal.system.SystemListener;
-import org.apache.sis.internal.jaxb.TypeRegistration;
-
-import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
-
+import java.net.URL;
 // Branch-dependent imports
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
+import java.util.logging.LogRecord; // For javadoc
+
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+
+import org.apache.sis.internal.jaxb.TypeRegistration;
+import org.apache.sis.internal.system.Modules;
+import org.apache.sis.internal.system.SystemListener;
+import org.apache.sis.util.Static;
+import org.apache.sis.util.Version;
+import org.apache.sis.util.logging.WarningListener;
+import org.apache.sis.util.resources.Errors;
 
 
 /**

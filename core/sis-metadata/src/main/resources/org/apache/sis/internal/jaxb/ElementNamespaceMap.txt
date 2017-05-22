@@ -180,7 +180,9 @@ MI_TransferFunctionTypeCode||http://standards.iso.org/iso/19115/-3/mds/1.0
 MI_TriggerCode||http://standards.iso.org/iso/19115/-3/mds/1.0
 MX_DataFile||http://standards.iso.org/iso/19115/-3/gcx/1.0
 Measure||http://standards.iso.org/iso/19115/-3/gco/1.0
+MemberName||http://standards.iso.org/iso/19115/-3/gco/1.0
 MimeFileType||http://standards.iso.org/iso/19115/-3/gcx/1.0
+PT_FreeText||http://standards.iso.org/iso/19115/-3/lan/1.0
 PT_Locale||http://standards.iso.org/iso/19115/-3/lan/1.0
 QE_CoverageResult||http://standards.iso.org/iso/19115/-3/mds/1.0
 QE_Usability||http://standards.iso.org/iso/19115/-3/mds/1.0
@@ -200,7 +202,9 @@ TM_Duration||http://www.isotc211.org/2005/gts
 TM_PeriodDuration||http://www.isotc211.org/2005/gts
 TimeInstant||http://www.opengis.net/gml/3.2
 TimePeriod||http://www.opengis.net/gml/3.2
+TypeName||http://standards.iso.org/iso/19115/-3/gco/1.0
 URL||http://standards.iso.org/iso/19115/-3/mdb/1.0
+aName||http://standards.iso.org/iso/19115/-3/gco/1.0
 abstract|MD_DataIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 abstract|MD_Identification|http://standards.iso.org/iso/19115/-3/mri/1.0
 abstract|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
@@ -247,6 +251,7 @@ attributeGroup|MD_ImageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 attributeGroup|MI_CoverageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 attributeGroup|MI_ImageDescription|http://standards.iso.org/iso/19115/-3/mrc/1.0
 attributeInstances|MD_ScopeDescription|http://standards.iso.org/iso/19115/-3/mmi/1.0
+attributeType|MemberName|http://standards.iso.org/iso/19115/-3/gco/1.0
 attributes|MD_ScopeDescription|http://standards.iso.org/iso/19115/-3/mmi/1.0
 attribute|MD_AttributeGroup|http://standards.iso.org/iso/19115/-3/mrc/1.0
 authority|MD_Identifier|http://standards.iso.org/iso/19115/-3/mcc/1.0
@@ -1066,7 +1071,7 @@ temporalElement|EX_Extent|http://standards.iso.org/iso/19115/-3/gex/1.0
 temporalResolution|MD_DataIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
 temporalResolution|MD_Identification|http://standards.iso.org/iso/19115/-3/mri/1.0
 temporalResolution|SV_ServiceIdentification|http://standards.iso.org/iso/19115/-3/mri/1.0
-textGroup||http://standards.iso.org/iso/19115/-3/lan/1.0
+textGroup|PT_FreeText|http://standards.iso.org/iso/19115/-3/lan/1.0
 thesaurusName|MD_Keywords|http://standards.iso.org/iso/19115/-3/mri/1.0
 timePosition|TimeInstant|http://www.opengis.net/gml/3.2
 time|MI_Event|http://standards.iso.org/iso/19115/-3/mac/1.0

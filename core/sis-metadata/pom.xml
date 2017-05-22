@@ -133,13 +133,6 @@ Implementations of metadata derived from ISO 19115. This module provides both an
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- Saxon XSLT processor used in ISOConverter -->
-		<dependency>
-			<groupId>net.sf.saxon</groupId>
-			<artifactId>Saxon-HE</artifactId>
-			<version>9.7.0-18</version>
-		</dependency>
 	</dependencies>
 
 </project>

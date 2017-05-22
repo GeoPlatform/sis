@@ -260,7 +260,7 @@ public class GO_CharacterString {
         } else if (name.startsWith("MI_")) {
             namespace = LegacyNamespaces.GMI;
         } else if (name.startsWith("SV_") || name.equals("DCPList")) {
-            namespace = Namespaces.SRV;
+            namespace = LegacyNamespaces.SRV;
         } else if (name.startsWith("CS_") || name.startsWith("CD_") || name.startsWith("SC_")) {
             namespace = Namespaces.GML;
         } else {
