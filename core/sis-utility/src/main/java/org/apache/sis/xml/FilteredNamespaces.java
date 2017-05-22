@@ -21,6 +21,8 @@ import java.util.Map;
 
 import javax.xml.namespace.NamespaceContext;
 
+import org.apache.sis.internal.jaxb.MetadataInfo;
+
 
 /**
  * Substitutes at (un)marshalling time the XML namespaces used by SIS by the namespaces used in the XML document.
@@ -129,9 +131,30 @@ final class FilteredNamespaces implements NamespaceContext {
 	 */
 	@Override
 	public String getNamespaceURI(final String prefix) {
-		if(prefix.equals(Namespaces.getPreferredPrefix(Namespaces.LAN, "lan"))) {
-			return Namespaces.LAN;
+		/* For situations where an ISO 19139 namespace prefix has been replaced by an
+		 * ISO 19115-3 namespace by FilteredStreamReader or another class, we need to
+		 * circumvent the error this would usually cause by returning the corresponding
+		 * ISO 19115-3 namespace URI.
+		 * 
+		 * This is done by finding the ISO 19115-3 namespace that corresponds to the
+		 * given prefix and then returning that new namespace.
+		 */
+		if(MetadataInfo.isUnmarshalling()) {
+			for(String key : toImpl.keySet()) {
+				if(prefix.equals(Namespaces.getPreferredPrefix(key, "mdb"))) {
+					return key;
+				}
+			}
 		}
+		else {
+			for(String key : toView.keySet()) {
+				if(prefix.equals(Namespaces.getPreferredPrefix(key, "mdb"))) {
+					return key;
+				}
+			}
+		}
+		
+		// Default to this if there is no special case.
 		return toView(context.getNamespaceURI(prefix));
 	}
 
