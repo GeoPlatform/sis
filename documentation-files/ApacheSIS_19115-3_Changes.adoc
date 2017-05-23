@@ -2,22 +2,22 @@
 
 === Known Issues
 
-*   TemporalExtent element does not map properly, and causes a warning in SIS
-*   Attributes do not always map to the corresponding XML elements as expected. Sometimes Apache just "drops" them.
+*   TemporalExtent element does not map properly, and causes a warning in SIS.
 *   Elements with the deprecated GMI namespace will use the new MDS namespace when marshalling to ISO 19115-3. There is no definitive answer as to whether this is correct until ISO 19115-4 is released. The decision to use the MDS namespace was made based on information gathered from page 8 of the ISO 19115-3 specification.
 *   Related to the above, deprecated elements with the *MI_* prefix (which should generally now have the prefix *MD_*) still retain their old names. This could be fixed relatively easily in the *FilteredStreamReader* class, but I have decided to leave the element names as is until ISO 19115-4 is released.
 
 === Potential Issues
 
-*   Any classes without _full_ (i.e. comprehensive) XML examples in this document have likely not been fully tested due to time constraints. They should be the first place to look when a bug appears.
+*   Any classes without _full_ (i.e. comprehensive) XML examples in this document may not have been fully tested due to time constraints. They should be the first place to look when a bug appears.
 
 === Testing
 
-*   For an example of a unit test for ISO 19115-3 metadata, see *org.apache.sis.metadata.iso.citation.DefaultCitationTest*. For the corresponding ISO 19139 test, see *org.apache.sis.metadata.iso.citation.DefaultCitationLegacy*
+*   All tests in the sis-metadata and sis-utility packages that deal with marshalling or unmarshalling should have been updated to test both ISO 19139 and ISO 19115-3.
+*   All tests should run and pass as expected.
 
 === Other Important Information
 
-*   Whenever updates are made to the Apache SIS ISO metadata model, it is imperative to run *ElementNamespaceWriter* in *org.apache.sis.internal.jaxb*. After doing this, copy the *ElementNamespaceMap.txt* file from _src/main/resources_ in the *sis-metadata* package into the _src/main/resources_ folder in the *sis-utility* package. Otherwise, unmarshalling and marshalling amy not work properly.
+*   Whenever updates are made to the Apache SIS ISO metadata model, it is imperative to run *ElementNamespaceWriter* in *org.apache.sis.internal.jaxb*. After doing this, copy the *ElementNamespaceMap.txt* file from _src/main/resources_ in the *sis-metadata* package into the _src/main/resources_ folder in the *sis-utility* package. Otherwise, (un)marshalling of metadata may not work properly.
 
 === Change Log
 
