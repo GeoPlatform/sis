@@ -27,19 +27,22 @@
 
   <parent>
     <groupId>org.apache.sis</groupId>
-    <artifactId>parent</artifactId>
-    <version>0.8-jdk8-19115-3</version>
+    <artifactId>profiles</artifactId>
+    <version>0.8-jdk8-SNAPSHOT</version>
   </parent>
 
 
   <!-- ===========================================================
            Module Description
        =========================================================== -->
-  <artifactId>application</artifactId>
-  <packaging>pom</packaging>
-  <name>Apache SIS applications</name>
+  <groupId>org.apache.sis.profiles</groupId>
+  <artifactId>sis-french-profile</artifactId>
+  <packaging>bundle</packaging>
+  <name>Apache SIS French profiles</name>
   <description>
-    Group of modules providing applications built on top of Apache SIS.
+  <!-- Left alignment because this description will be copied in META-INF/MANIFEST.MF
+       The leading space after the first line is necessary for proper formatting. -->
+Extensions to ISO-19115 metadata mandated by the French government.
   </description>
 
 
@@ -48,18 +51,39 @@
        =========================================================== -->
   <developers>
     <developer>
-      <name>Chris A. Mattmann</name>
-      <id>mattmann</id>
-      <email>mattmann@apache.org</email>
-      <url>http://sunset.usc.edu/~mattmann/</url>
-      <organization>NASA Jet Propulsion Laboratory</organization>
-      <organizationUrl>http://www.jpl.nasa.gov</organizationUrl>
-      <timezone>-8</timezone>
+      <name>Martin Desruisseaux</name>
+      <id>desruisseaux</id>
+      <email>desruisseaux@apache.org</email>
+      <organization>Geomatys</organization>
+      <organizationUrl>http://www.geomatys.com</organizationUrl>
+      <timezone>+1</timezone>
       <roles>
-        <role>committer</role>
+        <role>developer</role>
       </roles>
     </developer>
   </developers>
+  <contributors>
+    <contributor>
+      <name>Cédric Briançon</name>
+      <email>cedric.briancon@geomatys.com</email>
+      <organization>Geomatys</organization>
+      <organizationUrl>http://www.geomatys.com</organizationUrl>
+      <timezone>+1</timezone>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </contributor>
+    <contributor>
+      <name>Guilhem Legal</name>
+      <email>guilhem.legal@geomatys.com</email>
+      <organization>Geomatys</organization>
+      <organizationUrl>http://www.geomatys.com</organizationUrl>
+      <timezone>+1</timezone>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </contributor>
+  </contributors>
 
 
   <!-- ===========================================================
@@ -67,19 +91,15 @@
        =========================================================== -->
   <build>
     <plugins>
-
-      <!-- Collect JAR files in <root>/target/binaries directory. -->
       <plugin>
-        <groupId>org.apache.sis.core</groupId>
-        <artifactId>sis-build-helper</artifactId>
-        <version>${sis.plugin.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>collect-jars</goal>
-            </goals>
-          </execution>
-        </executions>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>org.apache.sis.metadata.fra</Bundle-SymbolicName>
+            <Export-Package>*</Export-Package>
+          </instructions>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -90,33 +110,19 @@
        =========================================================== -->
   <dependencies>
     <dependency>
-      <groupId>org.apache.sis.storage</groupId>
-      <artifactId>sis-storage</artifactId>
+      <groupId>org.apache.sis.core</groupId>
+      <artifactId>sis-metadata</artifactId>
       <version>${project.version}</version>
     </dependency>
 
     <!-- Test dependencies -->
     <dependency>
-      <groupId>org.opengis</groupId>
-      <artifactId>geoapi-conformance</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.apache.sis.core</groupId>
-      <artifactId>sis-utility</artifactId>
+      <artifactId>sis-metadata</artifactId>
       <version>${project.version}</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-
-  <!-- ===========================================================
-           Sub-modules included in the build in dependency order
-       =========================================================== -->
-  <modules>
-    <module>sis-webapp</module>
-    <module>sis-console</module>
-<!--<module>sis-openoffice</module>     Omitted for now because of the numerous warnings emitted by Pack200. -->
-  </modules>
 
 </project>

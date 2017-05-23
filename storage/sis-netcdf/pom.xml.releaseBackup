@@ -28,7 +28,7 @@
   <parent>
     <groupId>org.apache.sis</groupId>
     <artifactId>storage</artifactId>
-    <version>0.8-jdk8-19115-3</version>
+    <version>0.8-jdk8-SNAPSHOT</version>
   </parent>
 
 
@@ -36,13 +36,13 @@
            Module Description
        =========================================================== -->
   <groupId>org.apache.sis.storage</groupId>
-  <artifactId>sis-earth-observation</artifactId>
+  <artifactId>sis-netcdf</artifactId>
   <packaging>bundle</packaging>
-  <name>Apache SIS Earth Observation storage</name>
+  <name>Apache SIS NetCDF storage</name>
   <description>
   <!-- Left alignment because this description will be copied in META-INF/MANIFEST.MF
        The leading space after the first line is necessary for proper formatting. -->
-Landsat and MODIS metadata files to ISO 19115 metadata.
+Bridge between NetCDF Climate and Forecast (CF) convention and ISO 19115 metadata.
   </description>
 
 
@@ -51,19 +51,9 @@ Landsat and MODIS metadata files to ISO 19115 metadata.
        =========================================================== -->
   <developers>
     <developer>
-      <name>Thi Phuong Hao Nguyen</name>
-      <id>haonguyen</id>
-      <email>nguyenthiphuonghao243@gmail.com</email>
-      <organization>VNSC</organization>
-      <organizationUrl>http://vnsc.org.vn</organizationUrl>
-      <timezone>+7</timezone>
-      <roles>
-        <role>developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <name>Rémi Maréchal</name>
-      <email>remi.marechal@geomatys.com</email>
+      <name>Johann Sorel</name>
+      <id>jsorel</id>
+      <email>johann.sorel@geomatys.com</email>
       <organization>Geomatys</organization>
       <organizationUrl>http://www.geomatys.com</organizationUrl>
       <timezone>+1</timezone>
@@ -85,11 +75,10 @@ Landsat and MODIS metadata files to ISO 19115 metadata.
   </developers>
   <contributors>
     <contributor>
-      <name>Minh Chinh Vu</name>
-      <email>chinhvm.uet.1995@gmail.com</email>
-      <organization>VNSC</organization>
-      <organizationUrl>http://vnsc.org.vn</organizationUrl>
-      <timezone>+7</timezone>
+      <name>Antoine Hnawia</name>
+      <organization>Institut de Recherche pour le Développement</organization>
+      <organizationUrl>http://www.ird.fr</organizationUrl>
+      <timezone>+11</timezone>
       <roles>
         <role>developer</role>
       </roles>
@@ -107,7 +96,8 @@ Landsat and MODIS metadata files to ISO 19115 metadata.
         <artifactId>maven-bundle-plugin</artifactId>
         <configuration>
           <instructions>
-            <Bundle-SymbolicName>org.apache.sis.storage.earthobservation</Bundle-SymbolicName>
+            <Bundle-SymbolicName>org.apache.sis.storage.netcdf</Bundle-SymbolicName>
+            <Import-Package>!ucar.*, *</Import-Package>
           </instructions>
         </configuration>
       </plugin>
@@ -124,6 +114,55 @@ Landsat and MODIS metadata files to ISO 19115 metadata.
       <artifactId>sis-storage</artifactId>
       <version>${project.version}</version>
     </dependency>
+    <dependency>
+      <groupId>edu.ucar</groupId>
+      <artifactId>cdm</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <!-- Leverage GeoAPI tests. -->
+    <dependency>
+      <groupId>org.opengis.wrapper</groupId>
+      <artifactId>geoapi-netcdf</artifactId>
+      <version>${geoapi.version}</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>tec.units</groupId>
+          <artifactId>unit-ri</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.opengis.wrapper</groupId>
+      <artifactId>geoapi-netcdf</artifactId>
+      <version>${geoapi.version}</version>
+      <type>test-jar</type>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>tec.units</groupId>
+          <artifactId>unit-ri</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk14</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+
+  <!--  UCAR repository from which to download the NetCDF library. -->
+  <repositories>
+    <repository>
+      <id>UCAR</id>
+      <name>UCAR repository</name>
+      <url>https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 
 </project>

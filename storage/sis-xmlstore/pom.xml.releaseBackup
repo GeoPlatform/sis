@@ -27,19 +27,22 @@
 
   <parent>
     <groupId>org.apache.sis</groupId>
-    <artifactId>parent</artifactId>
-    <version>0.8-jdk8-19115-3</version>
+    <artifactId>storage</artifactId>
+    <version>0.8-jdk8-SNAPSHOT</version>
   </parent>
 
 
-  <!-- ===========================================================
+   <!-- ===========================================================
            Module Description
        =========================================================== -->
-  <artifactId>application</artifactId>
-  <packaging>pom</packaging>
-  <name>Apache SIS applications</name>
+  <groupId>org.apache.sis.storage</groupId>
+  <artifactId>sis-xmlstore</artifactId>
+  <packaging>bundle</packaging>
+  <name>Apache SIS XML storage</name>
   <description>
-    Group of modules providing applications built on top of Apache SIS.
+  <!-- Left alignment because this description will be copied in META-INF/MANIFEST.MF
+       The leading space after the first line is necessary for proper formatting. -->
+Read and write files in the GPX format.
   </description>
 
 
@@ -48,15 +51,14 @@
        =========================================================== -->
   <developers>
     <developer>
-      <name>Chris A. Mattmann</name>
-      <id>mattmann</id>
-      <email>mattmann@apache.org</email>
-      <url>http://sunset.usc.edu/~mattmann/</url>
-      <organization>NASA Jet Propulsion Laboratory</organization>
-      <organizationUrl>http://www.jpl.nasa.gov</organizationUrl>
-      <timezone>-8</timezone>
+      <name>Johann Sorel</name>
+      <id>jsorel</id>
+      <email>johann.sorel@geomatys.com</email>
+      <organization>Geomatys</organization>
+      <organizationUrl>http://www.geomatys.com</organizationUrl>
+      <timezone>+1</timezone>
       <roles>
-        <role>committer</role>
+        <role>developer</role>
       </roles>
     </developer>
   </developers>
@@ -68,7 +70,7 @@
   <build>
     <plugins>
 
-      <!-- Collect JAR files in <root>/target/binaries directory. -->
+      <!-- Compile properties files into resources UTF files. -->
       <plugin>
         <groupId>org.apache.sis.core</groupId>
         <artifactId>sis-build-helper</artifactId>
@@ -76,10 +78,21 @@
         <executions>
           <execution>
             <goals>
-              <goal>collect-jars</goal>
+              <goal>compile-resources</goal>
             </goals>
           </execution>
         </executions>
+      </plugin>
+
+      <!-- Package as OSGi bundle -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>org.apache.sis.storage.xmlstore</Bundle-SymbolicName>
+          </instructions>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -90,33 +103,15 @@
        =========================================================== -->
   <dependencies>
     <dependency>
+      <groupId>org.apache.sis.core</groupId>
+      <artifactId>sis-feature</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.sis.storage</groupId>
       <artifactId>sis-storage</artifactId>
       <version>${project.version}</version>
     </dependency>
-
-    <!-- Test dependencies -->
-    <dependency>
-      <groupId>org.opengis</groupId>
-      <artifactId>geoapi-conformance</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.sis.core</groupId>
-      <artifactId>sis-utility</artifactId>
-      <version>${project.version}</version>
-      <type>test-jar</type>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
-
-
-  <!-- ===========================================================
-           Sub-modules included in the build in dependency order
-       =========================================================== -->
-  <modules>
-    <module>sis-webapp</module>
-    <module>sis-console</module>
-<!--<module>sis-openoffice</module>     Omitted for now because of the numerous warnings emitted by Pack200. -->
-  </modules>
 
 </project>

@@ -27,22 +27,20 @@
 
   <parent>
     <groupId>org.apache.sis</groupId>
-    <artifactId>storage</artifactId>
-    <version>0.8-jdk8-19115-3</version>
+    <artifactId>parent</artifactId>
+    <version>0.8-jdk8-SNAPSHOT</version>
   </parent>
 
 
   <!-- ===========================================================
            Module Description
        =========================================================== -->
-  <groupId>org.apache.sis.storage</groupId>
-  <artifactId>sis-netcdf</artifactId>
-  <packaging>bundle</packaging>
-  <name>Apache SIS NetCDF storage</name>
+  <artifactId>core</artifactId>
+  <packaging>pom</packaging>
+  <name>Apache SIS core modules</name>
   <description>
-  <!-- Left alignment because this description will be copied in META-INF/MANIFEST.MF
-       The leading space after the first line is necessary for proper formatting. -->
-Bridge between NetCDF Climate and Forecast (CF) convention and ISO 19115 metadata.
+    Group of modules providing the core of Apache SIS services:
+    metadata, referencing, geometry, feature, coverage, rendering.
   </description>
 
 
@@ -72,11 +70,63 @@ Bridge between NetCDF Climate and Forecast (CF) convention and ISO 19115 metadat
         <role>developer</role>
       </roles>
     </developer>
+    <developer>
+      <name>Joseph F. White</name>
+      <id>jwhite</id>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <name>Rémi Maréchal</name>
+      <id>rmarechal</id>
+      <email>remi.marechal@geomatys.com</email>
+      <organization>Geomatys</organization>
+      <organizationUrl>http://www.geomatys.com</organizationUrl>
+      <timezone>+1</timezone>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <name>Travis L. Pinney</name>
+      <id>tlpinney</id>
+      <email>travis.pinney@gmail.com</email>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
   </developers>
   <contributors>
     <contributor>
-      <name>Antoine Hnawia</name>
-      <organization>Institut de Recherche pour le Développement</organization>
+      <name>Adrian Custer</name>
+      <roles>
+        <role>documentation</role>
+      </roles>
+    </contributor>
+    <contributor>
+      <name>Cédric Briançon</name>
+      <email>cedric.briancon@geomatys.com</email>
+      <organization>Geomatys</organization>
+      <organizationUrl>http://www.geomatys.com</organizationUrl>
+      <timezone>+1</timezone>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </contributor>
+    <contributor>
+      <name>Guilhem Legal</name>
+      <email>guilhem.legal@geomatys.com</email>
+      <organization>Geomatys</organization>
+      <organizationUrl>http://www.geomatys.com</organizationUrl>
+      <timezone>+1</timezone>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </contributor>
+    <contributor>
+      <name>Touraïvane</name>
+      <organization>Institut de Recherche pour le Développement (IRD)</organization>
       <organizationUrl>http://www.ird.fr</organizationUrl>
       <timezone>+11</timezone>
       <roles>
@@ -91,15 +141,21 @@ Bridge between NetCDF Climate and Forecast (CF) convention and ISO 19115 metadat
        =========================================================== -->
   <build>
     <plugins>
+
+      <!-- Compile properties files into resources UTF files and
+           collect JAR files in <root>/target/binaries directory. -->
       <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <configuration>
-          <instructions>
-            <Bundle-SymbolicName>org.apache.sis.storage.netcdf</Bundle-SymbolicName>
-            <Import-Package>!ucar.*, *</Import-Package>
-          </instructions>
-        </configuration>
+        <groupId>org.apache.sis.core</groupId>
+        <artifactId>sis-build-helper</artifactId>
+        <version>${sis.plugin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile-resources</goal>
+              <goal>collect-jars</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
@@ -110,59 +166,31 @@ Bridge between NetCDF Climate and Forecast (CF) convention and ISO 19115 metadat
        =========================================================== -->
   <dependencies>
     <dependency>
-      <groupId>org.apache.sis.storage</groupId>
-      <artifactId>sis-storage</artifactId>
-      <version>${project.version}</version>
+      <groupId>javax.measure</groupId>
+      <artifactId>unit-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>edu.ucar</groupId>
-      <artifactId>cdm</artifactId>
-      <optional>true</optional>
+      <groupId>org.opengis</groupId>
+      <artifactId>geoapi-pending</artifactId>
     </dependency>
 
-    <!-- Leverage GeoAPI tests. -->
+    <!-- Test dependencies -->
     <dependency>
-      <groupId>org.opengis.wrapper</groupId>
-      <artifactId>geoapi-netcdf</artifactId>
-      <version>${geoapi.version}</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>tec.units</groupId>
-          <artifactId>unit-ri</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.opengis.wrapper</groupId>
-      <artifactId>geoapi-netcdf</artifactId>
-      <version>${geoapi.version}</version>
-      <type>test-jar</type>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>tec.units</groupId>
-          <artifactId>unit-ri</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-jdk14</artifactId>
-      <scope>test</scope>
+      <groupId>org.opengis</groupId>
+      <artifactId>geoapi-conformance</artifactId>
     </dependency>
   </dependencies>
 
-  <!--  UCAR repository from which to download the NetCDF library. -->
-  <repositories>
-    <repository>
-      <id>UCAR</id>
-      <name>UCAR repository</name>
-      <url>https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
+
+  <!-- ===========================================================
+           Sub-modules included in the build in dependency order
+       =========================================================== -->
+  <modules>
+    <module>sis-build-helper</module>
+    <module>sis-utility</module>
+    <module>sis-metadata</module>
+    <module>sis-referencing</module>
+    <module>sis-feature</module>
+  </modules>
 
 </project>

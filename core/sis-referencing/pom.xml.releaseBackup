@@ -27,22 +27,19 @@
 
   <parent>
     <groupId>org.apache.sis</groupId>
-    <artifactId>storage</artifactId>
-    <version>0.8-jdk8-19115-3</version>
+    <artifactId>core</artifactId>
+    <version>0.8-jdk8-SNAPSHOT</version>
   </parent>
 
-
-  <!-- ===========================================================
-           Module Description
-       =========================================================== -->
-  <groupId>org.apache.sis.storage</groupId>
-  <artifactId>sis-earth-observation</artifactId>
+  <groupId>org.apache.sis.core</groupId>
+  <artifactId>sis-referencing</artifactId>
   <packaging>bundle</packaging>
-  <name>Apache SIS Earth Observation storage</name>
+  <name>Apache SIS referencing</name>
   <description>
   <!-- Left alignment because this description will be copied in META-INF/MANIFEST.MF
        The leading space after the first line is necessary for proper formatting. -->
-Landsat and MODIS metadata files to ISO 19115 metadata.
+Implementations of Coordinate Reference Systems (CRS),
+ conversion and transformation services derived from ISO 19111.
   </description>
 
 
@@ -51,24 +48,15 @@ Landsat and MODIS metadata files to ISO 19115 metadata.
        =========================================================== -->
   <developers>
     <developer>
-      <name>Thi Phuong Hao Nguyen</name>
-      <id>haonguyen</id>
-      <email>nguyenthiphuonghao243@gmail.com</email>
-      <organization>VNSC</organization>
-      <organizationUrl>http://vnsc.org.vn</organizationUrl>
-      <timezone>+7</timezone>
+      <name>Chris A. Mattmann</name>
+      <id>mattmann</id>
+      <email>mattmann@apache.org</email>
+      <url>http://sunset.usc.edu/~mattmann/</url>
+      <organization>NASA Jet Propulsion Laboratory</organization>
+      <organizationUrl>http://www.jpl.nasa.gov</organizationUrl>
+      <timezone>-8</timezone>
       <roles>
-        <role>developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <name>Rémi Maréchal</name>
-      <email>remi.marechal@geomatys.com</email>
-      <organization>Geomatys</organization>
-      <organizationUrl>http://www.geomatys.com</organizationUrl>
-      <timezone>+1</timezone>
-      <roles>
-        <role>developer</role>
+        <role>committer</role>
       </roles>
     </developer>
     <developer>
@@ -82,19 +70,18 @@ Landsat and MODIS metadata files to ISO 19115 metadata.
         <role>developer</role>
       </roles>
     </developer>
-  </developers>
-  <contributors>
-    <contributor>
-      <name>Minh Chinh Vu</name>
-      <email>chinhvm.uet.1995@gmail.com</email>
-      <organization>VNSC</organization>
-      <organizationUrl>http://vnsc.org.vn</organizationUrl>
-      <timezone>+7</timezone>
+    <developer>
+      <name>Rémi Maréchal</name>
+      <id>rmarechal</id>
+      <email>remi.marechal@geomatys.com</email>
+      <organization>Geomatys</organization>
+      <organizationUrl>http://www.geomatys.com</organizationUrl>
+      <timezone>+1</timezone>
       <roles>
         <role>developer</role>
       </roles>
-    </contributor>
-  </contributors>
+    </developer>
+  </developers>
 
 
   <!-- ===========================================================
@@ -102,12 +89,19 @@ Landsat and MODIS metadata files to ISO 19115 metadata.
        =========================================================== -->
   <build>
     <plugins>
+
+      <!-- Package as OSGi bundle -->
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
         <configuration>
           <instructions>
-            <Bundle-SymbolicName>org.apache.sis.storage.earthobservation</Bundle-SymbolicName>
+            <Bundle-SymbolicName>org.apache.sis.referencing</Bundle-SymbolicName>
+            <Export-Package>org.apache.sis.internal.referencing, *</Export-Package>
+            <Require-Capability>osgi.extender;
+            filter:="(osgi.extender=osgi.serviceloader.registrar)"</Require-Capability>
+            <Provide-Capability>osgi.serviceloader;
+            osgi.serviceloader=org.apache.sis.internal.jaxb.TypeRegistration; osgi.serviceloader=org.apache.sis.internal.jaxb.AdapterReplacement,org.opengis.referencing.operation.MathTransformFactory,org.opengis.referencing.operation.OperationMethod,org.opengis.temporal.TemporalFactory</Provide-Capability>
           </instructions>
         </configuration>
       </plugin>
@@ -120,9 +114,45 @@ Landsat and MODIS metadata files to ISO 19115 metadata.
        =========================================================== -->
   <dependencies>
     <dependency>
-      <groupId>org.apache.sis.storage</groupId>
-      <artifactId>sis-storage</artifactId>
+      <groupId>org.apache.sis.core</groupId>
+      <artifactId>sis-utility</artifactId>
       <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.sis.core</groupId>
+      <artifactId>sis-metadata</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- Test dependencies -->
+    <dependency>
+      <groupId>gov.nist.math</groupId>
+      <artifactId>jama</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.sis.core</groupId>
+      <artifactId>sis-utility</artifactId>
+      <version>${project.version}</version>
+      <type>test-jar</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.sis.core</groupId>
+      <artifactId>sis-metadata</artifactId>
+      <version>${project.version}</version>
+      <type>test-jar</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 

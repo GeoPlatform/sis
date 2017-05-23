@@ -19,22 +19,20 @@
 	<parent>
 		<groupId>org.apache.sis</groupId>
 		<artifactId>core</artifactId>
-		<version>0.8-jdk8-19115-3</version>
+		<version>0.8-jdk8-SNAPSHOT</version>
 	</parent>
 
 
 	<!-- =========================================================== Module 
 		Description =========================================================== -->
 	<groupId>org.apache.sis.core</groupId>
-	<artifactId>sis-metadata</artifactId>
+	<artifactId>sis-utility</artifactId>
 	<packaging>bundle</packaging>
-	<name>Apache SIS metadata</name>
+	<name>Apache SIS utilities</name>
 	<description>
   <!-- Left alignment because this description will be copied in META-INF/MANIFEST.MF
        The leading space after the first line is necessary for proper formatting. -->
-Implementations of metadata derived from ISO 19115. This module provides both an implementation
- of the metadata interfaces defined in GeoAPI, and a framework for handling those metadata through
- Java reflection.
+Miscellaneous utilities.
   </description>
 
 
@@ -48,6 +46,13 @@ Implementations of metadata derived from ISO 19115. This module provides both an
 			<organization>Geomatys</organization>
 			<organizationUrl>http://www.geomatys.com</organizationUrl>
 			<timezone>+1</timezone>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<name>Joseph F. White</name>
+			<id>jwhite</id>
 			<roles>
 				<role>developer</role>
 			</roles>
@@ -112,12 +117,17 @@ Implementations of metadata derived from ISO 19115. This module provides both an
 				<artifactId>maven-bundle-plugin</artifactId>
 				<configuration>
 					<instructions>
-						<Bundle-SymbolicName>org.apache.sis.metadata</Bundle-SymbolicName>
-						<Export-Package>org.apache.sis.internal.jaxb.metadata, *</Export-Package>
-						<Require-Capability>osgi.extender;
-							filter:="(osgi.extender=osgi.serviceloader.registrar)"</Require-Capability>
-						<Provide-Capability>osgi.serviceloader;
-							osgi.serviceloader=org.apache.sis.internal.jaxb.TypeRegistration</Provide-Capability>
+						<Bundle-SymbolicName>org.apache.sis.util</Bundle-SymbolicName>
+						<Bundle-Activator>org.apache.sis.internal.system.OSGiActivator</Bundle-Activator>
+						<Export-Package>*</Export-Package>
+						<Require-Capability>
+							osgi.extender;
+							filter:="(osgi.extender=osgi.serviceloader.registrar)",
+							osgi.serviceloader;
+							;cardinality:=multiple,osgi.extender;
+							filter:="(osgi.extender=osgi.serviceloader.processor)"
+						</Require-Capability>
+						<SPI-Producer>*</SPI-Producer>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -128,19 +138,29 @@ Implementations of metadata derived from ISO 19115. This module provides both an
 	<!-- =========================================================== Dependencies 
 		=========================================================== -->
 	<dependencies>
+		<!-- Optional dependencies (provided scope) -->
 		<dependency>
-			<groupId>org.apache.sis.core</groupId>
-			<artifactId>sis-utility</artifactId>
-			<version>${project.version}</version>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
 		</dependency>
 
-		<!-- Test dependencies -->
+		<!-- Used for scanning classes for annotations in AnnotationListWriter -->
 		<dependency>
-			<groupId>org.apache.sis.core</groupId>
-			<artifactId>sis-utility</artifactId>
-			<version>${project.version}</version>
-			<type>test-jar</type>
-			<scope>test</scope>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections</artifactId>
+			<version>0.9.10</version>
+		</dependency>
+
+		<!-- Allows compiler to use a JAXB class which should exist on the JVM. -->
+		<dependency>
+			<groupId>com.googlecode.jaxb-namespaceprefixmapper-interfaces</groupId>
+			<artifactId>JAXBNamespacePrefixMapper</artifactId>
+			<version>2.2.4</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

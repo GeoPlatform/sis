@@ -27,19 +27,22 @@
 
   <parent>
     <groupId>org.apache.sis</groupId>
-    <artifactId>parent</artifactId>
-    <version>0.8-jdk8-19115-3</version>
+    <artifactId>storage</artifactId>
+    <version>0.8-jdk8-SNAPSHOT</version>
   </parent>
 
 
   <!-- ===========================================================
            Module Description
        =========================================================== -->
-  <artifactId>application</artifactId>
-  <packaging>pom</packaging>
-  <name>Apache SIS applications</name>
+  <groupId>org.apache.sis.storage</groupId>
+  <artifactId>sis-earth-observation</artifactId>
+  <packaging>bundle</packaging>
+  <name>Apache SIS Earth Observation storage</name>
   <description>
-    Group of modules providing applications built on top of Apache SIS.
+  <!-- Left alignment because this description will be copied in META-INF/MANIFEST.MF
+       The leading space after the first line is necessary for proper formatting. -->
+Landsat and MODIS metadata files to ISO 19115 metadata.
   </description>
 
 
@@ -48,18 +51,50 @@
        =========================================================== -->
   <developers>
     <developer>
-      <name>Chris A. Mattmann</name>
-      <id>mattmann</id>
-      <email>mattmann@apache.org</email>
-      <url>http://sunset.usc.edu/~mattmann/</url>
-      <organization>NASA Jet Propulsion Laboratory</organization>
-      <organizationUrl>http://www.jpl.nasa.gov</organizationUrl>
-      <timezone>-8</timezone>
+      <name>Thi Phuong Hao Nguyen</name>
+      <id>haonguyen</id>
+      <email>nguyenthiphuonghao243@gmail.com</email>
+      <organization>VNSC</organization>
+      <organizationUrl>http://vnsc.org.vn</organizationUrl>
+      <timezone>+7</timezone>
       <roles>
-        <role>committer</role>
+        <role>developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <name>Rémi Maréchal</name>
+      <email>remi.marechal@geomatys.com</email>
+      <organization>Geomatys</organization>
+      <organizationUrl>http://www.geomatys.com</organizationUrl>
+      <timezone>+1</timezone>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <name>Martin Desruisseaux</name>
+      <id>desruisseaux</id>
+      <email>desruisseaux@apache.org</email>
+      <organization>Geomatys</organization>
+      <organizationUrl>http://www.geomatys.com</organizationUrl>
+      <timezone>+1</timezone>
+      <roles>
+        <role>developer</role>
       </roles>
     </developer>
   </developers>
+  <contributors>
+    <contributor>
+      <name>Minh Chinh Vu</name>
+      <email>chinhvm.uet.1995@gmail.com</email>
+      <organization>VNSC</organization>
+      <organizationUrl>http://vnsc.org.vn</organizationUrl>
+      <timezone>+7</timezone>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </contributor>
+  </contributors>
 
 
   <!-- ===========================================================
@@ -67,19 +102,14 @@
        =========================================================== -->
   <build>
     <plugins>
-
-      <!-- Collect JAR files in <root>/target/binaries directory. -->
       <plugin>
-        <groupId>org.apache.sis.core</groupId>
-        <artifactId>sis-build-helper</artifactId>
-        <version>${sis.plugin.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>collect-jars</goal>
-            </goals>
-          </execution>
-        </executions>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>org.apache.sis.storage.earthobservation</Bundle-SymbolicName>
+          </instructions>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -94,29 +124,6 @@
       <artifactId>sis-storage</artifactId>
       <version>${project.version}</version>
     </dependency>
-
-    <!-- Test dependencies -->
-    <dependency>
-      <groupId>org.opengis</groupId>
-      <artifactId>geoapi-conformance</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.sis.core</groupId>
-      <artifactId>sis-utility</artifactId>
-      <version>${project.version}</version>
-      <type>test-jar</type>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
-
-
-  <!-- ===========================================================
-           Sub-modules included in the build in dependency order
-       =========================================================== -->
-  <modules>
-    <module>sis-webapp</module>
-    <module>sis-console</module>
-<!--<module>sis-openoffice</module>     Omitted for now because of the numerous warnings emitted by Pack200. -->
-  </modules>
 
 </project>
