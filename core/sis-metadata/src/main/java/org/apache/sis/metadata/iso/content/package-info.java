@@ -90,6 +90,7 @@
     @XmlNs(prefix = "lan", namespaceURI = Namespaces.LAN),
     @XmlNs(prefix = "mcc", namespaceURI = Namespaces.MCC),
     @XmlNs(prefix = "mrc", namespaceURI = Namespaces.MRC),
+    @XmlNs(prefix = "mds", namespaceURI = Namespaces.MDS),
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
     @XmlNs(prefix = "gmw", namespaceURI = Namespaces.GMW)
 })

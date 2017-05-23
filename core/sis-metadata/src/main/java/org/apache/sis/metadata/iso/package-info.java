@@ -94,7 +94,9 @@
     @XmlNs(prefix = "lan", namespaceURI = Namespaces.LAN),
     @XmlNs(prefix = "mcc", namespaceURI = Namespaces.MCC),
     @XmlNs(prefix = "mdb", namespaceURI = Namespaces.MDB),
-    @XmlNs(prefix = "xsi", namespaceURI = Namespaces.XSI)
+    @XmlNs(prefix = "xsi", namespaceURI = Namespaces.XSI),
+    @XmlNs(prefix = "mds", namespaceURI = Namespaces.MDS),
+    @XmlNs(prefix = "mex", namespaceURI = Namespaces.MEX)
 })
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlJavaTypeAdapters({

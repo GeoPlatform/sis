@@ -78,6 +78,7 @@
     @XmlNs(prefix = "mcc", namespaceURI = Namespaces.MCC),
     @XmlNs(prefix = "mrd", namespaceURI = Namespaces.MRD),
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
+    @XmlNs(prefix = "gcx", namespaceURI = Namespaces.GCX),
     @XmlNs(prefix = "gmw", namespaceURI = Namespaces.GMW)
 })
 @XmlAccessorType(XmlAccessType.NONE)

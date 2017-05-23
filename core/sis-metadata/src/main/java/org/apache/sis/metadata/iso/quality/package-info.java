@@ -119,6 +119,8 @@
     @XmlNs(prefix = "dqc", namespaceURI = Namespaces.DQC),
     @XmlNs(prefix = "mrc", namespaceURI = Namespaces.MRC),
     @XmlNs(prefix = "mrd", namespaceURI = Namespaces.MRD),
+    @XmlNs(prefix = "mds", namespaceURI = Namespaces.MDS),
+    @XmlNs(prefix = "gcx", namespaceURI = Namespaces.GCX),
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO)
 })
 @XmlAccessorType(XmlAccessType.NONE)

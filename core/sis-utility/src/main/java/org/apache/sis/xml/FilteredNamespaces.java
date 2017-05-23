@@ -55,8 +55,9 @@ import org.apache.sis.internal.jaxb.MetadataInfo;
  * as "micro-transformers".
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.4
- * @version 0.4
+ * @version 0.8
  * @module
  *
  * @see <a href="http://issues.apache.org/jira/browse/SIS-152">SIS-152</a>

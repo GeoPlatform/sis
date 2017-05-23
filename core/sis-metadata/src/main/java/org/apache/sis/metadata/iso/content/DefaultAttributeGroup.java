@@ -53,7 +53,7 @@ import org.opengis.metadata.content.RangeDimension;
     "contentTypes",
     "attributes"
 })
-@XmlRootElement(name = "MD_AttributeGroup", namespace = Namespaces.MRC)
+@XmlRootElement(name = "MD_AttributeGroup")
 public class DefaultAttributeGroup extends ISOMetadata implements AttributeGroup {
     /**
      * Serial number for compatibility with different versions.

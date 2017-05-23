@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.util.CheckedArrayList;
 import org.apache.sis.metadata.iso.ISOMetadata;
-import org.apache.sis.xml.Namespaces;
 import org.opengis.metadata.citation.Party;
 import org.opengis.metadata.citation.Responsibility;
 import org.opengis.metadata.citation.Role;
@@ -58,7 +57,7 @@ import org.opengis.metadata.extent.Extent;
 	"xmlExtents",
 	"xmlParties"
 })
-@XmlRootElement(name = "CI_Responsibility", namespace = Namespaces.CIT)
+@XmlRootElement(name = "CI_Responsibility")
 @XmlSeeAlso({
     DefaultResponsibleParty.class
 })

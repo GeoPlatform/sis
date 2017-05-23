@@ -16,32 +16,33 @@
  */
 package org.apache.sis.metadata.iso;
 
-import java.util.Map;
-import java.util.Locale;
-import java.io.Serializable;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import org.opengis.metadata.Identifier;
-import org.opengis.metadata.citation.Citation;
-import org.opengis.parameter.ParameterValue;
-import org.opengis.util.InternationalString;
-import org.apache.sis.util.resources.Errors;
-import org.apache.sis.util.iso.Types;
-import org.apache.sis.metadata.iso.citation.Citations;
-import org.apache.sis.internal.metadata.NameMeaning;
-import org.apache.sis.internal.metadata.WKTKeywords;
-import org.apache.sis.io.wkt.FormattableObject;
-import org.apache.sis.io.wkt.Formatter;
-import org.apache.sis.io.wkt.Convention;
-import org.apache.sis.io.wkt.ElementKind;
-
 import static org.apache.sis.util.ArgumentChecks.ensureNonNull;
 import static org.apache.sis.util.CharSequences.trimWhitespaces;
 import static org.apache.sis.util.collection.Containers.property;
 
+import java.io.Serializable;
+import java.util.Locale;
+import java.util.Map;
 // Branch-dependent imports
 import java.util.Objects;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+import org.apache.sis.internal.metadata.NameMeaning;
+import org.apache.sis.internal.metadata.WKTKeywords;
+import org.apache.sis.io.wkt.Convention;
+import org.apache.sis.io.wkt.ElementKind;
+import org.apache.sis.io.wkt.FormattableObject;
+import org.apache.sis.io.wkt.Formatter;
+import org.apache.sis.metadata.iso.citation.Citations;
+import org.apache.sis.util.iso.Types;
+import org.apache.sis.util.resources.Errors;
+import org.opengis.metadata.Identifier;
+import org.opengis.metadata.citation.Citation;
+import org.opengis.parameter.ParameterValue;
+import org.opengis.util.InternationalString;
 
 
 /**
@@ -121,8 +122,9 @@ import java.util.Objects;
  * </li></ul>
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @author  Cullen Rombach		(Image Matters)
  * @since   0.3
- * @version 0.7
+ * @version 0.8
  * @module
  *
  * @see DefaultIdentifier
@@ -151,11 +153,18 @@ public class ImmutableIdentifier extends FormattableObject implements Identifier
 
     /**
      * Alphanumeric value identifying an instance in the namespace.
+     * 
+     * Changed from original String type to CharSequence to solve a problem when unmarshalling
+     * after ISO 19115-3 implementation. For some reason, the <code> XML element is going through
+     * CharSequenceAdapter rather than StringAdapter when unmarshalling. Not sure what is the
+     * cause of this.
+     * 
+     * This is just a workaround, but it will have to do for now.
      *
      * @see #getCode()
      */
     @XmlElement(required = true)
-    private final String code;
+    private final CharSequence code;
 
     /**
      * Identifier or namespace in which the code is valid, or {@code null} if not available.
@@ -334,7 +343,7 @@ public class ImmutableIdentifier extends FormattableObject implements Identifier
      * Ensures that the properties of this {@code ImmutableIdentifier} are valid.
      */
     private void validate(final Map<String,?> properties) {
-        if (code == null || code.isEmpty()) {
+        if (code == null || code.toString().isEmpty()) {
             throw new IllegalArgumentException(Errors.getResources(properties)
                     .getString((code == null) ? Errors.Keys.MissingValueForProperty_1
                                               : Errors.Keys.EmptyProperty_1, CODE_KEY));
@@ -399,7 +408,10 @@ public class ImmutableIdentifier extends FormattableObject implements Identifier
      */
     @Override
     public String getCode() {
-        return code;
+    	if(code == null) {
+    		return null;
+    	}
+        return code.toString();
     }
 
     /**

@@ -30,7 +30,7 @@ import java.util.Map;
  * @version 0.8
  * @module
  */
-enum FilterVersion {
+public enum FilterVersion {
 	
 	/**
 	 * Filter used to change GML version to 3.1
@@ -55,7 +55,7 @@ enum FilterVersion {
      *
      * @see FilteredNamespaces#toView
      */
-    final Map<String,String> toView;
+    public final Map<String,String> toView;
 
     /**
      * The URI replacements to apply when going from the filtered reader/writer to the "real"
@@ -63,7 +63,7 @@ enum FilterVersion {
      *
      * @see FilteredNamespaces#toImpl
      */
-    final Map<String,String> toImpl;
+    public final Map<String,String> toImpl;
 
     /**
      * Creates a new enum for replacing only one namespace.

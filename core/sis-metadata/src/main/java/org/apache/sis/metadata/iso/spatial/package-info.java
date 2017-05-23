@@ -92,6 +92,7 @@
 	@XmlNs(prefix = "dqc", namespaceURI = Namespaces.DQC),
     @XmlNs(prefix = "mcc", namespaceURI = Namespaces.MCC),
     @XmlNs(prefix = "msr", namespaceURI = Namespaces.MSR),
+    @XmlNs(prefix = "mds", namespaceURI = Namespaces.MDS),
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
     @XmlNs(prefix = "gmw", namespaceURI = Namespaces.GMW)
     

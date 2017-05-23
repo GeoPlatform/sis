@@ -73,6 +73,7 @@
 @XmlSchema(location=Schemas.METADATA_XSD_LINEAGE, elementFormDefault=XmlNsForm.QUALIFIED, namespace=Namespaces.MRL, xmlns = {
     @XmlNs(prefix = "mcc", namespaceURI = Namespaces.MCC),
     @XmlNs(prefix = "mrl", namespaceURI = Namespaces.MRL),
+    @XmlNs(prefix = "mds", namespaceURI = Namespaces.MDS),
     @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
     @XmlNs(prefix = "gmw", namespaceURI = Namespaces.GMW)
 })

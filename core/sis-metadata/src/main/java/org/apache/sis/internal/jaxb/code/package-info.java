@@ -38,7 +38,14 @@
  * @see org.opengis.util.CodeList
  */
 @XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED, namespace = Namespaces.MDB, xmlns = {
-    @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO)
+    @XmlNs(prefix = "gco", namespaceURI = Namespaces.GCO),
+    @XmlNs(prefix = "mex", namespaceURI = Namespaces.MEX),
+    @XmlNs(prefix = "mds", namespaceURI = Namespaces.MDS),
+    @XmlNs(prefix = "mrc", namespaceURI = Namespaces.MRC),
+    @XmlNs(prefix = "mri", namespaceURI = Namespaces.MRI),
+    @XmlNs(prefix = "mmi", namespaceURI = Namespaces.MMI),
+    @XmlNs(prefix = "mcc", namespaceURI = Namespaces.MCC),
+    @XmlNs(prefix = "msr", namespaceURI = Namespaces.MSR)
 })
 package org.apache.sis.internal.jaxb.code;
 
