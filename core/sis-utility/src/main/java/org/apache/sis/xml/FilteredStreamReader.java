@@ -235,7 +235,7 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 		}
 
 		// Return the calculated namespace.
-		return toImpl(namespace);
+		return toImpl(namespace).intern();
 	}
 
 	/**
@@ -323,9 +323,9 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	public String getLocalName() {
 		String localName = super.getLocalName();
 		if(needsNameReplacement(localName)) {
-			return localNameMap.get(localName);
+			return localNameMap.get(localName).intern();
 		}
-		return localName;
+		return localName.intern();
 	}
 
 	/** Forwards the call, then replaces the namespace URI if needed. */
@@ -379,7 +379,7 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	/** Forwards the call, then replaces the returned URI if needed. */
 	@Override
 	public String getNamespaceURI(int index) {
-		return toImpl(super.getNamespaceURI(index));
+		return toImpl(super.getNamespaceURI(index)).intern();
 		// NOTE: The "index" passed to this method is the index of a namespace declaration on the root element.
 		// This should not matter as long as each /element/ has the proper namespace URI.
 	}
@@ -387,13 +387,13 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	/** Forwards the call, then replaces the returned URI if needed. */
 	@Override
 	public String getNamespaceURI(final String prefix) {
-		return toImpl(super.getNamespaceURI(prefix));
+		return toImpl(super.getNamespaceURI(prefix)).intern();
 	}
 
 	/** Forwards the call, then replaces the returned URI if needed. */
 	@Override
 	public String getAttributeNamespace(final int index) {
-		return toImpl(super.getAttributeNamespace(index));
+		return toImpl(super.getAttributeNamespace(index)).intern();
 	}
 
 	@Override
@@ -416,7 +416,7 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 			// Do nothing. This just means the value isn't a valid QName.
 		}
 
-		return value;
+		return value.intern();
 	}
 
 	/**
