@@ -17,10 +17,9 @@
 package org.apache.sis.xml;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
@@ -82,12 +81,7 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	/**
 	 * Location of ElementNameSpaceMap
 	 */
-	private final String MAP_PATH = "org/apache/sis/internal/jaxb/ElementNamespaceMap.txt";
-
-	/**
-	 * Text file containing ElementNameSpaceMap
-	 */
-	private final File MAP_FILE;
+	private final String MAP_PATH = "/org/apache/sis/internal/jaxb/ElementNamespaceMap.txt";
 
 	/**
 	 * List of encountered XML tags, in order. Used for backtracking.
@@ -96,14 +90,13 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 
 	/**
 	 * Creates a new filter for the given version of the standards.
-	 * @throws FileNotFoundException 
 	 */
 	FilteredStreamReader(final XMLStreamReader in, final FilterVersion version) {
 		super(in);
 		this.version = version;
 
 		// Initialize map file.
-		MAP_FILE = new File(ClassLoader.getSystemResource(MAP_PATH).getFile());
+		InputStream inputStream = FilteredStreamReader.class.getResourceAsStream(MAP_PATH);
 
 		// Initialize elements list.
 		elements = new ArrayList<CloseableElement>();
@@ -112,7 +105,7 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 		// and convert its contents to a map for use in filtered reading.
 		if(version.equals(FilterVersion.ISO19139)) {
 			try {
-				readElementNamespaceMap();
+				readElementNamespaceMap(inputStream);
 			} catch (IOException e) {
 				// Do nothing for now. The file should always be there.
 				e.printStackTrace();
@@ -131,12 +124,12 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	 * Stores the results in the {@code elementNamespaceMap} Map.
 	 * @throws IOException 
 	 */
-	private void readElementNamespaceMap() throws IOException {
+	private void readElementNamespaceMap(InputStream stream) throws IOException {
 		// Instantiate the elementNamespaceMap
 		elementNamespaceMap = new TreeMap<String, String>();
 
 		// Create a buffered reader.
-		BufferedReader reader = new BufferedReader(new FileReader(MAP_FILE));
+		BufferedReader reader = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
 
 		// Read the file into the elementNamespaceMap.
 		String line = reader.readLine();
