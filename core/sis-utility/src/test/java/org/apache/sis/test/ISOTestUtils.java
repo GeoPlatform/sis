@@ -24,6 +24,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.sis.util.Static;
 import org.apache.sis.xml.Namespaces;
 import org.apache.sis.xml.XML;
 
@@ -36,7 +37,7 @@ import org.apache.sis.xml.XML;
  * @version 0.8
  * @module
  */
-public final class ISOTestUtils extends XMLTestCase {
+public final class ISOTestUtils extends Static {
 
 	/**
 	 * Private constructor to avoid unnecessary instantiation.
