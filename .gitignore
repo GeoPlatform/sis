@@ -7,6 +7,9 @@ tmp/
 *.orig
 .svn/
 
+# Backup POM Files
+*.releaseBackup
+
 # NetBeans IDE files
 ide-project/NetBeans/build/
 ide-project/NetBeans/dist/
