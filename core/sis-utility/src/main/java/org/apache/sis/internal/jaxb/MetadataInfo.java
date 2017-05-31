@@ -10,11 +10,11 @@ public class MetadataInfo {
 	
 	private static Standard metadataStandard = Standard.ISO_2014;
 	
-	private static Process process = Process.UNMARSHAL;
+	private static Process process = Process.NONE;
 
 	public static enum Standard { ISO_2003, ISO_2014 };
 	
-	public static enum Process { MARSHAL, UNMARSHAL };
+	public static enum Process { MARSHAL, UNMARSHAL, NONE};
 	/**
 	 * Checks whether the user has determined that ISO 19139 (2003) metadata
 	 * is being worked with.
@@ -62,8 +62,7 @@ public class MetadataInfo {
 	
 	/**
 	 * Set the process being done (marhsalling or unmarshalling). Supported options are
-	 * MARSHAL and UNMARSHAL. Unmarshalling is the default, since a user is likely to read data
-	 * before they write it. This method should only be called internally.
+	 * NONE, MARSHAL, and UNMARSHAL. NONE is the default.
 	 * @param newProcess Process to use.
 	 */
 	public static void setProcess(Process newProcess) {

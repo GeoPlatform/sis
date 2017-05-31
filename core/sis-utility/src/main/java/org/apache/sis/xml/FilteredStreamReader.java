@@ -393,7 +393,11 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	/** Forwards the call, then replaces the returned URI if needed. */
 	@Override
 	public String getAttributeNamespace(final int index) {
-		return toImpl(super.getAttributeNamespace(index)).intern();
+		String namespace = toImpl(super.getAttributeNamespace(index));
+		if(namespace == null) {
+			return null;
+		}
+		return namespace.intern();
 	}
 
 	@Override
