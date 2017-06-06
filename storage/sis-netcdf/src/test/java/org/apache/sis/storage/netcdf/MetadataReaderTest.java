@@ -86,10 +86,6 @@ public final strictfp class MetadataReaderTest extends IOTestCase {
         final String text = formatNameAndValue(DefaultMetadata.castOrCopy(actual).asTreeTable());
         assertMultilinesEquals(
             "Metadata\n" +
-            "  ├─Contact\n" +
-            "  │   ├─Party\n" +
-            "  │   │   └─Name………………………………………………………………………………… NOAA/NWS/NCEP\n" +
-            "  │   └─Role…………………………………………………………………………………………… Point of contact\n" +
             "  ├─Spatial representation info\n" +
             "  │   ├─Number of dimensions………………………………………………… 3\n" +
             "  │   ├─Axis dimension properties (1 of 3)\n" +
@@ -129,17 +125,17 @@ public final strictfp class MetadataReaderTest extends IOTestCase {
             "  │   │       └─Title…………………………………………………………………… GCMD Science Keywords\n" +
             "  │   ├─Resource constraints\n" +
             "  │   │   └─Use limitation……………………………………………………… Freely available\n" +
-            "  │   ├─Spatial representation type……………………………… Grid\n" +
-            "  │   └─Extent\n" +
-            "  │       ├─Geographic element\n" +
-            "  │       │   ├─West bound longitude…………………………… 180°W\n" +
-            "  │       │   ├─East bound longitude…………………………… 180°E\n" +
-            "  │       │   ├─South bound latitude…………………………… 90°S\n" +
-            "  │       │   ├─North bound latitude…………………………… 90°N\n" +
-            "  │       │   └─Extent type code……………………………………… true\n" +
-            "  │       └─Vertical element\n" +
-            "  │           ├─Minimum value……………………………………………… 0.0\n" +
-            "  │           └─Maximum value……………………………………………… 0.0\n" +
+            "  │   ├─Extent\n" +
+            "  │   │   ├─Geographic element\n" +
+            "  │   │   │   ├─West bound longitude…………………………… 180°W\n" +
+            "  │   │   │   ├─East bound longitude…………………………… 180°E\n" +
+            "  │   │   │   ├─South bound latitude…………………………… 90°S\n" +
+            "  │   │   │   ├─North bound latitude…………………………… 90°N\n" +
+            "  │   │   │   └─Extent type code……………………………………… true\n" +
+            "  │   │   └─Vertical element\n" +
+            "  │   │       ├─Minimum value……………………………………………… 0.0\n" +
+            "  │   │       └─Maximum value……………………………………………… 0.0\n" +
+            "  │   └─Spatial representation type……………………………… Grid\n" +
             "  ├─Content info\n" +
             "  │   └─Attribute group\n" +
             "  │       └─Attribute\n" +
@@ -150,6 +146,10 @@ public final strictfp class MetadataReaderTest extends IOTestCase {
             "  │   └─Lineage\n" +
             "  │       └─Statement…………………………………………………………………… 2003-04-07 12:12:50 - created by gribtocdl" +
             "              2005-09-26T21:50:00 - edavis - add attributes for dataset discovery\n" +
+            "  ├─Contact\n" +
+            "  │   ├─Party\n" +
+            "  │   │   └─Name………………………………………………………………………………… NOAA/NWS/NCEP\n" +
+            "  │   └─Role…………………………………………………………………………………………… Point of contact\n" +
             "  ├─Metadata scope\n" +
             "  │   └─Resource scope………………………………………………………………… Dataset\n" +
             "  ├─Metadata identifier\n" +
