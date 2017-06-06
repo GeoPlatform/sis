@@ -96,13 +96,13 @@ public class AllReferenceResolver extends ReferenceResolver {
 				}
 			}
 			
-		// If any sort of exception occurred, just return null and don't resolve the reference.
+		// If any sort of exception occurred, just return whatever the parent class found.
 		} catch (MalformedURLException e) {
-			return null;
+			return content;
 		} catch (JAXBException e) {
-			return null;
+			return content;
 		} catch (IOException e) {
-			return null;
+			return content;
 		}
 
 		return content;
