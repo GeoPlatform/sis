@@ -101,7 +101,7 @@ public final strictfp class DefaultExtentTest extends XMLTestCase {
     }
     
     /**
-     * @see testXML19139. This is the ISO 19115-3 version.
+     * See testXML19139. This is the ISO 19115-3 version.
      * @throws IOException
      * @throws JAXBException
      * @throws URISyntaxException 
@@ -147,7 +147,7 @@ public final strictfp class DefaultExtentTest extends XMLTestCase {
     }
     
    	/**
-   	 * @see testWorldConstant19139. This is the ISO 19115-3 version.
+   	 * See testWorldConstant19139. This is the ISO 19115-3 version.
    	 * @throws JAXBException
    	 */
     @Test

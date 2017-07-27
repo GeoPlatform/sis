@@ -191,7 +191,7 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 	/**
 	 * Returns a boolean indicating whether or not an element with the given name exists
 	 * within the elementNamespaceMap. Returns false if elementNamespaceMap is null.
-	 * @param name The name of the element.
+	 * @param element The name of the element.
 	 */
 	private boolean inMap(String element) {
 		if(elementNamespaceMap != null && element != null) {
@@ -215,9 +215,9 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 		// Store the namespace that will be returned.
 		String namespace = previousNamespace;
 
-		if(inMap(name)) {
+		if (inMap(name)) {
 			// If the element is a root element, return the associated namespace.
-			if(getParents(name) == null) {
+			if (getParents(name) == null) {
 				namespace = getNamespace(name, null);
 			}
 
@@ -225,10 +225,11 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 			// the latest possible parent element. Then, we use the namespace associated with that parent.
 			else {
 				Collection<String> parents = getParents(name);
-				for(int ndx = elements.size()-1; ndx >= 0; ndx--) {
-					if(elements.get(ndx).isOpen() && parents.contains(elements.get(ndx).getName())) {
+				for (int ndx = elements.size()-1; ndx >= 0; ndx--) {
+					if (elements.get(ndx).isOpen() && parents.contains(elements.get(ndx).getName())) {
 						String parentName = elements.get(ndx).getName();
 						namespace = getNamespace(name, parentName);
+						break; // Only want the latest possible parent
 					}
 				}
 			}
@@ -271,12 +272,12 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 		String localName = name.getLocalPart();
 
 		// Check if a hard-coded name replacement is necessary here.
-		if(needsNameReplacement(localName)) {
+		if (needsNameReplacement(localName)) {
 			localName = localNameMap.get(localName);
 		}
 
 		// If the local name is in the element-namespace map, get the associated URI in context.
-		if(inMap(localName)) {
+		if (inMap(localName)) {
 			replacementURI = getMappedNamespace(localName, name.getNamespaceURI());
 		}
 		// If it's not in the map, fall back to the simpler toImpl()
