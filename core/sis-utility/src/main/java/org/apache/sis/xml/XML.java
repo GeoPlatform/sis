@@ -411,6 +411,32 @@ public final class XML extends Static {
 	}
 
 	/**
+	 * Marshall the given object into a string.
+	 *
+	 * @param  object The root of content tree to be marshalled.
+	 * @param  properties An optional map of properties to give to the marshaller, or {@code null} if none.
+	 * @return The XML representation of the given object.
+	 * @throws JAXBException if an error occurred during the marshalling.
+	 */
+	public static String marshal(final Object object, Map<String,?> properties) throws JAXBException {
+		ensureNonNull("object", object);
+		final StringWriter output = new StringWriter();
+		final MarshallerPool pool = getPool();
+		final Marshaller marshaller = pool.acquireMarshaller();
+		// Set the default metadata version as ISO 19139 - if a different version is in
+		// the properties argument, this will be overwritten.
+		marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+		if (properties != null) {
+			for (final Map.Entry<String,?> entry : properties.entrySet()) {
+				marshaller.setProperty(entry.getKey(), entry.getValue());
+			}
+		}
+		marshaller.marshal(object, output);
+		pool.recycle(marshaller);
+		return output.toString();
+	}
+
+	/**
 	 * Marshall the given object into a stream.
 	 *
 	 * @param  object The root of content tree to be marshalled.
@@ -446,6 +472,31 @@ public final class XML extends Static {
 	}
 
 	/**
+	 * Marshall the given object to an OutputStream.
+	 *
+	 * @param  object The root of content tree to be marshalled.
+	 * @param  output The output stream.
+	 * @param  properties An optional map of properties to give to the marshaller, or {@code null} if none.
+	 * @throws JAXBException if an error occurred during the marshalling.
+	 */
+	public static void marshal(final Object object, final OutputStream output, Map<String,?> properties) throws JAXBException {
+		ensureNonNull("object", object);
+		ensureNonNull("output", output);
+		final MarshallerPool pool = getPool();
+		final Marshaller marshaller = pool.acquireMarshaller();
+		// Set the default metadata version as ISO 19139 - if a different version is in
+		// the properties argument, this will be overwritten.
+		marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+		if (properties != null) {
+			for (final Map.Entry<String,?> entry : properties.entrySet()) {
+				marshaller.setProperty(entry.getKey(), entry.getValue());
+			}
+		}
+		marshaller.marshal(object, output);
+		pool.recycle(marshaller);
+	}
+
+	/**
 	 * Marshall the given object into a file.
 	 *
 	 * @param  object The root of content tree to be marshalled.
@@ -476,6 +527,31 @@ public final class XML extends Static {
 		final MarshallerPool pool = getPool();
 		final Marshaller marshaller = pool.acquireMarshaller();
 		marshaller.setProperty(XML.METADATA_VERSION, metadataVersion);
+		marshaller.marshal(object, output);
+		pool.recycle(marshaller);
+	}
+
+	/**
+	 * Marshall the given object into a file.
+	 *
+	 * @param  object The root of content tree to be marshalled.
+	 * @param  output The file to be written.
+	 * @param  properties An optional map of properties to give to the marshaller, or {@code null} if none.
+	 * @throws JAXBException if an error occurred during the marshalling.
+	 */
+	public static void marshal(final Object object, final File output, Map<String,?> properties) throws JAXBException {
+		ensureNonNull("object", object);
+		ensureNonNull("output", output);
+		final MarshallerPool pool = getPool();
+		final Marshaller marshaller = pool.acquireMarshaller();
+		// Set the default metadata version as ISO 19139 - if a different version is in
+		// the properties argument, this will be overwritten.
+		marshaller.setProperty(XML.METADATA_VERSION, Namespaces.ISO_19139);
+		if (properties != null) {
+			for (final Map.Entry<String,?> entry : properties.entrySet()) {
+				marshaller.setProperty(entry.getKey(), entry.getValue());
+			}
+		}
 		marshaller.marshal(object, output);
 		pool.recycle(marshaller);
 	}
