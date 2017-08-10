@@ -16,17 +16,6 @@
  */
 package org.apache.sis.util.iso;
 
-import java.io.Serializable;
-import java.lang.reflect.Array;
-import java.util.AbstractMap;
-import java.util.AbstractSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.NoSuchElementException;
-// Branch-dependent imports
-import java.util.Objects;
-import java.util.Set;
-
 import org.apache.sis.internal.util.AbstractMapEntry;
 import org.apache.sis.util.ArgumentChecks;
 import org.apache.sis.util.Debug;
@@ -35,6 +24,12 @@ import org.apache.sis.util.resources.Errors;
 import org.opengis.util.MemberName;
 import org.opengis.util.Record;
 import org.opengis.util.RecordType;
+
+import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.*;
+
+// Branch-dependent imports
 
 
 /**
@@ -72,13 +67,19 @@ public class DefaultRecord implements Record, Serializable {
     /**
      * The type definition of this record.
      */
-    final RecordDefinition definition;
+    RecordDefinition definition;
 
     /**
      * The record values in an array. May be an array of primitive type for compactness,
      * which is why the type is not {@code Object[]}.
      */
-    private final Object values;
+    private Object values;
+
+    /**
+     * Constructs an initially empty record. Used by JAXB.
+     */
+    private DefaultRecord() {
+    }
 
     /**
      * Creates a new record for the given record type.
@@ -96,7 +97,7 @@ public class DefaultRecord implements Record, Serializable {
         }
         values = Array.newInstance(definition.baseValueClass(), definition.size());
     }
-    
+
     /**
      * Returns a SIS implementation with the name and members of the given arbitrary implementation.
      * This method performs the first applicable action in the following choices:
@@ -106,7 +107,7 @@ public class DefaultRecord implements Record, Serializable {
      *   <li>Otherwise if the given object is already an instance of {@code DefaultRecord},
      *       then it is returned unchanged.</li>
      *   <li>Otherwise a new {@code DefaultRecord} instance is created using the
-     *       {@linkplain #DefaultRecord(Record) copy constructor} and returned.
+     *       {@linkplain #DefaultRecord(RecordType) copy constructor} and returned.
      *       Note that this is a shallow copy operation, since the members contained
      *       in the given object are not recursively copied.</li>
      * </ul>
