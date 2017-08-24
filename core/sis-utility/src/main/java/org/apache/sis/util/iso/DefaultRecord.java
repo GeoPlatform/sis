@@ -131,7 +131,9 @@ public class DefaultRecord implements Record, Serializable {
      */
     @Override
     public RecordType getRecordType() {
-        return definition.getRecordType();
+    	if (definition!=null)
+    		return definition.getRecordType();
+    	return null;
     }
 
     /**
