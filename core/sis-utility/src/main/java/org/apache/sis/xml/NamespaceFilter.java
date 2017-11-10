@@ -74,7 +74,8 @@ enum NamespaceFilter {
 	MDS(Namespaces.MDS, LegacyNamespaces.GMI),
 	GCX(Namespaces.GCX, LegacyNamespaces.GMX),
 	GCO(Namespaces.GCO, LegacyNamespaces.GCO),
-	SRV(Namespaces.SRV, LegacyNamespaces.SRV);
+	// NOTE: Second namespace below changed from 'LegacyNamespaces.SRV', which matched original SIS implementation.
+	SRV(Namespaces.SRV, Namespaces.GMD);
 
 	/**
 	 * Filters used to change GML version to 3.1

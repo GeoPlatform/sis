@@ -17,7 +17,9 @@
 package org.apache.sis.xml;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 import javax.xml.bind.DatatypeConverter;
 import javax.xml.namespace.NamespaceContext;
@@ -56,17 +58,53 @@ final class FilteredStreamWriter implements XMLStreamWriter {
 	private Collection<String> writtenNamespaceUris = new HashSet<String>();
 
 	/**
+	 * Map of elements that need to have their name changed to properly conform with the ISO 19139 standard.
+	 *
+	 * key: Old Element Name
+	 * value: New Element Name
+	 */
+	private Map<String,String> localNameMap;
+
+	/**
 	 * Creates a new filter for the given version of the standards.
 	 */
 	FilteredStreamWriter(final XMLStreamWriter out, final FilterVersion version) {
 		this.out     = out;
 		this.version = version;
+
+		// Initialize local name map.
+		localNameMap = new HashMap<>();
+
+		// Add some problematic elements to the localNameMap. This is only used when writing ISO 19139.
+		if (version.equals(FilterVersion.ALL) || version.equals(FilterVersion.ISO19139)) {
+			localNameMap.put("SV_ServiceIdentification", "MD_ServiceIdentification");
+		}
+	}
+
+	/**
+	 * Returns true if the element name needs replacement, false otherwise.
+	 * @param element
+	 */
+	private boolean needsNameReplacement(String element) {
+		return (element != null && localNameMap != null && localNameMap.get(element) != null);
+	}
+
+	/**
+	 * Given an element's local name, check if it needs a replacement and return the new local name if so.
+	 * @param localName
+	 * @return replacement local name if necessary, otherwise return the given local name.
+	 */
+	private String localNameToView(final String localName) {
+		if (needsNameReplacement(localName)) {
+			return localNameMap.get(localName);
+		}
+		return localName;
 	}
 
 	/**
 	 * Returns the URI to write in the XML document.
 	 */
-	private String toView(final String uri) {
+	private String uriToView(final String uri) {
 		final String replacement = version.toView.get(uri);
 		return (replacement != null) ? replacement : uri;
 	}
@@ -74,13 +112,13 @@ final class FilteredStreamWriter implements XMLStreamWriter {
 	/** Forwards the call verbatim. */
 	@Override
 	public void writeStartElement(final String localName) throws XMLStreamException {
-		out.writeStartElement(localName);
+		out.writeStartElement(localNameToView(localName));
 	}
 
 	/** Replaces the given URI if needed, then forwards the call. */
 	@Override
 	public void writeStartElement(final String namespaceURI, final String localName) throws XMLStreamException {
-		out.writeStartElement(toView(namespaceURI), localName);
+		out.writeStartElement(uriToView(namespaceURI), localNameToView(localName));
 	}
 
 	/** Replaces the given URI if needed, then forwards the call. */
@@ -88,13 +126,13 @@ final class FilteredStreamWriter implements XMLStreamWriter {
 	public void writeStartElement(final String prefix, final String localName, final String namespaceURI)
 			throws XMLStreamException
 	{
-		out.writeStartElement(Namespaces.getPreferredPrefix(toView(namespaceURI), prefix), localName, toView(namespaceURI));
+		out.writeStartElement(Namespaces.getPreferredPrefix(uriToView(namespaceURI), prefix), localNameToView(localName), uriToView(namespaceURI));
 	}
 
 	/** Replaces the given URI if needed, then forwards the call. */
 	@Override
 	public void writeEmptyElement(final String namespaceURI, final String localName) throws XMLStreamException {
-		out.writeEmptyElement(toView(namespaceURI), localName);
+		out.writeEmptyElement(uriToView(namespaceURI), localNameToView(localName));
 	}
 
 	/** Replaces the given URI if needed, then forwards the call. */
@@ -102,13 +140,13 @@ final class FilteredStreamWriter implements XMLStreamWriter {
 	public void writeEmptyElement(final String prefix, final String localName, final String namespaceURI)
 			throws XMLStreamException
 	{
-		out.writeEmptyElement(Namespaces.getPreferredPrefix(toView(namespaceURI), prefix), localName, toView(namespaceURI));
+		out.writeEmptyElement(Namespaces.getPreferredPrefix(uriToView(namespaceURI), prefix), localNameToView(localName), uriToView(namespaceURI));
 	}
 
 	/** Forwards the call verbatim. */
 	@Override
 	public void writeEmptyElement(final String localName) throws XMLStreamException {
-		out.writeEmptyElement(localName);
+		out.writeEmptyElement(localNameToView(localName));
 	}
 
 	/** Forwards the call verbatim. */
@@ -138,18 +176,18 @@ final class FilteredStreamWriter implements XMLStreamWriter {
 	/** Forwards the call verbatim. */
 	@Override
 	public void writeAttribute(final String localName, final String value) throws XMLStreamException {
-		out.writeAttribute(localName, value);
+		out.writeAttribute(localNameToView(localName), value);
 	}
 
 	/** Replaces the given URI if needed, then forwards the call. */
 	@Override
 	public void writeAttribute(final String prefix, final String namespaceURI,final  String localName,
-			final String value) throws XMLStreamException
+							   final String value) throws XMLStreamException
 	{
 		// This method is called when writing xsi:type attributes. Because of this, it needs to filter the namespace prefix in the value to
 		// match the namespace in ISO 19139.
 		String newValue = value;
-		
+
 		// Try to parse the value as a QName.
 		try {
 			// Parse the value of the attribute as a QName.
@@ -157,15 +195,15 @@ final class FilteredStreamWriter implements XMLStreamWriter {
 			// If the Qname is valid, convert it to an ISO 19139 QName and replace the old value with the newly generated one.
 			if(!qname.getPrefix().equals("") && !qname.getNamespaceURI().equals("")) {
 				String newLocalName = qname.getLocalPart();
-				String newURI = toView(qname.getNamespaceURI());
+				String newURI = uriToView(qname.getNamespaceURI());
 				String newPrefix = Namespaces.getPreferredPrefix(newURI, "");
 				newValue = newPrefix + ":" + newLocalName;
 			}
 		} catch (IllegalArgumentException e) {
 			// Do nothing. This just means the value isn't a valid QName.
 		}
-		
-		out.writeAttribute(Namespaces.getPreferredPrefix(toView(namespaceURI), prefix), toView(namespaceURI), localName, newValue);
+
+		out.writeAttribute(Namespaces.getPreferredPrefix(uriToView(namespaceURI), prefix), uriToView(namespaceURI), localNameToView(localName), newValue);
 	}
 
 	/** Replaces the given URI if needed, then forwards the call. */
@@ -173,23 +211,23 @@ final class FilteredStreamWriter implements XMLStreamWriter {
 	public void writeAttribute(final String namespaceURI, final String localName, final String value)
 			throws XMLStreamException
 	{
-		out.writeAttribute(toView(namespaceURI), localName, value);
+		out.writeAttribute(uriToView(namespaceURI), localNameToView(localName), value);
 	}
 
 	/** Replaces the given URI if needed, then forwards the call. */
 	@Override
 	public void writeNamespace(final String prefix, final String namespaceURI) throws XMLStreamException {
 		// Prevent writing duplicate namespaces.
-		if(!writtenNamespaceUris.contains(toView(namespaceURI))) {
-			out.writeNamespace(Namespaces.getPreferredPrefix(toView(namespaceURI), prefix), toView(namespaceURI));
-			writtenNamespaceUris.add(toView(namespaceURI));
+		if(!writtenNamespaceUris.contains(uriToView(namespaceURI))) {
+			out.writeNamespace(Namespaces.getPreferredPrefix(uriToView(namespaceURI), prefix), uriToView(namespaceURI));
+			writtenNamespaceUris.add(uriToView(namespaceURI));
 		}
 	}
 
 	/** Replaces the given URI if needed, then forwards the call. */
 	@Override
 	public void writeDefaultNamespace(final String namespaceURI) throws XMLStreamException {
-		out.writeDefaultNamespace(toView(namespaceURI));
+		out.writeDefaultNamespace(uriToView(namespaceURI));
 	}
 
 	/** Forwards the call verbatim. */
@@ -261,19 +299,19 @@ final class FilteredStreamWriter implements XMLStreamWriter {
 	/** Replaces the given URI if needed, then forwards the call. */
 	@Override
 	public String getPrefix(final String uri) throws XMLStreamException {
-		return out.getPrefix(toView(uri));
+		return out.getPrefix(uriToView(uri));
 	}
 
 	/** Replaces the given URI if needed, then forwards the call. */
 	@Override
 	public void setPrefix(final String prefix, final String uri) throws XMLStreamException {
-		out.setPrefix(prefix, toView(uri));
+		out.setPrefix(prefix, uriToView(uri));
 	}
 
 	/** Replaces the given URI if needed, then forwards the call. */
 	@Override
 	public void setDefaultNamespace(final String uri) throws XMLStreamException {
-		out.setDefaultNamespace(toView(uri));
+		out.setDefaultNamespace(uriToView(uri));
 	}
 
 	/** Unwraps the original context and forwards the call. */
