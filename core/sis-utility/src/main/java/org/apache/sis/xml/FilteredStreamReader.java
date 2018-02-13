@@ -236,7 +236,8 @@ final class FilteredStreamReader extends StreamReaderDelegate {
 		}
 
 		// Return the calculated namespace.
-		return toImpl(namespace).intern();
+		String toImpl = toImpl(namespace);
+		return toImpl == null ? null : toImpl.intern();
 	}
 
 	/**
