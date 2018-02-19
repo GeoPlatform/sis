@@ -17,6 +17,8 @@
 package org.apache.sis.internal.jaxb.code;
 
 import javax.xml.bind.annotation.XmlElement;
+
+import org.apache.sis.xml.Namespaces;
 import org.opengis.metadata.identification.KeywordType;
 import org.apache.sis.internal.jaxb.gmd.CodeListAdapter;
 import org.apache.sis.internal.jaxb.gmd.CodeListUID;
@@ -72,7 +74,7 @@ public final class MD_KeywordTypeCode extends CodeListAdapter<MD_KeywordTypeCode
      * @return The value to be marshalled.
      */
     @Override
-    @XmlElement(name = "MD_KeywordTypeCode")
+    @XmlElement(name = "MD_KeywordTypeCode", namespace = Namespaces.MRI)
     public CodeListUID getElement() {
         return identifier;
     }
