@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.XMLGregorianCalendar;
 import org.apache.sis.internal.jaxb.Context;
+import org.apache.sis.internal.jaxb.MetadataInfo;
 import org.apache.sis.internal.jaxb.XmlUtilities;
 
 
@@ -72,9 +73,11 @@ public final class GO_DateTime extends XmlAdapter<GO_DateTime, Date> {
         final Context context = Context.current();
         try {
             final XMLGregorianCalendar gc = XmlUtilities.toXML(context, date);
-            if (XmlUtilities.trimTime(gc, false)) {
+            if (MetadataInfo.is2003() && XmlUtilities.trimTime(gc, false)) {
                 this.date = gc;
             } else {
+                // Always use gco:DateTime for ISO 19115-3. There is only one case where gco:Date is accepted
+                // (under cat:versionDate), and gco:DateTime is also accepted there anyway.
                 dateTime = gc;
             }
         } catch (DatatypeConfigurationException e) {
